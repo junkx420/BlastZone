@@ -1,0 +1,204 @@
+/* Cascade order is explicit so page styles never fight component styles. */
+@layer reset, base, layout, components, pages, utilities;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    min-height: 100dvh;
+  }
+  img,
+  svg,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+  }
+  button {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+    padding: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  [hidden] {
+    display: none !important;
+  }
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    scrollbar-color: var(--void-600) var(--bg);
+    scroll-padding-top: calc(var(--nav-h) + var(--sp-5));
+  }
+
+  /* No body background: the grain layer (z -1) must sit between html and content. */
+  body {
+    font-family: var(--font);
+    font-size: var(--fs-300);
+    line-height: var(--lh-body);
+    color: var(--text);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: var(--lh-snug);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  strong {
+    font-weight: 650;
+  }
+
+  .skip-link {
+    position: fixed;
+    left: var(--sp-4);
+    top: var(--sp-3);
+    z-index: calc(var(--z-toast) + 1);
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: var(--r-control);
+    background: var(--focus);
+    color: var(--ink);
+    font-weight: 700;
+    transform: translateY(-180%);
+    transition: transform var(--t-fast) var(--ease-out);
+  }
+  .skip-link:focus-visible {
+    transform: none;
+  }
+
+  .vh {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Lenis smooth scroll */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: clip;
+  }
+
+  /* Route transitions (View Transitions API) */
+  ::view-transition-old(root) {
+    animation: vt-leave 240ms var(--ease-in) both;
+  }
+  ::view-transition-new(root) {
+    animation: vt-enter 560ms var(--ease-out) both;
+  }
+  html[data-nav-dir='back']::view-transition-new(root) {
+    animation-name: vt-enter-back;
+  }
+  ::view-transition-group(fighter-art),
+  ::view-transition-group(fighter-name) {
+    animation-duration: 620ms;
+    animation-timing-function: var(--ease-out);
+  }
+  @keyframes vt-leave {
+    to {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+  }
+  @keyframes vt-enter {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  }
+  @keyframes vt-enter-back {
+    from {
+      opacity: 0;
+      transform: translateY(-24px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

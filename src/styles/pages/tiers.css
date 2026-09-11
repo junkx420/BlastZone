@@ -1,0 +1,99 @@
+@layer pages {
+  .tierlist {
+    display: grid;
+    gap: var(--sp-3);
+  }
+  .tierrow {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--r-panel);
+    background: var(--surface-1);
+  }
+  .tierrow__label {
+    display: grid;
+    place-items: center;
+    background: var(--tier-fill);
+    color: var(--tier-ink);
+    font-size: var(--fs-800);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+    line-height: 1;
+  }
+  .tierrow[data-tier='s-plus'] > .tierrow__label {
+    background: linear-gradient(160deg, #ff4a67, var(--tier-s-plus) 70%);
+  }
+  .tierrow__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    padding: var(--sp-3);
+  }
+  .tierchip__link {
+    display: grid;
+    grid-template-columns: 66px 1fr auto;
+    align-items: center;
+    gap: 0 var(--sp-3);
+    min-height: 56px;
+    padding: 6px 12px 6px 6px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgb(255 255 255 / 0.03);
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast),
+      transform var(--t-base) var(--ease-spring);
+  }
+  /* Select-screen face crop at its native 270:164 ratio */
+  .tierchip__art {
+    grid-row: span 2;
+    width: 66px;
+    height: 40px;
+    border-radius: 7px;
+  }
+  .tierchip__rank {
+    grid-column: 2;
+    align-self: end;
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .tierchip__name {
+    grid-column: 2;
+    align-self: start;
+    font-weight: 800;
+    line-height: 1.15;
+  }
+  .tierchip__score {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-variant-numeric: tabular-nums;
+  }
+  .tierchip__link:hover,
+  .tierchip__link:focus-visible {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+    transform: translateY(-2px);
+  }
+  .tierchip__link:hover .sigil__rays {
+    transform: rotate(14deg);
+  }
+  @media (max-width: 640px) {
+    .tierrow {
+      grid-template-columns: 1fr;
+    }
+    .tierrow__label {
+      justify-items: start;
+      padding: var(--sp-2) var(--sp-4);
+      font-size: var(--fs-700);
+    }
+    .tierrow__list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
