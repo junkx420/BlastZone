@@ -70,6 +70,7 @@ export const VIDEOS: Record<string, FighterVideo> = {
   'banjo-and-kazooie': { id: 'CKQqsXOkAgU', title: 'Smash Ultimate: How to Banjo & Kazooie', creator: 'Izaw' },
   terry: { id: 'px5dugK9Kc8', title: 'Smash Ultimate: How to Terry', creator: 'Izaw' },
   'duck-hunt': { id: 'yv2IqXu8fdI', title: 'Smash Ultimate: Art of Duck Hunt', creator: 'Izaw' },
+  'meta-knight': { id: '81H83GAmi70', title: 'Smash Ultimate: Art of Meta Knight', creator: 'Izaw' },
   'ice-climbers': { id: 'Y2uVdqAVoUQ', title: 'Smash Ultimate: Ice Climbers – How to Desync #1', creator: 'Izaw' },
   pichu: { id: 'Q_r9_FveHzU', title: 'Void’s Guide to Play Pichu in Smash Bros Ultimate', creator: 'Void' },
 
