@@ -3,6 +3,7 @@ import { A_GUIDES } from './guides-a';
 import { A_PLUS_GUIDES } from './guides-a-plus';
 import { B_MINUS_GUIDES } from './guides-b-minus';
 import { B_PLUS_GUIDES } from './guides-b-plus';
+import { C_MINUS_GUIDES } from './guides-c-minus';
 import { C_PLUS_GUIDES } from './guides-c-plus';
 import type { FighterGuide } from './types';
 
@@ -18,4 +19,5 @@ export const LATE_GUIDES: FighterGuide[] = [
   ...B_PLUS_GUIDES,
   ...B_MINUS_GUIDES,
   ...C_PLUS_GUIDES,
+  ...C_MINUS_GUIDES,
 ];

@@ -23,6 +23,8 @@ const LATE_SLUGS = [
   'pichu', 'inkling', 'ness', 'sheik', 'byleth', 'meta-knight', 'sephiroth', 'duck-hunt',
   // C+
   'isabelle', 'mii-gunner', 'lucas', 'wii-fit-trainer', 'robin', 'ridley',
+  // C−
+  'banjo-and-kazooie', 'bowser-jr', 'lucario', 'jigglypuff', 'chrom',
 ] as const;
 
 export const GUIDE_SLUGS: ReadonlySet<string> = new Set<string>([...GUIDES.map((g) => g.slug), ...LATE_SLUGS]);
