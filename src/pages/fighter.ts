@@ -152,7 +152,18 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
     return html`<section class="container fcombos" id="combos" aria-labelledby="combos-title">
       ${head}
       ${pending
-        ? html`<p class="tabpanel__intro">Combo-Routen werden geladen …</p>`
+        ? html`<div class="skeleton" role="status" aria-live="polite">
+            <span class="vh">Combo-Routen werden geladen.</span>
+            ${[0, 1].map(
+              () => html`<div class="skeleton__card" aria-hidden="true">
+                <span class="skeleton__bar skeleton__bar--title"></span>
+                <span class="skeleton__bar"></span>
+                <span class="skeleton__bar skeleton__bar--step"></span>
+                <span class="skeleton__bar skeleton__bar--step"></span>
+                <span class="skeleton__bar skeleton__bar--step"></span>
+              </div>`,
+            )}
+          </div>`
         : html`<div class="empty">
             <h3>Für ${f.name} sind noch keine Combo-Routen erfasst.</h3>
             <p>Tier-Platzierung und Eigenschaften stehen bereits. Combo-Routen gibt es aktuell für ${GUIDE_COUNT} Fighter.</p>

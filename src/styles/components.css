@@ -743,6 +743,61 @@
     }
   }
 
+  /* ── Ladezustand für die nachgeladenen Guide-Daten ──────────────────── */
+  /*
+   * Preset 15 aus ui-ux-pro-max/data/motion.csv, aber bewusst in CSS statt GSAP:
+   * Die Notiz dort warnt, dass `repeat: -1`-Tweens beim Route-Wechsel lecken,
+   * wenn man sie nicht killt. Eine CSS-Animation kann das gar nicht erst – sie
+   * verschwindet mit dem Element. Der Gradient-Sweep über background-position
+   * ist ebenfalls aus dem Preset: Er liest sich klarer als „lädt" als ein
+   * Opacity-Puls.
+   */
+  .skeleton {
+    display: grid;
+    gap: var(--sp-4);
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+  }
+  .skeleton__card {
+    display: grid;
+    gap: 10px;
+    padding: var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--void-700);
+  }
+  .skeleton__bar {
+    height: 14px;
+    border-radius: 7px;
+    background:
+      linear-gradient(90deg, rgb(255 255 255 / 0.04) 0%, rgb(255 255 255 / 0.1) 50%, rgb(255 255 255 / 0.04) 100%)
+      0 0 / 200% 100%;
+    animation: skeleton-sweep 1.4s ease-in-out infinite;
+  }
+  .skeleton__bar--title {
+    width: 62%;
+    height: 22px;
+    border-radius: 6px;
+  }
+  .skeleton__bar--step {
+    height: 44px;
+    border-radius: 10px;
+  }
+  /* Die Treffer versetzt starten lassen, damit die Welle als eine Bewegung liest. */
+  .skeleton__card:nth-child(2) .skeleton__bar {
+    animation-delay: 0.18s;
+  }
+  @keyframes skeleton-sweep {
+    to {
+      background-position: -200% 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton__bar {
+      animation: none;
+      background-position: 100% 0;
+    }
+  }
+
   .combo__steps {
     display: grid;
     gap: 6px;
