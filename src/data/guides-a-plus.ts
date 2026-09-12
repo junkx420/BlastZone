@@ -528,6 +528,23 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
         tags: ['Waft geladen'],
         source: wiki('Wario_(SSBU)'),
       },
+      {
+        id: 'wario-ztd-waft',
+        kind: 'meta',
+        title: 'Up Tilt → Wario Waft (voll geladen)',
+        start: 0,
+        windowLabel: 'ab 0 %',
+        kills: true,
+        ztd: true,
+        difficulty: 2,
+        steps: [
+          { input: 'utilt', dmg: 7 },
+          { input: 'db', label: 'Wario Waft (voll geladen)', dmg: 32, note: 'Voll geladen sind es 27 % Basisschaden statt der 20 % aus den anderen Routen.' },
+        ],
+        tip: 'Laut SmashWiki combot Wario schon ab 0 % in den Waft und nimmt damit – abhängig von Ladung und Rage – gegen den Großteil des Rosters den kompletten Stock. Ab halber Ladung trägt es.',
+        tags: ['Waft halb bis voll geladen'],
+        source: wiki('Zero-to-death_combo'),
+      },
     ],
   },
 ];

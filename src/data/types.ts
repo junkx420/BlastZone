@@ -66,6 +66,8 @@ export interface Combo {
   /** Qualitative window when the source gives no numbers, e.g. "niedrige Prozente". */
   windowLabel?: string;
   kills?: boolean;
+  /** Route the source describes as a zero-to-death: starts at 0 % and ends in the KO. */
+  ztd?: boolean;
   difficulty: 1 | 2 | 3;
   steps: ComboStep[];
   tip: string;

@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-`npm run build` prüft die Typen und baut nach `dist/`. Das Routing läuft über den Hash (`#/fighter/luigi`), der Build funktioniert daher auf jedem statischen Host ohne Rewrite-Regeln.
+Der Dev-Server lauscht auf allen Interfaces (`server.host`), ist also auch unter `http://<LAN-IP>:5173` von anderen Geräten im Netz erreichbar. `npm run build` prüft die Typen und baut nach `dist/`. Das Routing läuft über den Hash (`#/fighter/luigi`), der Build funktioniert daher auf jedem statischen Host ohne Rewrite-Regeln.
 
 ## Stack
 
@@ -48,6 +48,7 @@ Regeln für neue Routen:
 - Jede Route braucht eine `source` (SmashWiki, Game8, EventHubs …), die die Route dokumentiert.
 - `window: [von, bis]` nur, wenn die Quelle Zahlen nennt; `[160, null]` heißt „ab 160 %“. Sonst `windowLabel` mit der Einordnung der Quelle („niedrige Prozente“).
 - `kills: true` nur, wenn die Quelle die Route als Kill- bzw. KO-Confirm beschreibt.
+- `ztd: true` nur, wenn die Quelle die Route ausdrücklich als Zero-to-Death führt. Die Route trägt dann statt „Kill-Confirm“ das Badge „0-to-Death“.
 - `dmg` = Basisschaden von [Ultimate Frame Data](https://ultimateframedata.com) × 1,2 (1v1), gerundet.
 
 ```ts

@@ -247,6 +247,17 @@
     font-style: italic;
     font-weight: 800;
   }
+  /* The rarest label on the site, so it sits at the hot end of the damage ramp
+     and carries a ring the KO tag does not have. Replaces the KO tag, never joins it. */
+  .tag--ztd {
+    border-color: transparent;
+    background: var(--dmg-200);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.5);
+    color: #fff;
+    font-style: italic;
+    font-weight: 900;
+    font-stretch: var(--stretch-wide);
+  }
 
   /* ── Form controls ──────────────────────────────────────────────────── */
   .field {

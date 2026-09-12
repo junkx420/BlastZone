@@ -57,9 +57,10 @@ export function comboCard(combo: Combo): Markup {
         <div class="fact"><dt>Schaden</dt><dd>≈ ${total} %</dd></div>
         <div class="fact"><dt>Ausführung</dt><dd><span class="difficulty" data-level="${combo.difficulty}">${DIFFICULTY[combo.difficulty]}</span></dd></div>
       </dl>
-      ${combo.kills || combo.tags?.length
+      ${combo.ztd || combo.kills || combo.tags?.length
         ? html`<ul class="combo__tags" role="list">
-            ${combo.kills ? html`<li class="tag tag--ko">Kill-Confirm</li>` : ''}
+            ${combo.ztd ? html`<li class="tag tag--ztd">0-to-Death</li>` : ''}
+            ${combo.kills && !combo.ztd ? html`<li class="tag tag--ko">Kill-Confirm</li>` : ''}
             ${(combo.tags ?? []).map((t) => html`<li class="tag">${t}</li>`)}
           </ul>`
         : ''}
