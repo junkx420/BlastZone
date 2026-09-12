@@ -3,3 +3,8 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
+
+# Interne Projektdoku und Arbeitsanweisungen - lokal behalten, nicht veroeffentlichen
+.claude/
+CLAUDE.md
+HANDOFF.md
