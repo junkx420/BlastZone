@@ -58,7 +58,7 @@ Regeln für neue Routen:
 
 Tokens stehen in `src/data/notation.ts` (`sh`, `fh`, `jump`, `nair`, `utilt`, `dthrow`, `ub`, `sbh` …). Command-Inputs in Numpad-Notation: `623a` = → ↓ ↘ + A.
 
-**Artwork** – `src/data/art.ts` bindet die offiziellen Fighter-Bilder von smashbros.com ein (© Nintendo). Kacheln, Tier-Liste und Suche nutzen den Gesichtsausschnitt aus dem Auswahlbildschirm (270×164, ca. 70 KB, gesamt ca. 5,7 MB für alle 86). Profil-Header, Hero-Replay und Rang 1 nutzen den Ganzkörper-Render (0,2–4 MB) – immer nur einen pro Ansicht. `sigil.ts` zeichnet dahinter die farbige Bühne; lädt ein Bild nicht, zeigt die Bühne stattdessen die Fighter-Nummer. Die Bilder werden direkt vom Nintendo-Server geladen. Für eine öffentliche Seite sollten sie verkleinert und selbst gehostet werden; eigene URLs lassen sich pro Fighter in `Fighter.art` hinterlegen.
+**Artwork** – Die offiziellen Fighter-Bilder stammen von smashbros.com (© Nintendo) und liegen **verkleinert und selbst gehostet** unter `public/fighters/`: 84 Gesichtsausschnitte (270×164, zusammen 0,9 MB) für Kacheln, Tier-Liste, Suche und HUD, dazu 84 Ganzkörper-Render für Profil-Header, Hero-Replay und Rang 1. Die Render sind auf 1000 px Höhe skaliert und als WebP gespeichert – aus 151 MB Originalen werden 9 MB, die größte Datei misst 203 KB statt 4,12 MB. Erzeugt wurden sie mit `scripts/build-fighter-images.mjs` (sharp); die Pfade baut `src/data/art.ts` zusammen. `sigil.ts` zeichnet dahinter die farbige Bühne; lädt ein Bild nicht, zeigt die Bühne stattdessen die Fighter-Nummer. Abweichende URLs lassen sich pro Fighter in `Fighter.art` hinterlegen.
 
 ## Rechtliches
 
