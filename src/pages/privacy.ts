@@ -12,18 +12,17 @@ import type { PageView } from './types';
  * werden – eine Datenschutzerklärung, die etwas anderes behauptet als der Code
  * tut, ist schlimmer als keine.
  *
- * ACHTUNG, zwei Dinge fehlen noch und müssen vom Betreiber ergänzt werden:
- *   1. VERANTWORTLICH – Klarname und ladungsfähige Anschrift.
+ * UNVOLLSTÄNDIG – bewusst, auf Wunsch des Betreibers. Es fehlen:
+ *   1. Der Abschnitt „Verantwortlich" mit Klarname, ladungsfähiger Anschrift
+ *      und Kontakt. Er stand hier schon einmal mit Platzhaltern und wurde auf
+ *      Wunsch vorübergehend entfernt; er gehört wieder an den Anfang von
+ *      .legal__body, vor „Hosting und Server-Protokolle".
  *   2. Ein Impressum nach § 5 DDG als eigene Seite.
- * Beides kann ich nicht erfinden. Solange die Platzhalter hier stehen, ist die
- * Seite nicht vollständig.
+ *
+ * Ohne 1. nennt die Erklärung keinen Verantwortlichen, und Art. 13 Abs. 1 lit. a
+ * DSGVO verlangt genau das. Solange beides fehlt, ist die Seite rechtlich nicht
+ * fertig – technisch aber vollständig und korrekt.
  */
-const VERANTWORTLICH = {
-  name: '[BITTE ERGÄNZEN: Vor- und Nachname]',
-  anschrift: '[BITTE ERGÄNZEN: Straße, PLZ, Ort]',
-  email: '[BITTE ERGÄNZEN: Kontakt-E-Mail]',
-};
-
 export function privacyPage(): PageView {
   return {
     title: 'Datenschutzerklärung – Blastzone',
@@ -37,13 +36,6 @@ export function privacyPage(): PageView {
       </section>
 
       <section class="container legal__body">
-        <h2>Verantwortlich</h2>
-        <p>
-          ${VERANTWORTLICH.name}<br />
-          ${VERANTWORTLICH.anschrift}<br />
-          ${VERANTWORTLICH.email}
-        </p>
-
         <h2>Hosting und Server-Protokolle</h2>
         <p>
           Die Seite wird bei Vercel Inc. (USA) gehostet. Beim Abruf verarbeitet Vercel technisch notwendige
