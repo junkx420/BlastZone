@@ -209,6 +209,31 @@
     inset: 0;
     z-index: -1;
   }
+  /*
+   * Abdunkler zwischen Artwork und Beschriftung. Ohne ihn steht der Name auf
+   * dem hellen Render – bei Min Min (blondes Haar) und R.O.B. (weiszes Gehäuse)
+   * war er schlicht nicht lesbar.
+   * Warum ::after und nicht ::before: Beide liegen auf z-index -1 wie .top__art,
+   * innerhalb derselben Ebene entscheidet die Baumreihenfolge. ::after ist das
+   * letzte Kind und deckt das Bild deshalb ab; ::before läge darunter.
+   * Zwei Verläufe: unten für Name und Wertung, oben schwächer für die
+   * Rangziffer, die nur aus einer Kontur besteht.
+   */
+  .top__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(
+        to top,
+        rgb(6 7 10 / 0.92) 0%,
+        rgb(6 7 10 / 0.7) 24%,
+        rgb(6 7 10 / 0.12) 54%,
+        rgb(6 7 10 / 0) 72%
+      ),
+      linear-gradient(to bottom, rgb(6 7 10 / 0.48) 0%, rgb(6 7 10 / 0) 32%);
+  }
   .top__art > .sigil {
     width: 100%;
     height: 100%;
@@ -241,6 +266,8 @@
     font-stretch: var(--stretch-condensed);
     line-height: 1;
     text-transform: uppercase;
+    /* Wie bei .tile__name: Der Abdunkler trägt die Fläche, der Schatten die Kante. */
+    text-shadow: 0 2px 10px rgb(0 0 0 / 0.75);
   }
   .top__item:first-child .top__name {
     font-size: var(--fs-800);
@@ -249,6 +276,7 @@
     color: var(--text-muted);
     font-size: var(--fs-200);
     font-variant-numeric: tabular-nums;
+    text-shadow: 0 1px 6px rgb(0 0 0 / 0.8);
   }
   .top__link:hover,
   .top__link:focus-visible {
