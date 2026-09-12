@@ -14,14 +14,17 @@ export function videoSection(video: FighterVideo, fighterName: string): Markup {
   return html`<section class="container fvideo" aria-labelledby="video-title">
     <div class="section-head">
       <h2 id="video-title" data-reveal="wipe">Guide-Video</h2>
-      <p>${fighterName} erklärt von ${video.creator}. Der Player lädt erst beim Start – vorher geht keine Anfrage an YouTube.</p>
+      <p>
+        ${video.creator ? `${fighterName} erklärt von ${video.creator}.` : `Ein Guide zu ${fighterName}.`}
+        Der Player lädt erst beim Start – vorher geht keine Anfrage an YouTube.
+      </p>
     </div>
     <div class="vplayer" data-video="${video.id}" data-video-title="${video.title}" data-reveal>
       <button class="vplayer__start" type="button" data-video-start>
         <span class="vplayer__play" aria-hidden="true">${ICONS.play}</span>
         <span class="vplayer__meta">
           <span class="vplayer__title">${video.title}</span>
-          <span class="vplayer__creator">${video.creator}</span>
+          ${video.creator ? html`<span class="vplayer__creator">${video.creator}</span>` : ''}
         </span>
         <span class="vh">Video abspielen. Dabei wird YouTube geladen.</span>
       </button>

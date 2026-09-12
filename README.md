@@ -59,6 +59,8 @@ Regeln für neue Routen:
 
 Tokens stehen in `src/data/notation.ts` (`sh`, `fh`, `jump`, `nair`, `utilt`, `dthrow`, `ub`, `sbh` …). Command-Inputs in Numpad-Notation: `623a` = → ↓ ↘ + A.
 
+**Guide-Videos** – `src/data/videos.ts` ordnet jedem Fighter ein YouTube-Guide zu. Der Player lädt erst auf Klick: Bis dahin steht nur eine Fassade da, danach ein `youtube-nocookie`-Embed. So bleibt die Seite beim Laden frei von Requests an Dritte. Jede Video-ID stammt aus einem echten Suchtreffer; `creator` wird nur gesetzt, wenn der Kanal tatsächlich benannt ist.
+
 **Artwork** – Die offiziellen Fighter-Bilder stammen von smashbros.com (© Nintendo) und liegen **verkleinert und selbst gehostet** unter `public/fighters/`: 84 Gesichtsausschnitte (270×164, zusammen 0,9 MB) für Kacheln, Tier-Liste, Suche und HUD, dazu 84 Ganzkörper-Render für Profil-Header, Hero-Replay und Rang 1. Die Render sind auf 1000 px Höhe skaliert und als WebP gespeichert – aus 151 MB Originalen werden 9 MB, die größte Datei misst 203 KB statt 4,12 MB. Erzeugt wurden sie mit `scripts/build-fighter-images.mjs` (sharp); die Pfade baut `src/data/art.ts` zusammen. `sigil.ts` zeichnet dahinter die farbige Bühne; lädt ein Bild nicht, zeigt die Bühne stattdessen die Fighter-Nummer. Abweichende URLs lassen sich pro Fighter in `Fighter.art` hinterlegen.
 
 ## Rechtliches
