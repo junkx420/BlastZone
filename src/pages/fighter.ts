@@ -2,8 +2,10 @@ import { bindComboCards, comboCard, playFirstVisible } from '../components/combo
 import { faceThumb, fighterArt } from '../components/fighterTile';
 import { ICONS } from '../components/icons';
 import { tierBadge } from '../components/tierBadge';
+import { videoSection, wireVideo } from '../components/videoEmbed';
 import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, WEIGHT_RANGE, weightClass } from '../data/fighters';
 import { GUIDE_COUNT, GUIDE_SLUGS, guideFor, loadLateGuides } from '../data/guide-index';
+import { videoFor } from '../data/videos';
 import { TIER_BY_SLUG, TIER_TOTAL } from '../data/tiers';
 import type { Archetype, Combo, Fighter, FighterGuide } from '../data/types';
 import { accentVars } from '../lib/color';
@@ -290,6 +292,7 @@ export function fighterPage(route: Route): PageView {
   // Tiers from A+ downwards load on demand; until then the sections render as pending.
   const hasGuide = GUIDE_SLUGS.has(f.slug);
   const guide = guideFor(f.slug);
+  const video = videoFor(f.slug);
   const active: TabId = route.query.get('routen') === 'meta' ? 'meta' : 'bnb';
   const i = BY_RANK.indexOf(f);
   const prev = BY_RANK[(i - 1 + BY_RANK.length) % BY_RANK.length] ?? f;
@@ -301,6 +304,7 @@ export function fighterPage(route: Route): PageView {
     markup: html`<article class="page page--flush fighter" style="${accentVars(f.colors)}" aria-labelledby="fighter-name">
       ${heroSection(f)} ${statsSection(f)}
       <div data-meta>${metaSection(f, guide)}</div>
+      ${video ? videoSection(video, f.name) : ''}
       <div data-combos>${combosSection(f, guide, active, hasGuide && !guide)}</div>
       ${navSection(prev, next)}
     </article>`,
@@ -325,6 +329,8 @@ export function fighterPage(route: Route): PageView {
       const hero = qs<HTMLElement>('.fhero', root);
       const art = qs<HTMLElement>('[data-depth]', root);
       if (hero && art) cleanups.push(pointerDepth(hero, [[art, 28]]));
+
+      cleanups.push(wireVideo(root));
 
       let comboCleanups: Array<() => void> = [];
       const wireCombos = (g: FighterGuide): void => {

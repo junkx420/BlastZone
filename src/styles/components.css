@@ -654,6 +654,95 @@
     gap: 6px;
   }
 
+  /* ── Guide-Video ────────────────────────────────────────────────────── */
+  .vplayer {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    background:
+      radial-gradient(120% 140% at 12% 0%, var(--accent-soft), transparent 62%),
+      var(--void-700);
+  }
+  .vplayer__start {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    width: 100%;
+    height: 100%;
+    padding: var(--sp-5);
+    border: 0;
+    background: none;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .vplayer__play {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    transition:
+      transform var(--t-base) var(--ease-spring),
+      box-shadow var(--t-base);
+  }
+  .vplayer__play .icon {
+    width: 26px;
+    height: 26px;
+    margin-left: 3px;
+  }
+  .vplayer__start:hover .vplayer__play,
+  .vplayer__start:focus-visible .vplayer__play {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 10px var(--accent-soft);
+  }
+  .vplayer__meta {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+  }
+  .vplayer__title {
+    font-size: var(--fs-400);
+    font-weight: 800;
+    font-stretch: var(--stretch-wide);
+    line-height: 1.2;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  .vplayer__creator {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-weight: 650;
+  }
+  .vplayer__frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .fvideo__link {
+    margin-top: var(--sp-3);
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+  }
+  @media (max-width: 560px) {
+    .vplayer__start {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: var(--sp-3);
+    }
+    .vplayer__play {
+      width: 52px;
+      height: 52px;
+    }
+  }
+
   .combo__steps {
     display: grid;
     gap: 6px;
