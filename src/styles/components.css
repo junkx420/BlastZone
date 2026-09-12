@@ -782,8 +782,12 @@
     height: 44px;
     border-radius: 10px;
   }
-  /* Die Treffer versetzt starten lassen, damit die Welle als eine Bewegung liest. */
-  .skeleton__card:nth-child(2) .skeleton__bar {
+  /*
+   * Die zweite Karte versetzt starten lassen, damit die Welle als eine Bewegung
+   * liest. Geschwisterselektor statt :nth-child(2): Das erste Kind ist der
+   * Vorlesetext, wodurch die erste Karte selbst :nth-child(2) wäre.
+   */
+  .skeleton__card + .skeleton__card .skeleton__bar {
     animation-delay: 0.18s;
   }
   @keyframes skeleton-sweep {
