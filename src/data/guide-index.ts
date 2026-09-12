@@ -30,6 +30,8 @@ const LATE_SLUGS = [
   'mii-swordfighter', 'mewtwo', 'zelda',
   // D−
   'marth', 'dr-mario', 'ike', 'king-k-rool', 'king-dedede', 'villager',
+  // E
+  'simon', 'richter', 'little-mac', 'ganondorf',
 ] as const;
 
 export const GUIDE_SLUGS: ReadonlySet<string> = new Set<string>([...GUIDES.map((g) => g.slug), ...LATE_SLUGS]);

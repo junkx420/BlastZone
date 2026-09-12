@@ -1,0 +1,337 @@
+import { echoGuide, game8, ufd, wiki } from './guide-helpers';
+import type { FighterGuide } from './types';
+
+/**
+ * E tier profiles (UltRank 2026, ranks 80–82) – the last tier, completing all 86 fighters.
+ * Same rules as guides.ts: every route links its source, percent windows only where
+ * the source gives numbers, damage = Ultimate Frame Data base × 1.2, rounded.
+ * Richter is a genuine echo here: his frame data matches Simon's line for line, and both
+ * sources name only the Holy Water damage type as a difference – so echoGuide() applies.
+ */
+
+const SIMON: FighterGuide = {
+  slug: 'simon',
+  meta: [
+    'Die Vampire Killer gibt Simon laut SmashWiki die zweitlängste disjointe Reichweite im ganzen Roster, und seine Aerials decken enorm viel Raum ab. Der Down Air ist sein berüchtigtes Combo-Werkzeug: Er prallt diagonal ab und öffnet dadurch viele KO-Confirms, vor allem in den Uppercut.',
+    'Dafür hat er eine der schlechtesten Recoveries im Spiel und lässt sich sehr leicht gimpen. Als Schwergewicht mit schwachen Luftwerten ist er combo-anfällig, und außerhalb des Uppercuts fehlt ihm ein brauchbares Out-of-Shield-Spiel.',
+  ],
+  strengths: ['Zweitlängste disjointe Reichweite im Spiel', 'Down Air öffnet viele KO-Confirms', 'Drei Projektile für die Distanzkontrolle'],
+  weaknesses: ['Eine der schlechtesten Recoveries im Spiel', 'Sehr leicht zu gimpen', 'Schwaches Out-of-Shield außer Uppercut'],
+  sources: [wiki('Simon_(SSBU)'), game8('281237'), ufd('simon')],
+  combos: [
+    {
+      id: 'simon-dthrow-fair',
+      kind: 'bnb',
+      title: 'Down Throw → Forward Air',
+      start: 20,
+      window: [0, 40],
+      difficulty: 1,
+      steps: [
+        { input: 'grab', dmg: 0 },
+        { input: 'dthrow', dmg: 10 },
+        { input: 'fh fair', label: 'FH Fair', dmg: 14 },
+      ],
+      tip: 'Laut Game8 mit steigendem Schaden das Timing des Forward Airs anpassen.',
+      source: game8('281237'),
+    },
+    {
+      id: 'simon-nair-uppercut',
+      kind: 'bnb',
+      title: 'Fallender Nair → Uppercut',
+      start: 30,
+      difficulty: 2,
+      steps: [
+        { input: 'sh nair ff', label: 'Nair im Fallen, nur die ersten Treffer', dmg: 6 },
+        { input: 'ub', label: 'Uppercut', dmg: 11 },
+      ],
+      tip: 'Der letzte Nair-Treffer darf laut Game8 nicht landen – sonst fliegt der Gegner zu weit.',
+      source: game8('281237'),
+    },
+    {
+      id: 'simon-uthrow-usmash',
+      kind: 'bnb',
+      title: 'Up Throw → Up Smash',
+      start: 0,
+      windowLabel: 'bei 0 %',
+      difficulty: 2,
+      steps: [
+        { input: 'grab', dmg: 0 },
+        { input: 'uthrow', dmg: 12 },
+        { input: 'usmash', dmg: 19 },
+      ],
+      tip: 'Laut SmashWiki startet der Up Throw bei 0 % Combos – etwa in den Up Smash oder in eine Luftjagd.',
+      source: wiki('Simon_(SSBU)'),
+    },
+    {
+      id: 'simon-fthrow-fsmash',
+      kind: 'bnb',
+      title: 'Forward Throw → Forward Smash',
+      start: 0,
+      windowLabel: 'bei 0 %',
+      difficulty: 2,
+      steps: [
+        { input: 'grab', dmg: 0 },
+        { input: 'fthrow', dmg: 8 },
+        { input: 'fsmash', dmg: 22 },
+      ],
+      tip: 'Laut SmashWiki folgen Forward und Back Throw bei 0 % in Forward Smash oder Forward Tilt.',
+      source: wiki('Simon_(SSBU)'),
+    },
+    {
+      id: 'simon-holywater-dair-uppercut',
+      kind: 'meta',
+      title: 'Holy Water → Down Air → Uppercut',
+      start: 60,
+      window: [20, 130],
+      difficulty: 3,
+      steps: [
+        { input: 'db', label: 'Holy Water', dmg: 5 },
+        { input: 'sh dair', label: 'SH Dair', dmg: 14 },
+        { input: 'ub', label: 'Uppercut', dmg: 11 },
+      ],
+      tip: 'Laut Game8 von 20 bis 130 %. Ab 100 % muss der Uppercut mit dem Doppelsprung angeschlossen werden.',
+      source: game8('281237'),
+    },
+    {
+      id: 'simon-holywater-chain',
+      kind: 'meta',
+      title: 'Holy Water → Nair → Up Tilt → Uppercut',
+      start: 0,
+      windowLabel: 'nur bei 0 %',
+      difficulty: 3,
+      steps: [
+        { input: 'db', label: 'Holy Water', dmg: 5 },
+        { input: 'sh nair ff', label: 'Nair im Fallen', dmg: 6 },
+        { input: 'utilt', dmg: 12 },
+        { input: 'ub', label: 'Uppercut', dmg: 11 },
+      ],
+      tip: 'Game8s Fortgeschrittenen-Route: schwer zu treffen, dafür 47 % Schaden aus einer Situation.',
+      source: game8('281237'),
+    },
+    {
+      id: 'simon-dair-uppercut',
+      kind: 'meta',
+      title: 'Down Air (Meteor) → Uppercut',
+      start: 90,
+      windowLabel: 'hohe Prozente',
+      kills: true,
+      difficulty: 3,
+      steps: [
+        { input: 'sh dair', label: 'SH Dair, Meteor am Anfang', dmg: 14 },
+        { input: 'ub', label: 'Uppercut', dmg: 11 },
+      ],
+      tip: 'Laut SmashWiki prallt der Down Air diagonal ab und öffnet dadurch KO-Confirms – allen voran in den Uppercut.',
+      source: wiki('Simon_(SSBU)'),
+    },
+  ],
+};
+
+const RICHTER = echoGuide(SIMON, 'richter', {
+  meta: [
+    'Richter teilt Simons Frame Data bis auf die letzte Zeile: gleiche Reichweite, gleiche Werte, gleiche Routen. Auch bei ihm ist der Down Air das Combo-Werkzeug, das diagonal abprallt und in den Uppercut confirmt.',
+    'Der einzige spielrelevante Unterschied liegt im Down Special: Richters Holy Water richtet Aura- statt Feuerschaden an. Dadurch trifft er Olimars rote Pikmin, kann aber im Gegenzug Steves TNT und die Sprengsätze der Link-Varianten nicht zünden.',
+  ],
+  sources: [wiki('Richter_(SSBU)'), game8('281238'), ufd('richter')],
+});
+
+export const E_GUIDES: FighterGuide[] = [
+  SIMON,
+  RICHTER,
+  {
+    slug: 'little-mac',
+    meta: [
+      'Little Macs Bodenspiel ist laut SmashWiki das stärkste im ganzen Spiel: Forward Tilt, Dash Attack und die Smashes machen viel Schaden mit hoher Knockback-Skalierung, seine Tilts prallen an gegnerischen Bodenangriffen nicht ab, und die Smashes tragen Super-Armor. Sein Power-Meter füllt sich bei 333 % ausgeteiltem oder 100 % erlittenem Schaden – der KO-Uppercut killt danach die meisten Charaktere vor 40 %.',
+      'In der Luft kehrt sich alles um: schwache Luftmobilität, hohe Fallgeschwindigkeit, der kürzeste Air Dodge im Spiel und Specials, die in der Luft kaum etwas taugen. Einmal offstage ist er praktisch erledigt.',
+    ],
+    strengths: ['Stärkstes Bodenspiel im Spiel', 'Tilts ohne Abprallen, Smashes mit Super-Armor', 'KO-Uppercut killt vor 40 %'],
+    weaknesses: ['Miserable Luftmobilität', 'Kürzester Air Dodge im Spiel', 'Offstage praktisch chancenlos'],
+    sources: [wiki('Little_Mac_(SSBU)'), game8('281222'), ufd('little_mac')],
+    combos: [
+      {
+        id: 'littlemac-dtilt-haymaker',
+        kind: 'bnb',
+        title: 'Down Tilt → Jolt Haymaker',
+        start: 50,
+        window: [30, 90],
+        difficulty: 1,
+        steps: [
+          { input: 'dtilt', dmg: 10 },
+          { input: 'sb', label: 'Jolt Haymaker', dmg: 17 },
+        ],
+        tip: 'Laut SmashWiki combot der Down Tilt bei mittleren Prozenten in den Jolt Haymaker – und erreicht sogar Gegner an der Kante.',
+        source: game8('281222'),
+      },
+      {
+        id: 'littlemac-utilt-uppercut',
+        kind: 'bnb',
+        title: 'Up Tilt → Up Tilt → Rising Uppercut',
+        start: 35,
+        window: [30, 40],
+        difficulty: 2,
+        steps: [
+          { input: 'utilt', dmg: 8 },
+          { input: 'utilt', dmg: 8 },
+          { input: 'ub', label: 'Rising Uppercut', dmg: 8 },
+        ],
+        tip: 'Enges Fenster, laut Game8 aber besonders stark. Der Up Tilt combot bei niedrigen Prozenten auch in sich selbst.',
+        source: game8('281222'),
+      },
+      {
+        id: 'littlemac-dtilt-utilt-uppercut',
+        kind: 'bnb',
+        title: 'Down Tilt → Up Tilt → Rising Uppercut',
+        start: 50,
+        window: [20, 100],
+        difficulty: 2,
+        steps: [
+          { input: 'dtilt', dmg: 10 },
+          { input: 'utilt', dmg: 8 },
+          { input: 'ub', label: 'Rising Uppercut', dmg: 8 },
+        ],
+        tip: 'Führt laut Game8 nicht zum Kill, verbindet dafür verlässlich bis 100 %.',
+        source: game8('281222'),
+      },
+      {
+        id: 'littlemac-dthrow-uppercut',
+        kind: 'bnb',
+        title: 'Down Throw → Rising Uppercut',
+        start: 30,
+        difficulty: 1,
+        steps: [
+          { input: 'grab', dmg: 0 },
+          { input: 'dthrow', dmg: 8 },
+          { input: 'ub', label: 'Rising Uppercut', dmg: 8 },
+        ],
+        tip: 'Laut Game8 über verschiedene Prozentbereiche nutzbar.',
+        source: game8('281222'),
+      },
+      {
+        id: 'littlemac-jab-uppercut',
+        kind: 'meta',
+        title: 'Jab → Rising Uppercut',
+        start: 110,
+        windowLabel: 'hohe Prozente',
+        kills: true,
+        difficulty: 2,
+        steps: [
+          { input: 'jab', dmg: 6 },
+          { input: 'ub', label: 'Rising Uppercut', dmg: 8 },
+        ],
+        tip: 'Laut SmashWiki bei hohen Prozenten ein KO-Confirm. Mit gefülltem Power-Meter wird daraus der KO-Uppercut.',
+        tags: ['Mit Power-Meter noch stärker'],
+        source: wiki('Little_Mac_(SSBU)'),
+      },
+      {
+        id: 'littlemac-uair-uppercut',
+        kind: 'meta',
+        title: 'Up Air → Rising Uppercut',
+        start: 110,
+        windowLabel: 'hohe Prozente',
+        kills: true,
+        difficulty: 3,
+        steps: [
+          { input: 'fh uair', label: 'FH Uair', dmg: 6 },
+          { input: 'ub', label: 'Rising Uppercut', dmg: 8 },
+        ],
+        tip: 'Die Luftvariante desselben Confirms – laut SmashWiki ebenfalls erst bei hohen Prozenten.',
+        source: wiki('Little_Mac_(SSBU)'),
+      },
+    ],
+  },
+  {
+    slug: 'ganondorf',
+    meta: [
+      'Ganondorfs bestimmendes Merkmal ist rohe Kill-Power: Die meisten seiner Moves machen über 10 % Schaden und killen unter 100 %. Forward Tilt und Down Smash sind starke Semi-Spikes, Forward und Up Smash riesige Disjoints, und seine Aerials sind trotz ihrer Wucht schnell.',
+      'Dafür ist er extrem combo- und jonglieranfällig, hat kein Projektil und kaum defensive Optionen. Seine Frame Data gehört zu den schlechtesten im Spiel, sein Grab ist kurz, und die Recovery verläuft geradlinig und berechenbar.',
+    ],
+    strengths: ['Höchstes KO-Potenzial im Spiel', 'Schnelle Aerials trotz enormer Power', 'Flame Choke öffnet Dutzende Follow-ups'],
+    weaknesses: ['Extrem combo- und jonglieranfällig', 'Kein Projektil, kaum Verteidigung', 'Mit die schlechteste Frame Data im Spiel'],
+    sources: [wiki('Ganondorf_(SSBU)'), game8('281196'), ufd('ganondorf')],
+    combos: [
+      {
+        id: 'ganon-da-uair',
+        kind: 'bnb',
+        title: 'Dash Attack → Up Air',
+        start: 40,
+        windowLabel: 'mittlere Prozente oder niedriger',
+        difficulty: 1,
+        steps: [
+          { input: 'da', dmg: 18 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 16 },
+        ],
+        tip: 'Rund 30 % laut Game8 – seine einfachste und schadensstärkste Grundroute.',
+        source: game8('281196'),
+      },
+      {
+        id: 'ganon-flamechoke-dtilt',
+        kind: 'bnb',
+        title: 'Flame Choke → Down Tilt',
+        start: 20,
+        difficulty: 1,
+        steps: [
+          { input: 'sb', label: 'Flame Choke', dmg: 14, note: 'Greift auch durch den Schild.' },
+          { input: 'dtilt', dmg: 17 },
+        ],
+        tip: 'Laut SmashWiki eröffnet der gegroundete Flame Choke Dutzende Follow-ups und Reads – der Down Tilt ist der sicherste.',
+        source: game8('281196'),
+      },
+      {
+        id: 'ganon-dair-usmash',
+        kind: 'bnb',
+        title: 'Down Air → Up Smash',
+        start: 50,
+        windowLabel: 'mittlere Prozente',
+        difficulty: 2,
+        steps: [
+          { input: 'sh dair', label: 'SH Dair', dmg: 23 },
+          { input: 'usmash', dmg: 29 },
+        ],
+        tip: 'Laut Game8 nach dem bestätigten Down-Air-Treffer sofort den Up Smash nachlegen.',
+        source: game8('281196'),
+      },
+      {
+        id: 'ganon-dthrow-nair',
+        kind: 'bnb',
+        title: 'Down Throw → Nair',
+        start: 20,
+        windowLabel: 'bis mittlere Prozente',
+        difficulty: 1,
+        steps: [
+          { input: 'grab', dmg: 0 },
+          { input: 'dthrow', dmg: 8 },
+          { input: 'fh nair', label: 'FH Nair', dmg: 14 },
+        ],
+        tip: 'Laut SmashWiki combot der Down Throw bis in die mittleren Prozente in jeden Aerial außer dem Down Air.',
+        source: wiki('Ganondorf_(SSBU)'),
+      },
+      {
+        id: 'ganon-dthrow-fair',
+        kind: 'meta',
+        title: 'Down Throw → Forward Air',
+        start: 40,
+        windowLabel: 'bis mittlere Prozente',
+        difficulty: 2,
+        steps: [
+          { input: 'grab', dmg: 0 },
+          { input: 'dthrow', dmg: 8 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 22 },
+        ],
+        tip: 'Derselbe Wurf, der schwerere Abschluss: Der Forward Air gehört zu seinen stärksten Moves überhaupt.',
+        source: wiki('Ganondorf_(SSBU)'),
+      },
+      {
+        id: 'ganon-da-darkdive',
+        kind: 'meta',
+        title: 'Dash Attack (früher Treffer) → Dark Dive',
+        start: 30,
+        difficulty: 2,
+        steps: [
+          { input: 'da', label: 'Dash Attack, früher Treffer', dmg: 18 },
+          { input: 'ub', label: 'Dark Dive', dmg: 8 },
+        ],
+        tip: 'Laut SmashWiki führt der frühe Dash-Attack-Treffer in Nair, Up Air oder den Dark Dive.',
+        source: wiki('Ganondorf_(SSBU)'),
+      },
+    ],
+  },
+];
