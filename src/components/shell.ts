@@ -42,6 +42,8 @@ export function renderShell(app: HTMLElement, onSearch: () => void): Shell {
           </div>
           <nav class="footer__nav" aria-label="Fußzeile">
             ${NAV.map((item) => html`<a href="${link(item.path)}">${item.label}</a>`)}
+            <!-- Nur in der Fußzeile, nicht in der Hauptnavigation: Pflichtangabe, kein Inhalt. -->
+            <a href="${link('/datenschutz')}">Datenschutz</a>
           </nav>
           <div class="footer__data">
             <h2 class="footer__title">Datenstand</h2>

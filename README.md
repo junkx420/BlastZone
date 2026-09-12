@@ -37,7 +37,7 @@ src/
   lib/          dom (escaping html-Tag), router, motion, color (Kontrast, Heat-Ramp)
   components/   shell, palette (/ oder Strg+K), sigil (generiertes Artwork),
                 fighterTile, tierBadge, notation (Keycaps), comboPlayer, icons
-  pages/        home, fighter, tiers, notFound
+  pages/        home, fighter, tiers, privacy (Datenschutz), notFound
   styles/       tokens → base → layout → components → pages (Cascade Layers)
 ```
 

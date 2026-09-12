@@ -15,6 +15,7 @@ import { startRouter, type NavContext, type Route } from './lib/router';
 import { fighterPage } from './pages/fighter';
 import { homePage } from './pages/home';
 import { notFoundPage } from './pages/notFound';
+import { privacyPage } from './pages/privacy';
 import { tiersPage } from './pages/tiers';
 import type { PageView } from './pages/types';
 
@@ -50,6 +51,8 @@ function view(route: Route): PageView {
       return homePage(route);
     case 'tiers':
       return tiersPage();
+    case 'datenschutz':
+      return privacyPage();
     case 'fighter':
       return fighterPage(route);
     default:
