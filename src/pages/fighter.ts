@@ -3,11 +3,11 @@ import { faceThumb, fighterArt } from '../components/fighterTile';
 import { ICONS } from '../components/icons';
 import { tierBadge } from '../components/tierBadge';
 import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, WEIGHT_RANGE, weightClass } from '../data/fighters';
-import { GUIDE_BY_SLUG, GUIDES } from '../data/guides';
+import { GUIDE_COUNT, GUIDE_SLUGS, guideFor, loadLateGuides } from '../data/guide-index';
 import { TIER_BY_SLUG, TIER_TOTAL } from '../data/tiers';
 import type { Archetype, Combo, Fighter, FighterGuide } from '../data/types';
 import { accentVars } from '../lib/color';
-import { html, qs, qsa, raw, type Markup } from '../lib/dom';
+import { html, mount, qs, qsa, raw, type Markup } from '../lib/dom';
 import { gsap, motionOK, parallax, pointerDepth, reveals, scope, scrollToTarget } from '../lib/motion';
 import { link, parse, replaceQuery, type Route } from '../lib/router';
 import { notFoundPage } from './notFound';
@@ -140,7 +140,7 @@ function metaSection(f: Fighter, guide: FighterGuide | undefined): Markup {
 
 type TabId = 'bnb' | 'meta';
 
-function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabId): Markup {
+function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabId, pending = false): Markup {
   const head = html`<div class="section-head">
     <h2 id="combos-title" data-reveal="wipe">Combo-Routen</h2>
     <p>Jede Route verlinkt ihre Quelle; Prozentangaben stehen so da, wie die Quelle sie nennt. Schaden aus Ultimate Frame Data, inklusive 1v1-Faktor und gerundet.</p>
@@ -149,11 +149,13 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
   if (!guide) {
     return html`<section class="container fcombos" id="combos" aria-labelledby="combos-title">
       ${head}
-      <div class="empty">
-        <h3>Für ${f.name} sind noch keine Combo-Routen erfasst.</h3>
-        <p>Tier-Platzierung und Eigenschaften stehen bereits. Combo-Routen gibt es aktuell für ${GUIDES.length} Fighter.</p>
-        <a class="btn btn--sm" href="${link('/roster', { routen: '1' })}">${ICONS.combo}Fighter mit Combo-Routen</a>
-      </div>
+      ${pending
+        ? html`<p class="tabpanel__intro">Combo-Routen werden geladen …</p>`
+        : html`<div class="empty">
+            <h3>Für ${f.name} sind noch keine Combo-Routen erfasst.</h3>
+            <p>Tier-Platzierung und Eigenschaften stehen bereits. Combo-Routen gibt es aktuell für ${GUIDE_COUNT} Fighter.</p>
+            <a class="btn btn--sm" href="${link('/roster', { routen: '1' })}">${ICONS.combo}Fighter mit Combo-Routen</a>
+          </div>`}
     </section>`;
   }
 
@@ -285,7 +287,9 @@ export function fighterPage(route: Route): PageView {
   const f = FIGHTER_BY_SLUG.get(route.params.slug ?? '');
   if (!f) return notFoundPage('Fighter-Seite');
 
-  const guide = GUIDE_BY_SLUG.get(f.slug);
+  // Tiers from A+ downwards load on demand; until then the sections render as pending.
+  const hasGuide = GUIDE_SLUGS.has(f.slug);
+  const guide = guideFor(f.slug);
   const active: TabId = route.query.get('routen') === 'meta' ? 'meta' : 'bnb';
   const i = BY_RANK.indexOf(f);
   const prev = BY_RANK[(i - 1 + BY_RANK.length) % BY_RANK.length] ?? f;
@@ -295,7 +299,10 @@ export function fighterPage(route: Route): PageView {
     title: `${f.name}: Combos, Tier und Meta – Blastzone`,
     anchor: route.query.has('routen') ? '#combos' : undefined,
     markup: html`<article class="page page--flush fighter" style="${accentVars(f.colors)}" aria-labelledby="fighter-name">
-      ${heroSection(f)} ${statsSection(f)} ${metaSection(f, guide)} ${combosSection(f, guide, active)} ${navSection(prev, next)}
+      ${heroSection(f)} ${statsSection(f)}
+      <div data-meta>${metaSection(f, guide)}</div>
+      <div data-combos>${combosSection(f, guide, active, hasGuide && !guide)}</div>
+      ${navSection(prev, next)}
     </article>`,
     mount(root) {
       const cleanups: Array<() => void> = [];
@@ -319,10 +326,26 @@ export function fighterPage(route: Route): PageView {
       const art = qs<HTMLElement>('[data-depth]', root);
       if (hero && art) cleanups.push(pointerDepth(hero, [[art, 28]]));
 
-      if (guide) {
-        cleanups.push(bindComboCards(root, guide.combos));
-        cleanups.push(mountTabs(root, guide.combos));
+      let comboCleanups: Array<() => void> = [];
+      const wireCombos = (g: FighterGuide): void => {
+        comboCleanups.forEach((fn) => fn());
+        comboCleanups = [bindComboCards(root, g.combos), mountTabs(root, g.combos)];
+      };
+
+      if (guide) wireCombos(guide);
+      else if (hasGuide) {
+        void loadLateGuides().then(() => {
+          const loaded = guideFor(f.slug);
+          const host = qs<HTMLElement>('[data-combos]', root);
+          if (!loaded || !host?.isConnected) return;
+          const metaHost = qs<HTMLElement>('[data-meta]', root);
+          if (metaHost) mount(metaHost, metaSection(f, loaded));
+          mount(host, combosSection(f, loaded, active));
+          wireCombos(loaded);
+        });
       }
+
+      cleanups.push(() => comboCleanups.forEach((fn) => fn()));
       return () => cleanups.forEach((fn) => fn());
     },
   };

@@ -1,5 +1,5 @@
 import { faceArt, renderArt } from '../data/art';
-import { GUIDE_BY_SLUG } from '../data/guides';
+import { GUIDE_SLUGS } from '../data/guide-index';
 import { TIER_BY_SLUG } from '../data/tiers';
 import type { Fighter } from '../data/types';
 import { accentVars } from '../lib/color';
@@ -29,7 +29,8 @@ export function faceThumb(f: Fighter, className: string): Markup {
 
 /** Character-select tile. Name comes first in the DOM so the link reads naturally. */
 export function fighterTile(f: Fighter): Markup {
-  const hasGuide = GUIDE_BY_SLUG.has(f.slug);
+  // GUIDE_SLUGS, not the loaded guides: the later tiers arrive after this renders.
+  const hasGuide = GUIDE_SLUGS.has(f.slug);
   return html`<li class="tile" data-slug="${f.slug}" style="${accentVars(f.colors)}">
     <a class="tile__link" href="${link(`/fighter/${f.slug}`)}">
       <span class="tile__art" data-vt="art">${fighterArt(f, 'tile')}</span>

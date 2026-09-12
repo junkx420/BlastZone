@@ -5,7 +5,8 @@ import { glyph, inputKeys } from '../components/notation';
 import { tierBadge, tierGroup } from '../components/tierBadge';
 import { renderArt } from '../data/art';
 import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, weightClass } from '../data/fighters';
-import { GUIDE_BY_SLUG, SHOWCASE } from '../data/guides';
+import { GUIDE_SLUGS, loadLateGuides } from '../data/guide-index';
+import { SHOWCASE } from '../data/guides';
 import { BUTTON_LEGEND, resolveToken } from '../data/notation';
 import { matchScore } from '../data/search';
 import { TIER_BY_SLUG, TIER_ORDER, TIER_PLACEMENTS, TIER_SOURCE, TIER_TOTAL } from '../data/tiers';
@@ -311,7 +312,7 @@ function visibleFighters(f: Filters): Fighter[] {
     if (f.tiers.size && (!placement || !f.tiers.has(placement.tier))) return false;
     if (f.arch && x.archetype !== f.arch) return false;
     if (f.weight && weightClass(x.weight) !== f.weight) return false;
-    if (f.guides && !GUIDE_BY_SLUG.has(x.slug)) return false;
+    if (f.guides && !GUIDE_SLUGS.has(x.slug)) return false;
     return true;
   }).sort((a, b) => (f.q ? matchScore(b, f.q) - matchScore(a, f.q) : 0) || SORTERS[f.sort](a, b));
 }
@@ -391,6 +392,9 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
   const state = readFilters(route.query);
   let flip: gsap.core.Timeline | null = null;
   let debounce = 0;
+
+  // Warms the later tiers while the roster is on screen, so opening a profile feels instant.
+  void loadLateGuides();
 
   // The filter animation loads on first contact with the controls; until then filtering just snaps.
   let Flip: FlipApi | null = null;
