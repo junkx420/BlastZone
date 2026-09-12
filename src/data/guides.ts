@@ -306,6 +306,22 @@ export const GUIDES: FighterGuide[] = [
         source: wiki('Snake_(SSBU)'),
       },
       {
+        id: 'snake-bthrow-c4',
+        kind: 'meta',
+        title: 'Back Throw → C4',
+        start: 90,
+        window: [90, null],
+        kills: true,
+        difficulty: 3,
+        steps: [
+          { input: 'grab', dmg: 0 },
+          { input: 'bthrow', dmg: 11 },
+          { input: 'db', label: 'C4 anbringen und zünden', dmg: 20, note: 'Das C4 muss vorher am Gegner kleben; gezündet wird mit einer zweiten Eingabe.' },
+        ],
+        tip: 'Laut SmashWiki führt der Back Throw bei niedrigen Prozenten in den Dash Attack und ab mittleren ins C4 – als Kill-Confirm greift das etwa ab 90 %.',
+        source: wiki('Snake_(SSBU)'),
+      },
+      {
         id: 'snake-dthrow-ftilt',
         kind: 'meta',
         title: 'Down Throw → Forward Tilt',
