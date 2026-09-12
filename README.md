@@ -9,7 +9,15 @@ npm install
 npm run dev
 ```
 
-Der Dev-Server lauscht auf allen Interfaces (`server.host`), ist also auch unter `http://<LAN-IP>:5173` von anderen Geräten im Netz erreichbar. `npm run build` prüft die Typen und baut nach `dist/`. Das Routing läuft über den Hash (`#/fighter/luigi`), der Build funktioniert daher auf jedem statischen Host ohne Rewrite-Regeln.
+Der Dev-Server lauscht auf allen Interfaces (`server.host`), ist also auch unter `http://<LAN-IP>:5173` von anderen Geräten im Netz erreichbar. `npm run build` prüft die Typen und baut nach `dist/`.
+
+## Hosting
+
+Deployment läuft über Vercel, die Einstellungen stehen in `vercel.json`:
+
+- **Rewrite auf `/index.html`.** Das Routing läuft über den Hash (`#/fighter/luigi`), serverseitig existiert also nur `/`. Ohne die Regel liefe jeder andere Pfad – `/roster`, `/irgendwas` – in die 404-Seite des Hosters statt in die der Seite. Statische Dateien greifen vorher, Bilder und Assets bleiben davon unberührt.
+- **Sicherheitskopfzeilen**: Content-Security-Policy, `Referrer-Policy`, `X-Content-Type-Options`, `X-Frame-Options`, `Permissions-Policy` und HSTS. Die CSP erlaubt `style-src 'unsafe-inline'`, weil jeder Fighter seine Akzentfarben über `style="--accent: …"` setzt; ohne das bricht die komplette Farbgebung. `frame-src` lässt ausschließlich `youtube-nocookie.com` zu.
+- **Cache**: die gehashten Dateien unter `/assets/` und die Schriften ein Jahr `immutable`, die Fighter-Bilder 30 Tage.
 
 ## Stack
 
@@ -17,7 +25,7 @@ Der Dev-Server lauscht auf allen Interfaces (`server.host`), ist also auch unter
 - GSAP (ScrollTrigger, Flip) für Reveals, Parallax, Roster-Filter und den Combo-Player
 - Lenis für Smooth Scroll
 - View Transitions API für Seitenwechsel: Tile-Artwork und Name morphen in den Fighter-Header
-- Schrift: Archivo (Google Fonts) mit Breitenachse 62–125 %
+- Schrift: Archivo mit Breitenachse 62–125 %, **selbst gehostet** unter `public/fonts/` (vier WOFF2, 363 KB, SIL Open Font License – Lizenztext liegt daneben). Die `@font-face`-Blöcke stehen in `src/styles/base.css`, die `unicode-range`-Angaben stammen unverändert von Google Fonts: Der Browser lädt `latin-ext` nur, wenn ein Zeichen daraus vorkommt. Die Seite sendet dadurch beim Laden **keine einzige Anfrage an Dritte**.
 
 Bei `prefers-reduced-motion` entfallen Smooth Scroll, Parallax, Replays und Seitenübergänge.
 
@@ -29,13 +37,13 @@ src/
   lib/          dom (escaping html-Tag), router, motion, color (Kontrast, Heat-Ramp)
   components/   shell, palette (/ oder Strg+K), sigil (generiertes Artwork),
                 fighterTile, tierBadge, notation (Keycaps), comboPlayer, icons
-  pages/        home, fighter, tiers, system, notFound
+  pages/        home, fighter, tiers, notFound
   styles/       tokens → base → layout → components → pages (Cascade Layers)
 ```
 
 ## Design-System
 
-Leitmotiv ist die Prozentanzeige aus dem Spiel. Ihre Farbskala (`--dmg-0` bis `--dmg-200`) färbt den Damage-Meter, die Tier-Stufen (S+ rot, E grau) und die Hero-Headline. Jeder Fighter setzt `--accent` und `--accent-2` inline; `accentVars()` hebt die Textvariante automatisch auf mindestens 4,5:1 Kontrast. Die komplette Übersicht steht unter `#/system`.
+Leitmotiv ist die Prozentanzeige aus dem Spiel. Ihre Farbskala (`--dmg-0` bis `--dmg-200`) färbt den Damage-Meter, die Tier-Stufen (S+ rot, E grau) und die Hero-Headline. Jeder Fighter setzt `--accent` und `--accent-2` inline; `accentVars()` hebt die Textvariante automatisch auf mindestens 4,5:1 Kontrast.
 
 ## Daten pflegen
 

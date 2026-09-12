@@ -5,7 +5,6 @@ import './styles/components.css';
 import './styles/pages/home.css';
 import './styles/pages/fighter.css';
 import './styles/pages/tiers.css';
-import './styles/pages/system.css';
 import './styles/art.css';
 
 import { initPalette } from './components/palette';
@@ -16,7 +15,6 @@ import { startRouter, type NavContext, type Route } from './lib/router';
 import { fighterPage } from './pages/fighter';
 import { homePage } from './pages/home';
 import { notFoundPage } from './pages/notFound';
-import { systemPage } from './pages/system';
 import { tiersPage } from './pages/tiers';
 import type { PageView } from './pages/types';
 
@@ -52,8 +50,6 @@ function view(route: Route): PageView {
       return homePage(route);
     case 'tiers':
       return tiersPage();
-    case 'system':
-      return systemPage();
     case 'fighter':
       return fighterPage(route);
     default:

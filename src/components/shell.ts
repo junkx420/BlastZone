@@ -7,7 +7,6 @@ const NAV: Array<{ route: RouteName; path: string; label: string; wide?: boolean
   { route: 'roster', path: '/roster', label: 'Roster' },
   { route: 'tiers', path: '/tiers', label: 'Tier-Liste' },
   { route: 'notation', path: '/notation', label: 'Notation' },
-  { route: 'system', path: '/system', label: 'Design-System', wide: true },
 ];
 
 export interface Shell {
