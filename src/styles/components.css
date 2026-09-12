@@ -730,6 +730,18 @@
     color: var(--text-muted);
     font-size: var(--fs-200);
   }
+  /*
+   * Ohne diese Regel füllt das SVG die ganze Spalte: `.icon` hat keine
+   * Grundgröße, jede Stelle setzt sie selbst. Maße wie bei `.fact dd a .icon`.
+   */
+  .fvideo__link .icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    vertical-align: -1px;
+    color: var(--text-subtle);
+  }
   @media (max-width: 560px) {
     .vplayer__start {
       flex-direction: column;

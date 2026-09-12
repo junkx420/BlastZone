@@ -24,6 +24,18 @@
     display: block;
     max-width: 100%;
   }
+  /*
+   * Grundgröße für Icon-SVGs. Ohne sie zieht ein Icon, das nur einen viewBox
+   * trägt, die volle Spaltenbreite – der Reset darüber macht es zum Block mit
+   * max-width: 100%. Genau das ist im Video-Block passiert.
+   * Die Regel liegt in der Layer `base` und verliert damit gegen jede Maßangabe
+   * aus `layout` oder `components`; sie fängt nur die Stellen ab, an denen
+   * niemand an eine Größe gedacht hat.
+   */
+  .icon {
+    width: 1em;
+    height: 1em;
+  }
   input,
   button,
   textarea,
