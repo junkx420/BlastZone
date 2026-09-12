@@ -870,7 +870,12 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         kills: true,
         difficulty: 2,
         steps: [
-          { input: 'db', label: 'Bombe ziehen und werfen', dmg: 0, note: 'Der Explosionsschaden steht nicht in der Frame-Data-Tabelle.' },
+          {
+            input: 'db',
+            label: 'Bombe ziehen und werfen',
+            dmg: 8,
+            note: 'Wert von SmashWiki (5,4–7 % Basis), weil Ultimate Frame Data keinen führt. Wie hart die Bombe trifft, hängt an ihrer Geschwindigkeit beim Aufprall.',
+          },
           { input: 'usmash', dmg: 16 },
         ],
         tip: 'Laut SmashWiki folgen auf Bomben auch bei hohen Prozenten Up Smash oder Forward Air – seine besten KO-Optionen. Der Down Air killt daraus extrem früh.',

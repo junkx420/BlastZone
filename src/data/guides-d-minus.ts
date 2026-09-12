@@ -496,7 +496,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'grab', dmg: 0 },
-          { input: 'fthrow', dmg: 0, note: 'Die Frame-Data-Tabelle führt für seine Würfe keinen Wert.' },
+          { input: 'fthrow', dmg: 12, note: 'Wert von SmashWiki (10 % Basis), weil Ultimate Frame Data keinen führt.' },
           { input: 'da', dmg: 18 },
         ],
         tip: 'Laut SmashWiki combot der Forward Throw bei 0 % in den Dash Attack oder in einen dash-gecancelten Jab – der früheste Einstieg, den er hat.',
@@ -527,7 +527,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'grab', dmg: 0 },
-          { input: 'dthrow', label: 'Down Throw, vergräbt den Gegner', dmg: 0 },
+          { input: 'dthrow', label: 'Down Throw, vergräbt den Gegner', dmg: 6, note: 'Wert von SmashWiki (5 % Basis), weil Ultimate Frame Data keinen führt.' },
           { input: 'utilt', dmg: 15 },
         ],
         tip: 'Dieselbe Eingabe wie die Schadensroute, nur später im Stock: Laut SmashWiki wird der Up Tilt aus dem Down Throw ab etwa 130 % zum verlässlichen KO-Confirm.',
@@ -542,7 +542,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'grab', dmg: 0 },
-          { input: 'dthrow', label: 'Down Throw, vergräbt den Gegner', dmg: 0, note: 'Die Frame-Data-Tabelle führt für seine Würfe keinen Wert.' },
+          { input: 'dthrow', label: 'Down Throw, vergräbt den Gegner', dmg: 6, note: 'Wert von SmashWiki (5 % Basis), weil Ultimate Frame Data keinen führt.' },
           { input: 'utilt', dmg: 15 },
         ],
         tip: 'Laut SmashWiki führt der Down Throw bei niedrigen bis mittleren Prozenten in Jab, Up Tilt und Up Air.',
@@ -558,7 +558,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 3,
         steps: [
           { input: 'grab', dmg: 0 },
-          { input: 'dthrow', label: 'Down Throw, vergräbt den Gegner', dmg: 0 },
+          { input: 'dthrow', label: 'Down Throw, vergräbt den Gegner', dmg: 6, note: 'Wert von SmashWiki (5 % Basis), weil Ultimate Frame Data keinen führt.' },
           { input: 'ftilt', dmg: 16 },
         ],
         tip: 'Game8: Mit dem Rücken zur Kante gegriffen wird daraus ein einfacher KO – die Vergrabezeit ist hier am längsten.',

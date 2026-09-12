@@ -87,7 +87,12 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
         kills: true,
         difficulty: 3,
         steps: [
-          { input: 'db', label: 'Lloid Trap zünden', dmg: 0, note: 'Die Frame-Data-Tabelle führt für die Falle keinen Wert.' },
+          {
+            input: 'db',
+            label: 'Lloid Trap zünden',
+            dmg: 21,
+            note: 'Wert von SmashWiki, weil Ultimate Frame Data keinen führt: 1,6 % für die ersten beiden Treffer, 0,9 % für die Treffer drei bis fünf, 12 % für den letzten.',
+          },
           { input: 'fh uair', label: 'FH Uair', dmg: 12 },
         ],
         tip: 'Laut SmashWiki combot die Falle aus der Nähe in den Up Air und wird bei höheren Prozenten zum KO-Confirm.',
@@ -135,8 +140,8 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           {
             input: 'bthrow',
-            dmg: 0,
-            note: 'Ultimate Frame Data führt für Isabelles Würfe keinen Wert – deshalb steht hier keiner.',
+            dmg: 13,
+            note: 'Wert von SmashWiki (11 % Basis), weil Ultimate Frame Data für Isabelles Würfe keinen führt.',
           },
         ],
         tip: 'Laut SmashWiki einer der stärksten Back Throws im Spiel: Er holt selbst die schwersten Charaktere verlässlich. Für einen Fighter mit sonst später Kill-Power ihr wichtigster Abschluss.',

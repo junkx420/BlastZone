@@ -957,8 +957,8 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           {
             input: 'sb',
             label: 'Flying Slam (Kommando-Grab)',
-            dmg: 0,
-            note: 'Ultimate Frame Data führt für den Wurf keinen Schadenswert – deshalb steht hier keiner.',
+            dmg: 22,
+            note: 'Wert von SmashWiki (18 % Basis), weil Ultimate Frame Data keinen führt. Aus größerer Fallhöhe steigt er auf bis zu 23,4 % Basis.',
           },
         ],
         tip: 'Laut SmashWiki startet der Flying Slam auf Frame 6 und wirft mit starkem vertikalem Knockback – ab etwa 130 % ist das ein KO. Bowser kann die Wurfrichtung steuern.',
