@@ -137,10 +137,15 @@ startRouter((route, nav) => {
     render(route, nav);
     linkReturningTile(nav);
   });
-  void transition.finished.finally(() => {
-    clearShared();
-    shell.main.focus({ preventScroll: true });
-  });
+  // A second navigation aborts the running transition, and *both* promises reject.
+  // Each needs its own handler, otherwise the browser reports an unhandled rejection.
+  void transition.ready.catch(() => {});
+  void transition.finished
+    .catch(() => {})
+    .finally(() => {
+      clearShared();
+      shell.main.focus({ preventScroll: true });
+    });
 });
 
 qs<HTMLAnchorElement>('.skip-link')?.addEventListener('click', (e) => {
