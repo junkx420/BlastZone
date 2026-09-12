@@ -17,7 +17,7 @@ import { tierBadge } from './tierBadge';
 export function fighterArt(f: Fighter, variant: 'tile' | 'hero' = 'tile'): Markup {
   const image =
     variant === 'hero'
-      ? html`<img class="art__img art__img--render" src="${renderArt(f)}" alt="" decoding="async" referrerpolicy="no-referrer" data-art />`
+      ? html`<img class="art__img art__img--render" src="${renderArt(f)}" alt="" decoding="async" fetchpriority="high" referrerpolicy="no-referrer" data-art />`
       : html`<img class="art__img art__img--face" src="${faceArt(f)}" alt="" width="270" height="164" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-art />`;
   return html`<span class="art art--${variant}" data-art-wrap>${sigil(f, variant)}${image}</span>`;
 }

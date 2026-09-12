@@ -1,11 +1,23 @@
 import { gsap } from 'gsap';
-import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
-gsap.registerPlugin(ScrollTrigger, Flip);
+gsap.registerPlugin(ScrollTrigger);
 
-export { Flip, gsap, ScrollTrigger };
+export { gsap, ScrollTrigger };
+
+export type FlipApi = typeof import('gsap/Flip').Flip;
+
+let flipPromise: Promise<FlipApi> | null = null;
+
+/** Flip only animates the roster filter, so it stays out of the initial bundle. */
+export function loadFlip(): Promise<FlipApi> {
+  flipPromise ??= import('gsap/Flip').then(({ Flip }) => {
+    gsap.registerPlugin(Flip);
+    return Flip;
+  });
+  return flipPromise;
+}
 
 const reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 const fineQuery = window.matchMedia('(hover: hover) and (pointer: fine)');

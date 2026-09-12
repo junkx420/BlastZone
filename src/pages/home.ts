@@ -12,7 +12,7 @@ import { TIER_BY_SLUG, TIER_ORDER, TIER_PLACEMENTS, TIER_SOURCE, TIER_TOTAL } fr
 import type { Archetype, Fighter, TierId, WeightClass } from '../data/types';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, qsa, type Markup } from '../lib/dom';
-import { Flip, gsap, motionOK, parallax, pointerDepth, reveals, scope } from '../lib/motion';
+import { gsap, loadFlip, motionOK, parallax, pointerDepth, reveals, scope, type FlipApi } from '../lib/motion';
 import { link, replaceQuery, type Route } from '../lib/router';
 import type { PageView } from './types';
 
@@ -392,6 +392,13 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
   let flip: gsap.core.Timeline | null = null;
   let debounce = 0;
 
+  // The filter animation loads on first contact with the controls; until then filtering just snaps.
+  let Flip: FlipApi | null = null;
+  const primeFlip = (): void => void loadFlip().then((api) => (Flip = api));
+  (['pointerenter', 'pointerdown', 'focusin'] as const).forEach((type) =>
+    section.addEventListener(type, primeFlip, { once: true, passive: true }),
+  );
+
   const syncControls = (): void => {
     if (document.activeElement !== input) input.value = state.q;
     arch.value = state.arch;
@@ -405,7 +412,7 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
     const order = visibleFighters(state);
     const shown = new Set(order.map((f) => f.slug));
     flip?.progress(1).kill();
-    const before = animate && motionOK() ? Flip.getState([...tiles.values()]) : null;
+    const before = Flip && animate && motionOK() ? Flip.getState([...tiles.values()]) : null;
 
     order.forEach((f) => {
       const el = tiles.get(f.slug);
@@ -419,7 +426,7 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
       grid.append(el);
     });
 
-    if (before) {
+    if (before && Flip) {
       flip = Flip.from(before, {
         duration: 0.6,
         ease: 'expo.out',
