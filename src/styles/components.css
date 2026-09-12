@@ -545,27 +545,45 @@
   .meter--lg .meter__pct {
     font-size: calc(var(--fs-hud) * 0.42);
   }
-  /* Stamped over the top-right corner so the final percent stays readable. */
+  /*
+   * Stempel über der oberen rechten Ecke – er darf die Ziffern nie berühren.
+   *
+   * `bottom: 100%` legt seine Unterkante exakt auf die Oberkante der Anzeige.
+   * Die Überlappung ist damit bei jeder Größe rechnerisch null, statt von einer
+   * Prozentverschiebung abzuhängen. Vorher stand hier `top: 0; translate: 0 -55%`:
+   * Weil `line-height: normal` den Stempel höher machte als die Anzeige selbst
+   * (120 px gegen 82 px bei 1280 px Breite), lagen 55 px davon auf den Ziffern –
+   * bei jeder Fensterbreite, nicht nur bei ungewöhnlichen Seitenverhältnissen.
+   *
+   * `line-height: 1` bindet die Höhe an die eigene Schriftgröße; Abstände stehen
+   * in `em`. Dadurch skaliert der Stempel mit der Anzeige mit, ohne dass irgendwo
+   * ein Pixelwert nachgezogen werden muss.
+   */
   .meter__ko {
     position: absolute;
-    top: 0;
     right: -0.35em;
-    translate: 0 -55%;
+    bottom: 100%;
+    /* Keine Einrückung: `bottom: 100%` allein garantiert, dass der Stempel die
+       Ziffern nicht berührt. Die Drehung vergrößert die achsenparallele Box
+       ohnehin um ein paar Pixel nach unten – das ist leere Ecke, kein Kontakt,
+       aber es bleibt nur schadlos, solange hier nichts zusätzlich nach unten
+       verschoben wird. */
     rotate: -8deg;
-    padding: 0.08em 0.4em;
+    padding: 0.1em 0.42em;
     background: var(--dmg-160);
     color: #fff;
-    font-size: 1.6rem;
+    font-size: 1.25rem;
     font-weight: 900;
     font-style: italic;
     font-stretch: var(--stretch-extended);
+    line-height: 1;
     clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
   .meter--lg .meter__ko {
-    font-size: calc(var(--fs-hud) * 0.62);
+    font-size: calc(var(--fs-hud) * 0.42);
   }
   .is-ko .meter__ko {
     opacity: 1;

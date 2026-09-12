@@ -177,6 +177,14 @@
       inset: 0 -30% 40% 18%;
       opacity: 0.6;
     }
+    /*
+     * Ab hier liegt das HUD nicht mehr neben dem Artwork, sondern darauf.
+     * Die normale Glasfläche (--glass-bg, 0.58) lässt den Fighter durch die
+     * Schritt-Zeilen scheinen; die kräftige Variante ist genau dafür da.
+     */
+    .hud {
+      background: var(--glass-bg-strong);
+    }
   }
 
   /* ── Top of the meta · bento with rank 1 as the anchor ──────────────── */
