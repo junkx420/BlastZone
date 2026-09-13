@@ -445,9 +445,23 @@
     gap: var(--sp-2);
     margin-bottom: var(--sp-5);
     border-bottom: 1px solid var(--line);
+    /*
+     * Die Leiste scrollt selbst, statt die Seite breiter zu machen. Bei den
+     * Combo-Routen fällt das nie auf – zwei Tabs passen immer. Die Frame-Daten
+     * haben sechs, und die drückten auf einem Telefon (375 px) das Dokument auf
+     * 815 px auf: 440 px waagerechter Seitenscroll.
+     *
+     * Umbruch wäre die falsche Lösung: `.tabs__ink` ist absolut positioniert und
+     * folgt `offsetLeft` des aktiven Tabs – in einer zweiten Zeile säße der
+     * Unterstrich falsch. Beim Scrollen bleibt die Rechnung gültig.
+     */
+    overflow-x: auto;
+    scrollbar-width: thin;
+    overscroll-behavior-x: contain;
   }
   .tab {
     display: inline-flex;
+    flex: none;
     align-items: center;
     gap: var(--sp-2);
     min-height: 52px;
