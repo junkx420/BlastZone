@@ -126,7 +126,16 @@ export function playCombo(root: HTMLElement, combo: Combo, stepGap = 0.62): gsap
     if (step.dmg > 0) {
       acc += step.dmg;
       tl.to(state, { v: acc, duration: 0.22, ease: 'power2.out', onUpdate: paint }, at + 0.05);
-      tl.fromTo(valueEl, { scale: 1.18, x: -8 }, { scale: 1, x: 0, duration: 0.55, ease: 'elastic.out(1, 0.32)' }, at + 0.05);
+      /*
+       * Der Impuls bleibt bewusst klein und ohne Versatz. Vorher stand hier
+       * `scale: 1.18, x: -8` mit einer elastischen Kurve, die über das Ziel
+       * hinausschwingt – bei der großen Anzeige im Hero (bis 96 px Ziffernhöhe)
+       * schob das die Zahl sichtbar aus ihrem Kasten heraus, weil weder
+       * `.combo__hud` noch `.hud` abschneiden. Im Ruhezustand war davon nichts
+       * zu messen, der Überstand entsteht erst während der Wiedergabe.
+       * `back.out` federt einmal nach und schwingt nicht nach links aus.
+       */
+      tl.fromTo(valueEl, { scale: 1.07 }, { scale: 1, duration: 0.45, ease: 'back.out(2)' }, at + 0.05);
     }
   });
 

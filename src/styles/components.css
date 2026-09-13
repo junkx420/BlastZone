@@ -524,7 +524,13 @@
     -webkit-text-stroke: 0.12em #06070a;
     paint-order: stroke fill;
     text-shadow: 0 0 0.6em color-mix(in oklch, var(--heat) 40%, transparent);
-    transform-origin: 70% 60%;
+    /*
+     * Anker unten links – dort, wo die Zahl im Kasten steht. Vorher war der
+     * Ursprung bei 70 % / 60 %, wodurch der Impuls beim Hochzählen nach links
+     * unten aus dem Kasten lief. Von hier aus wächst er nach rechts oben in die
+     * Polsterung hinein, wo Platz ist.
+     */
+    transform-origin: 0% 85%;
   }
   .meter__int {
     font-size: 2.5rem;
