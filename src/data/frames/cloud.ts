@@ -361,7 +361,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudClimhazzard.gif"
           ],
           "startup": "7/10",
-          "active": "7/10(11/12-15/**)",
+          "active": "7/10(11/12-15/?)",
           "landingLag": "20",
           "damage": "3.0/4.0",
           "shieldLag": "12/6",
@@ -376,7 +376,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudClimhazzardLanding.gif"
           ],
           "startup": "12",
-          "active": "12-**",
+          "active": "12-?",
           "landingLag": "26",
           "damage": "6.0/7.0",
           "shieldLag": "15/16",

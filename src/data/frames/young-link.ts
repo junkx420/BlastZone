@@ -289,7 +289,7 @@ export const FRAMES: FighterFrames = {
           "endlag": "15",
           "landingLag": "17",
           "damage": "18.0/15.0/9.0",
-          "advantage": "Bounce: ** | Fast Fall: -11/-12",
+          "advantage": "Bounce: ? | Fast Fall: -11/-12",
           "shieldLag": "14/12",
           "shieldStun": "6/5",
           "hitboxes": "Early/Late/Pogo",

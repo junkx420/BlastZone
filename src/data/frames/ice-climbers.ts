@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Ice Shot)",
           "section": "special",
           "startup": "18/19",
-          "active": "18/19-**",
+          "active": "18/19-?",
           "total": "55",
           "damage": "3.5/3.5",
           "advantage": "-29(-24)",

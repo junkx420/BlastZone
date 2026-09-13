@@ -385,8 +385,8 @@ export const FRAMES: FighterFrames = {
             "hitboxes/chrom/ChromSoaringSlashDescent.gif",
             "hitboxes/chrom/ChromSoaringSlashLanding.gif"
           ],
-          "startup": "10/39/53/**",
-          "active": "10-11/39-47(rehit: 7) / 54-**/1-4",
+          "startup": "10/39/53/?",
+          "active": "10-11/39-47(rehit: 7) / 54-?/1-4",
           "landingLag": "36",
           "damage": "6.0/1.5/6.0/6.0",
           "advantage": "-29",

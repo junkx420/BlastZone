@@ -185,7 +185,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchFAir.gif"
           ],
           "startup": "10/44",
-          "active": "10-13/**",
+          "active": "10-13/?",
           "total": "47",
           "landingLag": "17",
           "damage": "3.0/12.0",
@@ -256,7 +256,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchChef.gif"
           ],
           "startup": "18",
-          "active": "18-20/**",
+          "active": "18-20/?",
           "total": "54",
           "damage": "5.0/13.0",
           "advantage": "-28",

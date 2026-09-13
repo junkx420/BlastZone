@@ -260,7 +260,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioBikeDrive.gif"
           ],
           "startup": "20/24",
-          "active": "20-**",
+          "active": "20-?",
           "damage": "0.6-11.4",
           "shieldLag": "4-8, 6-13(Wario)",
           "shieldStun": "2-4",

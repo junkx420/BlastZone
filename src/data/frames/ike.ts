@@ -163,8 +163,8 @@ export const FRAMES: FighterFrames = {
           "endlag": "34",
           "damage": "16.0/19.0/9",
           "advantage": "-46/-25",
-          "shieldLag": "10/12/**",
-          "shieldStun": "11/13/**",
+          "shieldLag": "10/12/?",
+          "shieldStun": "11/13/?",
           "hitboxes": "First/Second/Second Late",
           "notes": "Charge hold is frame 5"
         },

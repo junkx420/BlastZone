@@ -327,7 +327,7 @@ export const FRAMES: FighterFrames = {
           "active": "9/10-17/46(ground) || 10-17/46(air)",
           "total": "46",
           "damage": "1.0/3.0/6.5",
-          "advantage": "-35(ground) || **(air)",
+          "advantage": "-35(ground) || ?(air)",
           "hitboxes": "Hit/Grab/Final",
           "notes": "Tethers from F7 up to 3 times. Untechable spike starting from 46%, KB increases with tether grab distance. However, Rage does not appear to affect this, but freshness and staling do(?). Works as a hitgrab, so it can be shielded. Can be used to get Wall Jumps, from ~F8ish(?). No clue how ride up actually works but it recurs until F16. Frame 11 grounded hit does not occur if done in the air."
         },

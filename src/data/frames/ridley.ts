@@ -288,7 +288,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyPlasmaBreathCharge.gif"
           ],
           "startup": "29 | 56/65/73/84/92",
-          "active": "29-58/59-78 | ***",
+          "active": "29-58/59-78 | ?*",
           "total": "55 | 102",
           "damage": "4.5/3.5 | 5.67/4.41",
           "advantage": "-23 // -1",

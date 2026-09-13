@@ -49,8 +49,8 @@ export const FRAMES: FighterFrames = {
           "endlag": "21",
           "damage": "7.0/8.0/6.0",
           "advantage": "-22/-21",
-          "shieldLag": "7/4/**",
-          "shieldStun": "7/8/**",
+          "shieldLag": "7/4/?",
+          "shieldStun": "7/8/?",
           "hitboxes": "Close/Mid hit far/Late"
         },
         {

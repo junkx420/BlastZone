@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
           "name": "Shot Put",
           "section": "special",
           "startup": "28",
-          "active": "28-**/59",
+          "active": "28-?/59",
           "total": "67",
           "endlag": "8",
           "damage": "15.0/11.2",
@@ -391,14 +391,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerSoaringAxeKickLanding.gif"
           ],
           "startup": "10/30",
-          "active": "10-15/3-**/1-2",
+          "active": "10-15/3-?/1-2",
           "landingLag": "22/29",
           "damage": "4.0/3.0/4.0",
           "advantage": "-23",
           "shieldLag": "5/11/8",
           "shieldStun": "5/4/5",
           "hitboxes": "rising/falling/landing",
-          "notes": "Second kick is voluntary, second landing lag pertains to that. **Hitbox images all have model scaling issues, the foot grows too much.**"
+          "notes": "Second kick is voluntary, second landing lag pertains to that. ?Hitbox images all have model scaling issues, the foot grows too much.?"
         },
         {
           "name": "Helicopter Kick",

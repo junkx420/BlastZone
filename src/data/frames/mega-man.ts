@@ -257,8 +257,8 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/mega_man/MegaManLeafShield.gif"
           ],
-          "startup": "9-**",
-          "active": "9-**",
+          "startup": "9-?",
+          "active": "9-?",
           "total": "35",
           "damage": "1.5",
           "shieldLag": "4",

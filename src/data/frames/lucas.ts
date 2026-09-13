@@ -150,7 +150,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "4/16",
           "shieldStun": "-/14",
           "hitboxes": "Launcher/Main Hit[diminishing over time]",
-          "notes": "Invincible on frame 1-7. Head intangibility on frame 15-29. Charge hold is frame 4. **Invincibility during the first 4 frames of charging (but goes away after the initial 4), upon release you gain the other 3 frames immediately."
+          "notes": "Invincible on frame 1-7. Head intangibility on frame 15-29. Charge hold is frame 4. ?Invincibility during the first 4 frames of charging (but goes away after the initial 4), upon release you gain the other 3 frames immediately."
         },
         {
           "name": "Down Smash",
@@ -309,7 +309,7 @@ export const FRAMES: FighterFrames = {
           "name": "Up B (PK Thunder)",
           "section": "special",
           "startup": "20",
-          "active": "20-**",
+          "active": "20-?",
           "damage": "2.5/0.7",
           "shieldLag": "5",
           "shieldStun": "2",

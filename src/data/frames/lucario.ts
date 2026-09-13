@@ -258,7 +258,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Aura Sphere)",
           "section": "special",
           "startup": "9 (+8)",
-          "active": "17-**",
+          "active": "17-?",
           "total": "43",
           "damage": "4.5 -11.3 | 6.0 - 17.2 | 11.0 - 27.6",
           "advantage": "-26 | -25 | -23",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
           "name": "Aura Sphere, Full Charge",
           "section": "special",
           "startup": "17",
-          "active": "17-**",
+          "active": "17-?",
           "total": "51",
           "damage": "11.3 | 17.2 | 27.6",
           "advantage": "-23 | -18 | -11",
@@ -306,7 +306,7 @@ export const FRAMES: FighterFrames = {
           "active": "Throw Hit: 23-24",
           "total": "42",
           "endlag": "18",
-          "damage": "Throw Hit: ** | 10.0 | ** Throw: 8.5 | 13.0 | 20.8"
+          "damage": "Throw Hit: ? | 10.0 | ? Throw: 8.5 | 13.0 | 20.8"
         },
         {
           "name": "Up B (Extreme Speed)",

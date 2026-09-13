@@ -286,7 +286,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuThunder.gif",
             "hitboxes/pikachu/PikachuThunderHit.gif"
           ],
-          "startup": "13/**",
+          "startup": "13/?",
           "active": "13-15(16-85): Early // 21-23(24-93): Late // 1-2: Contact",
           "total": "86/74",
           "endlag": "84",

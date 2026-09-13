@@ -174,7 +174,7 @@ export const FRAMES: FighterFrames = {
           "damage": "1.0/1.5/3.6",
           "advantage": "-35",
           "shieldLag": "4/4/10",
-          "shieldStun": "2/**/4",
+          "shieldStun": "2/?/4",
           "hitboxes": "First/Multi/Final",
           "notes": "Charge hold is frame 6"
         },

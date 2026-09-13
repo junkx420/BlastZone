@@ -315,7 +315,7 @@ export const FRAMES: FighterFrames = {
           "active": "12/15-21/1-10",
           "landingLag": "40",
           "damage": "8.0/6.0",
-          "advantage": "**/-29/-30",
+          "advantage": "?/-29/-30",
           "shieldLag": "7/6",
           "shieldStun": "3/3",
           "hitboxes": "Ground/Aerial/Landing",

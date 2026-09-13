@@ -269,7 +269,7 @@ export const FRAMES: FighterFrames = {
           "name": "Up B (Egg Throw)",
           "section": "special",
           "startup": "16",
-          "active": "16-**",
+          "active": "16-?",
           "total": "55",
           "damage": "6.0",
           "advantage": "-30",

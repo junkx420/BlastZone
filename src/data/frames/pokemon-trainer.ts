@@ -262,7 +262,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Watergun)",
           "section": "special",
           "startup": "26",
-          "active": "24-**",
+          "active": "24-?",
           "total": "63",
           "notes": "From a charging state, startup is 7 and total frames is 44. Takes 64 frames to fully charge."
         },

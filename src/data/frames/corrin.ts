@@ -148,7 +148,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinFSmashCharge.gif"
           ],
           "startup": "12/17",
-          "active": "12-**/17-18",
+          "active": "12-?/17-18",
           "total": "56",
           "endlag": "38",
           "damage": "0.5/11.0/12.0/16.7",
@@ -295,7 +295,7 @@ export const FRAMES: FighterFrames = {
           "name": "Dragon Fang Shot (chomp)",
           "section": "special",
           "startup": "24-54-85",
-          "active": "24-25/**/85-86",
+          "active": "24-25/?/85-86",
           "damage": "10.0-20.0",
           "advantage": "-31 to -19",
           "shieldLag": "8-20",

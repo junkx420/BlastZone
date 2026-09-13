@@ -293,7 +293,7 @@ export const FRAMES: FighterFrames = {
           "damage": "4.0",
           "advantage": "-12/-25/-29",
           "shieldLag": "11/17 / 9 / 14/9/12",
-          "shieldStun": "6/4 / 6 / 4/**/4",
+          "shieldStun": "6/4 / 6 / 4/?/4",
           "hitboxes": "close/far/bolt / first/second bolt / \"first/second/ third/bolt\"",
           "notes": "Zap: 7 frames to enter charge state. Bolt does not occur on block. Cost: 8MP Zapple: Takes 16 frames to reach this level of charge. Second hit does not occur on block. Cost: 18 MP Kazap: Final hit does not occur on a blocking opponent. Cost: 42MP. Bolt generated on frame 37 (+7 charge). 15% heavy armor on frames 43-78. Psych Up only affects first hit (another 0.8%). Oomph affects all but the last hit (another 14%)."
         },

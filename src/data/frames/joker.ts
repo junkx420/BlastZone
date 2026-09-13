@@ -72,7 +72,7 @@ export const FRAMES: FighterFrames = {
           "total": "34",
           "endlag": "15",
           "damage": "3.0/5.0(3.0/10.0)",
-          "advantage": "**/-15(**/-11)",
+          "advantage": "?/-15(?/-11)",
           "shieldLag": "5/6 // 5/10",
           "shieldStun": "4/6 // 4/10",
           "notes": "Down-angled Forward Tilt does the most knockback of the three angles."
@@ -122,7 +122,7 @@ export const FRAMES: FighterFrames = {
           "total": "45",
           "endlag": "24",
           "damage": "2.0/6.0 (2.0/12.0)",
-          "advantage": "**/-23",
+          "advantage": "?/-23",
           "shieldLag": "4/6 // 4/10",
           "shieldStun": "3/6 // 3/7"
         },
@@ -376,7 +376,7 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "12/18/24",
           "active": "12/18/24",
-          "total": "41/**/**",
+          "total": "41/?/?",
           "endlag": "17",
           "damage": "6.0/3.0/1.0",
           "shieldLag": "6/0/0/0",

@@ -261,7 +261,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxDAirLanding.gif"
           ],
           "startup": "5/8/11/14/17/20/23",
-          "active": "5-6/8-9/11-12/14-15/17-18/20-21/23/**",
+          "active": "5-6/8-9/11-12/14-15/17-18/20-21/23/?",
           "total": "49",
           "landingLag": "17",
           "damage": "1.4/3.0/1.0",

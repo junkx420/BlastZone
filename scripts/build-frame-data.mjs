@@ -91,7 +91,29 @@ const saubern = (roh) => {
     .replace(/\s+/g, ' ')
     .trim();
   if (!t || t === '--' || t === '**' || t === '-') return undefined;
-  return t;
+
+  /*
+   * Steht der Marker nicht allein, sondern mitten in einem zusammengesetzten
+   * Wert, dann fehlt nur eine einzelne Angabe und der Rest ist gueltig. In den
+   * Daten kommt das 61 mal vor, etwa als Bereichsende ohne Obergrenze oder als
+   * mittlerer von drei Schadenswerten.
+   *
+   * Den ganzen Wert zu verwerfen hiesse echte Daten wegzuwerfen, ihn
+   * unveraendert zu zeigen sieht nach Stoerung aus. Deshalb ein Fragezeichen:
+   * Es sagt "hier ist nichts erfasst", ohne eine Zahl zu erfinden. UFD selbst
+   * schreibt an unsicheren Stellen ebenfalls Fragezeichen, die Bedeutung passt
+   * also zusammen.
+   *
+   * ACHTUNG, hier nie ein woertliches Beispiel hinschreiben: Die Zeichenfolge
+   * Stern-Schraegstrich beendet den Blockkommentar mitten im Satz. Genau daran
+   * ist der Durchlauf schon einmal gescheitert, und der Fehler sah aus wie ein
+   * Netzwerkproblem.
+   *
+   * Die Pruefung darueber muss zuerst laufen, damit ein alleinstehender Marker
+   * weiterhin undefined ergibt. Darauf baut die Spaltenlogik der Tabelle auf,
+   * die eine Spalte nur zeigt, wenn irgendein Move dort einen Wert hat.
+   */
+  return t.replace(/\*\*/g, '?');
 };
 
 const feld = (block, klasse) => {

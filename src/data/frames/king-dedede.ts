@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeJabRapid.gif"
           ],
           "startup": "5/8/11...",
-          "active": "34-**",
+          "active": "34-?",
           "damage": "0.5",
           "shieldLag": "4",
           "shieldStun": "3"
@@ -274,7 +274,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeInhale.gif"
           ],
           "startup": "14",
-          "active": "17-**",
+          "active": "17-?",
           "total": "74",
           "notes": "Startup and total frames refer to minimum usage. 19 endlag after extended usage. Can inhale projectiles starting on frame 14 and involuntarily spit them back. Gains invulnerability for 14 frames after the 4th frame of inhaling a character/item out. For example, if a character gets grabbed as soon as inhale comes out, (f14) the i-frames would be 18-32. Invulnerability information from @Landslide___ on Twitter."
         },

@@ -301,7 +301,7 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "20-60",
           "active": "20-35 - 60-95",
-          "total": "** (see notes)",
+          "total": "? (see notes)",
           "damage": "3.0-10.8, 1.0/9.0",
           "advantage": "-18 to -13",
           "shieldLag": "5-8/4/11",

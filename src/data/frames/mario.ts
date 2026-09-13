@@ -307,7 +307,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B (F.L.U.D.D.)",
           "section": "special",
           "startup": "2 (+19)",
-          "active": "21-**",
+          "active": "21-?",
           "total": "48",
           "notes": "Startup is 2 from a charging state. Entering charge state takes 19 frames and is shield cancellable on 20."
         },
@@ -315,7 +315,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B, Fully Charged (F.L.U.D.D.)",
           "section": "special",
           "startup": "21",
-          "active": "21-**",
+          "active": "21-?",
           "total": "67",
           "notes": "Takes 100 frames to reach full charge."
         },

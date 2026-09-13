@@ -415,7 +415,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ryu/RyuTatsumakiSenpukyakuHeavyAerial.gif"
           ],
           "startup": "8",
-          "active": "8-9/**",
+          "active": "8-9/?",
           "total": "79",
           "damage": "11.0/10.0/11.0/12.0, 12.76/11.6/12.76/13.92",
           "advantage": "-62 to -61, -61 to -60",

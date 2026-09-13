@@ -160,7 +160,7 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/bowser/BowserNAir.gif"
           ],
-          "startup": "8/14/18/**",
+          "startup": "8/14/18/?",
           "active": "8-29/14-29/18-29/18-29",
           "total": "47",
           "endlag": "18",
@@ -235,7 +235,7 @@ export const FRAMES: FighterFrames = {
           "total": "77",
           "endlag": "28",
           "landingLag": "34",
-          "damage": "16.0/**/2.0",
+          "damage": "16.0/?/2.0",
           "advantage": "-30",
           "shieldLag": "10/4",
           "shieldStun": "6/3",
