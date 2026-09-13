@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleJab.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "19",
           "endlag": "15",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "36",
           "endlag": "25",
           "damage": "9.0",
@@ -44,7 +44,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—13",
+          "active": "6-13",
           "total": "29",
           "endlag": "16",
           "damage": "8.0",
@@ -59,7 +59,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "31",
           "endlag": "21",
           "damage": "13.0/8.0",
@@ -75,14 +75,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleDashAttackOffLedge.gif"
           ],
           "startup": "7",
-          "active": "7—12/13—19 (Normal) 7-12/13-66 (Off Ledge)",
+          "active": "7-12/13-19 (Normal) 7-12/13-66 (Off Ledge)",
           "total": "39",
           "damage": "10.0/6.0",
           "advantage": "-21",
           "shieldLag": "8/6",
           "shieldStun": "4/3",
           "hitboxes": "Clean/Late",
-          "notes": "Projectile Attack. If done off ledge, the late hit of the projectile will fall 15—68 instead."
+          "notes": "Projectile Attack. If done off ledge, the late hit of the projectile will fall 15-68 instead."
         },
         {
           "name": "Forward Smash",
@@ -91,7 +91,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleFSmash.gif"
           ],
           "startup": "14",
-          "active": "14—16/17—19",
+          "active": "14-16/17-19",
           "total": "45",
           "endlag": "26",
           "damage": "17.0/8.0",
@@ -107,7 +107,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleUSmash.gif"
           ],
           "startup": "9/14",
-          "active": "9—10/14—16/17—18",
+          "active": "9-10/14-16/17-18",
           "total": "45",
           "endlag": "27",
           "damage": "2.0/12.0",
@@ -124,7 +124,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleDSmash.gif"
           ],
           "startup": "8/12",
-          "active": "8—9/12—13",
+          "active": "8-9/12-13",
           "total": "43",
           "endlag": "30",
           "damage": "10.0/8.0",
@@ -140,7 +140,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleNAir.gif"
           ],
           "startup": "5/8",
-          "active": "5—7/8—25",
+          "active": "5-7/8-25",
           "total": "33",
           "endlag": "8",
           "landingLag": "6",
@@ -157,12 +157,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleFAir.gif"
           ],
           "startup": "10",
-          "active": "10—12(13—18/19—23)",
+          "active": "10-12(13-18/19-23)",
           "total": "39",
           "endlag": "16",
           "landingLag": "14",
           "damage": "7.0/4.0/2.5",
-          "advantage": "-6 — +4",
+          "advantage": "-6 - +4",
           "shieldLag": "7/5/5",
           "shieldStun": "3/2/2",
           "notes": "Projectile attack. Autocancels on frame 1-2 and 30 onward"
@@ -174,12 +174,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleBAir.gif"
           ],
           "startup": "13",
-          "active": "13—15(16—21/22—26)",
+          "active": "13-15(16-21/22-26)",
           "total": "35",
           "endlag": "9",
           "landingLag": "14",
           "damage": "9.0/5.0/3.0",
-          "advantage": "-4 — +5",
+          "advantage": "-4 - +5",
           "shieldLag": "7/6/5",
           "shieldStun": "4/3/2",
           "notes": "Projectile attack. Autocancels on frame 1-2 and 30 onward"
@@ -191,7 +191,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleUAir.gif"
           ],
           "startup": "6",
-          "active": "6—7/8—31",
+          "active": "6-7/8-31",
           "total": "42",
           "endlag": "11",
           "landingLag": "9",
@@ -208,7 +208,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleDAir.gif"
           ],
           "startup": "11",
-          "active": "11—12/13—28",
+          "active": "11-12/13-28",
           "total": "42",
           "endlag": "14",
           "landingLag": "9",
@@ -225,7 +225,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabellePocket.gif"
           ],
           "startup": "8 (Start of projectile pocket)",
-          "active": "8—23",
+          "active": "8-23",
           "total": "50",
           "endlag": "27",
           "notes": "Invulnerable on frame 5-23. Pockets projectiles on frame 8-23."
@@ -241,14 +241,14 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Fishing Rod)",
           "section": "special",
           "startup": "21",
-          "active": "21—43 (Ground), 21—70+ (Air), 18 (Tether)",
+          "active": "21-43 (Ground), 21-70+ (Air), 18 (Tether)",
           "notes": "Frame 50 is the earliest you can reel in."
         },
         {
           "name": "Fishing Rod, Reel In",
           "section": "special",
           "startup": "2",
-          "active": "2—11",
+          "active": "2-11",
           "total": "38",
           "endlag": "27"
         },
@@ -260,7 +260,7 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "15",
           "total": "45",
-          "damage": "14.0—17.0"
+          "damage": "14.0-17.0"
         },
         {
           "name": "Fishing Rod, Throw Back",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "13",
           "total": "35",
-          "damage": "11.0—14.0"
+          "damage": "11.0-14.0"
         },
         {
           "name": "Fishing Rod, Throw Up",
@@ -280,7 +280,7 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "22",
           "total": "43",
-          "damage": "12.0—15.0"
+          "damage": "12.0-15.0"
         },
         {
           "name": "Fishing Rod, Throw Down",
@@ -290,7 +290,7 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "18/22",
           "total": "39",
-          "damage": "9.5—15.0"
+          "damage": "9.5-15.0"
         },
         {
           "name": "Up B (Balloon Trip)",
@@ -318,7 +318,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleGrab.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "43",
           "endlag": "27"
         },
@@ -329,7 +329,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabelleDashGrab.gif"
           ],
           "startup": "15",
-          "active": "16—17",
+          "active": "16-17",
           "total": "46",
           "endlag": "29"
         },
@@ -340,7 +340,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/isabelle/IsabellePivotGrab.gif"
           ],
           "startup": "17",
-          "active": "17—19",
+          "active": "17-19",
           "total": "44",
           "endlag": "25"
         },

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraJab1.gif"
           ],
           "startup": "5",
-          "active": "5—12",
+          "active": "5-12",
           "total": "36",
           "endlag": "24",
           "damage": "2.8",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraJab2.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "37",
           "endlag": "27",
           "damage": "2.6",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraJab3.gif"
           ],
           "startup": "10",
-          "active": "10—17",
+          "active": "10-17",
           "total": "45",
           "endlag": "28",
           "damage": "4.2",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraFTilt.gif"
           ],
           "startup": "13",
-          "active": "13—17",
+          "active": "13-17",
           "total": "41",
           "endlag": "24",
           "damage": "7.2",
@@ -76,7 +76,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraFTilt2.gif"
           ],
           "startup": "13, 7",
-          "active": "13—17, 7—10",
+          "active": "13-17, 7-10",
           "total": "40, 35",
           "endlag": "27",
           "damage": "5.2, 3.6",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraFTilt3.gif"
           ],
           "startup": "10",
-          "active": "10—14",
+          "active": "10-14",
           "total": "45",
           "endlag": "31",
           "damage": "6.4",
@@ -107,7 +107,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraUTilt.gif"
           ],
           "startup": "8/12/16/20/24/28/33",
-          "active": "8—9/12—13/16—17/20—21/24—25/28—29/33—36",
+          "active": "8-9/12-13/16-17/20-21/24-25/28-29/33-36",
           "total": "53",
           "endlag": "17",
           "damage": "0.8/1.2/4.6",
@@ -122,7 +122,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "31",
           "endlag": "21",
           "damage": "5.2",
@@ -137,7 +137,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—12(13—18/19—24)",
+          "active": "7-12(13-18/19-24)",
           "total": "47",
           "endlag": "23",
           "damage": "9.6/7.6/7.2",
@@ -154,7 +154,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraFSmash.gif"
           ],
           "startup": "16",
-          "active": "16—17(18—20)",
+          "active": "16-17(18-20)",
           "total": "52",
           "endlag": "32",
           "damage": "13.8/15.4",
@@ -171,7 +171,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraUSmash.gif"
           ],
           "startup": "11/16",
-          "active": "11—12/16—19",
+          "active": "11-12/16-19",
           "total": "52",
           "endlag": "33",
           "damage": "0.6/14.6",
@@ -187,7 +187,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraDSmash.gif"
           ],
           "startup": "20",
-          "active": "20—23(20—22)",
+          "active": "20-23(20-22)",
           "total": "55",
           "endlag": "32",
           "damage": "15.2/14.2",
@@ -204,7 +204,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraNAir1.gif"
           ],
           "startup": "8",
-          "active": "8—20",
+          "active": "8-20",
           "total": "41",
           "endlag": "21",
           "landingLag": "9",
@@ -221,7 +221,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraNAir2.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "33",
           "endlag": "23",
           "landingLag": "10",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraNAir3.gif"
           ],
           "startup": "8",
-          "active": "9—13",
+          "active": "9-13",
           "total": "41",
           "endlag": "28",
           "landingLag": "11",
@@ -255,7 +255,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraFAir1.gif"
           ],
           "startup": "10",
-          "active": "10—15",
+          "active": "10-15",
           "total": "43",
           "endlag": "28",
           "landingLag": "12",
@@ -272,7 +272,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraFAir2.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "33",
           "endlag": "23",
           "landingLag": "13",
@@ -289,7 +289,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraFAir3.gif"
           ],
           "startup": "8",
-          "active": "9—13",
+          "active": "9-13",
           "total": "41",
           "endlag": "28",
           "landingLag": "14",
@@ -306,7 +306,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraBAir.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "37",
           "endlag": "22",
           "landingLag": "11",
@@ -323,7 +323,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraUAir.gif"
           ],
           "startup": "10",
-          "active": "10—18",
+          "active": "10-18",
           "total": "41",
           "endlag": "23",
           "landingLag": "10",
@@ -341,7 +341,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraDAirLanding.gif"
           ],
           "startup": "15",
-          "active": "15—44",
+          "active": "15-44",
           "total": "57",
           "endlag": "13",
           "landingLag": "28",
@@ -359,14 +359,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraMagicFiraga.gif"
           ],
           "startup": "16",
-          "active": "16—25/26—35/36—55",
+          "active": "16-25/26-35/36-55",
           "total": "41",
           "damage": "5.6/5.2/4.8",
           "advantage": "-14",
           "shieldLag": "6/6/6",
           "shieldStun": "6/6/6",
           "hitboxes": "Early/Late/Latest",
-          "notes": "Can fire additional shots every 36 frames. Windbox on frames 14—15."
+          "notes": "Can fire additional shots every 36 frames. Windbox on frames 14-15."
         },
         {
           "name": "Neutral B (Thundaga)",
@@ -376,7 +376,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraThundagaA.gif"
           ],
           "startup": "30/44/58",
-          "active": "Ground: 30—52/44—66/58—80 Air: 29—52/43—66/58—80",
+          "active": "Ground: 30-52/44-66/58-80 Air: 29-52/43-66/58-80",
           "total": "69",
           "damage": "5.2",
           "shieldLag": "9",
@@ -439,9 +439,9 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraCounterAttack.gif"
           ],
           "startup": "7",
-          "active": "7—25 (counter)",
+          "active": "7-25 (counter)",
           "total": "51",
-          "notes": "Full intangibility on frames 7-8. Counters on frames 8—25. Sora must be facing the attacker."
+          "notes": "Full intangibility on frames 7-8. Counters on frames 8-25. Sora must be facing the attacker."
         },
         {
           "name": "Down B (Counterattack, Success)",
@@ -450,10 +450,10 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraCounterAttackHit.gif"
           ],
           "startup": "25",
-          "active": "25—29",
+          "active": "25-29",
           "total": "49",
           "endlag": "20",
-          "notes": "Full intangibility on frame 1-29 (not including freeze frames). When countering a projectile, the first 22 frames of startup are skipped. When turning around, is active on frames 31—35 with 55 total frames and full intangibility on 1-35."
+          "notes": "Full intangibility on frame 1-29 (not including freeze frames). When countering a projectile, the first 22 frames of startup are skipped. When turning around, is active on frames 31-35 with 55 total frames and full intangibility on 1-35."
         },
         {
           "name": "Grab",
@@ -462,7 +462,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "35",
           "endlag": "27"
         },
@@ -473,7 +473,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "41",
           "endlag": "30"
         },
@@ -484,7 +484,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sora/SoraPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "37",
           "endlag": "25"
         },
@@ -519,7 +519,7 @@ export const FRAMES: FighterFrames = {
           "startup": "11",
           "total": "57",
           "damage": "11.8",
-          "notes": "Collateral hitbox on frames 11—31."
+          "notes": "Collateral hitbox on frames 11-31."
         },
         {
           "name": "Up Throw",

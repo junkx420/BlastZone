@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaJab.gif"
           ],
           "startup": "4/7",
-          "active": "4—5/7",
+          "active": "4-5/7",
           "total": "24",
           "endlag": "17",
           "damage": "2.5/2.5",
@@ -41,7 +41,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaJabRapidEnd.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "42",
           "endlag": "35",
           "damage": "3.0",
@@ -58,7 +58,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaFTiltDown.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "36",
           "endlag": "23",
           "damage": "11.5/15.0",
@@ -73,7 +73,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—19",
+          "active": "7-19",
           "total": "29",
           "endlag": "10",
           "damage": "7.2",
@@ -88,7 +88,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—11",
+          "active": "5-11",
           "total": "21",
           "endlag": "10",
           "damage": "5.5",
@@ -103,7 +103,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—7/8—12",
+          "active": "6-7/8-12",
           "total": "35",
           "endlag": "23",
           "damage": "12.0/9.0/6.0",
@@ -135,7 +135,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaUSmash.gif"
           ],
           "startup": "9/13/17/21/25/29/34",
-          "active": "9—23/25—32/34",
+          "active": "9-23/25-32/34",
           "total": "63",
           "endlag": "29",
           "damage": "2.0/0.8/5.0",
@@ -151,7 +151,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaDSmash.gif"
           ],
           "startup": "5/13",
-          "active": "5—6/13—14",
+          "active": "5-6/13-14",
           "total": "37",
           "endlag": "23",
           "damage": "12.0/10.0",
@@ -167,7 +167,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaNAir.gif"
           ],
           "startup": "6/10/14/18/22",
-          "active": "6—7/10—11/14—15/18—19/22—23",
+          "active": "6-7/10-11/14-15/18-19/22-23",
           "total": "50",
           "endlag": "27",
           "landingLag": "12",
@@ -185,7 +185,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaFAir.gif"
           ],
           "startup": "6",
-          "active": "6/7—10",
+          "active": "6/7-10",
           "total": "49",
           "endlag": "39",
           "landingLag": "15",
@@ -203,7 +203,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaBAir.gif"
           ],
           "startup": "6",
-          "active": "6/7—10",
+          "active": "6/7-10",
           "total": "49",
           "endlag": "39",
           "landingLag": "16",
@@ -221,7 +221,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaUAir.gif"
           ],
           "startup": "14",
-          "active": "14—16/17—19",
+          "active": "14-16/17-19",
           "total": "54",
           "endlag": "35",
           "landingLag": "12",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaDAir.gif"
           ],
           "startup": "14",
-          "active": "14/15—24",
+          "active": "14/15-24",
           "total": "44",
           "endlag": "20",
           "landingLag": "12",
@@ -272,14 +272,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaDinsFireMin.gif",
             "hitboxes/zelda/ZeldaDinsFireMax.gif"
           ],
-          "startup": "44—70",
-          "active": "44—49/.../70—75",
-          "total": "69—97",
+          "startup": "44-70",
+          "active": "44-49/.../70-75",
+          "total": "69-97",
           "endlag": "20-(22)",
-          "damage": "3.5—14.0",
+          "damage": "3.5-14.0",
           "advantage": "-18 to -10",
-          "shieldLag": "5—10",
-          "shieldStun": "2—5",
+          "shieldLag": "5-10",
+          "shieldStun": "2-5",
           "notes": "On release/max charge startup is frame 14. Reaches max charge on frame 56. Total frames for release animation is 39 frames. Bug occurs which causes Zelda to start her release animation 1/2 frames after the explosion startup if she holds special up to frames 57/58, giving 22 frames of endlag instead of 20. Interaction with stage elements can detonate as early as frame 25. Springs/Hitstun can cancel the move and allow her to send a second projectile which can explode as early as frame 32."
         },
         {
@@ -290,7 +290,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaFaroresWindA.gif"
           ],
           "startup": "6/35",
-          "active": "6—7/35—36",
+          "active": "6-7/35-36",
           "total": "75",
           "endlag": "39",
           "landingLag": "30",
@@ -314,10 +314,10 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "26/32/38/46/59-127",
           "total": "66/39",
-          "damage": "5.9—17.7",
+          "damage": "5.9-17.7",
           "advantage": "-19 to -15",
-          "shieldLag": "6—10",
-          "shieldStun": "3—5",
+          "shieldLag": "6-10",
+          "shieldStun": "3-5",
           "notes": "Startup values correspond to the first active frame possible for different stages of construction. Final charge enters standby mode frames 68-120 and begins automatic launch on frame 121. Each stage of construction becomes available for manual launch in order 15-19 (Stage 1), 20-27 (Stage 2), 28-37 (Stage 3), 38-44 (Stage 4 shieldless), 45-49, (Stage 4), 50-120 (Stage 5). Manual release lag is 39 frames. Once full charge is reached, Zelda can act as early as frame 67. Any attack/special input initiated on frame 66 results in a simultaneous launch of phantom along with said input."
         },
         {
@@ -327,7 +327,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "39",
           "endlag": "28"
         },
@@ -338,7 +338,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaDashGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "47",
           "endlag": "33"
         },
@@ -349,7 +349,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zelda/ZeldaPivotGrab.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "42",
           "endlag": "27"
         },

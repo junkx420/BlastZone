@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoJab.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "21",
           "endlag": "15",
           "damage": "3.0",
@@ -40,7 +40,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoJabRapidEnd.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "40",
           "endlag": "33",
           "damage": "2.5",
@@ -57,7 +57,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoFTiltDown.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "35",
           "endlag": "24",
           "damage": "11.0/10.0/9.0",
@@ -73,7 +73,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoUTilt.gif"
           ],
           "startup": "8",
-          "active": "8(9—13)",
+          "active": "8(9-13)",
           "total": "29",
           "endlag": "16",
           "damage": "7.0/6.0/5.5, 5.0/4.0",
@@ -89,7 +89,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "23",
           "endlag": "16",
           "damage": "5.0/4.5/4.0",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoDashAttack.gif"
           ],
           "startup": "10",
-          "active": "10—11(12—20)",
+          "active": "10-11(12-20)",
           "total": "38",
           "endlag": "18",
           "damage": "12.0/6.0",
@@ -123,7 +123,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoFSmashDown.gif"
           ],
           "startup": "19",
-          "active": "19—22",
+          "active": "19-22",
           "total": "52",
           "endlag": "30",
           "damage": "16.0/20.0",
@@ -140,7 +140,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoUSmash.gif"
           ],
           "startup": "9/14/18/22",
-          "active": "9(10—11)/14—15/18—19/22—25",
+          "active": "9(10-11)/14-15/18-19/22-25",
           "total": "68",
           "endlag": "43",
           "damage": "2.0/10.0",
@@ -157,7 +157,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoDSmash.gif"
           ],
           "startup": "21",
-          "active": "21—23",
+          "active": "21-23",
           "total": "40",
           "endlag": "17",
           "damage": "16.0",
@@ -173,7 +173,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoNAir.gif"
           ],
           "startup": "7/11/15/19/23/27",
-          "active": "7—8/11—12/15—16/19—20/23—24/27—28",
+          "active": "7-8/11-12/15-16/19-20/23-24/27-28",
           "total": "49",
           "endlag": "21",
           "landingLag": "10",
@@ -191,7 +191,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoFAir.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "39",
           "endlag": "30",
           "landingLag": "8",
@@ -208,7 +208,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoBAir.gif"
           ],
           "startup": "13",
-          "active": "13—17",
+          "active": "13-17",
           "total": "39",
           "endlag": "22",
           "landingLag": "10",
@@ -226,7 +226,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoUAir.gif"
           ],
           "startup": "10",
-          "active": "10—14",
+          "active": "10-14",
           "total": "39",
           "endlag": "25",
           "landingLag": "8",
@@ -244,7 +244,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoDAir.gif"
           ],
           "startup": "15",
-          "active": "15—18",
+          "active": "15-18",
           "total": "47",
           "endlag": "29",
           "landingLag": "11",
@@ -260,17 +260,17 @@ export const FRAMES: FighterFrames = {
           "startup": "9(+12)",
           "total": "27",
           "landingLag": "29",
-          "damage": "2.5—24.9",
+          "damage": "2.5-24.9",
           "advantage": "-16 to -2",
-          "shieldLag": "5—14",
-          "shieldStun": "2—7",
+          "shieldLag": "5-14",
+          "shieldStun": "2-7",
           "notes": "9 startup from charge state. 12 to enter charge state. Takes 4 frames to cancel charge with shield."
         },
         {
           "name": "Shadow Ball, Fully Charged",
           "section": "special",
           "startup": "16",
-          "active": "16—98",
+          "active": "16-98",
           "total": "39",
           "damage": "25.0",
           "advantage": "-2",
@@ -285,7 +285,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoConfusion.gif"
           ],
           "startup": "10 (21/23/25/27/29/31/33/39)",
-          "active": "10—13",
+          "active": "10-13",
           "total": "39/42",
           "endlag": "26",
           "notes": "Grab is on frame 10, the following hits are when successful. 44 total frames when you miss. Reflector active 10-33."
@@ -304,7 +304,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoDisable.gif"
           ],
           "startup": "16",
-          "active": "16—23",
+          "active": "16-23",
           "total": "52",
           "endlag": "29",
           "damage": "1.0",
@@ -320,7 +320,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "39",
           "endlag": "31"
         },
@@ -331,7 +331,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "47",
           "endlag": "36"
         },
@@ -342,7 +342,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mewtwo/MewtwoPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "42",
           "endlag": "30"
         },

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkJab1.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "18",
           "endlag": "12",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkJab2.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "20",
           "endlag": "13",
           "damage": "2.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "36",
           "endlag": "29",
           "damage": "4.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkFTilt.gif"
           ],
           "startup": "9",
-          "active": "9—13",
+          "active": "9-13",
           "total": "29",
           "endlag": "16",
           "damage": "9.0",
@@ -75,7 +75,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkUTilt.gif"
           ],
           "startup": "8",
-          "active": "8—12",
+          "active": "8-12",
           "total": "25",
           "endlag": "13",
           "damage": "5.0",
@@ -90,7 +90,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "22",
           "endlag": "12",
           "damage": "7.0",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "28",
           "endlag": "19",
           "damage": "8.0/6.0",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkFSmash.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "48",
           "endlag": "31",
           "damage": "14.0",
@@ -136,7 +136,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkUSmash.gif"
           ],
           "startup": "11",
-          "active": "11(12—13/14—15)",
+          "active": "11(12-13/14-15)",
           "total": "42",
           "endlag": "27",
           "damage": "13.0",
@@ -152,7 +152,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkDSmash.gif"
           ],
           "startup": "9/17",
-          "active": "9—10/17—18",
+          "active": "9-10/17-18",
           "total": "46",
           "endlag": "28",
           "damage": "12.0/13.0",
@@ -168,7 +168,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkNAir.gif"
           ],
           "startup": "6/13",
-          "active": "6—7/13—14",
+          "active": "6-7/13-14",
           "total": "41",
           "endlag": "27",
           "landingLag": "7",
@@ -185,7 +185,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkFAir.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "38",
           "endlag": "23",
           "landingLag": "11",
@@ -202,7 +202,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkBAir.gif"
           ],
           "startup": "6",
-          "active": "6—9",
+          "active": "6-9",
           "total": "35",
           "endlag": "26",
           "landingLag": "8",
@@ -219,7 +219,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkUAir.gif"
           ],
           "startup": "11",
-          "active": "11—13(14—40)",
+          "active": "11-13(14-40)",
           "total": "59",
           "endlag": "19",
           "landingLag": "13",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkDAirLanding.gif"
           ],
           "startup": "17",
-          "active": "17—25(26—64)/1",
+          "active": "17-25(26-64)/1",
           "total": "79",
           "endlag": "15",
           "landingLag": "23",
@@ -256,7 +256,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkZAir.gif"
           ],
           "startup": "11",
-          "active": "11—20",
+          "active": "11-20",
           "total": "73",
           "endlag": "53",
           "landingLag": "8",
@@ -268,26 +268,26 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Hero's Bow)",
           "section": "special",
-          "startup": "18—60",
-          "active": "18—77",
-          "total": "39—82",
-          "damage": "4.0—12.0",
+          "startup": "18-60",
+          "active": "18-77",
+          "total": "39-82",
+          "damage": "4.0-12.0",
           "advantage": "-12 to -6",
-          "shieldLag": "5—9",
-          "shieldStun": "2—4",
-          "hitboxes": "Uncharged—Full Charge",
+          "shieldLag": "5-9",
+          "shieldStun": "2-4",
+          "hitboxes": "Uncharged-Full Charge",
           "notes": "Startup is 1 from charge release. Reaches full charge on 60."
         },
         {
           "name": "Side B (Boomerang)",
           "section": "special",
           "startup": "27",
-          "active": "27—36(37—77/78—173)",
+          "active": "27-36(37-77/78-173)",
           "total": "45",
-          "damage": "5.0—9.6/3.0",
+          "damage": "5.0-9.6/3.0",
           "advantage": "-9 to -6",
-          "shieldLag": "6—8/5",
-          "shieldStun": "3—4/2",
+          "shieldLag": "6-8/5",
+          "shieldStun": "3-4/2",
           "hitboxes": "Going/Returning",
           "notes": "9 frame animation of catching the boomerang if no other action is performed"
         },
@@ -298,7 +298,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkSpinAttackG.gif"
           ],
           "startup": "6...",
-          "active": "6—14/15—46/48 (rehit: 4)",
+          "active": "6-14/15-46/48 (rehit: 4)",
           "total": "77",
           "endlag": "29",
           "damage": "1.0/3.0",
@@ -315,7 +315,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkSpinAttackA.gif"
           ],
           "startup": "8...",
-          "active": "8—10/12—13/16—18/19—20/22—24/27—28/31—33/35/44—48",
+          "active": "8-10/12-13/16-18/19-20/22-24/27-28/31-33/35/44-48",
           "landingLag": "30",
           "damage": "4.0/2.0/4.0",
           "shieldLag": "5/4/9",
@@ -335,7 +335,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkGrab.gif"
           ],
           "startup": "12",
-          "active": "12—18",
+          "active": "12-18",
           "total": "52",
           "endlag": "34",
           "notes": "Hand grabbox active for the first 2 frames"
@@ -347,7 +347,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkDashGrab.gif"
           ],
           "startup": "14",
-          "active": "14—20",
+          "active": "14-20",
           "total": "60",
           "endlag": "40",
           "notes": "Hand grabbox active for the first 2 frames"
@@ -359,7 +359,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/toon_link/ToonLinkPivotGrab.gif"
           ],
           "startup": "15",
-          "active": "15—21",
+          "active": "15-21",
           "total": "55",
           "endlag": "34",
           "notes": "Hand grabbox active for the first 2 frames"

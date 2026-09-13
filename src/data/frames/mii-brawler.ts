@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerJab1.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "15",
           "endlag": "12",
           "damage": "1.8",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerJab2.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "18",
           "endlag": "15",
           "damage": "1.0",
@@ -57,7 +57,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerJabRapidFinisher.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "40",
           "endlag": "35",
           "damage": "2.0",
@@ -74,7 +74,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerFTiltDown.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "27",
           "endlag": "19",
           "damage": "8.0/8.3/8.5",
@@ -90,7 +90,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—12",
+          "active": "5-12",
           "total": "29",
           "endlag": "17",
           "damage": "6.0",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "27",
           "endlag": "19",
           "damage": "8.0",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—9(10—17)",
+          "active": "6-9(10-17)",
           "total": "35",
           "endlag": "18",
           "damage": "11.0/6.0",
@@ -138,7 +138,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerFSmashDown.gif"
           ],
           "startup": "17",
-          "active": "17—18",
+          "active": "17-18",
           "total": "67",
           "endlag": "49",
           "damage": "18.0",
@@ -154,7 +154,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerUSmash.gif"
           ],
           "startup": "8",
-          "active": "8—12(13—14)",
+          "active": "8-12(13-14)",
           "total": "47",
           "endlag": "33",
           "damage": "14.0/10.0",
@@ -171,7 +171,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerDSmash.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "43",
           "endlag": "33",
           "damage": "13.0",
@@ -187,7 +187,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerNAir.gif"
           ],
           "startup": "3",
-          "active": "3—5(6—29)",
+          "active": "3-5(6-29)",
           "total": "45",
           "endlag": "16",
           "landingLag": "6",
@@ -204,7 +204,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerFAir.gif"
           ],
           "startup": "8/15",
-          "active": "8—9/15—17",
+          "active": "8-9/15-17",
           "total": "44",
           "endlag": "27",
           "landingLag": "11",
@@ -222,7 +222,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerBAir.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "39",
           "endlag": "30",
           "landingLag": "11",
@@ -239,7 +239,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerUAir.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "35",
           "endlag": "25",
           "landingLag": "10",
@@ -256,7 +256,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerDAir.gif"
           ],
           "startup": "16",
-          "active": "16—17(18)",
+          "active": "16-17(18)",
           "total": "49",
           "endlag": "31",
           "landingLag": "18",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
           "name": "Shot Put",
           "section": "special",
           "startup": "28",
-          "active": "28—**/59",
+          "active": "28-**/59",
           "total": "67",
           "endlag": "8",
           "damage": "15.0/11.2",
@@ -304,7 +304,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerExplodingSideKick.gif"
           ],
           "startup": "50/52",
-          "active": "50—52 (Reverse: 62—64 to 81—73)",
+          "active": "50-52 (Reverse: 62-64 to 81-73)",
           "total": "79",
           "damage": "25.0/28.0",
           "advantage": "-7/-5",
@@ -320,8 +320,8 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerOnslaughtG.gif",
             "hitboxes/mii_brawler/MiiBrawlerOnslaughtHitG.gif"
           ],
-          "startup": "16—30 + 4",
-          "active": "Dash: 16—30 Hit: 4—5/8—10/13/15—16/18—19/28—29",
+          "startup": "16-30 + 4",
+          "active": "Dash: 16-30 Hit: 4-5/8-10/13/15-16/18-19/28-29",
           "total": "70/73",
           "endlag": "41",
           "damage": "2.0/2.0/7.0",
@@ -336,8 +336,8 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerOnslaughtA.gif",
             "hitboxes/mii_brawler/MiiBrawlerOnslaughtHitA.gif"
           ],
-          "startup": "16—30 + 4",
-          "active": "Dash: 16—30 Hit: 4—5/8—10/13/15—16/18—19/28—30",
+          "startup": "16-30 + 4",
+          "active": "Dash: 16-30 Hit: 4-5/8-10/13/15-16/18-19/28-30",
           "landingLag": "30/40",
           "damage": "2.0/1.5/5.0",
           "shieldLag": "4",
@@ -351,7 +351,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerBurningDropkick.gif"
           ],
           "startup": "18",
-          "active": "18—29",
+          "active": "18-29",
           "total": "68/60",
           "endlag": "39",
           "damage": "13.0",
@@ -368,7 +368,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerSuplexA.gif"
           ],
           "startup": "13",
-          "active": "13—21",
+          "active": "13-21",
           "total": "51",
           "endlag": "30"
         },
@@ -391,7 +391,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerSoaringAxeKickLanding.gif"
           ],
           "startup": "10/30",
-          "active": "10—15/3—**/1—2",
+          "active": "10-15/3-**/1-2",
           "landingLag": "22/29",
           "damage": "4.0/3.0/4.0",
           "advantage": "-23",
@@ -408,7 +408,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerHelicopterKickA.gif"
           ],
           "startup": "8...",
-          "active": "Ground: 8—9/15/20/26/31/36—37 Air: 8/15/20/26/31/36—37",
+          "active": "Ground: 8-9/15/20/26/31/36-37 Air: 8/15/20/26/31/36-37",
           "landingLag": "26",
           "damage": "3.0/1.5/6.0",
           "shieldLag": "5/4/14",
@@ -422,7 +422,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerThrustUppercut.gif"
           ],
           "startup": "3/6/9/12/15/20",
-          "active": "3—4/6—7/9—10/12—13/15/20—21",
+          "active": "3-4/6-7/9-10/12-13/15/20-21",
           "landingLag": "30",
           "damage": "0.8/9.0",
           "shieldLag": "4/13",
@@ -475,7 +475,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerFeintJumpAutoKick.gif"
           ],
           "startup": "8",
-          "active": "8—21(1—2)",
+          "active": "8-21(1-2)",
           "total": "52",
           "endlag": "31",
           "landingLag": "37",
@@ -492,7 +492,7 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/mii_brawler/MiiBrawlerCounterThrow.gif"
           ],
-          "active": "6—23 (counter)",
+          "active": "6-23 (counter)",
           "total": "38",
           "notes": "Invulnerable on frame 5. Counters frame 6-23"
         },
@@ -515,7 +515,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -526,7 +526,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -537,7 +537,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_brawler/MiiBrawlerPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

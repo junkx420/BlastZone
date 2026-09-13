@@ -56,7 +56,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyJabRapidEnd.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "39",
           "endlag": "35",
           "damage": "3.0",
@@ -73,7 +73,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyFTiltDown.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "23",
           "endlag": "15",
           "damage": "8.0/7.0",
@@ -89,7 +89,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyUTilt.gif"
           ],
           "startup": "4",
-          "active": "4—5/6—10",
+          "active": "4-5/6-10",
           "total": "20",
           "endlag": "10",
           "damage": "5.0/4.0",
@@ -106,7 +106,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyDTilt.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "20",
           "endlag": "14",
           "damage": "6.0",
@@ -121,7 +121,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyDashAttack.gif"
           ],
           "startup": "9",
-          "active": "9—17/18—26/27—34",
+          "active": "9-17/18-26/27-34",
           "total": "51",
           "endlag": "17",
           "damage": "12.0/9.0/6.0",
@@ -137,7 +137,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyFSmashDown.gif"
           ],
           "startup": "13",
-          "active": "13—15/16—19",
+          "active": "13-15/16-19",
           "total": "47",
           "endlag": "28",
           "damage": "15.0/11.0",
@@ -154,7 +154,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyUSmash.gif"
           ],
           "startup": "12",
-          "active": "12—14/15—16/17",
+          "active": "12-14/15-16/17",
           "total": "45",
           "endlag": "28",
           "damage": "(15.0%/14.0%)/(14.0%/13.0%)/(13.0%/12.0%)",
@@ -171,7 +171,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyDSmash.gif"
           ],
           "startup": "7",
-          "active": "7—11/12—19",
+          "active": "7-11/12-19",
           "total": "50",
           "endlag": "31",
           "damage": "14.0/10.0",
@@ -187,7 +187,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyNAir.gif"
           ],
           "startup": "8",
-          "active": "8—9/10—13/14—18/19—32",
+          "active": "8-9/10-13/14-18/19-32",
           "total": "52",
           "endlag": "20",
           "landingLag": "6",
@@ -205,7 +205,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyFAir.gif"
           ],
           "startup": "10/17/25",
-          "active": "10—11/17—18/25—27",
+          "active": "10-11/17-18/25-27",
           "total": "47",
           "endlag": "20",
           "landingLag": "8",
@@ -222,7 +222,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyBAir.gif"
           ],
           "startup": "6",
-          "active": "6—8/9—12",
+          "active": "6-8/9-12",
           "total": "40",
           "endlag": "28",
           "landingLag": "10",
@@ -240,7 +240,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyUAir.gif"
           ],
           "startup": "8",
-          "active": "8—13",
+          "active": "8-13",
           "total": "35",
           "endlag": "22",
           "landingLag": "7",
@@ -258,7 +258,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyDAirLanding.gif"
           ],
           "startup": "18/21/24/27/30/34",
-          "active": "18—19/21—22/24—25/27—28/30—31/34",
+          "active": "18-19/21-22/24-25/27-28/30-31/34",
           "total": "54",
           "endlag": "20",
           "landingLag": "16",
@@ -277,7 +277,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyInhale.gif"
           ],
           "startup": "10",
-          "active": "10—44 (longer if held)",
+          "active": "10-44 (longer if held)",
           "total": "67",
           "notes": "Minimum total frames is 67. Endlag is 19 frames upon release. Can eat projectiles. Projectile eat animation is 51 frames long"
         },
@@ -295,13 +295,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyHammerFlipG.gif"
           ],
           "startup": "11(+15)",
-          "active": "26—27 (11—12 from charge)",
+          "active": "26-27 (11-12 from charge)",
           "total": "54",
           "endlag": "27",
-          "damage": "19.0—28.8",
+          "damage": "19.0-28.8",
           "advantage": "-26 to -18",
-          "shieldLag": "14—16",
-          "shieldStun": "17—25",
+          "shieldLag": "14-16",
+          "shieldStun": "17-25",
           "notes": "Startup is 11 from charging state. Takes 15 frames to enter charging state."
         },
         {
@@ -311,7 +311,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyHammerFlipGMax.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "59",
           "endlag": "47",
           "damage": "35.0",
@@ -328,7 +328,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyHammerFlipAMax.gif"
           ],
           "startup": "28/42",
-          "active": "28—29/42—43",
+          "active": "28-29/42-43",
           "total": "71",
           "endlag": "28",
           "damage": "16.0",
@@ -344,7 +344,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyFinalCutterLanding.gif"
           ],
           "startup": "23/(41/50...)/**/**",
-          "active": "23—26/(41—49/50...)",
+          "active": "23-26/(41-49/50...)",
           "landingLag": "30",
           "damage": "5.0/2.0/(5.0/2.0)/6.0",
           "advantage": "--/--/-21/**",
@@ -367,7 +367,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B, Air (Stone, Air)",
           "section": "special",
           "startup": "29",
-          "active": "29—47 (**)",
+          "active": "29-47 (**)",
           "damage": "18.0",
           "advantage": "-17",
           "shieldLag": "11",
@@ -381,7 +381,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -392,7 +392,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "41",
           "endlag": "31"
         },
@@ -403,7 +403,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kirby/KirbyPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "36",
           "endlag": "25"
         },
@@ -447,7 +447,7 @@ export const FRAMES: FighterFrames = {
           "startup": "58",
           "total": "86",
           "damage": "10.0",
-          "notes": "Startup and total frames assume level ground. Endlag is always 30 after landing. Deals 7.0 damage and knockback to anyone near Kirby on frames 45—53."
+          "notes": "Startup and total frames assume level ground. Endlag is always 30 after landing. Deals 7.0 damage and knockback to anyone near Kirby on frames 45-53."
         },
         {
           "name": "Down Throw",
@@ -458,7 +458,7 @@ export const FRAMES: FighterFrames = {
           "startup": "9",
           "total": "87",
           "damage": "1.0/2.0",
-          "notes": "Throw releases on 58. Active: 9—10/13—14/17—18/21—22/25—26/29—30/33—34/37—38/41—42/56—57."
+          "notes": "Throw releases on 58. Active: 9-10/13-14/17-18/21-22/25-26/29-30/33-34/37-38/41-42/56-57."
         },
         {
           "name": "Spot Dodge",

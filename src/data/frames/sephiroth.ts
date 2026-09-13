@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothJab1.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "28",
           "endlag": "21",
           "damage": "2.5",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothJab2.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "33",
           "endlag": "26",
           "damage": "2.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothJab3.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "35",
           "endlag": "26",
           "damage": "4.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothFTiltDown.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "37",
           "endlag": "21",
           "damage": "7.5/12.0/9.0",
@@ -95,7 +95,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—15(16—22)",
+          "active": "9-15(16-22)",
           "total": "42",
           "endlag": "20",
           "damage": "8.0/6.0",
@@ -111,7 +111,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothDashAttack.gif"
           ],
           "startup": "14",
-          "active": "14—15(16—19)",
+          "active": "14-15(16-19)",
           "total": "46",
           "endlag": "27",
           "damage": "13.0/7.0",
@@ -127,7 +127,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothFSmashWinged.gif"
           ],
           "startup": "24",
-          "active": "24—25",
+          "active": "24-25",
           "total": "67",
           "endlag": "42",
           "damage": "13.5/20.0./15.0",
@@ -135,7 +135,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "9/15/10",
           "shieldStun": "9/13/10",
           "hitboxes": "close/middle/tip",
-          "notes": "Charge hold on frame 8. Armor with Wing on 10—23."
+          "notes": "Charge hold on frame 8. Armor with Wing on 10-23."
         },
         {
           "name": "Up Smash",
@@ -153,7 +153,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "8/14/9 / 9/14/9",
           "shieldStun": "8/10/8 / 8/11/9",
           "hitboxes": "early close/middle/far / late close/middle/far",
-          "notes": "Charge hold on frame 12. Armor with wing on 14—22. Active frames note: Frame in brackets is a coverage hitbox that is active on that frame during the clean hit's active frames."
+          "notes": "Charge hold on frame 12. Armor with wing on 14-22. Active frames note: Frame in brackets is a coverage hitbox that is active on that frame during the clean hit's active frames."
         },
         {
           "name": "Down Smash (if hitting the ground)",
@@ -163,7 +163,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothDSmashWinged.gif"
           ],
           "startup": "21",
-          "active": "21—23",
+          "active": "21-23",
           "total": "53",
           "endlag": "30",
           "damage": "16.5/13.5/10.5/11.5/13.0",
@@ -171,7 +171,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "8/13",
           "shieldStun": "8/11",
           "hitboxes": "Close/Far",
-          "notes": "Charge hold on frame 8. Armour with Wing on 10—20."
+          "notes": "Charge hold on frame 8. Armour with Wing on 10-20."
         },
         {
           "name": "Down Smash (does not hit the ground)",
@@ -181,7 +181,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothDSmashAirWinged.gif"
           ],
           "startup": "21",
-          "active": "21—22",
+          "active": "21-22",
           "total": "53",
           "endlag": "31",
           "damage": "10.5/11.5/13.0",
@@ -189,7 +189,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "8/13",
           "shieldStun": "8/11",
           "hitboxes": "Close/Far",
-          "notes": "Charge hold on frame 8. Armour with Wing on 10—20."
+          "notes": "Charge hold on frame 8. Armour with Wing on 10-20."
         },
         {
           "name": "Neutral Air",
@@ -198,7 +198,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothNAir.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "33",
           "endlag": "23",
           "landingLag": "9",
@@ -215,7 +215,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothFAir.gif"
           ],
           "startup": "13",
-          "active": "13—14(15—18)",
+          "active": "13-14(15-18)",
           "total": "41",
           "endlag": "23",
           "landingLag": "14",
@@ -233,7 +233,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothBAir.gif"
           ],
           "startup": "15",
-          "active": "15—16",
+          "active": "15-16",
           "total": "46",
           "endlag": "30",
           "landingLag": "16",
@@ -251,7 +251,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothUAir.gif"
           ],
           "startup": "16",
-          "active": "16—21",
+          "active": "16-21",
           "total": "53",
           "endlag": "32",
           "landingLag": "21",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothDAirLanding.gif"
           ],
           "startup": "19",
-          "active": "19—23/24—39(1—2)",
+          "active": "19-23/24-39(1-2)",
           "total": "61",
           "endlag": "22",
           "landingLag": "26",
@@ -288,7 +288,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothFlare.gif"
           ],
           "startup": "41",
-          "active": "(22—27/28—34/35—39/40—95)/98—101",
+          "active": "(22-27/28-34/35-39/40-95)/98-101",
           "total": "65",
           "damage": "3.0 / 10.5",
           "advantage": "-28",
@@ -304,7 +304,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothMegaflare.gif"
           ],
           "startup": "52",
-          "active": "21—48/(58—60/61—66/67—68)",
+          "active": "21-48/(58-60/61-66/67-68)",
           "total": "73",
           "endlag": "5",
           "damage": "3.5 / 3.7 / 9.0",
@@ -321,7 +321,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothGigaflare.gif"
           ],
           "startup": "130",
-          "active": "130—176/(183—184/185—200/201—202)",
+          "active": "130-176/(183-184/185-200/201-202)",
           "total": "181",
           "damage": "6.0 / 3.7 / 11.0",
           "advantage": "-13",
@@ -338,16 +338,16 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothShadowFlareAMin.gif",
             "hitboxes/sephiroth/SephirothShadowFlareAMax.gif"
           ],
-          "startup": "16—42",
+          "startup": "16-42",
           "active": "8-14",
-          "total": "38—64",
+          "total": "38-64",
           "endlag": "24",
-          "damage": "1.6—4.5 / 6.5",
-          "advantage": "-17 — -15",
-          "shieldLag": "4—5/8",
-          "shieldStun": "2—3/3",
+          "damage": "1.6-4.5 / 6.5",
+          "advantage": "-17 - -15",
+          "shieldLag": "4-5/8",
+          "shieldStun": "2-3/3",
           "hitboxes": "projectile/explode",
-          "notes": "Startup and total frames vary with charge. Startup after charge release is 8—14 frames."
+          "notes": "Startup and total frames vary with charge. Startup after charge release is 8-14 frames."
         },
         {
           "name": "Up B, no charge (Blade Dash)",
@@ -356,7 +356,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothBladeDash.gif"
           ],
           "startup": "25",
-          "active": "25—28",
+          "active": "25-28",
           "total": "56*",
           "endlag": "28",
           "landingLag": "27",
@@ -378,7 +378,7 @@ export const FRAMES: FighterFrames = {
           "endlag": "54",
           "landingLag": "56",
           "damage": "2.3 (Multihits)/(7.0/2.3 Final hit)",
-          "advantage": "-63 — -61/-47 [-62 — -60/-45]",
+          "advantage": "-63 - -61/-47 [-62 - -60/-45]",
           "shieldLag": "5/15",
           "shieldStun": "*/7",
           "hitboxes": "multi/final",
@@ -391,7 +391,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothScintillaMiss.gif"
           ],
           "startup": "38",
-          "active": "38—52 (Rehit: 5)/53",
+          "active": "38-52 (Rehit: 5)/53",
           "total": "86",
           "endlag": "33",
           "damage": "1.0 / 5.0",
@@ -399,7 +399,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "4/6",
           "shieldStun": "*/3",
           "hitboxes": "multi/final",
-          "notes": "Detection is 7—27. Counter only activates when something hits the wall, not Sephiroth's body."
+          "notes": "Detection is 7-27. Counter only activates when something hits the wall, not Sephiroth's body."
         },
         {
           "name": "Down B (Scintilla, Success)",
@@ -409,7 +409,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothScintillaHitMax.gif"
           ],
           "startup": "7",
-          "active": "7—21/22",
+          "active": "7-21/22",
           "total": "51",
           "endlag": "29",
           "damage": "(2.0/4.0)/(6.5/18.0)",
@@ -422,7 +422,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36",
           "endlag": "28"
         },
@@ -433,7 +433,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "44",
           "endlag": "33"
         },
@@ -444,7 +444,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sephiroth/SephirothPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },

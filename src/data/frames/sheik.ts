@@ -55,7 +55,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikJabRapidEnd.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "35",
           "endlag": "29",
           "damage": "2.0",
@@ -70,7 +70,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikFTilt.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "24",
           "endlag": "16",
           "damage": "3.0",
@@ -85,7 +85,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikUTilt.gif"
           ],
           "startup": "5/16",
-          "active": "5—8/16—23",
+          "active": "5-8/16-23",
           "total": "32",
           "endlag": "9",
           "damage": "3.0/4.0",
@@ -100,7 +100,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "26",
           "endlag": "20",
           "damage": "4.5",
@@ -115,7 +115,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikDashAttack.gif"
           ],
           "startup": "5",
-          "active": "5—6(7—8)",
+          "active": "5-6(7-8)",
           "total": "34",
           "endlag": "26",
           "damage": "7.0",
@@ -130,7 +130,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikFSmash.gif"
           ],
           "startup": "12/20",
-          "active": "12/20—21",
+          "active": "12/20-21",
           "total": "44",
           "endlag": "23",
           "damage": "5.0/8.0",
@@ -146,7 +146,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikUSmash.gif"
           ],
           "startup": "11/14",
-          "active": "11/14—15",
+          "active": "11/14-15",
           "total": "52",
           "endlag": "37",
           "damage": "15.0/11.0",
@@ -162,7 +162,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikDSmash.gif"
           ],
           "startup": "8/15",
-          "active": "8—9/15—16",
+          "active": "8-9/15-16",
           "total": "48",
           "endlag": "32",
           "damage": "4.0/6.0",
@@ -178,7 +178,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikNAir.gif"
           ],
           "startup": "3",
-          "active": "3—6(7—30)",
+          "active": "3-6(7-30)",
           "total": "49",
           "endlag": "19",
           "landingLag": "6",
@@ -196,7 +196,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikFAir.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "34",
           "endlag": "27",
           "landingLag": "5",
@@ -214,7 +214,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikBAir.gif"
           ],
           "startup": "4",
-          "active": "4—6(7—14)",
+          "active": "4-6(7-14)",
           "total": "37",
           "endlag": "23",
           "landingLag": "7",
@@ -232,7 +232,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikUAir.gif"
           ],
           "startup": "4...",
-          "active": "4—15/23—24 (rehit: 4)",
+          "active": "4-15/23-24 (rehit: 4)",
           "total": "43",
           "endlag": "19",
           "landingLag": "13",
@@ -251,7 +251,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikDAirLanding.gif"
           ],
           "startup": "15",
-          "active": "15—18/19—33/1—2",
+          "active": "15-18/19-33/1-2",
           "total": "54",
           "endlag": "21",
           "landingLag": "22",
@@ -294,7 +294,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikBurstGrenade.gif"
           ],
           "startup": "13/67/70/73/76/79/82/88",
-          "total": "75—104",
+          "total": "75-104",
           "damage": "1.0/12.6",
           "advantage": "+28",
           "shieldLag": "4/11",
@@ -309,7 +309,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikVanishA.gif"
           ],
           "startup": "36/55",
-          "active": "36—38/55—57",
+          "active": "36-38/55-57",
           "total": "95",
           "endlag": "38",
           "landingLag": "20",
@@ -341,7 +341,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "36",
           "endlag": "29"
         },
@@ -352,7 +352,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "44",
           "endlag": "34"
         },
@@ -363,7 +363,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sheik/SheikPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },
@@ -417,7 +417,7 @@ export const FRAMES: FighterFrames = {
           "startup": "26/30",
           "total": "53",
           "damage": "3.0/3.0",
-          "notes": "Active 26—29, releases on 30."
+          "notes": "Active 26-29, releases on 30."
         },
         {
           "name": "Spot Dodge",

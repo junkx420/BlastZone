@@ -73,7 +73,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxFTiltDown.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "23",
           "endlag": "15",
           "damage": "6.0/7.0",
@@ -90,7 +90,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxUTilt.gif"
           ],
           "startup": "3",
-          "active": "3—5(6—7)",
+          "active": "3-5(6-7)",
           "total": "27",
           "endlag": "20",
           "damage": "(6.0%/7.0%/8.0%)/(5.0%/6.0%)",
@@ -106,7 +106,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "27",
           "endlag": "19",
           "damage": "8.0/7.0",
@@ -122,7 +122,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxDashAttack.gif"
           ],
           "startup": "4",
-          "active": "4—7(8—15)",
+          "active": "4-7(8-15)",
           "total": "31",
           "endlag": "16",
           "damage": "6.0/4.0",
@@ -138,7 +138,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxFSmash.gif"
           ],
           "startup": "13",
-          "active": "13—14(15-16)",
+          "active": "13-14(15-16)",
           "total": "45",
           "endlag": "31",
           "damage": "14.0(11.0)",
@@ -154,7 +154,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxUSmash.gif"
           ],
           "startup": "8",
-          "active": "8—9/10—11",
+          "active": "8-9/10-11",
           "total": "55",
           "endlag": "44",
           "damage": "16.0/11.0",
@@ -171,7 +171,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxDSmash.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "52",
           "endlag": "45",
           "damage": "14.0/12.0",
@@ -188,7 +188,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxNAir.gif"
           ],
           "startup": "4",
-          "active": "4—6/7—23",
+          "active": "4-6/7-23",
           "total": "38",
           "endlag": "15",
           "landingLag": "7",
@@ -207,7 +207,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxFAirLanding.gif"
           ],
           "startup": "7/11/16/21/26",
-          "active": "7—8/11—12/16—17/21—22/26—27",
+          "active": "7-8/11-12/16-17/21-22/26-27",
           "total": "43",
           "endlag": "16",
           "landingLag": "18",
@@ -225,7 +225,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxBAir.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "48",
           "endlag": "37",
           "landingLag": "9",
@@ -242,7 +242,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxUAir.gif"
           ],
           "startup": "9/12",
-          "active": "9—10/12—13",
+          "active": "9-10/12-13",
           "total": "35",
           "endlag": "22",
           "landingLag": "13",
@@ -261,7 +261,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxDAirLanding.gif"
           ],
           "startup": "5/8/11/14/17/20/23",
-          "active": "5—6/8—9/11—12/14—15/17—18/20—21/23/**",
+          "active": "5-6/8-9/11-12/14-15/17-18/20-21/23/**",
           "total": "49",
           "landingLag": "17",
           "damage": "1.4/3.0/1.0",
@@ -278,7 +278,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxBlaster.gif"
           ],
           "startup": "11/13/20, 9/11/18",
-          "active": "11—12/13—19/20—32, 9—10/11—17/18—30",
+          "active": "11-12/13-19/20-32, 9-10/11-17/18-30",
           "total": "36, 34",
           "endlag": "6",
           "damage": "3.0/2.0/1.4",
@@ -292,7 +292,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Fox Illusion)",
           "section": "special",
           "startup": "25/25",
-          "active": "25—29/25—29",
+          "active": "25-29/25-29",
           "total": "55/72",
           "endlag": "24",
           "landingLag": "16",
@@ -310,7 +310,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxFireFox.gif"
           ],
           "startup": "20/22/24/26/28/30/32/43/47",
-          "active": "20/22/24/26/28/30/32/43—46/47—72",
+          "active": "20/22/24/26/28/30/32/43-46/47-72",
           "total": "91",
           "endlag": "19",
           "landingLag": "20",
@@ -343,7 +343,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "36",
           "endlag": "29"
         },
@@ -354,7 +354,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "44",
           "endlag": "33"
         },
@@ -365,7 +365,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/fox/FoxPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },

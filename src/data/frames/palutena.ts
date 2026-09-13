@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaJab1.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "24",
           "endlag": "15",
           "damage": "3.0",
@@ -55,14 +55,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaFTilt.gif"
           ],
           "startup": "14/24",
-          "active": "14—23/24—35",
+          "active": "14-23/24-35",
           "total": "59",
           "endlag": "24",
           "damage": "6.0/7.0",
           "advantage": "-28",
           "shieldLag": "6/7",
           "shieldStun": "6/7",
-          "notes": "Right-arm intangible 14—35"
+          "notes": "Right-arm intangible 14-35"
         },
         {
           "name": "Up Tilt",
@@ -71,7 +71,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaUTilt.gif"
           ],
           "startup": "8...",
-          "active": "8—22/24—25 (rehit: 3)",
+          "active": "8-22/24-25 (rehit: 3)",
           "total": "55",
           "endlag": "30",
           "damage": "1.4/4.5",
@@ -87,7 +87,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaDTilt.gif"
           ],
           "startup": "14",
-          "active": "14—27",
+          "active": "14-27",
           "total": "39",
           "endlag": "12",
           "damage": "8.5 (grounded opponents) // 5.0 (aerial opponents)",
@@ -102,7 +102,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—9/10—17",
+          "active": "6-9/10-17",
           "total": "40",
           "endlag": "23",
           "damage": "11.0/7.0",
@@ -119,7 +119,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaFSmash.gif"
           ],
           "startup": "18",
-          "active": "18—20",
+          "active": "18-20",
           "total": "63",
           "endlag": "43",
           "damage": "16.0/13.0",
@@ -136,7 +136,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaUSmash.gif"
           ],
           "startup": "18",
-          "active": "18—29/30—35",
+          "active": "18-29/30-35",
           "total": "63",
           "endlag": "28",
           "damage": "(16.0%/12.0%/9.0%)/(13.0%/9.0%/7.0%)",
@@ -153,7 +153,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaDSmash.gif"
           ],
           "startup": "17",
-          "active": "17—19",
+          "active": "17-19",
           "total": "68",
           "endlag": "49",
           "damage": "15.0/13.0",
@@ -170,7 +170,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaNAir.gif"
           ],
           "startup": "5...",
-          "active": "5—27/29—30 (rehit: 4)",
+          "active": "5-27/29-30 (rehit: 4)",
           "total": "51",
           "endlag": "21",
           "landingLag": "12",
@@ -188,7 +188,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaFAir.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "44",
           "endlag": "33",
           "landingLag": "9",
@@ -205,7 +205,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaBAir.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "49",
           "endlag": "39",
           "landingLag": "10",
@@ -222,7 +222,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaUAir.gif"
           ],
           "startup": "10...",
-          "active": "10—22/24—25 (rehit: 3)",
+          "active": "10-22/24-25 (rehit: 3)",
           "total": "51",
           "endlag": "26",
           "landingLag": "14",
@@ -240,7 +240,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaDAir.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "58",
           "endlag": "47",
           "landingLag": "11",
@@ -308,7 +308,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaReflectBarrier.gif"
           ],
           "startup": "4/--",
-          "active": "4—6",
+          "active": "4-6",
           "total": "36/34",
           "endlag": "30",
           "hitboxes": "Attack/Reflect",
@@ -321,7 +321,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "39",
           "endlag": "31"
         },
@@ -332,7 +332,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "47",
           "endlag": "36"
         },
@@ -343,7 +343,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/palutena/PalutenaPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "42",
           "endlag": "30"
         },

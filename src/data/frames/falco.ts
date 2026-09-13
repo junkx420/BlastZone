@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "25",
           "endlag": "21",
           "damage": "1.5",
@@ -56,7 +56,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoJabRapidEnd.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "40",
           "endlag": "34",
           "damage": "3.0",
@@ -73,7 +73,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoFTiltDown.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "24",
           "endlag": "16",
           "damage": "6.0",
@@ -88,7 +88,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoUTilt.gif"
           ],
           "startup": "5/12",
-          "active": "5(6—9)/12(13—16)",
+          "active": "5(6-9)/12(13-16)",
           "total": "29",
           "endlag": "13",
           "damage": "3.5/2.7/4.0",
@@ -104,7 +104,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoDTilt.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "29",
           "endlag": "19",
           "damage": "13.0/12.0/10.5",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoDashAttack.gif"
           ],
           "startup": "8",
-          "active": "8—11(12—18)",
+          "active": "8-11(12-18)",
           "total": "39",
           "endlag": "21",
           "damage": "9.0/6.0",
@@ -136,7 +136,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoFSmash.gif"
           ],
           "startup": "17",
-          "active": "17—19(20)",
+          "active": "17-19(20)",
           "total": "48",
           "endlag": "28",
           "damage": "16.0/12.0",
@@ -153,7 +153,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoUSmash.gif"
           ],
           "startup": "7/13",
-          "active": "7(8—12)/13—20",
+          "active": "7(8-12)/13-20",
           "total": "49",
           "endlag": "29",
           "damage": "4.0/13.0",
@@ -169,7 +169,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoDSmash.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "46",
           "endlag": "36",
           "damage": "15.0/12.0",
@@ -186,7 +186,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoNAir.gif"
           ],
           "startup": "3/6/10/17",
-          "active": "3—5/6—9/10—13/17—18",
+          "active": "3-5/6-9/10-13/17-18",
           "total": "46",
           "endlag": "28",
           "landingLag": "9",
@@ -205,7 +205,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoFAirLanding.gif"
           ],
           "startup": "7...",
-          "active": "7—25(rehit: 4)/26—27",
+          "active": "7-25(rehit: 4)/26-27",
           "total": "49",
           "endlag": "22",
           "landingLag": "15",
@@ -223,7 +223,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoBAir.gif"
           ],
           "startup": "9",
-          "active": "9—10(11—16)",
+          "active": "9-10(11-16)",
           "total": "37",
           "endlag": "21",
           "landingLag": "13",
@@ -241,7 +241,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoUAir.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "33",
           "endlag": "22",
           "landingLag": "9",
@@ -258,7 +258,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoDAir.gif"
           ],
           "startup": "10",
-          "active": "10—14/15—24",
+          "active": "10-14/15-24",
           "total": "43",
           "endlag": "19",
           "landingLag": "11",
@@ -276,7 +276,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoBlaster.gif"
           ],
           "startup": "8/7",
-          "active": "8—34/7—33",
+          "active": "8-34/7-33",
           "total": "41/38",
           "endlag": "7",
           "damage": "3.0",
@@ -290,7 +290,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Falco Phantasm)",
           "section": "special",
           "startup": "13/18",
-          "active": "(13—18/17—22)/(18—27)",
+          "active": "(13-18/17-22)/(18-27)",
           "total": "50/66",
           "endlag": "23",
           "landingLag": "16",
@@ -325,7 +325,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoReflector.gif"
           ],
           "startup": "5",
-          "active": "5—14",
+          "active": "5-14",
           "total": "44",
           "endlag": "30",
           "damage": "5.0",
@@ -341,7 +341,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -352,7 +352,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -363,7 +363,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/falco/FalcoPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

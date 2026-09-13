@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantJab1.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "19",
           "endlag": "16",
           "damage": "2.4",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantJab2.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "20",
           "endlag": "17",
           "damage": "2.2",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantJab3.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "25",
           "endlag": "17",
           "damage": "4.4",
@@ -72,7 +72,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantJabRapidEnd.gif"
           ],
           "startup": "7",
-          "active": "6—7",
+          "active": "6-7",
           "total": "40",
           "endlag": "33",
           "damage": "3.4",
@@ -87,7 +87,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantFTilt1.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "27",
           "endlag": "19",
           "damage": "5.5",
@@ -103,7 +103,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantFTilt2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "31",
           "endlag": "25",
           "damage": "6.0",
@@ -118,7 +118,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—13",
+          "active": "6-13",
           "total": "26",
           "endlag": "13",
           "damage": "9.0/7.0",
@@ -135,7 +135,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "26",
           "endlag": "15",
           "damage": "6.0/7.0",
@@ -151,7 +151,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—9/10—14",
+          "active": "7-9/10-14",
           "total": "47",
           "endlag": "33",
           "damage": "10.0/7.0",
@@ -167,7 +167,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantFSmash.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "51",
           "endlag": "34",
           "damage": "15.0/19.0",
@@ -184,7 +184,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantUSmash.gif"
           ],
           "startup": "12/16",
-          "active": "12—15/16—18",
+          "active": "12-15/16-18",
           "total": "51",
           "endlag": "33",
           "damage": "3.0/12.0",
@@ -200,7 +200,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantDSmash.gif"
           ],
           "startup": "10/14",
-          "active": "10—11/14—15",
+          "active": "10-11/14-15",
           "total": "43",
           "endlag": "28",
           "damage": "12.0/14.0",
@@ -216,7 +216,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantNAir.gif"
           ],
           "startup": "8/11/14/17/18",
-          "active": "8—17/18—19",
+          "active": "8-17/18-19",
           "total": "47",
           "endlag": "28",
           "landingLag": "15",
@@ -234,7 +234,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantFAir.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "44",
           "endlag": "35",
           "landingLag": "13",
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantBAir.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "61",
           "endlag": "46",
           "landingLag": "16",
@@ -269,7 +269,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantUAir.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "38",
           "endlag": "29",
           "landingLag": "10",
@@ -277,7 +277,7 @@ export const FRAMES: FighterFrames = {
           "advantage": "-6",
           "shieldLag": "7",
           "shieldStun": "4",
-          "notes": "Autocancels on frame 22 onward. Head and stem intangibility 7—9."
+          "notes": "Autocancels on frame 22 onward. Head and stem intangibility 7-9."
         },
         {
           "name": "Down Air",
@@ -286,7 +286,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantDAir.gif"
           ],
           "startup": "9",
-          "active": "9—11/12—14",
+          "active": "9-11/12-14",
           "total": "44",
           "endlag": "30",
           "landingLag": "18",
@@ -319,7 +319,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantPoisonBreathMin.gif"
           ],
           "startup": "10(+11)",
-          "active": "21—102",
+          "active": "21-102",
           "total": "38",
           "damage": "!!!",
           "shieldLag": "0",
@@ -333,7 +333,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantPoisonBreathMax.gif"
           ],
           "startup": "10",
-          "active": "21—142",
+          "active": "21-142",
           "total": "48",
           "damage": "!!!",
           "shieldLag": "0",
@@ -363,10 +363,10 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "2(+18)",
           "total": "39/49",
-          "damage": "8.4—26.0",
+          "damage": "8.4-26.0",
           "advantage": "-31 to -17 (-10 more when tipped over)",
-          "shieldLag": "7—17",
-          "shieldStun": "8—22",
+          "shieldLag": "7-17",
+          "shieldStun": "8-22",
           "notes": "Startup is 2 upon reaching target. Reaches full charge on frame 78. Takes 18 frames to enter charge state Endlag on hit is 39, or 49 if you tipped over. Endlag on whiff is 49 or 59 if you tipped over. Head intangibility begins on frame 3 of travel or frame 1 of reaching a target, whichever comes first. Pot damage-based armor begins on frame 18, 15% (18% in 1v1)."
         },
         {
@@ -376,7 +376,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantFootstoolAttack.gif"
           ],
           "startup": "13",
-          "active": "5—6",
+          "active": "5-6",
           "total": "22",
           "endlag": "16",
           "damage": "4.0",
@@ -389,7 +389,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -400,7 +400,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -411,7 +411,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/piranha_plant/PiranhaPlantPivotGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "36",
           "endlag": "26"
         },

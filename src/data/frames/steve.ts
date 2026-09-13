@@ -15,7 +15,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveJabFTiltPunch.gif"
           ],
           "startup": "4 (Gold: 3)",
-          "active": "4—6 (Gold: 3—5)",
+          "active": "4-6 (Gold: 3-5)",
           "total": "16 (Gold: 14)",
           "endlag": "10",
           "damage": "2.7 / 3.4 / 3.7 / 4.0 / 4.5 (Gold: 3.4)",
@@ -34,7 +34,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveUTiltPunch.gif"
           ],
           "startup": "6 (Gold: 4)",
-          "active": "6—9 (Gold: 4—7)",
+          "active": "6-9 (Gold: 4-7)",
           "total": "16 (Gold: 12)",
           "endlag": "7",
           "damage": "(W/S/I/D/P/G) : 6.5%/7.15%/7.8%/8.775%/5.2%/6.5%",
@@ -52,7 +52,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveDTiltGravity.gif"
           ],
           "startup": "12...",
-          "active": "12—35(Rehit: 6)/36—39",
+          "active": "12-35(Rehit: 6)/36-39",
           "total": "52",
           "endlag": "13",
           "damage": "0.8 / 6.4",
@@ -71,7 +71,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveDashAttackPunch.gif"
           ],
           "startup": "8 (Gold: 8)",
-          "active": "8—10/11—13",
+          "active": "8-10/11-13",
           "total": "31 (Gold: 28)",
           "endlag": "18",
           "damage": "(W/S/I/D/P/G) (Early|Late) : 10.4%|8.4%/11.44%|9.24%/12.48%|10.08%/14.04%|11.34%/8.32%|6.72%/10.4%|8.4%",
@@ -89,7 +89,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveFSmashPunch.gif"
           ],
           "startup": "13 (Gold: 10)",
-          "active": "13—15",
+          "active": "13-15",
           "total": "43 (Gold: 35)",
           "endlag": "28",
           "damage": "(W/S/I/D/P/G) : 15.0%/16.5%/18.0%/20.25%/12.0%/15.0%",
@@ -106,7 +106,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveUSmash.gif"
           ],
           "startup": "8...",
-          "active": "8—9/8—48/49—50",
+          "active": "8-9/8-48/49-50",
           "total": "76",
           "endlag": "26",
           "damage": "1.0%/0.4%/14.0% PICKAXE SOURSPOT (W/S/I/D/G) : 7.4%/8.14%/8.88%/9.99%/7.4%",
@@ -124,7 +124,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveDSmashGravity.gif"
           ],
           "startup": "8...",
-          "active": "8—11(Rehit: 2)/12—17 // 26—29(Rehit:2)/30—35",
+          "active": "8-11(Rehit: 2)/12-17 // 26-29(Rehit:2)/30-35",
           "total": "51",
           "endlag": "16",
           "damage": "0.6% (Loop)/14.0%",
@@ -143,7 +143,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveNAirPunch.gif"
           ],
           "startup": "4 (Gold: 3)",
-          "active": "4—6 (Gold: 3—5)",
+          "active": "4-6 (Gold: 3-5)",
           "total": "17 (Gold: 15)",
           "endlag": "11",
           "damage": "2.7 / 3.4 / 3.7 / 4.0 / 4.5 (Gold: 3.4)",
@@ -160,7 +160,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveFAirPunch.gif"
           ],
           "startup": "8",
-          "active": "8—9/10—12 (Punch) // 8/9/10—12 (All Pickaxes)",
+          "active": "8-9/10-12 (Punch) // 8/9/10-12 (All Pickaxes)",
           "total": "31/28",
           "landingLag": "12",
           "damage": "(W/S/I/D/P/G) (Early|Late) : 10.5%|12.0%/11.55%|13.2%/12.6%|14.4%/14.175%|16.2%/8.4%|9.6%/10.5%|12.0%",
@@ -179,7 +179,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveFAirSwordPunch.gif"
           ],
           "startup": "4 (Gold: 3)",
-          "active": "4—6 (Gold: 3—5)",
+          "active": "4-6 (Gold: 3-5)",
           "total": "16 (Gold: 14)",
           "endlag": "10",
           "landingLag": "-- (can only be done rising)",
@@ -199,7 +199,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveBAirPunch.gif"
           ],
           "startup": "12",
-          "active": "12—13/14—16",
+          "active": "12-13/14-16",
           "total": "47/41",
           "endlag": "31",
           "landingLag": "12",
@@ -219,7 +219,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveBAirSwordPunch.gif"
           ],
           "startup": "4 (Gold: 3)",
-          "active": "4—6 (Gold: 3—5)",
+          "active": "4-6 (Gold: 3-5)",
           "total": "16 (Gold: 14)",
           "endlag": "10",
           "landingLag": "-- (can only be done rising)",
@@ -239,7 +239,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveUAirPunch.gif"
           ],
           "startup": "4 (Gold: 4)",
-          "active": "4—8",
+          "active": "4-8",
           "total": "13 (Gold: 11)",
           "endlag": "5",
           "landingLag": "10",
@@ -287,7 +287,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveMinecartFree.gif"
           ],
           "startup": "18",
-          "active": "18—...",
+          "active": "18-...",
           "notes": "If Steve lacks the materials, he has a 15 frame failure animation instead. Damage depends on current speed. If traveling too slow, there's no hitbox. For Bailout, the jumping out animation is 5 frames before Steve can act. On frame 6 is when the cart can grab opponents. Armor notes: the minecart has 8.4HP and Steve himself has 60 knockback armor. The part of the armor that's hitpoint based can't drop to 0 during the first 17 frames."
         },
         {
@@ -297,7 +297,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveElytra.gif"
           ],
           "startup": "28 (Ground) / 23 (Air)",
-          "active": "28—37/38—44 (Ground) // 23—32/33—39 (Air)"
+          "active": "28-37/38-44 (Ground) // 23-32/33-39 (Air)"
         },
         {
           "name": "Down B (TNT)",
@@ -315,7 +315,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveGrab.gif"
           ],
           "startup": "13",
-          "active": "13—27",
+          "active": "13-27",
           "total": "56",
           "endlag": "29"
         },
@@ -326,7 +326,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/SteveDashGrab.gif"
           ],
           "startup": "16",
-          "active": "16—30",
+          "active": "16-30",
           "total": "62",
           "endlag": "32"
         },
@@ -337,7 +337,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/steve/StevePivotGrab.gif"
           ],
           "startup": "17",
-          "active": "17—31",
+          "active": "17-31",
           "total": "59",
           "endlag": "28"
         },
@@ -394,7 +394,7 @@ export const FRAMES: FighterFrames = {
           "startup": "15(20)",
           "total": "29",
           "damage": "7.0/8.0 (anvil) // (8.0 no anvil)",
-          "notes": "Anvil active 15—22 but throws on frame 20. Without iron, the data is identical except for anvil's absense."
+          "notes": "Anvil active 15-22 but throws on frame 20. Without iron, the data is identical except for anvil's absense."
         },
         {
           "name": "Spot Dodge",

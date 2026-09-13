@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "19",
           "endlag": "15",
           "damage": "4.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiFTiltDown.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "29",
           "endlag": "22",
           "damage": "8.0",
@@ -61,7 +61,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiUTilt.gif"
           ],
           "startup": "8",
-          "active": "8—15",
+          "active": "8-15",
           "total": "31",
           "endlag": "16",
           "damage": "7.0",
@@ -76,7 +76,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiDTilt.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "23",
           "endlag": "13",
           "damage": "5.0/4.5/4.0",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiDashAttack.gif"
           ],
           "startup": "10",
-          "active": "10—12/13—20",
+          "active": "10-12/13-20",
           "total": "40",
           "endlag": "20",
           "damage": "11.0/8.0",
@@ -110,7 +110,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiFSmashDown.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "52",
           "endlag": "36",
           "damage": "15.5",
@@ -126,7 +126,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiUSmash.gif"
           ],
           "startup": "11",
-          "active": "11—13/14—16",
+          "active": "11-13/14-16",
           "total": "46",
           "endlag": "30",
           "damage": "14.0/12.0",
@@ -143,7 +143,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiDSmash.gif"
           ],
           "startup": "7/22",
-          "active": "7—8/22—23",
+          "active": "7-8/22-23",
           "total": "49",
           "endlag": "26",
           "damage": "12.0/10.0",
@@ -160,7 +160,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiNAir.gif"
           ],
           "startup": "3",
-          "active": "3—4(5—11/12—25)",
+          "active": "3-4(5-11/12-25)",
           "total": "44",
           "endlag": "19",
           "landingLag": "7",
@@ -178,7 +178,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiFAir.gif"
           ],
           "startup": "16",
-          "active": "16—20",
+          "active": "16-20",
           "total": "43",
           "endlag": "23",
           "landingLag": "12",
@@ -196,7 +196,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiBAir.gif"
           ],
           "startup": "11/14/18",
-          "active": "11/14/18—19",
+          "active": "11/14/18-19",
           "total": "55",
           "endlag": "36",
           "landingLag": "11",
@@ -214,7 +214,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiUAir.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "36",
           "endlag": "30",
           "landingLag": "8",
@@ -250,7 +250,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiEggLay.gif"
           ],
           "startup": "19",
-          "active": "19—22",
+          "active": "19-22",
           "total": "49/41",
           "endlag": "27",
           "notes": "Egg appears on frame 33 when successful. Total frames when successful is 62. Total frames is 41 on whiff."
@@ -259,17 +259,17 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Egg Roll)",
           "section": "special",
           "startup": "32",
-          "damage": "10.8—12.8",
+          "damage": "10.8-12.8",
           "advantage": "-29 to -27",
-          "shieldLag": "8—9",
-          "shieldStun": "10—12",
+          "shieldLag": "8-9",
+          "shieldStun": "10-12",
           "notes": "Takes 39 frames to emerge."
         },
         {
           "name": "Up B (Egg Throw)",
           "section": "special",
           "startup": "16",
-          "active": "16—**",
+          "active": "16-**",
           "total": "55",
           "damage": "6.0",
           "advantage": "-30",
@@ -301,7 +301,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiGrab.gif"
           ],
           "startup": "14",
-          "active": "14—21",
+          "active": "14-21",
           "total": "48",
           "endlag": "27"
         },
@@ -312,7 +312,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiDashGrab.gif"
           ],
           "startup": "16",
-          "active": "16—23",
+          "active": "16-23",
           "total": "56",
           "endlag": "33"
         },
@@ -323,7 +323,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/yoshi/YoshiPivotGrab.gif"
           ],
           "startup": "17",
-          "active": "17—24",
+          "active": "17-24",
           "total": "51",
           "endlag": "27"
         },

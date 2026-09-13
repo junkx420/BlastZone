@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinJab1.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "24",
           "endlag": "18",
           "damage": "2.5",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinJab2.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "31",
           "endlag": "22",
           "damage": "2.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "35",
           "endlag": "28",
           "damage": "5.5",
@@ -71,7 +71,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinJabRapidFinisher.gif"
           ],
           "startup": "7",
-          "active": "6—7",
+          "active": "6-7",
           "total": "41",
           "endlag": "34",
           "damage": "5.0",
@@ -87,7 +87,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinDragonAerialTilt.gif"
           ],
           "startup": "14",
-          "active": "Ground: 14(15—24) // Air: 14(15—22)",
+          "active": "Ground: 14(15-24) // Air: 14(15-22)",
           "total": "58 (53 air)",
           "endlag": "36",
           "damage": "8.0",
@@ -104,7 +104,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinPowerDragonAerialTilt.gif"
           ],
           "startup": "14",
-          "active": "Ground: 14(15—24) // Air: 14(15—22)",
+          "active": "Ground: 14(15-24) // Air: 14(15-22)",
           "total": "58",
           "endlag": "36",
           "damage": "9.2",
@@ -119,7 +119,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinRamRamAerialTilt.gif"
           ],
           "startup": "14",
-          "active": "Ground: 14(15—21/22—29) // Air: 14(15—19/20—24)",
+          "active": "Ground: 14(15-21/22-29) // Air: 14(15-19/20-24)",
           "total": "51 (47 air)",
           "endlag": "27",
           "damage": "5.0",
@@ -136,11 +136,11 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinMegawattAerialTilt.gif"
           ],
           "startup": "14",
-          "active": "Ground: 14(15—32) // Air: 14(15—27)",
+          "active": "Ground: 14(15-32) // Air: 14(15-27)",
           "total": "67 (59 air)",
           "endlag": "40",
           "damage": "11.0",
-          "advantage": "-30 — -34",
+          "advantage": "-30 - -34",
           "shieldLag": "10",
           "shieldStun": "10",
           "notes": "Can fire other arm beginning on frame 17. Endlag on hit is 22-29 depending on how far the arm must retract. Endlag on block is 40-44 depending on how far the arm must retract."
@@ -186,7 +186,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—10/11—16",
+          "active": "7-10/11-16",
           "total": "38",
           "endlag": "22",
           "damage": "10.0/8.0",
@@ -204,7 +204,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinDragonAerialSmash.gif"
           ],
           "startup": "16 (40)",
-          "active": "16(17—19/20—24/25—29) (40—50)",
+          "active": "16(17-19/20-24/25-29) (40-50)",
           "total": "65 (87)",
           "endlag": "15",
           "damage": "12.0/16.0/13.0 (7.0)",
@@ -222,7 +222,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinPowerDragonAerialSmash.gif"
           ],
           "startup": "16 (40)",
-          "active": "Ground: 16(17—19/20—24/25—29) (40—50) // Air: 16(17—19/20—23/24—28) (40—50)",
+          "active": "Ground: 16(17-19/20-24/25-29) (40-50) // Air: 16(17-19/20-23/24-28) (40-50)",
           "total": "65 (87)",
           "endlag": "15",
           "damage": "15.0/20.0/16.25 (12.0)",
@@ -239,7 +239,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinRamRamAerialSmash.gif"
           ],
           "startup": "16 (26)",
-          "active": "Ground: 16(17—18/19—25/26—35) // Air: 16(17—18/19—24/25—32)",
+          "active": "Ground: 16(17-18/19-25/26-35) // Air: 16(17-18/19-24/25-32)",
           "total": "57 (55 air)",
           "endlag": "25",
           "damage": "10.0/12.0 (2.5)",
@@ -258,11 +258,11 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinMegawattAerialSmash.gif"
           ],
           "startup": "16",
-          "active": "Ground: 16(17—19/20—31/32—38) // Air: 16(17—19/20—29/30—36)",
+          "active": "Ground: 16(17-19/20-31/32-38) // Air: 16(17-19/20-29/30-36)",
           "total": "75 (70 air)",
           "endlag": "39",
           "damage": "19.0/21.0/19.0",
-          "advantage": "-28 — -34",
+          "advantage": "-28 - -34",
           "shieldLag": "12/14/12",
           "shieldStun": "13/14/13",
           "hitboxes": "Early/Middle/Late",
@@ -292,7 +292,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinDSmash.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "48",
           "endlag": "40",
           "damage": "15.0/13.0",
@@ -310,7 +310,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinNAirDragonRight.gif"
           ],
           "startup": "10",
-          "active": "10—23",
+          "active": "10-23",
           "total": "37",
           "endlag": "14",
           "landingLag": "12",
@@ -327,7 +327,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinNAirPowerDragon.gif"
           ],
           "startup": "10",
-          "active": "10—23",
+          "active": "10-23",
           "total": "37",
           "endlag": "14",
           "landingLag": "12",
@@ -342,7 +342,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinNAirRamRam.gif"
           ],
           "startup": "8",
-          "active": "8—18",
+          "active": "8-18",
           "total": "28",
           "endlag": "10",
           "landingLag": "12",
@@ -359,7 +359,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinNAirMegawatt.gif"
           ],
           "startup": "14",
-          "active": "14—32",
+          "active": "14-32",
           "total": "50",
           "endlag": "18",
           "landingLag": "12",
@@ -376,7 +376,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinUAir.gif"
           ],
           "startup": "7",
-          "active": "7—13",
+          "active": "7-13",
           "total": "38",
           "endlag": "25",
           "landingLag": "8",
@@ -394,7 +394,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinDAirLanding.gif"
           ],
           "startup": "15",
-          "active": "15—18/19—33/1—3",
+          "active": "15-18/19-33/1-3",
           "total": "54",
           "endlag": "21",
           "landingLag": "25",
@@ -411,7 +411,7 @@ export const FRAMES: FighterFrames = {
           "total": "25/37(held)",
           "shieldLag": "7",
           "shieldStun": "9",
-          "notes": "Invulnerable 8—13 normally and 18—25 when held."
+          "notes": "Invulnerable 8-13 normally and 18-25 when held."
         },
         {
           "name": "Up B (Arms Hook)",
@@ -423,7 +423,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinARMSHookPowerDragonAerial.gif"
           ],
           "startup": "12",
-          "active": "12—20",
+          "active": "12-20",
           "total": "54",
           "endlag": "34",
           "damage": "9.0",
@@ -446,7 +446,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinGrab.gif"
           ],
           "startup": "18",
-          "active": "18—24",
+          "active": "18-24",
           "total": "56",
           "endlag": "32",
           "notes": "ARMS don't have hurtboxes on frames 18-38"
@@ -458,7 +458,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinDashGrab.gif"
           ],
           "startup": "18",
-          "active": "18—24",
+          "active": "18-24",
           "total": "56",
           "endlag": "32",
           "notes": "ARMS don't have hurtboxes on frames 18-38"
@@ -470,7 +470,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/minmin/MinMinPivotGrab.gif"
           ],
           "startup": "18",
-          "active": "18—24",
+          "active": "18-24",
           "total": "56",
           "endlag": "32",
           "notes": "ARMS don't have hurtboxes on frames 18-38"
@@ -534,7 +534,7 @@ export const FRAMES: FighterFrames = {
           "name": "Spot Dodge",
           "section": "dodge",
           "total": "20/25",
-          "notes": "Intangible on frame 3—17."
+          "notes": "Intangible on frame 3-17."
         },
         {
           "name": "Forward Roll",

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "25",
           "endlag": "20",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "29",
           "endlag": "23",
           "damage": "2.0",
@@ -72,7 +72,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitJabRapidEnd.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "47",
           "endlag": "42",
           "damage": "2.0",
@@ -87,7 +87,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitFTilt.gif"
           ],
           "startup": "10",
-          "active": "10—14",
+          "active": "10-14",
           "total": "39",
           "endlag": "25",
           "damage": "7.0/10.0",
@@ -103,7 +103,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitUTilt.gif"
           ],
           "startup": "6/15",
-          "active": "6—8/15—16",
+          "active": "6-8/15-16",
           "total": "32",
           "endlag": "16",
           "damage": "4.0/5.0",
@@ -118,7 +118,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "25",
           "endlag": "18",
           "damage": "6.0",
@@ -133,7 +133,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "38",
           "endlag": "29",
           "damage": "11.0",
@@ -148,7 +148,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitFSmash.gif"
           ],
           "startup": "10/21",
-          "active": "10/21—22",
+          "active": "10/21-22",
           "total": "54",
           "endlag": "32",
           "damage": "5.0/10.0",
@@ -181,7 +181,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitDSmash.gif"
           ],
           "startup": "5/18",
-          "active": "5—6/18—20",
+          "active": "5-6/18-20",
           "total": "40",
           "endlag": "20",
           "damage": "12.0/10.0",
@@ -198,7 +198,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitNAir.gif"
           ],
           "startup": "4/7/10/13/16/19/22/25",
-          "active": "4—5/7—8/10—11/13—14/16—17/19—20/22—23/25",
+          "active": "4-5/7-8/10-11/13-14/16-17/19-20/22-23/25",
           "total": "54",
           "endlag": "29",
           "landingLag": "14",
@@ -216,7 +216,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitFAir.gif"
           ],
           "startup": "11/14/18",
-          "active": "11—12/14—15/18—19",
+          "active": "11-12/14-15/18-19",
           "total": "46",
           "endlag": "27",
           "landingLag": "12",
@@ -234,7 +234,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitBAir.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "40",
           "endlag": "28",
           "landingLag": "8",
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitUAir.gif"
           ],
           "startup": "10/13/16/19/22",
-          "active": "10—12/13—15/16—18/19—21/22—23",
+          "active": "10-12/13-15/16-18/19-21/22-23",
           "total": "40",
           "endlag": "17",
           "landingLag": "14",
@@ -269,7 +269,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitDAir.gif"
           ],
           "startup": "10",
-          "active": "10/11—12",
+          "active": "10/11-12",
           "total": "36",
           "endlag": "24",
           "landingLag": "12",
@@ -286,13 +286,13 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/pit/PitPalutenasBowMinimum.gif"
           ],
-          "startup": "16—76",
-          "active": "16—60 (sideways) || 17—61 (up)",
+          "startup": "16-76",
+          "active": "16-60 (sideways) || 17-61 (up)",
           "total": "See Notes",
-          "damage": "3.2—8.6",
+          "damage": "3.2-8.6",
           "advantage": "-23 to -20",
-          "shieldLag": "5—7",
-          "shieldStun": "2—3",
+          "shieldLag": "5-7",
+          "shieldStun": "2-3",
           "notes": "Total frames vary depending on which move is used: Forward, Grounded : 46 | Forward, Aerial : 43 | Up, Grounded : 42 | Up, Aerial : 40"
         },
         {
@@ -303,7 +303,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitUpperdashArmHitG.gif"
           ],
           "startup": "18",
-          "active": "16—35(detector)",
+          "active": "16-35(detector)",
           "total": "79/49",
           "damage": "11.0",
           "advantage": "-37",
@@ -319,7 +319,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitUpperdashArmHitA.gif"
           ],
           "startup": "21",
-          "active": "19—35(detector)",
+          "active": "19-35(detector)",
           "total": "104/51",
           "landingLag": "30",
           "damage": "9.0",
@@ -342,7 +342,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dark_pit/PitGuardianOrbitarsAerial.gif"
           ],
           "startup": "7 (Start of Reflect)",
-          "total": "39—124",
+          "total": "39-124",
           "notes": "Reflects/blocks as early as frame 7. 18 endlag on release."
         },
         {
@@ -352,7 +352,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -363,7 +363,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -374,7 +374,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pit/PitPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

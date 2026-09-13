@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusJab3.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "34",
           "endlag": "30",
           "damage": "3.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusFTiltDown.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "28",
           "endlag": "20",
           "damage": "7.0/8.0",
@@ -78,7 +78,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusUTilt.gif"
           ],
           "startup": "3/9",
-          "active": "3—4/9—10",
+          "active": "3-4/9-10",
           "total": "45",
           "endlag": "35",
           "damage": "5.0/7.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusDTilt.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "29",
           "endlag": "20",
           "damage": "8.0/6.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—9(10—19)",
+          "active": "7-9(10-19)",
           "total": "51",
           "endlag": "32",
           "damage": "8.0/5.0",
@@ -126,7 +126,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusFSmashDown.gif"
           ],
           "startup": "13/26",
-          "active": "13—14/26—28",
+          "active": "13-14/26-28",
           "total": "64",
           "endlag": "36",
           "damage": "5.0/11.0/11.0",
@@ -143,7 +143,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusUSmash.gif"
           ],
           "startup": "10/14/17/20/23/26/28",
-          "active": "10—11/14/17/20/23/26/28—29",
+          "active": "10-11/14/17/20/23/26/28-29",
           "total": "48",
           "endlag": "19",
           "damage": "4.0/0.8/3.0",
@@ -160,7 +160,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusDSmash.gif"
           ],
           "startup": "20",
-          "active": "20—24",
+          "active": "20-24",
           "total": "41",
           "endlag": "17",
           "damage": "8.0/6.0",
@@ -177,7 +177,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusNAir.gif"
           ],
           "startup": "10",
-          "active": "10—11(15—16)",
+          "active": "10-11(15-16)",
           "total": "51",
           "endlag": "35",
           "landingLag": "8",
@@ -194,7 +194,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusFAir.gif"
           ],
           "startup": "6/13",
-          "active": "6—7/13—14",
+          "active": "6-7/13-14",
           "total": "46",
           "endlag": "32",
           "landingLag": "10",
@@ -211,7 +211,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusBAir.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "40",
           "endlag": "31",
           "landingLag": "10",
@@ -229,7 +229,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusUAir.gif"
           ],
           "startup": "6",
-          "active": "6—12",
+          "active": "6-12",
           "total": "34",
           "endlag": "22",
           "landingLag": "5",
@@ -247,7 +247,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusDAirLanding.gif"
           ],
           "startup": "14",
-          "active": "14—49/1—3",
+          "active": "14-49/1-3",
           "total": "67",
           "endlag": "18",
           "landingLag": "24",
@@ -265,7 +265,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusZAir.gif"
           ],
           "startup": "9",
-          "active": "9—19",
+          "active": "9-19",
           "total": "49",
           "endlag": "30",
           "landingLag": "8",
@@ -282,13 +282,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusParalyzerNoCharge.gif",
             "hitboxes/zero_suit_samus/ZeroSuitSamusParalyzerMaxCharge.gif"
           ],
-          "startup": "21—43",
-          "active": "21—44 (no charge) || 43—90 (max charge)",
-          "total": "48—70",
-          "damage": "4.0—6.0",
+          "startup": "21-43",
+          "active": "21-44 (no charge) || 43-90 (max charge)",
+          "total": "48-70",
+          "damage": "4.0-6.0",
           "advantage": "-20 to -18",
-          "shieldLag": "5—6",
-          "shieldStun": "2—3",
+          "shieldLag": "5-6",
+          "shieldStun": "2-3",
           "notes": "On release, startup is 1 and total frames is 28."
         },
         {
@@ -299,7 +299,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusPlasmaWhipUp.gif"
           ],
           "startup": "22/24/26/28/31",
-          "active": "22—23/24—25/26—27/28—29/31—35",
+          "active": "22-23/24-25/26-27/28-29/31-35",
           "total": "55",
           "endlag": "20",
           "damage": "2.0/1.2/8.0",
@@ -317,7 +317,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusBoostKickA.gif"
           ],
           "startup": "6...",
-          "active": "6/12—24(rehit: 4)/28/34—35",
+          "active": "6/12-24(rehit: 4)/28/34-35",
           "landingLag": "30",
           "damage": "5.0/1.3/4.0",
           "shieldLag": "6/4/14",
@@ -344,7 +344,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusFlipJumpFootstool.gif"
           ],
           "startup": "9",
-          "active": "9—12",
+          "active": "9-12",
           "total": "59",
           "endlag": "47",
           "landingLag": "35",
@@ -361,7 +361,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusGrab.gif"
           ],
           "startup": "15",
-          "active": "15—25",
+          "active": "15-25",
           "total": "58",
           "endlag": "33",
           "notes": "Hand grab box only active for first 3 frames."
@@ -373,7 +373,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusDashGrab.gif"
           ],
           "startup": "17",
-          "active": "17—26",
+          "active": "17-26",
           "total": "66",
           "endlag": "40",
           "notes": "Hand grab box only active for first 3 frames."
@@ -385,7 +385,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/zero_suit_samus/ZeroSuitSamusPivotGrab.gif"
           ],
           "startup": "18",
-          "active": "18—26",
+          "active": "18-26",
           "total": "61",
           "endlag": "35",
           "notes": "Hand grab box only active for first 3 frames."

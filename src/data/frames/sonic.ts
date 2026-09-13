@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicJab3.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "35",
           "endlag": "30",
           "damage": "4.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicFTiltDown.gif"
           ],
           "startup": "6/8",
-          "active": "6/8—11",
+          "active": "6/8-11",
           "total": "35",
           "endlag": "24",
           "damage": "4.0/7.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicUTilt.gif"
           ],
           "startup": "6(7)/13",
-          "active": "6—8(7—8)/13—14",
+          "active": "6-8(7-8)/13-14",
           "total": "35",
           "endlag": "21",
           "damage": "2.0/6.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "27",
           "endlag": "20",
           "damage": "6.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicDashAttack.gif"
           ],
           "startup": "5",
-          "active": "5—8(9—20)",
+          "active": "5-8(9-20)",
           "total": "49",
           "endlag": "29",
           "damage": "8.0/6.0",
@@ -126,7 +126,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicFSmashDown.gif"
           ],
           "startup": "18",
-          "active": "18—20",
+          "active": "18-20",
           "total": "47",
           "endlag": "27",
           "damage": "14.0",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicDSmash.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "54",
           "endlag": "41",
           "damage": "12.0",
@@ -175,7 +175,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicNAir.gif"
           ],
           "startup": "6",
-          "active": "6—9(10—19/20—38)",
+          "active": "6-9(10-19/20-38)",
           "total": "49",
           "endlag": "11",
           "landingLag": "10",
@@ -211,7 +211,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicBAir.gif"
           ],
           "startup": "13",
-          "active": "13—14(15—19)",
+          "active": "13-14(15-19)",
           "total": "37",
           "endlag": "18",
           "landingLag": "15",
@@ -229,7 +229,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicUAir.gif"
           ],
           "startup": "5/14",
-          "active": "5—7/14—15",
+          "active": "5-7/14-15",
           "total": "39",
           "endlag": "24",
           "landingLag": "13",
@@ -246,7 +246,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicDAir.gif"
           ],
           "startup": "17",
-          "active": "17—19/20—32",
+          "active": "17-19/20-32",
           "total": "45",
           "endlag": "13",
           "landingLag": "21",
@@ -260,11 +260,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Homing Attack)",
           "section": "special",
-          "startup": "17—82",
-          "damage": "7.0—20.0",
+          "startup": "17-82",
+          "damage": "7.0-20.0",
           "advantage": "-22 to -16",
-          "shieldLag": "7—12",
-          "shieldStun": "4—10",
+          "shieldLag": "7-12",
+          "shieldStun": "4-10",
           "notes": "26 endlag on hit"
         },
         {
@@ -274,10 +274,10 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicSpinDashAerial.gif"
           ],
           "startup": "17",
-          "damage": "5.0/7.0—10.9",
+          "damage": "5.0/7.0-10.9",
           "advantage": "+6 (hop) +8 (grounded, no charge) +11 (grounded, full charge) +11 (aerial, any)",
-          "shieldLag": "6/7—8",
-          "shieldStun": "6/7—10",
+          "shieldLag": "6/7-8",
+          "shieldStun": "6/7-10",
           "notes": "Invulnerable frame 17-22. Startup is 1 from a charging state with six I-frames. Stops on shields. Endlag for that is 28. Startup/charge cancelable starting f7 into: - vertical spin dash jump - spin hops After release cancels into: -Spin dash jump -double jump (aerial only) Check out this image for more information on Spin Dash and Spin Charge."
         },
         {
@@ -307,9 +307,9 @@ export const FRAMES: FighterFrames = {
           "section": "special",
           "startup": "15/17/19/21",
           "total": "59",
-          "damage": "1.7—2.5/4.0",
+          "damage": "1.7-2.5/4.0",
           "advantage": "-33",
-          "shieldLag": "4—5/5",
+          "shieldLag": "4-5/5",
           "shieldStun": "-/5",
           "hitboxes": "Multi/Final",
           "notes": "Startup and total frames refer to minimum charge. Startup/charge cancelable starting f7 into: - spin dash jump - double jump (air only) Check out this image for more information on Spin Dash and Spin Charge."
@@ -349,7 +349,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "37",
           "endlag": "29"
         },
@@ -360,7 +360,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "47",
           "endlag": "36"
         },
@@ -371,7 +371,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/sonic/SonicPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },

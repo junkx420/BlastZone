@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "23",
           "endlag": "18",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "26",
           "endlag": "20",
           "damage": "1.5",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyJab3.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "35",
           "endlag": "30",
           "damage": "5.0",
@@ -70,7 +70,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyJabRapidEnd.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "45",
           "endlag": "40",
           "damage": "2.0",
@@ -87,7 +87,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyFTiltDown.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "32",
           "endlag": "21",
           "damage": "10.0/13.0",
@@ -103,7 +103,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyUTilt.gif"
           ],
           "startup": "8",
-          "active": "8—12",
+          "active": "8-12",
           "total": "29",
           "endlag": "17",
           "damage": "7.0/9.0",
@@ -119,7 +119,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "30",
           "endlag": "19",
           "damage": "6.0/9.0",
@@ -135,7 +135,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyDashAttack.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "39",
           "endlag": "26",
           "damage": "12.0",
@@ -150,7 +150,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyFSmash.gif"
           ],
           "startup": "18",
-          "active": "18—21",
+          "active": "18-21",
           "total": "53",
           "endlag": "32",
           "damage": "20.0",
@@ -166,7 +166,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyUSmash.gif"
           ],
           "startup": "12",
-          "active": "12—17",
+          "active": "12-17",
           "total": "47",
           "endlag": "30",
           "damage": "17.0",
@@ -182,7 +182,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyDSmash.gif"
           ],
           "startup": "24",
-          "active": "24—27",
+          "active": "24-27",
           "total": "57",
           "endlag": "30",
           "damage": "16.0",
@@ -198,7 +198,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyNAir.gif"
           ],
           "startup": "8",
-          "active": "8—14/15—20",
+          "active": "8-14/15-20",
           "total": "39",
           "endlag": "19",
           "landingLag": "12",
@@ -216,7 +216,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyFAir.gif"
           ],
           "startup": "10/13/16",
-          "active": "10—11/13—14/16—17",
+          "active": "10-11/13-14/16-17",
           "total": "41",
           "endlag": "24",
           "landingLag": "16",
@@ -234,7 +234,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyBAir.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "43",
           "endlag": "31",
           "landingLag": "17",
@@ -251,7 +251,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyUAir.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "39",
           "endlag": "26",
           "landingLag": "14",
@@ -269,7 +269,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyDAir.gif"
           ],
           "startup": "11",
-          "active": "11—18/19—40",
+          "active": "11-18/19-40",
           "total": "55",
           "endlag": "15",
           "landingLag": "32",
@@ -288,7 +288,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyPlasmaBreathCharge.gif"
           ],
           "startup": "29 | 56/65/73/84/92",
-          "active": "29—58/59—78 | ***",
+          "active": "29-58/59-78 | ***",
           "total": "55 | 102",
           "damage": "4.5/3.5 | 5.67/4.41",
           "advantage": "-23 // -1",
@@ -304,7 +304,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleySpacePirateRushG.gif"
           ],
           "startup": "22",
-          "active": "22—34",
+          "active": "22-34",
           "total": "78",
           "endlag": "44"
         },
@@ -315,7 +315,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleySpacePirateRushA.gif"
           ],
           "startup": "22",
-          "active": "22—34",
+          "active": "22-34",
           "total": "60",
           "endlag": "26",
           "notes": "Landing hitbox on frame 1 after a grab, then transitions to ground drag"
@@ -353,7 +353,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyWingBlitzDownLanding.gif"
           ],
           "startup": "34/36/37",
-          "active": "34—57/36—55/37—59",
+          "active": "34-57/36-55/37-59",
           "landingLag": "32/35",
           "damage": "18.0 / 16.0 / 15.0 / 5.0",
           "advantage": "-28",
@@ -369,7 +369,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleySkewer.gif"
           ],
           "startup": "30",
-          "active": "30—31",
+          "active": "30-31",
           "total": "96/67",
           "endlag": "65",
           "damage": "5.0 | 45.0 / 10.0",
@@ -386,7 +386,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyGrab.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "34",
           "endlag": "24"
         },
@@ -397,7 +397,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "42",
           "endlag": "29"
         },
@@ -408,7 +408,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ridley/RidleyPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "39",
           "endlag": "25"
         },

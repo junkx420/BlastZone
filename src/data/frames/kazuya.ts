@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4Jab1.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "22",
           "endlag": "15",
           "damage": "3.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4Jab2.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "26",
           "endlag": "18",
           "damage": "3.0",
@@ -61,7 +61,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4Jab4.gif"
           ],
           "startup": "10",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27",
           "damage": "3.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4Jab6.gif"
           ],
           "startup": "23",
-          "active": "24—25",
+          "active": "24-25",
           "total": "52",
           "endlag": "27",
           "damage": "4.0",
@@ -173,7 +173,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4Jab3Delayed.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "36",
           "endlag": "26",
           "damage": "9.0",
@@ -189,7 +189,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4FTilt.gif"
           ],
           "startup": "12",
-          "active": "12—16",
+          "active": "12-16",
           "total": "40",
           "endlag": "24",
           "damage": "14.5",
@@ -206,7 +206,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DFTilt2.gif"
           ],
           "startup": "10/26",
-          "active": "10—11/14—16",
+          "active": "10-11/14-16",
           "total": "36/54",
           "endlag": "20",
           "damage": "7.0/10.5",
@@ -222,7 +222,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DTilt.gif"
           ],
           "startup": "16",
-          "active": "16—18",
+          "active": "16-18",
           "total": "45",
           "endlag": "27",
           "damage": "15.0",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DBTilt.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "39",
           "endlag": "24",
           "damage": "9.0",
@@ -254,7 +254,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4BTilt.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "34",
           "endlag": "21",
           "damage": "15.0",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4UBTilt.gif"
           ],
           "startup": "14",
-          "active": "14—17",
+          "active": "14-17",
           "total": "39",
           "endlag": "22",
           "damage": "13.5",
@@ -287,7 +287,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4UTilt2.gif"
           ],
           "startup": "9/24",
-          "active": "9—10/14—16",
+          "active": "9-10/14-16",
           "total": "29/52",
           "endlag": "13",
           "damage": "6.0/10.0",
@@ -306,7 +306,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4UFTilt4.gif"
           ],
           "startup": "14/30/49/67",
-          "active": "14—16/11—12/16—17/14—16",
+          "active": "14-16/11-12/16-17/14-16",
           "total": "42/64/81/100",
           "endlag": "25",
           "damage": "6.0/3.0/10.5",
@@ -323,7 +323,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4SideTaunt.gif"
           ],
           "startup": "18/31/47/62",
-          "active": "7—10",
+          "active": "7-10",
           "total": "89",
           "endlag": "79",
           "damage": "6.0/3.0/6.0",
@@ -339,7 +339,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4CrouchFTilt.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "50",
           "endlag": "34",
           "damage": "16.5",
@@ -355,7 +355,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4CrouchJab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "26",
           "endlag": "18",
           "damage": "5.0",
@@ -371,7 +371,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4CrouchBTilt.gif"
           ],
           "startup": "11",
-          "active": "11—16",
+          "active": "11-16",
           "total": "35",
           "endlag": "19",
           "damage": "11.0",
@@ -387,7 +387,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DoubleDashAttack.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "40",
           "endlag": "25",
           "damage": "18.0",
@@ -403,7 +403,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DashAttack.gif"
           ],
           "startup": "15",
-          "active": "15—16(17—19)",
+          "active": "15-16(17-19)",
           "total": "47",
           "endlag": "28",
           "damage": "14.0/16.0",
@@ -420,7 +420,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4FSmash.gif"
           ],
           "startup": "25",
-          "active": "25—26",
+          "active": "25-26",
           "total": "67",
           "endlag": "41",
           "damage": "23.0/26.0",
@@ -437,7 +437,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4USmash.gif"
           ],
           "startup": "12",
-          "active": "12—13(14—16)",
+          "active": "12-13(14-16)",
           "total": "47",
           "endlag": "31",
           "damage": "19.0/15.0",
@@ -454,7 +454,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DSmash.gif"
           ],
           "startup": "17",
-          "active": "17—18(19)",
+          "active": "17-18(19)",
           "total": "46",
           "endlag": "27",
           "damage": "17.0/15.0/13.0/11.0",
@@ -471,7 +471,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4UncrouchingAttack.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "40",
           "endlag": "26",
           "damage": "12.0",
@@ -487,7 +487,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4WindGodFist.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "35",
           "endlag": "24",
           "damage": "13.5",
@@ -503,7 +503,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4ElectricWindGodFist.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "35",
           "endlag": "24",
           "damage": "14.5",
@@ -534,7 +534,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4SpinningDragonToLeftHook.gif"
           ],
           "startup": "10/34",
-          "active": "10—12/34—36",
+          "active": "10-12/34-36",
           "total": "66",
           "endlag": "30",
           "damage": "7.0/14.5",
@@ -550,7 +550,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4NAir.gif"
           ],
           "startup": "8",
-          "active": "8—9(10—16)",
+          "active": "8-9(10-16)",
           "total": "28",
           "landingLag": "7",
           "damage": "11.0/9.0/8.0/6.0",
@@ -567,7 +567,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4FAir.gif"
           ],
           "startup": "8",
-          "active": "8—9(10—14)",
+          "active": "8-9(10-14)",
           "total": "30",
           "landingLag": "10",
           "damage": "13.0/10.0",
@@ -584,7 +584,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4BAir.gif"
           ],
           "startup": "11",
-          "active": "11—13(14—18)",
+          "active": "11-13(14-18)",
           "total": "45",
           "landingLag": "10",
           "damage": "16.0/14.0/10.0",
@@ -601,7 +601,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4UAir.gif"
           ],
           "startup": "4",
-          "active": "4—6(7—9)",
+          "active": "4-6(7-9)",
           "total": "33",
           "landingLag": "8",
           "damage": "12.0(9.0)",
@@ -618,7 +618,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DAirLanding.gif"
           ],
           "startup": "17/19",
-          "active": "17—18/19—39/1—2",
+          "active": "17-18/19-39/1-2",
           "total": "57",
           "landingLag": "35",
           "damage": "6.0/15.0/10.0",
@@ -635,7 +635,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DevilBlasterG.gif"
           ],
           "startup": "27",
-          "active": "27—43",
+          "active": "27-43",
           "total": "82",
           "damage": "11.0 / 12.0 / 10.0",
           "advantage": "-31/-30/-33",
@@ -651,7 +651,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4Shieldbreaker.gif"
           ],
           "startup": "27",
-          "active": "27—43",
+          "active": "27-43",
           "total": "67",
           "damage": "10.0 / 11.0 / 9.0",
           "advantage": "-18/-16/-20",
@@ -668,7 +668,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DevilFistA.gif"
           ],
           "startup": "16",
-          "active": "16/17—22",
+          "active": "16/17-22",
           "total": "66 (68 Air)",
           "damage": "11.0/6.0",
           "advantage": "-32?? to -39??",
@@ -716,10 +716,10 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4RageDriveLand.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "57 (42 throw)",
           "damage": "12.6 / 14.3",
-          "notes": "Replaces Down-B during rage effect. 39 endlag from a successful ground slam, or 40 if you land on the same ground. Intangible frames 1—4, Super Armor frames 5—13."
+          "notes": "Replaces Down-B during rage effect. 39 endlag from a successful ground slam, or 40 if you land on the same ground. Intangible frames 1-4, Super Armor frames 5-13."
         },
         {
           "name": "Rage Drive (Input)",
@@ -730,9 +730,9 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4RageDriveInputLand.gif"
           ],
           "startup": "10",
-          "active": "10—13",
+          "active": "10-13",
           "total": "54 (42 throw)",
-          "notes": "39 endlag from a successful ground slam, or 40 if you land on the same ground. Intangible frames 1—3, Super Armor frames 4—10."
+          "notes": "39 endlag from a successful ground slam, or 40 if you land on the same ground. Intangible frames 1-3, Super Armor frames 4-10."
         },
         {
           "name": "Grab",
@@ -741,7 +741,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4Grab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "39"
         },
         {
@@ -751,7 +751,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4DashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "43"
         },
         {
@@ -761,7 +761,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4PivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "43"
         },
         {
@@ -772,7 +772,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/kazuya/Shoto4GatesOfHellThrow.gif"
           ],
           "startup": "7 (32/80/81)",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36 (104)",
           "damage": "-- (10.0/13.0/1.0)",
           "notes": "Input sequence is \"Down-Forward > Down > Down-Forward > Grab\""

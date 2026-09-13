@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacJab3.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "29",
           "endlag": "24",
           "damage": "5.0",
@@ -89,7 +89,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacFTilt.gif"
           ],
           "startup": "4/12",
-          "active": "4—5/12—13",
+          "active": "4-5/12-13",
           "total": "37",
           "endlag": "24",
           "damage": "4.0/8.0",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacUTilt.gif"
           ],
           "startup": "4",
-          "active": "4—10",
+          "active": "4-10",
           "total": "29",
           "endlag": "19",
           "damage": "6.5",
@@ -121,7 +121,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacDTilt.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "25",
           "endlag": "21",
           "damage": "8.0",
@@ -137,7 +137,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "33",
           "endlag": "24",
           "damage": "10.0",
@@ -155,7 +155,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacFSmashDown.gif"
           ],
           "startup": "14/14/15",
-          "active": "14—15/14—15/15",
+          "active": "14-15/14-15/15",
           "total": "43/43/43",
           "endlag": "28",
           "damage": "20.0/20.0/24.0",
@@ -172,7 +172,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacUSmash.gif"
           ],
           "startup": "10",
-          "active": "10(11—14)",
+          "active": "10(11-14)",
           "total": "47",
           "endlag": "33",
           "damage": "21.0/15.0",
@@ -189,7 +189,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacDSmash.gif"
           ],
           "startup": "10/17",
-          "active": "10—11/17—18",
+          "active": "10-11/17-18",
           "total": "42",
           "endlag": "24",
           "damage": "13.0",
@@ -222,7 +222,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacFAir.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "36",
           "endlag": "24",
           "landingLag": "13",
@@ -239,7 +239,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacBAir.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "37",
           "endlag": "25",
           "landingLag": "16",
@@ -256,7 +256,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacUAir.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "41",
           "endlag": "33",
           "landingLag": "13",
@@ -274,7 +274,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacDAir.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "27",
           "endlag": "17",
           "landingLag": "18",
@@ -294,11 +294,11 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "4(+32)",
           "total": "49",
-          "damage": "12.0—28.6",
+          "damage": "12.0-28.6",
           "advantage": "-34 to -19",
-          "shieldLag": "9—17",
-          "shieldStun": "11—26",
-          "hitboxes": "Uncharged—Charged",
+          "shieldLag": "9-17",
+          "shieldStun": "11-26",
+          "hitboxes": "Uncharged-Charged",
           "notes": "Must charge for 32 frames minimum before you are allowed to punch. Damage-based armor begins on frame 1 of charge and lasts until the punch begins, starts at 8% (9.6% in 1v1) and builds to 14% (16.8% in 1v1) on max charge release. Meter filled: (uncharge, sweet) 0.036, (early uncharged) 0.3, (late uncharged) 0.24 arrows."
         },
         {
@@ -324,7 +324,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacKOPunchA.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "76/75",
           "endlag": "65",
           "damage": "35.0/13.0",
@@ -341,7 +341,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacJoltHaymakerG.gif"
           ],
           "startup": "8/25",
-          "active": "8—14/25—31 (windbox: 7—17)",
+          "active": "8-14/25-31 (windbox: 7-17)",
           "total": "60/77",
           "endlag": "29",
           "damage": "14.00",
@@ -358,7 +358,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacJoltHaymakerA.gif"
           ],
           "startup": "8/25",
-          "active": "8—14/25—31",
+          "active": "8-14/25-31",
           "total": "53/70",
           "endlag": "22",
           "damage": "14.00",
@@ -375,7 +375,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacRisingUppercut.gif"
           ],
           "startup": "3...",
-          "active": "3/6—21(rehit: 4)/26",
+          "active": "3/6-21(rehit: 4)/26",
           "landingLag": "30",
           "damage": "3.0/1.0/3.0",
           "shieldLag": "7/4/13",
@@ -389,7 +389,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacSlipCounter.gif"
           ],
           "startup": "5 (Start of Counter)",
-          "active": "5—27 (counter)",
+          "active": "5-27 (counter)",
           "total": "56",
           "notes": "Invulnerable on frames 4-5. Counters on frame 5-27."
         },
@@ -401,7 +401,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacSlipCounterHitA.gif"
           ],
           "startup": "16",
-          "active": "16—21",
+          "active": "16-21",
           "total": "49",
           "endlag": "28",
           "notes": "Invulnerable on frame 1-18. Meter filled: (min/max) 0.3/1.26 arrows."
@@ -413,7 +413,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "38",
           "endlag": "28"
         },
@@ -424,7 +424,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacDashGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "46",
           "endlag": "32"
         },
@@ -435,7 +435,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/little_mac/LittleMacPivotGrab.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "41",
           "endlag": "26"
         },

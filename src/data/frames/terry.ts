@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryJab1.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "13",
           "endlag": "9",
           "damage": "3.0",
@@ -27,7 +27,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryJab2.gif"
           ],
           "startup": "3/4",
-          "active": "3/4—7",
+          "active": "3/4-7",
           "total": "24",
           "endlag": "17",
           "damage": "1.0",
@@ -41,7 +41,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryJab3.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "33",
           "endlag": "23",
           "damage": "7.0",
@@ -54,7 +54,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—13",
+          "active": "8-13",
           "total": "27",
           "endlag": "14",
           "damage": "12.0/13.0",
@@ -71,7 +71,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "30",
           "endlag": "19",
           "damage": "11.0",
@@ -85,7 +85,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "16",
           "endlag": "8",
           "damage": "3.0",
@@ -99,7 +99,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryDashAttack.gif"
           ],
           "startup": "10",
-          "active": "10—14(15—22)",
+          "active": "10-14(15-22)",
           "total": "40",
           "endlag": "18",
           "damage": "13.0/10.0",
@@ -113,7 +113,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryFSmash.gif"
           ],
           "startup": "18",
-          "active": "18—21",
+          "active": "18-21",
           "total": "50",
           "endlag": "29",
           "damage": "18.0",
@@ -127,7 +127,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryUSmash.gif"
           ],
           "startup": "10",
-          "active": "10(11—14)",
+          "active": "10(11-14)",
           "total": "41",
           "endlag": "27",
           "damage": "16.0/18.0",
@@ -142,7 +142,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryDSmash.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "40",
           "endlag": "29",
           "damage": "12.0",
@@ -156,7 +156,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryNAir.gif"
           ],
           "startup": "4",
-          "active": "4—8(9—19)",
+          "active": "4-8(9-19)",
           "total": "33",
           "endlag": "14",
           "landingLag": "7",
@@ -174,7 +174,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryFAir.gif"
           ],
           "startup": "7",
-          "active": "7—10(11—17)",
+          "active": "7-10(11-17)",
           "total": "39",
           "endlag": "22",
           "landingLag": "12",
@@ -192,7 +192,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryBAir.gif"
           ],
           "startup": "11",
-          "active": "11—13(14—15)",
+          "active": "11-13(14-15)",
           "total": "39",
           "endlag": "24",
           "landingLag": "11",
@@ -210,7 +210,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryUAir.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "35",
           "endlag": "26",
           "landingLag": "7",
@@ -227,7 +227,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryDAir.gif"
           ],
           "startup": "12",
-          "active": "12—15",
+          "active": "12-15",
           "total": "32",
           "endlag": "17",
           "landingLag": "16",
@@ -246,7 +246,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryPowerWaveGStrong.gif"
           ],
           "startup": "18 (21)",
-          "active": "18—86 (21—66)",
+          "active": "18-86 (21-66)",
           "total": "49 (52)",
           "damage": "8.0 (9.0)",
           "advantage": "-22 (-21)",
@@ -260,7 +260,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryPowerWaveAStrong.gif"
           ],
           "startup": "18 (18)",
-          "active": "18—27 (18—24)",
+          "active": "18-27 (18-24)",
           "total": "49 (49)",
           "endlag": "22",
           "damage": "10.0 (11.0)",
@@ -275,8 +275,8 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryBurningKnuckleAirWeak.gif",
             "hitboxes/terry/TerryBurningKnuckleAirStrong.gif"
           ],
-          "startup": "15/19 (21/26) | 14—17(18—26)",
-          "active": "15—19(20—30) | 21—28(27—39) | 14—17(18—26) | 18—21(22—30)",
+          "startup": "15/19 (21/26) | 14-17(18-26)",
+          "active": "15-19(20-30) | 21-28(27-39) | 14-17(18-26) | 18-21(22-30)",
           "total": "60 (69) | 46 (50)",
           "endlag": "21",
           "damage": "13.0/12.0 (14.0/12.0)",
@@ -294,7 +294,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryBurningKnuckleAirStrongInput.gif"
           ],
           "startup": "15/21 (21/28) | 14/19 (18/23)",
-          "active": "15—21(22—30) | 21—28(29—39) | 14—19(20—26) | 18—23(24—30)",
+          "active": "15-21(22-30) | 21-28(29-39) | 14-19(20-26) | 18-23(24-30)",
           "total": "60 (69) | 46 (50)",
           "endlag": "21",
           "damage": "16.0/14.0 (17.0/14.0)",
@@ -310,7 +310,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryCrackShootStrong.gif"
           ],
           "startup": "13/21",
-          "active": "13(14—20)/21(22—26)",
+          "active": "13(14-20)/21(22-26)",
           "total": "46 (45 air)",
           "endlag": "20",
           "damage": "(3.0/4.0/5.0)/(6.0/8.0/10.0)",
@@ -357,7 +357,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryPowerDunkSpike.gif"
           ],
           "startup": "Weak: 6/9/29 | Strong: 6/9/35",
-          "active": "6/9/11/29—30/31—41",
+          "active": "6/9/11/29-30/31-41",
           "total": "Ground Weak 54, Ground Strong 65 | Air Weak 67, Air Strong 74",
           "endlag": "13",
           "landingLag": "20 (24)",
@@ -373,7 +373,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryPowerGeyser.gif"
           ],
           "startup": "20",
-          "active": "20—23/24—29",
+          "active": "20-23/24-29",
           "total": "71",
           "endlag": "42",
           "damage": "26.0/23.0",
@@ -389,7 +389,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryBusterWolfThrow.gif"
           ],
           "startup": "14",
-          "active": "14—23/46",
+          "active": "14-23/46",
           "total": "65/64",
           "endlag": "19",
           "damage": "5.0/20.0",
@@ -404,7 +404,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -415,7 +415,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -426,7 +426,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },
@@ -494,7 +494,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/terry/TerryUTiltBullshit.gif"
           ],
           "startup": "5",
-          "active": "5—9",
+          "active": "5-9",
           "total": "28 Total",
           "advantage": "-17",
           "notes": "Intangible on frame 1-3. Upper body intangible frame 4-9. Deals 11.0 damage."

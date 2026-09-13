@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterJab1.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "19",
           "endlag": "12",
           "damage": "3.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterJab2.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "22",
           "endlag": "15",
           "damage": "3.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterJab3.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "38",
           "endlag": "30",
           "damage": "5.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterFTilt.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "34",
           "endlag": "23",
           "damage": "12.0",
@@ -75,7 +75,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterUTilt.gif"
           ],
           "startup": "8",
-          "active": "8—12",
+          "active": "8-12",
           "total": "32",
           "endlag": "20",
           "damage": "7.0",
@@ -90,7 +90,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "19",
           "endlag": "13",
           "damage": "8.0",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterDashAttack.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "41",
           "endlag": "31",
           "damage": "10.0",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterFSmash.gif"
           ],
           "startup": "15",
-          "active": "15—17",
+          "active": "15-17",
           "total": "59",
           "endlag": "42",
           "damage": "14.0/15.0/16.0",
@@ -137,7 +137,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterUSmash.gif"
           ],
           "startup": "11/14/21",
-          "active": "11—12/14—15/21—22",
+          "active": "11-12/14-15/21-22",
           "total": "59",
           "endlag": "37",
           "damage": "4.0/3.0/7.0",
@@ -153,7 +153,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterDSmash.gif"
           ],
           "startup": "7/15",
-          "active": "7—8/15—16",
+          "active": "7-8/15-16",
           "total": "53",
           "endlag": "37",
           "damage": "12.0/15.0",
@@ -169,7 +169,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterNAir.gif"
           ],
           "startup": "10",
-          "active": "10—23",
+          "active": "10-23",
           "total": "48",
           "endlag": "25",
           "landingLag": "9",
@@ -186,7 +186,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterFAir.gif"
           ],
           "startup": "12/16/21",
-          "active": "12—13/16—17/21—22",
+          "active": "12-13/16-17/21-22",
           "total": "49",
           "endlag": "27",
           "landingLag": "12",
@@ -204,7 +204,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterBAir.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26",
           "landingLag": "9",
@@ -221,7 +221,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterUAir.gif"
           ],
           "startup": "11",
-          "active": "11—13(14—23)",
+          "active": "11-13(14-23)",
           "total": "44",
           "endlag": "21",
           "landingLag": "10",
@@ -240,7 +240,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterDAirLanding.gif"
           ],
           "startup": "14...",
-          "active": "14—37(rehit: 5)/1—3",
+          "active": "14-37(rehit: 5)/1-3",
           "total": "58",
           "endlag": "21",
           "landingLag": "18",
@@ -258,7 +258,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordFighterGaleStrike.gif"
           ],
           "startup": "20",
-          "active": "20—37(38—55/56—71)",
+          "active": "20-37(38-55/56-71)",
           "total": "67",
           "damage": "13.0/11.0/10.0",
           "advantage": "-33",
@@ -273,7 +273,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordFighterShurikenofLight.gif"
           ],
           "startup": "13",
-          "active": "13—20(21—28/29—36/37—50)",
+          "active": "13-20(21-28/29-36/37-50)",
           "total": "37",
           "damage": "2.0/3.5/5.0/6.5",
           "advantage": "-18",
@@ -289,13 +289,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterBlurringBladeA.gif"
           ],
           "startup": "17/21/25/29/33/44",
-          "active": "17—18/21—22/25—26/29—30/33—34/44—45",
+          "active": "17-18/21-22/25-26/29-30/33-34/44-45",
           "total": "84",
           "endlag": "39",
-          "damage": "0.8—1.9/8.0—19.2",
+          "damage": "0.8-1.9/8.0-19.2",
           "advantage": "-32 to -23",
-          "shieldLag": "4—4/11—15",
-          "shieldStun": "2—3/8—17",
+          "shieldLag": "4-4/11-15",
+          "shieldStun": "2-3/8-17",
           "hitboxes": "Multi/Final",
           "notes": "Startup is 6 from charge release. Can be charged for 50 addittional frames for more damage"
         },
@@ -307,7 +307,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterAirborneAssaultHit.gif"
           ],
           "startup": "Ground: 25, Air: 30",
-          "active": "Ground: 25—60 Air: 30—65 Hit: 2—5",
+          "active": "Ground: 25-60 Air: 30-65 Hit: 2-5",
           "total": "104/109",
           "endlag": "44",
           "landingLag": "29",
@@ -325,7 +325,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterGaleStabA.gif"
           ],
           "startup": "8/11",
-          "active": "8—21/11—24",
+          "active": "8-21/11-24",
           "total": "72/--",
           "endlag": "51/35",
           "landingLag": "29 (Freefall)",
@@ -340,14 +340,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterGaleStabAHit.gif"
           ],
           "startup": "2",
-          "active": "2—5",
+          "active": "2-5",
           "total": "34/--",
           "endlag": "28/52",
           "landingLag": "29 (Freefall)",
-          "damage": "8.0—18.5",
+          "damage": "8.0-18.5",
           "advantage": "-24 to -16",
-          "shieldLag": "7—12",
-          "shieldStun": "8—16",
+          "shieldLag": "7-12",
+          "shieldStun": "8-16",
           "hitboxes": "Ground/Air",
           "notes": "Ledge grabs enabled starting on frame 7."
         },
@@ -355,7 +355,7 @@ export const FRAMES: FighterFrames = {
           "name": "Chakram",
           "section": "special",
           "startup": "18",
-          "active": "18—89/18—40",
+          "active": "18-89/18-40",
           "total": "52",
           "damage": "1.1/8.0",
           "advantage": "-27/-20",
@@ -387,7 +387,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterSkywardSlashDash.gif"
           ],
           "startup": "15/19/22/25/28/31/34",
-          "active": "15/19—20/22—23/25—26/28—29/31—32/34—35",
+          "active": "15/19-20/22-23/25-26/28-29/31-32/34-35",
           "total": "77",
           "endlag": "42",
           "landingLag": "20",
@@ -405,13 +405,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterHerosSpinG.gif"
           ],
           "startup": "8",
-          "active": "8—9(10—14/15—24/25—40)",
+          "active": "8-9(10-14/15-24/25-40)",
           "total": "78",
           "endlag": "38",
-          "damage": "14.0—19.6",
+          "damage": "14.0-19.6",
           "advantage": "-57 to -53",
-          "shieldLag": "10—12",
-          "shieldStun": "13—17",
+          "shieldLag": "10-12",
+          "shieldStun": "13-17",
           "hitboxes": "Early/Lates",
           "notes": "Can be charged for an additional 60 frames. 8f startup is only the front hit."
         },
@@ -422,7 +422,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterHerosSpinA.gif"
           ],
           "startup": "8/16/22/26/31/38/47",
-          "active": "8/11/16/19/22/26/31/38/47—48",
+          "active": "8/11/16/19/22/26/31/38/47-48",
           "landingLag": "30",
           "damage": "3.0/2.0/5.0",
           "shieldLag": "5/4/12",
@@ -436,7 +436,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterBladeCounter.gif"
           ],
           "startup": "5 (Start of Counter)",
-          "active": "5—26 (counter)",
+          "active": "5-26 (counter)",
           "total": "59",
           "notes": "Intangible on frame 4-5. Counters on frame 5-26."
         },
@@ -448,7 +448,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterBladeCounterHitAerial.gif"
           ],
           "startup": "21",
-          "active": "21—22",
+          "active": "21-22",
           "total": "Ground 38/ Air 41",
           "endlag": "16",
           "notes": "Intangible frames 1-23."
@@ -460,7 +460,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterReversalSlash.gif"
           ],
           "startup": "16 (Can reflect as fast as frame 5)",
-          "active": "16—17",
+          "active": "16-17",
           "total": "36",
           "endlag": "19",
           "damage": "6.0",
@@ -476,7 +476,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterPowerThrustG.gif"
           ],
           "startup": "12",
-          "active": "12—14(15—22/23—30)",
+          "active": "12-14(15-22/23-30)",
           "total": "59",
           "endlag": "29",
           "damage": "15.0/13.0/10.0",
@@ -493,7 +493,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterPowerThrustALanding.gif"
           ],
           "startup": "14",
-          "active": "14—16/17—24/25—29",
+          "active": "14-16/17-24/25-29",
           "total": "58",
           "endlag": "29",
           "landingLag": "39",
@@ -502,7 +502,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "9/10",
           "shieldStun": "12/7",
           "hitboxes": "falling/landing",
-          "notes": "Landing hit on frame 1—2"
+          "notes": "Landing hit on frame 1-2"
         },
         {
           "name": "Grab",
@@ -511,7 +511,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -522,7 +522,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -533,7 +533,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mii_swordfighter/MiiSwordfighterPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkJab1.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "23",
           "endlag": "15",
           "damage": "3.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "25",
           "endlag": "19",
           "damage": "3.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27",
           "damage": "4.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkFTilt.gif"
           ],
           "startup": "15",
-          "active": "15(16—19)",
+          "active": "15(16-19)",
           "total": "39",
           "endlag": "20",
           "damage": "13.0",
@@ -76,7 +76,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkUTilt.gif"
           ],
           "startup": "8",
-          "active": "8—12",
+          "active": "8-12",
           "total": "35",
           "endlag": "23",
           "damage": "11.0",
@@ -91,7 +91,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkDTilt.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "30",
           "endlag": "19",
           "damage": "9.0",
@@ -106,7 +106,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkDashAttack.gif"
           ],
           "startup": "20",
-          "active": "20—23",
+          "active": "20-23",
           "total": "56",
           "endlag": "33",
           "damage": "14.0/13.0/12.0",
@@ -122,7 +122,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkFSmash1.gif"
           ],
           "startup": "17",
-          "active": "17—18",
+          "active": "17-18",
           "total": "50",
           "endlag": "32",
           "damage": "7.0/14.0",
@@ -139,7 +139,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkFSmash2.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "60",
           "endlag": "49",
           "damage": "13.0/12.0",
@@ -155,7 +155,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkUSmash.gif"
           ],
           "startup": "10/25/41",
-          "active": "10—13(14—15) / 25—28(29—30) / 41—45",
+          "active": "10-13(14-15) / 25-28(29-30) / 41-45",
           "total": "77",
           "endlag": "32",
           "damage": "4.0%/3.0%/(11.0%/10.0%/9.0%)",
@@ -172,7 +172,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkDSmash.gif"
           ],
           "startup": "12/24",
-          "active": "12—13/24—25",
+          "active": "12-13/24-25",
           "total": "56",
           "endlag": "31",
           "damage": "(16.0%/17.0%/14.0%)/(12.0%/11.0%/10.0%)",
@@ -189,7 +189,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkNAir.gif"
           ],
           "startup": "7",
-          "active": "7—8(9—31)",
+          "active": "7-8(9-31)",
           "total": "38",
           "endlag": "7",
           "landingLag": "6",
@@ -207,7 +207,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkFAir.gif"
           ],
           "startup": "16/24",
-          "active": "16—17/24—25",
+          "active": "16-17/24-25",
           "total": "51",
           "endlag": "26",
           "landingLag": "11",
@@ -224,7 +224,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkBAir.gif"
           ],
           "startup": "6/15",
-          "active": "6—8/15—17",
+          "active": "6-8/15-17",
           "total": "30",
           "endlag": "13",
           "landingLag": "6",
@@ -242,7 +242,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkUAir.gif"
           ],
           "startup": "11",
-          "active": "11—13(14—40)",
+          "active": "11-13(14-40)",
           "total": "59",
           "endlag": "19",
           "landingLag": "14",
@@ -260,7 +260,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkDAir.gif"
           ],
           "startup": "14",
-          "active": "14—19(20—64)",
+          "active": "14-19(20-64)",
           "total": "79",
           "endlag": "15",
           "landingLag": "19",
@@ -275,20 +275,20 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Hero's Bow)",
           "section": "special",
           "startup": "16-52",
-          "active": "16—61",
+          "active": "16-61",
           "total": "44-80",
-          "damage": "4.0—12.0",
+          "damage": "4.0-12.0",
           "advantage": "-21 to -15",
-          "shieldLag": "5—9",
-          "shieldStun": "2—4",
-          "hitboxes": "Uncharged—Full Charge",
+          "shieldLag": "5-9",
+          "shieldStun": "2-4",
+          "hitboxes": "Uncharged-Full Charge",
           "notes": "Reaches full charge on frame 52. Arrows travel for 46 frames after being fired. Arrows will stick into the ground for 3 seconds and can be picked up to either item-throw or fire two arrows. When firing two arrows at once, the second one generates three frames after the first."
         },
         {
           "name": "Side B (Boomerang)",
           "section": "special",
           "startup": "27",
-          "active": "27—35(36—63/64—155)",
+          "active": "27-35(36-63/64-155)",
           "total": "45",
           "damage": "8.0/9.6",
           "advantage": "-7/-9",
@@ -304,7 +304,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkSpinAttackG.gif"
           ],
           "startup": "7",
-          "active": "7—8(9—13/14—23/24—39)",
+          "active": "7-8(9-13/14-23/24-39)",
           "total": "76",
           "endlag": "37",
           "damage": "(14.0%/11.2%)/(12.0%/9.6%)/(9.0%/7.2%)/(7.0%/5.6%)",
@@ -321,7 +321,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkSpinAttackA.gif"
           ],
           "startup": "8/16/22/31/47",
-          "active": "8—9/12—13/16—17/19—20/22—23/26—27/31—32/38—39/47—49",
+          "active": "8-9/12-13/16-17/19-20/22-23/26-27/31-32/38-39/47-49",
           "landingLag": "30",
           "damage": "4.0/2.0/4.0",
           "shieldLag": "5/4/11",
@@ -337,7 +337,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B (Remote Bomb, Detonate)",
           "section": "special",
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "39",
           "endlag": "26",
           "damage": "7.0",
@@ -353,7 +353,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -364,7 +364,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -375,7 +375,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/link/LinkPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

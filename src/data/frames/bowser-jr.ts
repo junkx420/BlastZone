@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "19",
           "endlag": "14",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "29",
           "endlag": "24",
           "damage": "2.0",
@@ -56,7 +56,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrJabRapidEnd.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "42",
           "endlag": "35",
           "damage": "3.0",
@@ -73,7 +73,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrFTiltDown.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "31",
           "endlag": "22",
           "damage": "6.0/8.0",
@@ -89,7 +89,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—14",
+          "active": "7-14",
           "total": "30",
           "endlag": "16",
           "damage": "6.0",
@@ -104,7 +104,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrDTilt.gif"
           ],
           "startup": "4/12/23",
-          "active": "4—6/12—14/23—25",
+          "active": "4-6/12-14/23-25",
           "total": "40",
           "endlag": "15",
           "damage": "2.0/6.0",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrDashAttack.gif"
           ],
           "startup": "8/11/14/17/20/25",
-          "active": "8/11/14/17/20/25—26",
+          "active": "8/11/14/17/20/25-26",
           "total": "47",
           "endlag": "21",
           "damage": "1.8/4.0",
@@ -138,7 +138,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrFSmashDown.gif"
           ],
           "startup": "18/21/24/27/30/35",
-          "active": "18/21/24/27/30/35—37",
+          "active": "18/21/24/27/30/35-37",
           "total": "55",
           "endlag": "18",
           "damage": "1.0/11.0",
@@ -155,7 +155,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrUSmash.gif"
           ],
           "startup": "7/9/12/15/18/22",
-          "active": "7—8/9/12/15/18/22—23",
+          "active": "7-8/9/12/15/18/22-23",
           "total": "53",
           "endlag": "30",
           "damage": "1.0/1.7/1.4/6.0",
@@ -172,7 +172,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrDSmash.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "59",
           "endlag": "45",
           "damage": "18.0",
@@ -188,7 +188,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrNAir.gif"
           ],
           "startup": "7",
-          "active": "7—8(9—13/14—19)",
+          "active": "7-8(9-13/14-19)",
           "total": "43",
           "endlag": "24",
           "landingLag": "9",
@@ -207,7 +207,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrFAirLanding.gif"
           ],
           "startup": "10",
-          "active": "10—13(14—17/18—23)/2",
+          "active": "10-13(14-17/18-23)/2",
           "total": "43",
           "endlag": "20",
           "landingLag": "16",
@@ -225,7 +225,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrBAir.gif"
           ],
           "startup": "12",
-          "active": "12—13(14—18)",
+          "active": "12-13(14-18)",
           "total": "45",
           "endlag": "27",
           "landingLag": "14",
@@ -243,7 +243,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrUAir.gif"
           ],
           "startup": "6",
-          "active": "6—9(10—13)",
+          "active": "6-9(10-13)",
           "total": "25",
           "endlag": "12",
           "landingLag": "9",
@@ -262,7 +262,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrDAirLanding.gif"
           ],
           "startup": "15...",
-          "active": "15—38 (rehit: 3) / 39",
+          "active": "15-38 (rehit: 3) / 39",
           "total": "56",
           "endlag": "18",
           "landingLag": "15",
@@ -281,10 +281,10 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "37-97",
           "total": "72-132",
-          "damage": "10.0—20.0/7.0—14.0",
+          "damage": "10.0-20.0/7.0-14.0",
           "advantage": "-23 to -17",
-          "shieldLag": "8—12/7—10",
-          "shieldStun": "4–6/3—5",
+          "shieldLag": "8-12/7-10",
+          "shieldStun": "4-6/3-5",
           "hitboxes": "Early/Late",
           "notes": "\"late\" hitbox is when the cannonball starts losing altitude"
         },
@@ -296,9 +296,9 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrClownKartDashA.gif"
           ],
           "startup": "23",
-          "damage": "4.0—7.3",
-          "shieldLag": "7—8",
-          "shieldStun": "5—7",
+          "damage": "4.0-7.3",
+          "shieldLag": "7-8",
+          "shieldStun": "5-7",
           "notes": "Damage based heavy armor begins on frame 20. Kart Jump can be cancelled into any attack on any frame but is otherwise a 33 frame animation. Damage depends on travel speed"
         },
         {
@@ -308,14 +308,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrClownKartDashSpinout.gif"
           ],
           "startup": "3",
-          "active": "3—14",
+          "active": "3-14",
           "total": "58",
           "endlag": "44",
-          "damage": "16.3—10.0",
+          "damage": "16.3-10.0",
           "advantage": "-40",
-          "shieldLag": "11—8",
-          "shieldStun": "15—10",
-          "hitboxes": "Early—Latest",
+          "shieldLag": "11-8",
+          "shieldStun": "15-10",
+          "hitboxes": "Early-Latest",
           "notes": "Damage also depends on travel speed"
         },
         {
@@ -338,7 +338,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrAbandonShipHammer.gif"
           ],
           "startup": "8/13",
-          "active": "8—9/13—14",
+          "active": "8-9/13-14",
           "total": "39",
           "endlag": "25",
           "landingLag": "37",
@@ -364,7 +364,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrGrab.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "40",
           "endlag": "27"
         },
@@ -375,7 +375,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrDashGrab.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "48",
           "endlag": "32"
         },
@@ -386,7 +386,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bowser_jr/BowserJrPivotGrab.gif"
           ],
           "startup": "15",
-          "active": "15—17",
+          "active": "15-17",
           "total": "43",
           "endlag": "26"
         },
@@ -440,7 +440,7 @@ export const FRAMES: FighterFrames = {
           "startup": "16/50",
           "total": "77",
           "damage": "1.2/4.0",
-          "notes": "Hits 16—49 with rehit of 5. Throws on 50."
+          "notes": "Hits 16-49 with rehit of 5. Throws on 50."
         },
         {
           "name": "Spot Dodge",

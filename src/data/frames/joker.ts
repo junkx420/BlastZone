@@ -14,7 +14,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerJab1Arsene.gif"
           ],
           "startup": "4",
-          "active": "4—5(4—5)",
+          "active": "4-5(4-5)",
           "total": "23",
           "endlag": "18",
           "damage": "2.0(2.7)",
@@ -31,7 +31,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerJab2Arsene.gif"
           ],
           "startup": "3",
-          "active": "3—4(3—4)",
+          "active": "3-4(3-4)",
           "total": "23",
           "endlag": "19",
           "damage": "1.5(2.2)",
@@ -48,7 +48,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerJab3Arsene.gif"
           ],
           "startup": "3",
-          "active": "3—4(3—4)",
+          "active": "3-4(3-4)",
           "total": "34",
           "endlag": "30",
           "damage": "4.0(7.1)",
@@ -68,7 +68,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerFTiltDownArsene.gif"
           ],
           "startup": "8/13",
-          "active": "8—9/13—15(8—9/13—19)",
+          "active": "8-9/13-15(8-9/13-19)",
           "total": "34",
           "endlag": "15",
           "damage": "3.0/5.0(3.0/10.0)",
@@ -85,7 +85,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerUTiltArsene.gif"
           ],
           "startup": "8/11/14/17/20",
-          "active": "8/9(11—19) [Final Hit: 20—23(20—23)]",
+          "active": "8/9(11-19) [Final Hit: 20-23(20-23)]",
           "total": "40",
           "damage": "4.0/1.0/1.0 (4.0/1.7/3.9)",
           "advantage": "-27",
@@ -102,7 +102,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerDTiltArsene.gif"
           ],
           "startup": "8",
-          "active": "8—9/10—11/12—14(8—9/10—11/12—14)",
+          "active": "8-9/10-11/12-14(8-9/10-11/12-14)",
           "total": "37",
           "endlag": "23",
           "damage": "6.0(13.0)",
@@ -118,7 +118,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerDashAttackArsene.gif"
           ],
           "startup": "6/15",
-          "active": "6—7/15—21(--/15—21)",
+          "active": "6-7/15-21(--/15-21)",
           "total": "45",
           "endlag": "24",
           "damage": "2.0/6.0 (2.0/12.0)",
@@ -134,7 +134,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerFSmashArsene.gif"
           ],
           "startup": "16",
-          "active": "16—18(16—19)",
+          "active": "16-18(16-19)",
           "total": "47",
           "endlag": "28",
           "damage": "14.0(22.0)",
@@ -151,7 +151,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerUSmashArsene.gif"
           ],
           "startup": "10",
-          "active": "10—14(10—14)",
+          "active": "10-14(10-14)",
           "total": "51",
           "endlag": "37",
           "damage": "12.0(17.0)",
@@ -168,7 +168,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerDSmashArsene.gif"
           ],
           "startup": "12/16",
-          "active": "12—13/16—17(12—13/16—17)",
+          "active": "12-13/16-17(12-13/16-17)",
           "total": "51",
           "endlag": "34",
           "damage": "12.0(18.0)",
@@ -185,11 +185,11 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerNAirArsene.gif"
           ],
           "startup": "12",
-          "active": "12—27(12—27)",
+          "active": "12-27(12-27)",
           "total": "54",
           "endlag": "27",
           "landingLag": "8",
-          "damage": "7.0/—(7.0/4.0)",
+          "damage": "7.0/-(7.0/4.0)",
           "advantage": "-5",
           "shieldLag": "7 // 7/5",
           "shieldStun": "3 // 3/3",
@@ -204,7 +204,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerFAirArsene.gif"
           ],
           "startup": "7/12",
-          "active": "7—8/12—14(--/12—14)",
+          "active": "7-8/12-14(--/12-14)",
           "total": "47",
           "endlag": "33",
           "landingLag": "12",
@@ -222,7 +222,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerBAirArsene.gif"
           ],
           "startup": "7",
-          "active": "7—8(7—8)",
+          "active": "7-8(7-8)",
           "total": "31",
           "endlag": "23",
           "landingLag": "9",
@@ -240,7 +240,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerUAirArsene.gif"
           ],
           "startup": "5...",
-          "active": "5—18/20—21 (rehit: 4)",
+          "active": "5-18/20-21 (rehit: 4)",
           "total": "39",
           "endlag": "18",
           "landingLag": "14",
@@ -259,11 +259,11 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerDAirArsene.gif"
           ],
           "startup": "13",
-          "active": "13—16(15—16)",
+          "active": "13-16(15-16)",
           "total": "46",
           "endlag": "30",
           "landingLag": "11",
-          "damage": "8.0/—(8.0/8.0)",
+          "damage": "8.0/-(8.0/8.0)",
           "advantage": "-7",
           "shieldLag": "7 // 7/10",
           "shieldStun": "4 // 4/4",
@@ -473,7 +473,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerEiha.gif"
           ],
           "startup": "16",
-          "active": "16—42/1—19",
+          "active": "16-42/1-19",
           "total": "52",
           "endlag": "10",
           "damage": "1.0/2.0",
@@ -490,7 +490,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerEigaon.gif"
           ],
           "startup": "16 (1/6/11/16)",
-          "active": "16—32(1—15/16—27)",
+          "active": "16-32(1-15/16-27)",
           "total": "57",
           "endlag": "25",
           "damage": "1.0/0.5/2.5",
@@ -503,7 +503,7 @@ export const FRAMES: FighterFrames = {
           "name": "Up B (Grappling Hook)",
           "section": "special",
           "startup": "20",
-          "active": "20—26",
+          "active": "20-26",
           "total": "59/44",
           "endlag": "33",
           "notes": "Tethers on frame 12. Second total frames is for the air. Does not induce special fall"
@@ -538,7 +538,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerRebelsGuardAttack.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "30",
           "endlag": "21",
           "damage": "2.4",
@@ -551,7 +551,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerTetrakarn_Makarakarn.gif"
           ],
           "startup": "4 (Start of Counter)",
-          "active": "4—31(Counter/Reflect active)",
+          "active": "4-31(Counter/Reflect active)",
           "total": "57",
           "notes": "Invulnerable on frame 3. Counters/reflects on frame 4-31. 1.6* Damage Multiplier with a minimum of 12% and maximum of 50%."
         },
@@ -562,7 +562,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerTetrakarn.gif"
           ],
           "startup": "4",
-          "active": "5—7",
+          "active": "5-7",
           "total": "38",
           "endlag": "31",
           "notes": "Invulnerable on frame 1-8 in addition to counter freeze frames"
@@ -573,7 +573,7 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/joker/JokerMakarakarn.gif"
           ],
-          "active": "1—29",
+          "active": "1-29",
           "total": "41",
           "endlag": "12",
           "notes": "Arm intangible on frame 1-29"
@@ -585,7 +585,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -596,7 +596,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerDashGrab.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "42",
           "endlag": "33"
         },
@@ -607,7 +607,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/joker/JokerPivotGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "37",
           "endlag": "27"
         },

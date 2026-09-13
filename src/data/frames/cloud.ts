@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "29",
           "endlag": "24",
           "damage": "2.5",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "32",
           "endlag": "26",
           "damage": "2.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "37",
           "endlag": "30",
           "damage": "3.5",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudFTilt.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "35",
           "endlag": "25",
           "damage": "11.0",
@@ -75,7 +75,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—9",
+          "active": "6-9",
           "total": "32",
           "endlag": "23",
           "damage": "8.0",
@@ -90,7 +90,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8(9—17)",
+          "active": "7-8(9-17)",
           "total": "40",
           "endlag": "23",
           "damage": "7.0",
@@ -106,7 +106,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudDashAttack.gif"
           ],
           "startup": "9",
-          "active": "9—13(14—18)",
+          "active": "9-13(14-18)",
           "total": "45",
           "endlag": "27",
           "damage": "11.0/8.0",
@@ -139,7 +139,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudUSmash.gif"
           ],
           "startup": "12",
-          "active": "12(13—14/15—16)",
+          "active": "12(13-14/15-16)",
           "total": "45",
           "endlag": "29",
           "damage": "13.0/8.0",
@@ -155,7 +155,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudDSmash.gif"
           ],
           "startup": "8/21",
-          "active": "8—9/21—23",
+          "active": "8-9/21-23",
           "total": "49",
           "endlag": "26",
           "damage": "3.0/11.0",
@@ -171,7 +171,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudNAir.gif"
           ],
           "startup": "5",
-          "active": "5—15",
+          "active": "5-15",
           "total": "38",
           "endlag": "23",
           "landingLag": "9",
@@ -188,7 +188,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudFAir.gif"
           ],
           "startup": "18",
-          "active": "18—19(20—25)",
+          "active": "18-19(20-25)",
           "total": "53",
           "endlag": "28",
           "landingLag": "11",
@@ -206,7 +206,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudBAir.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "42",
           "endlag": "30",
           "landingLag": "8",
@@ -223,7 +223,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudUAir.gif"
           ],
           "startup": "8",
-          "active": "8—9(10—23)",
+          "active": "8-9(10-23)",
           "total": "44",
           "endlag": "21",
           "landingLag": "9",
@@ -241,7 +241,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudDAir.gif"
           ],
           "startup": "11",
-          "active": "11—13(14—39)",
+          "active": "11-13(14-39)",
           "total": "64",
           "endlag": "25",
           "landingLag": "16",
@@ -260,14 +260,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudBladeBeamA.gif"
           ],
           "startup": "18(18)",
-          "active": "18—35(36—67)",
+          "active": "18-35(36-67)",
           "total": "53(60)",
           "damage": "8.0/6.0(6.4/4.8)",
           "advantage": "-25(-33)",
           "shieldLag": "7/6(6/6)",
           "shieldStun": "3/3(3/3)",
           "hitboxes": "Ground Early/Late (Air Early/Late)",
-          "notes": "Windbox on 16–17."
+          "notes": "Windbox on 16-17."
         },
         {
           "name": "Limit Blade Beam",
@@ -277,7 +277,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudBladeBeamLimitA.gif"
           ],
           "startup": "16 (1/7/13/19/25/28)",
-          "active": "16—62, Multihits: (1—28 (Rehit : 6)/29—30)",
+          "active": "16-62, Multihits: (1-28 (Rehit : 6)/29-30)",
           "total": "60",
           "damage": "6.0/2.0/3.0 (Air: 4.8/1.6/2.4)",
           "advantage": "-9",
@@ -294,7 +294,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudCrossSlash1Right.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "40",
           "endlag": "29",
           "damage": "4.0",
@@ -311,7 +311,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudCrossSlash2Right.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "31",
           "endlag": "28",
           "damage": "3.0",
@@ -328,7 +328,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudCrossSlash3Right.gif"
           ],
           "startup": "2/11/25",
-          "active": "2—3/11—12/25—26",
+          "active": "2-3/11-12/25-26",
           "total": "55",
           "endlag": "29",
           "damage": "3.0/3.0/6.0",
@@ -344,7 +344,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudCrossSlashLimitRight.gif"
           ],
           "startup": "10/15/21/28/38",
-          "active": "10—11/15—16/21—22/28/38—39",
+          "active": "10-11/15-16/21-22/28/38-39",
           "total": "60",
           "endlag": "21",
           "damage": "5.0/3.0/10.0",
@@ -361,7 +361,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudClimhazzard.gif"
           ],
           "startup": "7/10",
-          "active": "7/10(11/12—15/**)",
+          "active": "7/10(11/12-15/**)",
           "landingLag": "20",
           "damage": "3.0/4.0",
           "shieldLag": "12/6",
@@ -376,7 +376,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudClimhazzardLanding.gif"
           ],
           "startup": "12",
-          "active": "12—**",
+          "active": "12-**",
           "landingLag": "26",
           "damage": "6.0/7.0",
           "shieldLag": "15/16",
@@ -389,7 +389,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudClimhazzardLimit.gif"
           ],
           "startup": "7/10",
-          "active": "7—9/10(11—16)/1—3",
+          "active": "7-9/10(11-16)/1-3",
           "landingLag": "20",
           "damage": "4.5/3.5",
           "advantage": "-21",
@@ -411,7 +411,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudFinishingTouchA.gif"
           ],
           "startup": "12 (ground) // 14 (air)",
-          "active": "12(13—14)/22—26 // 14—15(17)/25—29",
+          "active": "12(13-14)/22-26 // 14-15(17)/25-29",
           "total": "84/87",
           "endlag": "55",
           "damage": "1.0",
@@ -426,7 +426,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "36",
           "endlag": "26"
         },
@@ -437,7 +437,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudDashGrab.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "44",
           "endlag": "31"
         },
@@ -448,7 +448,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/cloud/CloudPivotGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "39",
           "endlag": "25"
         },

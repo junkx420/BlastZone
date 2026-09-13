@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "32",
           "endlag": "25",
           "damage": "5.0",
@@ -70,7 +70,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconJabRapidEnd.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "49",
           "endlag": "42",
           "damage": "3.0",
@@ -87,7 +87,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconFTiltDown.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "29",
           "endlag": "19",
           "damage": "8.0/9.0",
@@ -104,7 +104,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconUTilt.gif"
           ],
           "startup": "14",
-          "active": "14—17",
+          "active": "14-17",
           "total": "36",
           "endlag": "19",
           "damage": "11.0",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconDTilt.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "34",
           "endlag": "22",
           "damage": "10.0",
@@ -135,7 +135,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—9(10—16)",
+          "active": "7-9(10-16)",
           "total": "34",
           "endlag": "18",
           "damage": "10.0/6.0",
@@ -153,7 +153,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconFSmashDown.gif"
           ],
           "startup": "19",
-          "active": "19—22",
+          "active": "19-22",
           "total": "59",
           "endlag": "37",
           "damage": "19.0/20.0",
@@ -170,7 +170,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconUSmash.gif"
           ],
           "startup": "22/28",
-          "active": "22(23)/28—29",
+          "active": "22(23)/28-29",
           "total": "45",
           "endlag": "16",
           "damage": "(7.0%/12.0%)/(14.0%/13.0%)",
@@ -187,7 +187,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconDSmash.gif"
           ],
           "startup": "19/29",
-          "active": "19—20/29—30",
+          "active": "19-20/29-30",
           "total": "48",
           "endlag": "18",
           "damage": "14.0/18.0",
@@ -203,7 +203,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconNAir.gif"
           ],
           "startup": "7/13",
-          "active": "7—8/13—15",
+          "active": "7-8/13-15",
           "total": "39",
           "endlag": "24",
           "landingLag": "7",
@@ -220,7 +220,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconFAir.gif"
           ],
           "startup": "14",
-          "active": "14(15—30)",
+          "active": "14(15-30)",
           "total": "45",
           "endlag": "15",
           "landingLag": "18",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconBAir.gif"
           ],
           "startup": "10",
-          "active": "10—11(12—15)",
+          "active": "10-11(12-15)",
           "total": "35",
           "endlag": "20",
           "landingLag": "10",
@@ -256,7 +256,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconUAir.gif"
           ],
           "startup": "7",
-          "active": "7—10(11—12)",
+          "active": "7-10(11-12)",
           "total": "31",
           "endlag": "19",
           "landingLag": "10",
@@ -274,7 +274,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconDAir.gif"
           ],
           "startup": "16",
-          "active": "16—18",
+          "active": "16-18",
           "total": "44",
           "endlag": "26",
           "landingLag": "12",
@@ -294,7 +294,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconFalconPunchAR.gif"
           ],
           "startup": "53/62",
-          "active": "53—57/62—66",
+          "active": "53-57/62-66",
           "total": "103/117",
           "endlag": "37",
           "damage": "25.0/28.0/22.0/25.0",
@@ -316,7 +316,7 @@ export const FRAMES: FighterFrames = {
           "advantage": "-12",
           "shieldLag": "12",
           "shieldStun": "10",
-          "notes": "Startup is 6 upon reaching target. On hit total frames is 28. Proximity sensor is active starting on 10. Total frames on a miss is 71. The damage-based armor activates on frame 1 of reaching a target, frames 1—4 for 12 in 1v1."
+          "notes": "Startup is 6 upon reaching target. On hit total frames is 28. Proximity sensor is active starting on 10. Total frames on a miss is 71. The damage-based armor activates on frame 1 of reaching a target, frames 1-4 for 12 in 1v1."
         },
         {
           "name": "Side B, Air (Raptor Boost, Air)",
@@ -342,7 +342,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconFalconDiveCatch.gif"
           ],
           "startup": "14",
-          "active": "14—30",
+          "active": "14-30",
           "landingLag": "24",
           "damage": "5.0/13.0",
           "hitboxes": "Hit 1/Throw",
@@ -355,7 +355,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconFalconKickG.gif"
           ],
           "startup": "13",
-          "active": "13—16(17—23/24—33)",
+          "active": "13-16(17-23/24-33)",
           "total": "68/65",
           "endlag": "35",
           "damage": "15.0/11.0/7.0",
@@ -373,7 +373,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconFalconKickALanding.gif"
           ],
           "startup": "14",
-          "active": "14—18(19—24/25—27)/1—2",
+          "active": "14-18(19-24/25-27)/1-2",
           "total": "56",
           "endlag": "29",
           "landingLag": "35",
@@ -391,7 +391,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "35",
           "endlag": "28"
         },
@@ -402,7 +402,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "43",
           "endlag": "33"
         },
@@ -413,7 +413,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/captain_falcon/CaptainFalconPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "38",
           "endlag": "27"
         },

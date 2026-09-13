@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusJab1.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "17",
           "endlag": "13",
           "damage": "3.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusJab2.gif"
           ],
           "startup": "6",
-          "active": "6—9",
+          "active": "6-9",
           "total": "29",
           "endlag": "20",
           "damage": "8.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusFTiltDown.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "33",
           "endlag": "23",
           "damage": "8.0/9.0/10.0",
@@ -63,7 +63,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusUTilt.gif"
           ],
           "startup": "15",
-          "active": "15—18",
+          "active": "15-18",
           "total": "39",
           "endlag": "21",
           "damage": "13.0/12.0",
@@ -79,7 +79,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "44",
           "endlag": "36",
           "damage": "12.0",
@@ -94,7 +94,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusDashAttack.gif"
           ],
           "startup": "8",
-          "active": "8—9(10—13/14—18)",
+          "active": "8-9(10-13/14-18)",
           "total": "41",
           "endlag": "23",
           "damage": "10.0/6.0",
@@ -112,7 +112,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusFSmashDown.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "48",
           "endlag": "37",
           "damage": "12.0/14.0",
@@ -129,7 +129,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusUSmash.gif"
           ],
           "startup": "11/15/19/23/27",
-          "active": "11—12/15—16/19—20/23—24/27—28",
+          "active": "11-12/15-16/19-20/23-24/27-28",
           "total": "56",
           "endlag": "28",
           "damage": "3.0/6.0",
@@ -146,7 +146,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusDSmash.gif"
           ],
           "startup": "9/17",
-          "active": "9—10/17—18",
+          "active": "9-10/17-18",
           "total": "44",
           "endlag": "26",
           "damage": "10.0/12.0",
@@ -162,7 +162,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusNAir.gif"
           ],
           "startup": "8/14",
-          "active": "8—11/14—15(16—22)",
+          "active": "8-11/14-15(16-22)",
           "total": "45",
           "endlag": "23",
           "landingLag": "9",
@@ -180,7 +180,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusFAir.gif"
           ],
           "startup": "6/12/18/24/30",
-          "active": "6—7/12—13/18—19/24—25/30—31",
+          "active": "6-7/12-13/18-19/24-25/30-31",
           "total": "59",
           "endlag": "28",
           "landingLag": "14",
@@ -198,7 +198,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusBAir.gif"
           ],
           "startup": "9",
-          "active": "9—10(11—14)",
+          "active": "9-10(11-14)",
           "total": "41",
           "endlag": "27",
           "landingLag": "14",
@@ -216,7 +216,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusUAir.gif"
           ],
           "startup": "5...",
-          "active": "5/7—14(rehit: 3)/16—17",
+          "active": "5/7-14(rehit: 3)/16-17",
           "total": "39",
           "endlag": "22",
           "landingLag": "18",
@@ -234,7 +234,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusDAir.gif"
           ],
           "startup": "17",
-          "active": "17—18/19—21/22—23",
+          "active": "17-18/19-21/22-23",
           "total": "48",
           "endlag": "25",
           "landingLag": "12",
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusZAir.gif"
           ],
           "startup": "8/16",
-          "active": "8—15/16—19",
+          "active": "8-15/16-19",
           "total": "59",
           "endlag": "40",
           "landingLag": "8",
@@ -269,12 +269,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusChargeShotMin.gif"
           ],
           "startup": "3(+13)",
-          "active": "3—62 (from release)",
+          "active": "3-62 (from release)",
           "total": "44",
-          "damage": "5.0—26.1",
+          "damage": "5.0-26.1",
           "advantage": "-17 to +4",
-          "shieldLag": "9—24",
-          "shieldStun": "3—8",
+          "shieldLag": "9-24",
+          "shieldStun": "3-8",
           "notes": "Startup is 3 from charge state. Takes 13 frames to enter charge state."
         },
         {
@@ -284,7 +284,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusChargeShotMax.gif"
           ],
           "startup": "16",
-          "active": "16—75",
+          "active": "16-75",
           "total": "60",
           "damage": "28.0",
           "advantage": "-12",
@@ -296,7 +296,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Homing Missle)",
           "section": "special",
           "startup": "18",
-          "active": "18—137",
+          "active": "18-137",
           "total": "54/59",
           "damage": "8.0",
           "advantage": "-26",
@@ -308,7 +308,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Super Missle)",
           "section": "special",
           "startup": "21",
-          "active": "21—70",
+          "active": "21-70",
           "total": "57/59",
           "landingLag": "30",
           "damage": "12.0",
@@ -350,7 +350,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B (Bomb)",
           "section": "special",
           "startup": "33",
-          "active": "33-82/1—18",
+          "active": "33-82/1-18",
           "total": "47/44/48",
           "damage": "4.0/5.0",
           "shieldLag": "5",
@@ -364,7 +364,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusGrab.gif"
           ],
           "startup": "15",
-          "active": "15—22",
+          "active": "15-22",
           "total": "59",
           "endlag": "37"
         },
@@ -375,7 +375,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusDashGrab.gif"
           ],
           "startup": "17",
-          "active": "17—24",
+          "active": "17-24",
           "total": "67",
           "endlag": "43"
         },
@@ -386,7 +386,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/samus/SamusPivotGrab.gif"
           ],
           "startup": "18",
-          "active": "18—25",
+          "active": "18-25",
           "total": "62",
           "endlag": "37"
         },

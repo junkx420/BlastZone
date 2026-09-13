@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "23",
           "endlag": "18",
           "damage": "2.5",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "27",
           "endlag": "23",
           "damage": "2.5",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeJab3.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "40",
           "endlag": "32",
           "damage": "5.0",
@@ -63,7 +63,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeFTiltDown.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "41",
           "endlag": "28",
           "damage": "12.5",
@@ -78,7 +78,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeUTilt.gif"
           ],
           "startup": "11",
-          "active": "11—16/17—21",
+          "active": "11-16/17-21",
           "total": "39",
           "endlag": "18",
           "damage": "12.0/8.0",
@@ -94,7 +94,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "28",
           "endlag": "20",
           "damage": "8.0",
@@ -109,7 +109,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeDashAttack.gif"
           ],
           "startup": "15",
-          "active": "15—16/17—19",
+          "active": "15-16/17-19",
           "total": "47",
           "endlag": "28",
           "damage": "14.0",
@@ -124,7 +124,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeFSmash.gif"
           ],
           "startup": "31",
-          "active": "31—32/33—35",
+          "active": "31-32/33-35",
           "total": "83",
           "endlag": "48",
           "damage": "19.0/22.0",
@@ -141,7 +141,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeUSmash.gif"
           ],
           "startup": "25",
-          "active": "25—29/30—31",
+          "active": "25-29/30-31",
           "total": "70",
           "endlag": "39",
           "damage": "17.0/10.0",
@@ -158,7 +158,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeDSmash.gif"
           ],
           "startup": "13/32",
-          "active": "13—15/32—33/34—36",
+          "active": "13-15/32-33/34-36",
           "total": "70",
           "endlag": "34",
           "damage": "16.0/19.0/9",
@@ -175,7 +175,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeNAir.gif"
           ],
           "startup": "10",
-          "active": "10—14/15—22",
+          "active": "10-14/15-22",
           "total": "59",
           "endlag": "37",
           "landingLag": "8",
@@ -193,7 +193,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeFAir.gif"
           ],
           "startup": "11",
-          "active": "11—15",
+          "active": "11-15",
           "total": "51",
           "endlag": "36",
           "landingLag": "14",
@@ -210,7 +210,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeBAir.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "54",
           "endlag": "45",
           "landingLag": "11",
@@ -227,7 +227,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeUAir.gif"
           ],
           "startup": "13",
-          "active": "13—18",
+          "active": "13-18",
           "total": "56",
           "endlag": "38",
           "landingLag": "9",
@@ -244,7 +244,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeDAir.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "54",
           "endlag": "37",
           "landingLag": "14",
@@ -264,10 +264,10 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "30-239",
           "total": "78-287",
-          "damage": "10.0—35.0",
+          "damage": "10.0-35.0",
           "advantage": "-38 to Shieldbreak",
-          "shieldLag": "8—16",
-          "shieldStun": "10—Shieldbreak",
+          "shieldLag": "8-16",
+          "shieldStun": "10-Shieldbreak",
           "notes": "On release, startup is 11 and total frames is 59"
         },
         {
@@ -280,10 +280,10 @@ export const FRAMES: FighterFrames = {
           "startup": "16",
           "total": "53/34/44",
           "landingLag": "30",
-          "damage": "6.0—13.0",
+          "damage": "6.0-13.0",
           "advantage": "-28 to -22",
-          "shieldLag": "6—9",
-          "shieldStun": "6—12",
+          "shieldLag": "6-9",
+          "shieldStun": "6-12",
           "notes": "Reaches max charge around 85. Startup is 2 upon reaching a target. Swing total frames is 34, or 44 from the air. Landing lag only occurs after entering special fall. Can continue recovery options after an air swing on frame 44."
         },
         {
@@ -322,7 +322,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeCounterHit.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "43",
           "endlag": "38",
           "notes": "Invulnerable on frame 1-4 in addition to counter freeze frames"
@@ -334,7 +334,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36",
           "endlag": "28"
         },
@@ -345,7 +345,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkeDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "44",
           "endlag": "33"
         },
@@ -356,7 +356,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ike/IkePivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffJab1.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "16",
           "endlag": "10",
           "damage": "3.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "16",
           "endlag": "10",
           "damage": "3.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffFTiltDown.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "24",
           "endlag": "14",
           "damage": "10.0",
@@ -61,7 +61,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffUTilt.gif"
           ],
           "startup": "9",
-          "active": "9—10(11—13)",
+          "active": "9-10(11-13)",
           "total": "24",
           "endlag": "11",
           "damage": "9.0/8.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffDTilt.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "30",
           "endlag": "18",
           "damage": "10.0",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffDashAttack.gif"
           ],
           "startup": "5",
-          "active": "5—7(8—20)",
+          "active": "5-7(8-20)",
           "total": "39",
           "endlag": "19",
           "damage": "12.0/8.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffFSmash.gif"
           ],
           "startup": "16",
-          "active": "16—19(20—24)",
+          "active": "16-19(20-24)",
           "total": "49",
           "endlag": "25",
           "damage": "16.0/14.0",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffUSmash.gif"
           ],
           "startup": "16",
-          "active": "16—19",
+          "active": "16-19",
           "total": "45",
           "endlag": "26",
           "damage": "15.0",
@@ -141,7 +141,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffDSmash.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "48",
           "endlag": "32",
           "damage": "11.0",
@@ -157,7 +157,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffNAir.gif"
           ],
           "startup": "6",
-          "active": "6—7(8—30)",
+          "active": "6-7(8-30)",
           "total": "43",
           "endlag": "13",
           "landingLag": "9",
@@ -175,7 +175,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffFAir.gif"
           ],
           "startup": "8",
-          "active": "8—9(10—20)",
+          "active": "8-9(10-20)",
           "total": "36",
           "endlag": "16",
           "landingLag": "9",
@@ -193,7 +193,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffBAir.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "35",
           "endlag": "24",
           "landingLag": "8",
@@ -210,7 +210,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffUAir.gif"
           ],
           "startup": "9",
-          "active": "9—21",
+          "active": "9-21",
           "total": "39",
           "endlag": "18",
           "landingLag": "9",
@@ -227,7 +227,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffDAir.gif"
           ],
           "startup": "7/10/13/16/19/22/25/28/31",
-          "active": "7—8/10—11/13—14/16—17/19—20/22—23/25—26/28—29/31—32",
+          "active": "7-8/10-11/13-14/16-17/19-20/22-23/25-26/28-29/31-32",
           "total": "52",
           "endlag": "20",
           "landingLag": "12",
@@ -243,9 +243,9 @@ export const FRAMES: FighterFrames = {
           "section": "special",
           "startup": "15+37...",
           "total": "67 (no charge)",
-          "damage": "10.0—20.0",
-          "shieldLag": "9—12",
-          "shieldStun": "11—18",
+          "damage": "10.0-20.0",
+          "shieldLag": "9-12",
+          "shieldStun": "11-18",
           "notes": "Reaches full charge at 51 frames. Max charge active frames are at 52-144 if released frame perfectly (93 active frames). Ending animation has 31 total frames if grounded or 36 when aerial. Jigglypuff is helpless if she does not land or grab an edge after a hit, but she will pass through shields."
         },
         {
@@ -255,7 +255,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffPound.gif"
           ],
           "startup": "13",
-          "active": "13—28",
+          "active": "13-28",
           "total": "39",
           "endlag": "11",
           "damage": "11.0",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffSing.gif"
           ],
           "startup": "27/61/100",
-          "active": "27—36/61—70/100—115",
+          "active": "27-36/61-70/100-115",
           "total": "149",
           "endlag": "34"
         },
@@ -281,7 +281,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffRest.gif"
           ],
           "startup": "2",
-          "active": "2—4",
+          "active": "2-4",
           "total": "209 (186 on hit)",
           "endlag": "205",
           "damage": "20.0",
@@ -297,7 +297,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "32",
           "endlag": "25"
         },
@@ -308,7 +308,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "39",
           "endlag": "29"
         },
@@ -319,7 +319,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/jigglypuff/JigglypuffPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "34",
           "endlag": "23"
         },
@@ -332,7 +332,7 @@ export const FRAMES: FighterFrames = {
           "startup": "1",
           "total": "19",
           "damage": "1.3",
-          "notes": "Total frames includes 13 frames of hitlag. Active 1—2."
+          "notes": "Total frames includes 13 frames of hitlag. Active 1-2."
         },
         {
           "name": "Forward Throw",

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfJab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "26",
           "endlag": "18",
           "damage": "11.0",
@@ -28,7 +28,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfFTilt.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "39",
           "endlag": "27",
           "damage": "13.0/14.0",
@@ -44,7 +44,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfUTilt.gif"
           ],
           "startup": "60",
-          "active": "60—61(62—63) / Windboxes 6—52",
+          "active": "60-61(62-63) / Windboxes 6-52",
           "total": "95",
           "endlag": "43",
           "damage": "24.0/13.0",
@@ -61,7 +61,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfDTilt.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "35",
           "endlag": "23",
           "damage": "14.0",
@@ -76,7 +76,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfDashAttack.gif"
           ],
           "startup": "10",
-          "active": "10—12/13—19",
+          "active": "10-12/13-19",
           "total": "37",
           "endlag": "18",
           "damage": "15.0/11.0",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfFSmash.gif"
           ],
           "startup": "29",
-          "active": "29—31",
+          "active": "29-31",
           "total": "69",
           "endlag": "38",
           "damage": "24.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfUSmash.gif"
           ],
           "startup": "20",
-          "active": "20—25",
+          "active": "20-25",
           "total": "61",
           "endlag": "36",
           "damage": "24.0/21.0",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfDSmash.gif"
           ],
           "startup": "15/35",
-          "active": "15—18/35—38",
+          "active": "15-18/35-38",
           "total": "59",
           "endlag": "21",
           "damage": "5.0/15.0",
@@ -142,7 +142,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfNAir.gif"
           ],
           "startup": "7/17",
-          "active": "(7—8/9—12)(17—18/19—26)",
+          "active": "(7-8/9-12)(17-18/19-26)",
           "total": "40",
           "endlag": "14",
           "landingLag": "10",
@@ -160,7 +160,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfFAir.gif"
           ],
           "startup": "14",
-          "active": "14—19",
+          "active": "14-19",
           "total": "44",
           "endlag": "25",
           "landingLag": "13",
@@ -178,7 +178,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfBAir.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "35",
           "endlag": "23",
           "landingLag": "11",
@@ -196,7 +196,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfUAir.gif"
           ],
           "startup": "8",
-          "active": "8—10/11—13/14—16 (Close/Early/Late)",
+          "active": "8-10/11-13/14-16 (Close/Early/Late)",
           "total": "33",
           "landingLag": "11",
           "damage": "13.0/12.0/12.0/10.0/8.0/6.0",
@@ -213,7 +213,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfDAir.gif"
           ],
           "startup": "16",
-          "active": "16—18",
+          "active": "16-18",
           "total": "44",
           "endlag": "26",
           "landingLag": "16",
@@ -232,7 +232,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfWarlockPunchRG.gif"
           ],
           "startup": "70/80",
-          "active": "70—73/80—83",
+          "active": "70-73/80-83",
           "total": "117/127",
           "endlag": "34",
           "damage": "30.0/37.0",
@@ -250,7 +250,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfWarlockPunchRA.gif"
           ],
           "startup": "70/80",
-          "active": "70—73/80—83",
+          "active": "70-73/80-83",
           "total": "117/127",
           "endlag": "34",
           "damage": "38.0/40.0",
@@ -267,7 +267,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfFlameChokeG.gif"
           ],
           "startup": "16",
-          "active": "16—30",
+          "active": "16-30",
           "total": "59",
           "endlag": "29",
           "notes": "Damage dealt 32 frames after a grab. 57 total frames."
@@ -292,7 +292,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfFlameChokeA.gif"
           ],
           "startup": "16",
-          "active": "16—28",
+          "active": "16-28",
           "landingLag": "29/20",
           "notes": "29 landing lag if you don't enter special fall. 20 if you do. Opponents can mash out of air flame choke to prevent Ganoncides, with opponents who have lower damage than Ganondorf being able to break out more quickly."
         },
@@ -311,7 +311,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfDarkDive1.gif"
           ],
           "startup": "14",
-          "active": "14—28(Grab)/34—36(Attack)",
+          "active": "14-28(Grab)/34-36(Attack)",
           "landingLag": "30",
           "damage": "7.0",
           "shieldLag": "7",
@@ -336,7 +336,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfWizardsFootG.gif"
           ],
           "startup": "16",
-          "active": "16—35",
+          "active": "16-35",
           "total": "60/68",
           "endlag": "25",
           "damage": "14.0/16.0",
@@ -354,7 +354,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfWizardsFootALand.gif"
           ],
           "startup": "16",
-          "active": "16—18/19—29/2—3",
+          "active": "16-18/19-29/2-3",
           "total": "57",
           "endlag": "28",
           "landingLag": "44",
@@ -372,7 +372,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfGrab.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "38",
           "endlag": "28"
         },
@@ -383,7 +383,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "46",
           "endlag": "33"
         },
@@ -394,7 +394,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ganondorf/GanondorfPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "41",
           "endlag": "27"
         },

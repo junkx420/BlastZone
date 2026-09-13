@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuJab.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "17",
           "endlag": "14",
           "damage": "1.4/1.2",
@@ -31,7 +31,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuFTiltDown.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "29",
           "endlag": "21",
           "damage": "9.0/8.0/10.0",
@@ -47,7 +47,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—13",
+          "active": "7-13",
           "total": "26",
           "endlag": "13",
           "damage": "5.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "18",
           "endlag": "10",
           "damage": "6.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—8(9—12)",
+          "active": "6-8(9-12)",
           "total": "35",
           "endlag": "23",
           "damage": "11.0/6.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuFSmash.gif"
           ],
           "startup": "15",
-          "active": "15—16/17—19/20—29",
+          "active": "15-16/17-19/20-29",
           "total": "53",
           "endlag": "24",
           "damage": "15.0/18.0/12.0",
@@ -110,7 +110,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuUSmash.gif"
           ],
           "startup": "10",
-          "active": "10—12/13—14/15—17",
+          "active": "10-12/13-14/15-17",
           "total": "44",
           "endlag": "27",
           "damage": "(14.0/13.0)/11.0/7.0",
@@ -127,7 +127,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuDSmash.gif"
           ],
           "startup": "8/11/14/17/20/23",
-          "active": "8—9/11—12/14—15/17—18/20—21",
+          "active": "8-9/11-12/14-15/17-18/20-21",
           "total": "65",
           "endlag": "44",
           "damage": "2.0/3.0",
@@ -144,7 +144,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuNAir.gif"
           ],
           "startup": "3/9/15/21",
-          "active": "3—6/9—12/15—18/21—22",
+          "active": "3-6/9-12/15-18/21-22",
           "total": "38",
           "endlag": "16",
           "landingLag": "9",
@@ -162,7 +162,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuFAir.gif"
           ],
           "startup": "11...",
-          "active": "11—25/27 (rehit: 3)",
+          "active": "11-25/27 (rehit: 3)",
           "total": "41",
           "endlag": "14",
           "landingLag": "12",
@@ -181,7 +181,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuBAirLanding.gif"
           ],
           "startup": "4/8/12/16/20/24",
-          "active": "4—5/8—9/12—13/16—17/20—21/24—25/1—2",
+          "active": "4-5/8-9/12-13/16-17/20-21/24-25/1-2",
           "total": "43",
           "endlag": "18",
           "landingLag": "18",
@@ -199,7 +199,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuUAir.gif"
           ],
           "startup": "4",
-          "active": "4—6/7—8",
+          "active": "4-6/7-8",
           "total": "26",
           "endlag": "18",
           "landingLag": "14",
@@ -218,7 +218,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuDAirLanding.gif"
           ],
           "startup": "14",
-          "active": "14—15/16—26/1—2",
+          "active": "14-15/16-26/1-2",
           "total": "47",
           "endlag": "21",
           "landingLag": "22",
@@ -236,7 +236,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuThunderjoltAerial.gif"
           ],
           "startup": "19",
-          "active": "19—52(53—85/86—114)",
+          "active": "19-52(53-85/86-114)",
           "total": "51",
           "damage": "6.0/4.8",
           "advantage": "-20",
@@ -251,13 +251,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuSkullBash.gif"
           ],
           "startup": "18/18",
-          "active": "18—52",
+          "active": "18-52",
           "total": "96/74",
           "endlag": "44",
-          "damage": "10.0—21.4",
+          "damage": "10.0-21.4",
           "advantage": "-11 to -2",
-          "shieldLag": "8—13",
-          "shieldStun": "10—19",
+          "shieldLag": "8-13",
+          "shieldStun": "10-19",
           "hitboxes": "Ground/Air",
           "notes": "Startup is 10 on release. On hit endlag is 21 frames. On level ground, total frames is 96, 74 in the air."
         },
@@ -268,7 +268,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuQuickAttack.gif"
           ],
           "startup": "15/29",
-          "active": "15—19/29—33",
+          "active": "15-19/29-33",
           "total": "52/66",
           "endlag": "19",
           "landingLag": "24",
@@ -287,7 +287,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuThunderHit.gif"
           ],
           "startup": "13/**",
-          "active": "13—15(16—85): Early // 21—23(24—93): Late // 1-2: Contact",
+          "active": "13-15(16-85): Early // 21-23(24-93): Late // 1-2: Contact",
           "total": "86/74",
           "endlag": "84",
           "damage": "6.0/8.0/15.0",
@@ -295,7 +295,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "11/15",
           "shieldStun": "3/14",
           "hitboxes": "Projectile Early / Projectile Late / Contact",
-          "notes": "First total frames is when the thunder bolt misses you. Invulnerable on frame 34-43 if bolt hits you. Spikes on frames 13—15."
+          "notes": "First total frames is when the thunder bolt misses you. Invulnerable on frame 34-43 if bolt hits you. Spikes on frames 13-15."
         },
         {
           "name": "Grab",
@@ -304,7 +304,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36",
           "endlag": "28"
         },
@@ -315,7 +315,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "44",
           "endlag": "32"
         },
@@ -326,7 +326,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pikachu/PikachuPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "39",
           "endlag": "26"
         },

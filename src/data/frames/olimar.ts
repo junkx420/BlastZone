@@ -30,7 +30,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "17",
           "endlag": "12",
           "damage": "3.0/4.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarFTilt.gif"
           ],
           "startup": "15",
-          "active": "15—17",
+          "active": "15-17",
           "total": "35",
           "endlag": "18",
           "damage": "11.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—12",
+          "active": "6-12",
           "total": "29",
           "endlag": "17",
           "damage": "6.0",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarDashAttack.gif"
           ],
           "startup": "8/11",
-          "active": "8—10/11—14",
+          "active": "8-10/11-14",
           "total": "37",
           "endlag": "23",
           "damage": "7.0 / 4.0",
@@ -109,7 +109,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarFSmashP.gif"
           ],
           "startup": "11",
-          "active": "11—13(14-19/20—29) Purple: 11—13(14—18/19—24)",
+          "active": "11-13(14-19/20-29) Purple: 11-13(14-18/19-24)",
           "total": "39",
           "endlag": "10",
           "damage": "Early: 20.3",
@@ -126,7 +126,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarUSmashP.gif"
           ],
           "startup": "12",
-          "active": "12—13(14—16/17—22)",
+          "active": "12-13(14-16/17-22)",
           "total": "39",
           "endlag": "17",
           "damage": "Early: 18.2",
@@ -143,7 +143,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarDSmashP.gif"
           ],
           "startup": "10",
-          "active": "10—13/14—18 Purple: 10—13/14—15",
+          "active": "10-13/14-18 Purple: 10-13/14-15",
           "total": "38",
           "endlag": "20",
           "damage": "Early: 15.4",
@@ -158,7 +158,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarNAir.gif"
           ],
           "startup": "7/11/15/19/23",
-          "active": "7—8/11—12/15—16/19—20/23—24",
+          "active": "7-8/11-12/15-16/19-20/23-24",
           "total": "53",
           "endlag": "29",
           "landingLag": "13",
@@ -177,7 +177,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarFAirY.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "42",
           "endlag": "33",
           "landingLag": "9",
@@ -194,7 +194,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarBAirY.gif"
           ],
           "startup": "10",
-          "active": "10—13",
+          "active": "10-13",
           "total": "48",
           "endlag": "35",
           "landingLag": "9",
@@ -211,7 +211,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarUAirY.gif"
           ],
           "startup": "8",
-          "active": "8—15",
+          "active": "8-15",
           "total": "34",
           "endlag": "19",
           "landingLag": "18",
@@ -228,7 +228,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarDAirY.gif"
           ],
           "startup": "9",
-          "active": "9—10(11—16)",
+          "active": "9-10(11-16)",
           "total": "51",
           "endlag": "35",
           "landingLag": "18",
@@ -236,7 +236,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "9",
           "shieldStun": "5",
           "hitboxes": "Clean/Late",
-          "notes": "Autocancels on frame 1-5 and 31 onward. Spikes 9—10, does not spike 11—16. GIF Notes: Red Pikmin counts for Blue, White and Purple. The Pikmin should be bigger during the active frames. Olimar should be holding them just below the leaf/bud/flower. Hitbox is accurate nonetheless."
+          "notes": "Autocancels on frame 1-5 and 31 onward. Spikes 9-10, does not spike 11-16. GIF Notes: Red Pikmin counts for Blue, White and Purple. The Pikmin should be bigger during the active frames. Olimar should be holding them just below the leaf/bud/flower. Hitbox is accurate nonetheless."
         },
         {
           "name": "Neutral B (Pikmin Pluck)",
@@ -257,7 +257,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/PurplePikminThrow.gif"
           ],
           "startup": "9",
-          "active": "9—128(9—108)",
+          "active": "9-128(9-108)",
           "total": "24",
           "damage": "Purple: 6.0",
           "advantage": "Purple: -6",
@@ -278,7 +278,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarPikminOrder.gif"
           ],
           "startup": "2 (Start of Super Armor)",
-          "active": "2—7 (armor)",
+          "active": "2-7 (armor)",
           "total": "17",
           "notes": "Super armor on frame 2-7"
         },
@@ -291,7 +291,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarGrabRBY3.gif"
           ],
           "startup": "12",
-          "active": "12—23",
+          "active": "12-23",
           "total": "41/47/56",
           "endlag": "18",
           "notes": "Total frames depends on having one/two/three pikmin"
@@ -305,7 +305,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarGrabWhite3.gif"
           ],
           "startup": "12",
-          "active": "12—23",
+          "active": "12-23",
           "total": "41/47/56",
           "notes": "Total frames depends on having one/two/three pikmin"
         },
@@ -318,7 +318,7 @@ export const FRAMES: FighterFrames = {
             "/hitboxes/olimar/OlimarGrabPurple3.gif"
           ],
           "startup": "12",
-          "active": "12—23",
+          "active": "12-23",
           "total": "41/47/56",
           "notes": "Total frames depends on having one/two/three pikmin."
         },
@@ -326,7 +326,7 @@ export const FRAMES: FighterFrames = {
           "name": "Grab Range Comparison",
           "section": "throw",
           "startup": "12",
-          "active": "12—23",
+          "active": "12-23",
           "total": "41/47/56",
           "notes": "Grabs have increased range when standing right at the ledge. The increase in range, which is proportional to the number of Pikmin, makes P3 outrage RBY1. Total frames depends on having one/two/three pikmin."
         },
@@ -334,7 +334,7 @@ export const FRAMES: FighterFrames = {
           "name": "Dash Grab",
           "section": "throw",
           "startup": "12",
-          "active": "12—23",
+          "active": "12-23",
           "total": "49/57/68",
           "notes": "Total frames depends on having one/two/three pikmin"
         },
@@ -342,7 +342,7 @@ export const FRAMES: FighterFrames = {
           "name": "Pivot Grab",
           "section": "throw",
           "startup": "12",
-          "active": "12—23",
+          "active": "12-23",
           "total": "44/51/60",
           "notes": "Total frames depends on having one/two/three pikmin"
         },

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiJab1.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "18",
           "endlag": "15",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "18",
           "endlag": "14",
           "damage": "2.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "30",
           "endlag": "23",
           "damage": "4.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiFTiltDown.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "32",
           "endlag": "25",
           "damage": "9.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—10",
+          "active": "5-10",
           "total": "27",
           "endlag": "17",
           "damage": "6.0",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "13",
           "endlag": "5",
           "damage": "5.0",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiFSmashDown.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "41",
           "endlag": "28",
           "damage": "15.0",
@@ -141,7 +141,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiUSmash.gif"
           ],
           "startup": "9",
-          "active": "9—13",
+          "active": "9-13",
           "total": "39",
           "endlag": "26",
           "damage": "14.0/12.0",
@@ -158,7 +158,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiDSmash.gif"
           ],
           "startup": "6/14",
-          "active": "6—7/14—15",
+          "active": "6-7/14-15",
           "total": "37",
           "endlag": "22",
           "damage": "15.0/14.0",
@@ -186,7 +186,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiNAir.gif"
           ],
           "startup": "3",
-          "active": "3—5(6—31)",
+          "active": "3-5(6-31)",
           "total": "44",
           "endlag": "13",
           "landingLag": "8",
@@ -204,7 +204,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiFAir.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "23",
           "endlag": "13",
           "landingLag": "13",
@@ -221,7 +221,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiBAir.gif"
           ],
           "startup": "6",
-          "active": "6—7(8—13)",
+          "active": "6-7(8-13)",
           "total": "44",
           "endlag": "31",
           "landingLag": "10",
@@ -239,7 +239,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiUAir.gif"
           ],
           "startup": "5",
-          "active": "5—7(8—11)",
+          "active": "5-7(8-11)",
           "total": "26",
           "endlag": "15",
           "landingLag": "7",
@@ -257,7 +257,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiDAir.gif"
           ],
           "startup": "10",
-          "active": "10(11—14)",
+          "active": "10(11-14)",
           "total": "28",
           "endlag": "14",
           "landingLag": "12",
@@ -272,7 +272,7 @@ export const FRAMES: FighterFrames = {
           "name": "Z Air",
           "section": "aerial",
           "startup": "14",
-          "active": "14—68",
+          "active": "14-68",
           "total": "52",
           "landingLag": "20",
           "damage": "5.0",
@@ -288,7 +288,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiFireball.gif"
           ],
           "startup": "17",
-          "active": "17—45(46—66)",
+          "active": "17-45(46-66)",
           "total": "43",
           "damage": "6.0/5.0",
           "advantage": "-17",
@@ -304,14 +304,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiGreenMissileMisfire.gif"
           ],
           "startup": "22",
-          "active": "22—60",
+          "active": "22-60",
           "total": "79/95",
           "endlag": "19",
           "landingLag": "39",
-          "damage": "6.1—21.0/25.0",
+          "damage": "6.1-21.0/25.0",
           "advantage": "-23 to -13/-10",
-          "shieldLag": "10—16/15",
-          "shieldStun": "8—19/22",
+          "shieldLag": "10-16/15",
+          "shieldStun": "8-19/22",
           "notes": "On hit endlag is 18 or 32 total if you landed during that 18 frame animation. Total frames is 79 in the air, 95 on level ground. 41 landing lag is consistent as long as you land during the 79 frame animation. Invulnerable on frame 18-22."
         },
         {
@@ -321,7 +321,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiSuperJumpPunchG.gif"
           ],
           "startup": "8",
-          "active": "8(9—23)",
+          "active": "8(9-23)",
           "total": "109",
           "endlag": "86",
           "landingLag": "45",
@@ -339,7 +339,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiSuperJumpPunchA.gif"
           ],
           "startup": "6",
-          "active": "6(7—23)",
+          "active": "6(7-23)",
           "landingLag": "45",
           "damage": "20.0/1.0",
           "hitboxes": "Sweet/sourspot",
@@ -353,7 +353,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiLuigiCycloneA.gif"
           ],
           "startup": "10.../40",
-          "active": "10—33(rehit:6)/40",
+          "active": "10-33(rehit:6)/40",
           "total": "85",
           "endlag": "45",
           "damage": "2.0/4.0",
@@ -370,7 +370,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiGrab.gif"
           ],
           "startup": "14",
-          "active": "14—20",
+          "active": "14-20",
           "total": "47",
           "endlag": "27",
           "notes": "Body grabbox only active for the first 2 frames"
@@ -382,7 +382,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiDashGrab.gif"
           ],
           "startup": "16",
-          "active": "16—22",
+          "active": "16-22",
           "total": "51",
           "endlag": "29",
           "notes": "Body grabbox only active for the first 2 frames"
@@ -394,7 +394,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/luigi/LuigiPivotGrab.gif"
           ],
           "startup": "17",
-          "active": "17—24",
+          "active": "17-24",
           "total": "49",
           "endlag": "25",
           "notes": "Body grabbox only active for the first 2 frames"
@@ -450,7 +450,7 @@ export const FRAMES: FighterFrames = {
           "startup": "18/29",
           "total": "40",
           "damage": "3.0/3.0",
-          "notes": "Collateral hitbox on frames 18—28."
+          "notes": "Collateral hitbox on frames 18-28."
         },
         {
           "name": "Spot Dodge",

@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "21",
           "endlag": "17",
           "damage": "2.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaJab3.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "35",
           "endlag": "29",
           "damage": "3.0",
@@ -71,7 +71,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaJabRapidEnd.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "47",
           "endlag": "42",
           "damage": "2.0",
@@ -88,7 +88,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaFTiltDown.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "32",
           "endlag": "20",
           "damage": "7.3/8.3",
@@ -104,7 +104,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaUTilt.gif"
           ],
           "startup": "9",
-          "active": "9—12",
+          "active": "9-12",
           "total": "32",
           "endlag": "20",
           "damage": "4.5",
@@ -119,7 +119,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "22",
           "endlag": "16",
           "damage": "4.0",
@@ -134,7 +134,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "28",
           "endlag": "17",
           "damage": "8.0",
@@ -149,7 +149,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaFSmash.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "49",
           "endlag": "34",
           "damage": "14.0",
@@ -165,7 +165,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaUSmash.gif"
           ],
           "startup": "12/18",
-          "active": "12—17/18(19—20/21)",
+          "active": "12-17/18(19-20/21)",
           "total": "51",
           "endlag": "30",
           "damage": "5.0/14.0/11.0",
@@ -182,7 +182,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaDSmash.gif"
           ],
           "startup": "11",
-          "active": "11—12(13)",
+          "active": "11-12(13)",
           "total": "49",
           "endlag": "36",
           "damage": "13.0/11.0",
@@ -199,7 +199,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaDTaunt.gif"
           ],
           "startup": "30",
-          "active": "30—73 (rehit: 3)",
+          "active": "30-73 (rehit: 3)",
           "total": "109",
           "endlag": "6",
           "damage": "0.5",
@@ -212,7 +212,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaNAir.gif"
           ],
           "startup": "12",
-          "active": "12—13(14—19)",
+          "active": "12-13(14-19)",
           "total": "52",
           "endlag": "33",
           "landingLag": "7",
@@ -229,7 +229,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaFAir.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "54",
           "endlag": "37",
           "landingLag": "11",
@@ -246,7 +246,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaBAir.gif"
           ],
           "startup": "5/7/11",
-          "active": "5/7/11—14",
+          "active": "5/7/11-14",
           "total": "40",
           "endlag": "26",
           "landingLag": "10",
@@ -263,7 +263,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaUAir.gif"
           ],
           "startup": "7/10/13/16/19/22",
-          "active": "7—8/10—11/13—14/16—17/19—20/22",
+          "active": "7-8/10-11/13-14/16-17/19-20/22",
           "total": "41",
           "endlag": "19",
           "landingLag": "14",
@@ -281,7 +281,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaDAir.gif"
           ],
           "startup": "17",
-          "active": "17—19(20—45)",
+          "active": "17-19(20-45)",
           "total": "51",
           "endlag": "6",
           "landingLag": "30",
@@ -299,15 +299,15 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaWaterShurikenMin.gif",
             "hitboxes/greninja/GreninjaWaterShurikenMax.gif"
           ],
-          "startup": "20—60",
-          "active": "20—35 — 60—95",
+          "startup": "20-60",
+          "active": "20-35 - 60-95",
           "total": "** (see notes)",
-          "damage": "3.0—10.8, 1.0/9.0",
+          "damage": "3.0-10.8, 1.0/9.0",
           "advantage": "-18 to -13",
-          "shieldLag": "5—8/4/11",
-          "shieldStun": "2—4/2/4/10/11",
+          "shieldLag": "5-8/4/11",
+          "shieldStun": "2-4/2/4/10/11",
           "hitboxes": "partial charge/full charge",
-          "notes": "Hits on frames 6—41(rehit:4)/42 on release. Total Frames: 31 for any level of charge before max, 27 for max, 24 for any level of charge on aerial release, 20 for max charge aerial release."
+          "notes": "Hits on frames 6-41(rehit:4)/42 on release. Total Frames: 31 for any level of charge before max, 27 for max, 24 for any level of charge on aerial release, 20 for max charge aerial release."
         },
         {
           "name": "Side B (Shadow Sneak)",
@@ -317,7 +317,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaShadowSneakB.gif"
           ],
           "startup": "24(+5)",
-          "active": "24—25",
+          "active": "24-25",
           "total": "63",
           "endlag": "38",
           "damage": "10.0/12.0",
@@ -346,7 +346,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaSubstitute.gif"
           ],
           "startup": "8 (Start of Counter)",
-          "active": "8—34 (counter)",
+          "active": "8-34 (counter)",
           "total": "69",
           "notes": "Invulnerable on frame 7. Counters on frame 8-34"
         },
@@ -378,7 +378,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "38",
           "endlag": "27"
         },
@@ -389,7 +389,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaDashGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "46",
           "endlag": "32"
         },
@@ -400,7 +400,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/greninja/GreninjaPivotGrab.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "41",
           "endlag": "26"
         },

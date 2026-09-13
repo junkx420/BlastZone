@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "27",
           "endlag": "21",
           "damage": "1.5",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "33",
           "endlag": "26",
           "damage": "5.0",
@@ -88,7 +88,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntFTiltDown.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "31",
           "endlag": "20",
           "damage": "8.0",
@@ -103,7 +103,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "27",
           "endlag": "16",
           "damage": "7.0",
@@ -118,7 +118,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "27",
           "endlag": "20",
           "damage": "8.0",
@@ -133,7 +133,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntDashAttack.gif"
           ],
           "startup": "10",
-          "active": "10—13(14—19)",
+          "active": "10-13(14-19)",
           "total": "43",
           "endlag": "24",
           "damage": "10.0/7.0",
@@ -149,7 +149,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntFSmash.gif"
           ],
           "startup": "17/23/29",
-          "active": "17—18/23—24/29—30",
+          "active": "17-18/23-24/29-30",
           "total": "66",
           "endlag": "36",
           "damage": "4.0/9.0",
@@ -166,7 +166,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntUSmash.gif"
           ],
           "startup": "12/20/28",
-          "active": "12—13/20—21/28—29",
+          "active": "12-13/20-21/28-29",
           "total": "57",
           "endlag": "28",
           "damage": "2.5/10",
@@ -183,7 +183,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntDSmash.gif"
           ],
           "startup": "12/20/28",
-          "active": "12—13/20—21/28—29",
+          "active": "12-13/20-21/28-29",
           "total": "57",
           "endlag": "28",
           "damage": "5.0/6.0",
@@ -200,7 +200,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntNAir.gif"
           ],
           "startup": "6",
-          "active": "6—8(9—37)",
+          "active": "6-8(9-37)",
           "total": "55",
           "endlag": "18",
           "landingLag": "10",
@@ -217,7 +217,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntFAir.gif"
           ],
           "startup": "7",
-          "active": "7(8—9/10—11)",
+          "active": "7(8-9/10-11)",
           "total": "44",
           "endlag": "33",
           "landingLag": "9",
@@ -235,7 +235,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntBAir.gif"
           ],
           "startup": "7",
-          "active": "7—8(9—10)",
+          "active": "7-8(9-10)",
           "total": "41",
           "endlag": "31",
           "landingLag": "14",
@@ -253,7 +253,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntUAir.gif"
           ],
           "startup": "6/12/20",
-          "active": "6—7/12—13/20—21",
+          "active": "6-7/12-13/20-21",
           "total": "39",
           "endlag": "18",
           "landingLag": "11",
@@ -271,7 +271,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntDAir.gif"
           ],
           "startup": "14/20",
-          "active": "14—15/20—21",
+          "active": "14-15/20-21",
           "total": "49",
           "endlag": "28",
           "landingLag": "15",
@@ -284,8 +284,8 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Trick Shot)",
           "section": "special",
-          "startup": "1 / 16 / 1—2",
-          "active": "1 / 16—** / 1—2",
+          "startup": "1 / 16 / 1-2",
+          "active": "1 / 16-** / 1-2",
           "total": "41",
           "endlag": "39",
           "damage": "~2.0/10.0",
@@ -298,7 +298,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Clay Shooting)",
           "section": "special",
           "startup": "17",
-          "active": "17—**",
+          "active": "17-**",
           "total": "64",
           "damage": "2.0",
           "shieldLag": "9",
@@ -383,7 +383,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -394,7 +394,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -405,7 +405,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/duck_hunt/DuckHuntPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

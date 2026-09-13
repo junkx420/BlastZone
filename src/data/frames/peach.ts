@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachJab2.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "29",
           "endlag": "26",
           "damage": "3.0",
@@ -44,7 +44,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachFTilt.gif"
           ],
           "startup": "7",
-          "active": "7/8—9/10—15",
+          "active": "7/8-9/10-15",
           "total": "36",
           "endlag": "21",
           "damage": "7.0/8.0/6.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachUTilt.gif"
           ],
           "startup": "9",
-          "active": "9—13",
+          "active": "9-13",
           "total": "37",
           "endlag": "24",
           "damage": "8.0/10.0",
@@ -76,7 +76,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachDTilt.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "23",
           "endlag": "14",
           "damage": "7.0",
@@ -91,7 +91,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachDashAttack.gif"
           ],
           "startup": "6/17",
-          "active": "6—9/17—19",
+          "active": "6-9/17-19",
           "total": "37",
           "endlag": "18",
           "damage": "4.0/6.0",
@@ -109,7 +109,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachFSmashTennisRacket.gif"
           ],
           "startup": "15",
-          "active": "15—17/15—17/15—17",
+          "active": "15-17/15-17/15-17",
           "total": "45",
           "endlag": "28",
           "damage": "15.0/13.5/18.0",
@@ -126,7 +126,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachUSmash.gif"
           ],
           "startup": "14",
-          "active": "14—16/17—20",
+          "active": "14-16/17-20",
           "total": "44",
           "endlag": "24",
           "damage": "17.0/15.0/12.0/10.0/12.0",
@@ -143,7 +143,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachDSmash.gif"
           ],
           "startup": "6/10/14/18/22/26/30",
-          "active": "6—7/10—11/14—15/18—19/ 22—23/26—27/30—31",
+          "active": "6-7/10-11/14-15/18-19/ 22-23/26-27/30-31",
           "total": "54",
           "endlag": "23",
           "damage": "2.0/3.0",
@@ -160,7 +160,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachNAir.gif"
           ],
           "startup": "5",
-          "active": "5—8/9—19",
+          "active": "5-8/9-19",
           "total": "48",
           "endlag": "29",
           "landingLag": "7",
@@ -178,7 +178,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachFAir.gif"
           ],
           "startup": "16",
-          "active": "16—20",
+          "active": "16-20",
           "total": "57",
           "endlag": "37",
           "landingLag": "13",
@@ -196,7 +196,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachBAir.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "53",
           "endlag": "46",
           "landingLag": "11",
@@ -214,7 +214,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachUAir.gif"
           ],
           "startup": "10/15",
-          "active": "(10/11/12—13)(15/16—19)",
+          "active": "(10/11/12-13)(15/16-19)",
           "total": "45",
           "endlag": "26",
           "landingLag": "7",
@@ -232,7 +232,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachDAir.gif"
           ],
           "startup": "12/18/24/30",
-          "active": "12—13/18—19/24—25/30—31",
+          "active": "12-13/18-19/24-25/30-31",
           "total": "38",
           "endlag": "7",
           "landingLag": "8",
@@ -264,7 +264,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachPeachBomberHit.gif"
           ],
           "startup": "13",
-          "active": "13—36(detector)",
+          "active": "13-36(detector)",
           "total": "62/87",
           "damage": "12.0",
           "advantage": "-13",
@@ -276,7 +276,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B, Air (Peach Bomber, Air)",
           "section": "special",
           "startup": "13",
-          "active": "13—36(detector)",
+          "active": "13-36(detector)",
           "total": "87",
           "landingLag": "35",
           "damage": "12.0",
@@ -305,9 +305,9 @@ export const FRAMES: FighterFrames = {
           "name": "Down B (Turnip Pull)",
           "section": "special",
           "total": "39",
-          "damage": "8.3—27.6",
-          "shieldLag": "7—15",
-          "shieldStun": "3—8",
+          "damage": "8.3-27.6",
+          "shieldLag": "7-15",
+          "shieldStun": "3-8",
           "notes": "Turnip damage depends both on the type and how it is thrown. Z-Drop damage depends on distance fallen. Turnip chances are: Normal(88.7), Winking(6.89), Dot Eye(1.7), Stitchface(1.7), Bob-omb(0.4), Mr. Saturn(0.6)."
         },
         {
@@ -317,7 +317,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "36",
           "endlag": "29"
         },
@@ -328,7 +328,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "44",
           "endlag": "34"
         },
@@ -339,7 +339,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Peach/PeachPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "39",
           "endlag": "28"
         },

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinJab1.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "27",
           "endlag": "21",
           "damage": "2.0/2.5",
@@ -30,7 +30,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "29",
           "endlag": "24",
           "damage": "2.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "30",
           "endlag": "23",
           "damage": "3.0/4.0",
@@ -72,7 +72,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinJabRapidEnd.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "39",
           "endlag": "35",
           "damage": "3.0",
@@ -87,7 +87,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "34",
           "endlag": "25",
           "damage": "10.5",
@@ -102,7 +102,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8(9—16)",
+          "active": "7-8(9-16)",
           "total": "35",
           "endlag": "19",
           "damage": "9.0",
@@ -117,7 +117,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "30",
           "endlag": "23",
           "damage": "7.5",
@@ -148,7 +148,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinFSmashCharge.gif"
           ],
           "startup": "12/17",
-          "active": "12—**/17—18",
+          "active": "12-**/17-18",
           "total": "56",
           "endlag": "38",
           "damage": "0.5/11.0/12.0/16.7",
@@ -165,7 +165,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinUSmash.gif"
           ],
           "startup": "13",
-          "active": "13—17",
+          "active": "13-17",
           "total": "51",
           "endlag": "34",
           "damage": "10.0/13.0/15.0",
@@ -182,7 +182,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinDSmash.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "48",
           "endlag": "33",
           "damage": "11.0/9.0/14.0",
@@ -199,7 +199,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinNAir.gif"
           ],
           "startup": "6",
-          "active": "6—7(8—19)",
+          "active": "6-7(8-19)",
           "total": "46",
           "endlag": "27",
           "landingLag": "10",
@@ -217,7 +217,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinFAir.gif"
           ],
           "startup": "9",
-          "active": "9—12",
+          "active": "9-12",
           "total": "35",
           "endlag": "23",
           "landingLag": "8",
@@ -234,7 +234,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinBAir.gif"
           ],
           "startup": "13",
-          "active": "13(14—16)",
+          "active": "13(14-16)",
           "total": "41",
           "endlag": "25",
           "landingLag": "13",
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinUAir.gif"
           ],
           "startup": "7",
-          "active": "7—12",
+          "active": "7-12",
           "total": "37",
           "endlag": "25",
           "landingLag": "9",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinDAirLanding.gif"
           ],
           "startup": "12...",
-          "active": "12—28(rehit: 2)/1—5",
+          "active": "12-28(rehit: 2)/1-5",
           "total": "51",
           "endlag": "23",
           "landingLag": "26",
@@ -284,22 +284,22 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Dragon Fang Shot)",
           "section": "special",
-          "startup": "17—47",
-          "active": "17—71",
-          "total": "61—95",
-          "damage": "4.0—11.0",
-          "shieldLag": "5—8",
-          "shieldStun": "2—4"
+          "startup": "17-47",
+          "active": "17-71",
+          "total": "61-95",
+          "damage": "4.0-11.0",
+          "shieldLag": "5-8",
+          "shieldStun": "2-4"
         },
         {
           "name": "Dragon Fang Shot (chomp)",
           "section": "special",
           "startup": "24-54-85",
-          "active": "24—25/**/85—86",
-          "damage": "10.0—20.0",
+          "active": "24-25/**/85-86",
+          "damage": "10.0-20.0",
           "advantage": "-31 to -19",
-          "shieldLag": "8—20",
-          "shieldStun": "10—18",
+          "shieldLag": "8-20",
+          "shieldStun": "10-18",
           "notes": "Chomp can be charged an additional 30 frames independently of shot for more damage."
         },
         {
@@ -345,7 +345,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinDragonLungeKick.gif"
           ],
           "startup": "10",
-          "active": "10—17(18—24)",
+          "active": "10-17(18-24)",
           "total": "56/45",
           "endlag": "32",
           "landingLag": "19",
@@ -363,7 +363,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinDragonLungeKickBack.gif"
           ],
           "startup": "6",
-          "active": "6/14—21(22—28)",
+          "active": "6/14-21(22-28)",
           "total": "60/45",
           "endlag": "32",
           "landingLag": "19",
@@ -381,7 +381,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinDragonAscent.gif"
           ],
           "startup": "18...",
-          "active": "18—19/20—28(rehit: 2)/29—30",
+          "active": "18-19/20-28(rehit: 2)/29-30",
           "landingLag": "30",
           "damage": "4.5/1.2/3.0",
           "shieldLag": "8/4/10",
@@ -396,7 +396,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinCounterSurge.gif"
           ],
           "startup": "7 (Start of Counter)",
-          "active": "7—26 (counter)",
+          "active": "7-26 (counter)",
           "total": "66",
           "notes": "Invulnerable on frame 6. Counters on 7-26"
         },
@@ -407,7 +407,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinCounterSurgeHit.gif"
           ],
           "startup": "27",
-          "active": "27—31",
+          "active": "27-31",
           "total": "66",
           "endlag": "35",
           "notes": "Invulnerable on frame 1-51. Attacker frozen until frame 12"
@@ -419,7 +419,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36",
           "endlag": "28"
         },
@@ -430,7 +430,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "44",
           "endlag": "33"
         },
@@ -441,7 +441,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/corrin/CorrinPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },

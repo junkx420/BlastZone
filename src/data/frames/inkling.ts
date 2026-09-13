@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingJab1.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "19",
           "endlag": "15",
           "damage": "2.0",
@@ -28,7 +28,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingJab2.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "21",
           "endlag": "18",
           "damage": "2.0",
@@ -43,7 +43,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingJab3.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "29",
           "endlag": "24",
           "damage": "3.5",
@@ -87,7 +87,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "34",
           "endlag": "24",
           "damage": "9.0",
@@ -102,7 +102,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingUTilt_.gif"
           ],
           "startup": "7",
-          "active": "7—12",
+          "active": "7-12",
           "total": "29",
           "endlag": "17",
           "damage": "6.0",
@@ -117,7 +117,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingDTilt.gif"
           ],
           "startup": "5/12",
-          "active": "5—8/12—15",
+          "active": "5-8/12-15",
           "total": "31",
           "endlag": "16",
           "damage": "3.0/6.0",
@@ -132,7 +132,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingDashAttack.gif"
           ],
           "startup": "8",
-          "active": "8—9/10—13",
+          "active": "8-9/10-13",
           "total": "35",
           "endlag": "22",
           "damage": "8.0/6.0",
@@ -147,7 +147,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingFSmash.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "51",
           "endlag": "34",
           "damage": "14.0/16.0",
@@ -165,7 +165,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingUSmashNoInk.gif"
           ],
           "startup": "9/18",
-          "active": "9—10/18—20",
+          "active": "9-10/18-20",
           "total": "57",
           "endlag": "37",
           "damage": "4.0/15.0/10.0",
@@ -182,7 +182,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingDSmash.gif"
           ],
           "startup": "11/20",
-          "active": "(11—12/13—15)/(20—21/22—24)",
+          "active": "(11-12/13-15)/(20-21/22-24)",
           "total": "49",
           "endlag": "25",
           "damage": "12.5/11.0",
@@ -198,7 +198,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingNAir.gif"
           ],
           "startup": "6",
-          "active": "6—9",
+          "active": "6-9",
           "total": "31",
           "endlag": "22",
           "landingLag": "5",
@@ -215,7 +215,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingFAir.gif"
           ],
           "startup": "10",
-          "active": "10—11/12—21",
+          "active": "10-11/12-21",
           "total": "41",
           "endlag": "20",
           "landingLag": "12",
@@ -233,7 +233,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingBAir.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "36",
           "endlag": "25",
           "landingLag": "6",
@@ -251,7 +251,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingUAir.gif"
           ],
           "startup": "12/17",
-          "active": "12—15/17—20",
+          "active": "12-15/17-20",
           "total": "43",
           "endlag": "23",
           "landingLag": "6",
@@ -268,7 +268,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingDAir.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "61",
           "endlag": "44",
           "landingLag": "10",
@@ -299,10 +299,10 @@ export const FRAMES: FighterFrames = {
           "active": "16...",
           "total": "17/35",
           "endlag": "1",
-          "damage": "4.0—11.0",
+          "damage": "4.0-11.0",
           "advantage": "-15 to -12",
-          "shieldLag": "5—8 (Inkling 8—13)",
-          "shieldStun": "5—10",
+          "shieldLag": "5-8 (Inkling 8-13)",
+          "shieldStun": "5-10",
           "notes": "17 frame animation to jump cancel. 35 animation to cancel on the ground. Inkling suffers more shieldlag than defender. Advantage assumes buffered jump cancel."
         },
         {
@@ -312,7 +312,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingSuperJump.gif"
           ],
           "startup": "12",
-          "active": "12/15—21/1—10",
+          "active": "12/15-21/1-10",
           "landingLag": "40",
           "damage": "8.0/6.0",
           "advantage": "**/-29/-30",
@@ -328,12 +328,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingSplatBomb.gif",
             "hitboxes/inkling/InklingSplatBombExplosion.gif"
           ],
-          "startup": "20—40",
-          "total": "47—65",
-          "damage": "9.4—15.0",
-          "shieldLag": "8—10",
-          "shieldStun": "4—5",
-          "notes": "Holding the button allows for a longer yet slower throw. Bombs explode on contact or on frame 99—159."
+          "startup": "20-40",
+          "total": "47-65",
+          "damage": "9.4-15.0",
+          "shieldLag": "8-10",
+          "shieldStun": "4-5",
+          "notes": "Holding the button allows for a longer yet slower throw. Bombs explode on contact or on frame 99-159."
         },
         {
           "name": "Grab",
@@ -342,7 +342,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingGrab.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "34",
           "endlag": "25"
         },
@@ -353,7 +353,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "41",
           "endlag": "31"
         },
@@ -364,7 +364,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/inkling/InklingPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerJab1.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "21",
           "endlag": "17",
           "damage": "1.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "23",
           "endlag": "19",
           "damage": "1.0",
@@ -68,7 +68,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "33",
           "endlag": "22",
           "damage": "9.0",
@@ -83,7 +83,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerUTilt.gif"
           ],
           "startup": "7/22",
-          "active": "7—18/22—25",
+          "active": "7-18/22-25",
           "total": "47",
           "endlag": "22",
           "damage": "5.0/6.0",
@@ -98,7 +98,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "37",
           "endlag": "26",
           "damage": "12.0/10.0",
@@ -130,7 +130,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerFSmash.gif"
           ],
           "startup": "25",
-          "active": "25—30(31—144)",
+          "active": "25-30(31-144)",
           "total": "49",
           "damage": "15.0/17.0",
           "advantage": "-4",
@@ -146,7 +146,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerUSmash.gif"
           ],
           "startup": "12...",
-          "active": "12—13/17—18/21—22/25—26/29—30/33—34",
+          "active": "12-13/17-18/21-22/25-26/29-30/33-34",
           "total": "53",
           "endlag": "19",
           "damage": "3.0/1.0/4.0",
@@ -162,7 +162,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerDSmash.gif"
           ],
           "startup": "9/29",
-          "active": "9(10—11)/29(30—31)",
+          "active": "9(10-11)/29(30-31)",
           "total": "49",
           "endlag": "18",
           "damage": "6.0/3.0",
@@ -179,7 +179,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerNAir.gif"
           ],
           "startup": "3",
-          "active": "3—10(11—23)",
+          "active": "3-10(11-23)",
           "total": "35",
           "endlag": "12",
           "landingLag": "8",
@@ -197,7 +197,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerFAir.gif"
           ],
           "startup": "10",
-          "active": "10—12(13—18/19—23)",
+          "active": "10-12(13-18/19-23)",
           "total": "39",
           "endlag": "16",
           "landingLag": "14",
@@ -215,7 +215,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerBAir.gif"
           ],
           "startup": "13",
-          "active": "13—15(16—21/22—26)",
+          "active": "13-15(16-21/22-26)",
           "total": "35",
           "endlag": "9",
           "landingLag": "14",
@@ -235,7 +235,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerUAir3.gif"
           ],
           "startup": "6",
-          "active": "6—7(8—21)",
+          "active": "6-7(8-21)",
           "total": "42",
           "endlag": "21",
           "landingLag": "12",
@@ -255,7 +255,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerDAir3.gif"
           ],
           "startup": "11",
-          "active": "11—12(13—26)",
+          "active": "11-12(13-26)",
           "total": "42",
           "endlag": "16",
           "landingLag": "12",
@@ -273,7 +273,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerPocket.gif"
           ],
           "startup": "8 (Start of projectile pocket)",
-          "active": "8—23 (pocket)",
+          "active": "8-23 (pocket)",
           "total": "50",
           "notes": "Invulnerable on frame 5-23. Pockets projectiles on frame 8-23."
         },
@@ -288,7 +288,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Lloid Rocket)",
           "section": "special",
           "startup": "52",
-          "active": "52—116(117—176)",
+          "active": "52-116(117-176)",
           "total": "35",
           "damage": "7.0/5.0",
           "advantage": "+27",
@@ -306,7 +306,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B (Timber Plant, Timber Water)",
           "section": "special",
           "startup": "--, 5",
-          "active": "--, 5—20",
+          "active": "--, 5-20",
           "total": "38, 49",
           "endlag": "18"
         },
@@ -331,7 +331,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerTimberAxe.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "47/54",
           "endlag": "39",
           "damage": "14.0",
@@ -347,7 +347,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerGrab.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "43",
           "endlag": "27"
         },
@@ -358,7 +358,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerDashGrab.gif"
           ],
           "startup": "16",
-          "active": "16—18",
+          "active": "16-18",
           "total": "47",
           "endlag": "29"
         },
@@ -369,7 +369,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/villager/VillagerPivotGrab.gif"
           ],
           "startup": "17",
-          "active": "17—19",
+          "active": "17-19",
           "total": "44",
           "endlag": "25"
         },

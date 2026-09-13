@@ -89,7 +89,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightUTilt.gif"
           ],
           "startup": "8",
-          "active": "8—10/11—14",
+          "active": "8-10/11-14",
           "total": "34",
           "endlag": "20",
           "damage": "6.0/7.0",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightDTilt.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "18",
           "endlag": "14",
           "damage": "5.0",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "32",
           "endlag": "21",
           "damage": "7.0/6.0",
@@ -184,7 +184,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightNAir.gif"
           ],
           "startup": "6",
-          "active": "6—7/8—20",
+          "active": "6-7/8-20",
           "total": "43",
           "endlag": "23",
           "landingLag": "7",
@@ -220,7 +220,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightBAir.gif"
           ],
           "startup": "7/13/20",
-          "active": "7—8/13—14/20—21",
+          "active": "7-8/13-14/20-21",
           "total": "51",
           "endlag": "30",
           "landingLag": "11",
@@ -272,7 +272,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightMachTornado.gif"
           ],
           "startup": "12",
-          "active": "12—21/22—46",
+          "active": "12-21/22-46",
           "total": "104",
           "endlag": "58",
           "landingLag": "29",
@@ -290,7 +290,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightDrillRushEnd.gif"
           ],
           "startup": "26/30/34/38/42/46/ 50/54/58/62/66/70",
-          "active": "26—69/70",
+          "active": "26-69/70",
           "total": "98",
           "endlag": "28",
           "landingLag": "26",
@@ -307,7 +307,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightShuttleLoopG.gif"
           ],
           "startup": "8/22",
-          "active": "(8/9—10/11—12)22—27",
+          "active": "(8/9-10/11-12)22-27",
           "landingLag": "30",
           "damage": "9.0/6.0/6.0",
           "shieldLag": "11/6/9",
@@ -321,7 +321,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightShuttleLoopA.gif"
           ],
           "startup": "7/20",
-          "active": "(7/8—10)20—26",
+          "active": "(7/8-10)20-26",
           "landingLag": "30",
           "damage": "6.0/6.0",
           "shieldLag": "6/9",
@@ -364,7 +364,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36",
           "endlag": "28"
         },
@@ -375,7 +375,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "44",
           "endlag": "32"
         },
@@ -386,7 +386,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/meta_knight/MetaKnightPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "39",
           "endlag": "26"
         },
@@ -438,7 +438,7 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/meta_knight/MetaKnightDThrow.gif"
           ],
-          "startup": "11—13/17—19/23—25/29—31/35—37/41—43/47—49/53—55/59—61/73—74",
+          "startup": "11-13/17-19/23-25/29-31/35-37/41-43/47-49/53-55/59-61/73-74",
           "total": "86",
           "damage": "0.5/1.0/2.0"
         },

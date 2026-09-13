@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "29",
           "endlag": "22",
           "damage": "4.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessFTiltDown.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "34",
           "endlag": "24",
           "damage": "10.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—6(7—8)",
+          "active": "5-6(7-8)",
           "total": "28",
           "endlag": "20",
           "damage": "9.0/7.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessDTilt.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "11",
           "endlag": "7",
           "damage": "4.5/3.0",
@@ -110,7 +110,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessDashAttack.gif"
           ],
           "startup": "8/15/23",
-          "active": "8/15—16/23—24",
+          "active": "8/15-16/23-24",
           "total": "39",
           "endlag": "15",
           "damage": "4.0/2.0/6.0",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessFSmash.gif"
           ],
           "startup": "21",
-          "active": "21—22",
+          "active": "21-22",
           "total": "54",
           "endlag": "32",
           "damage": "18.0/20.0/22.0",
@@ -142,7 +142,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessUSmash.gif"
           ],
           "startup": "10",
-          "active": "10—32",
+          "active": "10-32",
           "total": "52",
           "endlag": "20",
           "damage": "13.0",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessDSmash.gif"
           ],
           "startup": "12/17/23/31",
-          "active": "12—15(17—18)/23—25(31—32)",
+          "active": "12-15(17-18)/23-25(31-32)",
           "total": "45",
           "endlag": "13",
           "damage": "1.0/10.0",
@@ -176,7 +176,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessNAir.gif"
           ],
           "startup": "5",
-          "active": "5—12(13—15)",
+          "active": "5-12(13-15)",
           "total": "35",
           "endlag": "20",
           "landingLag": "8",
@@ -194,7 +194,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessFAir.gif"
           ],
           "startup": "8.../20",
-          "active": "8—18 (rehit: 5) / 20-21",
+          "active": "8-18 (rehit: 5) / 20-21",
           "total": "39",
           "endlag": "21",
           "landingLag": "12",
@@ -212,7 +212,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessBAir.gif"
           ],
           "startup": "10",
-          "active": "10—11(12—18)",
+          "active": "10-11(12-18)",
           "total": "35",
           "endlag": "17",
           "landingLag": "10",
@@ -230,7 +230,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessUAir.gif"
           ],
           "startup": "8.../15",
-          "active": "8—14 (rehit: 2) / 15—16",
+          "active": "8-14 (rehit: 2) / 15-16",
           "total": "33",
           "endlag": "19",
           "landingLag": "8",
@@ -248,7 +248,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessDAir.gif"
           ],
           "startup": "18",
-          "active": "18—20/21—24",
+          "active": "18-20/21-24",
           "total": "52",
           "endlag": "28",
           "landingLag": "12",
@@ -260,13 +260,13 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (PK Flash)",
           "section": "special",
-          "startup": "40—117",
-          "active": "40—44/117—121",
-          "total": "61—138",
-          "damage": "11.0—27.0",
+          "startup": "40-117",
+          "active": "40-44/117-121",
+          "total": "61-138",
+          "damage": "11.0-27.0",
           "advantage": "-4 to +11",
-          "shieldLag": "13—24",
-          "shieldStun": "4—8",
+          "shieldLag": "13-24",
+          "shieldStun": "4-8",
           "notes": "On release, startup is 14 and total frames is 35."
         },
         {
@@ -277,7 +277,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessPKFireA.gif"
           ],
           "startup": "18",
-          "active": "18—37",
+          "active": "18-37",
           "total": "55",
           "endlag": "18",
           "landingLag": "12 (Air version)",
@@ -292,7 +292,7 @@ export const FRAMES: FighterFrames = {
           "name": "Up B (PK Thunder)",
           "section": "special",
           "startup": "20",
-          "active": "20—139",
+          "active": "20-139",
           "damage": "11.0/1.0",
           "advantage": "-22",
           "shieldLag": "13/3",
@@ -307,7 +307,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessPKThunder2.gif"
           ],
           "startup": "1",
-          "active": "1—10/11—32",
+          "active": "1-10/11-32",
           "total": "56",
           "endlag": "24",
           "landingLag": "24",
@@ -327,7 +327,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessPSIMagnetA.gif"
           ],
           "startup": "7 (7 is start of absorb)",
-          "active": "7—12 (absorb)",
+          "active": "7-12 (absorb)",
           "total": "24",
           "damage": "4.0",
           "advantage": "-12",
@@ -342,7 +342,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "37",
           "endlag": "30"
         },
@@ -353,7 +353,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "45",
           "endlag": "35"
         },
@@ -364,7 +364,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ness/NessPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "40",
           "endlag": "29"
         },
@@ -415,7 +415,7 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/ness/NessDThrow.gif"
           ],
-          "startup": "6—9, 10—13, 14—17, 26—29",
+          "startup": "6-9, 10-13, 14-17, 26-29",
           "total": "50",
           "damage": "0.5/0.5/0.5/1.5/4.0",
           "notes": "Releases on frame 27."

@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "29",
           "endlag": "22",
           "damage": "3.5",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasFTiltDown.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "25",
           "endlag": "16",
           "damage": "7.5/11.0",
@@ -78,7 +78,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasUTilt.gif"
           ],
           "startup": "4/7",
-          "active": "4/7—10(11—14/15—16)",
+          "active": "4/7-10(11-14/15-16)",
           "total": "33",
           "endlag": "17",
           "damage": "1.5/8.0/5.0",
@@ -94,7 +94,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasDTilt.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "15",
           "endlag": "11",
           "damage": "5.0",
@@ -109,7 +109,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasDashAttack.gif"
           ],
           "startup": "13",
-          "active": "13—17",
+          "active": "13-17",
           "total": "37",
           "endlag": "20",
           "damage": "9.0/13.0",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasFSmash.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "45",
           "endlag": "30",
           "damage": "14.0/15.0",
@@ -142,7 +142,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasUSmash.gif"
           ],
           "startup": "28/30",
-          "active": "28/30—32(33—37/38—42/43—47/48—52/53—54)",
+          "active": "28/30-32(33-37/38-42/43-47/48-52/53-54)",
           "total": "98",
           "endlag": "44",
           "damage": "2.0/21.0[20.0/18.0/16.0/14.0]",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasDSmash.gif"
           ],
           "startup": "20/29/39",
-          "active": "20—22/29—31/39—41",
+          "active": "20-22/29-31/39-41",
           "total": "59",
           "endlag": "18",
           "damage": "17.0/14.0/11.0",
@@ -175,7 +175,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasNAir.gif"
           ],
           "startup": "7.../26",
-          "active": "7—21 (rehit: 5) / 26",
+          "active": "7-21 (rehit: 5) / 26",
           "total": "44",
           "endlag": "23",
           "landingLag": "12",
@@ -193,7 +193,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasFAir.gif"
           ],
           "startup": "9",
-          "active": "9—10/11—12",
+          "active": "9-10/11-12",
           "total": "41",
           "endlag": "29",
           "landingLag": "7",
@@ -211,7 +211,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasBAir.gif"
           ],
           "startup": "15",
-          "active": "15—19(19—22)",
+          "active": "15-19(19-22)",
           "total": "39",
           "endlag": "17",
           "landingLag": "9",
@@ -229,7 +229,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasUAir.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "31",
           "endlag": "21",
           "landingLag": "7",
@@ -246,7 +246,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasDAir.gif"
           ],
           "startup": "10/18/26/34",
-          "active": "10—12/18—20/26—28/34—35",
+          "active": "10-12/18-20/26-28/34-35",
           "total": "56",
           "endlag": "21",
           "landingLag": "16",
@@ -264,7 +264,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasZAir.gif"
           ],
           "startup": "9",
-          "active": "9—12(13—21)",
+          "active": "9-12(13-21)",
           "total": "51",
           "endlag": "30",
           "landingLag": "8",
@@ -278,12 +278,12 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (PK Freeze)",
           "section": "special",
           "startup": "40-92",
-          "active": "40—43(92—95)",
+          "active": "40-43(92-95)",
           "total": "66-118",
-          "damage": "10.0—23.0",
+          "damage": "10.0-23.0",
           "advantage": "-14 to -5",
-          "shieldLag": "8—14",
-          "shieldStun": "4—7",
+          "shieldLag": "8-14",
+          "shieldStun": "4-7",
           "notes": "From charge release, startup is 5 and total frames is 31"
         },
         {
@@ -294,7 +294,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasPKFireA.gif"
           ],
           "startup": "21",
-          "active": "21—38(1—19)",
+          "active": "21-38(1-19)",
           "total": "52",
           "endlag": "14",
           "landingLag": "19",
@@ -309,7 +309,7 @@ export const FRAMES: FighterFrames = {
           "name": "Up B (PK Thunder)",
           "section": "special",
           "startup": "20",
-          "active": "20—**",
+          "active": "20-**",
           "damage": "2.5/0.7",
           "shieldLag": "5",
           "shieldStun": "2",
@@ -323,7 +323,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasPKThunder2.gif"
           ],
           "startup": "1/4/6/8/10/12/14/17/20/23/26/29",
-          "active": "1—2/4—5/6—7/8—9/10—11/12—13/14—15/17—19/20—21/23—24/26—27/29—30",
+          "active": "1-2/4-5/6-7/8-9/10-11/12-13/14-15/17-19/20-21/23-24/26-27/29-30",
           "total": "60",
           "endlag": "30",
           "landingLag": "30",
@@ -357,7 +357,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasGrab.gif"
           ],
           "startup": "12",
-          "active": "12—17",
+          "active": "12-17",
           "total": "46",
           "endlag": "29"
         },
@@ -368,7 +368,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasDashGrab.gif"
           ],
           "startup": "14",
-          "active": "14—19",
+          "active": "14-19",
           "total": "54",
           "endlag": "35"
         },
@@ -379,7 +379,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucas/LucasPivotGrab.gif"
           ],
           "startup": "15",
-          "active": "15—20",
+          "active": "15-20",
           "total": "49",
           "endlag": "29"
         },

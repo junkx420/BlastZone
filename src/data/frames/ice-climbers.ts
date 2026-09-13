@@ -14,7 +14,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "27",
           "endlag": "22",
           "damage": "2.0(1.5)",
@@ -31,7 +31,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "29",
           "endlag": "24",
           "damage": "3.5(2.6)",
@@ -51,7 +51,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaTiltDown.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "29",
           "endlag": "19",
           "damage": "9.0(6.7)",
@@ -67,7 +67,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaUTilt.gif"
           ],
           "startup": "8/11/14/17/20/23/27",
-          "active": "8—9/11—12/14—15/17—18/20—21/23—24/27",
+          "active": "8-9/11-12/14-15/17-18/20-21/23-24/27",
           "total": "48",
           "endlag": "21",
           "damage": "0.8/4.5(0.6/3.0)",
@@ -83,7 +83,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaDTilt.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "30",
           "endlag": "19",
           "damage": "6.0(4.5)",
@@ -99,7 +99,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaDashAttack.gif"
           ],
           "startup": "9",
-          "active": "9—12",
+          "active": "9-12",
           "total": "39",
           "endlag": "27",
           "damage": "6.0(4.5)",
@@ -115,7 +115,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaFSmash.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "46",
           "endlag": "33",
           "damage": "12.0(9.0)",
@@ -132,7 +132,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaUSmash.gif"
           ],
           "startup": "12",
-          "active": "12—17",
+          "active": "12-17",
           "total": "49",
           "endlag": "32",
           "damage": "11.0(8.2)",
@@ -149,7 +149,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaDSmash.gif"
           ],
           "startup": "9/16",
-          "active": "9—11/16",
+          "active": "9-11/16",
           "total": "40",
           "endlag": "24",
           "damage": "13.0(9.7)",
@@ -166,7 +166,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaNAir.gif"
           ],
           "startup": "6",
-          "active": "6—23",
+          "active": "6-23",
           "total": "45",
           "endlag": "22",
           "landingLag": "7",
@@ -184,7 +184,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaFAir.gif"
           ],
           "startup": "19",
-          "active": "19—20",
+          "active": "19-20",
           "total": "56",
           "endlag": "36",
           "landingLag": "10",
@@ -202,7 +202,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaBAir.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "35",
           "endlag": "24",
           "landingLag": "7",
@@ -220,7 +220,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaUAir.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "35",
           "endlag": "24",
           "landingLag": "14",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaDAir.gif"
           ],
           "startup": "12",
-          "active": "12—51",
+          "active": "12-51",
           "total": "63",
           "endlag": "12",
           "landingLag": "20",
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Ice Shot)",
           "section": "special",
           "startup": "18/19",
-          "active": "18/19—**",
+          "active": "18/19-**",
           "total": "55",
           "damage": "3.5/3.5",
           "advantage": "-29(-24)",
@@ -267,7 +267,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaSquallHammerDuo.gif"
           ],
           "startup": "10/14/18/23/28/34/40/51",
-          "active": "10/14/18/23/28/34/40/51—52",
+          "active": "10/14/18/23/28/34/40/51-52",
           "total": "77",
           "endlag": "25",
           "landingLag": "29",
@@ -285,7 +285,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaSqualHammerSolo.gif"
           ],
           "startup": "10/13/15/18/21/24/28/32/37/42/49",
-          "active": "10/13/15/18/21/24/28/32/37/42/49—50",
+          "active": "10/13/15/18/21/24/28/32/37/42/49-50",
           "total": "77",
           "endlag": "27",
           "landingLag": "29",
@@ -302,7 +302,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/NanaBelay.gif"
           ],
           "startup": "13",
-          "active": "16—33",
+          "active": "16-33",
           "landingLag": "27",
           "damage": "16.0",
           "shieldLag": "10",
@@ -332,7 +332,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/PopoGrab.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "39",
           "endlag": "30"
         },
@@ -343,7 +343,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/PopoDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "47",
           "endlag": "36"
         },
@@ -354,7 +354,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ice_climbers/PopoPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "40",
           "endlag": "29"
         },

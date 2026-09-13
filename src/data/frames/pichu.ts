@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuJab.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "16",
           "endlag": "13",
           "damage": "1.2",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuFTilt.gif"
           ],
           "startup": "5",
-          "active": "5—12",
+          "active": "5-12",
           "total": "24",
           "endlag": "12",
           "damage": "8.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—14",
+          "active": "7-14",
           "total": "23",
           "endlag": "9",
           "damage": "5.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "18",
           "endlag": "10",
           "damage": "6.0",
@@ -75,7 +75,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—9/10—15",
+          "active": "6-9/10-15",
           "total": "34",
           "endlag": "19",
           "damage": "8.0/6.0",
@@ -91,7 +91,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuFSmash.gif"
           ],
           "startup": "16/19/22/25/28/31",
-          "active": "16—18/19—21/22—24/25—27/28—30/31—33",
+          "active": "16-18/19-21/22-24/25-27/28-30/31-33",
           "total": "53",
           "endlag": "20",
           "damage": "2.0/8.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuUSmash.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "40",
           "endlag": "29",
           "damage": "14.0",
@@ -124,7 +124,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuDSmash.gif"
           ],
           "startup": "8/11/15/19/23",
-          "active": "8—9/11—12/15—16/19—20/23—24",
+          "active": "8-9/11-12/15-16/19-20/23-24",
           "total": "50",
           "endlag": "26",
           "damage": "1.5/8.0",
@@ -141,7 +141,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuNAir.gif"
           ],
           "startup": "3",
-          "active": "3—9/10—27",
+          "active": "3-9/10-27",
           "total": "39",
           "endlag": "12",
           "landingLag": "7",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuFAir.gif"
           ],
           "startup": "10/14/18/22",
-          "active": "10—12/14—16/18—20/22—23",
+          "active": "10-12/14-16/18-20/22-23",
           "total": "39",
           "endlag": "16",
           "landingLag": "12",
@@ -177,7 +177,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuBAir.gif"
           ],
           "startup": "5/11/15/19/26/30",
-          "active": "5—6/11—12/15—16/19—20/26—27/30—31",
+          "active": "5-6/11-12/15-16/19-20/26-27/30-31",
           "total": "54",
           "endlag": "23",
           "landingLag": "18",
@@ -195,7 +195,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuUAir.gif"
           ],
           "startup": "4",
-          "active": "4—9",
+          "active": "4-9",
           "total": "26",
           "endlag": "17",
           "landingLag": "11",
@@ -213,7 +213,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuDAirLanding.gif"
           ],
           "startup": "14",
-          "active": "14—17/18—26/1—2",
+          "active": "14-17/18-26/1-2",
           "total": "47",
           "endlag": "21",
           "landingLag": "22",
@@ -231,12 +231,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuThunderjoltAerial.gif"
           ],
           "startup": "18",
-          "active": "18—47/48—77/78—101",
+          "active": "18-47/48-77/78-101",
           "total": "51",
-          "damage": "10.0/7.0—5.0",
+          "damage": "10.0/7.0-5.0",
           "advantage": "-29/-30",
-          "shieldLag": "12/10—9",
-          "shieldStun": "4/3—3",
+          "shieldLag": "12/10-9",
+          "shieldStun": "4/3-3",
           "hitboxes": "Projectile/Arc",
           "notes": "0.8 base recoil damage. Grounded has a life of 84 frames, aerial 100."
         },
@@ -247,13 +247,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuSkullBash.gif"
           ],
           "startup": "17",
-          "active": "17—52 (4—39 on charge release)",
+          "active": "17-52 (4-39 on charge release)",
           "total": "96/86",
           "endlag": "44",
-          "damage": "4.0—33.0",
+          "damage": "4.0-33.0",
           "advantage": "-20 to +3",
-          "shieldLag": "8—18",
-          "shieldStun": "5—28",
+          "shieldLag": "8-18",
+          "shieldStun": "5-28",
           "notes": "25 on hit endlag. Second total frames is from the air. Startup is 5 from charge release. 2.1 base recoil damage."
         },
         {
@@ -272,7 +272,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuThunderHit.gif"
           ],
           "startup": "9",
-          "active": "Bolt 1: 9-11/12-67 | Bolt 2: 16—18/19—74",
+          "active": "Bolt 1: 9-11/12-67 | Bolt 2: 16-18/19-74",
           "total": "86/66",
           "endlag": "12",
           "damage": "6.0/4.0/14.0",
@@ -289,7 +289,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "31",
           "endlag": "24"
         },
@@ -300,7 +300,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuDashGrab.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "39",
           "endlag": "30"
         },
@@ -311,7 +311,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pichu/PichuPivotGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "36",
           "endlag": "26"
         },

@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaJab1.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "25",
           "endlag": "19",
           "damage": "3.3",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "28",
           "endlag": "23",
           "damage": "4.7",
@@ -44,7 +44,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "33",
           "endlag": "22",
           "damage": "11.0",
@@ -59,7 +59,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—8/9—12",
+          "active": "6-8/9-12",
           "total": "33",
           "endlag": "21",
           "damage": "7.6/8.0",
@@ -75,7 +75,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "23",
           "endlag": "15",
           "damage": "8.5",
@@ -90,7 +90,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDashAttack.gif"
           ],
           "startup": "13",
-          "active": "13—16",
+          "active": "13-16",
           "total": "49",
           "endlag": "33",
           "damage": "10.9",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaFSmash.gif"
           ],
           "startup": "10",
-          "active": "10—13",
+          "active": "10-13",
           "total": "51",
           "endlag": "38",
           "damage": "15.0",
@@ -121,7 +121,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaUSmash.gif"
           ],
           "startup": "13",
-          "active": "13—14/13—17",
+          "active": "13-14/13-17",
           "total": "58",
           "endlag": "41",
           "damage": "3.0/14.2",
@@ -138,7 +138,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDSmash.gif"
           ],
           "startup": "6/21",
-          "active": "6—7/21—23",
+          "active": "6-7/21-23",
           "total": "55",
           "endlag": "32",
           "damage": "9.5/14.0",
@@ -154,7 +154,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaNAir.gif"
           ],
           "startup": "6/15",
-          "active": "6—7/15—21",
+          "active": "6-7/15-21",
           "total": "49",
           "endlag": "28",
           "landingLag": "7",
@@ -171,7 +171,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaFAir.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "37",
           "endlag": "29",
           "landingLag": "10",
@@ -188,7 +188,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaBAir.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "39",
           "endlag": "28",
           "landingLag": "10",
@@ -205,7 +205,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaUAir.gif"
           ],
           "startup": "5",
-          "active": "5—9",
+          "active": "5-9",
           "total": "45",
           "endlag": "36",
           "landingLag": "8",
@@ -222,7 +222,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDAir.gif"
           ],
           "startup": "9/11",
-          "active": "9—13/11",
+          "active": "9-13/11",
           "total": "59",
           "endlag": "46",
           "landingLag": "14",
@@ -244,14 +244,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaShieldbreakerUpMax.gif",
             "hitboxes/lucina/LucinaShieldbreakerDownMax.gif"
           ],
-          "startup": "19—79",
-          "active": "19—20 (or frames 8—9 after release)",
-          "total": "50—110",
+          "startup": "19-79",
+          "active": "19-20 (or frames 8-9 after release)",
+          "total": "50-110",
           "endlag": "31",
-          "damage": "8.5—23",
+          "damage": "8.5-23",
           "advantage": "-23 to Shieldbreak",
-          "shieldLag": "13—18",
-          "shieldStun": "8—Shieldbreak",
+          "shieldLag": "13-18",
+          "shieldStun": "8-Shieldbreak",
           "notes": "On release, startup is 8 and total frames is 39"
         },
         {
@@ -261,7 +261,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade1.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "39/29",
           "endlag": "28",
           "damage": "2.8",
@@ -277,7 +277,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade2.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "38",
           "endlag": "31",
           "damage": "2.8",
@@ -293,7 +293,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade3.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "43",
           "endlag": "37",
           "damage": "3.3",
@@ -309,7 +309,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade4.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "55",
           "endlag": "46",
           "damage": "4.7",
@@ -324,7 +324,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade2Up.gif"
           ],
           "startup": "4",
-          "active": "4—7",
+          "active": "4-7",
           "total": "38",
           "endlag": "31",
           "damage": "2.8",
@@ -340,7 +340,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade3Up.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "43",
           "endlag": "36",
           "damage": "3.3",
@@ -356,7 +356,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade4Up.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "44",
           "endlag": "34",
           "damage": "5.6",
@@ -371,7 +371,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade3Down.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "43",
           "endlag": "36",
           "damage": "3.3",
@@ -387,7 +387,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDancingBlade4Down.gif"
           ],
           "startup": "7",
-          "active": "7/10/13/16/19—21",
+          "active": "7/10/13/16/19-21",
           "total": "74",
           "endlag": "53",
           "damage": "2.0/4.2",
@@ -404,7 +404,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDolphinSlashA.gif"
           ],
           "startup": "5",
-          "active": "5—6/6—11",
+          "active": "5-6/6-11",
           "landingLag": "24",
           "damage": "11.0/7.0",
           "shieldLag": "8/7",
@@ -429,7 +429,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaCounterHit.gif"
           ],
           "startup": "4",
-          "active": "4—7",
+          "active": "4-7",
           "total": "40",
           "endlag": "33",
           "notes": "Intangible on frame 1-8 in addition to counter freeze frames. 8% Minimum base damage, x1.2 enemy's attack."
@@ -441,7 +441,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -452,7 +452,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -463,7 +463,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucina/LucinaPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

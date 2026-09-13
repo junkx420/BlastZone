@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioJab1.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "27",
           "endlag": "18",
           "damage": "5.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "29",
           "endlag": "24",
           "damage": "7.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioFTiltDown.gif"
           ],
           "startup": "12",
-          "active": "12—15",
+          "active": "12-15",
           "total": "39",
           "endlag": "24",
           "damage": "13.0/10.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioUTilt.gif"
           ],
           "startup": "8",
-          "active": "8—10/11—15",
+          "active": "8-10/11-15",
           "total": "27",
           "endlag": "12",
           "damage": "6.0/5.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioDashAttack.gif"
           ],
           "startup": "5",
-          "active": "5—8/9—23",
+          "active": "5-8/9-23",
           "total": "48",
           "endlag": "25",
           "damage": "11.0/5.0",
@@ -109,7 +109,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioFSmash.gif"
           ],
           "startup": "18",
-          "active": "18—19",
+          "active": "18-19",
           "total": "65",
           "endlag": "46",
           "damage": "20.0",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioUSmash.gif"
           ],
           "startup": "11",
-          "active": "11—12/13",
+          "active": "11-12/13",
           "total": "57",
           "endlag": "44",
           "damage": "17.0/13.0",
@@ -142,7 +142,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioDSmash.gif"
           ],
           "startup": "8",
-          "active": "8—17/18—27/28—36",
+          "active": "8-17/18-27/28-36",
           "total": "61",
           "endlag": "25",
           "damage": "13.0/10.0/5.0",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioNAir.gif"
           ],
           "startup": "4/20",
-          "active": "4—12(13—17)/20—26(27—42)",
+          "active": "4-12(13-17)/20-26(27-42)",
           "total": "45",
           "endlag": "3",
           "landingLag": "7",
@@ -177,7 +177,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioFAir.gif"
           ],
           "startup": "5",
-          "active": "5—6/7—17",
+          "active": "5-6/7-17",
           "total": "37",
           "endlag": "20",
           "landingLag": "10",
@@ -195,7 +195,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioBAir.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "49",
           "endlag": "38",
           "landingLag": "16",
@@ -212,7 +212,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioUAir.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "46",
           "endlag": "37",
           "landingLag": "7",
@@ -249,9 +249,9 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioChompBomb.gif"
           ],
           "startup": "8 (11 Grab Release)",
-          "active": "8—16 (Can hold: 8—64)",
+          "active": "8-16 (Can hold: 8-64)",
           "total": "41 (19 Grab Release)",
-          "notes": "25 endlag from release of the button. Can eat projectiles on frame 9—. With the exception of Bike being eaten on frame 2. Animation for eating a projectile is 25 frames. 55 for the Bike."
+          "notes": "25 endlag from release of the button. Can eat projectiles on frame 9-. With the exception of Bike being eaten on frame 2. Animation for eating a projectile is 25 frames. 55 for the Bike."
         },
         {
           "name": "Side B (Wario Bike)",
@@ -260,10 +260,10 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioBikeDrive.gif"
           ],
           "startup": "20/24",
-          "active": "20—**",
-          "damage": "0.6—11.4",
+          "active": "20-**",
+          "damage": "0.6-11.4",
           "shieldLag": "4-8, 6-13(Wario)",
-          "shieldStun": "2—4",
+          "shieldStun": "2-4",
           "notes": "Startup is 24 if mounting a bike laying on the ground. Frame 20 is the earliest you can jump, turnaround, wheelie. Wario seems to suffer more shieldlag than the defender on any hit."
         },
         {
@@ -305,7 +305,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioCorkscrew.gif"
           ],
           "startup": "6/8/12/16/20/29",
-          "active": "6—7/8—11/12—15/16—19/20—23/29—30",
+          "active": "6-7/8-11/12-15/16-19/20-23/29-30",
           "landingLag": "20",
           "damage": "5.0/1.0/4.0",
           "shieldLag": "6/4/11",
@@ -322,7 +322,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioWarioWaftFull.gif"
           ],
           "startup": "16, 10, 8, 12",
-          "active": "16—18, 10—11, 8—11, 12—13/14—29",
+          "active": "16-18, 10-11, 8-11, 12-13/14-29",
           "total": "79, 64, 54, 63",
           "endlag": "50",
           "damage": "0.0, 12.0+, 20.0+, 27.0/20.0",
@@ -330,7 +330,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "--, 10, 13, 19/12",
           "shieldStun": "--, 13, 20, 23/18",
           "hitboxes": "Stage 1, Stage 2, Stage 3, Final Stage Early/Late",
-          "notes": "Full Waft has armor on frames 4—13."
+          "notes": "Full Waft has armor on frames 4-13."
         },
         {
           "name": "Grab",
@@ -339,7 +339,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioGrab.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "35",
           "endlag": "25"
         },
@@ -350,7 +350,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "43",
           "endlag": "30"
         },
@@ -361,7 +361,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wario/WarioPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "38",
           "endlag": "24"
         },

@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "29",
           "endlag": "25",
           "damage": "2.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonFTilt.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "30",
           "endlag": "17",
           "damage": "10.0/12.0/2.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonUTilt.gif"
           ],
           "startup": "10",
-          "active": "10—22",
+          "active": "10-22",
           "total": "37",
           "endlag": "15",
           "damage": "10.0/2.0",
@@ -109,7 +109,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonDTilt1.gif"
           ],
           "startup": "7",
-          "active": "7—23",
+          "active": "7-23",
           "total": "44",
           "endlag": "21",
           "damage": "5.0",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonDTilt2.gif"
           ],
           "startup": "8",
-          "active": "8—19/20—28",
+          "active": "8-19/20-28",
           "total": "57/43",
           "endlag": "29",
           "damage": "7.0/3.5",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonFSmashDown.gif"
           ],
           "startup": "24",
-          "active": "24—25",
+          "active": "24-25",
           "total": "62",
           "endlag": "37",
           "damage": "14.0/16.0/18.0",
@@ -176,7 +176,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonUSmash.gif"
           ],
           "startup": "16",
-          "active": "16—18",
+          "active": "16-18",
           "total": "53",
           "endlag": "35",
           "damage": "16.0/14.0",
@@ -193,7 +193,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonDSmash.gif"
           ],
           "startup": "14/20",
-          "active": "14—15/20—21",
+          "active": "14-15/20-21",
           "total": "55",
           "endlag": "34",
           "damage": "12.0/14.0/16.0",
@@ -210,7 +210,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonNAir.gif"
           ],
           "startup": "8...",
-          "active": "8—9/11—12/14—15/17—18/20—21/23—24/26—27",
+          "active": "8-9/11-12/14-15/17-18/20-21/23-24/26-27",
           "total": "42",
           "endlag": "15",
           "landingLag": "14",
@@ -250,7 +250,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonBAirDown.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "39",
           "endlag": "24",
           "landingLag": "10",
@@ -268,7 +268,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonUAir.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "39",
           "endlag": "23",
           "landingLag": "10",
@@ -286,7 +286,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonDAir.gif"
           ],
           "startup": "13",
-          "active": "13—14/15—36",
+          "active": "13-14/15-36",
           "total": "48",
           "endlag": "12",
           "landingLag": "26",
@@ -304,7 +304,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonAxe.gif"
           ],
           "startup": "30",
-          "active": "30—97",
+          "active": "30-97",
           "total": "66",
           "damage": "15.0",
           "advantage": "-6",
@@ -315,7 +315,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Cross)",
           "section": "special",
           "startup": "19",
-          "active": "19—64",
+          "active": "19-64",
           "total": "44",
           "damage": "8.0/6.0/5.0",
           "advantage": "-15",
@@ -331,7 +331,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonUppercut.gif"
           ],
           "startup": "6/9/...",
-          "active": "6/9—20/21 (rehit: 3)",
+          "active": "6/9-20/21 (rehit: 3)",
           "landingLag": "26",
           "damage": "2.0/1.5/6.0",
           "shieldLag": "6/4/6",
@@ -346,7 +346,7 @@ export const FRAMES: FighterFrames = {
           "active": "18...",
           "total": "45",
           "endlag": "27",
-          "damage": "2.0—2.9",
+          "damage": "2.0-2.9",
           "shieldLag": "4",
           "shieldStun": "2",
           "notes": "Lands on level ground at frame 32 if nothing is in the way. Explodes on contact with the ground or a wall. Bottle will explode if it takes 6% or more damage. When it hits a shield it takes 0% damage but when it hits a character it takes 3%. Touching the ground loses all 6% damage. Click here for more information."
@@ -369,7 +369,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },
@@ -380,7 +380,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonDashGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "45",
           "endlag": "31"
         },
@@ -391,7 +391,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Simon/SimonPivotGrab.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "42",
           "endlag": "27"
         },

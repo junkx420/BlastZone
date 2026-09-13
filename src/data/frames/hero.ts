@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroJab1.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "25",
           "endlag": "18",
           "damage": "3.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroJab2.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "25",
           "endlag": "18",
           "damage": "3.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroJab3.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "37",
           "endlag": "28",
           "damage": "4.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroFTilt1.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "36",
           "endlag": "25",
           "damage": "5.0",
@@ -76,7 +76,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroFTilt2.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "47",
           "endlag": "38",
           "damage": "8.0",
@@ -91,7 +91,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroUTilt.gif"
           ],
           "startup": "8",
-          "active": "8—9/10—11",
+          "active": "8-9/10-11",
           "total": "41",
           "endlag": "30",
           "damage": "9.0/11.0/11.0",
@@ -107,7 +107,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "32",
           "endlag": "22",
           "damage": "7.0",
@@ -122,7 +122,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroDashAttack.gif"
           ],
           "startup": "21",
-          "active": "21/22—23",
+          "active": "21/22-23",
           "total": "51",
           "endlag": "28",
           "damage": "13.0/15.0",
@@ -138,7 +138,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroFSmash.gif"
           ],
           "startup": "17",
-          "active": "17—19",
+          "active": "17-19",
           "total": "65",
           "endlag": "46",
           "damage": "18.0/36.0 (Sour: 16.0/32.0)",
@@ -154,7 +154,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroUSmash.gif"
           ],
           "startup": "13",
-          "active": "13—17",
+          "active": "13-17",
           "total": "53",
           "endlag": "36",
           "damage": "16.0/32.0 (Sour: 14.0/28.0)",
@@ -171,7 +171,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroDSmash.gif"
           ],
           "startup": "9/20",
-          "active": "9—10/20—21",
+          "active": "9-10/20-21",
           "total": "55",
           "endlag": "34",
           "damage": "Normal: 13.0/26.0 (Sour: 11.0/22.0)",
@@ -188,7 +188,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroNAir.gif"
           ],
           "startup": "8",
-          "active": "8—16",
+          "active": "8-16",
           "total": "45",
           "endlag": "29",
           "landingLag": "10",
@@ -204,7 +204,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroFAir.gif"
           ],
           "startup": "14",
-          "active": "14—17",
+          "active": "14-17",
           "total": "42",
           "endlag": "25",
           "landingLag": "12",
@@ -221,7 +221,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroBAir.gif"
           ],
           "startup": "18",
-          "active": "18—20",
+          "active": "18-20",
           "total": "47",
           "endlag": "27",
           "landingLag": "14",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroUAir.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "32",
           "endlag": "22",
           "landingLag": "8",
@@ -254,7 +254,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroDAir.gif"
           ],
           "startup": "16",
-          "active": "16—18/19—24",
+          "active": "16-18/19-24",
           "total": "62",
           "endlag": "38",
           "landingLag": "18",
@@ -269,7 +269,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Frizz/Frizzle/Kafrizz)",
           "section": "special",
           "startup": "[10(+7)] [11(+25)] [16(2/8/14/20)]",
-          "active": "[10—65] [11—56] [16—73]",
+          "active": "[10-65] [11-56] [16-73]",
           "total": "43/51/67",
           "damage": "9.0/18.0/19.0(3.0)",
           "advantage": "-22/-28/-24",
@@ -288,14 +288,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroKazap.gif"
           ],
           "startup": "[9/13(+7)] [10/15(+16)] [43/50/72/75/81]",
-          "active": "[9—13/1—8] [10—15/1—8] [43—49/50/72/75/81—83/1—8]",
+          "active": "[9-13/1-8] [10-15/1-8] [43-49/50/72/75/81-83/1-8]",
           "total": "30/50/126",
           "damage": "4.0",
           "advantage": "-12/-25/-29",
           "shieldLag": "11/17 / 9 / 14/9/12",
           "shieldStun": "6/4 / 6 / 4/**/4",
           "hitboxes": "close/far/bolt / first/second bolt / \"first/second/ third/bolt\"",
-          "notes": "Zap: 7 frames to enter charge state. Bolt does not occur on block. Cost: 8MP Zapple: Takes 16 frames to reach this level of charge. Second hit does not occur on block. Cost: 18 MP Kazap: Final hit does not occur on a blocking opponent. Cost: 42MP. Bolt generated on frame 37 (+7 charge). 15% heavy armor on frames 43—78. Psych Up only affects first hit (another 0.8%). Oomph affects all but the last hit (another 14%)."
+          "notes": "Zap: 7 frames to enter charge state. Bolt does not occur on block. Cost: 8MP Zapple: Takes 16 frames to reach this level of charge. Second hit does not occur on block. Cost: 18 MP Kazap: Final hit does not occur on a blocking opponent. Cost: 42MP. Bolt generated on frame 37 (+7 charge). 15% heavy armor on frames 43-78. Psych Up only affects first hit (another 0.8%). Oomph affects all but the last hit (another 14%)."
         },
         {
           "name": "Up B (Woosh/Swoosh/Kaswoosh)",
@@ -317,7 +317,7 @@ export const FRAMES: FighterFrames = {
           "name": "Bang",
           "section": "special",
           "startup": "5",
-          "active": "5—39/1—21",
+          "active": "5-39/1-21",
           "total": "38",
           "damage": "1.5/14.0",
           "advantage": "-16",
@@ -333,7 +333,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/Kaboom.gif"
           ],
           "startup": "6",
-          "active": "6—27/1—16/17—40",
+          "active": "6-27/1-16/17-40",
           "total": "43",
           "endlag": "3",
           "damage": "2.0/26.0",
@@ -341,13 +341,13 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "4/15",
           "shieldStun": "2/8",
           "hitboxes": "Projectile/Explosion",
-          "notes": "Cost: 37MP. Explosion frames 17—40. Windbox frames 1—16."
+          "notes": "Cost: 37MP. Explosion frames 17-40. Windbox frames 1-16."
         },
         {
           "name": "Sizz",
           "section": "special",
           "startup": "6",
-          "active": "6—19/1—24",
+          "active": "6-19/1-24",
           "total": "39",
           "endlag": "15",
           "damage": "1.5/12.0",
@@ -364,7 +364,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/Sizzle.gif"
           ],
           "startup": "6",
-          "active": "6—17/1—24",
+          "active": "6-17/1-24",
           "total": "43",
           "endlag": "19",
           "damage": "3.0/22.0",
@@ -378,7 +378,7 @@ export const FRAMES: FighterFrames = {
           "name": "Whack",
           "section": "special",
           "startup": "6",
-          "active": "6—125",
+          "active": "6-125",
           "total": "41",
           "damage": "1.0",
           "advantage": "-29",
@@ -390,7 +390,7 @@ export const FRAMES: FighterFrames = {
           "name": "Thwack",
           "section": "special",
           "startup": "23",
-          "active": "22—33",
+          "active": "22-33",
           "total": "58",
           "endlag": "25",
           "damage": "3.0",
@@ -406,7 +406,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/Kamikazee.gif"
           ],
           "startup": "44/50",
-          "active": "44—49/50",
+          "active": "44-49/50",
           "total": "??",
           "damage": "0.1 / 50.0 (35.0)",
           "shieldLag": "Unblockable",
@@ -423,10 +423,10 @@ export const FRAMES: FighterFrames = {
           "active": "23/33/43/53/63/73/83/93/101",
           "total": "151",
           "endlag": "50",
-          "damage": "1.0—4.2/2.7—11.0",
-          "advantage": "-36 — -24",
-          "shieldLag": "4—5/7—13",
-          "shieldStun": "2—4/4—10",
+          "damage": "1.0-4.2/2.7-11.0",
+          "advantage": "-36 - -24",
+          "shieldLag": "4-5/7-13",
+          "shieldStun": "2-4/4-10",
           "hitboxes": "Multi/Final",
           "notes": "Cost: All MP. Hitbox size and damage increases based on how much MP you have. Hero does not suffer hitlag from this attack."
         },
@@ -485,7 +485,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroFlameSlash.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "38",
           "endlag": "30",
           "damage": "22.0",
@@ -501,7 +501,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroKacrackleSlash.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "35",
           "endlag": "27",
           "damage": "17.0",
@@ -517,7 +517,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroHatchetMan.gif"
           ],
           "startup": "37",
-          "active": "37—40",
+          "active": "37-40",
           "total": "88",
           "endlag": "48",
           "damage": "35.0",
@@ -533,7 +533,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroMetalSlash.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27",
           "damage": "1.0",
@@ -555,7 +555,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -566,7 +566,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -577,7 +577,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/hero/HeroPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

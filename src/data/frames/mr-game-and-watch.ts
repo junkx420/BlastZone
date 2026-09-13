@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchJab.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "15",
           "endlag": "10",
           "damage": "3.0",
@@ -54,7 +54,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—9(10—20)",
+          "active": "8-9(10-20)",
           "total": "37",
           "endlag": "17",
           "damage": "12.0/10.0/6.0",
@@ -70,7 +70,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchUTilt.gif"
           ],
           "startup": "10/20",
-          "active": "10—12/20—22",
+          "active": "10-12/20-22",
           "total": "33",
           "endlag": "11",
           "damage": "7.0/7.0",
@@ -85,7 +85,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "42",
           "endlag": "34",
           "damage": "9.0",
@@ -101,7 +101,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—9(10—19)",
+          "active": "6-9(10-19)",
           "total": "38",
           "endlag": "19",
           "damage": "10.0/6.5",
@@ -117,7 +117,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchFSmash.gif"
           ],
           "startup": "17",
-          "active": "17—18",
+          "active": "17-18",
           "total": "42",
           "endlag": "24",
           "damage": "14.0/18.0",
@@ -134,7 +134,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchUSmash.gif"
           ],
           "startup": "21",
-          "active": "21—25",
+          "active": "21-25",
           "total": "38",
           "endlag": "13",
           "damage": "16.0",
@@ -150,7 +150,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchDSmash.gif"
           ],
           "startup": "12",
-          "active": "12—16",
+          "active": "12-16",
           "total": "37",
           "endlag": "21",
           "damage": "13.0/15.0",
@@ -167,7 +167,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchNAir.gif"
           ],
           "startup": "7/12/17/22",
-          "active": "7—10/12—15/17—20/22—23",
+          "active": "7-10/12-15/17-20/22-23",
           "total": "42",
           "endlag": "19",
           "landingLag": "7",
@@ -185,7 +185,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchFAir.gif"
           ],
           "startup": "10/44",
-          "active": "10—13/**",
+          "active": "10-13/**",
           "total": "47",
           "landingLag": "17",
           "damage": "3.0/12.0",
@@ -202,7 +202,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchBairLanding.gif"
           ],
           "startup": "10/14/18/22",
-          "active": "10—13/14—17/18—21/22/1",
+          "active": "10-13/14-17/18-21/22/1",
           "total": "39",
           "endlag": "17",
           "landingLag": "18",
@@ -220,7 +220,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchUAir.gif"
           ],
           "startup": "9/15/21/27/33/37",
-          "active": "9/15/21/27/33/37—41",
+          "active": "9/15/21/27/33/37-41",
           "total": "42",
           "endlag": "1",
           "landingLag": "12",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchDairLanding.gif"
           ],
           "startup": "12",
-          "active": "12—13/14—38/1—2",
+          "active": "12-13/14-38/1-2",
           "total": "49",
           "endlag": "11",
           "landingLag": "22",
@@ -256,7 +256,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchChef.gif"
           ],
           "startup": "18",
-          "active": "18—20/**",
+          "active": "18-20/**",
           "total": "54",
           "damage": "5.0/13.0",
           "advantage": "-28",
@@ -280,7 +280,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchJudge9.gif"
           ],
           "startup": "16",
-          "active": "16—23 (Judge 5: 16—18/19—21/22—24/25—27)",
+          "active": "16-23 (Judge 5: 16-18/19-21/22-24/25-27)",
           "total": "49",
           "endlag": "22",
           "damage": "1: 2.0, 2: 4.0, 3: 6.0, 4: 8.0, 5: 3.0, 6: 12.0, 7: 14.0, 8: 13.0, 9: 32.0",
@@ -296,7 +296,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchFireA.gif"
           ],
           "startup": "3/9",
-          "active": "3—4/9—18",
+          "active": "3-4/9-18",
           "landingLag": "7",
           "damage": "3.0/6.0",
           "shieldLag": "7/6",
@@ -308,7 +308,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B (Oil Panic)",
           "section": "special",
           "startup": "6 (Start of Absorb/Reflect)",
-          "active": "6—30 (absorb)",
+          "active": "6-30 (absorb)",
           "total": "43",
           "notes": "Begins absorbing/reflecting on frame 6. Takes 13 frames to put away bucket after extended usage. Has a 2x Damage Multiplier per unit. Maximum Damage of 16% per unit, this is also the minimum damage output. If an attack deals more than 10% it fills 2 Units, 20% for 3. Takes 6F to turn around."
         },
@@ -319,10 +319,10 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchOilPanic.gif"
           ],
           "startup": "2",
-          "active": "2—7(8—14/15—26)",
+          "active": "2-7(8-14/15-26)",
           "total": "49",
           "endlag": "23",
-          "damage": "16.0—48.0",
+          "damage": "16.0-48.0",
           "hitboxes": "Early/Late/Later",
           "notes": "Successful absorbs incur a 24 frame animation that is completely invulnerable."
         },
@@ -333,7 +333,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -344,7 +344,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -355,7 +355,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mr_game_and_watch/MrGame_WatchPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

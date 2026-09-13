@@ -82,6 +82,12 @@ const saubern = (roh) => {
     .replace(/&gt;/g, '>')
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&quot;/g, '"')
+    // UFD schreibt Frame-Bereiche mit Geviertstrich ("2—3", "5—11"). Auf der
+    // Seite steht ueberall sonst ein einfacher Bindestrich, und der Strich ist
+    // hier reine Typografie eines Zahlenbereichs, kein Inhalt. Die Umstellung
+    // gehoert hierher und nicht in die 86 erzeugten Dateien, sonst ist sie beim
+    // naechsten Abruf wieder verloren.
+    .replace(/[–—]/g, '-')
     .replace(/\s+/g, ' ')
     .trim();
   if (!t || t === '--' || t === '**' || t === '-') return undefined;

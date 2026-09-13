@@ -42,7 +42,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManUTilt.gif"
           ],
           "startup": "6",
-          "active": "6(7—9/10—16)",
+          "active": "6(7-9/10-16)",
           "total": "70/52/54",
           "endlag": "54",
           "damage": "17.0/12.0/8.0",
@@ -59,7 +59,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—8(9—21)",
+          "active": "5-8(9-21)",
           "total": "46",
           "endlag": "25",
           "damage": "8.0/5.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManFSmashMaximum.gif"
           ],
           "startup": "19",
-          "active": "19—42(79—108/199—222)",
+          "active": "19-42(79-108/199-222)",
           "total": "54",
           "damage": "11.5",
           "advantage": "-18",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManUSmash.gif"
           ],
           "startup": "8/11/15/19/23/27/31",
-          "active": "8/11—12/15—16/19—20/23—24/27—28/31",
+          "active": "8/11-12/15-16/19-20/23-24/27-28/31",
           "total": "68",
           "endlag": "37",
           "damage": "2.0/1.5/6.0",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManDSmash.gif"
           ],
           "startup": "17",
-          "active": "17(18—19/20—33)",
+          "active": "17(18-19/20-33)",
           "total": "78",
           "endlag": "45",
           "damage": "17.0",
@@ -141,7 +141,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManNAir.gif"
           ],
           "startup": "7/19/31",
-          "active": "7—9 [7-8/9-12/13-36] / 19—21 [19-20/11-24/25-42] / 31—34 [31-32/33-36/37-54]",
+          "active": "7-9 [7-8/9-12/13-36] / 19-21 [19-20/11-24/25-42] / 31-34 [31-32/33-36/37-54]",
           "total": "33/45/57",
           "damage": "3.0/4.0/2.0",
           "advantage": "-25/-23/-20",
@@ -157,7 +157,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManFAir.gif"
           ],
           "startup": "9",
-          "active": "9—11(12—17)",
+          "active": "9-11(12-17)",
           "total": "40",
           "endlag": "23",
           "landingLag": "11",
@@ -175,7 +175,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManBAir.gif"
           ],
           "startup": "4/7/10",
-          "active": "4—5/7—8/10—11",
+          "active": "4-5/7-8/10-11",
           "total": "44",
           "endlag": "33",
           "landingLag": "20",
@@ -192,7 +192,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManUAir.gif"
           ],
           "startup": "11...",
-          "active": "11—17/18—31/32—54/55—61 (rehit: 3/5/5/5)",
+          "active": "11-17/18-31/32-54/55-61 (rehit: 3/5/5/5)",
           "total": "53",
           "landingLag": "20",
           "damage": "3.0/1.0/2.0",
@@ -208,7 +208,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManDAir.gif"
           ],
           "startup": "23",
-          "active": "23—25(26—35)",
+          "active": "23-25(26-35)",
           "total": "64",
           "endlag": "29",
           "landingLag": "14",
@@ -237,7 +237,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManCrashBomberExplosion.gif"
           ],
           "startup": "19",
-          "active": "19—69",
+          "active": "19-69",
           "total": "44",
           "damage": "1.0/4.0",
           "shieldLag": "4/5",
@@ -257,8 +257,8 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/mega_man/MegaManLeafShield.gif"
           ],
-          "startup": "9—**",
-          "active": "9—**",
+          "startup": "9-**",
+          "active": "9-**",
           "total": "35",
           "damage": "1.5",
           "shieldLag": "4",
@@ -284,7 +284,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "37",
           "endlag": "30"
         },
@@ -295,7 +295,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "45",
           "endlag": "35"
         },
@@ -306,7 +306,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mega_man/MegaManPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "40",
           "endlag": "29"
         },

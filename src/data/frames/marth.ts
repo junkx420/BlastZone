@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthJab1.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "25",
           "endlag": "19",
           "damage": "3.0/5.0",
@@ -30,7 +30,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "28",
           "endlag": "23",
           "damage": "4.0/6.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "33",
           "endlag": "22",
           "damage": "9.0/12.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—8/9—12",
+          "active": "6-8/9-12",
           "total": "33",
           "endlag": "21",
           "damage": "5.0/6.0/10.0/",
@@ -78,7 +78,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "23",
           "endlag": "15",
           "damage": "7.0/10.0",
@@ -94,7 +94,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDashAttack.gif"
           ],
           "startup": "13",
-          "active": "13—16",
+          "active": "13-16",
           "total": "49",
           "endlag": "33",
           "damage": "9.0/10.0/13.0",
@@ -111,7 +111,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthFSmashInterpolated.gif"
           ],
           "startup": "10",
-          "active": "10—13",
+          "active": "10-13",
           "total": "51",
           "endlag": "38",
           "damage": "13.0/18.0",
@@ -128,7 +128,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthUSmash.gif"
           ],
           "startup": "13",
-          "active": "13—14/13—17",
+          "active": "13-14/13-17",
           "total": "58",
           "endlag": "41",
           "damage": "3.0/13.0/17.0",
@@ -145,7 +145,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDSmash.gif"
           ],
           "startup": "6/21",
-          "active": "6—7/21—23",
+          "active": "6-7/21-23",
           "total": "55",
           "endlag": "32",
           "damage": "8.0/12.0/12.0/17.0",
@@ -162,7 +162,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthNAir.gif"
           ],
           "startup": "6/15",
-          "active": "6—7/15—21",
+          "active": "6-7/15-21",
           "total": "49",
           "endlag": "28",
           "landingLag": "7",
@@ -180,7 +180,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthFAir.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "37",
           "endlag": "29",
           "landingLag": "10",
@@ -198,7 +198,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthBAir.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "39",
           "endlag": "28",
           "landingLag": "10",
@@ -216,7 +216,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthUAir.gif"
           ],
           "startup": "5",
-          "active": "5—9",
+          "active": "5-9",
           "total": "45",
           "endlag": "36",
           "landingLag": "8",
@@ -234,7 +234,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDAir.gif"
           ],
           "startup": "9/11",
-          "active": "9—13/11",
+          "active": "9-13/11",
           "total": "59",
           "endlag": "46",
           "landingLag": "14",
@@ -256,14 +256,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthShieldbreakerUpMax.gif",
             "hitboxes/marth/MarthShieldbreakerDownMax.gif"
           ],
-          "startup": "19—79",
-          "active": "19—20 (or frames 8-9 after release)",
-          "total": "50—110",
+          "startup": "19-79",
+          "active": "19-20 (or frames 8-9 after release)",
+          "total": "50-110",
           "endlag": "31",
-          "damage": "8.0—24.0",
+          "damage": "8.0-24.0",
           "advantage": "-23 to Shieldbreak",
-          "shieldLag": "10—18",
-          "shieldStun": "8—Shieldbreak",
+          "shieldLag": "10-18",
+          "shieldStun": "8-Shieldbreak",
           "notes": "On release, startup is 8 and total frames is 39"
         },
         {
@@ -273,7 +273,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade1.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "39/29",
           "endlag": "28",
           "damage": "2.5/3.0",
@@ -290,7 +290,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade2.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "38",
           "endlag": "31",
           "damage": "2.5/3.0",
@@ -307,7 +307,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade3.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "43",
           "endlag": "37",
           "damage": "3.0/4.0",
@@ -324,7 +324,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade4.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "55",
           "endlag": "46",
           "damage": "4.0/6.0",
@@ -340,7 +340,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade2Up.gif"
           ],
           "startup": "4",
-          "active": "4—7",
+          "active": "4-7",
           "total": "38",
           "endlag": "31",
           "damage": "2.5/3.0",
@@ -357,7 +357,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade3Up.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "43",
           "endlag": "36",
           "damage": "3.0/4.0",
@@ -374,7 +374,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade4Up.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "44",
           "endlag": "34",
           "damage": "5.0/7.0",
@@ -390,7 +390,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade3Down.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "43",
           "endlag": "36",
           "damage": "3.0/4.0",
@@ -407,7 +407,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDancingBlade4Down.gif"
           ],
           "startup": "7",
-          "active": "7/10/13/16/19—21",
+          "active": "7/10/13/16/19-21",
           "total": "74",
           "endlag": "53",
           "damage": "2.0/4.0/5.0",
@@ -424,7 +424,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDolphinSlashA.gif"
           ],
           "startup": "5",
-          "active": "5—6/6—11",
+          "active": "5-6/6-11",
           "landingLag": "24",
           "damage": "11.0/7.0",
           "shieldLag": "8/7",
@@ -449,7 +449,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthCounterHit.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "40",
           "endlag": "34",
           "notes": "Intangible on frame 1-7 in addition to counter freeze frames. 8% Minimum base damage, x1.2 enemy's attack."
@@ -461,7 +461,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -472,7 +472,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -483,7 +483,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/marth/MarthPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

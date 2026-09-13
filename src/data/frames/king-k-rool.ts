@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "24",
           "endlag": "19",
           "damage": "2.5",
@@ -28,7 +28,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "27",
           "endlag": "23",
           "damage": "2.5",
@@ -43,7 +43,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolJab3.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "33",
           "endlag": "25",
           "damage": "7.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolFTiltDown.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "42",
           "endlag": "29",
           "damage": "11.0/13.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—6/7—13",
+          "active": "5-6/7-13",
           "total": "37",
           "endlag": "24",
           "damage": "12.5/8.9/7.4",
@@ -94,7 +94,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolDTilt.gif"
           ],
           "startup": "13",
-          "active": "13/14—15",
+          "active": "13/14-15",
           "total": "42",
           "endlag": "27",
           "damage": "13.0/8.0/7.0",
@@ -110,7 +110,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—14/15—25",
+          "active": "7-14/15-25",
           "total": "60",
           "endlag": "35",
           "damage": "15.0/11.0",
@@ -129,7 +129,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolFSmashDown.gif"
           ],
           "startup": "19",
-          "active": "19—21",
+          "active": "19-21",
           "total": "61",
           "endlag": "40",
           "damage": "19.0/16.5/19.5/16.9/19.9/17.3",
@@ -146,7 +146,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolUSmash.gif"
           ],
           "startup": "6/19/22",
-          "active": "(6—9/10—11)(19/20/21—23)(22—23)",
+          "active": "(6-9/10-11)(19/20/21-23)(22-23)",
           "total": "71",
           "endlag": "48",
           "damage": "17.0/3.0/8.0",
@@ -163,7 +163,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolDSmash.gif"
           ],
           "startup": "22",
-          "active": "22—24/25",
+          "active": "22-24/25",
           "total": "63",
           "endlag": "38",
           "damage": "18.0/4.0",
@@ -180,7 +180,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolNAir.gif"
           ],
           "startup": "7",
-          "active": "7—8/9—30",
+          "active": "7-8/9-30",
           "total": "45",
           "endlag": "15",
           "landingLag": "9",
@@ -198,7 +198,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolFAir.gif"
           ],
           "startup": "11",
-          "active": "11/12—14/15—17",
+          "active": "11/12-14/15-17",
           "total": "54",
           "endlag": "37",
           "landingLag": "11",
@@ -216,7 +216,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolBAir.gif"
           ],
           "startup": "18",
-          "active": "18—20",
+          "active": "18-20",
           "total": "49",
           "endlag": "29",
           "landingLag": "14",
@@ -234,7 +234,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolUAir.gif"
           ],
           "startup": "7",
-          "active": "7—13/14—19",
+          "active": "7-13/14-19",
           "total": "71",
           "endlag": "52",
           "landingLag": "13",
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolDAir.gif"
           ],
           "startup": "14",
-          "active": "14—15/16—21",
+          "active": "14-15/16-21",
           "total": "61",
           "endlag": "40",
           "landingLag": "14",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolBlunderbussKannonballDetection.gif"
           ],
           "startup": "25",
-          "active": "30—150",
+          "active": "30-150",
           "total": "65",
           "damage": "13.0",
           "advantage": "-25",
@@ -285,7 +285,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolBlunderbuss.gif"
           ],
           "startup": "7",
-          "active": "7—36",
+          "active": "7-36",
           "notes": "Max hold of 120 frames"
         },
         {
@@ -308,7 +308,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolCrownerang.gif"
           ],
           "startup": "27",
-          "active": "27—64/65—...",
+          "active": "27-64/65-...",
           "total": "63",
           "damage": "9.0/7.0",
           "advantage": "-26",
@@ -349,7 +349,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolGutCheckHitTurn.gif"
           ],
           "startup": "3, 9",
-          "active": "3—6, 9—12",
+          "active": "3-6, 9-12",
           "total": "38",
           "endlag": "26",
           "hitboxes": "Front, Reverse"
@@ -361,7 +361,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolGrab.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "40",
           "endlag": "30"
         },
@@ -372,7 +372,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "48",
           "endlag": "35"
         },
@@ -383,7 +383,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_k_rool/KingKRoolPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "43",
           "endlag": "29"
         },

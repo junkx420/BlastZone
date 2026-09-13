@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBJab1.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "20",
           "endlag": "16",
           "damage": "3.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "20",
           "endlag": "16",
           "damage": "3.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBFTiltDown.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "33",
           "endlag": "24",
           "damage": "7.0/8.0/10.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBUTilt.gif"
           ],
           "startup": "4/6",
-          "active": "4—5/6—7",
+          "active": "4-5/6-7",
           "total": "26",
           "endlag": "19",
           "damage": "3.0/5.0/6.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "31",
           "endlag": "23",
           "damage": "7.0",
@@ -110,7 +110,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBFSmashDown.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "54",
           "endlag": "37",
           "damage": "15.0/11.5/6.0",
@@ -127,7 +127,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBUSmash.gif"
           ],
           "startup": "10/14",
-          "active": "10—11/14—18",
+          "active": "10-11/14-18",
           "total": "48",
           "endlag": "30",
           "damage": "3.0/14.0/13.0",
@@ -144,7 +144,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBDSmash.gif"
           ],
           "startup": "7/11/16",
-          "active": "7—8/11—12/16",
+          "active": "7-8/11-12/16",
           "total": "45",
           "endlag": "29",
           "damage": "3.5/3.0/5.0",
@@ -161,7 +161,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBNAir.gif"
           ],
           "startup": "14",
-          "active": "14—32",
+          "active": "14-32",
           "total": "47",
           "endlag": "15",
           "landingLag": "7",
@@ -179,7 +179,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBFAir.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "total": "35",
           "endlag": "27",
           "landingLag": "9",
@@ -196,7 +196,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBBAir.gif"
           ],
           "startup": "19",
-          "active": "19—23/24—32",
+          "active": "19-23/24-32",
           "total": "52",
           "endlag": "20",
           "landingLag": "13",
@@ -214,7 +214,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBUAir.gif"
           ],
           "startup": "7/9/13/17/23",
-          "active": "7/9/13/17/23—24",
+          "active": "7/9/13/17/23-24",
           "total": "51",
           "endlag": "27",
           "landingLag": "13",
@@ -232,7 +232,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBDAir.gif"
           ],
           "startup": "20",
-          "active": "20—21/20—26/22—26",
+          "active": "20-21/20-26/22-26",
           "total": "69",
           "endlag": "43",
           "landingLag": "12",
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBRoboBeamMax.gif"
           ],
           "startup": "25",
-          "active": "25—27 (melee), 25—43 (small beam), 25—66 (large beam)",
+          "active": "25-27 (melee), 25-43 (small beam), 25-66 (large beam)",
           "total": "49",
           "damage": "7.0/4.5/11.5, 7.0/15.0/22.0",
           "advantage": "-17/-16/-17, -17/-6/-10",
@@ -268,7 +268,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBArmRotorNew.gif"
           ],
           "startup": "13...",
-          "active": "13/14—21/22—37/44",
+          "active": "13/14-21/22-37/44",
           "total": "85",
           "endlag": "41",
           "damage": "1.5/3.0",
@@ -303,10 +303,10 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "3(+6), 9",
           "total": "36, 42",
-          "damage": "3.6—10.7, 10.7",
+          "damage": "3.6-10.7, 10.7",
           "advantage": "-26 to -21, -21",
-          "shieldLag": "5—8, 8",
-          "shieldStun": "2—4, 4",
+          "shieldLag": "5-8, 8",
+          "shieldStun": "2-4, 4",
           "hitboxes": "Normal, Full Charge",
           "notes": "3 startup from charging state. 6 frames to enter charging state. Reaches full charge on frame 98. Damage depends on current item velocity."
         },
@@ -317,7 +317,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "37",
           "endlag": "30"
         },
@@ -328,7 +328,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "45",
           "endlag": "35"
         },
@@ -339,7 +339,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rob/ROBPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "40",
           "endlag": "29"
         },

@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongFTiltDown.gif"
           ],
           "startup": "10",
-          "active": "10—11(12/13—16)",
+          "active": "10-11(12/13-16)",
           "total": "36",
           "endlag": "20",
           "damage": "10.0/7.0",
@@ -78,7 +78,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—11",
+          "active": "6-11",
           "total": "29",
           "endlag": "18",
           "damage": "6.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongDTilt.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "18",
           "endlag": "13",
           "damage": "5.5",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongDashAttack.gif"
           ],
           "startup": "8/16/22",
-          "active": "8—9/16—17/22—23",
+          "active": "8-9/16-17/22-23",
           "total": "40",
           "endlag": "17",
           "damage": "2.0/3.0",
@@ -124,7 +124,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongFSmash.gif"
           ],
           "startup": "12/21",
-          "active": "12(13)/21—23",
+          "active": "12(13)/21-23",
           "total": "50",
           "endlag": "27",
           "damage": "5.0/11.0",
@@ -140,7 +140,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongUSmash.gif"
           ],
           "startup": "5/12/19",
-          "active": "5(6—8)/12—14(15)/19—23",
+          "active": "5(6-8)/12-14(15)/19-23",
           "total": "53",
           "endlag": "30",
           "damage": "2.5/6.0",
@@ -157,7 +157,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongDSmash.gif"
           ],
           "startup": "7/12",
-          "active": "7—8/12—13",
+          "active": "7-8/12-13",
           "total": "50",
           "endlag": "37",
           "damage": "12.0/15.0",
@@ -173,7 +173,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongNAir.gif"
           ],
           "startup": "8",
-          "active": "8—20",
+          "active": "8-20",
           "total": "48",
           "endlag": "28",
           "landingLag": "8",
@@ -190,7 +190,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongFAir.gif"
           ],
           "startup": "6",
-          "active": "6—9(10—16)",
+          "active": "6-9(10-16)",
           "total": "46",
           "endlag": "30",
           "landingLag": "16",
@@ -208,7 +208,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongBAir.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "30",
           "endlag": "22",
           "landingLag": "7",
@@ -225,7 +225,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongUAir.gif"
           ],
           "startup": "4",
-          "active": "4—7",
+          "active": "4-7",
           "total": "36",
           "endlag": "29",
           "landingLag": "9",
@@ -242,7 +242,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongDAir.gif"
           ],
           "startup": "15",
-          "active": "15—16",
+          "active": "15-16",
           "total": "46",
           "endlag": "30",
           "landingLag": "17",
@@ -255,12 +255,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Peanut Popgun)",
           "section": "special",
-          "startup": "16/17—121/124",
+          "startup": "16/17-121/124",
           "total": "48",
-          "damage": "3.3—15.0/2.0",
+          "damage": "3.3-15.0/2.0",
           "advantage": "-25 to -17/-19 to -13",
-          "shieldLag": "5—10/10—14",
-          "shieldStun": "2—5/2—2",
+          "shieldLag": "5-10/10-14",
+          "shieldStun": "2-5/2-2",
           "hitboxes": "Projectile/melee",
           "notes": "Melee hitbox generated after projectile. Diddy does not suffer hitlag from melee attack"
         },
@@ -292,7 +292,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongMonkeyFlip.gif"
           ],
           "startup": "18",
-          "active": "18—36",
+          "active": "18-36",
           "total": "47/61",
           "endlag": "11",
           "landingLag": "26",
@@ -305,7 +305,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongMonkeyFlipKick.gif"
           ],
           "startup": "6",
-          "active": "6—10(11—25)",
+          "active": "6-10(11-25)",
           "total": "32",
           "endlag": "7",
           "landingLag": "18",
@@ -345,8 +345,8 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/diddy_kong/DiddyKongRocketBarrels.gif"
           ],
-          "startup": "8—68",
-          "active": "8—9(10—16/17—35)",
+          "startup": "8-68",
+          "active": "8-9(10-16/17-35)",
           "landingLag": "30",
           "damage": "10.0/8.0/6.0",
           "shieldLag": "8/7/6",
@@ -358,7 +358,7 @@ export const FRAMES: FighterFrames = {
           "name": "Rocketbarrel Boost, Explosion",
           "section": "special",
           "startup": "1",
-          "active": "1—2",
+          "active": "1-2",
           "total": "57-59",
           "endlag": "55",
           "damage": "18.0",
@@ -386,7 +386,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36",
           "endlag": "28"
         },
@@ -397,7 +397,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "44",
           "endlag": "33"
         },
@@ -408,7 +408,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/diddy_kong/DiddyKongPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },

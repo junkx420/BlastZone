@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "17",
           "endlag": "12",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkJab2.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "16",
           "endlag": "9",
           "damage": "1.5",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "35",
           "endlag": "28",
           "damage": "3.5",
@@ -70,7 +70,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkJabRapidEnd.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "45",
           "endlag": "40",
           "damage": "2.5",
@@ -85,7 +85,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkFTilt.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "33",
           "endlag": "21",
           "damage": "12.0/11.0",
@@ -101,7 +101,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkUTilt.gif"
           ],
           "startup": "9",
-          "active": "9—14",
+          "active": "9-14",
           "total": "31",
           "endlag": "17",
           "damage": "8.0",
@@ -116,7 +116,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkDTilt.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "25",
           "endlag": "16",
           "damage": "10.0/9.0/7.0",
@@ -132,7 +132,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkDashAttack.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "34",
           "endlag": "24",
           "damage": "11.0/10.0",
@@ -148,7 +148,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkFSmash1.gif"
           ],
           "startup": "15",
-          "active": "15—16",
+          "active": "15-16",
           "total": "47",
           "endlag": "31",
           "damage": "6.0",
@@ -164,7 +164,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkFSmash2.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "49",
           "endlag": "37",
           "damage": "12.0",
@@ -179,7 +179,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkUSmash.gif"
           ],
           "startup": "10/25/41",
-          "active": "10—14/25—29/41—45",
+          "active": "10-14/25-29/41-45",
           "total": "69",
           "endlag": "24",
           "damage": "3.0/8.0",
@@ -196,7 +196,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkDSmash.gif"
           ],
           "startup": "9/21",
-          "active": "9—10/21—22",
+          "active": "9-10/21-22",
           "total": "49",
           "endlag": "27",
           "damage": "13.0/10.0/12.0/9.0",
@@ -213,7 +213,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkNAir.gif"
           ],
           "startup": "4",
-          "active": "4—5(6—27)",
+          "active": "4-5(6-27)",
           "total": "35",
           "endlag": "8",
           "landingLag": "6",
@@ -231,7 +231,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkFAir.gif"
           ],
           "startup": "14/24",
-          "active": "14—15/24—25",
+          "active": "14-15/24-25",
           "total": "40",
           "endlag": "15",
           "landingLag": "6",
@@ -249,7 +249,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkBAir.gif"
           ],
           "startup": "6/18",
-          "active": "6—8/18—20",
+          "active": "6-8/18-20",
           "total": "29",
           "endlag": "9",
           "landingLag": "6",
@@ -266,7 +266,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkUAir.gif"
           ],
           "startup": "5",
-          "active": "5—7(8—49)",
+          "active": "5-7(8-49)",
           "total": "59",
           "endlag": "10",
           "landingLag": "14",
@@ -284,7 +284,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkDAir.gif"
           ],
           "startup": "13",
-          "active": "13—15(16—64)",
+          "active": "13-15(16-64)",
           "total": "79",
           "endlag": "15",
           "landingLag": "17",
@@ -302,7 +302,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkZAir.gif"
           ],
           "startup": "9",
-          "active": "9—16",
+          "active": "9-16",
           "total": "71",
           "endlag": "55",
           "landingLag": "8",
@@ -314,25 +314,25 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Fire Arrow)",
           "section": "special",
-          "startup": "14—47",
-          "total": "37—70",
-          "damage": "4.0—12.0",
+          "startup": "14-47",
+          "total": "37-70",
+          "damage": "4.0-12.0",
           "advantage": "-16 to -10",
-          "shieldLag": "5—9",
-          "shieldStun": "2—4",
-          "hitboxes": "Uncharged—Full Charge",
+          "shieldLag": "5-9",
+          "shieldStun": "2-4",
+          "hitboxes": "Uncharged-Full Charge",
           "notes": "On release, startup is 1 and total frames is 24."
         },
         {
           "name": "Side B (Boomerang)",
           "section": "special",
           "startup": "27",
-          "active": "27—29(30—82/83—153)",
+          "active": "27-29(30-82/83-153)",
           "total": "45",
-          "damage": "7.0—11.0 (normal) // 8.4/13.2 (smash) // 2.0 (return)",
+          "damage": "7.0-11.0 (normal) // 8.4/13.2 (smash) // 2.0 (return)",
           "advantage": "-8 to -4",
-          "shieldLag": "5—9",
-          "shieldStun": "2—4"
+          "shieldLag": "5-9",
+          "shieldStun": "2-4"
         },
         {
           "name": "Up B (Spin Attack)",
@@ -341,7 +341,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkSpinAttackG.gif"
           ],
           "startup": "9...",
-          "active": "9—47/49 (rehit: 4)",
+          "active": "9-47/49 (rehit: 4)",
           "total": "70",
           "endlag": "21",
           "damage": "1.0/3.0",
@@ -357,7 +357,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkSpinAttackA.gif"
           ],
           "startup": "8/12/16/19/22/26/31/39/47",
-          "active": "8—10/12—13/16—18/19—20/22—24/26—27/31—33/39—40/47—51",
+          "active": "8-10/12-13/16-18/19-20/22-24/26-27/31-33/39-40/47-51",
           "landingLag": "24",
           "damage": "3.0/2.0/3.0",
           "hitboxes": "First/Multi/Final"
@@ -376,7 +376,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkGrab.gif"
           ],
           "startup": "12",
-          "active": "12—18",
+          "active": "12-18",
           "total": "51",
           "endlag": "33"
         },
@@ -387,7 +387,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkDashGrab.gif"
           ],
           "startup": "14",
-          "active": "14—20",
+          "active": "14-20",
           "total": "60",
           "endlag": "40"
         },
@@ -398,7 +398,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/young_link/YoungLinkPivotGrab.gif"
           ],
           "startup": "15",
-          "active": "15—21",
+          "active": "15-21",
           "total": "55",
           "endlag": "34"
         },

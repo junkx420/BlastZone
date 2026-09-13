@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "25",
           "endlag": "20",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "29",
           "endlag": "25",
           "damage": "2.0",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerJab3.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "39",
           "endlag": "33",
           "damage": "3.0",
@@ -61,7 +61,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerFTilt.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "32",
           "endlag": "22",
           "damage": "11.0",
@@ -76,7 +76,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—12",
+          "active": "5-12",
           "total": "29",
           "endlag": "17",
           "damage": "10.0",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—12",
+          "active": "9-12",
           "total": "38",
           "endlag": "26",
           "damage": "13.5",
@@ -107,7 +107,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—8(9—13)",
+          "active": "6-8(9-13)",
           "total": "38",
           "endlag": "25",
           "damage": "10.0/6.0",
@@ -123,7 +123,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerFSmash.gif"
           ],
           "startup": "16",
-          "active": "16—19",
+          "active": "16-19",
           "total": "56",
           "endlag": "37",
           "damage": "15.5",
@@ -139,7 +139,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerUSmash.gif"
           ],
           "startup": "11",
-          "active": "11—12(13—19)",
+          "active": "11-12(13-19)",
           "total": "54",
           "endlag": "35",
           "damage": "15.0/18.0",
@@ -156,7 +156,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerDSmash.gif"
           ],
           "startup": "18",
-          "active": "18—21",
+          "active": "18-21",
           "total": "46",
           "endlag": "25",
           "damage": "12.0",
@@ -172,7 +172,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerNAir.gif"
           ],
           "startup": "9/12",
-          "active": "9—11/12—13",
+          "active": "9-11/12-13",
           "total": "34",
           "endlag": "21",
           "landingLag": "8",
@@ -189,7 +189,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerFAir.gif"
           ],
           "startup": "9",
-          "active": "9(10/11—15)",
+          "active": "9(10/11-15)",
           "total": "35",
           "endlag": "20",
           "landingLag": "7",
@@ -207,7 +207,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerBAir.gif"
           ],
           "startup": "5",
-          "active": "5(6—11)",
+          "active": "5(6-11)",
           "total": "48",
           "endlag": "37",
           "landingLag": "12",
@@ -225,7 +225,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerUAir.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "39",
           "endlag": "29",
           "landingLag": "9",
@@ -242,7 +242,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerDAir.gif"
           ],
           "startup": "15",
-          "active": "15—17(18—20)",
+          "active": "15-17(18-20)",
           "total": "39",
           "endlag": "19",
           "landingLag": "12",
@@ -259,13 +259,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerSunSalutationNoCharge.gif"
           ],
           "startup": "4(+17)",
-          "active": "21—90",
+          "active": "21-90",
           "total": "39",
-          "damage": "5.0—20.7",
+          "damage": "5.0-20.7",
           "advantage": "-26 to -16",
-          "shieldLag": "6—13",
-          "shieldStun": "3—6",
-          "hitboxes": "Uncharged—Full Charge",
+          "shieldLag": "6-13",
+          "shieldStun": "3-6",
+          "hitboxes": "Uncharged-Full Charge",
           "notes": "Startup is 4 from charging state. 17 frames to enter charging state. 4 frames to cancel charge with shield."
         },
         {
@@ -275,7 +275,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerSunSalutationMaxCharge.gif"
           ],
           "startup": "21",
-          "active": "21—90",
+          "active": "21-90",
           "total": "56",
           "damage": "21.0",
           "advantage": "-16",
@@ -289,10 +289,10 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/wii_fit_trainer/WiiFitTrainerHeader.gif"
           ],
-          "startup": "15—31",
-          "total": "40—56",
+          "startup": "15-31",
+          "total": "40-56",
           "landingLag": "15",
-          "damage": "15.0/8.9—10.3",
+          "damage": "15.0/8.9-10.3",
           "advantage": "-11/-13",
           "shieldLag": "10/8",
           "shieldStun": "14/4",
@@ -324,7 +324,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -335,7 +335,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -346,7 +346,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wii_fit_trainer/WiiFitTrainerPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },

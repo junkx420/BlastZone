@@ -41,7 +41,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaJab2.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "24",
           "endlag": "17",
           "damage": "2.0",
@@ -70,7 +70,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaJab3.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "35",
           "endlag": "27",
           "damage": "3.0",
@@ -85,7 +85,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaJab3.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "damage": "3.0",
           "shieldLag": "10(+5)",
           "shieldStun": "2"
@@ -123,7 +123,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaJabRapidEnd.gif"
           ],
           "startup": "5",
-          "active": "6—7",
+          "active": "6-7",
           "total": "38",
           "endlag": "31",
           "damage": "2.5",
@@ -138,7 +138,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaJabRapidEnd.gif"
           ],
           "startup": "5",
-          "active": "6—7",
+          "active": "6-7",
           "damage": "1.5",
           "advantage": "-30",
           "shieldLag": "8(+4)",
@@ -151,7 +151,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaFTilt.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "37",
           "endlag": "28",
           "damage": "7.5",
@@ -166,7 +166,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "damage": "6.7",
           "advantage": "-20",
           "shieldLag": "10(+5)",
@@ -179,7 +179,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—10/11—17",
+          "active": "7-10/11-17",
           "total": "40",
           "endlag": "23",
           "damage": "10.0/8.0",
@@ -196,7 +196,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaUTilt.gif"
           ],
           "startup": "3",
-          "active": "3/4—5/6—10",
+          "active": "3/4-5/6-10",
           "damage": "12.0/6.0/4.5",
           "advantage": "-26",
           "shieldLag": "12(+4)/6(-2)/5(-1)",
@@ -210,7 +210,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "32",
           "endlag": "24",
           "damage": "5.5",
@@ -225,7 +225,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaDTilt.gif"
           ],
           "startup": "8",
-          "active": "8—13",
+          "active": "8-13",
           "damage": "5.2",
           "advantage": "-26",
           "shieldLag": "9(+5)",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaDashAttack.gif"
           ],
           "startup": "6/17",
-          "active": "6—9/17—19",
+          "active": "6-9/17-19",
           "total": "40",
           "endlag": "21",
           "damage": "3.0/4.0",
@@ -253,7 +253,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—8",
+          "active": "6-8",
           "damage": "4.5",
           "advantage": "-31/-25",
           "shieldLag": "8(+5)",
@@ -268,7 +268,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaFSmashDown.gif"
           ],
           "startup": "16",
-          "active": "16—18",
+          "active": "16-18",
           "total": "51",
           "endlag": "33",
           "damage": "12.0",
@@ -287,7 +287,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaFSmashDown.gif"
           ],
           "startup": "17",
-          "active": "17—18",
+          "active": "17-18",
           "damage": "10.5",
           "advantage": "-21",
           "shieldLag": "14(+2)",
@@ -301,7 +301,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaUSmash.gif"
           ],
           "startup": "8",
-          "active": "8—16",
+          "active": "8-16",
           "total": "47",
           "endlag": "31",
           "damage": "12.0",
@@ -317,7 +317,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaUSmash.gif"
           ],
           "startup": "10",
-          "active": "10—12/13—17",
+          "active": "10-12/13-17",
           "damage": "9.0",
           "advantage": "-34",
           "shieldLag": "11(+4)",
@@ -331,7 +331,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaDSmash.gif"
           ],
           "startup": "6/17",
-          "active": "6—7/17—18",
+          "active": "6-7/17-18",
           "total": "41",
           "endlag": "23",
           "damage": "7.0/9.0",
@@ -347,7 +347,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaDSmash.gif"
           ],
           "startup": "7/19",
-          "active": "7—8/19—20",
+          "active": "7-8/19-20",
           "damage": "6.0/7.5",
           "advantage": "-21/-18",
           "shieldLag": "9(+5)/10(+5)",
@@ -360,7 +360,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaNAir.gif"
           ],
           "startup": "9",
-          "active": "9/10—19/20—31/32/33",
+          "active": "9/10-19/20-31/32/33",
           "total": "43",
           "endlag": "10",
           "landingLag": "8",
@@ -378,7 +378,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaNAir.gif"
           ],
           "startup": "7/13",
-          "active": "7—9/13—14",
+          "active": "7-9/13-14",
           "damage": "3.0/3.0",
           "shieldLag": "5(+4)/5(+4)",
           "shieldStun": "3/3"
@@ -390,7 +390,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaFAir.gif"
           ],
           "startup": "10/13/16/19/22",
-          "active": "10—20(rehit rate: 3)/22",
+          "active": "10-20(rehit rate: 3)/22",
           "total": "59",
           "endlag": "37",
           "landingLag": "16",
@@ -408,7 +408,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaFAir.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "damage": "4.5",
           "shieldLag": "5(-1)",
           "shieldStun": "3"
@@ -420,7 +420,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaBAir.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "54",
           "endlag": "43",
           "landingLag": "10",
@@ -437,7 +437,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaBAir.gif"
           ],
           "startup": "10",
-          "active": "10—15",
+          "active": "10-15",
           "damage": "6.0",
           "shieldLag": "9(+5)",
           "shieldStun": "3"
@@ -449,7 +449,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaUAir.gif"
           ],
           "startup": "8",
-          "active": "8—10/11—14/15—19",
+          "active": "8-10/11-14/15-19",
           "total": "49",
           "endlag": "30",
           "landingLag": "11",
@@ -467,7 +467,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaUAir.gif"
           ],
           "startup": "6",
-          "active": "6—11",
+          "active": "6-11",
           "damage": "4.0",
           "shieldLag": "6(-2)",
           "shieldStun": "3"
@@ -479,7 +479,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaDAir.gif"
           ],
           "startup": "17",
-          "active": "17/18—22/23—25/26—32",
+          "active": "17/18-22/23-25/26-32",
           "total": "49",
           "endlag": "17",
           "landingLag": "12",
@@ -497,7 +497,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/LumaDAir.gif"
           ],
           "startup": "15",
-          "active": "15—19",
+          "active": "15-19",
           "damage": "5.0",
           "shieldLag": "10(+5)",
           "shieldStun": "3"
@@ -508,12 +508,12 @@ export const FRAMES: FighterFrames = {
           "hitboxImages": [
             "hitboxes/rosalina_and_luma/LumaLumaShot.gif"
           ],
-          "startup": "10—91",
-          "total": "34—115",
-          "damage": "5.0—16.0",
+          "startup": "10-91",
+          "total": "34-115",
+          "damage": "5.0-16.0",
           "advantage": "-15 to -9",
-          "shieldLag": "6—10",
-          "shieldStun": "3—5",
+          "shieldLag": "6-10",
+          "shieldStun": "3-5",
           "notes": "4 startup and 28 total frames from charge state. Takes 6 frames to enter charge state. 87 frames to reach full charge."
         },
         {
@@ -559,7 +559,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "39",
           "endlag": "32"
         },
@@ -570,7 +570,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "46",
           "endlag": "36"
         },
@@ -581,7 +581,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/rosalina_and_luma/RosalinaPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "41",
           "endlag": "30"
         },

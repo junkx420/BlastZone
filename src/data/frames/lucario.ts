@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioJab1.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "24",
           "endlag": "18",
           "damage": "1.6 | 2.5 | 4.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "26",
           "endlag": "20",
           "damage": "1.3 | 2.0 | 3.2",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioJab3.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "35",
           "endlag": "25",
           "damage": "1.9 | 3.0 | 4.8",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioFTiltDown.gif"
           ],
           "startup": "12/15",
-          "active": "12—14/15—16",
+          "active": "12-14/15-16",
           "total": "32",
           "endlag": "16",
           "damage": "2.6/3.9 | 4.0/6.0 | 6.4/9.6",
@@ -78,7 +78,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—13",
+          "active": "6-13",
           "total": "32",
           "endlag": "19",
           "damage": "3.3/3.9 | 5.0/6.0 | 8.0/9.6",
@@ -94,7 +94,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "20",
           "endlag": "10",
           "damage": "3.3 | 5.0 | 8.0",
@@ -109,7 +109,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—10(11—15)",
+          "active": "7-10(11-15)",
           "total": "41",
           "endlag": "26",
           "damage": "5.6/6.6/4.6/3.9 | 8.5/10.0/7.0/6.0 | 13.6/16.0/11.2/9.6",
@@ -125,7 +125,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioFSmash.gif"
           ],
           "startup": "19",
-          "active": "19—20(21—22)",
+          "active": "19-20(21-22)",
           "total": "54",
           "endlag": "32",
           "damage": "10.5/8.5 | 16.0/13.0 | 25.6 / 20.8",
@@ -142,7 +142,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioUSmash.gif"
           ],
           "startup": "15/19",
-          "active": "15—17/19—20/21—23",
+          "active": "15-17/19-20/21-23",
           "total": "63",
           "endlag": "40",
           "damage": "2.6/9.2/7.9 | 4.0/14.0/12.0 | 6.4/22.4/19.2",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioDSmash.gif"
           ],
           "startup": "16",
-          "active": "16—18",
+          "active": "16-18",
           "total": "51",
           "endlag": "33",
           "damage": "9.2 | 14.0 | 22.4",
@@ -175,7 +175,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioNAir.gif"
           ],
           "startup": "10/18",
-          "active": "10—14/18—21",
+          "active": "10-14/18-21",
           "total": "42",
           "endlag": "21",
           "landingLag": "5",
@@ -192,7 +192,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioFAir.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "27",
           "endlag": "19",
           "landingLag": "9",
@@ -209,7 +209,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioBAir.gif"
           ],
           "startup": "13",
-          "active": "13—14(15—16)",
+          "active": "13-14(15-16)",
           "total": "49",
           "endlag": "33",
           "landingLag": "14",
@@ -226,7 +226,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioUAir.gif"
           ],
           "startup": "10",
-          "active": "10—11(12—13)",
+          "active": "10-11(12-13)",
           "total": "38",
           "endlag": "25",
           "landingLag": "13",
@@ -244,7 +244,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioDAir.gif"
           ],
           "startup": "4/11",
-          "active": "4—5/11—12",
+          "active": "4-5/11-12",
           "total": "30",
           "endlag": "18",
           "landingLag": "12",
@@ -258,7 +258,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Aura Sphere)",
           "section": "special",
           "startup": "9 (+8)",
-          "active": "17—**",
+          "active": "17-**",
           "total": "43",
           "damage": "4.5 -11.3 | 6.0 - 17.2 | 11.0 - 27.6",
           "advantage": "-26 | -25 | -23",
@@ -270,7 +270,7 @@ export const FRAMES: FighterFrames = {
           "name": "Aura Sphere, Full Charge",
           "section": "special",
           "startup": "17",
-          "active": "17—**",
+          "active": "17-**",
           "total": "51",
           "damage": "11.3 | 17.2 | 27.6",
           "advantage": "-23 | -18 | -11",
@@ -286,7 +286,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioForcePalmA.gif"
           ],
           "startup": "(9)24",
-          "active": "24—25",
+          "active": "24-25",
           "total": "63",
           "endlag": "38",
           "damage": "7.8/3.5 | 11.5/5.4 | 19.0/8.6",
@@ -303,7 +303,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioForcePalmThrow.gif"
           ],
           "startup": "Throw Hit: 23, Throw: 29",
-          "active": "Throw Hit: 23—24",
+          "active": "Throw Hit: 23-24",
           "total": "42",
           "endlag": "18",
           "damage": "Throw Hit: ** | 10.0 | ** Throw: 8.5 | 13.0 | 20.8"
@@ -316,7 +316,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioExtremeSpeedA.gif"
           ],
           "startup": "46",
-          "active": "46—47(1)",
+          "active": "46-47(1)",
           "landingLag": "40/37",
           "damage": "3.9/2.6 | 6.0/4.0 | 9.6/6.4",
           "advantage": "-23/-31 | -22/-31 | -19/-29",
@@ -331,7 +331,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioDoubleTeam.gif"
           ],
           "startup": "5 (Start of Counter)",
-          "active": "5—24(counter)",
+          "active": "5-24(counter)",
           "total": "70",
           "notes": "Invulnerable on frame 4. Counters on frame 5-24"
         },
@@ -356,7 +356,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "39",
           "endlag": "31"
         },
@@ -367,7 +367,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "46",
           "endlag": "35"
         },
@@ -378,7 +378,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/lucario/LucarioPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "42",
           "endlag": "30"
         },

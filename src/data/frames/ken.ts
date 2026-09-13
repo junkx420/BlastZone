@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenJab1.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "15",
           "endlag": "12",
           "damage": "1.5",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenJab2.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "27",
           "endlag": "23",
           "damage": "1.5",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenJab3.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "35",
           "endlag": "25",
           "damage": "5.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenJabProximity.gif"
           ],
           "startup": "7",
-          "active": "7(8—11)",
+          "active": "7(8-11)",
           "total": "37",
           "endlag": "26",
           "damage": "12.0/8.0",
@@ -74,7 +74,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenJabHeavy.gif"
           ],
           "startup": "9/16",
-          "active": "9—12/16—17",
+          "active": "9-12/16-17",
           "total": "32",
           "endlag": "15",
           "damage": "6.0/10.0",
@@ -89,7 +89,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenFTiltProximity.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "29",
           "endlag": "25",
           "damage": "6.0",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenFTiltLight.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "23",
           "endlag": "12",
           "damage": "6.8",
@@ -121,7 +121,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenFTiltHeavy.gif"
           ],
           "startup": "10",
-          "active": "10—13",
+          "active": "10-13",
           "total": "34",
           "endlag": "21",
           "damage": "5.0/10.0",
@@ -137,7 +137,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenUTiltLight.gif"
           ],
           "startup": "3",
-          "active": "3—6",
+          "active": "3-6",
           "total": "14",
           "endlag": "8",
           "damage": "2.0",
@@ -153,7 +153,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenUTiltHeavy.gif"
           ],
           "startup": "7",
-          "active": "7(8—11)",
+          "active": "7(8-11)",
           "total": "37",
           "endlag": "26",
           "damage": "12.0",
@@ -169,7 +169,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenDTiltLight.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "14",
           "endlag": "11",
           "damage": "1.6",
@@ -185,7 +185,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenDTiltHeavy.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "27",
           "endlag": "20",
           "damage": "7.0/5.5",
@@ -202,7 +202,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenDashAttack.gif"
           ],
           "startup": "7",
-          "active": "7—9(10—15)",
+          "active": "7-9(10-15)",
           "total": "40",
           "endlag": "25",
           "damage": "12.0/8.0",
@@ -218,7 +218,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenFSmash.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "45",
           "endlag": "30",
           "damage": "12.0/16.0",
@@ -235,7 +235,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenUSmash.gif"
           ],
           "startup": "9",
-          "active": "9(10—12)",
+          "active": "9(10-12)",
           "total": "44",
           "endlag": "32",
           "damage": "17.0/13.5",
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenDSmash.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "41",
           "endlag": "35",
           "damage": "16.0/12.0",
@@ -269,7 +269,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenNAir.gif"
           ],
           "startup": "6",
-          "active": "6—8(9—17)",
+          "active": "6-8(9-17)",
           "total": "27",
           "endlag": "10",
           "landingLag": "5",
@@ -287,7 +287,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenFAir.gif"
           ],
           "startup": "8",
-          "active": "8—9(10—14)",
+          "active": "8-9(10-14)",
           "total": "36",
           "endlag": "22",
           "landingLag": "11",
@@ -305,7 +305,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenBAir.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "41",
           "endlag": "32",
           "landingLag": "10",
@@ -323,7 +323,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenUAir.gif"
           ],
           "startup": "5",
-          "active": "5—9",
+          "active": "5-9",
           "total": "35",
           "endlag": "26",
           "landingLag": "11",
@@ -340,7 +340,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenDAir.gif"
           ],
           "startup": "8",
-          "active": "8—12",
+          "active": "8-12",
           "total": "45",
           "endlag": "33",
           "landingLag": "15",
@@ -359,12 +359,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenHadokenHeavy.gif"
           ],
           "startup": "13",
-          "active": "13—19(20—87) / 13—18(19—79) / 13—17(18—72)",
+          "active": "13-19(20-87) / 13-18(19-79) / 13-17(18-72)",
           "total": "57",
           "damage": "Light: 4.5 // Medium: 5.0 // Heavy: 5.5",
           "advantage": "-35/-34",
-          "shieldLag": "8—8, 9—9",
-          "shieldStun": "3—3, 3—3",
+          "shieldLag": "8-8, 9-9",
+          "shieldStun": "3-3, 3-3",
           "hitboxes": "Normal, True"
         },
         {
@@ -375,8 +375,8 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenTatsumakiSenpukyakuWeakGrounded.gif",
             "hitboxes/ken/KenTatsumakiSenpukyakuStrongGrounded.gif"
           ],
-          "startup": "8/13—38",
-          "active": "8—9(13—14/18—19/23—24/28—29/33—34/38—39)",
+          "startup": "8/13-38",
+          "active": "8-9(13-14/18-19/23-24/28-29/33-34/38-39)",
           "total": "32/62/62",
           "damage": "3.0/3.0, 3.4/3.4",
           "advantage": "-25 to -30",
@@ -393,7 +393,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenTatsumakiSenpukyakuStrongAerial.gif"
           ],
           "startup": "8/13/18/23/28/33/38",
-          "active": "8—9(13—14/18—19/23—24/28—29/33—34/38—39)",
+          "active": "8-9(13-14/18-19/23-24/28-29/33-34/38-39)",
           "total": "77",
           "endlag": "38",
           "damage": "3.0/2.0, 3.4/2.3",
@@ -411,7 +411,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenShoryukenMedium.gif"
           ],
           "startup": "6",
-          "active": "6—8(9—19)",
+          "active": "6-8(9-19)",
           "landingLag": "12",
           "damage": "13.0/7.0",
           "shieldLag": "14/8",
@@ -427,7 +427,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenShoryukenMediumInput.gif"
           ],
           "startup": "6",
-          "active": "6—8(9—19)",
+          "active": "6-8(9-19)",
           "landingLag": "8",
           "damage": "15.6/8.4",
           "shieldLag": "16/9",
@@ -442,7 +442,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenShoryukenHeavy.gif"
           ],
           "startup": "5/6/9",
-          "active": "5/6—8/9—19",
+          "active": "5/6-8/9-19",
           "landingLag": "18",
           "damage": "2.2/8.0/6.5",
           "shieldLag": "10/9/9",
@@ -456,7 +456,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenShoryukenHeavyInput.gif"
           ],
           "startup": "5/6/9",
-          "active": "5/6—8/9—19",
+          "active": "5/6-8/9-19",
           "landingLag": "12",
           "damage": "2.6/9.6/7.8",
           "shieldLag": "10/10/10",
@@ -472,7 +472,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenFocusAttackLv3.gif"
           ],
           "startup": "12 (+21), 12(+31), 12(+59)",
-          "active": "32—33/42—43/70—71",
+          "active": "32-33/42-43/70-71",
           "total": "55",
           "damage": "12.0, 10.0, 17.0",
           "advantage": "-32, -33, unblockable",
@@ -495,7 +495,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenNataOtoshiGeri.gif"
           ],
           "startup": "12/15",
-          "active": "12/15—16",
+          "active": "12/15-16",
           "total": "28",
           "endlag": "12",
           "damage": "5.0/5.0",
@@ -512,7 +512,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenNataOtoshiGeriHeld.gif"
           ],
           "startup": "12/20",
-          "active": "12/20—22",
+          "active": "12/20-22",
           "total": "51",
           "endlag": "29",
           "damage": "5.0/12.0",
@@ -529,7 +529,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenOosotoMawashiGeri.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "32",
           "endlag": "22",
           "damage": "12.0",
@@ -546,7 +546,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenOosotoMawashiGeriHeld.gif"
           ],
           "startup": "9/17",
-          "active": "9—10/17—19",
+          "active": "9-10/17-19",
           "total": "48",
           "endlag": "29",
           "damage": "12.0/12.0",
@@ -563,7 +563,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -574,7 +574,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -585,7 +585,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/ken/KenPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "37",
           "endlag": "26"
         },
@@ -626,7 +626,7 @@ export const FRAMES: FighterFrames = {
           ],
           "startup": "18/27",
           "total": "46",
-          "notes": "Kicks on frame 27. Leg intangible 27—32."
+          "notes": "Kicks on frame 27. Leg intangible 27-32."
         },
         {
           "name": "Down Throw",

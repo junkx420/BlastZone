@@ -14,7 +14,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraJab1.gif"
           ],
           "startup": "3",
-          "active": "3—5",
+          "active": "3-5",
           "total": "21",
           "endlag": "16",
           "damage": "3.0",
@@ -30,7 +30,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "31",
           "endlag": "25",
           "damage": "2.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraJab3.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "35",
           "endlag": "28",
           "damage": "5.0",
@@ -73,7 +73,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraJabRapidFinisher.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "37",
           "endlag": "30",
           "damage": "5.0",
@@ -88,7 +88,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraFTilt.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "37",
           "endlag": "24",
           "damage": "11.5",
@@ -105,7 +105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraUTiltInterpolated.gif"
           ],
           "startup": "11",
-          "active": "11—16",
+          "active": "11-16",
           "total": "39",
           "endlag": "23",
           "damage": "9.5",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "26",
           "endlag": "15",
           "damage": "6.0/8.0",
@@ -136,7 +136,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraDashAttack.gif"
           ],
           "startup": "17",
-          "active": "17—18",
+          "active": "17-18",
           "total": "52",
           "endlag": "34",
           "damage": "10.5/12.5",
@@ -153,7 +153,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraFSmashInterpolated.gif"
           ],
           "startup": "20",
-          "active": "20—23",
+          "active": "20-23",
           "total": "67",
           "endlag": "44",
           "damage": "20.0",
@@ -169,7 +169,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraUSmash.gif"
           ],
           "startup": "15/17",
-          "active": "15—16/17—23/24—33",
+          "active": "15-16/17-23/24-33",
           "total": "66",
           "endlag": "33",
           "damage": "3.5/13.5/12.0",
@@ -186,7 +186,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraDSmash.gif"
           ],
           "startup": "12/18",
-          "active": "12—14/18—20",
+          "active": "12-14/18-20",
           "total": "47",
           "endlag": "27",
           "damage": "11.0/13.5/8.0/10.0",
@@ -203,7 +203,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraNAir.gif"
           ],
           "startup": "11",
-          "active": "11—16(17—22)",
+          "active": "11-16(17-22)",
           "total": "56",
           "endlag": "34",
           "landingLag": "15",
@@ -221,7 +221,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraFAir.gif"
           ],
           "startup": "11",
-          "active": "11—14",
+          "active": "11-14",
           "total": "48",
           "endlag": "34",
           "landingLag": "14",
@@ -238,7 +238,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraBAir.gif"
           ],
           "startup": "16",
-          "active": "16—17(18)",
+          "active": "16-17(18)",
           "total": "49",
           "endlag": "31",
           "landingLag": "14",
@@ -256,7 +256,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraUAir.gif"
           ],
           "startup": "13",
-          "active": "13—17",
+          "active": "13-17",
           "total": "57",
           "endlag": "40",
           "landingLag": "8",
@@ -274,7 +274,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraDAirInerpolated.gif"
           ],
           "startup": "17",
-          "active": "17/18/19—20",
+          "active": "17/18/19-20",
           "total": "65",
           "endlag": "45",
           "landingLag": "14",
@@ -293,14 +293,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraFlameNova2.gif",
             "hitboxes/Pyra/PyraFlameNova3.gif"
           ],
-          "startup": "13/27/33—56/68/78/87/94",
-          "active": "... FN1) 4—6/12—14/18—20/26—32 FN2) 7—9/14—16/20—22/25—27/30—32/38—44 FN3) 7—9/13—15/19—21/24—26/29—31/34—36/38—40/45—52",
-          "total": "58—117 FN1) 49 from release FN2) 61 from release FN3) 69 from release",
+          "startup": "13/27/33-56/68/78/87/94",
+          "active": "... FN1) 4-6/12-14/18-20/26-32 FN2) 7-9/14-16/20-22/25-27/30-32/38-44 FN3) 7-9/13-15/19-21/24-26/29-31/34-36/38-40/45-52",
+          "total": "58-117 FN1) 49 from release FN2) 61 from release FN3) 69 from release",
           "endlag": "6",
           "damage": "FN1) 3.0/7.0 FN2) 4.0/10.0 FN3) 5.0/13.0",
-          "advantage": "-18 — -11",
-          "shieldLag": "5/7 — 6/10",
-          "shieldStun": "4/7 — 6/12",
+          "advantage": "-18 - -11",
+          "shieldLag": "5/7 - 6/10",
+          "shieldStun": "4/7 - 6/12",
           "hitboxes": "multihit/final"
         },
         {
@@ -316,7 +316,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "*/4/4/10",
           "shieldStun": "*/2/2/4",
           "hitboxes": "wrist/early multi/late multi/final",
-          "notes": "Pyra has a hitbox on startup from 14—15 before throwing the sword. Sword catch animation is 14 frames, but can be avoided by dodging, in shield, etc. The sword exerperiences its own hitlag at irregular intervals. There are technically as many startup values on the way to the final hit as there are ways to hit somebody. If the blade hits nothing, the final hit is always on 74, and begins returning on 101."
+          "notes": "Pyra has a hitbox on startup from 14-15 before throwing the sword. Sword catch animation is 14 frames, but can be avoided by dodging, in shield, etc. The sword exerperiences its own hitlag at irregular intervals. There are technically as many startup values on the way to the final hit as there are ways to hit somebody. If the blade hits nothing, the final hit is always on 74, and begins returning on 101."
         },
         {
           "name": "Up B (Prominence Revolt)",
@@ -325,7 +325,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraProminenceRevolt.gif"
           ],
           "startup": "13/41",
-          "active": "13—15/41—...",
+          "active": "13-15/41-...",
           "landingLag": "54",
           "damage": "4.0 / 5.0 / 2.0 / 9.0",
           "advantage": "-48",
@@ -350,7 +350,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "37",
           "endlag": "29"
         },
@@ -361,7 +361,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraDashGrab.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "44",
           "endlag": "31"
         },
@@ -372,7 +372,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Pyra/PyraPivotGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "39",
           "endlag": "25"
         },
@@ -515,7 +515,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraJab1.gif"
           ],
           "startup": "2",
-          "active": "2—4",
+          "active": "2-4",
           "total": "20",
           "endlag": "16",
           "damage": "2.0",
@@ -531,7 +531,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "30",
           "endlag": "25",
           "damage": "2.0",
@@ -547,7 +547,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraJab3.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "29",
           "endlag": "23",
           "damage": "4.0",
@@ -574,7 +574,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraJabRapidFinisher.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "37",
           "endlag": "30",
           "damage": "3.0",
@@ -589,7 +589,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "25",
           "endlag": "16",
           "damage": "5.5",
@@ -605,7 +605,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraUTiltInterpolated.gif"
           ],
           "startup": "7",
-          "active": "7—12",
+          "active": "7-12",
           "total": "26",
           "endlag": "14",
           "damage": "4.0",
@@ -620,7 +620,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "20",
           "endlag": "13",
           "damage": "3.0/4.0",
@@ -636,7 +636,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraDashAttack.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "39",
           "endlag": "29",
           "damage": "7.0/8.5",
@@ -653,7 +653,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraFSmashInterpolated.gif"
           ],
           "startup": "14",
-          "active": "14—17",
+          "active": "14-17",
           "total": "49",
           "endlag": "32",
           "damage": "13.5",
@@ -669,7 +669,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraUSmash.gif"
           ],
           "startup": "9/12/17/22/26",
-          "active": "9—10/11—24(rehit: 5)/26—27",
+          "active": "9-10/11-24(rehit: 5)/26-27",
           "total": "52",
           "endlag": "25",
           "damage": "2.0/1.5/6.0",
@@ -686,7 +686,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraDSmash.gif"
           ],
           "startup": "8/14",
-          "active": "8—10/14—16",
+          "active": "8-10/14-16",
           "total": "44",
           "endlag": "28",
           "damage": "9.0 / 10.5 / 6.0 / 7.5",
@@ -704,7 +704,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraNAirLanding.gif"
           ],
           "startup": "8",
-          "active": "8—13(rehit: 3)(14—19)",
+          "active": "8-13(rehit: 3)(14-19)",
           "total": "50",
           "endlag": "31",
           "landingLag": "13",
@@ -722,7 +722,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraFAir.gif"
           ],
           "startup": "8",
-          "active": "8—11",
+          "active": "8-11",
           "total": "37",
           "endlag": "26",
           "landingLag": "10",
@@ -739,7 +739,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraBAir.gif"
           ],
           "startup": "10",
-          "active": "10—11(12)",
+          "active": "10-11(12)",
           "total": "33",
           "endlag": "21",
           "landingLag": "10",
@@ -757,7 +757,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraUAir.gif"
           ],
           "startup": "9",
-          "active": "9—13",
+          "active": "9-13",
           "total": "30",
           "endlag": "17",
           "landingLag": "8",
@@ -775,7 +775,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraDAirInterpolated.gif"
           ],
           "startup": "13",
-          "active": "13—15(16)",
+          "active": "13-15(16)",
           "total": "40",
           "endlag": "24",
           "landingLag": "11",
@@ -796,12 +796,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraLightningBusterAerial.gif",
             "hitboxes/Mythra/MythraLightningBusterAerial2.gif"
           ],
-          "startup": "9/20/30/40—69/80/90/99/109",
-          "total": "67—132",
+          "startup": "9/20/30/40-69/80/90/99/109",
+          "total": "67-132",
           "damage": "2.0/6.0/4.0/17.0",
-          "advantage": "-21 — -8",
-          "shieldLag": "4/6 — 5/10",
-          "shieldStun": "5/6 — 8/15",
+          "advantage": "-21 - -8",
+          "shieldLag": "4/6 - 5/10",
+          "shieldStun": "5/6 - 8/15",
           "hitboxes": "multihit/final",
           "notes": "startup is 5 from release, intangibility on on 3-8 for standard and 1-8/12-16 for Max (both are after release)"
         },
@@ -814,7 +814,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraPhotonEdgeMod.gif"
           ],
           "startup": "18/25/32/39/46/54",
-          "active": "18—19/25/32/39/46/54",
+          "active": "18-19/25/32/39/46/54",
           "total": "100",
           "endlag": "46",
           "landingLag": "18 (see notes)",
@@ -833,7 +833,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraRayOfPunishment.gif"
           ],
           "startup": "10/40",
-          "active": "10—12/40—56",
+          "active": "10-12/40-56",
           "landingLag": "15",
           "damage": "7.0/2.0/4.5",
           "shieldLag": "8/*/5",
@@ -849,7 +849,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraChromaDustInterpolated.gif"
           ],
           "startup": "10...",
-          "active": "10—12/41-56/42-57/43-58/44-59/45-60",
+          "active": "10-12/41-56/42-57/43-58/44-59/45-60",
           "landingLag": "20",
           "damage": "7.0/2.5",
           "shieldLag": "8/5",
@@ -872,7 +872,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "36",
           "endlag": "29"
         },
@@ -883,7 +883,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "43",
           "endlag": "31"
         },
@@ -894,7 +894,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Mythra/MythraPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "38",
           "endlag": "25"
         },

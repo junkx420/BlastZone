@@ -14,7 +14,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyJabInterpolated.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "22",
           "endlag": "15",
           "damage": "7.5/4.8",
@@ -30,7 +30,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "33",
           "endlag": "23",
           "damage": "12.5/9.0/8.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyUTilt.gif"
           ],
           "startup": "6",
-          "active": "6/7—8/9—11",
+          "active": "6/7-8/9-11",
           "total": "38",
           "endlag": "27",
           "damage": "12.0/7.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "21",
           "endlag": "13",
           "damage": "11.0/6.5",
@@ -78,7 +78,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDashAttack.gif"
           ],
           "startup": "13",
-          "active": "13—16",
+          "active": "13-16",
           "total": "45",
           "endlag": "29",
           "damage": "13.0/9.0",
@@ -94,7 +94,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyFSmash.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "53",
           "endlag": "39",
           "damage": "20.0/17.0/12.0",
@@ -111,7 +111,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyUSmash.gif"
           ],
           "startup": "12/15/17/19/22",
-          "active": "12—13/15/17/19/22—23",
+          "active": "12-13/15/17/19/22-23",
           "total": "58",
           "endlag": "35",
           "damage": "1.0/2.0/10.0",
@@ -128,7 +128,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDSmash.gif"
           ],
           "startup": "6/21",
-          "active": "6—7/21—22",
+          "active": "6-7/21-22",
           "total": "62",
           "endlag": "40",
           "damage": "15.0/10.0/17.0/11.0",
@@ -145,7 +145,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyNAir.gif"
           ],
           "startup": "6/15",
-          "active": "6—7/15—21",
+          "active": "6-7/15-21",
           "total": "45",
           "endlag": "24",
           "landingLag": "9",
@@ -163,7 +163,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyFAir.gif"
           ],
           "startup": "10",
-          "active": "10—12",
+          "active": "10-12",
           "total": "29",
           "endlag": "17",
           "landingLag": "8",
@@ -181,7 +181,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyBAir.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "35",
           "endlag": "25",
           "landingLag": "10",
@@ -199,7 +199,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyUAir.gif"
           ],
           "startup": "5",
-          "active": "5—12",
+          "active": "5-12",
           "total": "41",
           "endlag": "29",
           "landingLag": "8",
@@ -217,7 +217,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDAir.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "51",
           "endlag": "34",
           "landingLag": "14",
@@ -236,13 +236,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyFlareBladeMax.gif"
           ],
           "startup": "21-260",
-          "active": "21—24 (or 10—14 from release)",
+          "active": "21-24 (or 10-14 from release)",
           "total": "44-283",
           "endlag": "20",
-          "damage": "8.0—50.0",
+          "damage": "8.0-50.0",
           "advantage": "-15 to Shieldbreak",
-          "shieldLag": "7—22",
-          "shieldStun": "8—...",
+          "shieldLag": "7-22",
+          "shieldStun": "8-...",
           "notes": "Startup is 10 from release. 11 frames to enter charge state."
         },
         {
@@ -252,7 +252,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubleEdgedDance1.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "39/29",
           "endlag": "28",
           "damage": "3.0/2.0",
@@ -269,7 +269,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubleEdgedDance2Side.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "38",
           "endlag": "31",
           "damage": "3.0/2.0",
@@ -286,7 +286,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubleEdgedDance3Side.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "43",
           "endlag": "37",
           "damage": "4.0/3.0",
@@ -303,7 +303,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubledEdgeDance4Side.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "58",
           "endlag": "49",
           "damage": "6.0/4.0",
@@ -319,7 +319,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubleEdgedDance2Up.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "38",
           "endlag": "32",
           "damage": "3.0/2.0",
@@ -335,7 +335,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubleEdgedDance3Up.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "43",
           "endlag": "36",
           "damage": "4.0/3.0",
@@ -351,7 +351,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubleEdgedDance4Up.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "44",
           "endlag": "34",
           "damage": "7.0/5.0",
@@ -367,7 +367,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubleEdgedDance3Down.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "44",
           "endlag": "37",
           "damage": "4.0/3.0",
@@ -384,7 +384,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDoubleEdgedDance4Down.gif"
           ],
           "startup": "7/10/13/16/19",
-          "active": "7/10/13/16/19—21",
+          "active": "7/10/13/16/19-21",
           "total": "71",
           "endlag": "50",
           "damage": "2.0/5.0",
@@ -401,7 +401,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyBlazerA.gif"
           ],
           "startup": "9/11...",
-          "active": "9/11—19(rehit: 3) / 20—21",
+          "active": "9/11-19(rehit: 3) / 20-21",
           "landingLag": "30",
           "damage": "5.5/1.1/8.0",
           "shieldLag": "6/4/15",
@@ -426,7 +426,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyCounterHit.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "40",
           "endlag": "35",
           "notes": "Invulnerable on frame 1-5. In addition to counter freeze frames"
@@ -438,7 +438,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36",
           "endlag": "28"
         },
@@ -449,7 +449,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "44",
           "endlag": "33"
         },
@@ -460,7 +460,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/roy/RoyPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },

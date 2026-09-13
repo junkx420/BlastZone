@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "22",
           "endlag": "17",
           "damage": "1.5",
@@ -28,7 +28,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "24",
           "endlag": "19",
           "damage": "2.0",
@@ -43,7 +43,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethJab3.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "34",
           "endlag": "27",
           "damage": "4.5",
@@ -70,7 +70,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethJapRapidFinisher.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "50",
           "endlag": "43",
           "damage": "3.5",
@@ -85,7 +85,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethFTilt.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "34",
           "endlag": "24",
           "damage": "11.0",
@@ -100,7 +100,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethUTilt.gif"
           ],
           "startup": "9",
-          "active": "9—15",
+          "active": "9-15",
           "total": "34",
           "endlag": "19",
           "damage": "10.0",
@@ -115,7 +115,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethDTilt.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "35",
           "endlag": "20",
           "damage": "8.0",
@@ -130,7 +130,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethDashAttack.gif"
           ],
           "startup": "9",
-          "active": "9—11",
+          "active": "9-11",
           "total": "44",
           "endlag": "33",
           "damage": "9.0/13.0",
@@ -148,7 +148,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethFSmashUp.gif"
           ],
           "startup": "23",
-          "active": "23—25",
+          "active": "23-25",
           "total": "63",
           "endlag": "38",
           "damage": "Normal: 12.0/18.0 || Down: 11.5/17.25 || Up: 13.0/19.5",
@@ -164,7 +164,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethUSmash.gif"
           ],
           "startup": "13",
-          "active": "13—16(rehit: 7)/17—27(rehit: 4)/28—29",
+          "active": "13-16(rehit: 7)/17-27(rehit: 4)/28-29",
           "total": "56",
           "endlag": "27",
           "damage": "2.0/2.0/2.0/10.0",
@@ -181,7 +181,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethDSmash.gif"
           ],
           "startup": "19/29",
-          "active": "19—21/29—31",
+          "active": "19-21/29-31",
           "total": "74",
           "endlag": "43",
           "damage": "23.0/23.0",
@@ -199,7 +199,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethNAirLanding.gif"
           ],
           "startup": "6...",
-          "active": "6—26(rehit: 7)/28/2",
+          "active": "6-26(rehit: 7)/28/2",
           "total": "51",
           "endlag": "23",
           "landingLag": "13",
@@ -217,7 +217,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethFAir.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "39",
           "endlag": "26",
           "landingLag": "11",
@@ -226,7 +226,7 @@ export const FRAMES: FighterFrames = {
           "shieldLag": "7/11",
           "shieldStun": "4/5",
           "hitboxes": "Sweet/Sour",
-          "notes": "Autocancels out of short hop, frame 1—2, and 36 onward."
+          "notes": "Autocancels out of short hop, frame 1-2, and 36 onward."
         },
         {
           "name": "Back Air",
@@ -235,7 +235,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethBAir.gif"
           ],
           "startup": "13",
-          "active": "13—14(15—17)",
+          "active": "13-14(15-17)",
           "total": "46",
           "endlag": "29",
           "landingLag": "13",
@@ -253,7 +253,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethUAir.gif"
           ],
           "startup": "10...",
-          "active": "10—19(rehit: 5)/20—23",
+          "active": "10-19(rehit: 5)/20-23",
           "total": "48",
           "endlag": "25",
           "landingLag": "14",
@@ -271,7 +271,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethDAir.gif"
           ],
           "startup": "22",
-          "active": "22—24",
+          "active": "22-24",
           "total": "59",
           "endlag": "35",
           "landingLag": "28",
@@ -289,7 +289,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethFailnaughtMax.gif"
           ],
           "startup": "45/114",
-          "active": "45—61 / 114",
+          "active": "45-61 / 114",
           "total": "80/160",
           "damage": "12.0/29.0",
           "advantage": "-8/-21",
@@ -306,7 +306,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethAreadbharAerial.gif"
           ],
           "startup": "Ground: 20 || Air: 21",
-          "active": "Ground: 20/21/22—24 || Air: 21—24",
+          "active": "Ground: 20/21/22-24 || Air: 21-24",
           "total": "Ground: 65 || Air: 61",
           "endlag": "41",
           "damage": "17.25/11.5",
@@ -324,7 +324,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethSwordoftheCreatorAerial.gif"
           ],
           "startup": "9(ground) || 10(air)",
-          "active": "9/10—17/46(ground) || 10—17/46(air)",
+          "active": "9/10-17/46(ground) || 10-17/46(air)",
           "total": "46",
           "damage": "1.0/3.0/6.5",
           "advantage": "-35(ground) || **(air)",
@@ -339,13 +339,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethAymrSuperArmor.gif"
           ],
           "startup": "62",
-          "active": "62—67/2—5",
+          "active": "62-67/2-5",
           "total": "133",
           "endlag": "66",
           "damage": "Grounded: 30.0/8.0 (Aerial: 25.0/6.0)",
           "shieldLag": "25/22",
           "hitboxes": "Hit/Shockwave",
-          "notes": "Turn Around window is F12-41. Reversal takes 8 frames. Does stuff with air speed F1-50, F53 adds speed, F60-65 forbids landing while forcing Aymr to pierce the ground, F65-117 does more stuff with air speed, F96 goes back to normal fall speed. Damage-based armor on frames 34—63 , but it does not apply when used from the air unless landing on frame 34 or earlier. Damage-based armor takes 36.0% damage in 1v1 and 30% damage in FFA/doubles."
+          "notes": "Turn Around window is F12-41. Reversal takes 8 frames. Does stuff with air speed F1-50, F53 adds speed, F60-65 forbids landing while forcing Aymr to pierce the ground, F65-117 does more stuff with air speed, F96 goes back to normal fall speed. Damage-based armor on frames 34-63 , but it does not apply when used from the air unless landing on frame 34 or earlier. Damage-based armor takes 36.0% damage in 1v1 and 30% damage in FFA/doubles."
         },
         {
           "name": "Grab",
@@ -354,7 +354,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "39",
           "endlag": "32"
         },
@@ -365,7 +365,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "48",
           "endlag": "37"
         },
@@ -376,7 +376,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/byleth/BylethPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "42",
           "endlag": "30"
         },

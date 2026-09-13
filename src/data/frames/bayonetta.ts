@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaJab1.gif"
           ],
           "startup": "9",
-          "active": "9—12",
+          "active": "9-12",
           "total": "31",
           "endlag": "19",
           "damage": "1.4",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaJab2.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "31",
           "endlag": "23",
           "damage": "1.4",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaJab3BulletArts.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "39",
           "endlag": "31",
           "damage": "2.2",
@@ -74,7 +74,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaJabRapidEnd.gif"
           ],
           "startup": "4/11",
-          "active": "4—5/11—12",
+          "active": "4-5/11-12",
           "total": "62",
           "endlag": "50",
           "damage": "5.0",
@@ -121,7 +121,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaFTilt3.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "39",
           "endlag": "24",
           "damage": "7.0",
@@ -136,7 +136,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaUTilt.gif"
           ],
           "startup": "7/10/13",
-          "active": "7—9(10—12)/13—15",
+          "active": "7-9(10-12)/13-15",
           "total": "29",
           "endlag": "14",
           "damage": "1.5/6.0",
@@ -152,7 +152,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaDTiltBulletArts.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "28",
           "endlag": "20",
           "damage": "5.0/6.0",
@@ -168,7 +168,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaDashAttack.gif"
           ],
           "startup": "15",
-          "active": "15—20(21—26)",
+          "active": "15-20(21-26)",
           "total": "42",
           "endlag": "16",
           "damage": "10.0/8.0",
@@ -184,7 +184,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaFSmash.gif"
           ],
           "startup": "17",
-          "active": "17—21",
+          "active": "17-21",
           "total": "66",
           "endlag": "45",
           "damage": "16.0/14.0",
@@ -202,7 +202,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaUSmashBulletArts.gif"
           ],
           "startup": "18",
-          "active": "18—19(20—21/22—23)",
+          "active": "18-19(20-21/22-23)",
           "total": "64",
           "endlag": "41",
           "damage": "17.0/16.0/15.0",
@@ -221,7 +221,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaDSmashBulletArts.gif"
           ],
           "startup": "17/22",
-          "active": "17—18/22(23—25)",
+          "active": "17-18/22(23-25)",
           "total": "65",
           "endlag": "40",
           "damage": "5.0/16.0/15.0",
@@ -239,7 +239,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaNAirBulletArts.gif"
           ],
           "startup": "9",
-          "active": "9—17(18—25) (full extended 26—66)",
+          "active": "9-17(18-25) (full extended 26-66)",
           "total": "32",
           "landingLag": "10/18",
           "damage": "8.0/6.0/3.0",
@@ -256,7 +256,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaFAir 1.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "37",
           "endlag": "28",
           "landingLag": "12",
@@ -273,7 +273,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaFAir2.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "39",
           "endlag": "30",
           "landingLag": "12",
@@ -291,7 +291,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaFAir3BulletArts.gif"
           ],
           "startup": "12",
-          "active": "12—15",
+          "active": "12-15",
           "total": "46",
           "endlag": "31",
           "landingLag": "12",
@@ -308,7 +308,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaBAir.gif"
           ],
           "startup": "11",
-          "active": "11—14",
+          "active": "11-14",
           "total": "34",
           "endlag": "20",
           "landingLag": "10",
@@ -327,7 +327,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaUAirBulletArts.gif"
           ],
           "startup": "9",
-          "active": "9—18 (full extended 21—65)",
+          "active": "9-18 (full extended 21-65)",
           "total": "29",
           "landingLag": "8/16",
           "damage": "7.5/3.0",
@@ -345,7 +345,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaDAirLanding.gif"
           ],
           "startup": "18",
-          "active": "18—24(25—35)/1—2",
+          "active": "18-24(25-35)/1-2",
           "total": "52",
           "endlag": "17",
           "landingLag": "30",
@@ -364,7 +364,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaBulletClimaxHands.gif"
           ],
           "startup": "17...",
-          "active": "17—26, 21—30, 32—41, 36—45...",
+          "active": "17-26, 21-30, 32-41, 36-45...",
           "total": "60",
           "endlag": "29",
           "damage": "1.3",
@@ -381,7 +381,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaBulletClimaxHandsMax.gif"
           ],
           "startup": "42/47/57/62...",
-          "active": "42—51/47—56/57—66/62—71...",
+          "active": "42-51/47-56/57-66/62-71...",
           "total": "100",
           "damage": "2.7",
           "advantage": "-29",
@@ -397,7 +397,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaHeelSlideEnd.gif"
           ],
           "startup": "15/51",
-          "active": "15—16/17—18/19—24/25—39 first // 1—11/20—24 second",
+          "active": "15-16/17-18/19-24/25-39 first // 1-11/20-24 second",
           "total": "66 (first) 67 (second)",
           "endlag": "27",
           "damage": "8.0/7.0/5.0",
@@ -433,7 +433,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaAfterburnerKickLanding.gif"
           ],
           "startup": "8",
-          "active": "8—25/1",
+          "active": "8-25/1",
           "total": "43",
           "endlag": "18",
           "landingLag": "40",
@@ -454,7 +454,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaWitchTwist2BulletArts.gif"
           ],
           "startup": "6/11...",
-          "active": "6/11—25(rehit: 3)/27—28",
+          "active": "6/11-25(rehit: 3)/27-28",
           "total": "31",
           "endlag": "3",
           "landingLag": "18",
@@ -472,9 +472,9 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaWitchTime.gif"
           ],
           "startup": "8 (start of counter)",
-          "active": "8—27 (counter)",
+          "active": "8-27 (counter)",
           "total": "66",
-          "notes": "Counters on frames 8—27. Intangible on 8—23, Bat Within 24—35 (overlaps with the Counter so 24—27 will trigger both Bat Within AND the slowdown)."
+          "notes": "Counters on frames 8-27. Intangible on 8-23, Bat Within 24-35 (overlaps with the Counter so 24-27 will trigger both Bat Within AND the slowdown)."
         },
         {
           "name": "Grab",
@@ -483,7 +483,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "37",
           "endlag": "29"
         },
@@ -494,7 +494,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "45",
           "endlag": "34"
         },
@@ -505,7 +505,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/bayonetta/BayonettaPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "40",
           "endlag": "28"
         },

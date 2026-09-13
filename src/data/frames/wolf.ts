@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfFTiltDown.gif"
           ],
           "startup": "8/9",
-          "active": "8/9—10",
+          "active": "8/9-10",
           "total": "34",
           "endlag": "24",
           "damage": "5.0/6.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—11",
+          "active": "7-11",
           "total": "35",
           "endlag": "24",
           "damage": "10.0/8.0/9.0/10.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "27",
           "endlag": "21",
           "damage": "6.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfDashAttack.gif"
           ],
           "startup": "11",
-          "active": "11—14/15—18",
+          "active": "11-14/15-18",
           "total": "37",
           "endlag": "19",
           "damage": "11.0/8.0",
@@ -124,7 +124,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfFSmash.gif"
           ],
           "startup": "20",
-          "active": "20—23",
+          "active": "20-23",
           "total": "41",
           "endlag": "18",
           "damage": "15.0",
@@ -140,7 +140,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfUSmash.gif"
           ],
           "startup": "13/20",
-          "active": "13—15/20—23",
+          "active": "13-15/20-23",
           "total": "47",
           "endlag": "24",
           "damage": "6.0/12.0",
@@ -157,7 +157,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfDSmash.gif"
           ],
           "startup": "14/21",
-          "active": "14—15/21—22",
+          "active": "14-15/21-22",
           "total": "43",
           "endlag": "21",
           "damage": "14.0/16.0, 12.0/14.0",
@@ -174,7 +174,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfNAir.gif"
           ],
           "startup": "7",
-          "active": "7—9/10—26",
+          "active": "7-9/10-26",
           "total": "42",
           "endlag": "16",
           "landingLag": "9",
@@ -193,7 +193,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfFAirInterpolated.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "40",
           "endlag": "31",
           "landingLag": "10",
@@ -210,7 +210,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfBAir.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "44",
           "endlag": "29",
           "landingLag": "15",
@@ -228,7 +228,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfUAir.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "38",
           "endlag": "29",
           "landingLag": "10",
@@ -245,7 +245,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfDAir.gif"
           ],
           "startup": "16",
-          "active": "16—17",
+          "active": "16-17",
           "total": "53",
           "endlag": "36",
           "landingLag": "19",
@@ -263,7 +263,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfBlaster.gif"
           ],
           "startup": "15/16",
-          "active": "15—19/16—50",
+          "active": "15-19/16-50",
           "total": "52",
           "endlag": "2",
           "damage": "7.0 (Melee) / 6.0 (Early shot) / 8.0 (Mid shot) / 7.0 (Late shot)",
@@ -293,7 +293,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfFireWolf.gif"
           ],
           "startup": "18...",
-          "active": "18—20/27—32(Rehit :2)/37—38",
+          "active": "18-20/27-32(Rehit :2)/37-38",
           "total": "66",
           "endlag": "28",
           "landingLag": "36",
@@ -327,7 +327,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "36",
           "endlag": "29"
         },
@@ -338,7 +338,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfDashGrab.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "44",
           "endlag": "35"
         },
@@ -349,7 +349,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/wolf/WolfPivotGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "39",
           "endlag": "29"
         },

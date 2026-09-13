@@ -14,7 +14,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleJab1.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "16",
           "endlag": "13",
           "damage": "2.0",
@@ -30,7 +30,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "24",
           "endlag": "19",
           "damage": "1.5",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleJab3.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "31",
           "endlag": "25",
           "damage": "4.0",
@@ -63,7 +63,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleFTiltDown.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "17",
           "endlag": "11",
           "damage": "5.0",
@@ -78,7 +78,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "19",
           "endlag": "13",
           "damage": "5.0",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleDTilt.gif"
           ],
           "startup": "8",
-          "active": "8—13",
+          "active": "8-13",
           "total": "29",
           "endlag": "16",
           "damage": "9.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleDashAttack.gif"
           ],
           "startup": "8",
-          "active": "8—11/12—17",
+          "active": "8-11/12-17",
           "total": "35",
           "endlag": "18",
           "damage": "8.0/7.0",
@@ -126,7 +126,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleFSmashDown.gif"
           ],
           "startup": "20",
-          "active": "20—21",
+          "active": "20-21",
           "total": "49",
           "endlag": "28",
           "damage": "15.0",
@@ -142,7 +142,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleUSmash.gif"
           ],
           "startup": "19/21",
-          "active": "19/21—22/(22—23/24—25)",
+          "active": "19/21-22/(22-23/24-25)",
           "total": "65",
           "endlag": "40",
           "damage": "3.0/13.0/10.0",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleDSmash.gif"
           ],
           "startup": "18",
-          "active": "18—19/24—25",
+          "active": "18-19/24-25",
           "total": "41",
           "endlag": "16",
           "damage": "13.0",
@@ -175,7 +175,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleNAir.gif"
           ],
           "startup": "4",
-          "active": "4—6/7—26",
+          "active": "4-6/7-26",
           "total": "41",
           "endlag": "15",
           "landingLag": "8",
@@ -193,7 +193,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleFAir.gif"
           ],
           "startup": "5",
-          "active": "5—6/7—14",
+          "active": "5-6/7-14",
           "total": "35",
           "endlag": "21",
           "landingLag": "6",
@@ -212,7 +212,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleBAirLanding.gif"
           ],
           "startup": "5...",
-          "active": "5—14/15—16 (rehit: 2)",
+          "active": "5-14/15-16 (rehit: 2)",
           "total": "35",
           "endlag": "19",
           "landingLag": "18",
@@ -230,7 +230,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleUAir.gif"
           ],
           "startup": "5",
-          "active": "5—9",
+          "active": "5-9",
           "total": "29",
           "endlag": "20",
           "landingLag": "6",
@@ -247,7 +247,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleDAir.gif"
           ],
           "startup": "6...",
-          "active": "6—20/22 (rehit: 3)",
+          "active": "6-20/22 (rehit: 3)",
           "total": "44",
           "endlag": "22",
           "landingLag": "16",
@@ -262,7 +262,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Watergun)",
           "section": "special",
           "startup": "26",
-          "active": "24—**",
+          "active": "24-**",
           "total": "63",
           "notes": "From a charging state, startup is 7 and total frames is 44. Takes 64 frames to fully charge."
         },
@@ -273,8 +273,8 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleWithdraw.gif"
           ],
           "startup": "23",
-          "active": "22—41/22—61",
-          "damage": "13.0—13.9",
+          "active": "22-41/22-61",
+          "damage": "13.0-13.9",
           "advantage": "-18",
           "shieldLag": "7",
           "shieldStun": "8",
@@ -287,7 +287,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleWaterfall.gif"
           ],
           "startup": "9...",
-          "active": "9—41/43—44 (rehit: 5)",
+          "active": "9-41/43-44 (rehit: 5)",
           "landingLag": "30",
           "damage": "1.3/3.0",
           "shieldLag": "4/5",
@@ -307,7 +307,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -318,7 +318,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtleDashGrab.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "39",
           "endlag": "30"
         },
@@ -329,7 +329,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_squirtle/SquirtlePivotGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "37",
           "endlag": "27"
         },
@@ -477,7 +477,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurJab1.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "27",
           "endlag": "19",
           "damage": "2.0",
@@ -493,7 +493,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "27",
           "endlag": "21",
           "damage": "2.0",
@@ -521,7 +521,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurJabRapidEnd.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "39",
           "endlag": "34",
           "damage": "2.0",
@@ -552,7 +552,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—13",
+          "active": "7-13",
           "total": "32",
           "endlag": "19",
           "damage": "7.0",
@@ -567,7 +567,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurDTilt.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "31",
           "endlag": "25",
           "damage": "5.5",
@@ -582,7 +582,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurDashAttack.gif"
           ],
           "startup": "4",
-          "active": "4—11/12—19",
+          "active": "4-11/12-19",
           "total": "43",
           "endlag": "24",
           "damage": "12.0/10.0",
@@ -600,7 +600,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurFSmashDown.gif"
           ],
           "startup": "15",
-          "active": "15—18/19—20",
+          "active": "15-18/19-20",
           "total": "59",
           "endlag": "39",
           "damage": "16.0/14.0",
@@ -617,7 +617,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurUSmash.gif"
           ],
           "startup": "26",
-          "active": "26—29",
+          "active": "26-29",
           "total": "59",
           "endlag": "30",
           "damage": "17.0",
@@ -633,7 +633,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurDSmash.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "45",
           "endlag": "31",
           "damage": "8.0/10.0/12.0",
@@ -650,7 +650,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurNAir.gif"
           ],
           "startup": "7/10/13/16/19/22/25/28",
-          "active": "7—26/28—29",
+          "active": "7-26/28-29",
           "total": "41",
           "endlag": "12",
           "landingLag": "16",
@@ -668,7 +668,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurFAir.gif"
           ],
           "startup": "14",
-          "active": "14—18",
+          "active": "14-18",
           "total": "48",
           "endlag": "30",
           "landingLag": "13",
@@ -685,7 +685,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurBAir.gif"
           ],
           "startup": "7/13",
-          "active": "7—9/13—15",
+          "active": "7-9/13-15",
           "total": "43",
           "endlag": "28",
           "landingLag": "7",
@@ -702,7 +702,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurUAir.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "51",
           "endlag": "38",
           "landingLag": "11",
@@ -719,7 +719,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurDAir.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "63",
           "endlag": "51",
           "landingLag": "13",
@@ -737,7 +737,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurBulletSeedA.gif"
           ],
           "startup": "7",
-          "active": "7, 13—20, 19—26, 25—32, 31—38...",
+          "active": "7, 13-20, 19-26, 25-32, 31-38...",
           "total": "44 ground (after last seed) / 31 air (after last seed)",
           "endlag": "6",
           "damage": "3.0/1.5/1.3/3.0",
@@ -767,7 +767,7 @@ export const FRAMES: FighterFrames = {
           "name": "Up B (Vinewhip)",
           "section": "special",
           "startup": "15",
-          "active": "15—17",
+          "active": "15-17",
           "total": "47",
           "endlag": "30",
           "damage": "11.0/13.0",
@@ -790,7 +790,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "42",
           "endlag": "28"
         },
@@ -801,7 +801,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurDashGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "48",
           "endlag": "34"
         },
@@ -812,7 +812,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_ivysaur/IvysaurPivotGrab.gif"
           ],
           "startup": "13",
-          "active": "13—14",
+          "active": "13-14",
           "total": "44",
           "endlag": "30"
         },
@@ -960,7 +960,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "22",
           "endlag": "17",
           "damage": "2.5",
@@ -976,7 +976,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "25",
           "endlag": "19",
           "damage": "2.5",
@@ -992,7 +992,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardJab3.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "33",
           "endlag": "25",
           "damage": "5.0",
@@ -1009,7 +1009,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardFTiltDown.gif"
           ],
           "startup": "12",
-          "active": "12—13",
+          "active": "12-13",
           "total": "37",
           "endlag": "24",
           "damage": "7.0/11.0",
@@ -1025,7 +1025,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardUTilt.gif"
           ],
           "startup": "9",
-          "active": "9—12",
+          "active": "9-12",
           "total": "33",
           "endlag": "21",
           "damage": "8.0",
@@ -1040,7 +1040,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardDTilt.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "30",
           "endlag": "20",
           "damage": "10.0",
@@ -1055,7 +1055,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardDashAttack.gif"
           ],
           "startup": "10",
-          "active": "10—12/13—20",
+          "active": "10-12/13-20",
           "total": "39",
           "endlag": "19",
           "damage": "13.0/10.0",
@@ -1071,7 +1071,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardFSmash.gif"
           ],
           "startup": "22",
-          "active": "22/23—24",
+          "active": "22/23-24",
           "total": "69",
           "endlag": "45",
           "damage": "19.0/16.4",
@@ -1088,7 +1088,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardUSmash.gif"
           ],
           "startup": "6/14",
-          "active": "(6/7—9) / 14—19",
+          "active": "(6/7-9) / 14-19",
           "total": "46",
           "endlag": "27",
           "damage": "5.0/11.0",
@@ -1105,7 +1105,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardDSmash.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "60",
           "endlag": "44",
           "damage": "16.0",
@@ -1121,7 +1121,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardNAir.gif"
           ],
           "startup": "8",
-          "active": "8—20",
+          "active": "8-20",
           "total": "39",
           "endlag": "19",
           "landingLag": "10",
@@ -1139,7 +1139,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardFAir.gif"
           ],
           "startup": "8",
-          "active": "8—9/10—12",
+          "active": "8-9/10-12",
           "total": "45",
           "endlag": "33",
           "landingLag": "19",
@@ -1157,7 +1157,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardBAir.gif"
           ],
           "startup": "14",
-          "active": "14/15—16",
+          "active": "14/15-16",
           "total": "45",
           "endlag": "29",
           "landingLag": "20",
@@ -1175,7 +1175,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardUAir.gif"
           ],
           "startup": "12",
-          "active": "12—15",
+          "active": "12-15",
           "total": "45",
           "endlag": "30",
           "landingLag": "13",
@@ -1192,7 +1192,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardDAir.gif"
           ],
           "startup": "18",
-          "active": "18—21/22—25",
+          "active": "18-21/22-25",
           "total": "51",
           "endlag": "26",
           "landingLag": "21",
@@ -1207,7 +1207,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Flamethrower)",
           "section": "special",
           "startup": "19/26/33/40",
-          "active": "19—22/26—29/33—36/40—43",
+          "active": "19-22/26-29/33-36/40-43",
           "total": "70",
           "endlag": "27",
           "damage": "2.0/1.0",
@@ -1224,14 +1224,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardFlareBlitz.gif"
           ],
           "startup": "23",
-          "active": "23—51",
+          "active": "23-51",
           "total": "101",
           "endlag": "50",
           "damage": "6.0/18.0",
           "advantage": "-52/-66",
           "shieldLag": "6/15",
           "shieldStun": "-/6",
-          "notes": "58 endlag on hit if nothing catches your fall first. Lands on 48 on level ground and can input a wakeup move on 73. Total frames is when you don't hit anything. Explosion is frames 2—4 after connecting. Damage based armor 15% (18% in 1v1) on frames 23—51."
+          "notes": "58 endlag on hit if nothing catches your fall first. Lands on 48 on level ground and can input a wakeup move on 73. Total frames is when you don't hit anything. Explosion is frames 2-4 after connecting. Damage based armor 15% (18% in 1v1) on frames 23-51."
         },
         {
           "name": "Up B (Fly)",
@@ -1240,7 +1240,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardFly.gif"
           ],
           "startup": "9...",
-          "active": "9—10/16—26(rehit: 3)/27—28",
+          "active": "9-10/16-26(rehit: 3)/27-28",
           "landingLag": "30",
           "damage": "5.0/2.0/4.0",
           "shieldLag": "6/4/5",
@@ -1260,7 +1260,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardGrab.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "39",
           "endlag": "29"
         },
@@ -1271,7 +1271,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "45",
           "endlag": "32"
         },
@@ -1282,7 +1282,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pt_charizard/charitardPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "42",
           "endlag": "28"
         },

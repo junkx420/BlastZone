@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeJab1.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "32",
           "endlag": "21",
           "damage": "2.5",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeJab2.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "27",
           "endlag": "15",
           "damage": "2.2",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeJabRapid.gif"
           ],
           "startup": "5/8/11...",
-          "active": "34—**",
+          "active": "34-**",
           "damage": "0.5",
           "shieldLag": "4",
           "shieldStun": "3"
@@ -70,7 +70,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeFTilt.gif"
           ],
           "startup": "12/16/20/23",
-          "active": "12—21/23",
+          "active": "12-21/23",
           "total": "48",
           "endlag": "25",
           "damage": "2.0/3.0",
@@ -86,7 +86,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—13",
+          "active": "7-13",
           "total": "38",
           "endlag": "25",
           "damage": "10.0/8.0",
@@ -103,7 +103,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—7(8—11)",
+          "active": "6-7(8-11)",
           "total": "37",
           "endlag": "26",
           "damage": "10.0/6.0",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeDashAttack.gif"
           ],
           "startup": "26",
-          "active": "26—27(28—41)",
+          "active": "26-27(28-41)",
           "total": "66",
           "endlag": "25",
           "damage": "16.0/13.0",
@@ -136,7 +136,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeFSmash.gif"
           ],
           "startup": "40",
-          "active": "40—41(42—43/44)",
+          "active": "40-41(42-43/44)",
           "total": "77",
           "endlag": "33",
           "damage": "16.0/18.5/25.0/11.0",
@@ -153,7 +153,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeUSmash.gif"
           ],
           "startup": "17",
-          "active": "17—24",
+          "active": "17-24",
           "total": "67",
           "endlag": "43",
           "damage": "16.0",
@@ -169,7 +169,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeDSmash.gif"
           ],
           "startup": "14",
-          "active": "14—22",
+          "active": "14-22",
           "total": "52",
           "endlag": "30",
           "damage": "13.0",
@@ -185,7 +185,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeNAir.gif"
           ],
           "startup": "7",
-          "active": "7—8(9—29)",
+          "active": "7-8(9-29)",
           "total": "39",
           "endlag": "10",
           "landingLag": "9",
@@ -203,7 +203,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeFAir.gif"
           ],
           "startup": "13",
-          "active": "13—15",
+          "active": "13-15",
           "total": "41",
           "endlag": "26",
           "landingLag": "18",
@@ -220,7 +220,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeBAir.gif"
           ],
           "startup": "17",
-          "active": "17—19",
+          "active": "17-19",
           "total": "37",
           "endlag": "18",
           "landingLag": "13",
@@ -237,7 +237,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeUAir.gif"
           ],
           "startup": "10/12/14/16/18/20/22/24",
-          "active": "10/12/14/16/18/20/22/24—25",
+          "active": "10/12/14/16/18/20/22/24-25",
           "total": "44",
           "endlag": "19",
           "landingLag": "13",
@@ -255,7 +255,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeDAir.gif"
           ],
           "startup": "22",
-          "active": "22—23",
+          "active": "22-23",
           "total": "47",
           "endlag": "24",
           "landingLag": "18",
@@ -274,7 +274,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeInhale.gif"
           ],
           "startup": "14",
-          "active": "17—**",
+          "active": "17-**",
           "total": "74",
           "notes": "Startup and total frames refer to minimum usage. 19 endlag after extended usage. Can inhale projectiles starting on frame 14 and involuntarily spit them back. Gains invulnerability for 14 frames after the 4th frame of inhaling a character/item out. For example, if a character gets grabbed as soon as inhale comes out, (f14) the i-frames would be 18-32. Invulnerability information from @Landslide___ on Twitter."
         },
@@ -293,12 +293,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeGordoWall.gif"
           ],
           "startup": "29",
-          "active": "29(5—146)",
+          "active": "29(5-146)",
           "total": "58",
-          "damage": "10.0/9.5—14.0",
+          "damage": "10.0/9.5-14.0",
           "advantage": "-21/-11/-17",
-          "shieldLag": "8/12—15/15",
-          "shieldStun": "10/4—5/14",
+          "shieldLag": "8/12-15/15",
+          "shieldStun": "10/4-5/14",
           "hitboxes": "Hammer/gordo/both"
         },
         {
@@ -309,14 +309,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeSuperDededeJumpLanding.gif"
           ],
           "startup": "69",
-          "active": "69/4—5/6—20",
+          "active": "69/4-5/6-20",
           "landingLag": "60/30",
           "damage": "15.0/12.0/5.0",
           "advantage": "-46",
           "shieldLag": "10/9/6",
           "shieldStun": "14/-/3",
           "hitboxes": "Falling/landing/stars",
-          "notes": "Cancelling incurs 30 frames landing lag. Invulnerable on frame 18-21. Super Armor (infinite %) on frames 22-34 and then 69-76. Leg intangibility frame 69-landing. Landing hitbox on frame 3—4. Stars on frame 5—24. Hitbox 69—landing."
+          "notes": "Cancelling incurs 30 frames landing lag. Invulnerable on frame 18-21. Super Armor (infinite %) on frames 22-34 and then 69-76. Leg intangibility frame 69-landing. Landing hitbox on frame 3-4. Stars on frame 5-24. Hitbox 69-landing."
         },
         {
           "name": "Down B (Jet Hammer, Partial Charge)",
@@ -326,13 +326,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeJetHammerA.gif"
           ],
           "startup": "10(+17)",
-          "active": "27—29",
+          "active": "27-29",
           "total": "59",
           "endlag": "30",
-          "damage": "11.0—29.8",
+          "damage": "11.0-29.8",
           "advantage": "-39 to -24",
-          "shieldLag": "8—15",
-          "shieldStun": "10—25",
+          "shieldLag": "8-15",
+          "shieldStun": "10-25",
           "notes": "10 startup from release. 17 to enter charge state. 136 frames to reach full charge. Heavy armor (14%) on frame 1-14 from release but only on ground version."
         },
         {
@@ -343,7 +343,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeJet HammerAMax.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "69",
           "endlag": "58",
           "damage": "40.0",
@@ -359,7 +359,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeGrab.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "39",
           "endlag": "29"
         },
@@ -370,7 +370,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededeDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "47",
           "endlag": "34"
         },
@@ -381,7 +381,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/king_dedede/KingDededePivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "42",
           "endlag": "28"
         },
@@ -416,7 +416,7 @@ export const FRAMES: FighterFrames = {
           "startup": "19",
           "total": "41",
           "damage": "4.0/9.0",
-          "notes": "Hit is 16—18, throw is 19"
+          "notes": "Hit is 16-18, throw is 19"
         },
         {
           "name": "Up Throw",
@@ -427,7 +427,7 @@ export const FRAMES: FighterFrames = {
           "startup": "19",
           "total": "39",
           "damage": "4.0/5.0",
-          "notes": "Hit is 16—18, throw is 19"
+          "notes": "Hit is 16-18, throw is 19"
         },
         {
           "name": "Down Throw",

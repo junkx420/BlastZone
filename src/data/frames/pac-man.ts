@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManJab3.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "33",
           "endlag": "28",
           "damage": "4.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManFTiltDown.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "30",
           "endlag": "23",
           "damage": "8.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManUTilt.gif"
           ],
           "startup": "7",
-          "active": "7—10",
+          "active": "7-10",
           "total": "24",
           "endlag": "14",
           "damage": "6.5",
@@ -93,7 +93,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "26",
           "endlag": "17",
           "damage": "6.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManDashAttack.gif"
           ],
           "startup": "10/19/28/37",
-          "active": "10—11/19—20/28—29/37",
+          "active": "10-11/19-20/28-29/37",
           "total": "45",
           "endlag": "8",
           "damage": "2.0 / 4.0",
@@ -124,7 +124,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManFSmash.gif"
           ],
           "startup": "16",
-          "active": "16—18(19—29)",
+          "active": "16-18(19-29)",
           "total": "52",
           "endlag": "23",
           "damage": "16.0/9.0",
@@ -141,7 +141,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManUSmash.gif"
           ],
           "startup": "11/15",
-          "active": "11/15—17(18—28)",
+          "active": "11/15-17(18-28)",
           "total": "49",
           "endlag": "21",
           "damage": "3.0/14.0",
@@ -157,7 +157,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManDSmash.gif"
           ],
           "startup": "15",
-          "active": "15—17(18—28)",
+          "active": "15-17(18-28)",
           "total": "54",
           "endlag": "26",
           "damage": "13.0/7.0",
@@ -174,7 +174,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManNAir.gif"
           ],
           "startup": "3",
-          "active": "3—5(6—9/10—19)",
+          "active": "3-5(6-9/10-19)",
           "total": "51",
           "endlag": "32",
           "landingLag": "7",
@@ -192,7 +192,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManFAir.gif"
           ],
           "startup": "5",
-          "active": "5—8",
+          "active": "5-8",
           "total": "25",
           "endlag": "17",
           "landingLag": "10",
@@ -209,7 +209,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManBAir.gif"
           ],
           "startup": "9",
-          "active": "9—11(12—16)",
+          "active": "9-11(12-16)",
           "total": "40",
           "endlag": "24",
           "landingLag": "13",
@@ -227,7 +227,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManUAir.gif"
           ],
           "startup": "9",
-          "active": "9—16",
+          "active": "9-16",
           "total": "36",
           "endlag": "20",
           "landingLag": "10",
@@ -244,7 +244,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManDAir.gif"
           ],
           "startup": "6/13/20/27",
-          "active": "6—7/13—14/20—21/27—28",
+          "active": "6-7/13-14/20-21/27-28",
           "total": "49",
           "endlag": "21",
           "landingLag": "12",
@@ -273,12 +273,12 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManPowerPelletEarly.gif",
             "hitboxes/pac_man/PacManPowerPelletLate.gif"
           ],
-          "startup": "24—42 | 35—53",
-          "total": "83—118",
-          "damage": "4.0—5.0 | 6.0—12.0",
+          "startup": "24-42 | 35-53",
+          "total": "83-118",
+          "damage": "4.0-5.0 | 6.0-12.0",
           "advantage": "-42 to -54",
-          "shieldLag": "5—6 | 6—9",
-          "shieldStun": "5 | 6—11",
+          "shieldLag": "5-6 | 6-9",
+          "shieldStun": "5 | 6-11",
           "notes": "Only the dash's damage depends on level of charge. Knockback-based armor (100 units)."
         },
         {
@@ -288,11 +288,11 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManPacJump.gif"
           ],
           "startup": "4",
-          "active": "4—12/13—16/17—21",
+          "active": "4-12/13-16/17-21",
           "landingLag": "30",
-          "damage": "5.0—10.0",
-          "shieldLag": "6—8",
-          "shieldStun": "6—10",
+          "damage": "5.0-10.0",
+          "shieldLag": "6-8",
+          "shieldStun": "6-10",
           "hitboxes": "first/second/third",
           "notes": "Trampoline can be interracted with as early as frame 10 and is unblockable."
         },
@@ -314,7 +314,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManGrab.gif"
           ],
           "startup": "12",
-          "active": "12—33",
+          "active": "12-33",
           "total": "58",
           "endlag": "25"
         },
@@ -325,7 +325,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManDashGrab.gif"
           ],
           "startup": "14",
-          "active": "14—35",
+          "active": "14-35",
           "total": "66",
           "endlag": "31"
         },
@@ -336,7 +336,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/pac_man/PacManPivotGrab.gif"
           ],
           "startup": "15",
-          "active": "15—36",
+          "active": "15-36",
           "total": "61",
           "endlag": "25"
         },

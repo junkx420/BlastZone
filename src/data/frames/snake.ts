@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeJab1.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "15",
           "endlag": "11",
           "damage": "2.5",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeJab2.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "24",
           "endlag": "19",
           "damage": "2.5",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeJab3.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "46",
           "endlag": "37",
           "damage": "6.0",
@@ -60,7 +60,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeFTilt1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "31",
           "endlag": "26",
           "damage": "4.0",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—8/9—13",
+          "active": "6-8/9-13",
           "total": "37",
           "endlag": "24",
           "damage": "14.5/13.5",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "30",
           "endlag": "23",
           "damage": "12.0",
@@ -123,7 +123,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeDashAttack.gif"
           ],
           "startup": "5",
-          "active": "5—8/9—12",
+          "active": "5-8/9-12",
           "total": "41",
           "endlag": "29",
           "damage": "11.0/9.0/8.0/6.0",
@@ -140,7 +140,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeFSmash.gif"
           ],
           "startup": "41",
-          "active": "41—43",
+          "active": "41-43",
           "total": "73",
           "endlag": "30",
           "damage": "22.0",
@@ -156,7 +156,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeUSmash.gif"
           ],
           "startup": "11/35",
-          "active": "11—12/35—**",
+          "active": "11-12/35-**",
           "total": "54",
           "damage": "4.0/14.0",
           "advantage": "-39/+1",
@@ -172,7 +172,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeDSmash.gif"
           ],
           "startup": "8/20",
-          "active": "8—10/20—22",
+          "active": "8-10/20-22",
           "total": "44",
           "endlag": "22",
           "damage": "12.0/14.0",
@@ -188,7 +188,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeNAir.gif"
           ],
           "startup": "10/18/26/36",
-          "active": "10—11/18—19/26—27/36—38",
+          "active": "10-11/18-19/26-27/36-38",
           "total": "59",
           "endlag": "21",
           "landingLag": "16",
@@ -206,7 +206,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeFAir.gif"
           ],
           "startup": "23",
-          "active": "23—26",
+          "active": "23-26",
           "total": "69",
           "endlag": "43",
           "landingLag": "19",
@@ -224,7 +224,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeBAir.gif"
           ],
           "startup": "7",
-          "active": "7—9/10—26",
+          "active": "7-9/10-26",
           "total": "42",
           "endlag": "16",
           "landingLag": "19",
@@ -242,7 +242,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeUAir.gif"
           ],
           "startup": "10",
-          "active": "10—12/13—23",
+          "active": "10-12/13-23",
           "total": "47",
           "endlag": "24",
           "landingLag": "15",
@@ -260,7 +260,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeDAir.gif"
           ],
           "startup": "3/10/17/25",
-          "active": "3—4/10—11/17—18/25—26",
+          "active": "3-4/10-11/17-18/25-26",
           "total": "59",
           "endlag": "33",
           "landingLag": "20",
@@ -286,7 +286,7 @@ export const FRAMES: FighterFrames = {
           "section": "special",
           "startup": "8, 10, 9",
           "total": "27, 31, 25",
-          "damage": "2.0—3.1/8.9—9.9",
+          "damage": "2.0-3.1/8.9-9.9",
           "shieldLag": "5/8",
           "shieldStun": "2/4",
           "hitboxes": "Collide/Explosion",
@@ -296,7 +296,7 @@ export const FRAMES: FighterFrames = {
           "name": "Side B (Nikita)",
           "section": "special",
           "startup": "41",
-          "active": "41—**",
+          "active": "41-**",
           "damage": "7.0/14.0",
           "advantage": "-19/-14",
           "shieldLag": "7/10",
@@ -310,7 +310,7 @@ export const FRAMES: FighterFrames = {
           "damage": "6.0",
           "shieldLag": "6",
           "shieldStun": "3",
-          "notes": "Damage-based armor on frame 7—94. Frame 47 is the earliest you can cancel the move. To knock Snake off of Cypher you need to do 7% damage in doubles or 8.4% damage in singles with a single hit. To destroy the Cypher with multiple hits, it takes 13% in doubles and 15.6% in singles."
+          "notes": "Damage-based armor on frame 7-94. Frame 47 is the earliest you can cancel the move. To knock Snake off of Cypher you need to do 7% damage in doubles or 8.4% damage in singles with a single hit. To destroy the Cypher with multiple hits, it takes 13% in doubles and 15.6% in singles."
         },
         {
           "name": "Down B (C4)",
@@ -323,7 +323,7 @@ export const FRAMES: FighterFrames = {
           "name": "C4 Detonate/Explosion",
           "section": "special",
           "startup": "25",
-          "active": "25—27",
+          "active": "25-27",
           "total": "32",
           "endlag": "5",
           "damage": "17.0",
@@ -339,7 +339,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeGrab.gif"
           ],
           "startup": "8",
-          "active": "8—9",
+          "active": "8-9",
           "total": "34",
           "endlag": "25"
         },
@@ -350,7 +350,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakeDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "42",
           "endlag": "30"
         },
@@ -361,7 +361,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/snake/SnakePivotGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "37",
           "endlag": "27"
         },

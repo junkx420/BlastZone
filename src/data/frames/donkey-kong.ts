@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongJab1.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "24",
           "endlag": "18",
           "damage": "4.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongJab2.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "31",
           "endlag": "25",
           "damage": "6.0",
@@ -46,7 +46,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongFTiltDown.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "34",
           "endlag": "25",
           "damage": "8.0/9.0",
@@ -63,7 +63,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—11",
+          "active": "5-11",
           "total": "38",
           "endlag": "27",
           "damage": "10.0",
@@ -79,7 +79,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongDTilt.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "24",
           "endlag": "17",
           "damage": "6.0",
@@ -95,7 +95,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongDashAttack.gif"
           ],
           "startup": "9",
-          "active": "9—12/13—24",
+          "active": "9-12/13-24",
           "total": "34",
           "endlag": "10",
           "damage": "12.0/9.0",
@@ -111,7 +111,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongFSmash.gif"
           ],
           "startup": "22",
-          "active": "22—23",
+          "active": "22-23",
           "total": "54",
           "endlag": "31",
           "damage": "22.0/21.0",
@@ -128,7 +128,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongUSmash.gif"
           ],
           "startup": "14",
-          "active": "14—15",
+          "active": "14-15",
           "total": "49",
           "endlag": "34",
           "damage": "19.0",
@@ -144,7 +144,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongDSmash.gif"
           ],
           "startup": "11",
-          "active": "11—12/13—14",
+          "active": "11-12/13-14",
           "total": "55",
           "endlag": "41",
           "damage": "17.0/18.0/14.0",
@@ -161,7 +161,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongNAir.gif"
           ],
           "startup": "10",
-          "active": "10—13/14—26",
+          "active": "10-13/14-26",
           "total": "38",
           "endlag": "12",
           "landingLag": "10",
@@ -179,7 +179,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongFAir.gif"
           ],
           "startup": "18",
-          "active": "18—20/21—23",
+          "active": "18-20/21-23",
           "total": "55",
           "endlag": "32",
           "landingLag": "17",
@@ -197,7 +197,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongBAir.gif"
           ],
           "startup": "7",
-          "active": "7—8/9—16",
+          "active": "7-8/9-16",
           "total": "31",
           "endlag": "15",
           "landingLag": "11",
@@ -215,7 +215,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongUAir.gif"
           ],
           "startup": "6",
-          "active": "6—10",
+          "active": "6-10",
           "total": "37",
           "endlag": "27",
           "landingLag": "15",
@@ -232,7 +232,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongDAir.gif"
           ],
           "startup": "14",
-          "active": "14—16",
+          "active": "14-16",
           "total": "54",
           "endlag": "38",
           "landingLag": "14",
@@ -250,13 +250,13 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongGiantPunchA.gif"
           ],
           "startup": "19(+7)",
-          "active": "26—27 (19—20 after starting charge)",
+          "active": "26-27 (19-20 after starting charge)",
           "total": "62",
           "endlag": "35",
-          "damage": "10.0—27.0",
+          "damage": "10.0-27.0",
           "advantage": "-33 to -19",
-          "shieldLag": "8—16",
-          "shieldStun": "10—24",
+          "shieldLag": "8-16",
+          "shieldStun": "10-24",
           "notes": "Entering charge window takes 7 frames. 4 to cancel with shield. Arm intangibility on frame 4-20. Cannot rebound."
         },
         {
@@ -267,7 +267,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongGiantPunchAMax.gif"
           ],
           "startup": "19",
-          "active": "19—20",
+          "active": "19-20",
           "total": "47",
           "endlag": "27",
           "damage": "Grounded: 28.0%/18.0% | Aerial: 25.0",
@@ -284,7 +284,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongHeadbuttA.gif"
           ],
           "startup": "20",
-          "active": "20—21",
+          "active": "20-21",
           "total": "62",
           "endlag": "41",
           "damage": "10.0",
@@ -332,7 +332,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongHandSlapG.gif"
           ],
           "startup": "12/23",
-          "active": "12—13/23—24...",
+          "active": "12-13/23-24...",
           "total": "46",
           "endlag": "22",
           "damage": "14.0",
@@ -348,7 +348,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongHandSlapA.gif"
           ],
           "startup": "19/28",
-          "active": "19—21/28—30",
+          "active": "19-21/28-30",
           "total": "49",
           "endlag": "19",
           "landingLag": "10",
@@ -366,7 +366,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongGrab.gif"
           ],
           "startup": "8",
-          "active": "8—10",
+          "active": "8-10",
           "total": "38",
           "endlag": "28"
         },
@@ -377,7 +377,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongDashGrab.gif"
           ],
           "startup": "11",
-          "active": "11—13",
+          "active": "11-13",
           "total": "46",
           "endlag": "33"
         },
@@ -388,7 +388,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/donkey_kong/DonkeyKongPivotGrab.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "41",
           "endlag": "27"
         },

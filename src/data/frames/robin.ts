@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinJab1.gif"
           ],
           "startup": "4",
-          "active": "4—5",
+          "active": "4-5",
           "total": "31",
           "endlag": "26",
           "damage": "2.0",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinJab2.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "34",
           "endlag": "28",
           "damage": "1.5",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinJab3.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "35",
           "endlag": "28",
           "damage": "5.0",
@@ -71,7 +71,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinJabRapidEnd.gif"
           ],
           "startup": "5",
-          "active": "5—6",
+          "active": "5-6",
           "total": "47",
           "endlag": "41",
           "damage": "2.0",
@@ -86,7 +86,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinFTilt.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "32",
           "endlag": "22",
           "damage": "7.5",
@@ -101,7 +101,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinUTilt.gif"
           ],
           "startup": "6",
-          "active": "6—14",
+          "active": "6-14",
           "total": "32",
           "endlag": "18",
           "damage": "6.0",
@@ -116,7 +116,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinDTilt.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "21",
           "endlag": "13",
           "damage": "6.0",
@@ -131,7 +131,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinDashAttack.gif"
           ],
           "startup": "8",
-          "active": "8—10(11—18)",
+          "active": "8-10(11-18)",
           "total": "41",
           "endlag": "23",
           "damage": "10.0/6.0",
@@ -148,7 +148,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinFSmashBronze.gif"
           ],
           "startup": "16",
-          "active": "16—18(19—27)",
+          "active": "16-18(19-27)",
           "total": "57",
           "endlag": "30",
           "damage": "16.0/10.0/9.6",
@@ -166,7 +166,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinUSmashBronze.gif"
           ],
           "startup": "12",
-          "active": "12,13—16(17—32)",
+          "active": "12,13-16(17-32)",
           "total": "52",
           "endlag": "20",
           "damage": "10.0/15.0/9.0",
@@ -184,7 +184,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinDSmashBronze.gif"
           ],
           "startup": "16",
-          "active": "16—17(19—22/23—28)",
+          "active": "16-17(19-22/23-28)",
           "total": "56",
           "endlag": "28",
           "damage": "15.0/12.0/8.0",
@@ -202,7 +202,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinNAirBronze.gif"
           ],
           "startup": "7/20",
-          "active": "7—10/20—23(24—28)",
+          "active": "7-10/20-23(24-28)",
           "total": "47",
           "endlag": "19",
           "landingLag": "11",
@@ -221,7 +221,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinFAirBronze.gif"
           ],
           "startup": "12",
-          "active": "12—15(16—19)",
+          "active": "12-15(16-19)",
           "total": "33",
           "endlag": "14",
           "landingLag": "11",
@@ -240,7 +240,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinBAirBronze.gif"
           ],
           "startup": "9",
-          "active": "9—10(11—16)",
+          "active": "9-10(11-16)",
           "total": "39",
           "endlag": "23",
           "landingLag": "11",
@@ -259,7 +259,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinUAirBronze.gif"
           ],
           "startup": "10",
-          "active": "10—13(14—23)",
+          "active": "10-13(14-23)",
           "total": "45",
           "endlag": "22",
           "landingLag": "11",
@@ -278,7 +278,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinDAirBronze.gif"
           ],
           "startup": "13",
-          "active": "13—15(16—17/18—24)",
+          "active": "13-15(16-17/18-24)",
           "total": "59",
           "endlag": "35",
           "landingLag": "16",
@@ -298,7 +298,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinArcthunder.gif"
           ],
           "startup": "8/8/8",
-          "active": "8—22 / 8—49 / 8—79",
+          "active": "8-22 / 8-49 / 8-79",
           "total": "32/38/38",
           "damage": "5.5/11.0",
           "advantage": "-12/-13",
@@ -314,7 +314,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinArcthunderHit.gif"
           ],
           "startup": "1...",
-          "active": "1—16(rehit: 4)/17",
+          "active": "1-16(rehit: 4)/17",
           "damage": "6.0/2.4/8.0",
           "advantage": "+0",
           "shieldLag": "-/-/11",
@@ -328,7 +328,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinThoron.gif"
           ],
           "startup": "23/27/31/35/39/43/47",
-          "active": "23—92(Rehit: 4)",
+          "active": "23-92(Rehit: 4)",
           "total": "74 (109 air)",
           "damage": "2.6/2.6",
           "advantage": "-20",
@@ -344,7 +344,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinArcfireHit.gif"
           ],
           "startup": "17",
-          "active": "17—76",
+          "active": "17-76",
           "total": "63",
           "endlag": "2",
           "damage": "2.0/1.3/4.0",
@@ -361,7 +361,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinElwind.gif"
           ],
           "startup": "8/28",
-          "active": "8(9—12/13—31) / 28—32(33—55)",
+          "active": "8(9-12/13-31) / 28-32(33-55)",
           "landingLag": "25",
           "damage": "7.0/5.0",
           "shieldLag": "7/6",
@@ -377,7 +377,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinNosferatuAir.gif"
           ],
           "startup": "15",
-          "active": "15—18",
+          "active": "15-18",
           "total": "49",
           "endlag": "31",
           "notes": "Invulnerable on frame 15-18. 31 frames animation for releasing victim."
@@ -396,7 +396,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "39",
           "endlag": "31"
         },
@@ -407,7 +407,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "47",
           "endlag": "36"
         },
@@ -418,7 +418,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/Robin/RobinPivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "42",
           "endlag": "30"
         },

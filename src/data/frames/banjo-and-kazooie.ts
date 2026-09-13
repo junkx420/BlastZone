@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieJab1.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "27",
           "endlag": "21",
           "damage": "2.2",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieJab2.gif"
           ],
           "startup": "4",
-          "active": "4—6",
+          "active": "4-6",
           "total": "24",
           "endlag": "18",
           "damage": "2.2",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieJab3.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "31",
           "endlag": "24",
           "damage": "3.8",
@@ -71,7 +71,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieJabRapidEnd.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "41",
           "endlag": "33",
           "damage": "1.6",
@@ -88,7 +88,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieFTiltDown.gif"
           ],
           "startup": "7",
-          "active": "7—9",
+          "active": "7-9",
           "total": "28",
           "endlag": "19",
           "damage": "9.0/7.0",
@@ -104,14 +104,14 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieUTilt.gif"
           ],
           "startup": "11",
-          "active": "11—14",
+          "active": "11-14",
           "total": "31",
           "endlag": "17",
           "damage": "10.0",
           "advantage": "-10",
           "shieldLag": "8",
           "shieldStun": "10",
-          "notes": "Kazooie has hurtboxes on frames 1—24."
+          "notes": "Kazooie has hurtboxes on frames 1-24."
         },
         {
           "name": "Down Tilt",
@@ -120,7 +120,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieDTilt.gif"
           ],
           "startup": "12",
-          "active": "12—17(18—21)",
+          "active": "12-17(18-21)",
           "total": "37",
           "endlag": "16",
           "damage": "6.0/5.0/4.0",
@@ -136,7 +136,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieDashAttack.gif"
           ],
           "startup": "9",
-          "active": "9—12(13—20)",
+          "active": "9-12(13-20)",
           "total": "36",
           "endlag": "16",
           "damage": "12.0/8.0",
@@ -152,7 +152,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieFSmash.gif"
           ],
           "startup": "19",
-          "active": "19—21",
+          "active": "19-21",
           "total": "52",
           "endlag": "31",
           "damage": "16.0",
@@ -168,7 +168,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieUSmash.gif"
           ],
           "startup": "9...",
-          "active": "9—10/13—25 (rehit: 2)/26—27",
+          "active": "9-10/13-25 (rehit: 2)/26-27",
           "total": "65",
           "endlag": "40",
           "damage": "1.0/1.5/3.6",
@@ -185,7 +185,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieDSmash.gif"
           ],
           "startup": "13",
-          "active": "13—17",
+          "active": "13-17",
           "total": "46",
           "endlag": "29",
           "damage": "15.0",
@@ -219,7 +219,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieFAir.gif"
           ],
           "startup": "15",
-          "active": "15—17(18)",
+          "active": "15-17(18)",
           "total": "51",
           "endlag": "33",
           "landingLag": "11",
@@ -237,7 +237,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieBAir.gif"
           ],
           "startup": "8/12/16",
-          "active": "8—9/12—13/16—17",
+          "active": "8-9/12-13/16-17",
           "total": "43",
           "endlag": "26",
           "landingLag": "18",
@@ -255,7 +255,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieUAir.gif"
           ],
           "startup": "7/9",
-          "active": "7—8/9—11",
+          "active": "7-8/9-11",
           "total": "33",
           "endlag": "22",
           "landingLag": "12",
@@ -274,7 +274,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieDAirLanding.gif"
           ],
           "startup": "15",
-          "active": "15—17(18—45)/1—2",
+          "active": "15-17(18-45)/1-2",
           "total": "56",
           "endlag": "11",
           "landingLag": "27",
@@ -289,7 +289,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Egg Firing)",
           "section": "special",
           "startup": "13",
-          "active": "13—22(23—52/53—102)",
+          "active": "13-22(23-52/53-102)",
           "total": "49",
           "damage": "5.4/4.6/3.8",
           "advantage": "-27",
@@ -302,13 +302,13 @@ export const FRAMES: FighterFrames = {
           "name": "Breegull Blaster",
           "section": "special",
           "startup": "4(+28)",
-          "active": "4—6/7—9/10—15/16—18",
+          "active": "4-6/7-9/10-15/16-18",
           "total": "24",
           "endlag": "6",
-          "damage": "2.4 — 0.8",
-          "advantage": "-13 — -14",
-          "shieldLag": "5—4",
-          "shieldStun": "2—2",
+          "damage": "2.4 - 0.8",
+          "advantage": "-13 - -14",
+          "shieldLag": "5-4",
+          "shieldStun": "2-2",
           "notes": "Taking out Kazooie is a 28 frame animation. Putting her away is 11 frames."
         },
         {
@@ -318,7 +318,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieWonderwing.gif"
           ],
           "startup": "18",
-          "active": "18—35(36—53)",
+          "active": "18-35(36-53)",
           "total": "82",
           "endlag": "29",
           "damage": "22.0/16.0",
@@ -347,7 +347,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B (Rear Egg)",
           "section": "special",
           "startup": "10",
-          "active": "10—143/1",
+          "active": "10-143/1",
           "total": "44",
           "damage": "0.5/8.5",
           "advantage": "-23",
@@ -363,7 +363,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieGrab.gif"
           ],
           "startup": "7",
-          "active": "7—8",
+          "active": "7-8",
           "total": "36",
           "endlag": "28"
         },
@@ -374,7 +374,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooieDashGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "44",
           "endlag": "33"
         },
@@ -385,7 +385,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/banjo_and_kazooie/Banjo_KazooiePivotGrab.gif"
           ],
           "startup": "11",
-          "active": "11—12",
+          "active": "11-12",
           "total": "39",
           "endlag": "27"
         },

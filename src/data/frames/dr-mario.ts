@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioJab1.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "19",
           "endlag": "16",
           "damage": "2.9",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioJab2.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "21",
           "endlag": "18",
           "damage": "1.7",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioJab3.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "33",
           "endlag": "29",
           "damage": "4.7",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioFTiltDown.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "25",
           "endlag": "18",
           "damage": "10.5",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—11",
+          "active": "5-11",
           "total": "29",
           "endlag": "18",
           "damage": "7.4",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "27",
           "endlag": "20",
           "damage": "8.2/5.8",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—9/10—25",
+          "active": "6-9/10-25",
           "total": "37",
           "endlag": "12",
           "damage": "11.5/7.0",
@@ -126,7 +126,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioFSmashDown.gif"
           ],
           "startup": "15",
-          "active": "15—17",
+          "active": "15-17",
           "total": "47",
           "endlag": "30",
           "damage": "20.9/17.2",
@@ -143,7 +143,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioUSmash.gif"
           ],
           "startup": "9",
-          "active": "9—13",
+          "active": "9-13",
           "total": "39",
           "endlag": "26",
           "damage": "16.4",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioDSmash.gif"
           ],
           "startup": "5/14",
-          "active": "5—6/14",
+          "active": "5-6/14",
           "total": "43",
           "endlag": "29",
           "damage": "11.7/14.1",
@@ -176,7 +176,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioNAir.gif"
           ],
           "startup": "3",
-          "active": "3—10/11—27",
+          "active": "3-10/11-27",
           "total": "45",
           "endlag": "18",
           "landingLag": "7",
@@ -194,7 +194,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioFAir.gif"
           ],
           "startup": "16",
-          "active": "16/17—20/21",
+          "active": "16/17-20/21",
           "total": "59",
           "endlag": "38",
           "landingLag": "17",
@@ -212,7 +212,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioBAir.gif"
           ],
           "startup": "6",
-          "active": "6—8/9—13",
+          "active": "6-8/9-13",
           "total": "33",
           "endlag": "20",
           "landingLag": "10",
@@ -230,7 +230,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioUAir.gif"
           ],
           "startup": "4",
-          "active": "4—7",
+          "active": "4-7",
           "total": "30",
           "endlag": "23",
           "landingLag": "8",
@@ -247,7 +247,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioDAir.gif"
           ],
           "startup": "14",
-          "active": "14—17",
+          "active": "14-17",
           "total": "42",
           "endlag": "25",
           "landingLag": "13",
@@ -261,7 +261,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Megavitamin Pill)",
           "section": "special",
           "startup": "17",
-          "active": "17—46/47—86",
+          "active": "17-46/47-86",
           "total": "49",
           "damage": "5.8/4.7",
           "advantage": "-23",
@@ -276,7 +276,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioSuperSheet.gif"
           ],
           "startup": "12",
-          "active": "12—16",
+          "active": "12-16",
           "total": "35",
           "endlag": "19",
           "damage": "8.2",
@@ -292,7 +292,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioSuperJumpPunch.gif"
           ],
           "startup": "3",
-          "active": "3—5/6—19",
+          "active": "3-5/6-19",
           "landingLag": "30",
           "damage": "14.1 / 7.0",
           "shieldLag": "10/7",
@@ -307,7 +307,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioDrTornadoA.gif"
           ],
           "startup": "10/14/18/22/26/30/40",
-          "active": "10/14/18/22/26/30/40—41",
+          "active": "10/14/18/22/26/30/40-41",
           "total": "74",
           "endlag": "33",
           "damage": "1.8/3.5",
@@ -324,7 +324,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -335,7 +335,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -346,7 +346,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/dr_mario/DrMarioPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "36",
           "endlag": "25"
         },

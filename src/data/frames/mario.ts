@@ -13,7 +13,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioJab1.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "19",
           "endlag": "16",
           "damage": "2.2",
@@ -29,7 +29,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioJab2.gif"
           ],
           "startup": "2",
-          "active": "2—3",
+          "active": "2-3",
           "total": "21",
           "endlag": "18",
           "damage": "1.7",
@@ -45,7 +45,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioJab3.gif"
           ],
           "startup": "3",
-          "active": "3—4",
+          "active": "3-4",
           "total": "33",
           "endlag": "29",
           "damage": "4.0",
@@ -62,7 +62,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioFTiltDown.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "25",
           "endlag": "18",
           "damage": "7.0",
@@ -77,7 +77,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioUTilt.gif"
           ],
           "startup": "5",
-          "active": "5—11",
+          "active": "5-11",
           "total": "29",
           "endlag": "18",
           "damage": "5.5",
@@ -92,7 +92,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioDTilt.gif"
           ],
           "startup": "5",
-          "active": "5—7",
+          "active": "5-7",
           "total": "27",
           "endlag": "20",
           "damage": "7.0/5.0",
@@ -108,7 +108,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioDashAttack.gif"
           ],
           "startup": "6",
-          "active": "6—9(10—25)",
+          "active": "6-9(10-25)",
           "total": "37",
           "endlag": "12",
           "damage": "8.0/6.0",
@@ -126,7 +126,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioFSmashDown.gif"
           ],
           "startup": "15",
-          "active": "15—17",
+          "active": "15-17",
           "total": "47",
           "endlag": "30",
           "damage": "17.7/14.6",
@@ -143,7 +143,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioUSmash.gif"
           ],
           "startup": "9",
-          "active": "9—12",
+          "active": "9-12",
           "total": "39",
           "endlag": "27",
           "damage": "14.0",
@@ -159,7 +159,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioDSmash.gif"
           ],
           "startup": "5/14",
-          "active": "5—6/14",
+          "active": "5-6/14",
           "total": "43",
           "endlag": "29",
           "damage": "10.0/12.0",
@@ -176,7 +176,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioNAir.gif"
           ],
           "startup": "3",
-          "active": "3—5(6—27)",
+          "active": "3-5(6-27)",
           "total": "45",
           "endlag": "18",
           "landingLag": "6",
@@ -194,7 +194,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioFAir.gif"
           ],
           "startup": "16",
-          "active": "16/17—20/21",
+          "active": "16/17-20/21",
           "total": "59",
           "endlag": "38",
           "landingLag": "17",
@@ -212,7 +212,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioBAir.gif"
           ],
           "startup": "6",
-          "active": "6—7(8—10)",
+          "active": "6-7(8-10)",
           "total": "33",
           "endlag": "23",
           "landingLag": "6",
@@ -230,7 +230,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioUAir.gif"
           ],
           "startup": "4",
-          "active": "4—7",
+          "active": "4-7",
           "total": "30",
           "endlag": "23",
           "landingLag": "6",
@@ -248,7 +248,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioDAirLanding.gif"
           ],
           "startup": "5/7/9/11/13/23",
-          "active": "5/7/9/11/13/23(1—2)",
+          "active": "5/7/9/11/13/23(1-2)",
           "total": "37",
           "endlag": "14",
           "landingLag": "15",
@@ -263,7 +263,7 @@ export const FRAMES: FighterFrames = {
           "name": "Neutral B (Fireball)",
           "section": "special",
           "startup": "17",
-          "active": "17—21(22—46/47—86)",
+          "active": "17-21(22-46/47-86)",
           "total": "49",
           "damage": "5.0/4.0",
           "advantage": "-23",
@@ -279,7 +279,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioCape.gif"
           ],
           "startup": "12",
-          "active": "12—14",
+          "active": "12-14",
           "total": "35",
           "endlag": "21",
           "damage": "7.0",
@@ -307,7 +307,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B (F.L.U.D.D.)",
           "section": "special",
           "startup": "2 (+19)",
-          "active": "21—**",
+          "active": "21-**",
           "total": "48",
           "notes": "Startup is 2 from a charging state. Entering charge state takes 19 frames and is shield cancellable on 20."
         },
@@ -315,7 +315,7 @@ export const FRAMES: FighterFrames = {
           "name": "Down B, Fully Charged (F.L.U.D.D.)",
           "section": "special",
           "startup": "21",
-          "active": "21—**",
+          "active": "21-**",
           "total": "67",
           "notes": "Takes 100 frames to reach full charge."
         },
@@ -326,7 +326,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioGrab.gif"
           ],
           "startup": "6",
-          "active": "6—7",
+          "active": "6-7",
           "total": "34",
           "endlag": "27"
         },
@@ -337,7 +337,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioDashGrab.gif"
           ],
           "startup": "9",
-          "active": "9—10",
+          "active": "9-10",
           "total": "42",
           "endlag": "32"
         },
@@ -348,7 +348,7 @@ export const FRAMES: FighterFrames = {
             "hitboxes/mario/MarioPivotGrab.gif"
           ],
           "startup": "10",
-          "active": "10—11",
+          "active": "10-11",
           "total": "36",
           "endlag": "25"
         },
