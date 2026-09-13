@@ -55,7 +55,7 @@ function heroSection(f: Fighter): Markup {
       </div>
       <p class="fhero__tagline" data-hero-in>${f.tagline}</p>
       <p class="fhero__jump" data-hero-in>
-        <button class="btn btn--primary" type="button" data-jump>${ICONS.combo}Zu den Combo-Routen</button>
+        <button class="btn btn--primary" type="button" data-jump>${ICONS.combo}Zu den Combos</button>
       </p>
     </div>
   </header>`;
@@ -146,8 +146,8 @@ type TabId = 'bnb' | 'meta';
 
 function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabId, pending = false): Markup {
   const head = html`<div class="section-head">
-    <h2 id="combos-title" data-reveal="wipe">Combo-Routen</h2>
-    <p>Jede Route verlinkt ihre Quelle. Prozentangaben stehen so da, wie die Quelle sie nennt. Schaden kommt aus Ultimate Frame Data, mit 1v1-Faktor und gerundet.</p>
+    <h2 id="combos-title" data-reveal="wipe">Combos</h2>
+    <p>Jede Combo verlinkt ihre Quelle. Die Prozente stehen so da, wie die Quelle sie nennt. Schaden kommt von Ultimate Frame Data, mit 1v1-Faktor und gerundet.</p>
   </div>`;
 
   if (!guide) {
@@ -155,7 +155,7 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
       ${head}
       ${pending
         ? html`<div class="skeleton" role="status" aria-live="polite">
-            <span class="vh">Combo-Routen werden geladen.</span>
+            <span class="vh">Combos werden geladen.</span>
             ${[0, 1].map(
               () => html`<div class="skeleton__card" aria-hidden="true">
                 <span class="skeleton__bar skeleton__bar--title"></span>
@@ -167,9 +167,9 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
             )}
           </div>`
         : html`<div class="empty">
-            <h3>Für ${f.name} stehen noch keine Combo-Routen drin.</h3>
-            <p>Tier-Platzierung und Werte sind da. Routen gibt es bisher für ${GUIDE_COUNT} Fighter.</p>
-            <a class="btn btn--sm" href="${link('/roster', { routen: '1' })}">${ICONS.combo}Fighter mit Combo-Routen</a>
+            <h3>Für ${f.name} stehen noch keine Combos drin.</h3>
+            <p>Tier-Platzierung und Werte sind da. Combos gibt es bisher für ${GUIDE_COUNT} Fighter.</p>
+            <a class="btn btn--sm" href="${link('/roster', { routen: '1' })}">${ICONS.combo}Fighter mit Combos</a>
           </div>`}
     </section>`;
   }
@@ -178,12 +178,12 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
     {
       id: 'bnb',
       label: 'Bread & Butter',
-      intro: 'Deine Basis. Geht zuverlässig auf, verzeiht Fehler und funktioniert auch unter Druck.',
+      intro: 'Das, was du in jedem Match brauchst. Wenig Risiko, geht auch wenn es hektisch wird.',
       combos: guide.combos.filter((c) => c.kind === 'bnb'),
     },
     {
       id: 'meta',
-      label: 'Meta-Routen',
+      label: 'Meta',
       intro: 'Was auf Turnieren läuft. Mehr Schaden, mehr Kill-Power, weniger Spielraum für Fehler.',
       combos: guide.combos.filter((c) => c.kind === 'meta'),
     },

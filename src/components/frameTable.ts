@@ -61,14 +61,45 @@ const START_GRENZEN = [4, 7, 11, 17] as const;
 /** Schildvorteil: 0 und besser ist sicher, stark negativ ist ein freier Punish. */
 const SCHILD_GRENZEN = [-24, -14, -8, -3] as const;
 
-const zelle = (wert: string | undefined, klasse = ''): Markup =>
-  html`<td class="${klasse.trim()}">${wert ?? raw('<span class="frame__leer" title="trifft hier nicht zu">k. A.</span>')}</td>`;
+interface Spalte {
+  kopf: string;
+  hinweis: string;
+  wert(move: FrameMove): string | undefined;
+  klasse?(move: FrameMove): string;
+}
 
-function zeile(move: FrameMove): Markup {
-  // Schild andersherum: Der schlechteste Wert ist der kleinste, deshalb gespiegelt.
-  const schildStufe = stufe(ersteZahl(move.advantage), SCHILD_GRENZEN);
-  const schild = schildStufe ? ` frame--h${4 - Number(schildStufe.slice(-1))}` : '';
+/**
+ * Die Wertspalten. Welche davon erscheinen, entscheidet sich pro Abschnitt:
+ * Landing Lag gibt es nur bei Luftangriffen, Endlag fuehrt UFD bei Specials oft
+ * gar nicht. Vorher stand in diesen Spalten zeilenweise ein Platzhalter, also
+ * eine komplette Spalte ohne einen einzigen Wert. Weniger Spalten heisst auch
+ * weniger seitliches Scrollen auf dem Telefon.
+ */
+const SPALTEN: Spalte[] = [
+  {
+    kopf: 'Start',
+    hinweis: 'Erster Frame mit aktiver Hitbox',
+    wert: (m) => m.startup,
+    klasse: (m) => `frame__zahl${stufe(ersteZahl(m.startup), START_GRENZEN)}`,
+  },
+  { kopf: 'Aktiv', hinweis: 'Frames mit aktiver Hitbox', wert: (m) => m.active },
+  { kopf: 'Gesamt', hinweis: 'Gesamtdauer der Animation', wert: (m) => m.total },
+  { kopf: 'Endlag', hinweis: 'Frames nach der letzten Hitbox', wert: (m) => m.endlag },
+  { kopf: 'Landing', hinweis: 'Landing Lag, nur bei Luftangriffen', wert: (m) => m.landingLag },
+  { kopf: 'Schaden', hinweis: 'Basisschaden ohne 1v1-Faktor', wert: (m) => m.damage },
+  {
+    kopf: 'Schild',
+    hinweis: 'Vorteil am Schild, negativ heisst bestrafbar',
+    wert: (m) => m.advantage,
+    // Gespiegelt: Beim Schild ist der kleinste Wert der schlechteste.
+    klasse: (m) => {
+      const s = stufe(ersteZahl(m.advantage), SCHILD_GRENZEN);
+      return `frame__zahl${s ? ` frame--h${4 - Number(s.slice(-1))}` : ''}`;
+    },
+  },
+];
 
+function zeile(move: FrameMove, spalten: Spalte[]): Markup {
   return html`<tr>
     <th scope="row">
       <span class="frame__name">${move.name}</span>
@@ -76,34 +107,27 @@ function zeile(move: FrameMove): Markup {
       ${move.notes ? html`<span class="frame__notiz">${move.notes}</span>` : ''}
       ${move.hitboxImages?.length
         ? html`<button class="frame__hitbox" type="button" data-hitbox="${move.hitboxImages.join('|')}" data-hitbox-move="${move.name}">
-            Hitbox ansehen
+            Hitbox
           </button>`
         : ''}
     </th>
-    ${zelle(move.startup, `frame__zahl${stufe(ersteZahl(move.startup), START_GRENZEN)}`)} ${zelle(move.active)}
-    ${zelle(move.total)} ${zelle(move.endlag)} ${zelle(move.landingLag)} ${zelle(move.damage)}
-    ${zelle(move.advantage, `frame__zahl${schild}`)}
+    ${spalten.map((s) => html`<td class="${(s.klasse?.(move) ?? '').trim()}">${s.wert(move) ?? ''}</td>`)}
   </tr>`;
 }
 
 function tabelle(moves: FrameMove[], titel: string): Markup {
+  const spalten = SPALTEN.filter((s) => moves.some((m) => s.wert(m) !== undefined));
   return html`<div class="frame__scroll">
     <table class="frame">
       <caption class="vh">${titel}</caption>
       <thead>
         <tr>
           <th scope="col">Move</th>
-          <th scope="col" title="Erster Frame mit aktiver Hitbox">Start</th>
-          <th scope="col" title="Frames mit aktiver Hitbox">Aktiv</th>
-          <th scope="col" title="Gesamtdauer der Animation">Gesamt</th>
-          <th scope="col" title="Frames nach der letzten Hitbox">Endlag</th>
-          <th scope="col" title="Nur bei Luftangriffen">Landing</th>
-          <th scope="col" title="Basisschaden ohne 1v1-Faktor">Schaden</th>
-          <th scope="col" title="Vorteil am Schild; negativ heißt bestrafbar">Schild</th>
+          ${spalten.map((s) => html`<th scope="col" title="${s.hinweis}">${s.kopf}</th>`)}
         </tr>
       </thead>
       <tbody>
-        ${moves.map(zeile)}
+        ${moves.map((m) => zeile(m, spalten))}
       </tbody>
     </table>
   </div>`;
@@ -145,8 +169,8 @@ export function framesSection(fighterName: string): Markup {
     <div class="section-head">
       <h2 id="frames-title" data-reveal="wipe">Frame Data</h2>
       <p>
-        Jeder Move von ${fighterName} mit Startup, aktiven Frames, Endlag und dem, was auf Schild passiert. Mehrere
-        Werte in einer Spalte heißen mehrere Hitboxen. Welche gemeint ist, steht am Move.
+        Alle Moves von ${fighterName}: wie schnell sie rauskommen, wie lange sie aktiv sind und was du auf Schild
+        riskierst. Stehen mehrere Werte in einer Spalte, sind das die Hitboxen des Moves.
       </p>
     </div>
     <div class="fframes__body" data-frames-body>

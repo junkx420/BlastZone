@@ -6,25 +6,29 @@
     <title>Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate</title>
     <meta
       name="description"
-      content="Roster, Tier-Liste und Combo-Routen mit Input-Notation für die Fighter aus Super Smash Bros. Ultimate."
+      content="Combos, Frame Data und Tier-Liste für alle 86 Fighter aus Super Smash Bros. Ultimate. Jede Combo mit Quelle."
     />
     <meta name="theme-color" content="#06070a" />
 
     <!--
       Social-Vorschau. og.jpg wird von scripts/build-og-image.mjs aus den Assets
-      im Repository gebaut – bei geänderten Zahlen dort neu erzeugen.
-      Der Pfad ist bewusst relativ, weil es noch keine feste Domain gibt; sobald
-      eine existiert, gehört hier die absolute URL hin (Crawler verlangen sie).
+      im Repository gebaut. Bei geaenderten Zahlen dort neu erzeugen.
+
+      Die URLs sind absolut, weil Crawler das verlangen: Facebook, Discord und
+      Co. besuchen die Seite nicht im Browserkontext und koennen einen relativen
+      Pfad nicht aufloesen. Bei einem Domainwechsel muessen og:url, og:image und
+      twitter:image mit umziehen.
     -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="Blastzone" />
+    <meta property="og:url" content="https://blast-zone.vercel.app/" />
     <meta property="og:title" content="Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate" />
     <meta
       property="og:description"
-      content="86 Fighter mit Combos, Frame Data und einer Quelle zu jeder Route. Dazu die UltRank-Liste 2026 und Input-Notation."
+      content="86 Fighter mit Combos, Frame Data und einer Quelle zu jeder Combo. Dazu die UltRank-Liste 2026 und alle Inputs."
     />
-    <meta property="og:image" content="./og.jpg" />
+    <meta property="og:image" content="https://blast-zone.vercel.app/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -35,9 +39,9 @@
     <meta name="twitter:title" content="Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate" />
     <meta
       name="twitter:description"
-      content="86 Fighter mit Combos, Frame Data und einer Quelle zu jeder Route. Dazu die UltRank-Liste 2026 und Input-Notation."
+      content="86 Fighter mit Combos, Frame Data und einer Quelle zu jeder Combo. Dazu die UltRank-Liste 2026 und alle Inputs."
     />
-    <meta name="twitter:image" content="./og.jpg" />
+    <meta name="twitter:image" content="https://blast-zone.vercel.app/og.jpg" />
 
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
 

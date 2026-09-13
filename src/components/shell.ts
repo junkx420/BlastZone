@@ -6,7 +6,9 @@ import { ICONS } from './icons';
 const NAV: Array<{ route: RouteName; path: string; label: string; wide?: boolean }> = [
   { route: 'roster', path: '/roster', label: 'Roster' },
   { route: 'tiers', path: '/tiers', label: 'Tier-Liste' },
-  { route: 'notation', path: '/notation', label: 'Notation' },
+  // Label bewusst "Inputs": "Notation" sagt in der Szene niemand.
+  // Der Pfad bleibt /notation, damit vorhandene Links weiter funktionieren.
+  { route: 'notation', path: '/notation', label: 'Inputs' },
 ];
 
 export interface Shell {

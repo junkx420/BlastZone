@@ -35,8 +35,8 @@ function heroSection(): Markup {
       <div class="hero__copy">
         <h1 class="hero__title" id="hero-title"><span class="hero__line">Vom ersten Treffer</span> <span class="hero__line">bis zum KO.</span></h1>
         <p class="hero__lead">
-          Combos, Frame Data und die UltRank-Liste für alle ${FIGHTERS.length} Fighter. Jede Route mit Quelle, damit du
-          nicht auf gut Glück in den Trainingsmodus gehst.
+          Combos, Frame Data und die UltRank-Liste für alle ${FIGHTERS.length} Fighter. Alles mit Quelle, damit du nicht
+          raten musst, was wirklich durchgeht.
         </p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="${link('/roster')}">Fighter finden</a>
@@ -358,7 +358,7 @@ function rosterSection(): Markup {
           <div class="filters__tiers" role="group" aria-label="Nach Tier filtern">
             ${TIER_ORDER.map((t) => html`<button type="button" class="chip" data-tier="${tierGroup(t)}" data-tier-id="${t}" aria-pressed="false">${t}</button>`)}
           </div>
-          <button type="button" class="chip chip--guides" data-guides aria-pressed="false">${ICONS.combo}Mit Combo-Routen</button>
+          <button type="button" class="chip chip--guides" data-guides aria-pressed="false">${ICONS.combo}Mit Combos</button>
           <button type="button" class="btn btn--sm btn--ghost filters__reset" data-reset hidden>${ICONS.reset}Filter zurücksetzen</button>
         </div>
       </div>
@@ -518,7 +518,7 @@ function notationSection(): Markup {
   return html`<section class="section notation" id="notation" aria-labelledby="notation-title">
     <div class="container notation__layout">
       <div class="notation__intro">
-        <h2 id="notation-title" data-reveal="wipe">Notation lesen</h2>
+        <h2 id="notation-title" data-reveal="wipe">Inputs lesen</h2>
         <p>
           Jeder Combo-Schritt steht zweimal da. Einmal als Kurzform, wie sie in der Szene geschrieben wird, und einmal
           als Eingabe auf dem GameCube-Controller, dem Standard auf Turnieren.

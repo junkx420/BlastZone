@@ -38,7 +38,7 @@ export function fighterTile(f: Fighter): Markup {
       <span class="tile__top">
         ${tierBadge(TIER_BY_SLUG.get(f.slug))}
         ${hasGuide
-          ? html`<span class="tile__guide" title="Combo-Routen verfügbar">${ICONS.combo}<span class="vh">Combo-Routen verfügbar</span></span>`
+          ? html`<span class="tile__guide" title="Hat Combos">${ICONS.combo}<span class="vh">Hat Combos</span></span>`
           : ''}
       </span>
       <span class="tile__p1" aria-hidden="true">P1</span>

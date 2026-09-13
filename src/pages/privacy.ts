@@ -93,7 +93,7 @@ export function privacyPage(): PageView {
 
         <h2>Verweise auf andere Seiten</h2>
         <p>
-          Jede Combo-Route verlinkt ihre Quelle (unter anderem SmashWiki, Game8, Ultimate Frame Data, EventHubs).
+          Jede Combo verlinkt ihre Quelle (unter anderem SmashWiki, Game8, Ultimate Frame Data, EventHubs).
           Diese Verweise werden erst beim Anklicken aufgerufen. Für die Datenverarbeitung auf den Zielseiten sind
           deren Betreiber verantwortlich.
         </p>
