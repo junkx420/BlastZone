@@ -80,7 +80,9 @@ export function comboCard(combo: Combo): Markup {
  * Replays a combo like an in-game hit sequence: each step lights up, the damage
  * meter ticks with hitlag shake and heats along the percent ramp, a kill ends in KO.
  */
-export function playCombo(root: HTMLElement, combo: Combo, stepGap = 0.62): gsap.core.Timeline {
+// stepGap: Abstand zwischen zwei Schritten in Sekunden. Bewusst gemaechlich,
+// damit man die Inputs mitlesen kann, statt sie nur aufblitzen zu sehen.
+export function playCombo(root: HTMLElement, combo: Combo, stepGap = 0.85): gsap.core.Timeline {
   const steps = qsa<HTMLElement>('.step', root);
   const meterEl = qs<HTMLElement>('[data-meter]', root);
   const tl = gsap.timeline();

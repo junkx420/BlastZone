@@ -36,6 +36,28 @@
     position: absolute;
     inset: -4% -4% -4% 28%;
   }
+  /*
+   * Auf schmalen Schirmen war der Render links angeschnitten: Die 28 Prozent
+   * Einzug stammen vom zweispaltigen Aufbau, wo links der Text steht. Fehlt der
+   * Platz, schiebt der Einzug den Fighter aus dem Bild.
+   *
+   * Deshalb hier volle Breite und der Bildausschnitt nach rechts verschoben, wo
+   * der Charakter steht. Der Verlauf von links bleibt, damit die Schrift
+   * darueber lesbar ist.
+   */
+  @media (max-width: 700px) {
+    .fhero__art {
+      inset: -4% 0 -2% 0;
+    }
+    .fhero__art-inner > .art-img {
+      object-position: 68% center;
+    }
+    .fhero__stage::after {
+      background:
+        linear-gradient(to bottom, rgb(6 7 10 / 0.05) 30%, var(--bg) 97%),
+        linear-gradient(to right, rgb(6 7 10 / 0.92) 0%, rgb(6 7 10 / 0.35) 55%, rgb(6 7 10 / 0) 100%);
+    }
+  }
   .fhero__art-inner {
     position: absolute;
     inset: 0;

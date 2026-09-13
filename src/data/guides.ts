@@ -440,7 +440,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'jump bair', label: 'Sprung → Bair', dmg: 10 },
           { input: 'dj bair', label: 'DJ Bair', dmg: 10 },
         ],
-        tip: 'Laut Game8 rund 38 % Schaden. Nach dem Up Tilt direkt springen und rückwärts nachsetzen.',
+        tip: 'Nach dem Up Tilt direkt springen und rückwärts nachsetzen.',
         source: game8('Super-Smash-Bros-Ultimate/archives/281251'),
       },
       {
@@ -572,7 +572,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 14 },
           { input: 'fh uair', label: 'FH Uair', dmg: 10 },
         ],
-        tip: 'Laut Game8 rund 24 % Schaden. Alternativ Forward Air oder ein Up Smash aus dem Dash.',
+        tip: 'Alternativ Forward Air oder ein Up Smash aus dem Dash.',
         source: wiki('R.O.B._(SSBU)'),
       },
       {
@@ -589,7 +589,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 10 },
           { input: 'jump uair', label: 'Sprung → Up Air', dmg: 10 },
         ],
-        tip: 'Laut Game8 rund 36 % Schaden. Up Tilt kettet bei niedrigen Prozenten in sich selbst.',
+        tip: 'Up Tilt kettet bei niedrigen Prozenten in sich selbst.',
         source: game8('SSBU/archives/281209'),
       },
       {
@@ -603,7 +603,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 11 },
           { input: 'sb', label: 'Arm Rotor', dmg: 18 },
         ],
-        tip: 'Laut Game8 rund 29 % Schaden. Aus dem Nair funktionieren auch Forward Air oder Up Air.',
+        tip: 'Aus dem Nair funktionieren auch Forward Air oder Up Air.',
         source: game8('SSBU/archives/281209'),
       },
       {

@@ -456,7 +456,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 10 },
           { input: 'fh fair', label: 'FH Fair', dmg: 10 },
         ],
-        tip: 'Rund 20 % Schaden. Mit einem Blue Pikmin wird der Wurf zu stark und die Route verbindet nicht.',
+        tip: 'Mit einem Blue Pikmin wird der Wurf zu stark und die Route verbindet nicht.',
         tags: ['Nicht mit Blue Pikmin'],
         source: game8('281207'),
       },

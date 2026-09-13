@@ -4,7 +4,7 @@ export const TIER_SOURCE: TierListSource = {
   name: 'UltRank-Tier-Liste #4',
   published: '6. Mai 2026',
   url: 'https://www.ssbwiki.com/Tier_list',
-  note: 'Patch 13.0.4. Pokémon Trainer und Pyra/Mythra wurden als je ein Charakter bewertet. Peach und Daisy, Samus und Dark Samus, Pit und Dark Pit sowie Simon und Richter teilen sich jeweils einen Rang.',
+  note: 'Alle Echofighter haben die selbe Platzierung.',
 };
 
 /** [rank, tier, panel score, ...slugs] exactly as published. Echo pairs share a rank. */

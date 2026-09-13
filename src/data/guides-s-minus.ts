@@ -434,7 +434,7 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 7 },
           { input: 'sh uair', label: 'SH Uair', dmg: 6 },
         ],
-        tip: 'Laut Game8 rund 20 % Schaden. Down Tilt verliert in den späten Hitboxen nicht an Stärke.',
+        tip: 'Down Tilt verliert in den späten Hitboxen nicht an Stärke.',
         source: game8('281247'),
       },
       {
