@@ -46,11 +46,35 @@
    * darueber lesbar ist.
    */
   @media (max-width: 700px) {
+    /*
+     * Nicht die volle Hoehe, sondern nur der obere Teil. Die Flaeche war zuvor
+     * 375 mal 757 px, also hochkant 1:2, waehrend die Renders quadratisch bis
+     * querformatig sind. Mit object-fit contain schrumpfte Corrins Doppel-
+     * portraet dadurch auf 375 mal 233 px und klebte als Streifen am unteren
+     * Rand, waehrend oben zwei Drittel leerer Verlauf standen.
+     *
+     * Jetzt sitzt das Bild oben, wo ohnehin nichts steht, und der Text bleibt
+     * darunter frei. Abgeschnitten wird nichts, contain bleibt.
+     */
     .fhero__art {
-      inset: -4% 0 -2% 0;
+      inset: 0 0 auto 0;
+      height: 58%;
     }
-    .fhero__art-inner > .art-img {
-      object-position: 68% center;
+    /*
+     * Klassenname beachten: Im Markup steht art__img mit zwei Unterstrichen.
+     * Der Selektor weiter unten in dieser Datei schreibt art-img und trifft
+     * deshalb nichts. Mein erster Versuch hatte den Fehler uebernommen, die
+     * Regel blieb wirkungslos und art.css behielt die Oberhand.
+     *
+     * Gewinnt jetzt trotzdem gegen art.css, weil pages in der Layer-Reihenfolge
+     * hinter components steht. Spezifitaet spielt dabei keine Rolle.
+     *
+     * Waagerecht mittig statt bei 82 Prozent: Bei object-fit contain sitzt der
+     * Render sonst am rechten Rand, und bei Corrins Doppelportraet sah man nur
+     * noch einen Arm.
+     */
+    .fhero__art-inner .art__img {
+      object-position: 50% 100%;
     }
     .fhero__stage::after {
       background:

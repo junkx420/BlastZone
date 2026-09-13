@@ -10,9 +10,9 @@ const BASE = `${import.meta.env.BASE_URL}fighters`;
  */
 const ASSET_NAMES: Record<string, string> = {
   rosalina: 'rosalina_and_luma',
-  'mii-brawler': 'mii_fighter',
-  'mii-swordfighter': 'mii_fighter',
-  'mii-gunner': 'mii_fighter',
+  // Die drei Miis teilten sich frueher das gemeinsame Artwork von smashbros.com,
+  // weil Nintendo dort nur ein Bild fuer alle veroeffentlicht. Jetzt hat jeder
+  // sein eigenes Portraet, die Dateinamen folgen der Standardregel.
   isabelle: 'shizue',
   incineroar: 'gaogaen',
   'piranha-plant': 'packun_flower',
