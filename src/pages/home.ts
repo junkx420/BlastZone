@@ -519,15 +519,11 @@ function notationSection(): Markup {
     <div class="container notation__layout">
       <div class="notation__intro">
         <h2 id="notation-title" data-reveal="wipe">Inputs lesen</h2>
-        <p>
-          Jeder Combo-Schritt steht zweimal da. Einmal als Kurzform, wie sie in der Szene geschrieben wird, und einmal
-          als Eingabe auf dem GameCube-Controller, dem Standard auf Turnieren.
-        </p>
         <h3 class="legend__title">Legende der Inputs:</h3>
         <ul class="legend" role="list">
           ${BUTTON_LEGEND.map((b) => html`<li class="legend__item">${glyph({ t: 'btn', b: b.b })}<span>${b.name}</span></li>`)}
-          <li class="legend__item">${glyph({ t: 'dir', d: 'f' })}<span>Richtung am Control Stick, vom Fighter aus gesehen</span></li>
-          <li class="legend__item">${glyph({ t: 'btn', b: 'A', smash: true })}<span>Ring: kräftig antippen für Smash-Angriffe</span></li>
+          <li class="legend__item">${glyph({ t: 'dir', d: 'f' })}<span>Richtung</span></li>
+          <li class="legend__item">${glyph({ t: 'btn', b: 'A', smash: true })}<span>Smash</span></li>
           <li class="legend__item">${glyph({ t: 'btn', b: 'X', hold: true })}<span>Fullhop</span></li>
           <li class="legend__item">${glyph({ t: 'btn', b: 'X', tap: true })}<span>Shorthop</span></li>
         </ul>

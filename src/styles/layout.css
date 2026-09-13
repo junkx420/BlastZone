@@ -13,58 +13,53 @@
   }
 
   /* ── Navigation ─────────────────────────────────────────────────────── */
+  /*
+   * Die Leiste ist dasselbe schwebende Glas-Panel wie der Filterblock im Roster,
+   * bis auf die Kanten: `.nav` zeichnet nichts und positioniert nur, die Optik
+   * sitzt auf `.nav__inner`. Aussenabstand und Maximalbreite sind so gesetzt,
+   * dass die Panelkanten genau auf denen von `.container` liegen. Dadurch steht
+   * die Leiste senkrecht ueber dem Filterblock, statt um einen Gutter versetzt.
+   *
+   * Frueher lag hier ein Verlauf auf ::before und eine Abdeckung auf ::after, die
+   * beim Scrollen eingeblendet wurde. Beides ist weg.
+   *
+   * `view-transition-name` steht bewusst NICHT mehr hier. Dauerhaft gesetzt macht
+   * es die Leiste laut Spezifikation zur eigenen backdrop root: `backdrop-filter`
+   * findet dann nichts mehr hinter sich und die Leiste deckt bloss ab, statt
+   * unscharf zu zeichnen. Genau das war die Beobachtung "hier ist KEIN blur".
+   * Den Namen setzt `main.ts` jetzt nur fuer die Dauer eines Seitenwechsels.
+   */
   .nav {
     position: fixed;
     inset: 0 0 auto;
     z-index: var(--z-nav);
     height: var(--nav-h);
-    view-transition-name: site-nav;
-  }
-  .nav::before,
-  .nav::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+    padding: 8px var(--gutter) 0;
+    /* Nur das Panel faengt Klicks, der Streifen daneben bleibt durchlaessig. */
     pointer-events: none;
-    transition: opacity var(--t-base) var(--ease-out);
-  }
-  /*
-   * Ungescrollter Zustand. Der Verlauf allein liess die Leiste ueber dem Hero
-   * flach wirken, weil der Blur bis dahin komplett auf ::after lag und das erst
-   * beim Scrollen eingeblendet wird. Ein leichter Blur von Anfang an gibt der
-   * Leiste Tiefe, ohne das Artwork darunter zuzukleistern.
-   */
-  .nav::before {
-    background: linear-gradient(to bottom, rgb(6 7 10 / 0.8), rgb(6 7 10 / 0));
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
-    mask-image: linear-gradient(to bottom, #000 55%, transparent);
-  }
-  .nav::after {
-    opacity: 0;
-    background: var(--glass-bg-strong);
-    -webkit-backdrop-filter: var(--glass-blur);
-    backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav.is-scrolled::before {
-    opacity: 0;
-  }
-  .nav.is-scrolled::after {
-    opacity: 1;
   }
 
   .nav__inner {
+    pointer-events: auto;
     position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
     gap: var(--sp-5);
     height: 100%;
-    max-width: var(--max);
+    max-width: calc(var(--max) - var(--gutter) * 2);
     margin-inline: auto;
-    padding-inline: var(--gutter);
+    padding-inline: var(--sp-4);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-panel);
+    /* Ueber dem Hero darf mehr Artwork durch als weiter unten im Dokument. */
+    background: rgb(14 17 24 / 0.42);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim), var(--elev-2);
+    transition: background-color var(--t-base) var(--ease-out);
+  }
+  .nav.is-scrolled .nav__inner {
+    background: var(--glass-bg);
   }
 
   .brand {
@@ -178,10 +173,16 @@
   }
 
   @media (max-width: 760px) {
+    /*
+     * Kein eigener Aussenabstand hier. `.nav` behaelt var(--gutter), damit die
+     * Panelkanten auch auf dem Handy genau auf denen des Filterblocks liegen.
+     */
     .nav__inner {
       flex-wrap: wrap;
       align-content: center;
       gap: 0 var(--sp-3);
+      max-width: none;
+      padding-inline: var(--sp-3);
     }
     .nav__search {
       margin-inline-start: auto;

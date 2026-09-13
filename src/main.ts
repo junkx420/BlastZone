@@ -132,6 +132,16 @@ startRouter((route, nav) => {
     return;
   }
 
+  /*
+   * Die Leiste bekommt ihren Transition-Namen nur fuer die Dauer des Wechsels.
+   * Dauerhaft in der CSS gesetzt macht `view-transition-name` sie zur eigenen
+   * backdrop root, dann findet ihr `backdrop-filter` nichts mehr hinter sich und
+   * sie deckt nur noch ab. Ganz ohne Namen wiederum liegt sie im Root-Snapshot
+   * und skaliert bei jedem Seitenwechsel mit.
+   */
+  const navBar = qs<HTMLElement>('[data-nav]');
+  navBar?.style.setProperty('view-transition-name', 'site-nav');
+
   const transition = document.startViewTransition(() => {
     render(route, nav);
     linkReturningTile(nav);
@@ -143,6 +153,7 @@ startRouter((route, nav) => {
     .catch(() => {})
     .finally(() => {
       clearShared();
+      navBar?.style.removeProperty('view-transition-name');
       shell.main.focus({ preventScroll: true });
     });
 });
