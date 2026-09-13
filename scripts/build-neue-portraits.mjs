@@ -11,8 +11,11 @@
  * DREI DINGE, DIE BEIM ERSTEN ANLAUF SCHIEFGINGEN:
  *
  * 1. Kopfposition geraten statt gemessen. Ein fester Bruchteil der Bildbreite
- *    trifft bei einem Bild den Kopf und beim naechsten nur den Helm. Jetzt wird
- *    die Silhouette per trim() vermessen und der Kopf daraus abgeleitet.
+ *    trifft bei einem Bild den Kopf und beim naechsten nur den Helm. Die Figur
+ *    wird deshalb per trim() freigestellt und der Kopf im obersten Band ihrer
+ *    Alphamaske gesucht, als dichtester Streifen. Dass es der dichteste sein
+ *    muss und nicht der Schwerpunkt, hat zwei Fehlversuche gekostet; sie stehen
+ *    bei `kopfAusschnitt`.
  * 2. Die Diagonale ueber zwei mittige Renders gelegt. Beide Vorlagen zeigen die
  *    Figur in der Bildmitte, die rechte Haelfte enthaelt also nur Haare und
  *    Leerraum. Fuer eine geteilte Ansicht muessen beide Figuren erst
@@ -134,6 +137,159 @@ async function corrinGeteilt() {
     .toBuffer();
 }
 
+/**
+ * Misst, wo der Kopf einer freigestellten Figur waagerecht sitzt.
+ *
+ * Ein Wert von Hand je Bild trifft mal das Gesicht und mal den Helm, deshalb
+ * liest diese Fassung die Alphamaske: In den obersten Zeilen der Figur steht
+ * praktisch nur der Kopf.
+ *
+ * Die Falle ist das Haar. Corrins weibliche Variante traegt es weit nach rechts
+ * geweht, und die blosse Mitte aus linkem und rechtem Rand schoebe den
+ * Ausschnitt damit vom Gesicht weg. Deshalb zaehlt hier der Schwerpunkt der
+ * Deckung statt der Mitte: Der Schaedel ist massiv, wehendes Haar ist duenn und
+ * zieht kaum. Beide Werte werden zurueckgegeben, damit ein Fehlgriff im Log zu
+ * sehen ist, statt nur im fertigen Bild.
+ */
+async function kopfMitte(puffer, kopfAnteil) {
+  const m = await sharp(puffer).metadata();
+  const { data, info } = await sharp(puffer)
+    .extract({ left: 0, top: 0, width: m.width, height: Math.round(m.height * kopfAnteil) })
+    .resize({ width: 300 })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  const spalten = new Float64Array(info.width);
+  let masse = 0;
+  let summe = 0;
+  let links = -1;
+  let rechts = -1;
+  for (let x = 0; x < info.width; x++) {
+    let spalte = 0;
+    for (let y = 0; y < info.height; y++) spalte += data[(y * info.width + x) * info.channels + 3];
+    spalten[x] = spalte;
+    if (spalte > 0) {
+      if (links < 0) links = x;
+      rechts = x;
+    }
+    masse += spalte;
+    summe += spalte * x;
+  }
+
+  /*
+   * Der dichteste Streifen von Kopfbreite. Seine Breite muss nicht geraten
+   * werden: Ein Kopf ist ungefaehr so breit wie hoch, und das Band ist eine
+   * Kopfhoehe hoch, also ist die eigene Hoehe des Bandes das Mass.
+   */
+  const fenster = Math.max(4, Math.min(info.width, info.height));
+  let bestesX = 0;
+  let bestes = -1;
+  let laufend = 0;
+  for (let x = 0; x < info.width; x++) {
+    laufend += spalten[x];
+    if (x >= fenster) laufend -= spalten[x - fenster];
+    if (x >= fenster - 1 && laufend > bestes) {
+      bestes = laufend;
+      bestesX = x - fenster + 1;
+    }
+  }
+
+  return {
+    kern: (bestesX + fenster / 2) / info.width,
+    schwerpunkt: masse ? summe / masse / info.width : 0.5,
+    randMitte: links < 0 ? 0.5 : (links + rechts) / 2 / info.width,
+  };
+}
+
+/**
+ * Kopfausschnitt einer Variante als Puffer, Alpha bleibt erhalten.
+ *
+ * `analyse` ist bewusst viel flacher als `kopfAnteil`: Gemessen wird nur das
+ * oberste Band der Figur, geschnitten wird deutlich mehr.
+ *
+ * Zwei Anlaeufe lagen hier daneben. Zuerst war das Messband so hoch wie der
+ * Ausschnitt, dann steckte alles darin, was auf Kopfhoehe sonst noch herumsteht.
+ * Danach war das Band flach genug, aber der Schwerpunkt der Deckung landete beim
+ * weiblichen Corrin fast genau in der Bildmitte: Ihr Umhang bauscht sich nach
+ * links, das Haar weht nach rechts, und die beiden wiegen sich auf. Ihr Gesicht
+ * klebte dadurch am rechten Rand. Deshalb entscheidet jetzt der dichteste
+ * Streifen und nicht der Schwerpunkt.
+ */
+async function kopfAusschnitt(s, kopfAnteil, breite, hoehe, versatz = 0, analyse = 0.12) {
+  const gemessen = await kopfMitte(s.puffer, analyse);
+  const mitte = Math.min(1, Math.max(0, gemessen.kern + versatz));
+  const hAus = Math.min(Math.round(s.hoehe * kopfAnteil), s.hoehe);
+  const bAus = Math.min(Math.round(hAus * (breite / hoehe)), s.breite);
+  const roh = Math.round(s.breite * mitte - bAus / 2);
+  const links = Math.max(0, Math.min(s.breite - bAus, roh));
+  console.log(
+    `    Silhouette ${s.breite}x${s.hoehe}, Fenster ${bAus}x${hAus} bei x=${links}` +
+      `${roh !== links ? ` (auf ${roh} gerechnet, dann an den Rand geklemmt)` : ''}` +
+      `, Kern ${(gemessen.kern * s.breite).toFixed(0)} px, Schwerpunkt ${(gemessen.schwerpunkt * s.breite).toFixed(0)} px`,
+  );
+  return {
+    ...gemessen,
+    mitte,
+    puffer: await sharp(s.puffer)
+      .extract({ left: links, top: 0, width: bAus, height: hAus })
+      .resize(breite, hoehe, { fit: 'cover' })
+      .png()
+      .toBuffer(),
+  };
+}
+
+/**
+ * Geteilter Gesichtsausschnitt: links der maennliche Corrin, rechts der
+ * weibliche, getrennt von derselben Diagonalen wie im grossen Render.
+ *
+ * Beide Haelften werden absichtlich breiter geschnitten als ihre halbe
+ * Zielbreite und ueberlappen sich in der Mitte. Ohne diese Ueberlappung bliebe
+ * oben rechts der linken Haelfte ein durchsichtiges Dreieck stehen, weil die
+ * Diagonale dort ueber den Rand des Ausschnitts hinausreicht.
+ */
+async function corrinGesicht() {
+  const neigung = 12;
+  const naht = FACE.b / 2;
+  const halb = Math.round(naht) + neigung;
+
+  const m = await silhouette(`${QUELLE}/corrin_m.png`);
+  const w = await silhouette(`${QUELLE}/corrin_w.png`);
+  const li = await kopfAusschnitt(m, 0.3, halb, FACE.h);
+  const re = await kopfAusschnitt(w, 0.3, halb, FACE.h);
+
+  const auf = async (bild, x) =>
+    sharp({ create: { width: FACE.b, height: FACE.h, channels: 4, background: durchsichtig } })
+      .composite([{ input: bild, left: x, top: 0 }])
+      .png()
+      .toBuffer();
+
+  const maske = (punkte) =>
+    Buffer.from(`<svg width="${FACE.b}" height="${FACE.h}"><polygon points="${punkte}" fill="#fff"/></svg>`);
+
+  const liSeite = await sharp(await auf(li.puffer, 0))
+    .composite([{ input: maske(`0,0 ${naht + neigung},0 ${naht - neigung},${FACE.h} 0,${FACE.h}`), blend: 'dest-in' }])
+    .png()
+    .toBuffer();
+  const reSeite = await sharp(await auf(re.puffer, FACE.b - halb))
+    .composite([
+      { input: maske(`${naht + neigung},0 ${FACE.b},0 ${FACE.b},${FACE.h} ${naht - neigung},${FACE.h}`), blend: 'dest-in' },
+    ])
+    .png()
+    .toBuffer();
+
+  const fertig = await sharp({ create: { width: FACE.b, height: FACE.h, channels: 4, background: durchsichtig } })
+    .composite([{ input: liSeite }, { input: reSeite }])
+    .png()
+    .toBuffer();
+
+  // Vorschau in dreifacher Groesse: Zahlen sagen ueber ein Gesicht nichts.
+  await sharp(fertig).resize(FACE.b * 3, FACE.h * 3, { kernel: 'nearest' }).png().toFile(`${QUELLE}/vorschau_corrin.png`);
+
+  const info = await sharp(fertig).webp({ quality: 86, alphaQuality: 90 }).toFile(join(faceZiel, 'corrin.webp'));
+  return { info, li, re };
+}
+
 await mkdir(renderZiel, { recursive: true });
 await mkdir(faceZiel, { recursive: true });
 
@@ -141,9 +297,11 @@ const corrin = await corrinGeteilt();
 await writeFile(`${QUELLE}/corrin_split.png`, corrin);
 
 const r1 = await render('corrin', `${QUELLE}/corrin_split.png`);
-// Corrin traegt den Kopf in der linken Haelfte der geteilten Ansicht.
-const f1 = await gesicht('corrin', `${QUELLE}/corrin_split.png`, 0.3, 0.3);
-console.log(`  corrin             render ${r1.width}x${r1.height} ${Math.round(r1.size / 1024)} KB   face ${f1.width}x${f1.height} ${Math.round(f1.size / 1024)} KB`);
+const g = await corrinGesicht();
+console.log(`  corrin             render ${r1.width}x${r1.height} ${Math.round(r1.size / 1024)} KB   face ${g.info.width}x${g.info.height} ${Math.round(g.info.size / 1024)} KB`);
+console.log(
+  `                     Kopfmitte maennlich Schwerpunkt ${g.li.schwerpunkt.toFixed(3)} / Rand ${g.li.randMitte.toFixed(3)}, weiblich Schwerpunkt ${g.re.schwerpunkt.toFixed(3)} / Rand ${g.re.randMitte.toFixed(3)}`,
+);
 
 // Die Miis sind stark verkuerzt gebaut, der Kopf nimmt rund ein Drittel ein.
 for (const [name, anteil, mitte] of [
