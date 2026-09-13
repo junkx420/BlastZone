@@ -1,4 +1,180 @@
 @layer pages {
+  /* ── Seitenhintergrund ──────────────────────────────────────────────── */
+  /*
+   * Der Hintergrund läuft über die ganze Fighter-Seite und sieht bei jedem
+   * Fighter anders aus. Farben und Anordnung liefert `fighterBackdrop()`, das
+   * Muster wählt der Archetyp.
+   *
+   * ZWEI DINGE, DIE HIER NICHT VERSEHENTLICH GEÄNDERT WERDEN DÜRFEN:
+   *
+   * 1. Die Ebene liegt auf z-index -2, nicht -1. Auf -1 sitzt die feste
+   *    Körnungsebene aus `base.css` (`body::before`), und die gehört über den
+   *    Hintergrund, nicht darunter. Damit das aufgeht, darf `.fighter` keinen
+   *    Stapelkontext aufmachen: `position: relative` ohne z-index tut das nicht,
+   *    `isolation`, `transform` oder `opacity` schon. Also hier nichts davon
+   *    ergänzen.
+   * 2. Die Ebene hängt am Artikel und scrollt mit, sie ist nicht am Viewport
+   *    verankert. Fest verankert wäre sie im Heldenbereich unsichtbar, weil
+   *    dessen Verlauf nach unten auf deckendes --bg ausblendet, und am Fuß des
+   *    Helden entstünde eine sichtbare waagerechte Kante.
+   */
+  .fighter {
+    position: relative;
+  }
+  .fbg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+    /* Eine Stellschraube für die Stärke des ganzen Entwurfs. */
+    --fbg-kraft: 1;
+    /*
+     * Oben blendet die Ebene unter dem Helden aus, unten vor dem Footer. Als
+     * Maske statt als weiterer Verlauf, weil sie so Farbfeld und Muster
+     * gemeinsam erfasst. Die 880 px sind an der Heldenhöhe orientiert, das
+     * min() fängt kurze Seiten ab, die keine Frame-Daten haben.
+     */
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 min(880px, 30%),
+      #000 calc(100% - 240px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(to bottom, transparent 0, #000 min(880px, 30%), #000 calc(100% - 240px), transparent 100%);
+  }
+  /* Farbfeld: zwei weiche Kerne aus den beiden Fighter-Farben, dazu ein Zug quer. */
+  .fbg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        68% 26% at var(--fbg-x1) var(--fbg-y1),
+        color-mix(in oklch, var(--accent) calc(26% * var(--fbg-kraft)), transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        62% 24% at var(--fbg-x2) var(--fbg-y2),
+        color-mix(in oklch, var(--accent-2) calc(20% * var(--fbg-kraft)), transparent),
+        transparent 72%
+      ),
+      linear-gradient(
+        var(--fbg-winkel),
+        transparent 22%,
+        color-mix(in oklch, var(--accent) calc(8% * var(--fbg-kraft)), transparent) 54%,
+        transparent 84%
+      );
+  }
+  /*
+   * Musterebene.
+   *
+   * ABGESCHWÄCHT WIRD NUR AN EINER STELLE, nämlich im Farbanteil. Der erste
+   * Entwurf hat zweimal gedämpft: 22 Prozent im `color-mix` und dann nochmal
+   * `opacity: 0.24` darüber. Macht rund fünf Prozent effektive Deckkraft für
+   * eine ein Pixel breite Linie auf fast schwarzem Grund, und das sieht
+   * niemand. Schlimmer als unsichtbar war, dass keine der beiden Zahlen mehr
+   * das bedeutete, was sie sagt.
+   *
+   * Jetzt steht die Stärke im Farbanteil und `opacity` trägt nur noch die
+   * Stellschraube. Ein Wert von 14 Prozent heißt also auch 14 Prozent auf dem
+   * Grund. Die Zahlen unterscheiden sich pro Muster, weil ein Punktfeld bei
+   * gleicher Deckkraft viel leiser wirkt als ein durchgezogenes Gitter.
+   */
+  .fbg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-position: var(--fbg-drift) var(--fbg-drift);
+    opacity: var(--fbg-kraft);
+    background-image: repeating-linear-gradient(
+      var(--fbg-winkel),
+      transparent 0 calc(var(--fbg-takt) * 2),
+      color-mix(in oklch, var(--accent) 12%, transparent) calc(var(--fbg-takt) * 2) calc(var(--fbg-takt) * 2 + 2px)
+    );
+  }
+  /* Tempo: enge Linien in Laufrichtung. */
+  .fbg[data-muster='rushdown']::after {
+    background-image: repeating-linear-gradient(
+      var(--fbg-winkel),
+      transparent 0 calc(var(--fbg-takt) * 1.1),
+      color-mix(in oklch, var(--accent) 14%, transparent) calc(var(--fbg-takt) * 1.1) calc(var(--fbg-takt) * 1.1 + 2px)
+    );
+  }
+  /* Zoning: Ringe um den zweiten Farbkern, wie Wellen um einen Werfer. */
+  .fbg[data-muster='zoner']::after {
+    background-image: repeating-radial-gradient(
+      circle at var(--fbg-x2) var(--fbg-y2),
+      transparent 0 calc(var(--fbg-takt) * 2.6),
+      color-mix(in oklch, var(--accent) 13%, transparent) calc(var(--fbg-takt) * 2.6) calc(var(--fbg-takt) * 2.6 + 2px)
+    );
+  }
+  /* Schwerter: lange flache Schnitte, zwei Stärken übereinander. */
+  .fbg[data-muster='swordie']::after {
+    background-image:
+      repeating-linear-gradient(
+        calc(var(--fbg-winkel) - 54deg),
+        transparent 0 calc(var(--fbg-takt) * 4),
+        color-mix(in oklch, var(--accent) 16%, transparent) calc(var(--fbg-takt) * 4) calc(var(--fbg-takt) * 4 + 4px)
+      ),
+      repeating-linear-gradient(
+        calc(var(--fbg-winkel) - 54deg),
+        transparent 0 calc(var(--fbg-takt) * 1.3),
+        color-mix(in oklch, var(--accent-2) 9%, transparent) calc(var(--fbg-takt) * 1.3) calc(var(--fbg-takt) * 1.3 + 2px)
+      );
+  }
+  /* Allrounder: ruhiges Gitter, in beide Richtungen gleich. */
+  .fbg[data-muster='allrounder']::after {
+    background-image:
+      repeating-linear-gradient(
+        var(--fbg-winkel),
+        transparent 0 calc(var(--fbg-takt) * 1.8),
+        color-mix(in oklch, var(--accent) 12%, transparent) calc(var(--fbg-takt) * 1.8) calc(var(--fbg-takt) * 1.8 + 2px)
+      ),
+      repeating-linear-gradient(
+        calc(var(--fbg-winkel) + 90deg),
+        transparent 0 calc(var(--fbg-takt) * 1.8),
+        color-mix(in oklch, var(--accent) 12%, transparent) calc(var(--fbg-takt) * 1.8) calc(var(--fbg-takt) * 1.8 + 2px)
+      );
+  }
+  /* Setplay: gestelltes Punktfeld, wie ausgelegte Fallen. */
+  .fbg[data-muster='setplay']::after {
+    background-image: radial-gradient(color-mix(in oklch, var(--accent) 30%, transparent) 1.6px, transparent 1.7px);
+    background-size: calc(var(--fbg-takt) * 1.5) calc(var(--fbg-takt) * 1.5);
+  }
+  /* Grappler: breite, schwere Bänder. */
+  .fbg[data-muster='grappler']::after {
+    background-image: repeating-linear-gradient(
+      calc(var(--fbg-winkel) + 24deg),
+      transparent 0 calc(var(--fbg-takt) * 2.4),
+      color-mix(in oklch, var(--accent) 7%, transparent) calc(var(--fbg-takt) * 2.4) calc(var(--fbg-takt) * 3.4)
+    );
+  }
+  /* Bruiser: große Blöcke, wenig Kanten. */
+  .fbg[data-muster='bruiser']::after {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 calc(var(--fbg-takt) * 3),
+        color-mix(in oklch, var(--accent) 11%, transparent) calc(var(--fbg-takt) * 3) calc(var(--fbg-takt) * 3 + 3px)
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 calc(var(--fbg-takt) * 3),
+        color-mix(in oklch, var(--accent) 11%, transparent) calc(var(--fbg-takt) * 3) calc(var(--fbg-takt) * 3 + 3px)
+      );
+  }
+  /* Bait: kurze Striche, versetzt, wie abwartende Ticks. */
+  .fbg[data-muster='bait']::after {
+    background-image: repeating-linear-gradient(
+      calc(var(--fbg-winkel) + 90deg),
+      color-mix(in oklch, var(--accent) 14%, transparent) 0 calc(var(--fbg-takt) * 0.5),
+      transparent calc(var(--fbg-takt) * 0.5) calc(var(--fbg-takt) * 2.2)
+    );
+    background-size: 100% calc(var(--fbg-takt) * 2.2);
+  }
+
   /* ── Header ─────────────────────────────────────────────────────────── */
   .fhero {
     position: relative;

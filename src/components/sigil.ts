@@ -52,7 +52,12 @@ const SERIES_MOTIF: Record<string, Motif> = {
   'Kingdom Hearts': 'star',
 };
 
-function hash(s: string): number {
+/*
+ * Exported because the page backdrop seeds itself from the same sequence. One
+ * fighter should have one handwriting across every generated surface, and two
+ * generators side by side would be two truths.
+ */
+export function hash(s: string): number {
   let h = 2166136261;
   for (let i = 0; i < s.length; i++) {
     h ^= s.charCodeAt(i);
@@ -61,7 +66,7 @@ function hash(s: string): number {
   return h >>> 0;
 }
 
-function random(seed: number): () => number {
+export function random(seed: number): () => number {
   let a = seed;
   return () => {
     a = (a + 0x6d2b79f5) | 0;

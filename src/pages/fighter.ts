@@ -1,4 +1,5 @@
 import { bindComboCards, comboCard, playFirstVisible } from '../components/comboPlayer';
+import { fighterBackdrop } from '../components/fighterBackdrop';
 import { faceThumb, fighterArt } from '../components/fighterTile';
 import { framesSection, wireFrames } from '../components/frameTable';
 import { ICONS } from '../components/icons';
@@ -323,7 +324,7 @@ export function fighterPage(route: Route): PageView {
     title: `${f.name}: Combos, Frame Data und Tier | Blastzone`,
     anchor: route.query.has('routen') ? '#combos' : undefined,
     markup: html`<article class="page page--flush fighter" style="${accentVars(f.colors)}" aria-labelledby="fighter-name">
-      ${heroSection(f)} ${statsSection(f)}
+      ${fighterBackdrop(f)} ${heroSection(f)} ${statsSection(f)}
       <div data-meta>${metaSection(f, guide)}</div>
       ${video ? videoSection(video, f.name) : ''}
       <div data-combos>${combosSection(f, guide, active, hasGuide && !guide)}</div>
