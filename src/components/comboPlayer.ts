@@ -43,7 +43,7 @@ export function comboSteps(combo: Combo): Markup {
 export function windowText(combo: Combo): string {
   if (!combo.window) return combo.windowLabel ?? 'situativ';
   const [from, to] = combo.window;
-  return to === null ? `ab ${from} %` : `${from}–${to} %`;
+  return to === null ? `ab ${from} %` : `${from} bis ${to} %`;
 }
 
 export function comboCard(combo: Combo): Markup {

@@ -116,7 +116,7 @@ const PEACH: FighterGuide = {
         { input: 'fh nair', label: 'Bodennaher Float → Nair', dmg: 16, note: 'Sprung halten und direkt über dem Boden schweben.' },
         { input: 'fh nair', label: 'Bodennaher Float → Nair', dmg: 7 },
       ],
-      tip: 'Laut SmashWiki lassen sich mit genug technischem Können mehrere bodennahe Float-Nairs an den Down Throw hängen – Peachs berüchtigtste Schadensquelle.',
+      tip: 'Laut SmashWiki lassen sich mit genug technischem Können mehrere bodennahe Float-Nairs an den Down Throw hängen. Peachs berüchtigtste Schadensquelle.',
       source: wiki('Peach_(SSBU)'),
     },
     {
@@ -131,7 +131,7 @@ const PEACH: FighterGuide = {
         { input: 'grab', dmg: 0 },
         { input: 'bthrow', dmg: 13 },
       ],
-      tip: 'Laut SmashWiki taugt der Back Throw bei sehr hohen Prozenten als KO-Move – passend dazu, dass Peachs Kills ohnehin spät kommen.',
+      tip: 'Laut SmashWiki taugt der Back Throw bei sehr hohen Prozenten als KO-Move, passend dazu, dass Peachs Kills ohnehin spät kommen.',
       source: wiki('Peach_(SSBU)'),
     },
     {
@@ -157,7 +157,7 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
     slug: 'pyra-mythra',
     meta: [
       'Pyra und Mythra teilen sich einen Slot und wechseln per Down B jederzeit: Mythra bringt Tempo, Mobilität und flexible Combos, Pyra mehr Reichweite und deutlich mehr Kill-Power.',
-      'Wer mit Mythra Schaden aufbaut und für den Kill zu Pyra wechselt, deckt die Schwächen beider ab – Pyra ist langsam und combot wenig, Mythra hat weniger Kill-Power.',
+      'Wer mit Mythra Schaden aufbaut und für den Kill zu Pyra wechselt, deckt die Schwächen beider ab. Pyra ist langsam und combot wenig, Mythra hat weniger Kill-Power.',
     ],
     strengths: ['Wechsel per Down B deckt Schwächen ab', 'Mythra: Tempo und flexibles Combo-Game', 'Pyra: Reichweite und hohe Kill-Power'],
     weaknesses: ['Pyra: geringe Mobilität, wenig Combo-Potenzial', 'Mythra: weniger Kill-Power als Pyra'],
@@ -238,7 +238,7 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 10 },
           { input: 'fh uair', label: 'FH Uair', dmg: 12 },
         ],
-        tip: 'Zwischen 80 und 110–120 % Pyras verlässlichster KO-Confirm. Darunter führt Down Tilt in Nair, Forward Air oder einen umgedrehten Up Tilt.',
+        tip: 'Zwischen 80 und 110-120 % Pyras verlässlichster KO-Confirm. Darunter führt Down Tilt in Nair, Forward Air oder einen umgedrehten Up Tilt.',
         source: wiki('Pyra_(SSBU)'),
       },
       {
@@ -315,7 +315,7 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 8 },
           { input: 'fh uair', label: 'FH Uair', dmg: 14 },
         ],
-        tip: 'Yoshis einfachster Weg, Gegner über sich zu bringen – dort ist Up Air seine Kill-Option.',
+        tip: 'Yoshis einfachster Weg, Gegner über sich zu bringen, dort ist Up Air seine Kill-Option.',
         source: game8('281179'),
       },
       {
@@ -541,7 +541,7 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dj uair', label: 'Dragdown Up Air', dmg: 6 },
           { input: 'usmash', dmg: 14, note: 'Mit Arsène rund 20 %.' },
         ],
-        tip: 'SmashWiki führt das als Infinite: Der Gegner muss auf einer Plattform stehen, dort hält ihn der Dragdown-Up-Air fest, während der Schaden steigt. Die Zahl der Wiederholungen ist offen – hier stehen nur drei.',
+        tip: 'SmashWiki führt das als Infinite: Der Gegner muss auf einer Plattform stehen, dort hält ihn der Dragdown-Up-Air fest, während der Schaden steigt. Die Zahl der Wiederholungen ist offen, hier stehen nur drei.',
         tags: ['Plattform nötig'],
         source: wiki('Zero-to-death_combo'),
       },

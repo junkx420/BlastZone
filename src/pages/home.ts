@@ -35,8 +35,8 @@ function heroSection(): Markup {
       <div class="hero__copy">
         <h1 class="hero__title" id="hero-title"><span class="hero__line">Vom ersten Treffer</span> <span class="hero__line">bis zum KO.</span></h1>
         <p class="hero__lead">
-          Combo-Routen mit Input-Notation, die aktuelle UltRank-Tier-Liste und Profile für alle ${FIGHTERS.length} Fighter aus
-          Super Smash Bros. Ultimate.
+          Combos, Frame Data und die UltRank-Liste für alle ${FIGHTERS.length} Fighter. Jede Route mit Quelle, damit du
+          nicht auf gut Glück in den Trainingsmodus gehst.
         </p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="${link('/roster')}">Fighter finden</a>
@@ -265,7 +265,7 @@ interface Filters {
 const SORTS: Array<[Sort, string]> = [
   ['rank', 'Tier-Rang'],
   ['no', 'Fighter-Nummer'],
-  ['name', 'Name A–Z'],
+  ['name', 'Name A bis Z'],
   ['weight', 'Gewicht, schwer zuerst'],
 ];
 
@@ -322,7 +322,7 @@ function rosterSection(): Markup {
     <div class="container">
       <div class="section-head">
         <h2 id="roster-title" data-reveal="wipe">Roster</h2>
-        <p>Alle ${FIGHTERS.length} Slots vom Auswahlbildschirm. Suche nach Name, Serie oder Spitzname – ZSS, Pummeluff und Aegis funktionieren auch.</p>
+        <p>Alle ${FIGHTERS.length} Slots vom Auswahlbildschirm. Such nach Name, Serie oder Spitzname. ZSS, Pummeluff und Aegis gehen auch.</p>
         <p class="roster__count section-head__aside" data-count aria-live="polite">${FIGHTERS.length} Fighter</p>
       </div>
 
@@ -520,8 +520,8 @@ function notationSection(): Markup {
       <div class="notation__intro">
         <h2 id="notation-title" data-reveal="wipe">Notation lesen</h2>
         <p>
-          Jeder Combo-Schritt steht zweimal da: als Kurzform aus der Community und als Eingabe auf dem GameCube-Controller,
-          dem Standard auf Turnieren.
+          Jeder Combo-Schritt steht zweimal da. Einmal als Kurzform, wie sie in der Szene geschrieben wird, und einmal
+          als Eingabe auf dem GameCube-Controller, dem Standard auf Turnieren.
         </p>
         <ul class="legend" role="list">
           ${BUTTON_LEGEND.map((b) => html`<li class="legend__item">${glyph({ t: 'btn', b: b.b })}<span>${b.name}</span></li>`)}
@@ -555,7 +555,7 @@ function notationSection(): Markup {
 
 export function homePage(route: Route): PageView {
   return {
-    title: 'Blastzone – Competitive Hub für Super Smash Bros. Ultimate',
+    title: 'Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate',
     anchor: route.name === 'roster' ? '#roster' : route.name === 'notation' ? '#notation' : undefined,
     markup: html`<div class="page page--flush page--home">${heroSection()}${topSection()}${rosterSection()}${notationSection()}</div>`,
     mount(root) {

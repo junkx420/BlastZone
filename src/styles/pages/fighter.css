@@ -397,24 +397,60 @@
    * erst auf Klick geholt, wie beim Guide-Video. Deshalb nennt der Knopf die
    * Herkunft, bevor jemand darauf drückt.
    */
+  /*
+   * Start und Schildvorteil tragen die Prozent-Hitze – dasselbe Motiv, mit dem
+   * die Seite Schaden und Tiers einfaerbt. Ein 2-Frame-Jab steht weiss da, ein
+   * 20-Frame-Smash rot; beim Schild ist -3 hell und -25 rot.
+   *
+   * Nur die Schriftfarbe, keine Flaechen: Acht Spalten mit farbigem Hintergrund
+   * waeren ein Flickenteppich. So bleibt die Tabelle ruhig und ist trotzdem in
+   * einer Sekunde ueberfliegbar.
+   */
+  .frame__zahl {
+    font-weight: 700;
+  }
+  .frame--h0 {
+    color: var(--dmg-0);
+  }
+  .frame--h1 {
+    color: var(--dmg-40);
+  }
+  .frame--h2 {
+    color: var(--dmg-80);
+  }
+  .frame--h3 {
+    color: var(--dmg-120);
+  }
+  .frame--h4 {
+    color: var(--dmg-160);
+  }
+
+  /*
+   * Zurueckhaltend: Pro Panel stehen bis zu 26 dieser Knoepfe untereinander.
+   * Als rote Pillen beherrschten sie die Tabelle, um die es eigentlich geht.
+   * Erst bei Hover oder Tastaturfokus treten sie hervor.
+   */
   .frame__hitbox {
     justify-self: start;
     margin-top: 4px;
     padding: 3px 9px;
-    border: 1px solid var(--accent-line);
+    border: 1px solid var(--line-strong);
     border-radius: 999px;
     background: none;
-    color: var(--accent-text);
+    color: var(--text-subtle);
     font-size: var(--fs-100);
     font-weight: 700;
     cursor: pointer;
     transition:
+      border-color var(--t-fast),
       background-color var(--t-fast),
       color var(--t-fast);
   }
   .frame__hitbox:hover,
   .frame__hitbox:focus-visible {
+    border-color: var(--accent-line);
     background: var(--accent-soft);
+    color: var(--accent-text);
   }
   .frame__figur {
     display: grid;

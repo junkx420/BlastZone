@@ -4,7 +4,7 @@ import type { PageView } from './types';
 
 export function notFoundPage(what = 'Seite'): PageView {
   return {
-    title: `${what} nicht gefunden – Blastzone`,
+    title: `${what} nicht gefunden | Blastzone`,
     markup: html`<div class="page">
       <section class="container page-head">
         <h1>Diese ${what} liegt hinter der Blastzone.</h1>

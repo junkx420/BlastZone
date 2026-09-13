@@ -16,7 +16,7 @@ export function videoSection(video: FighterVideo, fighterName: string): Markup {
       <h2 id="video-title" data-reveal="wipe">Guide-Video</h2>
       <p>
         ${video.creator ? `${fighterName} erklärt von ${video.creator}.` : `Ein Guide zu ${fighterName}.`}
-        Der Player lädt erst beim Start – vorher geht keine Anfrage an YouTube.
+        Der Player startet erst auf Klick. Vorher geht keine Anfrage an YouTube.
       </p>
     </div>
     <div class="vplayer" data-video="${video.id}" data-video-title="${video.title}" data-reveal>

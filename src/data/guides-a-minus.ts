@@ -12,7 +12,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
     slug: 'corrin',
     meta: [
       'Corrin verbindet Schwert-Reichweite mit einem Neutral Air, der bei niedrigen und mittleren Prozenten in sich selbst, Forward Air, Up Air und Up Tilt führt. Der Forward Smash trifft mit der Lanze extrem weit und killt Mittelgewichte laut SmashWiki schon ab 80 %.',
-      'Dagegen stehen langsames Bodentempo und kaum defensive Optionen – im Neutral hat Corrin es schwer. Die stärksten Vorteils-Werkzeuge haben schlechte Frame Data, und die geradlinige Recovery lässt sich leicht abfangen.',
+      'Dagegen stehen langsames Bodentempo und kaum defensive Optionen, im Neutral hat Corrin es schwer. Die stärksten Vorteils-Werkzeuge haben schlechte Frame Data, und die geradlinige Recovery lässt sich leicht abfangen.',
     ],
     strengths: ['Neutral Air als vielseitiger Combo-Starter', 'Forward Smash mit enormer Reichweite und frühem Kill', 'Up Air killt Mittelgewichte früh'],
     weaknesses: ['Langsames Bodentempo, schwaches Neutral', 'Schlechte Frame Data bei den stärksten Moves', 'Geradlinige Recovery, anfällig für Gimps'],
@@ -29,7 +29,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 9 },
           { input: 'utilt', dmg: 11 },
         ],
-        tip: 'Der Down Tilt kommt schnell heraus und ist durch seine Reichweite schwer zu bestrafen – laut SmashWiki der Einstieg in den Up Tilt bei mittleren Prozenten.',
+        tip: 'Der Down Tilt kommt schnell heraus und ist durch seine Reichweite schwer zu bestrafen, laut SmashWiki der Einstieg in den Up Tilt bei mittleren Prozenten.',
         source: game8('281233'),
       },
       {
@@ -71,7 +71,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'SH Fair', dmg: 11 },
           { input: 'dj fair', label: 'DJ Fair', dmg: 11 },
         ],
-        tip: 'Mit dem Doppelsprung hinterher – trägt den Gegner Richtung Kante.',
+        tip: 'Mit dem Doppelsprung hinterher, trägt den Gegner Richtung Kante.',
         source: game8('281233'),
       },
       {
@@ -84,7 +84,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 8 },
           { input: 'sb', label: 'Dragon Lunge', dmg: 10, note: 'Nach dem Pin bleiben Kick, Sprung oder Cancel als Mixup.' },
         ],
-        tip: 'Game8 nennt keine Prozentspanne – die Route lebt vom Mixup nach dem Pin.',
+        tip: 'Game8 nennt keine Prozentspanne, die Route lebt vom Mixup nach dem Pin.',
         source: game8('281233'),
       },
       {
@@ -114,7 +114,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair, Gegner hinter Corrin', dmg: 8 },
           { input: 'bair', dmg: 14 },
         ],
-        tip: 'Der Back Air ist laut SmashWiki Corrins stärkster Aerial – trifft der Nair hinter ihm, ist er die beste Fortsetzung.',
+        tip: 'Der Back Air ist laut SmashWiki Corrins stärkster Aerial, trifft der Nair hinter ihm, ist er die beste Fortsetzung.',
         source: game8('281233'),
       },
       {
@@ -136,7 +136,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'falco',
     meta: [
-      'Falcos Stärken liegen laut SmashWiki im Combo-, Juggling- und Edgeguard-Spiel, allen voran in seinen Aerials. Der Up Tilt ist der Dreh- und Angelpunkt: sehr schneller Start, große Hitboxen, wenig Endlag – er kettet in sich selbst und in jeden Aerial.',
+      'Falcos Stärken liegen laut SmashWiki im Combo-, Juggling- und Edgeguard-Spiel, allen voran in seinen Aerials. Der Up Tilt ist der Dreh- und Angelpunkt: sehr schneller Start, große Hitboxen, wenig Endlag, er kettet in sich selbst und in jeden Aerial.',
       'Seine Schwächen sind Überlebensfähigkeit und Konstanz. Die Recovery trägt zwar weit, verläuft aber sehr geradlinig, und mehrere Moves funktionieren nicht zuverlässig.',
     ],
     strengths: ['Up Tilt als universeller Combo-Starter', 'Starkes Juggling und Edgeguarding', 'Down Air als schneller Meteor'],
@@ -155,7 +155,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 5 },
           { input: 'sh nair', label: 'SH Nair', dmg: 11 },
         ],
-        tip: 'Der Up Tilt kettet in sich selbst – laut Game8 die Grundroute bei niedrigen Prozenten.',
+        tip: 'Der Up Tilt kettet in sich selbst, laut Game8 die Grundroute bei niedrigen Prozenten.',
         source: game8('281193'),
       },
       {
@@ -245,7 +245,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 5 },
           { input: 'fh uair', label: 'FH Uair', dmg: 11 },
         ],
-        tip: 'Die vertikale Variante desselben KO-Setups – gut auf Stages mit niedriger oberer Blastzone.',
+        tip: 'Die vertikale Variante desselben KO-Setups, gut auf Stages mit niedriger oberer Blastzone.',
         source: wiki('Falco_(SSBU)'),
       },
     ],
@@ -253,7 +253,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'shulk',
     meta: [
-      'Shulks größtes Pfund ist die Reichweite: Das Monado gibt ihm einige der längsten Disjoints im Spiel, und seine Aerials verbinden große Hitboxen mit langer Dauer und wenig Landing Lag. Die Monado-Arts – Buster, Smash, Shield, Speed, Jump – stellen seine Werte je nach Situation um.',
+      'Shulks größtes Pfund ist die Reichweite: Das Monado gibt ihm einige der längsten Disjoints im Spiel, und seine Aerials verbinden große Hitboxen mit langer Dauer und wenig Landing Lag. Die Monado-Arts, Buster, Smash, Shield, Speed, Jump, stellen seine Werte je nach Situation um.',
       'Dafür ist sein Moveset behäbig: Außer Jab, stehendem Grab und Vision trifft kein Angriff vor Frame 10. Ihm fehlt ein Projektil, und als einziger Charakter kann er keinen seiner Aerials vor dem Ende der Animation auto-canceln.',
     ],
     strengths: ['Einige der längsten Disjoints im Spiel', 'Aerials mit großen, lang aktiven Hitboxen', 'Monado-Arts passen die Werte an jede Situation an'],
@@ -271,8 +271,8 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'Nair im Fallen', dmg: 10 },
           { input: 'ftilt', dmg: 16 },
         ],
-        tip: 'Den Nair im Fallen treffen. Mit der Buster-Art verschiebt sich das Fenster laut Game8 auf 20–90 %.',
-        tags: ['Buster: 20–90 %'],
+        tip: 'Den Nair im Fallen treffen. Mit der Buster-Art verschiebt sich das Fenster laut Game8 auf 20-90 %.',
+        tags: ['Buster: 20-90 %'],
         source: game8('281228'),
       },
       {
@@ -286,8 +286,8 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'Nair im Fallen', dmg: 10 },
           { input: 'utilt', dmg: 12 },
         ],
-        tip: 'Der Up Tilt deckt viel Raum über Shulk ab und fängt Landungen ab. Mit Buster 10–70 %.',
-        tags: ['Buster: 10–70 %'],
+        tip: 'Der Up Tilt deckt viel Raum über Shulk ab und fängt Landungen ab. Mit Buster 10-70 %.',
+        tags: ['Buster: 10-70 %'],
         source: game8('281228'),
       },
       {
@@ -315,7 +315,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair land', label: 'SH Nair, landen', dmg: 10 },
           { input: 'grab', dmg: 0, note: 'Von hier in den Down Throw und die Bodenroute.' },
         ],
-        tip: 'Der landende Nair ist laut SmashWiki Shulks Standardeinstieg – entweder in den Grab oder in eine Forward-Air-Kette.',
+        tip: 'Der landende Nair ist laut SmashWiki Shulks Standardeinstieg, entweder in den Grab oder in eine Forward-Air-Kette.',
         source: wiki('Shulk_(SSBU)'),
       },
       {
@@ -329,8 +329,8 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'Nair im Fallen', dmg: 10 },
           { input: 'sb', label: 'Back Slash', dmg: 12, note: 'Von hinten getroffen macht der Back Slash deutlich mehr Schaden.' },
         ],
-        tip: 'Macht weniger Schaden als die Tilt-Routen, lohnt aber, wenn der Gegner von Shulk weg schaut. Mit Buster 80–110 %.',
-        tags: ['Buster: 80–110 %'],
+        tip: 'Macht weniger Schaden als die Tilt-Routen, lohnt aber, wenn der Gegner von Shulk weg schaut. Mit Buster 80-110 %.',
+        tags: ['Buster: 80-110 %'],
         source: game8('281228'),
       },
       {
@@ -344,7 +344,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 8 },
           { input: 'fh uair', label: 'FH Uair', dmg: 13 },
         ],
-        tip: 'Von Spielern „Monado Purge“ getauft – Shulks bekannteste Wurfroute nach oben.',
+        tip: 'Von Spielern „Monado Purge“ getauft. Shulks bekannteste Wurfroute nach oben.',
         source: wiki('Shulk_(SSBU)'),
       },
       {
@@ -380,7 +380,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'greninja',
     meta: [
-      'Greninjas größte Stärke ist die Mobilität – Boden- und Luftgeschwindigkeit gehören zu den höchsten im Spiel. Dazu kommen ein starkes Combo- und Rushdown-Spiel sowie Kill-Optionen wie Forward Air und die Smash-Angriffe, die sich bei passenden Prozenten anspielen lassen.',
+      'Greninjas größte Stärke ist die Mobilität. Boden- und Luftgeschwindigkeit gehören zu den höchsten im Spiel. Dazu kommen ein starkes Combo- und Rushdown-Spiel sowie Kill-Optionen wie Forward Air und die Smash-Angriffe, die sich bei passenden Prozenten anspielen lassen.',
       'Die Aerials starten allerdings langsam, was schlecht mit dem schnellen Fall zusammenpasst; zusammen mit dem hohen Sprung und einem mittelmäßigen Grab ergibt das eines der schwächsten Out-of-Shield-Spiele. Die Mehrfachtreffer sind berüchtigt unzuverlässig.',
     ],
     strengths: ['Höchste Boden- und Luftgeschwindigkeit im Spitzenfeld', 'Starkes Combo- und Rushdown-Spiel', 'Kill-Optionen lassen sich anspielen'],
@@ -414,7 +414,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 6 },
           { input: 'fh uair', label: 'FH Uair', dmg: 8 },
         ],
-        tip: 'Die Standardfortsetzung nach dem Griff – Greninjas Sprunghöhe reicht auch bei höheren Prozenten.',
+        tip: 'Die Standardfortsetzung nach dem Griff. Greninjas Sprunghöhe reicht auch bei höheren Prozenten.',
         source: game8('281223'),
       },
       {
@@ -460,7 +460,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dash', dmg: 0 },
           { input: 'usmash', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki bestätigt der Down Tilt den KO in den Up Smash recht zuverlässig – Game8 nennt hohe Prozente und rät, das Timing einzuüben.',
+        tip: 'Laut SmashWiki bestätigt der Down Tilt den KO in den Up Smash recht zuverlässig. Game8 nennt hohe Prozente und rät, das Timing einzuüben.',
         source: game8('281223'),
       },
       {
@@ -475,7 +475,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 6 },
           { input: 'utilt', dmg: 5 },
         ],
-        tip: 'Laut SmashWiki führt der Up Throw bei niedrigen und mittleren Prozenten in Up Tilt oder Up Air – der Up Tilt hält den Gegner näher am Boden.',
+        tip: 'Laut SmashWiki führt der Up Throw bei niedrigen und mittleren Prozenten in Up Tilt oder Up Air, der Up Tilt hält den Gegner näher am Boden.',
         source: wiki('Greninja_(SSBU)'),
       },
       {
@@ -506,7 +506,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair, schwacher Treffer', dmg: 7 },
           { input: 'usmash', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki lässt sich der schwache Nair-Treffer aus dem Down Tilt anspielen und bestätigt dann den KO in den Up Smash – aber nur in bestimmten Prozentbereichen.',
+        tip: 'Laut SmashWiki lässt sich der schwache Nair-Treffer aus dem Down Tilt anspielen und bestätigt dann den KO in den Up Smash, aber nur in bestimmten Prozentbereichen.',
         source: wiki('Greninja_(SSBU)'),
       },
       {

@@ -30,9 +30,45 @@ const LABELS: Record<FrameSection, string> = {
 /** Reihenfolge der Tabs – dieselbe wie auf der Quellseite. */
 const REIHENFOLGE: FrameSection[] = ['ground', 'aerial', 'special', 'throw', 'dodge', 'misc'];
 
-const zelle = (wert: string | undefined): Markup => html`<td>${wert ?? raw('<span class="frame__leer">–</span>')}</td>`;
+/**
+ * Erste Zahl aus einem UFD-Wert. „16/17—20/21" ergibt 16, „-12/-12/-13" ergibt -12.
+ * Mehrfachwerte gehören zu verschiedenen Hitboxen; für die Einfärbung zählt die
+ * erste, weil sie die übliche ist.
+ */
+const ersteZahl = (wert: string | undefined): number | undefined => {
+  if (!wert) return undefined;
+  const treffer = /-?\d+(?:\.\d+)?/.exec(wert);
+  return treffer ? Number(treffer[0]) : undefined;
+};
+
+/**
+ * Ordnet einen Wert einer Stufe der Prozent-Hitze zu – demselben Motiv, das auf
+ * der ganzen Seite Schaden und Tiers einfärbt: weiß ist harmlos, rot ist
+ * extrem.
+ *
+ * Das ist eine **Lesehilfe, keine Lehrmeinung.** Ob ein Move mit 9 Frames
+ * Startup „gut" ist, hängt von Reichweite, Schaden und Charakter ab. Die
+ * Einfärbung macht die Tabelle überfliegbar, sie bewertet nicht.
+ */
+const stufe = (zahl: number | undefined, grenzen: readonly number[]): string => {
+  if (zahl === undefined) return '';
+  const index = grenzen.findIndex((g) => zahl <= g);
+  return ` frame--h${index === -1 ? grenzen.length : index}`;
+};
+
+/** Startup in Frames: klein ist schnell. */
+const START_GRENZEN = [4, 7, 11, 17] as const;
+/** Schildvorteil: 0 und besser ist sicher, stark negativ ist ein freier Punish. */
+const SCHILD_GRENZEN = [-24, -14, -8, -3] as const;
+
+const zelle = (wert: string | undefined, klasse = ''): Markup =>
+  html`<td class="${klasse.trim()}">${wert ?? raw('<span class="frame__leer" title="trifft hier nicht zu">k. A.</span>')}</td>`;
 
 function zeile(move: FrameMove): Markup {
+  // Schild andersherum: Der schlechteste Wert ist der kleinste, deshalb gespiegelt.
+  const schildStufe = stufe(ersteZahl(move.advantage), SCHILD_GRENZEN);
+  const schild = schildStufe ? ` frame--h${4 - Number(schildStufe.slice(-1))}` : '';
+
   return html`<tr>
     <th scope="row">
       <span class="frame__name">${move.name}</span>
@@ -44,8 +80,9 @@ function zeile(move: FrameMove): Markup {
           </button>`
         : ''}
     </th>
-    ${zelle(move.startup)} ${zelle(move.active)} ${zelle(move.total)} ${zelle(move.endlag)} ${zelle(move.landingLag)}
-    ${zelle(move.damage)} ${zelle(move.advantage)}
+    ${zelle(move.startup, `frame__zahl${stufe(ersteZahl(move.startup), START_GRENZEN)}`)} ${zelle(move.active)}
+    ${zelle(move.total)} ${zelle(move.endlag)} ${zelle(move.landingLag)} ${zelle(move.damage)}
+    ${zelle(move.advantage, `frame__zahl${schild}`)}
   </tr>`;
 }
 
@@ -94,7 +131,7 @@ function inhalt(daten: FighterFrames): Markup {
         (s, i) => html`<div class="tabpanel" role="tabpanel" id="fpanel-${id}-${s}" aria-labelledby="ftab-${id}-${s}" tabindex="0" ${i === 0 ? '' : raw('hidden')}>
           ${tabelle(
             satz.moves.filter((m) => m.section === s),
-            `${LABELS[s]}${satz.label ? ` – ${satz.label}` : ''}`,
+            `${LABELS[s]}${satz.label ? `, ${satz.label}` : ''}`,
           )}
         </div>`,
       )}
@@ -108,8 +145,8 @@ export function framesSection(fighterName: string): Markup {
     <div class="section-head">
       <h2 id="frames-title" data-reveal="wipe">Frame Data</h2>
       <p>
-        Startup, aktive Frames, Endlag und Schildvorteil für jeden Move von ${fighterName}. Mehrere Werte durch
-        Schrägstrich getrennt gehören zu verschiedenen Hitboxen; die Spaltennamen stehen am Move.
+        Jeder Move von ${fighterName} mit Startup, aktiven Frames, Endlag und dem, was auf Schild passiert. Mehrere
+        Werte in einer Spalte heißen mehrere Hitboxen. Welche gemeint ist, steht am Move.
       </p>
     </div>
     <div class="fframes__body" data-frames-body>

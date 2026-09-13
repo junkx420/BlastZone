@@ -147,7 +147,7 @@ type TabId = 'bnb' | 'meta';
 function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabId, pending = false): Markup {
   const head = html`<div class="section-head">
     <h2 id="combos-title" data-reveal="wipe">Combo-Routen</h2>
-    <p>Jede Route verlinkt ihre Quelle; Prozentangaben stehen so da, wie die Quelle sie nennt. Schaden aus Ultimate Frame Data, inklusive 1v1-Faktor und gerundet.</p>
+    <p>Jede Route verlinkt ihre Quelle. Prozentangaben stehen so da, wie die Quelle sie nennt. Schaden kommt aus Ultimate Frame Data, mit 1v1-Faktor und gerundet.</p>
   </div>`;
 
   if (!guide) {
@@ -167,8 +167,8 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
             )}
           </div>`
         : html`<div class="empty">
-            <h3>Für ${f.name} sind noch keine Combo-Routen erfasst.</h3>
-            <p>Tier-Platzierung und Eigenschaften stehen bereits. Combo-Routen gibt es aktuell für ${GUIDE_COUNT} Fighter.</p>
+            <h3>Für ${f.name} stehen noch keine Combo-Routen drin.</h3>
+            <p>Tier-Platzierung und Werte sind da. Routen gibt es bisher für ${GUIDE_COUNT} Fighter.</p>
             <a class="btn btn--sm" href="${link('/roster', { routen: '1' })}">${ICONS.combo}Fighter mit Combo-Routen</a>
           </div>`}
     </section>`;
@@ -178,13 +178,13 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
     {
       id: 'bnb',
       label: 'Bread & Butter',
-      intro: 'Verlässliche Routen für den Match-Alltag: wenig Risiko, hohe Trefferquote.',
+      intro: 'Deine Basis. Geht zuverlässig auf, verzeiht Fehler und funktioniert auch unter Druck.',
       combos: guide.combos.filter((c) => c.kind === 'bnb'),
     },
     {
       id: 'meta',
       label: 'Meta-Routen',
-      intro: 'Optimierte Kill- und Schadensrouten, wie Top-Player sie einsetzen.',
+      intro: 'Was auf Turnieren läuft. Mehr Schaden, mehr Kill-Power, weniger Spielraum für Fehler.',
       combos: guide.combos.filter((c) => c.kind === 'meta'),
     },
   ];
@@ -320,7 +320,7 @@ export function fighterPage(route: Route): PageView {
   const next = BY_RANK[(i + 1) % BY_RANK.length] ?? f;
 
   return {
-    title: `${f.name}: Combos, Tier und Meta – Blastzone`,
+    title: `${f.name}: Combos, Frame Data und Tier | Blastzone`,
     anchor: route.query.has('routen') ? '#combos' : undefined,
     markup: html`<article class="page page--flush fighter" style="${accentVars(f.colors)}" aria-labelledby="fighter-name">
       ${heroSection(f)} ${statsSection(f)}

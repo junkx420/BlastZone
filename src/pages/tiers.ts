@@ -15,7 +15,7 @@ const tierId = (tier: TierId): string => `tier-${tier.toLowerCase().replace('-',
 
 export function tiersPage(): PageView {
   return {
-    title: 'Tier-Liste 2026 – Blastzone',
+    title: 'Tier-Liste 2026 | Blastzone',
     markup: html`<div class="page tiers-page">
       <header class="container page-head">
         <h1 data-reveal="wipe">Tier-Liste 2026</h1>

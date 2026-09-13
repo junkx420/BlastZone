@@ -82,7 +82,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 12 },
           { input: 'db', label: 'Thunder', dmg: 17, note: 'Der Blitz selbst trifft am härtesten.' },
         ],
-        tip: 'Laut SmashWiki Pichus berüchtigtes KO-Setup – der Up Throw combot verlässlich in den Thunder.',
+        tip: 'Laut SmashWiki Pichus berüchtigtes KO-Setup, der Up Throw combot verlässlich in den Thunder.',
         source: wiki('Pichu_(SSBU)'),
       },
       {
@@ -96,7 +96,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 7 },
           { input: 'sh dair', label: 'SH Dair (Meteor)', dmg: 16 },
         ],
-        tip: 'Laut SmashWiki funktioniert die Route bei mittleren Prozenten nahe der Kante – der Down Air schickt den Gegner nach unten.',
+        tip: 'Laut SmashWiki funktioniert die Route bei mittleren Prozenten nahe der Kante, der Down Air schickt den Gegner nach unten.',
         tags: ['Nahe der Kante'],
         source: wiki('Pichu_(SSBU)'),
       },
@@ -111,7 +111,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 7 },
           { input: 'fh uair', label: 'FH Uair', dmg: 5 },
         ],
-        tip: 'Laut SmashWiki sind Up und Down Tilt Pichus beste Starter – der Down Tilt combot sogar bei sehr hohen Prozenten noch in Aerials, wo sonst nichts mehr verbindet.',
+        tip: 'Laut SmashWiki sind Up und Down Tilt Pichus beste Starter, der Down Tilt combot sogar bei sehr hohen Prozenten noch in Aerials, wo sonst nichts mehr verbindet.',
         source: wiki('Pichu_(SSBU)'),
       },
       {
@@ -126,12 +126,12 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'utilt', dmg: 6 },
           { input: 'utilt', dmg: 6 },
-          { input: 'sh bair ff', label: 'SH Bair, fast-gefallen', dmg: 5, note: 'Die Loop-Treffer des Back Airs im Fallen – die „Lightning Loops“.' },
+          { input: 'sh bair ff', label: 'SH Bair, fast-gefallen', dmg: 5, note: 'Die Loop-Treffer des Back Airs im Fallen, die „Lightning Loops“.' },
           { input: 'sh bair ff', label: 'SH Bair, fast-gefallen', dmg: 5 },
           { input: 'dj uair', label: 'DJ Uair', dmg: 5 },
           { input: 'dair', label: 'Down Air (Meteor)', dmg: 16, note: 'Der Spike beendet den Stock außerhalb der Stage.' },
         ],
-        tip: 'SmashWiki führt Pichu als Zero-to-Death-Charakter: Lightning Loops, Up Tilts und Up Airs aneinanderhängen, dann mit dem Down-Air-Spike abschließen. Wie viele Wiederholungen drin sind, hängt an Gewicht und DI – hier steht nur der Kern.',
+        tip: 'SmashWiki führt Pichu als Zero-to-Death-Charakter: Lightning Loops, Up Tilts und Up Airs aneinanderhängen, dann mit dem Down-Air-Spike abschließen. Wie viele Wiederholungen drin sind, hängt an Gewicht und DI, hier steht nur der Kern.',
         source: wiki('Zero-to-death_combo'),
       },
     ],
@@ -172,7 +172,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 7 },
           { input: 'fh nair', label: 'FH Nair', dmg: 8 },
         ],
-        tip: 'Laut SmashWiki die verlässliche Fortsetzung aus dem Up Throw – Inklings wichtigster Combo-Wurf.',
+        tip: 'Laut SmashWiki die verlässliche Fortsetzung aus dem Up Throw. Inklings wichtigster Combo-Wurf.',
         source: wiki('Inkling_(SSBU)'),
       },
       {
@@ -202,7 +202,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           { input: 'bthrow', dmg: 11 },
         ],
-        tip: 'Gegner blocken die Bombe gern – laut Game8 hinterherlaufen und werfen, dann sitzt beides und der Gegner ist eingefärbt.',
+        tip: 'Gegner blocken die Bombe gern, laut Game8 hinterherlaufen und werfen, dann sitzt beides und der Gegner ist eingefärbt.',
         source: game8('281235'),
       },
       {
@@ -233,7 +233,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 8 },
           { input: 'sh fair', label: 'SH Fair', dmg: 14 },
         ],
-        tip: 'Laut SmashWiki hat der Down Throw die größere Auswahl an Fortsetzungen als der Up Throw – Jab, Tilts, Nair, Forward und Back Air stehen alle offen.',
+        tip: 'Laut SmashWiki hat der Down Throw die größere Auswahl an Fortsetzungen als der Up Throw. Jab, Tilts, Nair, Forward und Back Air stehen alle offen.',
         source: wiki('Inkling_(SSBU)'),
       },
       {
@@ -247,7 +247,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh bair', label: 'SH Bair', dmg: 12 },
           { input: 'dj bair', label: 'DJ Bair', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki kettet der Back Air bei mittleren Prozenten in sich selbst – über der Kante wird daraus eine Wall of Pain.',
+        tip: 'Laut SmashWiki kettet der Back Air bei mittleren Prozenten in sich selbst, über der Kante wird daraus eine Wall of Pain.',
         tags: ['Offstage'],
         source: wiki('Inkling_(SSBU)'),
       },
@@ -256,7 +256,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'ness',
     meta: [
-      'Ness’ Aerials autocanceln im Short Hop, haben wenig Landing Lag und sind schnell, stark und disjoint – sie bauen Schaden auf und killen. Sein Grab-Spiel gehört laut SmashWiki zu den besten im Cast: Down Throw als Combo-Starter, Forward und Up Throw für Juggles, Back Throw als einer der stärksten Kill-Würfe im Spiel.',
+      'Ness’ Aerials autocanceln im Short Hop, haben wenig Landing Lag und sind schnell, stark und disjoint, sie bauen Schaden auf und killen. Sein Grab-Spiel gehört laut SmashWiki zu den besten im Cast: Down Throw als Combo-Starter, Forward und Up Throw für Juggles, Back Throw als einer der stärksten Kill-Würfe im Spiel.',
       'Am Boden ist er dagegen langsam, seine Normals haben wenig Reichweite, und gegen große oder disjointe Hitboxen muss er defensiv spielen. Seine Recovery bleibt trotz Verbesserungen ausnutzbar.',
     ],
     strengths: ['Aerials autocanceln im Short Hop', 'Eines der besten Grab-Spiele im Cast', 'Back Throw als extrem starker Kill-Wurf'],
@@ -362,7 +362,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'fh uair', label: 'FH Uair', dmg: 9, note: 'Nur der letzte Treffer trägt den Knockback.' },
         ],
-        tip: 'Laut SmashWiki hat der letzte Treffer des Up Airs extrem hohe Knockback-Skalierung – nahe der oberen Blastzone killt er bei hohen Prozenten verlässlich.',
+        tip: 'Laut SmashWiki hat der letzte Treffer des Up Airs extrem hohe Knockback-Skalierung, nahe der oberen Blastzone killt er bei hohen Prozenten verlässlich.',
         tags: ['Nahe der oberen Blastzone'],
         source: wiki('Ness_(SSBU)'),
       },
@@ -378,7 +378,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           { input: 'bthrow', dmg: 13 },
         ],
-        tip: 'Laut SmashWiki einer der stärksten Back Throws im Spiel und insgesamt der vielseitigste Kill-Wurf – der Grund, warum Ness’ Grab-Spiel so hoch bewertet wird.',
+        tip: 'Laut SmashWiki einer der stärksten Back Throws im Spiel und insgesamt der vielseitigste Kill-Wurf, der Grund, warum Ness’ Grab-Spiel so hoch bewertet wird.',
         source: wiki('Ness_(SSBU)'),
       },
       {
@@ -400,7 +400,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'sheik',
     meta: [
-      'Sheiks Mobilität und Frame Data gehören zu den besten im Spiel – außer Down Air und den Smashes trifft jeder Move vor Frame 6. Zusammen mit den Nadeln, die transzendente Priorität haben, ergibt das ein herausragendes Neutral und laut SmashWiki eines der besten Combo-Spiele überhaupt.',
+      'Sheiks Mobilität und Frame Data gehören zu den besten im Spiel, außer Down Air und den Smashes trifft jeder Move vor Frame 6. Zusammen mit den Nadeln, die transzendente Priorität haben, ergibt das ein herausragendes Neutral und laut SmashWiki eines der besten Combo-Spiele überhaupt.',
       'Ihr Problem ist das Beenden: Ihre Moves machen wenig Schaden, sie braucht extrem lange Strings, und die wenigen Kill-Optionen sind schwer zu platzieren. Dazu ist sie sehr leicht und durch Größe und schnellen Fall selbst leicht combobar.',
     ],
     strengths: ['Mobilität und Frame Data an der Spitze', 'Nadeln mit transzendenter Priorität', 'Eines der besten Combo-Spiele'],
@@ -463,7 +463,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', label: 'Down Tilt, Sweetspot', dmg: 5 },
           { input: 'usmash', dmg: 18 },
         ],
-        tip: 'Laut SmashWiki ein KO-Confirm um 90 % – verlangt allerdings striktes Timing.',
+        tip: 'Laut SmashWiki ein KO-Confirm um 90 %, verlangt allerdings striktes Timing.',
         tags: ['Striktes Timing'],
         source: wiki('Sheik_(SSBU)'),
       },
@@ -494,7 +494,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'ftilt', dmg: 4 },
           { input: 'fh uair', label: 'FH Uair', dmg: 6 },
         ],
-        tip: 'Laut SmashWiki hat der Forward Tilt von niedrigen bis hohen Prozenten Combo-Potenzial – bei hohen wird daraus ein KO-Confirm in den Up Air.',
+        tip: 'Laut SmashWiki hat der Forward Tilt von niedrigen bis hohen Prozenten Combo-Potenzial, bei hohen wird daraus ein KO-Confirm in den Up Air.',
         source: wiki('Sheik_(SSBU)'),
       },
       {
@@ -546,7 +546,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'byleth',
     meta: [
-      'Byleths größte Stärke ist die Reichweite: Schwert, Bogen, Lanze und Axt geben ihm auf vielen Moves lange, disjointe Hitboxen, und jede Waffe hat ihren eigenen Zweck. Der Down Throw ist laut SmashWiki der beste Teil seines Grab-Spiels – unter 80 % ein verlässlicher Combo-Starter.',
+      'Byleths größte Stärke ist die Reichweite: Schwert, Bogen, Lanze und Axt geben ihm auf vielen Moves lange, disjointe Hitboxen, und jede Waffe hat ihren eigenen Zweck. Der Down Throw ist laut SmashWiki der beste Teil seines Grab-Spiels, unter 80 % ein verlässlicher Combo-Starter.',
       'Im Nahkampf wird es dagegen eng, und seine Mobilität gehört zu den langsamsten im ganzen Spiel. Die Areadbhar-Moves leben vom Sweetspot; ohne ihn bleiben Schaden und Knockback deutlich schwächer.',
     ],
     strengths: ['Lange, disjointe Reichweite', 'Jede Waffe mit eigenem Zweck', 'Down Throw als verlässlicher Starter unter 80 %'],
@@ -592,7 +592,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'SH Nair, fallend', dmg: 8 },
           { input: 'da', dmg: 16 },
         ],
-        tip: 'Seine breiteste Route – auch hier gilt: je höher, desto näher.',
+        tip: 'Seine breiteste Route, auch hier gilt: je höher, desto näher.',
         source: game8('281250'),
       },
       {
@@ -621,7 +621,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 6 },
           { input: 'sh fair', label: 'SH Fair', dmg: 15 },
         ],
-        tip: 'Laut SmashWiki ist der Down Throw unter 80 % ein verlässlicher Starter – Nair, Fair und Bair folgen alle.',
+        tip: 'Laut SmashWiki ist der Down Throw unter 80 % ein verlässlicher Starter. Nair, Fair und Bair folgen alle.',
         source: game8('281250'),
       },
       {
@@ -635,7 +635,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'Nair, schwacher Treffer', dmg: 8 },
           { input: 'usmash', dmg: 19 },
         ],
-        tip: 'Nur mit dem schwachen Nair-Treffer – laut Game8 zwischen 70 und 120 %.',
+        tip: 'Nur mit dem schwachen Nair-Treffer, laut Game8 zwischen 70 und 120 %.',
         source: game8('281250'),
       },
       {
@@ -681,7 +681,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'ub', label: 'Sword of the Creator', dmg: 13 },
           { input: 'nair', dmg: 8 },
         ],
-        tip: 'Laut SmashWiki seit Update 11.0.0 ein garantierter echter Combo – allerdings ausschließlich gegen Donkey Kong.',
+        tip: 'Laut SmashWiki seit Update 11.0.0 ein garantierter echter Combo, allerdings ausschließlich gegen Donkey Kong.',
         tags: ['Nur gegen Donkey Kong'],
         source: wiki('Zero-to-death_combo'),
       },
@@ -690,7 +690,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'meta-knight',
     meta: [
-      'Meta Knight hält mit niedrigem, schnellem Short Hop und Aerials ohne nennenswerten Lag Dauerdruck aufrecht. Dash Attack und Down Throw combon bei niedrigen Prozenten in Up Smash und Aerials, und seine Recovery ist laut SmashWiki wohl die beste im ganzen Spiel – entsprechend erdrückend ist sein Edgeguarding.',
+      'Meta Knight hält mit niedrigem, schnellem Short Hop und Aerials ohne nennenswerten Lag Dauerdruck aufrecht. Dash Attack und Down Throw combon bei niedrigen Prozenten in Up Smash und Aerials, und seine Recovery ist laut SmashWiki wohl die beste im ganzen Spiel, entsprechend erdrückend ist sein Edgeguarding.',
       'Seine Angriffe haben aber sehr wenige aktive Frames und verlangen Präzision. Fallgeschwindigkeit, runde Hurtbox und geringes Gewicht machen ihn extrem combo-anfällig, und ohne Projektil tut er sich gegen Zoner schwer.',
     ],
     strengths: ['Dauerdruck aus schnellen Aerials', 'Wohl beste Recovery im Spiel', 'Erdrückendes Edgeguarding'],
@@ -737,7 +737,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 4 },
           { input: 'fh fair', label: 'FH Fair', dmg: 5 },
         ],
-        tip: 'Alternativ der umgedrehte Back Air – laut SmashWiki funktionieren beide von 0 % bis zu mittleren Prozenten.',
+        tip: 'Alternativ der umgedrehte Back Air, laut SmashWiki funktionieren beide von 0 % bis zu mittleren Prozenten.',
         source: game8('281216'),
       },
       {
@@ -782,7 +782,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 4 },
           { input: 'nb', label: 'Mach Tornado', dmg: 14 },
         ],
-        tip: 'Laut SmashWiki nur ganz am Anfang eines Stocks – dafür sofort zweistelliger Schaden.',
+        tip: 'Laut SmashWiki nur ganz am Anfang eines Stocks, dafür sofort zweistelliger Schaden.',
         source: wiki('Meta_Knight_(SSBU)'),
       },
       {
@@ -805,7 +805,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
     slug: 'sephiroth',
     meta: [
       'Das Masamune gibt Sephiroth eine Reichweite, die kaum ein anderer Charakter erreicht, und seine Sweetspots machen daraus hohen Schaden mit enormer Kill-Power. Anders als die meisten Schwertkämpfer hat er zudem ein solides Grab-Spiel, das in echte Combos führt.',
-      'Dafür ist er schwer zu lernen und langsam: Außer dem Jab startet fast alles erst ab Frame 14. Als Leichtgewicht mit hoher Hurtbox stirbt er früh – und seine Winged Form gibt es erst, wenn er ohnehin im Rückstand und bei hohen Prozenten ist.',
+      'Dafür ist er schwer zu lernen und langsam: Außer dem Jab startet fast alles erst ab Frame 14. Als Leichtgewicht mit hoher Hurtbox stirbt er früh, und seine Winged Form gibt es erst, wenn er ohnehin im Rückstand und bei hohen Prozenten ist.',
     ],
     strengths: ['Unerreichte Reichweite mit dem Masamune', 'Sweetspots mit enormer Kill-Power', 'Solides Grab-Spiel für einen Schwertkämpfer'],
     weaknesses: ['Langsame Frame Data (meist ab Frame 14)', 'Leicht und mit hoher Hurtbox', 'Winged Form nur aus dem Rückstand'],
@@ -837,7 +837,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'fthrow', dmg: 7 },
           { input: 'fh fair', label: 'FH Fair', dmg: 13 },
         ],
-        tip: 'Die einfachste Wurfroute – der Forward Air deckt mit dem Masamune enorm viel Raum ab.',
+        tip: 'Die einfachste Wurfroute, der Forward Air deckt mit dem Masamune enorm viel Raum ab.',
         source: game8('316019'),
       },
       {
@@ -879,7 +879,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 10 },
           { input: 'dj bair', label: 'DJ Bair', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki ein verlässlicher KO-Confirm zwischen 40 und 80 % – Sephiroths wichtigste Kill-Route.',
+        tip: 'Laut SmashWiki ein verlässlicher KO-Confirm zwischen 40 und 80 %. Sephiroths wichtigste Kill-Route.',
         source: wiki('Sephiroth_(SSBU)'),
       },
       {
@@ -909,7 +909,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 5 },
           { input: 'sh bair', label: 'RAR Back Air', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki nahe der Kante ein KO-Confirm – allerdings nur gegen falsches DI.',
+        tip: 'Laut SmashWiki nahe der Kante ein KO-Confirm, allerdings nur gegen falsches DI.',
         tags: ['Nahe der Kante', 'DI-abhängig'],
         source: wiki('Sephiroth_(SSBU)'),
       },
@@ -918,7 +918,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'duck-hunt',
     meta: [
-      'Duck Hunt lebt von Zoning und Stage-Kontrolle mit Setups: Dose, Tontaube und Wild Gunman decken zusammen die halbe Stage ab. Dazu kommen schnelle Aerials – der Back Air startet auf Frame 7 und killt Mittelgewichte laut SmashWiki schon ab 120 %.',
+      'Duck Hunt lebt von Zoning und Stage-Kontrolle mit Setups: Dose, Tontaube und Wild Gunman decken zusammen die halbe Stage ab. Dazu kommen schnelle Aerials, der Back Air startet auf Frame 7 und killt Mittelgewichte laut SmashWiki schon ab 120 %.',
       'Alles außerhalb der Projektile ist dagegen unauffällig: Die Bodenangriffe sind bestenfalls mittelmäßig, der Forward Air killt erst um 180 %, und der Down Air verbindet seine zwei Treffer nicht zuverlässig. Mit geringem Gewicht und ausnutzbarer Recovery hält Duck Hunt selbst wenig aus.',
     ],
     strengths: ['Drei Projektile für Stage-Kontrolle', 'Back Air killt Mittelgewichte ab 120 %', 'Schnelle Aerials fürs Edgeguarding'],
@@ -936,7 +936,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 8 },
           { input: 'fh uair', label: 'FH Uair', dmg: 11 },
         ],
-        tip: 'Laut Game8 von 0 bis 70 % bestätigt – Duck Hunts verlässlichste Bodenroute.',
+        tip: 'Laut Game8 von 0 bis 70 % bestätigt. Duck Hunts verlässlichste Bodenroute.',
         source: game8('281230'),
       },
       {
@@ -1024,7 +1024,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 6 },
           { input: 'dj bair', label: 'DJ Bair', dmg: 15 },
         ],
-        tip: 'Laut SmashWiki setzt der Down Throw bei mittleren bis hohen Prozenten jeden Aerial auf – der Back Air killt Mittelgewichte ab 120 %.',
+        tip: 'Laut SmashWiki setzt der Down Throw bei mittleren bis hohen Prozenten jeden Aerial auf, der Back Air killt Mittelgewichte ab 120 %.',
         source: wiki('Duck_Hunt_(SSBU)'),
       },
     ],

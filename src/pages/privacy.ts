@@ -25,7 +25,7 @@ import type { PageView } from './types';
  */
 export function privacyPage(): PageView {
   return {
-    title: 'Datenschutzerklärung – Blastzone',
+    title: 'Datenschutzerklärung | Blastzone',
     markup: html`<div class="page legal">
       <section class="container page-head">
         <h1>Datenschutzerklärung</h1>
@@ -44,8 +44,8 @@ export function privacyPage(): PageView {
           Verarbeitung lässt sich eine Website technisch nicht ausliefern.
         </p>
         <p>
-          Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO – das berechtigte Interesse am sicheren und stabilen
-          Betrieb des Angebots. Vercel ist dabei Auftragsverarbeiter nach Art. 28 DSGVO; für die Übermittlung in
+          Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, also das berechtigte Interesse am sicheren und stabilen
+          Betrieb des Angebots. Vercel ist dabei Auftragsverarbeiter nach Art. 28 DSGVO. Für die Übermittlung in
           die USA stützt sich Vercel auf Standardvertragsklauseln. Einzelheiten und Speicherdauer richten sich
           nach den Datenschutzangaben von Vercel.
         </p>
@@ -54,7 +54,7 @@ export function privacyPage(): PageView {
         <p>
           Die Seite speichert keine Cookies und legt nichts im lokalen Speicher des Browsers ab. Es gibt keine
           Reichweitenmessung, keine Analyse-Werkzeuge und keine Einbindung von Werbenetzwerken. Ein
-          Cookie-Banner ist deshalb nicht nötig – es gäbe nichts, worin eingewilligt werden könnte.
+          Cookie-Banner ist deshalb nicht nötig. Es gäbe nichts, worin eingewilligt werden könnte.
         </p>
 
         <h2>Schriften</h2>
@@ -67,7 +67,7 @@ export function privacyPage(): PageView {
         <h2>Guide-Videos von YouTube</h2>
         <p>
           Auf den Fighter-Seiten ist jeweils ein Guide-Video eingebettet. Solange nicht darauf geklickt wird,
-          steht dort nur eine Vorschau aus eigenen Daten – es wird <strong>keine</strong> Verbindung zu YouTube
+          steht dort nur eine Vorschau aus eigenen Daten. Es wird <strong>keine</strong> Verbindung zu YouTube
           aufgebaut.
         </p>
         <p>
@@ -107,7 +107,7 @@ export function privacyPage(): PageView {
         </p>
         <p>
           Da die Seite außer den Server-Protokollen nichts erhebt und keine Nutzerkonten führt, lassen sich
-          Anfragen praktisch nur über die Protokolldaten beantworten – und die sind einer Person in aller Regel
+          Anfragen praktisch nur über die Protokolldaten beantworten, und die sind einer Person in aller Regel
           nicht zuzuordnen.
         </p>
 

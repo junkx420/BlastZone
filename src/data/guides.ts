@@ -107,7 +107,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 9 },
           { input: 'fh uair', label: 'FH Uair', dmg: 8 },
         ],
-        tip: 'Laut SmashWiki haben Up Tilt und Up Air wenig Knockback nach oben – genau das macht sie zu Steves Startern und Verlängerungen.',
+        tip: 'Laut SmashWiki haben Up Tilt und Up Air wenig Knockback nach oben, genau das macht sie zu Steves Startern und Verlängerungen.',
         source: wiki('Steve_(SSBU)'),
       },
       {
@@ -160,7 +160,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'Forward Air (Spike)', dmg: 15 },
           { input: 'nb', label: 'Block setzen', dmg: 0, note: 'Offstage B drücken, um den eigenen Rückweg zu sichern.' },
         ],
-        tip: 'Gfinity beschreibt die Route mit Diamant-Werkzeug – das goldene Schwert funktioniert nicht. Sie greift nur gegen Charaktere mit Teleport-Recovery wie Palutena oder Inkling.',
+        tip: 'Gfinity beschreibt die Route mit Diamant-Werkzeug, das goldene Schwert funktioniert nicht. Sie greift nur gegen Charaktere mit Teleport-Recovery wie Palutena oder Inkling.',
         tags: ['Nur gegen Teleport-Recovery'],
         source: {
           label: 'Gfinity Esports',
@@ -262,7 +262,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 7, note: 'Schleudert den Gegner diagonal nach oben.' },
           { input: 'fh uair', label: 'FH Uair', dmg: 13 },
         ],
-        tip: 'Laut SmashWiki startet der Down Tilt bei niedrigen Prozenten Combos – die verlässlichsten Folgen sind Forward Air und Up Air.',
+        tip: 'Laut SmashWiki startet der Down Tilt bei niedrigen Prozenten Combos, die verlässlichsten Folgen sind Forward Air und Up Air.',
         source: wiki('Sonic_(SSBU)'),
       },
       {
@@ -277,7 +277,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           { input: 'bthrow', dmg: 8 },
         ],
-        tip: 'Sonics einziger Wurf, der bei vertretbaren Prozenten KOt – laut Game8 an der Kante, wenn der Gegner hoch genug ist. Sonst kommen Kills über Forward Smash und Edgeguards.',
+        tip: 'Sonics einziger Wurf, der bei vertretbaren Prozenten KOt, laut Game8 an der Kante, wenn der Gegner hoch genug ist. Sonst kommen Kills über Forward Smash und Edgeguards.',
         tags: ['An der Kante'],
         source: game8('Super-Smash-Bros-Ultimate/archives/281206'),
       },
@@ -364,7 +364,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'bthrow', dmg: 11 },
           { input: 'db', label: 'C4 anbringen und zünden', dmg: 20, note: 'Das C4 muss vorher am Gegner kleben; gezündet wird mit einer zweiten Eingabe.' },
         ],
-        tip: 'Laut SmashWiki führt der Back Throw bei niedrigen Prozenten in den Dash Attack und ab mittleren ins C4 – als Kill-Confirm greift das etwa ab 90 %.',
+        tip: 'Laut SmashWiki führt der Back Throw bei niedrigen Prozenten in den Dash Attack und ab mittleren ins C4, als Kill-Confirm greift das etwa ab 90 %.',
         source: wiki('Snake_(SSBU)'),
       },
       {
@@ -470,7 +470,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 14 },
           { input: 'fh uair', label: 'FH Uair', dmg: 7 },
         ],
-        tip: 'Laut SmashWiki folgen auf den Up Throw bei niedrigen Prozenten Up Air oder Nair – bei hohen stattdessen Fire.',
+        tip: 'Laut SmashWiki folgen auf den Up Throw bei niedrigen Prozenten Up Air oder Nair, bei hohen stattdessen Fire.',
         source: wiki('Mr._Game_%26_Watch_(SSBU)'),
       },
       {
@@ -484,7 +484,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'ub', label: 'Fire', dmg: 11 },
           { input: 'fh uair', label: 'FH Uair', dmg: 7 },
         ],
-        tip: 'Laut SmashWiki lässt sich Fire bei niedrigen Prozenten in Nair oder Up Air verlängern – aus der besten Out-of-Shield-Option wird so eine Jonglage.',
+        tip: 'Laut SmashWiki lässt sich Fire bei niedrigen Prozenten in Nair oder Up Air verlängern, aus der besten Out-of-Shield-Option wird so eine Jonglage.',
         source: wiki('Mr._Game_%26_Watch_(SSBU)'),
       },
       {
@@ -499,7 +499,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dsmash', label: 'Down Smash (Sweetspot)', dmg: 18, note: 'Nur der Sweetspot vergräbt den Gegner.' },
           { input: 'fsmash', dmg: 22 },
         ],
-        tip: 'Laut SmashWiki vergräbt der gesweetspottete Down Smash – danach stehen Forward Smash, Down Tilt, Oil Panic oder Judge offen.',
+        tip: 'Laut SmashWiki vergräbt der gesweetspottete Down Smash, danach stehen Forward Smash, Down Tilt, Oil Panic oder Judge offen.',
         source: wiki('Mr._Game_%26_Watch_(SSBU)'),
       },
       {
@@ -668,7 +668,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'da', dmg: 8, note: 'Den Gyro dabei wieder aufheben.' },
           { input: 'db', label: 'Gyro', dmg: 11 },
           { input: 'da', dmg: 8 },
-          { input: 'sb', label: 'Arm Rotor', dmg: 18, note: 'Der Finisher – Knöpfe mashen erhöht die Trefferzahl.' },
+          { input: 'sb', label: 'Arm Rotor', dmg: 18, note: 'Der Finisher. Knöpfe mashen erhöht die Trefferzahl.' },
         ],
         tip: 'SmashWiki führt R.O.B.s Gyro als Zero-to-Death-Werkzeug mit dem Arm Rotor als Abschluss. Wie oft sich die Schleife wiederholen lässt, hängt daran, ob der Gyro rechtzeitig wieder in der Hand liegt.',
         source: wiki('Zero-to-death_combo'),
@@ -764,7 +764,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 8 },
           { input: 'sh uair', label: 'SH Uair', dmg: 8 },
         ],
-        tip: 'Laut SmashWiki startet der Down Tilt bei niedrigen bis mittleren Prozenten Combos – neben dem Up Air gehen auch Nair und Up Smash.',
+        tip: 'Laut SmashWiki startet der Down Tilt bei niedrigen bis mittleren Prozenten Combos, neben dem Up Air gehen auch Nair und Up Smash.',
         source: wiki('Min_Min_(SSBU)'),
       },
       {
@@ -802,7 +802,7 @@ export const GUIDES: FighterGuide[] = [
   {
     slug: 'kazuya',
     meta: [
-      'Kazuyas größte Stärke ist sein tödliches Combo-Game. Down-Back Tilt, Devil Fist und vor allem der Electric Wind God Fist starten Combos – der EWGF gehört dank seines langen Hitstuns zu den besten Startern im Spiel und ist auf Schild sicher.',
+      'Kazuyas größte Stärke ist sein tödliches Combo-Game. Down-Back Tilt, Devil Fist und vor allem der Electric Wind God Fist starten Combos, der EWGF gehört dank seines langen Hitstuns zu den besten Startern im Spiel und ist auf Schild sicher.',
       'Dem gegenüber steht ein schwacher Disadvantage: Ohne Aerials zum Combo-Brechen und mit einer ausrechenbaren Recovery verliert er viele Situationen in der Luft.',
     ],
     strengths: ['Tödliches Combo-Game mit vielen Startern', 'EWGF: sicher auf Schild, enormer Reward', 'Kill-Confirms in Smash-Angriffe und Devil Wings'],
@@ -919,7 +919,7 @@ export const GUIDES: FighterGuide[] = [
           { input: '623a', label: 'Electric Wind God Fist', dmg: 17 },
           { input: 'ub', label: 'Devil Wings', dmg: 22 },
         ],
-        tip: 'SmashWiki nennt den Down Throw in den Electric Wind God Fist als Kazuyas Zero-to-Death, ergänzt um weitere Input-Attacks und Aerials. Wie viele EWGF hintereinander passen, hängt an Gewicht und DI – hier stehen drei.',
+        tip: 'SmashWiki nennt den Down Throw in den Electric Wind God Fist als Kazuyas Zero-to-Death, ergänzt um weitere Input-Attacks und Aerials. Wie viele EWGF hintereinander passen, hängt an Gewicht und DI, hier stehen drei.',
         source: wiki('Zero-to-death_combo'),
       },
     ],
@@ -929,7 +929,7 @@ export const GUIDES: FighterGuide[] = [
   {
     slug: 'diddy-kong',
     meta: [
-      'Diddys starkes Neutral baut auf der Banane auf: Sie öffnet Combos, KO-Setups und Edgeguards. Aus dem Down Throw folgen Forward, Back und Up Air sehr zuverlässig – inklusive des Hoo-Hah-KO-Confirms.',
+      'Diddys starkes Neutral baut auf der Banane auf: Sie öffnet Combos, KO-Setups und Edgeguards. Aus dem Down Throw folgen Forward, Back und Up Air sehr zuverlässig, inklusive des Hoo-Hah-KO-Confirms.',
       'Schwer tut er sich damit, Stocks bei hohen Prozenten sicher zu beenden. Seine Recovery ist angreifbar: Wird Rocketbarrel Boost getroffen, folgt ein langer Endlag, der oft den Stock kostet.',
     ],
     strengths: ['Banana Peel für Combos, Setups und Edgeguards', 'Down Throw als verlässlicher Starter', 'Hoo Hah als KO-Confirm'],
@@ -1026,7 +1026,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'da', dmg: 6, note: 'Schickt den Gegner nach oben.' },
           { input: 'fh uair', label: 'FH Uair', dmg: 8 },
         ],
-        tip: 'Laut SmashWiki folgen auf den Dash Attack Up, Back oder Forward Air – je nachdem, wohin der Gegner fliegt.',
+        tip: 'Laut SmashWiki folgen auf den Dash Attack Up, Back oder Forward Air, je nachdem, wohin der Gegner fliegt.',
         source: wiki('Diddy_Kong_(SSBU)'),
       },
       {
@@ -1069,7 +1069,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 7 },
           { input: 'usmash', dmg: 10 },
         ],
-        tip: 'Laut SmashWiki bei hohen Prozenten ein KO-Confirm – die zweite verlässliche Kill-Route neben dem Hoo Hah.',
+        tip: 'Laut SmashWiki bei hohen Prozenten ein KO-Confirm, die zweite verlässliche Kill-Route neben dem Hoo Hah.',
         source: wiki('Diddy_Kong_(SSBU)'),
       },
     ],
@@ -1197,7 +1197,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 7 },
           { input: 'sh fair', label: 'SH Fair', dmg: 10 },
         ],
-        tip: 'Laut SmashWiki eine der verlässlichsten Folgen aus dem Down Throw – aus dem Forward Air heraus geht es in ihn selbst, in den Nair oder in den Up Air weiter.',
+        tip: 'Laut SmashWiki eine der verlässlichsten Folgen aus dem Down Throw, aus dem Forward Air heraus geht es in ihn selbst, in den Nair oder in den Up Air weiter.',
         source: wiki('Luigi_(SSBU)'),
       },
       {
@@ -1211,7 +1211,7 @@ export const GUIDES: FighterGuide[] = [
         steps: [
           { input: 'db', label: 'Luigi Cyclone (am Boden)', dmg: 12, note: 'Der letzte Treffer trägt den Knockback.' },
         ],
-        tip: 'Laut SmashWiki KOt die Bodenversion des Cyclone Mittelgewichte bei rund 160 % – die Luftversion ist dagegen der Kill-Confirm aus dem Down Throw.',
+        tip: 'Laut SmashWiki KOt die Bodenversion des Cyclone Mittelgewichte bei rund 160 %, die Luftversion ist dagegen der Kill-Confirm aus dem Down Throw.',
         source: wiki('Luigi_(SSBU)'),
       },
     ],
@@ -1236,7 +1236,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 8 },
           { input: 'sh uair', label: 'SH Uair', dmg: 18 },
         ],
-        tip: 'Up Tilt kettet in sich selbst, Jab, Tilts, Nair, Up Air und Back Air – Up Air bringt den meisten Schaden.',
+        tip: 'Up Tilt kettet in sich selbst, Jab, Tilts, Nair, Up Air und Back Air. Up Air bringt den meisten Schaden.',
         source: wiki('Fox_(SSBU)'),
       },
       {
@@ -1292,7 +1292,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'SH Nair, fallend', dmg: 7, note: 'Nur der späte Treffer hält den Gegner nah genug.' },
           { input: 'jab', label: 'Multi-Hit Jab', dmg: 2, note: 'Jeder Treffer des Rapid Jabs bringt 0,7 %, der Abschluss 2 %.' },
         ],
-        tip: 'Laut Game8 bei verschiedenen Prozenten möglich – die Route setzt voraus, dass der Neutral Air im Fallen trifft.',
+        tip: 'Laut Game8 bei verschiedenen Prozenten möglich, die Route setzt voraus, dass der Neutral Air im Fallen trifft.',
         source: game8('Super-Smash-Bros-Ultimate/archives/281181'),
       },
       {
@@ -1321,7 +1321,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'fh uair', label: 'FH Uair', dmg: 18 },
           { input: 'dj uair', label: 'DJ Uair', dmg: 18 },
         ],
-        tip: 'Laut Game8 ab mittleren Prozenten – dafür muss Fox beim Down Tilt dicht am Gegner stehen.',
+        tip: 'Laut Game8 ab mittleren Prozenten, dafür muss Fox beim Down Tilt dicht am Gegner stehen.',
         source: game8('Super-Smash-Bros-Ultimate/archives/281181'),
       },
       {
@@ -1391,7 +1391,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 7 },
           { input: 'fh uair', label: 'FH Uair', dmg: 8 },
         ],
-        tip: 'Ab mittleren Prozenten fliegt der Gegner höher – dann Up Tilt in Aerials statt in sich selbst.',
+        tip: 'Ab mittleren Prozenten fliegt der Gegner höher, dann Up Tilt in Aerials statt in sich selbst.',
         source: wiki('Mario_(SSBU)'),
       },
       {
@@ -1410,7 +1410,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dj uair', label: 'DJ Uair', dmg: 8 },
           { input: 'ub', label: 'Super Jump Punch', dmg: 10 },
         ],
-        tip: 'SmashWiki führt Marios Leiter-Combos als Zero-to-Death. Wie hoch die Leiter reicht, hängt laut Quelle am Gegner, an der Stage und an Marios eigener Rage – der Super Jump Punch killt nahe der oberen Blastzone.',
+        tip: 'SmashWiki führt Marios Leiter-Combos als Zero-to-Death. Wie hoch die Leiter reicht, hängt laut Quelle am Gegner, an der Stage und an Marios eigener Rage, der Super Jump Punch killt nahe der oberen Blastzone.',
         tags: ['Kill nahe oberer Blastzone'],
         source: wiki('Zero-to-death_combo'),
       },
@@ -1443,7 +1443,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dj uair', label: 'DJ Uair', dmg: 8 },
           { input: 'ub', label: 'Super Jump Punch', dmg: 10 },
         ],
-        tip: 'Laut Game8 bei niedrigen Prozenten rund 52 % Schaden – Marios längste Bodenroute, die in die Leiter übergeht.',
+        tip: 'Laut Game8 bei niedrigen Prozenten rund 52 % Schaden. Marios längste Bodenroute, die in die Leiter übergeht.',
         source: game8('Super-Smash-Bros-Ultimate/archives/281177'),
       },
       {
@@ -1487,7 +1487,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'fh uair', label: 'FH Uair', dmg: 8 },
           { input: 'dj fair', label: 'DJ Fair (Sweetspot)', dmg: 17, note: 'Nur der Sweetspot schlägt nach unten.' },
         ],
-        tip: 'Laut Game8 an der Kante der Abschluss, der Stocks beendet – der Forward Air mit Sweetspot spikt den Gegner nach unten.',
+        tip: 'Laut Game8 an der Kante der Abschluss, der Stocks beendet, der Forward Air mit Sweetspot spikt den Gegner nach unten.',
         tags: ['An der Kante'],
         source: game8('Super-Smash-Bros-Ultimate/archives/281177'),
       },
@@ -1496,7 +1496,7 @@ export const GUIDES: FighterGuide[] = [
   {
     slug: 'ryu',
     meta: [
-      'Ryu hat ein starkes Combo-Game dank automatischer Drehung zum Gegner und Special-Cancels aus mehreren Moves. Leichte Tilts gehen direkt in Specials über – per Command-Input stärker als per Knopf.',
+      'Ryu hat ein starkes Combo-Game dank automatischer Drehung zum Gegner und Special-Cancels aus mehreren Moves. Leichte Tilts gehen direkt in Specials über, per Command-Input stärker als per Knopf.',
       'Seine Mobilität ist unterdurchschnittlich, die Anflugoptionen sind begrenzt, und die Recovery ist linear und angreifbar.',
     ],
     strengths: ['Special-Cancels aus Tilts', 'Automatische Drehung zum Gegner', 'Hoher Schaden über Command-Inputs'],
@@ -1510,7 +1510,7 @@ export const GUIDES: FighterGuide[] = [
         start: 20,
         difficulty: 2,
         steps: [
-          { input: 'lftilt', dmg: 7, note: 'Nah am Gegner antippen – er rutscht zu Ryu hin.' },
+          { input: 'lftilt', dmg: 7, note: 'Nah am Gegner antippen, er rutscht zu Ryu hin.' },
           { input: '214b', label: 'Tatsumaki Senpukyaku', dmg: 17, note: 'Command-Input, auch mit A oder Side Taunt möglich.' },
         ],
         tip: 'Der nahe Light Forward Tilt combot in jedes Special. Tatsumaki bringt Schaden und Stage-Position.',
@@ -1572,7 +1572,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'jab', label: 'Jab (leicht)', dmg: 2 },
           { input: '623b', label: 'True Shoryuken', dmg: 20, note: 'Der Input muss direkt nach dem zweiten Jab kommen.' },
         ],
-        tip: 'Laut Game8 die klassische Eins-Zwei-Folge gegen Gegner mit hohen Prozenten – sie steht und fällt mit dem schnellen Command-Input.',
+        tip: 'Laut Game8 die klassische Eins-Zwei-Folge gegen Gegner mit hohen Prozenten, sie steht und fällt mit dem schnellen Command-Input.',
         source: game8('Super-Smash-Bros-Ultimate/archives/281231'),
       },
       {
@@ -1584,7 +1584,7 @@ export const GUIDES: FighterGuide[] = [
         kills: true,
         difficulty: 2,
         steps: [
-          { input: 'utilt', label: 'Up Tilt (leicht angetippt)', dmg: 2, note: 'Kurzer Startup – auch als Bestrafung geeignet.' },
+          { input: 'utilt', label: 'Up Tilt (leicht angetippt)', dmg: 2, note: 'Kurzer Startup, auch als Bestrafung geeignet.' },
           { input: '623b', label: 'True Shoryuken', dmg: 20 },
         ],
         tip: 'Laut Game8 die schnellste Kill-Route bei hohen Prozenten: Der leichte Up Tilt startet früh und geht direkt in den Shoryuken über.',
@@ -1602,7 +1602,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dtilt', label: 'Down Tilt (A gehalten)', dmg: 8 },
           { input: '623b', label: 'True Shoryuken', dmg: 20 },
         ],
-        tip: 'Laut Game8 die tiefe Variante – der Down Tilt trifft auch Gegner, die im Schild stehen bleiben wollen.',
+        tip: 'Laut Game8 die tiefe Variante, der Down Tilt trifft auch Gegner, die im Schild stehen bleiben wollen.',
         source: game8('Super-Smash-Bros-Ultimate/archives/281231'),
       },
     ],
@@ -1676,7 +1676,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'fh uair', label: 'FH Uair', dmg: 12 },
           { input: 'dj fair', label: 'Knee Smash', dmg: 26, note: 'Nur der Sweetspot hat die volle Kill-Power.' },
         ],
-        tip: 'Funktioniert, solange der Gegner nicht ausweicht – kein garantierter Combo, aber eine Route mit KO-Potenzial.',
+        tip: 'Funktioniert, solange der Gegner nicht ausweicht, kein garantierter Combo, aber eine Route mit KO-Potenzial.',
         tags: ['Nicht garantiert'],
         source: game8('Super-Smash-Bros-Ultimate/archives/281214'),
       },
@@ -1707,7 +1707,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 7 },
           { input: 'sh bair', label: 'RAR Back Air', dmg: 16 },
         ],
-        tip: 'Laut SmashWiki startet der Down Throw bei niedrigen Prozenten in Nair und Back Air – der Back Air bringt dabei den meisten Schaden.',
+        tip: 'Laut SmashWiki startet der Down Throw bei niedrigen Prozenten in Nair und Back Air, der Back Air bringt dabei den meisten Schaden.',
         source: wiki('Captain_Falcon_(SSBU)'),
       },
       {
@@ -1721,7 +1721,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'sb', label: 'Raptor Boost (am Boden)', dmg: 12 },
           { input: 'utilt', dmg: 13 },
         ],
-        tip: 'Laut SmashWiki KOt der geerdete Raptor Boost selbst nicht, combot dafür aber zuverlässig – an der Kante bei mittleren Prozenten sogar in den Up Tilt.',
+        tip: 'Laut SmashWiki KOt der geerdete Raptor Boost selbst nicht, combot dafür aber zuverlässig, an der Kante bei mittleren Prozenten sogar in den Up Tilt.',
         tags: ['An der Kante'],
         source: wiki('Captain_Falcon_(SSBU)'),
       },
@@ -1737,7 +1737,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'sb', label: 'Raptor Boost (am Boden)', dmg: 12 },
           { input: 'jump fair', label: 'Sprung → Knee Smash', dmg: 26, note: 'Nur der Sweetspot am Knie hat die volle Kill-Power.' },
         ],
-        tip: 'Laut SmashWiki führt der Raptor Boost in Falcons Aerials – bei passenden Prozenten auch direkt in den Knee Smash.',
+        tip: 'Laut SmashWiki führt der Raptor Boost in Falcons Aerials, bei passenden Prozenten auch direkt in den Knee Smash.',
         source: wiki('Captain_Falcon_(SSBU)'),
       },
       {
@@ -1752,7 +1752,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'fh uair', label: 'FH Uair', dmg: 12 },
           { input: 'ub', label: 'Falcon Dive', dmg: 16 },
         ],
-        tip: 'Laut SmashWiki kettet der Up Air in sich selbst, bei niedrigen bis mittleren Prozenten in den Down Air, später in den Knee – und nahe der oberen Blastzone in den Falcon Dive.',
+        tip: 'Laut SmashWiki kettet der Up Air in sich selbst, bei niedrigen bis mittleren Prozenten in den Down Air, später in den Knee, und nahe der oberen Blastzone in den Falcon Dive.',
         tags: ['Nahe der Blastzone'],
         source: wiki('Captain_Falcon_(SSBU)'),
       },

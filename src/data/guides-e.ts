@@ -44,7 +44,7 @@ const SIMON: FighterGuide = {
         { input: 'sh nair ff', label: 'Nair im Fallen, nur die ersten Treffer', dmg: 6 },
         { input: 'ub', label: 'Uppercut', dmg: 11 },
       ],
-      tip: 'Der letzte Nair-Treffer darf laut Game8 nicht landen – sonst fliegt der Gegner zu weit.',
+      tip: 'Der letzte Nair-Treffer darf laut Game8 nicht landen, sonst fliegt der Gegner zu weit.',
       source: game8('281237'),
     },
     {
@@ -59,7 +59,7 @@ const SIMON: FighterGuide = {
         { input: 'uthrow', dmg: 12 },
         { input: 'usmash', dmg: 19 },
       ],
-      tip: 'Laut SmashWiki startet der Up Throw bei 0 % Combos – etwa in den Up Smash oder in eine Luftjagd.',
+      tip: 'Laut SmashWiki startet der Up Throw bei 0 % Combos, etwa in den Up Smash oder in eine Luftjagd.',
       source: wiki('Simon_(SSBU)'),
     },
     {
@@ -120,7 +120,7 @@ const SIMON: FighterGuide = {
         { input: 'sh dair', label: 'SH Dair, Meteor am Anfang', dmg: 14 },
         { input: 'ub', label: 'Uppercut', dmg: 11 },
       ],
-      tip: 'Laut SmashWiki prallt der Down Air diagonal ab und öffnet dadurch KO-Confirms – allen voran in den Uppercut.',
+      tip: 'Laut SmashWiki prallt der Down Air diagonal ab und öffnet dadurch KO-Confirms, allen voran in den Uppercut.',
       source: wiki('Simon_(SSBU)'),
     },
   ],
@@ -140,7 +140,7 @@ export const E_GUIDES: FighterGuide[] = [
   {
     slug: 'little-mac',
     meta: [
-      'Little Macs Bodenspiel ist laut SmashWiki das stärkste im ganzen Spiel: Forward Tilt, Dash Attack und die Smashes machen viel Schaden mit hoher Knockback-Skalierung, seine Tilts prallen an gegnerischen Bodenangriffen nicht ab, und die Smashes tragen Super-Armor. Sein Power-Meter füllt sich bei 333 % ausgeteiltem oder 100 % erlittenem Schaden – der KO-Uppercut killt danach die meisten Charaktere vor 40 %.',
+      'Little Macs Bodenspiel ist laut SmashWiki das stärkste im ganzen Spiel: Forward Tilt, Dash Attack und die Smashes machen viel Schaden mit hoher Knockback-Skalierung, seine Tilts prallen an gegnerischen Bodenangriffen nicht ab, und die Smashes tragen Super-Armor. Sein Power-Meter füllt sich bei 333 % ausgeteiltem oder 100 % erlittenem Schaden, der KO-Uppercut killt danach die meisten Charaktere vor 40 %.',
       'In der Luft kehrt sich alles um: schwache Luftmobilität, hohe Fallgeschwindigkeit, der kürzeste Air Dodge im Spiel und Specials, die in der Luft kaum etwas taugen. Einmal offstage ist er praktisch erledigt.',
     ],
     strengths: ['Stärkstes Bodenspiel im Spiel', 'Tilts ohne Abprallen, Smashes mit Super-Armor', 'KO-Uppercut killt vor 40 %'],
@@ -158,7 +158,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 10 },
           { input: 'sb', label: 'Jolt Haymaker', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki combot der Down Tilt bei mittleren Prozenten in den Jolt Haymaker – und erreicht sogar Gegner an der Kante.',
+        tip: 'Laut SmashWiki combot der Down Tilt bei mittleren Prozenten in den Jolt Haymaker, und erreicht sogar Gegner an der Kante.',
         source: game8('281222'),
       },
       {
@@ -217,7 +217,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'fthrow', dmg: 10 },
           { input: 'sb', label: 'Jolt Haymaker', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki lässt sich der Jolt Haymaker schon ab 0 % an den Forward Throw hängen – der früheste Schadensaufbau, den Mac hat.',
+        tip: 'Laut SmashWiki lässt sich der Jolt Haymaker schon ab 0 % an den Forward Throw hängen, der früheste Schadensaufbau, den Mac hat.',
         source: wiki('Little_Mac_(SSBU)'),
       },
       {
@@ -232,7 +232,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'SH Fair', dmg: 6 },
           { input: 'sb', label: 'Jolt Haymaker', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki combot der Forward Air bei präziser Ausführung in den Jolt Haymaker; bei mittleren Prozenten steht der Gegner danach ungünstig – offstage killt das früh. Für Mac heißt das aber auch: selbst weit hinaus.',
+        tip: 'Laut SmashWiki combot der Forward Air bei präziser Ausführung in den Jolt Haymaker; bei mittleren Prozenten steht der Gegner danach ungünstig, offstage killt das früh. Für Mac heißt das aber auch: selbst weit hinaus.',
         tags: ['Offstage', 'Riskant'],
         source: wiki('Little_Mac_(SSBU)'),
       },
@@ -280,7 +280,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'fh uair', label: 'FH Uair', dmg: 6 },
           { input: 'ub', label: 'Rising Uppercut', dmg: 8 },
         ],
-        tip: 'Die Luftvariante desselben Confirms – laut SmashWiki ebenfalls erst bei hohen Prozenten.',
+        tip: 'Die Luftvariante desselben Confirms, laut SmashWiki ebenfalls erst bei hohen Prozenten.',
         source: wiki('Little_Mac_(SSBU)'),
       },
     ],
@@ -306,7 +306,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'da', dmg: 18 },
           { input: 'fh uair', label: 'FH Uair', dmg: 16 },
         ],
-        tip: 'Rund 30 % laut Game8 – seine einfachste und schadensstärkste Grundroute.',
+        tip: 'Rund 30 % laut Game8, seine einfachste und schadensstärkste Grundroute.',
         source: game8('281196'),
       },
       {
@@ -319,7 +319,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'sb', label: 'Flame Choke', dmg: 14, note: 'Greift auch durch den Schild.' },
           { input: 'dtilt', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki eröffnet der gegroundete Flame Choke Dutzende Follow-ups und Reads – der Down Tilt ist der sicherste.',
+        tip: 'Laut SmashWiki eröffnet der gegroundete Flame Choke Dutzende Follow-ups und Reads, der Down Tilt ist der sicherste.',
         source: game8('281196'),
       },
       {
@@ -377,7 +377,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair, später Treffer des zweiten Tritts', dmg: 11 },
           { input: 'ftilt', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki öffnet der späte Treffer des zweiten Nair-Tritts Jab, Grab, Forward Tilt, Down Tilt und Dash Attack – der Forward Tilt bringt davon den meisten Schaden.',
+        tip: 'Laut SmashWiki öffnet der späte Treffer des zweiten Nair-Tritts Jab, Grab, Forward Tilt, Down Tilt und Dash Attack, der Forward Tilt bringt davon den meisten Schaden.',
         source: wiki('Ganondorf_(SSBU)'),
       },
       {
@@ -392,7 +392,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'sb', label: 'Flame Choke', dmg: 14, note: 'Schlägt den Gegner in den Boden.' },
           { input: 'fsmash', dmg: 29 },
         ],
-        tip: 'Laut SmashWiki eröffnet der gegroundete Flame Choke Dutzende Follow-ups und Reads – darunter jeden Smash-Angriff. Garantiert ist keiner davon, man liest die Aufsteh-Option.',
+        tip: 'Laut SmashWiki eröffnet der gegroundete Flame Choke Dutzende Follow-ups und Reads, darunter jeden Smash-Angriff. Garantiert ist keiner davon, man liest die Aufsteh-Option.',
         tags: ['Read, nicht garantiert'],
         source: wiki('Ganondorf_(SSBU)'),
       },
@@ -409,7 +409,7 @@ export const E_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 8 },
           { input: 'dj bair', label: 'DJ Bair', dmg: 22 },
         ],
-        tip: 'Laut SmashWiki wird aus der Back-Air-Route bei höheren Prozenten ein KO-Setup – der stärkste Abschluss, den sein Down Throw hergibt.',
+        tip: 'Laut SmashWiki wird aus der Back-Air-Route bei höheren Prozenten ein KO-Setup, der stärkste Abschluss, den sein Down Throw hergibt.',
         source: wiki('Ganondorf_(SSBU)'),
       },
       {

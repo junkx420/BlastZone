@@ -11,7 +11,7 @@ const SAMUS: FighterGuide = {
   slug: 'samus',
   meta: [
     'Samus’ größte Stärke ist ihr Neutral auf Distanz, ergänzt durch ein solides Nahkampf-Spiel. Aus dem Down Throw folgen Combos in Nair, Forward und Up Air, und Up-Air-Ketten enden im Screw Attack.',
-    'Ihre deutlichsten Schwächen sind die langsame Mobilität und die langsame Frame Data – wer an ihrer Distanz vorbeikommt, setzt sie unter Druck.',
+    'Ihre deutlichsten Schwächen sind die langsame Mobilität und die langsame Frame Data, wer an ihrer Distanz vorbeikommt, setzt sie unter Druck.',
   ],
   strengths: ['Starkes Neutral auf Distanz', 'Down Throw führt in Nair, Forward und Up Air', 'Up-Air-Ketten mit Screw Attack als Abschluss'],
   weaknesses: ['Langsame Mobilität', 'Langsame Frame Data'],
@@ -88,7 +88,7 @@ const SAMUS: FighterGuide = {
         { input: 'ftilt', dmg: 11 },
         { input: 'nb', label: 'Charge Shot (geladen)', dmg: 34, note: 'Voll geladen am stärksten.' },
       ],
-      tip: 'Egal welche Tech-Option der Gegner wählt – der Charge Shot erwischt sie rechtzeitig.',
+      tip: 'Egal welche Tech-Option der Gegner wählt, der Charge Shot erwischt sie rechtzeitig.',
       tags: ['Garantiert', 'Charge Shot geladen'],
       source: wiki('Samus_(SSBU)'),
     },
@@ -104,7 +104,7 @@ const SAMUS: FighterGuide = {
         { input: 'dthrow', dmg: 10 },
         { input: 'sh nair', label: 'SH Nair', dmg: 12, note: 'Ab mittleren Prozenten aus dem Full Hop.' },
       ],
-      tip: 'Laut SmashWiki startet der Down Throw Combos in Nair, Forward und Up Air – welcher passt, hängt am Prozentwert.',
+      tip: 'Laut SmashWiki startet der Down Throw Combos in Nair, Forward und Up Air, welcher passt, hängt am Prozentwert.',
       source: wiki('Samus_(SSBU)'),
     },
     {
@@ -118,7 +118,7 @@ const SAMUS: FighterGuide = {
         { input: 'da', dmg: 12 },
         { input: 'fh uair', label: 'FH Uair', dmg: 12 },
       ],
-      tip: 'Laut SmashWiki ist der Up Air die Folge auf Dash Attack, Up Tilt am Boden, Down Air und Down Throw – und aus ihm heraus geht noch ein Up Air.',
+      tip: 'Laut SmashWiki ist der Up Air die Folge auf Dash Attack, Up Tilt am Boden, Down Air und Down Throw, und aus ihm heraus geht noch ein Up Air.',
       source: wiki('Samus_(SSBU)'),
     },
     {
@@ -133,7 +133,7 @@ const SAMUS: FighterGuide = {
         { input: 'grab', dmg: 0 },
         { input: 'uthrow', dmg: 14 },
       ],
-      tip: 'Laut SmashWiki ist der Up Throw Samus’ stärkster Wurf und KOt verlässlich – besonders auf Plattformen, die den Weg zur oberen Blastzone verkürzen.',
+      tip: 'Laut SmashWiki ist der Up Throw Samus’ stärkster Wurf und KOt verlässlich, besonders auf Plattformen, die den Weg zur oberen Blastzone verkürzen.',
       tags: ['Auf Plattformen'],
       source: wiki('Samus_(SSBU)'),
     },
@@ -160,7 +160,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
   SAMUS,
   echoGuide(SAMUS, 'dark-samus', {
     meta: [
-      'Dark Samus ist Samus’ Echo-Fighter. Die spielerischen Unterschiede sind so gering, dass beide competitive als derselbe Charakter gelten – Dark Samus hat etwa eine minimal schnellere Rolle. Alle Routen von Samus gelten.',
+      'Dark Samus ist Samus’ Echo-Fighter. Die spielerischen Unterschiede sind so gering, dass beide competitive als derselbe Charakter gelten. Dark Samus hat etwa eine minimal schnellere Rolle. Alle Routen von Samus gelten.',
       SAMUS.meta[1] ?? '',
     ],
     sources: [wiki('Dark_Samus_(SSBU)', 'SmashWiki (Dark Samus)'), wiki('Samus_(SSBU)', 'SmashWiki (Samus)'), game8('281178'), ufd('samus')],
@@ -168,7 +168,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
   {
     slug: 'palutena',
     meta: [
-      'Palutenas Aerials sind der Kern ihres Neutrals: hohe Luftmobilität, und vor allem ihr Nair gilt als einer der besten Moves im Spiel – er startet Combos, kettet in sich selbst, bleibt lange aktiv und killt bei sehr hohen Prozenten.',
+      'Palutenas Aerials sind der Kern ihres Neutrals: hohe Luftmobilität, und vor allem ihr Nair gilt als einer der besten Moves im Spiel, er startet Combos, kettet in sich selbst, bleibt lange aktiv und killt bei sehr hohen Prozenten.',
       'Am Boden ist sie unterdurchschnittlich: langsame, unsichere Tilts und verbindliche Smash-Angriffe. Stocks zu beenden fällt ihr schwer, weil Explosive Flame berechenbar ist und Back Air durch Überbenutzung schnell an Kraft verliert.',
     ],
     strengths: ['Nair als einer der besten Moves im Spiel', 'Hohe Luftmobilität', 'Down Throw startet Nair-Ketten und KO-Setups'],
@@ -187,7 +187,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 12 },
           { input: 'fh uair', label: 'FH Uair', dmg: 11 },
         ],
-        tip: 'Gegen große Hurtboxes einfach. Kleine Charaktere wie Pikachu können per SDI entkommen – dann nach zwei Nairs abbrechen.',
+        tip: 'Gegen große Hurtboxes einfach. Kleine Charaktere wie Pikachu können per SDI entkommen, dann nach zwei Nairs abbrechen.',
         source: game8('281038'),
       },
       {
@@ -231,7 +231,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0, note: 'Direkt nach der Landung greifen, notfalls einen Schritt nach vorn.' },
           { input: 'dthrow', dmg: 6 },
         ],
-        tip: 'Der Forward Air öffnet so ihr Grab-Game – danach eine der Down-Throw-Routen.',
+        tip: 'Der Forward Air öffnet so ihr Grab-Game, danach eine der Down-Throw-Routen.',
         source: game8('281038'),
       },
       {
@@ -320,7 +320,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 6 },
           { input: 'fh uair', label: 'FH Uair', dmg: 7 },
         ],
-        tip: 'Down Throw führt in jede Aerial – Up Air hält den Gegner über Pikachu.',
+        tip: 'Down Throw führt in jede Aerial. Up Air hält den Gegner über Pikachu.',
         source: wiki('Pikachu_(SSBU)'),
       },
       {
@@ -381,7 +381,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'Nair, fast-gefallen', dmg: 12, note: 'Der Fast Fall zieht den Gegner mit nach unten.' },
           { input: 'utilt', dmg: 6 },
         ],
-        tip: 'Laut SmashWiki lässt sich der Nair fast-fallen, um den Gegner mit herunterzuziehen und die Combo zu verlängern – im Wechsel mit Up Tilts, je nachdem wohin der Gegner DIt.',
+        tip: 'Laut SmashWiki lässt sich der Nair fast-fallen, um den Gegner mit herunterzuziehen und die Combo zu verlängern, im Wechsel mit Up Tilts, je nachdem wohin der Gegner DIt.',
         source: wiki('Pikachu_(SSBU)'),
       },
       {
@@ -395,7 +395,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'sh bair', label: 'SH Bair', dmg: 12 },
           { input: 'dj bair', label: 'DJ Bair', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki kettet der Back Air bei niedrigen Prozenten mehrfach in sich selbst – genug für eine Pseudo-Wall-of-Pain über der Kante.',
+        tip: 'Laut SmashWiki kettet der Back Air bei niedrigen Prozenten mehrfach in sich selbst, genug für eine Pseudo-Wall-of-Pain über der Kante.',
         tags: ['Offstage'],
         source: wiki('Pikachu_(SSBU)'),
       },
@@ -526,7 +526,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 7 },
           { input: 'utilt', dmg: 8 },
         ],
-        tip: 'Laut SmashWiki kettet der Down Tilt in sich selbst – besonders gegen schnelle Faller –, in den Up Tilt, in Smash-Angriffe und in Aerials.',
+        tip: 'Laut SmashWiki kettet der Down Tilt in sich selbst, besonders gegen schnelle Faller, in den Up Tilt, in Smash-Angriffe und in Aerials.',
         source: wiki('Olimar_(SSBU)'),
       },
       {
@@ -555,7 +555,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           { input: 'uthrow', dmg: 16, note: 'Wert für Blue; die anderen Farben werfen deutlich schwächer.' },
         ],
-        tip: 'Laut SmashWiki ist das mit drei Pikmin und einem Blue an der Spitze der stärkste Up Throw im ganzen Spiel. Blue erhöht Schaden und Knockback der Würfe drastisch – die Pikmin-Reihenfolge ist hier der eigentliche Move.',
+        tip: 'Laut SmashWiki ist das mit drei Pikmin und einem Blue an der Spitze der stärkste Up Throw im ganzen Spiel. Blue erhöht Schaden und Knockback der Würfe drastisch, die Pikmin-Reihenfolge ist hier der eigentliche Move.',
         tags: ['Blue Pikmin vorn'],
         source: wiki('Olimar_(SSBU)'),
       },
@@ -579,7 +579,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
   {
     slug: 'wario',
     meta: [
-      'Wario hat eines der besten Luftspiele im Spiel: sehr hohe Luftbeschleunigung und Luftgeschwindigkeit, dazu starkes Combo-Potenzial, das schnell Schaden aufbaut und in KO-Confirms führt – allen voran in den Wario Waft.',
+      'Wario hat eines der besten Luftspiele im Spiel: sehr hohe Luftbeschleunigung und Luftgeschwindigkeit, dazu starkes Combo-Potenzial, das schnell Schaden aufbaut und in KO-Confirms führt, allen voran in den Wario Waft.',
       'Seine kurze Reichweite und das Fehlen von Projektilen machen ihn verwundbar, und Forward Tilt, Back Air sowie alle Smash-Angriffe haben hohen Endlag oder langsamen Startup.',
     ],
     strengths: ['Eine der besten Luftmobilitäten im Spiel', 'Starkes Combo-Potenzial', 'Wario Waft als Kill aus Confirms'],
@@ -613,7 +613,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 7 },
           { input: 'fh uair', label: 'FH Uair', dmg: 16 },
         ],
-        tip: 'Stark gegen Gegner, die auf Wario zukommen – Up Tilt hat viel vertikale Reichweite.',
+        tip: 'Stark gegen Gegner, die auf Wario zukommen. Up Tilt hat viel vertikale Reichweite.',
         source: game8('281201'),
       },
       {
@@ -645,7 +645,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 10 },
           { input: 'fh uair', label: 'FH Uair', dmg: 16 },
         ],
-        tip: 'Laut Game8 über 50 % Schaden – komplex, aber lohnend.',
+        tip: 'Laut Game8 über 50 % Schaden, komplex, aber lohnend.',
         source: game8('281201'),
       },
       {
@@ -693,7 +693,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 7 },
           { input: 'db', label: 'Wario Waft (voll geladen)', dmg: 32, note: 'Voll geladen sind es 27 % Basisschaden statt der 20 % aus den anderen Routen.' },
         ],
-        tip: 'Laut SmashWiki combot Wario schon ab 0 % in den Waft und nimmt damit – abhängig von Ladung und Rage – gegen den Großteil des Rosters den kompletten Stock. Ab halber Ladung trägt es.',
+        tip: 'Laut SmashWiki combot Wario schon ab 0 % in den Waft und nimmt damit, abhängig von Ladung und Rage, gegen den Großteil des Rosters den kompletten Stock. Ab halber Ladung trägt es.',
         tags: ['Waft halb bis voll geladen'],
         source: wiki('Zero-to-death_combo'),
       },

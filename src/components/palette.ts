@@ -28,7 +28,7 @@ export function initPalette(): { open: () => void } {
         <input id="palette-input" class="palette__input" type="text" role="combobox" aria-expanded="true"
           aria-controls="palette-list" aria-autocomplete="list" autocomplete="off" spellcheck="false"
           placeholder="Name, Serie, Spitzname oder Nummer" />
-        <button class="palette__close" type="button" data-close>Esc<span class="vh"> – Suche schließen</span></button>
+        <button class="palette__close" type="button" data-close>Esc<span class="vh">, Suche schließen</span></button>
       </div>
       <ul id="palette-list" class="palette__list" role="listbox" aria-label="Treffer"></ul>
       <p class="palette__empty" hidden>Kein Fighter gefunden. Probier den Seriennamen oder eine Abkürzung wie ZSS.</p>

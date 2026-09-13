@@ -14,7 +14,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
     slug: 'marth',
     meta: [
       'Marth verbindet überdurchschnittliche KO-Kraft mit Tempo und Beweglichkeit: Sauber gespacte Treffer machen viel Schaden und tragen weit, und durch seine Reichweite jongliert er Gegner hervorragend. An der Kante kann ein einziger richtiger Move einen Stock sofort beenden.',
-      'Alles hängt dabei am Tipper. Ohne sauberes Spacing erzeugen seine Angriffe kaum Knockback – im Nahkampf bei hohen Prozenten steht er schlecht da, und sein KO-Potenzial bleibt inkonsistent. Lucina tauscht genau diesen Tipper gegen gleichmäßigen Schaden.',
+      'Alles hängt dabei am Tipper. Ohne sauberes Spacing erzeugen seine Angriffe kaum Knockback, im Nahkampf bei hohen Prozenten steht er schlecht da, und sein KO-Potenzial bleibt inkonsistent. Lucina tauscht genau diesen Tipper gegen gleichmäßigen Schaden.',
     ],
     strengths: ['Hohe KO-Kraft bei sauberem Spacing', 'Starkes Juggling durch Reichweite', 'Kann an der Kante plötzlich Stocks beenden'],
     weaknesses: ['Extrem abhängig von Tipper und Spacing', 'Schwacher Nahkampf bei hohen Prozenten', 'Inkonsistentes KO-Potenzial'],
@@ -32,7 +32,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 5 },
           { input: 'fh bair', label: 'FH Bair (Tipper)', dmg: 15 },
         ],
-        tip: 'Game8 nennt es seine schnellste und einfachste Wurfroute – nur mit der Klingenspitze lohnt sie richtig.',
+        tip: 'Game8 nennt es seine schnellste und einfachste Wurfroute, nur mit der Klingenspitze lohnt sie richtig.',
         source: game8('281194'),
       },
       {
@@ -90,7 +90,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'Nair, 1. Treffer mit Fast Fall', dmg: 4 },
           { input: 'fsmash', label: 'Forward Smash (Tipper)', dmg: 22 },
         ],
-        tip: 'Laut SmashWiki combot der erste Nair-Treffer dank geringer Knockback-Skalierung mit Fast Fall in viele Tilts und sogar in den Forward Smash – bis etwa 175 %.',
+        tip: 'Laut SmashWiki combot der erste Nair-Treffer dank geringer Knockback-Skalierung mit Fast Fall in viele Tilts und sogar in den Forward Smash, bis etwa 175 %.',
         source: wiki('Marth_(SSBU)'),
       },
       {
@@ -128,7 +128,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         kind: 'meta',
         title: 'Dancing Blade, alle Treffer neutral',
         start: 60,
-        windowLabel: 'an der Kante schon ab 40–60 %',
+        windowLabel: 'an der Kante schon ab 40-60 %',
         kills: true,
         difficulty: 2,
         steps: [
@@ -139,7 +139,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
             note: 'Nur mit Tipper; ohne Klingenspitze bleibt kaum Knockback übrig.',
           },
         ],
-        tip: 'Laut SmashWiki KOt der vierte neutrale Treffer bei höheren Prozenten – gespact an der Kante laut Quelle schon zwischen 40 und 60 %.',
+        tip: 'Laut SmashWiki KOt der vierte neutrale Treffer bei höheren Prozenten, gespact an der Kante laut Quelle schon zwischen 40 und 60 %.',
         tags: ['An der Kante', 'Nur mit Tipper'],
         source: wiki('Marth_(SSBU)'),
       },
@@ -148,7 +148,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'dr-mario',
     meta: [
-      'Dr. Mario ist Marios Echo mit umgekehrten Vorzeichen: Sein Moveset macht laut SmashWiki rund 1,18× mehr Schaden und killt dadurch deutlich früher – dafür bewegt er sich nur mit etwa 0,79× seiner Geschwindigkeit.',
+      'Dr. Mario ist Marios Echo mit umgekehrten Vorzeichen: Sein Moveset macht laut SmashWiki rund 1,18× mehr Schaden und killt dadurch deutlich früher, dafür bewegt er sich nur mit etwa 0,79× seiner Geschwindigkeit.',
       'Seine Mobilität gehört damit zu den schlechtesten im Cast, seine Reichweite ist kurz, und die Recovery ist trotz Verbesserungen eine der schwächsten im Spiel. Seine Combos sind kurz, richten dafür aber ordentlich Schaden an.',
     ],
     strengths: ['Rund 18 % mehr Schaden als Mario', 'Gute Frame Data am Boden', 'Früheres KO-Potenzial'],
@@ -167,7 +167,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 7 },
           { input: 'usmash', dmg: 20 },
         ],
-        tip: 'Der Down Throw ist laut Game8 sein Standardwurf – er führt in eine ganze Reihe von Moves.',
+        tip: 'Der Down Throw ist laut Game8 sein Standardwurf, er führt in eine ganze Reihe von Moves.',
         source: game8('281191'),
       },
       {
@@ -224,7 +224,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 10 },
           { input: 'fh uair', label: 'FH Uair', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki combot der Down Tilt in Up Air, Super Jump Punch und Dr. Tornado – alle drei sind bei höheren Prozenten KO-Confirms.',
+        tip: 'Laut SmashWiki combot der Down Tilt in Up Air, Super Jump Punch und Dr. Tornado, alle drei sind bei höheren Prozenten KO-Confirms.',
         source: wiki('Dr._Mario_(SSBU)'),
       },
       {
@@ -255,7 +255,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           { input: 'bthrow', dmg: 15 },
         ],
-        tip: 'Laut SmashWiki einer der stärksten Back Throws im Spiel und nahe der Kante seine wichtigste Kill-Option – passend dazu, dass er rund 18 % mehr Schaden macht als Mario.',
+        tip: 'Laut SmashWiki einer der stärksten Back Throws im Spiel und nahe der Kante seine wichtigste Kill-Option, passend dazu, dass er rund 18 % mehr Schaden macht als Mario.',
         tags: ['An der Kante'],
         source: wiki('Dr._Mario_(SSBU)'),
       },
@@ -270,7 +270,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 7 },
-          { input: 'db', label: 'Dr. Tornado', dmg: 14, note: 'Mehrfachtreffer – Gesamtwert.' },
+          { input: 'db', label: 'Dr. Tornado', dmg: 14, note: 'Mehrfachtreffer. Gesamtwert.' },
         ],
         tip: 'Laut Game8 an der Kante einer seiner stärksten KO-Confirms.',
         tags: ['Nahe der Kante'],
@@ -287,7 +287,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'jump nb', label: 'Sprung → Megavitamin', dmg: 7 },
           { input: 'fair', dmg: 21 },
         ],
-        tip: 'Game8 nennt die Route ausdrücklich eine „killer combo“ – die Pille hält den Gegner genau lange genug fest.',
+        tip: 'Game8 nennt die Route ausdrücklich eine „killer combo“, die Pille hält den Gegner genau lange genug fest.',
         source: game8('281191'),
       },
     ],
@@ -295,7 +295,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'ike',
     meta: [
-      'Ikes Power ist sein Markenzeichen: Sein Moveset enthält einige der stärksten Angriffe im Spiel, und mit Rage wird sein KO-Potenzial noch furchteinflößender. Dazu kommt große, disjointe Reichweite – und mit dem Neutral Air ein richtig guter Combo-Starter.',
+      'Ikes Power ist sein Markenzeichen: Sein Moveset enthält einige der stärksten Angriffe im Spiel, und mit Rage wird sein KO-Potenzial noch furchteinflößender. Dazu kommt große, disjointe Reichweite, und mit dem Neutral Air ein richtig guter Combo-Starter.',
       'Dafür bewegt er sich vor allem am Boden langsam und hat mit die schlechteste Frame Data im Spiel: Fast alles endet mit viel Lag. Sein Gewicht lässt ihn lange überleben, macht ihn aber auch leicht combo- und jonglierbar.',
     ],
     strengths: ['Einige der stärksten Angriffe im Spiel', 'Große disjointe Reichweite', 'Nair als bester Combo-Starter'],
@@ -325,7 +325,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'SH Fair', dmg: 16 },
           { input: 'ftilt', dmg: 15 },
         ],
-        tip: 'Bis zu 30 % laut Game8 – zwei schwere Treffer hintereinander.',
+        tip: 'Bis zu 30 % laut Game8, zwei schwere Treffer hintereinander.',
         source: game8('281203'),
       },
       {
@@ -369,7 +369,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 8 },
           { input: 'ub', label: 'Aether', dmg: 19 },
         ],
-        tip: 'Laut SmashWiki ist der Down Throw von niedrigen bis mittleren Prozenten ein exzellenter Starter – neben Up Tilt und den Aerials geht auch Aether direkt hinterher.',
+        tip: 'Laut SmashWiki ist der Down Throw von niedrigen bis mittleren Prozenten ein exzellenter Starter, neben Up Tilt und den Aerials geht auch Aether direkt hinterher.',
         source: wiki('Ike_(SSBU)'),
       },
       {
@@ -399,7 +399,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 9 },
           { input: 'ub', label: 'Aether', dmg: 19, note: 'Der Landetreffer trägt den Knockback.' },
         ],
-        tip: 'Laut SmashWiki hat Aethers Landetreffer seit Update 8.0.0 deutlich mehr Knockback – daraus wurde ein neues KO-Setup aus dem Nair nahe der Kante bei mittleren Prozenten.',
+        tip: 'Laut SmashWiki hat Aethers Landetreffer seit Update 8.0.0 deutlich mehr Knockback, daraus wurde ein neues KO-Setup aus dem Nair nahe der Kante bei mittleren Prozenten.',
         tags: ['An der Kante'],
         source: wiki('Ike_(SSBU)'),
       },
@@ -430,7 +430,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 9 },
           { input: 'dj bair', label: 'DJ Bair', dmg: 17 },
         ],
-        tip: 'Die horizontale Variante desselben Confirms – nach außen hin der frühere KO.',
+        tip: 'Die horizontale Variante desselben Confirms, nach außen hin der frühere KO.',
         source: game8('281203'),
       },
     ],
@@ -438,7 +438,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'king-k-rool',
     meta: [
-      'King K. Rool schlägt hart und weit zu, ist nach Bowser der zweitschwerste Charakter und hat mit Blunderbuss und Crownerang gleich zwei Projektile – ersteres funktioniert zusätzlich als Kommando-Grab. Sein Bauch trägt Super-Armor und schluckt Treffer komplett.',
+      'King K. Rool schlägt hart und weit zu, ist nach Bowser der zweitschwerste Charakter und hat mit Blunderbuss und Crownerang gleich zwei Projektile, ersteres funktioniert zusätzlich als Kommando-Grab. Sein Bauch trägt Super-Armor und schluckt Treffer komplett.',
       'Seine Hurtbox gehört allerdings zu den größten im Spiel, praktisch alles endet mit extremem Lag, und kaum ein Move ist am Schild sicher. Einmal im Nachteil kommt er nur schwer wieder heraus.',
     ],
     strengths: ['Sehr starke, weit reichende Angriffe', 'Zweitschwerster Charakter im Spiel', 'Bauch-Armor und zwei Projektile'],
@@ -499,7 +499,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'fthrow', dmg: 12, note: 'Wert von SmashWiki (10 % Basis), weil Ultimate Frame Data keinen führt.' },
           { input: 'da', dmg: 18 },
         ],
-        tip: 'Laut SmashWiki combot der Forward Throw bei 0 % in den Dash Attack oder in einen dash-gecancelten Jab – der früheste Einstieg, den er hat.',
+        tip: 'Laut SmashWiki combot der Forward Throw bei 0 % in den Dash Attack oder in einen dash-gecancelten Jab, der früheste Einstieg, den er hat.',
         source: wiki('King_K._Rool_(SSBU)'),
       },
       {
@@ -514,7 +514,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 14 },
           { input: 'da', dmg: 18 },
         ],
-        tip: 'Laut SmashWiki führt der Nair in Jab, Up Tilt, Forward Tilt und Dash Attack – letzterer ist in bestimmten Prozentbereichen ein KO-Confirm.',
+        tip: 'Laut SmashWiki führt der Nair in Jab, Up Tilt, Forward Tilt und Dash Attack, letzterer ist in bestimmten Prozentbereichen ein KO-Confirm.',
         source: wiki('King_K._Rool_(SSBU)'),
       },
       {
@@ -561,7 +561,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', label: 'Down Throw, vergräbt den Gegner', dmg: 6, note: 'Wert von SmashWiki (5 % Basis), weil Ultimate Frame Data keinen führt.' },
           { input: 'ftilt', dmg: 16 },
         ],
-        tip: 'Game8: Mit dem Rücken zur Kante gegriffen wird daraus ein einfacher KO – die Vergrabezeit ist hier am längsten.',
+        tip: 'Game8: Mit dem Rücken zur Kante gegriffen wird daraus ein einfacher KO, die Vergrabezeit ist hier am längsten.',
         tags: ['Rücken zur Kante'],
         source: game8('281240'),
       },
@@ -585,7 +585,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'king-dedede',
     meta: [
-      'King Dedede ist gemeinsam mit Donkey Kong der drittschwerste Charakter, fällt sehr schnell und kommt mit vier Luftsprüngen plus Super Dedede Jump für ein Schwergewicht hervorragend zurück. Sein Hammer gibt vielen Angriffen einen langen Disjoint, und an Finishern mangelt es ihm nicht – die Dash Attack killt laut SmashWiki verlässlich unter 100 %.',
+      'King Dedede ist gemeinsam mit Donkey Kong der drittschwerste Charakter, fällt sehr schnell und kommt mit vier Luftsprüngen plus Super Dedede Jump für ein Schwergewicht hervorragend zurück. Sein Hammer gibt vielen Angriffen einen langen Disjoint, und an Finishern mangelt es ihm nicht, die Dash Attack killt laut SmashWiki verlässlich unter 100 %.',
       'Sein größtes Problem ist die Annäherung, die zu den schlechtesten im Spiel zählt. Träge Luftgeschwindigkeit, große Hurtbox und fehlende schnelle Fluchtoptionen machen ihn zusätzlich anfällig für Combos und Jonglage.',
     ],
     strengths: ['Drittschwerster Charakter mit starker Recovery', 'Hammer mit langem Disjoint', 'Dash Attack killt unter 100 %'],
@@ -631,7 +631,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 14 },
           { input: 'fh fair', label: 'FH Fair', dmg: 14 },
         ],
-        tip: 'Rund 20 % laut Game8 – die Variante für mittlere Prozente.',
+        tip: 'Rund 20 % laut Game8, die Variante für mittlere Prozente.',
         source: game8('281219'),
       },
       {
@@ -661,7 +661,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 7 },
           { input: 'fh nair', label: 'FH Nair', dmg: 14 },
         ],
-        tip: 'Laut SmashWiki bei sehr niedrigen Prozenten ein echter Combo in Nair oder Forward Air – danach reißt die Verbindung schnell ab.',
+        tip: 'Laut SmashWiki bei sehr niedrigen Prozenten ein echter Combo in Nair oder Forward Air, danach reißt die Verbindung schnell ab.',
         source: wiki('King_Dedede_(SSBU)'),
       },
       {
@@ -675,7 +675,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 12 },
           { input: 'utilt', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki kettet der Up Tilt bei niedrigen Prozenten in sich selbst und hat bei hohen eigenes KO-Potenzial – derselbe Move, zwei Aufgaben.',
+        tip: 'Laut SmashWiki kettet der Up Tilt bei niedrigen Prozenten in sich selbst und hat bei hohen eigenes KO-Potenzial, derselbe Move, zwei Aufgaben.',
         source: wiki('King_Dedede_(SSBU)'),
       },
       {
@@ -689,7 +689,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'dbh', label: 'Jet Hammer, voll geladen', dmg: 48, note: 'Die Ladung lässt sich halten, kostet aber langsam eigenen Schaden.' },
         ],
-        tip: 'Laut SmashWiki holt ein gerade eben voll geladener Jet Hammer Mittelgewichte schon bei rund 40 % von der Stage-Mitte aus. Kein Combo-Abschluss, sondern ein Read – aber der teuerste im Spiel.',
+        tip: 'Laut SmashWiki holt ein gerade eben voll geladener Jet Hammer Mittelgewichte schon bei rund 40 % von der Stage-Mitte aus. Kein Combo-Abschluss, sondern ein Read, aber der teuerste im Spiel.',
         tags: ['Voll geladen'],
         source: wiki('King_Dedede_(SSBU)'),
       },
@@ -729,7 +729,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
     slug: 'villager',
     meta: [
       'Villager campt mit mehreren Projektilen, hat mit Balloon Trip und Lloid Rocket eine sehr gute Recovery und wehrt mit Pocket gegnerische Projektile ab. Offstage ist er ein potenter Edgeguarder mit vielen Optionen gegen zurückkehrende Gegner.',
-      'Sein Grab ist langsam und seine Mobilität schlecht – defensiv steht er damit dünn da. Gegen Charaktere mit Reflektor tut er sich besonders schwer, und im Nahkampf hat er wenig anzubieten.',
+      'Sein Grab ist langsam und seine Mobilität schlecht, defensiv steht er damit dünn da. Gegen Charaktere mit Reflektor tut er sich besonders schwer, und im Nahkampf hat er wenig anzubieten.',
     ],
     strengths: ['Starkes Camping mit mehreren Projektilen', 'Sehr gute Recovery', 'Potenter Edgeguarder'],
     weaknesses: ['Langsamer Grab, träge Mobilität', 'Schwer gegen Reflektoren', 'Schwacher Nahkampf'],
@@ -748,7 +748,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'SH Fair', dmg: 8 },
           { input: 'sh fair', label: 'SH Fair', dmg: 8 },
         ],
-        tip: 'Laut Game8 bleibt der Gegner danach in der Luft – gut für weitere Folgen.',
+        tip: 'Laut Game8 bleibt der Gegner danach in der Luft, gut für weitere Folgen.',
         source: game8('281212'),
       },
       {
@@ -808,10 +808,10 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
             input: 'nb',
             label: 'Eingestecktes Projektil zurückwerfen',
             dmg: 0,
-            note: 'Der Schaden hängt daran, was Villager eingesteckt hat – Ultimate Frame Data führt für Pocket deshalb keinen Wert.',
+            note: 'Der Schaden hängt daran, was Villager eingesteckt hat. Ultimate Frame Data führt für Pocket deshalb keinen Wert.',
           },
         ],
-        tip: 'Laut SmashWiki ist der Down Throw der beste Weg, ein eingestecktes Projektil anzubringen. Ein ausreichend starkes zurückgeworfenes Projektil killt demnach schon bei mittleren Prozenten – wie stark, entscheidet der Gegner selbst.',
+        tip: 'Laut SmashWiki ist der Down Throw der beste Weg, ein eingestecktes Projektil anzubringen. Ein ausreichend starkes zurückgeworfenes Projektil killt demnach schon bei mittleren Prozenten, wie stark, entscheidet der Gegner selbst.',
         tags: ['Pocket gefüllt'],
         source: wiki('Villager_(SSBU)'),
       },
@@ -826,7 +826,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'fsmash', dmg: 20, note: 'Voll geladen killt er laut Quelle schon ab etwa 60 %.' },
         ],
-        tip: 'Laut SmashWiki ist der Forward Smash dank überraschend geringem Endlag auf Schild sicher und KOt trotzdem verlässlich ab etwa 95 % – für einen Zoner eine ungewöhnlich bequeme Kill-Option.',
+        tip: 'Laut SmashWiki ist der Forward Smash dank überraschend geringem Endlag auf Schild sicher und KOt trotzdem verlässlich ab etwa 95 %, für einen Zoner eine ungewöhnlich bequeme Kill-Option.',
         source: wiki('Villager_(SSBU)'),
       },
       {
@@ -854,7 +854,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh dair', label: 'SH Dair, später Treffer', dmg: 16 },
           { input: 'jab', dmg: 2 },
         ],
-        tip: 'Laut SmashWiki startet der späte Down-Air-Treffer Combos – etwa in Jab oder Forward Tilt.',
+        tip: 'Laut SmashWiki startet der späte Down-Air-Treffer Combos, etwa in Jab oder Forward Tilt.',
         source: wiki('Villager_(SSBU)'),
       },
       {

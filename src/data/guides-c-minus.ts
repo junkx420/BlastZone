@@ -12,8 +12,8 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'banjo-and-kazooie',
     meta: [
-      'Die Projektile des Duos – Egg Firing, Breegull Blaster und Rear Egg – bauen Setups auf, und Wonderwing macht Banjo für kurze Zeit unverwundbar. Down Tilt fürs Edgeguarding sowie Up Tilt und Forward Air sind die verlässlichsten Werkzeuge.',
-      'Das Moveset bleibt aber inkonsistent: problematische Hitboxen, viel Landing Lag, und Frame Data, Schaden und Knockback sind für die Gewichtsklasse unauffällig. Die schwierigsten Routen verlangen viel Technik und bringen wenig Schaden – und das Gewicht macht das Duo leicht combobar.',
+      'Die Projektile des Duos, Egg Firing, Breegull Blaster und Rear Egg, bauen Setups auf, und Wonderwing macht Banjo für kurze Zeit unverwundbar. Down Tilt fürs Edgeguarding sowie Up Tilt und Forward Air sind die verlässlichsten Werkzeuge.',
+      'Das Moveset bleibt aber inkonsistent: problematische Hitboxen, viel Landing Lag, und Frame Data, Schaden und Knockback sind für die Gewichtsklasse unauffällig. Die schwierigsten Routen verlangen viel Technik und bringen wenig Schaden, und das Gewicht macht das Duo leicht combobar.',
     ],
     strengths: ['Projektile für Setups', 'Wonderwing mit Unverwundbarkeit', 'Up Tilt und Forward Air als solide Basis'],
     weaknesses: ['Inkonsistente Hitboxen, viel Landing Lag', 'Unauffällige Werte für die Gewichtsklasse', 'Leicht zu comboen'],
@@ -31,7 +31,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 12 },
           { input: 'fh uair', label: 'FH Uair', dmg: 9 },
         ],
-        tip: 'Der dritte Treffer der Klauen-Kombination schleudert nach oben – von dort übernimmt das Jonglieren.',
+        tip: 'Der dritte Treffer der Klauen-Kombination schleudert nach oben, von dort übernimmt das Jonglieren.',
         source: game8('281248'),
       },
       {
@@ -46,7 +46,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 12 },
           { input: 'fh uair', label: 'FH Uair', dmg: 9 },
         ],
-        tip: 'Die Bodenvariante derselben Idee – Up Tilt ist ihr verlässlichster Starter.',
+        tip: 'Die Bodenvariante derselben Idee. Up Tilt ist ihr verlässlichster Starter.',
         source: game8('281248'),
       },
       {
@@ -76,7 +76,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 7 },
           { input: 'utilt', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki richtet der Down Throw in den meisten Matchups ein garantiertes 50/50 ein: Der Gegner muss zwischen Up Tilt und Up Smash raten – hier steht die Up-Tilt-Seite.',
+        tip: 'Laut SmashWiki richtet der Down Throw in den meisten Matchups ein garantiertes 50/50 ein: Der Gegner muss zwischen Up Tilt und Up Smash raten, hier steht die Up-Tilt-Seite.',
         tags: ['50/50 mit Up Smash'],
         source: wiki('Banjo_%26_Kazooie_(SSBU)'),
       },
@@ -92,7 +92,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 7 },
           { input: 'fh nair', label: 'FH Nair', dmg: 7, note: 'Zieht den Gegner nach unten.' },
         ],
-        tip: 'Laut SmashWiki zieht der Nair den Gegner herunter und öffnet damit fast alle Bodenmoves des Duos – aus dem Down Throw eine verlässliche Fortsetzung.',
+        tip: 'Laut SmashWiki zieht der Nair den Gegner herunter und öffnet damit fast alle Bodenmoves des Duos, aus dem Down Throw eine verlässliche Fortsetzung.',
         source: wiki('Banjo_%26_Kazooie_(SSBU)'),
       },
       {
@@ -107,7 +107,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'nb', label: 'Breegull Blaster, Ei aus nächster Nähe', dmg: 3 },
           { input: 'nb', label: 'Breegull Blaster, Ei aus nächster Nähe', dmg: 3 },
         ],
-        tip: 'Laut SmashWiki ketten die Nahdistanz-Eier des Breegull Blasters ineinander und ergeben eine Leiter. Wie viele Schüsse durchgehen, ist offen – hier stehen drei; abschließen lässt sich mit Up Tilt oder Nair.',
+        tip: 'Laut SmashWiki ketten die Nahdistanz-Eier des Breegull Blasters ineinander und ergeben eine Leiter. Wie viele Schüsse durchgehen, ist offen, hier stehen drei; abschließen lässt sich mit Up Tilt oder Nair.',
         source: wiki('Banjo_%26_Kazooie_(SSBU)'),
       },
       {
@@ -136,7 +136,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'db', label: 'Rear Egg legen und werfen', dmg: 11 },
           { input: 'sb', label: 'Wonderwing', dmg: 26, note: 'Nur fünf Nutzungen pro Stock.' },
         ],
-        tip: 'Game8 nennt die Route für höhere Prozente – statt Wonderwing geht auch der Forward Air.',
+        tip: 'Game8 nennt die Route für höhere Prozente, statt Wonderwing geht auch der Forward Air.',
         tags: ['Fünf Wonderwings pro Stock'],
         source: game8('281248'),
       },
@@ -152,7 +152,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'nb', label: 'Breegull-Blaster-Schuss aus nächster Nähe', dmg: 3 },
           { input: 'utilt', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki combot ein einzelner Nahschuss bei hohen Prozenten garantiert in den Up Tilt – ein echter KO-Confirm.',
+        tip: 'Laut SmashWiki combot ein einzelner Nahschuss bei hohen Prozenten garantiert in den Up Tilt, ein echter KO-Confirm.',
         source: wiki('Banjo_%26_Kazooie_(SSBU)'),
       },
     ],
@@ -209,7 +209,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh dair', label: 'SH Dair', dmg: 7 },
           { input: 'fh fair', label: 'FH Fair', dmg: 13 },
         ],
-        tip: 'Statt Forward Air geht laut Game8 auch der Back Air – der trägt weiter.',
+        tip: 'Statt Forward Air geht laut Game8 auch der Back Air, der trägt weiter.',
         source: game8('281229'),
       },
       {
@@ -254,7 +254,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dj uair', label: 'DJ Uair', dmg: 12 },
           { input: 'uair', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki kettet der Up Air bis zu fünfmal in sich selbst – hier stehen drei Treffer, wie viele durchgehen, hängt an Gewicht und DI.',
+        tip: 'Laut SmashWiki kettet der Up Air bis zu fünfmal in sich selbst, hier stehen drei Treffer, wie viele durchgehen, hängt an Gewicht und DI.',
         source: wiki('Bowser_Jr._(SSBU)'),
       },
       {
@@ -269,7 +269,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 6, note: 'Der Gegner landet am Boden und muss techen.' },
           { input: 'sb', label: 'Clown Kart Dash', dmg: 9 },
         ],
-        tip: 'Laut SmashWiki richtet der Down Throw bei mittleren Prozenten Tech-Chases in den Clown Kart Dash ein. Garantiert ist das nicht – man liest die Tech-Option.',
+        tip: 'Laut SmashWiki richtet der Down Throw bei mittleren Prozenten Tech-Chases in den Clown Kart Dash ein. Garantiert ist das nicht, man liest die Tech-Option.',
         tags: ['Tech-Chase'],
         source: wiki('Bowser_Jr._(SSBU)'),
       },
@@ -284,7 +284,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'jab', label: 'Jab-Kette bis zum Abschlusstreffer', dmg: 4, note: 'Die Rapid-Jab-Treffer bringen je 0,6 %, der Abschluss 3,6 %.' },
         ],
-        tip: 'Laut SmashWiki hat der Abschlusstreffer des Jabs bemerkenswerten Knockback und KOt an der Kante ab etwa 100 % – eine der wenigen verlässlichen Kill-Optionen.',
+        tip: 'Laut SmashWiki hat der Abschlusstreffer des Jabs bemerkenswerten Knockback und KOt an der Kante ab etwa 100 %, eine der wenigen verlässlichen Kill-Optionen.',
         tags: ['An der Kante'],
         source: wiki('Bowser_Jr._(SSBU)'),
       },
@@ -300,7 +300,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           { input: 'fthrow', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki KOt der Forward Throw die meisten Mittelgewichte ab etwa 150 % ohne Rage – der Back Throw braucht rund 160 %.',
+        tip: 'Laut SmashWiki KOt der Forward Throw die meisten Mittelgewichte ab etwa 150 % ohne Rage, der Back Throw braucht rund 160 %.',
         source: wiki('Bowser_Jr._(SSBU)'),
       },
     ],
@@ -308,8 +308,8 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'lucario',
     meta: [
-      'Lucarios Aura macht ihn einzigartig: Schaden und Knockback aller Angriffe skalieren mit seinem eigenen Prozentwert – bei maximaler Aura gehören seine Smashes zu den stärksten im Spiel. Force Palm ist aus der Distanz ein Werkzeug und aus der Nähe ein Kommando-Grab.',
-      'Genau das erschwert aber Comebacks: Erst bei hohem eigenen Schaden öffnen sich Combos und Kill-Optionen. Dazu kommen träge Frame Data – Smashes erst ab Frame 15 – und eine Recovery, deren Extreme Speed 46 Frames Startlag hat.',
+      'Lucarios Aura macht ihn einzigartig: Schaden und Knockback aller Angriffe skalieren mit seinem eigenen Prozentwert, bei maximaler Aura gehören seine Smashes zu den stärksten im Spiel. Force Palm ist aus der Distanz ein Werkzeug und aus der Nähe ein Kommando-Grab.',
+      'Genau das erschwert aber Comebacks: Erst bei hohem eigenen Schaden öffnen sich Combos und Kill-Optionen. Dazu kommen träge Frame Data, Smashes erst ab Frame 15, und eine Recovery, deren Extreme Speed 46 Frames Startlag hat.',
     ],
     strengths: ['Aura skaliert alle Angriffe', 'Smashes mit maximaler Aura extrem stark', 'Force Palm als Distanz- und Griffwerkzeug'],
     weaknesses: ['Comebacks schwer: Aura braucht eigenen Schaden', 'Träge Frame Data', 'Extreme Speed mit 46 Frames Startlag'],
@@ -375,7 +375,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 13 },
           { input: 'fh uair', label: 'FH Uair', dmg: 13 },
         ],
-        tip: 'Sein breitestes Wurffenster – laut SmashWiki sind Up und Down Throw beide gute Starter.',
+        tip: 'Sein breitestes Wurffenster, laut SmashWiki sind Up und Down Throw beide gute Starter.',
         source: game8('281208'),
       },
       {
@@ -427,7 +427,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
             note: 'Wert ohne Aura-Bonus. Bei maximaler Aura sind es rund 25 %.',
           },
         ],
-        tip: 'Aus der Distanz ist Force Palm ein Projektil, aus nächster Nähe ein Kommando-Grab. Laut SmashWiki wirft er bei maximaler Aura den gesamten Cast unter 40 % aus dem Feld – Lucarios brutalste Comeback-Option.',
+        tip: 'Aus der Distanz ist Force Palm ein Projektil, aus nächster Nähe ein Kommando-Grab. Laut SmashWiki wirft er bei maximaler Aura den gesamten Cast unter 40 % aus dem Feld. Lucarios brutalste Comeback-Option.',
         tags: ['Maximale Aura'],
         source: wiki('Lucario_(SSBU)'),
       },
@@ -436,8 +436,8 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'jigglypuff',
     meta: [
-      'Jigglypuffs Stärke ist das Luftspiel: Außer dem Back Air haben alle Aerials lange Hitboxen, und der gut gespacte Back Air ist sogar am Schild sicher. Beim Edgeguarding ist sie berüchtigt – mit sauberem Timing gimpt sie auch die weitesten Recoveries, ohne sich selbst in Gefahr zu bringen.',
-      'Dafür hält sie praktisch nichts aus: Ihre Werte ergeben die schlechteste Endurance im ganzen Spiel. Ihr Bodenspiel ist zudem sehr problematisch – zu wenig Reichweite und zu langsam, um dort Schaden aufzubauen.',
+      'Jigglypuffs Stärke ist das Luftspiel: Außer dem Back Air haben alle Aerials lange Hitboxen, und der gut gespacte Back Air ist sogar am Schild sicher. Beim Edgeguarding ist sie berüchtigt, mit sauberem Timing gimpt sie auch die weitesten Recoveries, ohne sich selbst in Gefahr zu bringen.',
+      'Dafür hält sie praktisch nichts aus: Ihre Werte ergeben die schlechteste Endurance im ganzen Spiel. Ihr Bodenspiel ist zudem sehr problematisch, zu wenig Reichweite und zu langsam, um dort Schaden aufzubauen.',
     ],
     strengths: ['Herausragendes Luftspiel mit langen Hitboxen', 'Berüchtigtes Edgeguarding', 'Rest als Belohnung für jeden Treffer'],
     weaknesses: ['Schlechteste Endurance im Spiel', 'Sehr schwaches Bodenspiel', 'Geringe Reichweite'],
@@ -469,7 +469,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'SH Fair', dmg: 11 },
           { input: 'dj fair', label: 'DJ Fair', dmg: 11 },
         ],
-        tip: 'Der Forward Air hat eine lange Hitbox – ideal, um den Gegner Richtung Kante zu schieben.',
+        tip: 'Der Forward Air hat eine lange Hitbox, ideal, um den Gegner Richtung Kante zu schieben.',
         source: game8('281185'),
       },
       {
@@ -513,7 +513,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'Fair, letzte Frames', dmg: 11 },
           { input: 'db', label: 'Rest', dmg: 24 },
         ],
-        tip: 'Laut SmashWiki führt ein Treffer mit den letzten Frames des Forward Airs in einen unausweichlichen Rest – in der Luft oder mit viel Rage noch stärker.',
+        tip: 'Laut SmashWiki führt ein Treffer mit den letzten Frames des Forward Airs in einen unausweichlichen Rest, in der Luft oder mit viel Rage noch stärker.',
         source: wiki('Jigglypuff_(SSBU)'),
       },
       {
@@ -527,7 +527,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'jab', label: 'Jab (beide Treffer)', dmg: 7 },
           { input: 'sh bair', label: 'RAR Back Air', dmg: 16 },
         ],
-        tip: 'Laut SmashWiki ist der Jab bemerkenswert schnell und combot in den Back Air – einer der wenigen Wege, aus dem Bodenspiel heraus etwas zu gewinnen.',
+        tip: 'Laut SmashWiki ist der Jab bemerkenswert schnell und combot in den Back Air, einer der wenigen Wege, aus dem Bodenspiel heraus etwas zu gewinnen.',
         source: wiki('Jigglypuff_(SSBU)'),
       },
       {
@@ -542,7 +542,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 11 },
           { input: 'db', label: 'Rest', dmg: 24 },
         ],
-        tip: 'Laut SmashWiki der Rest-Confirm für niedrige Prozente – besonders auf Plattformen, wo der Gegner nicht weit genug wegfliegt.',
+        tip: 'Laut SmashWiki der Rest-Confirm für niedrige Prozente, besonders auf Plattformen, wo der Gegner nicht weit genug wegfliegt.',
         tags: ['Auf Plattformen'],
         source: wiki('Jigglypuff_(SSBU)'),
       },
@@ -558,7 +558,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh dair', label: 'SH Dair (Bohrer)', dmg: 2, note: 'Die Mehrfachtreffer halten den Gegner fest; der Wert gilt pro Treffer.' },
           { input: 'db', label: 'Rest', dmg: 24 },
         ],
-        tip: 'Laut SmashWiki combot der Down Air in Grab und Rest – als „Drill Rest“ einer der bekanntesten Confirms des Charakters.',
+        tip: 'Laut SmashWiki combot der Down Air in Grab und Rest, als „Drill Rest“ einer der bekanntesten Confirms des Charakters.',
         source: wiki('Jigglypuff_(SSBU)'),
       },
       {
@@ -574,7 +574,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dj fair', label: 'DJ Fair', dmg: 11 },
           { input: 'fair', dmg: 11 },
         ],
-        tip: 'Laut SmashWiki hängt Jigglypuff offstage so lange Forward Airs aneinander, bis der Gegner die Blastzone erreicht. Wie viele es werden, entscheidet die Distanz – hier stehen drei.',
+        tip: 'Laut SmashWiki hängt Jigglypuff offstage so lange Forward Airs aneinander, bis der Gegner die Blastzone erreicht. Wie viele es werden, entscheidet die Distanz, hier stehen drei.',
         tags: ['Offstage'],
         source: wiki('Jigglypuff_(SSBU)'),
       },
@@ -583,7 +583,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'chrom',
     meta: [
-      'Chrom ist Roys Echo, spielt sich aber anders: Seiner Sealed Falchion fehlen Sweetspot und Sourspot, sie macht über die ganze Klinge gleichmäßigen Schaden – wie Lucinas Parallel Falchion. Dazu kommen große Reichweite, hohe Mobilität und schnelle Startframes.',
+      'Chrom ist Roys Echo, spielt sich aber anders: Seiner Sealed Falchion fehlen Sweetspot und Sourspot, sie macht über die ganze Klinge gleichmäßigen Schaden, wie Lucinas Parallel Falchion. Dazu kommen große Reichweite, hohe Mobilität und schnelle Startframes.',
       'Sein Up Special ist ein komplett anderer Move: Soaring Slash ähnelt Ikes Aether, bietet kaum horizontale Distanz und greift die Kante erst, wenn Chrom wieder fällt. Das macht seine Recovery deutlich schlechter als Roys Blazer.',
     ],
     strengths: ['Gleichmäßiger Schaden über die ganze Klinge', 'Große Reichweite und hohe Mobilität', 'Schnelle Startframes für Druck'],
@@ -616,7 +616,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 6 },
           { input: 'ub', label: 'Soaring Slash', dmg: 23 },
         ],
-        tip: 'Laut Game8 rund 30 % Schaden aus einem Griff – Chroms stärkste Bestrafung früh im Stock.',
+        tip: 'Laut Game8 rund 30 % Schaden aus einem Griff. Chroms stärkste Bestrafung früh im Stock.',
         source: game8('281239'),
       },
       {
@@ -632,7 +632,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'fh nair', label: 'FH Nair', dmg: 14 },
           { input: 'dj fair', label: 'DJ Fair', dmg: 11 },
         ],
-        tip: 'Mindestens 25 % laut Game8 – die sicherere Variante, wenn das Up Special zu riskant ist.',
+        tip: 'Mindestens 25 % laut Game8, die sicherere Variante, wenn das Up Special zu riskant ist.',
         source: game8('281239'),
       },
       {
@@ -647,7 +647,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'jab', dmg: 8 },
           { input: 'sh bair', label: 'RAR Back Air', dmg: 13 },
         ],
-        tip: 'Wie bei Roy: Laut SmashWiki combot der Jab in einen umgedrehten Back Air – ein sehr starker KO-Confirm.',
+        tip: 'Wie bei Roy: Laut SmashWiki combot der Jab in einen umgedrehten Back Air, ein sehr starker KO-Confirm.',
         source: wiki('Chrom_(SSBU)'),
       },
       {
@@ -660,7 +660,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair, 1. Treffer', dmg: 6 },
           { input: 'sb', label: 'Double-Edge Dance', dmg: 19 },
         ],
-        tip: 'Laut SmashWiki startet der erste Nair-Treffer garantierte Combos – er endet nur so schnell, dass das Timing sitzen muss.',
+        tip: 'Laut SmashWiki startet der erste Nair-Treffer garantierte Combos, er endet nur so schnell, dass das Timing sitzen muss.',
         source: wiki('Chrom_(SSBU)'),
       },
       {
@@ -672,7 +672,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         kills: true,
         difficulty: 3,
         steps: [
-          { input: 'ub', label: 'Soaring Slash (Meteor)', dmg: 23, note: 'Der Meteor trifft nach unten – Chrom muss den eigenen Rückweg mit einplanen.' },
+          { input: 'ub', label: 'Soaring Slash (Meteor)', dmg: 23, note: 'Der Meteor trifft nach unten. Chrom muss den eigenen Rückweg mit einplanen.' },
         ],
         tip: 'Laut SmashWiki ist der Meteor des Soaring Slash berüchtigt: Gegen Gegner, die an der Kante hängen, KOt er ab 0 %. Dieselbe Eigenschaft macht Chroms eigene Recovery aber angreifbar.',
         tags: ['An der Kante', 'Riskant'],
@@ -702,7 +702,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 7 },
           { input: 'usmash', dmg: 22 },
         ],
-        tip: 'Laut Game8 rund 29 % Schaden – dank Links schnellem Grab seine stärkste Bestrafung früh im Stock.',
+        tip: 'Laut Game8 rund 29 % Schaden, dank Links schnellem Grab seine stärkste Bestrafung früh im Stock.',
         source: game8('281037'),
       },
       {
@@ -745,7 +745,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 7 },
           { input: 'fh uair', label: 'FH Uair', dmg: 18 },
         ],
-        tip: 'Laut SmashWiki führt der Down Throw in Up Tilt, Up Smash, Nair und Up Air – der Up Air macht am meisten Schaden.',
+        tip: 'Laut SmashWiki führt der Down Throw in Up Tilt, Up Smash, Nair und Up Air, der Up Air macht am meisten Schaden.',
         source: wiki('Link_(SSBU)'),
       },
       {
@@ -759,7 +759,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh bair', label: 'SH Bair', dmg: 8 },
           { input: 'dj bair', label: 'DJ Bair', dmg: 8 },
         ],
-        tip: 'Laut SmashWiki combot der Back Air bei niedrigen Prozenten in sich selbst – der schnellste Weg, aus einem Treffer zwei zu machen.',
+        tip: 'Laut SmashWiki combot der Back Air bei niedrigen Prozenten in sich selbst, der schnellste Weg, aus einem Treffer zwei zu machen.',
         source: wiki('Link_(SSBU)'),
       },
       {
@@ -774,7 +774,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 11 },
           { input: 'ub', label: 'Spin Attack', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki wird aus dem Down Tilt bei höheren Prozenten ein KO-Confirm in den Spin Attack – dieselbe Eröffnung wie die Forward-Air-Route, nur mit Kill-Abschluss.',
+        tip: 'Laut SmashWiki wird aus dem Down Tilt bei höheren Prozenten ein KO-Confirm in den Spin Attack, dieselbe Eröffnung wie die Forward-Air-Route, nur mit Kill-Abschluss.',
         source: wiki('Link_(SSBU)'),
       },
       {
@@ -789,7 +789,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 13 },
           { input: 'da', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki ist der Nair die Stütze seines Neutrals – bei hohen Prozenten richtet er den Dash Attack als KO-Setup ein.',
+        tip: 'Laut SmashWiki ist der Nair die Stütze seines Neutrals, bei hohen Prozenten richtet er den Dash Attack als KO-Setup ein.',
         source: wiki('Link_(SSBU)'),
       },
       {
@@ -817,7 +817,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh bair land', label: 'Back Air, 1. Treffer, dann landen', dmg: 8 },
           { input: 'ub', label: 'Spin Attack', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki setzt der erste Back-Air-Treffer bei der Landung Up Tilt, Up Smash oder – am stärksten – den Spin Attack auf.',
+        tip: 'Laut SmashWiki setzt der erste Back-Air-Treffer bei der Landung Up Tilt, Up Smash oder, am stärksten, den Spin Attack auf.',
         source: wiki('Link_(SSBU)'),
       },
     ],
@@ -825,7 +825,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'bowser',
     meta: [
-      'Bowser ist der schwerste Charakter im Spiel, hat auf mehreren Moves Armor und überlebt dadurch länger als jeder andere. Ungewöhnlich für ein Schwergewicht ist seine überdurchschnittliche Mobilität mit schnellem Dash und schneller Luftgeschwindigkeit – dazu kommen Moves, die zu den schadensstärksten ihrer Art gehören.',
+      'Bowser ist der schwerste Charakter im Spiel, hat auf mehreren Moves Armor und überlebt dadurch länger als jeder andere. Ungewöhnlich für ein Schwergewicht ist seine überdurchschnittliche Mobilität mit schnellem Dash und schneller Luftgeschwindigkeit, dazu kommen Moves, die zu den schadensstärksten ihrer Art gehören.',
       'Seine Frame Data bleibt aber insgesamt träge: Er ist anfällig für Druck und besonders für Combos. Zum Landen fehlen ihm schnelle Optionen, und ohne klassisches Projektil tut er sich gegen starke Zoner schwer.',
     ],
     strengths: ['Schwerster Charakter mit Armor', 'Überdurchschnittliche Mobilität', 'Extrem schadensstarke Moves'],
@@ -844,7 +844,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'uthrow', dmg: 10 },
           { input: 'jump ub', label: 'Sprung → Whirling Fortress', dmg: 12 },
         ],
-        tip: 'Laut Game8 bis zu 36 % Schaden – und laut SmashWiki combot der Up Throw bei niedrigen Prozenten in alle seine Aerials.',
+        tip: 'Laut Game8 bis zu 36 % Schaden, und laut SmashWiki combot der Up Throw bei niedrigen Prozenten in alle seine Aerials.',
         source: game8('281188'),
       },
       {
@@ -858,7 +858,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair ff', label: 'Nair mit Fast Fall', dmg: 7 },
           { input: 'utilt', dmg: 13 },
         ],
-        tip: 'Der Fast Fall ist Pflicht – ohne ihn landet Bowser zu spät für den Up Tilt.',
+        tip: 'Der Fast Fall ist Pflicht, ohne ihn landet Bowser zu spät für den Up Tilt.',
         source: game8('281188'),
       },
       {
@@ -872,7 +872,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'SH Fair', dmg: 16 },
           { input: 'ftilt', dmg: 16 },
         ],
-        tip: 'Zwei schwere Treffer hintereinander – über 30 % aus zwei Eingaben.',
+        tip: 'Zwei schwere Treffer hintereinander, über 30 % aus zwei Eingaben.',
         source: game8('281188'),
       },
       {
@@ -885,7 +885,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 13 },
           { input: 'fh bair', label: 'FH Bair', dmg: 23 },
         ],
-        tip: 'Laut SmashWiki führt der Up Tilt in Nair und Back Air – der Back Air ist mit Abstand der stärkere Abschluss.',
+        tip: 'Laut SmashWiki führt der Up Tilt in Nair und Back Air, der Back Air ist mit Abstand der stärkere Abschluss.',
         source: wiki('Bowser_(SSBU)'),
       },
       {
@@ -914,7 +914,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh nair', label: 'SH Nair', dmg: 7 },
           { input: 'fh uair', label: 'FH Uair', dmg: 18 },
         ],
-        tip: 'Laut SmashWiki combot der Neutral Air bei niedrigen Prozenten in Forward, Neutral und Up Air – dank geringem Landing Lag und schnellem Jumpsquat ist er zugleich Bowsers beste Landeoption.',
+        tip: 'Laut SmashWiki combot der Neutral Air bei niedrigen Prozenten in Forward, Neutral und Up Air, dank geringem Landing Lag und schnellem Jumpsquat ist er zugleich Bowsers beste Landeoption.',
         source: wiki('Bowser_(SSBU)'),
       },
       {
@@ -942,7 +942,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'db', label: 'Bowser Bomb', dmg: 24 },
         ],
-        tip: 'Laut SmashWiki KOt die Bowser Bomb schon unter 100 % – situativ, aber wenn sie trifft, ist der Stock weg.',
+        tip: 'Laut SmashWiki KOt die Bowser Bomb schon unter 100 %, situativ, aber wenn sie trifft, ist der Stock weg.',
         source: wiki('Bowser_(SSBU)'),
       },
       {
@@ -961,7 +961,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
             note: 'Wert von SmashWiki (18 % Basis), weil Ultimate Frame Data keinen führt. Aus größerer Fallhöhe steigt er auf bis zu 23,4 % Basis.',
           },
         ],
-        tip: 'Laut SmashWiki startet der Flying Slam auf Frame 6 und wirft mit starkem vertikalem Knockback – ab etwa 130 % ist das ein KO. Bowser kann die Wurfrichtung steuern.',
+        tip: 'Laut SmashWiki startet der Flying Slam auf Frame 6 und wirft mit starkem vertikalem Knockback, ab etwa 130 % ist das ein KO. Bowser kann die Wurfrichtung steuern.',
         source: wiki('Bowser_(SSBU)'),
       },
     ],
@@ -1016,7 +1016,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 11 },
           { input: 'dash nb', label: 'Anlaufschritt → Darkest Lariat', dmg: 19 },
         ],
-        tip: 'Sein breitestes Wurffenster – laut Game8 von 0 bis 70 %.',
+        tip: 'Sein breitestes Wurffenster, laut Game8 von 0 bis 70 %.',
         source: game8('281246'),
       },
       {
@@ -1044,7 +1044,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 11 },
           { input: 'usmash', dmg: 20 },
         ],
-        tip: 'Laut SmashWiki nur in einem engen Fenster zwischen 50 und 69 % – darunter fliegt der Gegner nicht hoch genug, darüber zu weit.',
+        tip: 'Laut SmashWiki nur in einem engen Fenster zwischen 50 und 69 %, darunter fliegt der Gegner nicht hoch genug, darüber zu weit.',
         source: wiki('Incineroar_(SSBU)'),
       },
       {
@@ -1059,7 +1059,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           { input: 'bthrow', dmg: 17 },
         ],
-        tip: 'Laut SmashWiki gehören Forward, Back und Up Throw je nach Situation zu den stärksten ihrer Art im ganzen Spiel – der Back Throw ist der stärkste davon.',
+        tip: 'Laut SmashWiki gehören Forward, Back und Up Throw je nach Situation zu den stärksten ihrer Art im ganzen Spiel, der Back Throw ist der stärkste davon.',
         source: wiki('Incineroar_(SSBU)'),
       },
       {
@@ -1105,7 +1105,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 11 },
           { input: 'wait fsmash', label: 'Kurz warten → Forward Smash', dmg: 24 },
         ],
-        tip: 'Laut Game8 nur bei 0 % und nur mit kurzer Verzögerung – dafür über 35 % aus einem Griff.',
+        tip: 'Laut Game8 nur bei 0 % und nur mit kurzer Verzögerung, dafür über 35 % aus einem Griff.',
         source: game8('281246'),
       },
     ],
@@ -1113,7 +1113,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'kirby',
     meta: [
-      'Kirbys Stärken sind schnelle Frame Data, hohes Combo-Potenzial und ein vielseitiges Moveset – seine Tilts gehören zu den schnellsten im Spiel. Back Air und Dash Attack geben ihm echte Kill-Optionen, seine geringe Größe und die tiefe Hocke machen ihn schwer zu treffen, und Inhale klaut dem Gegner das Neutral Special.',
+      'Kirbys Stärken sind schnelle Frame Data, hohes Combo-Potenzial und ein vielseitiges Moveset, seine Tilts gehören zu den schnellsten im Spiel. Back Air und Dash Attack geben ihm echte Kill-Optionen, seine geringe Größe und die tiefe Hocke machen ihn schwer zu treffen, und Inhale klaut dem Gegner das Neutral Special.',
       'Sein geringes Gewicht führt jedoch zu frühen KOs, und mit schwacher Luftgeschwindigkeit sowie durchschnittlicher Bodenmobilität kommt er schlecht heran. Ohne verlässliche Projektile können ihn mobile oder campende Gegner ausmauern.',
     ],
     strengths: ['Sehr schnelle Tilts', 'Hohes Combo-Potenzial', 'Inhale klaut das Neutral Special'],
@@ -1131,7 +1131,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'sh fair', label: 'SH Fair', dmg: 17 },
           { input: 'dj fair', label: 'DJ Fair', dmg: 17 },
         ],
-        tip: 'Beide Forward Airs komplett durchlaufen lassen – der dritte Treffer schiebt den Gegner weiter.',
+        tip: 'Beide Forward Airs komplett durchlaufen lassen, der dritte Treffer schiebt den Gegner weiter.',
         source: game8('281180'),
       },
       {
@@ -1191,7 +1191,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'fthrow', dmg: 8 },
           { input: 'fh nair', label: 'FH Nair', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki sind Neutral, Forward und Down Air bei niedrigen Prozenten die verlässlichsten Folgen aus dem Forward Throw – ab mittleren übernimmt der Final Cutter.',
+        tip: 'Laut SmashWiki sind Neutral, Forward und Down Air bei niedrigen Prozenten die verlässlichsten Folgen aus dem Forward Throw, ab mittleren übernimmt der Final Cutter.',
         source: wiki('Kirby_(SSBU)'),
       },
       {
@@ -1205,7 +1205,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'da', label: 'Dash Attack (sauberer Treffer)', dmg: 14 },
         ],
-        tip: 'Laut SmashWiki KOt der saubere Dash-Attack-Treffer Mittelgewichte ab etwa 100 % von der Kante von Final Destination aus – eine seiner beiden echten Kill-Optionen.',
+        tip: 'Laut SmashWiki KOt der saubere Dash-Attack-Treffer Mittelgewichte ab etwa 100 % von der Kante von Final Destination aus, eine seiner beiden echten Kill-Optionen.',
         tags: ['An der Kante'],
         source: wiki('Kirby_(SSBU)'),
       },
@@ -1237,7 +1237,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'fthrow', dmg: 8 },
           { input: 'ub', label: 'Final Cutter', dmg: 24 },
         ],
-        tip: 'Laut Game8 erst ab mittleren Prozenten – vorher fliegt der Gegner nicht weit genug.',
+        tip: 'Laut Game8 erst ab mittleren Prozenten, vorher fliegt der Gegner nicht weit genug.',
         source: game8('281180'),
       },
       {
@@ -1291,7 +1291,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 11 },
           { input: 'ftilt', label: 'Forward Tilt, beide Treffer', dmg: 14 },
         ],
-        tip: 'Das Anschlussfenster ist eng – Game8 staffelt die Fortsetzungen in 10-Prozent-Schritten.',
+        tip: 'Das Anschlussfenster ist eng. Game8 staffelt die Fortsetzungen in 10-Prozent-Schritten.',
         source: game8('281244'),
       },
       {
@@ -1333,7 +1333,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 11 },
           { input: 'fh uair', label: 'FH Uair', dmg: 12 },
         ],
-        tip: 'Die vertikale Variante – gut gegen Gegner, die nach oben ausweichen wollen.',
+        tip: 'Die vertikale Variante, gut gegen Gegner, die nach oben ausweichen wollen.',
         source: game8('281244'),
       },
       {
@@ -1361,7 +1361,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dtilt', dmg: 8 },
           { input: 'fh nair', label: 'FH Nair', dmg: 6 },
         ],
-        tip: 'Laut SmashWiki ist der Down Tilt ein vielseitiger Starter – auch in Forward Tilt und Forward Air.',
+        tip: 'Laut SmashWiki ist der Down Tilt ein vielseitiger Starter, auch in Forward Tilt und Forward Air.',
         source: game8('281244'),
       },
     ],
