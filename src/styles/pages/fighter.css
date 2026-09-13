@@ -213,6 +213,31 @@
     inset: -4% -4% -4% 28%;
   }
   /*
+   * Zwischen Telefon und Desktop war niemand zuständig, und genau dort brach
+   * der Render weg.
+   *
+   * Der Einzug von 28 Prozent stammt vom zweispaltigen Aufbau, wo links der
+   * Text steht, und bleibt beim Verkleinern einfach stehen. Die Box wird dadurch
+   * schmaler als das Seitenverhältnis des Renders, `contain` bindet sich an die
+   * Breite statt an die Höhe, und oben bleibt Leerraum stehen. Gemessen an
+   * Mario (Render 758 zu 855, also hochkant):
+   *
+   *   1280 px: Box 961x855, gemalt 758x855, leer oben 0
+   *   1000 px: Box 748x855, gemalt 748x845, leer oben 11 px
+   *    860 px: Box 642x855, gemalt 642x725, leer oben 131 px (15 %)
+   *    740 px: Box 562x855, gemalt 562x635, leer oben 221 px (26 %)
+   *
+   * Die Mobilregel unten greift erst ab 700 px, die Lücke lag also dazwischen.
+   * Ohne den Einzug ist die Box breiter als hoch, `contain` bindet sich wieder
+   * an die Höhe, und der Leerraum verschwindet. Der Text bleibt lesbar, weil
+   * `.fhero__stage::after` von links ohnehin abdunkelt.
+   */
+  @media (max-width: 1040px) and (min-width: 701px) {
+    .fhero__art {
+      inset: -4% -4% -4% 0;
+    }
+  }
+  /*
    * Auf schmalen Schirmen war der Render links angeschnitten: Die 28 Prozent
    * Einzug stammen vom zweispaltigen Aufbau, wo links der Text steht. Fehlt der
    * Platz, schiebt der Einzug den Fighter aus dem Bild.
@@ -340,6 +365,12 @@
   }
 
   /* ── Stats ──────────────────────────────────────────────────────────── */
+  /*
+   * Der Grund des Gitters bleibt absichtlich die Linienfarbe: Die Trennlinien
+   * zwischen den Karten entstehen aus dem 1 px Abstand, der diese Flaeche
+   * durchscheinen laesst. Hinter einer Karte mit 58 Prozent Deckkraft steuert
+   * sie nur rund drei Prozent Weiss bei, das ist der Erhalt der Linien wert.
+   */
   .stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -349,12 +380,15 @@
     border-radius: var(--r-panel);
     background: var(--line);
   }
+  /* Glas, damit der Fighter-Hintergrund durch die Karten traegt. */
   .stat {
     display: grid;
     align-content: start;
     gap: var(--sp-2);
     padding: var(--sp-5);
-    background: var(--surface-1);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
   }
   .stat dt {
     color: var(--text-subtle);
@@ -547,10 +581,22 @@
    * Acht Spalten passen auf kein Telefon. Die Tabelle scrollt deshalb in ihrem
    * eigenen Kasten – die Seite selbst darf nie waagerecht scrollen.
    */
+  /*
+   * Glas wie die uebrigen Blasen. Die Tabelle hatte bisher gar keinen eigenen
+   * Grund und sass damit nackt auf dem Seitenhintergrund: dichte Zahlenreihen
+   * ueber einem laufenden Muster, die schlechteste Kombination auf der Seite.
+   *
+   * Der Tabellenkopf darunter bleibt deckend (`.frame thead th`). Er klebt beim
+   * Scrollen oben fest, und durchsichtig liefen die Zeilen sichtbar unter ihm
+   * durch.
+   */
   .frame__scroll {
     overflow-x: auto;
     border: 1px solid var(--line);
     border-radius: 12px;
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
   }
   .frame {
     width: 100%;
