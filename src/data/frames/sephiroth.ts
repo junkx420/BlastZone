@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothJab1.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "28",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothJab2.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "33",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothJab3.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "35",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothFTilt.gif",
+            "hitboxes/sephiroth/SephirothFTiltUp.gif",
+            "hitboxes/sephiroth/SephirothFTiltDown.gif"
+          ],
           "startup": "14",
           "active": "14—16",
           "total": "37",
@@ -60,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothUTilt.gif"
+          ],
           "startup": "10/13",
           "active": "10/13-15(16-25)",
           "total": "37",
@@ -74,6 +91,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—15(16—22)",
           "total": "42",
@@ -87,6 +107,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothDashAttack.gif"
+          ],
           "startup": "14",
           "active": "14—15(16—19)",
           "total": "46",
@@ -99,6 +122,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothFSmash.gif",
+            "hitboxes/sephiroth/SephirothFSmashWinged.gif"
+          ],
           "startup": "24",
           "active": "24—25",
           "total": "67",
@@ -113,6 +140,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothUSmash.gif",
+            "hitboxes/sephiroth/SephirothUSmashWinged.gif"
+          ],
           "startup": "23",
           "active": "23/24-[26]-28",
           "total": "63",
@@ -127,6 +158,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash (if hitting the ground)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothDSmash.gif",
+            "hitboxes/sephiroth/SephirothDSmashWinged.gif"
+          ],
           "startup": "21",
           "active": "21—23",
           "total": "53",
@@ -141,6 +176,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash (does not hit the ground)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothDSmashAir.gif",
+            "hitboxes/sephiroth/SephirothDSmashAirWinged.gif"
+          ],
           "startup": "21",
           "active": "21—22",
           "total": "53",
@@ -155,6 +194,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothNAir.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "33",
@@ -169,6 +211,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothFAir.gif"
+          ],
           "startup": "13",
           "active": "13—14(15—18)",
           "total": "41",
@@ -184,6 +229,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothBAir.gif"
+          ],
           "startup": "15",
           "active": "15—16",
           "total": "46",
@@ -199,6 +247,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothUAir.gif"
+          ],
           "startup": "16",
           "active": "16—21",
           "total": "53",
@@ -214,6 +265,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothDAir.gif",
+            "hitboxes/sephiroth/SephirothDAirLanding.gif"
+          ],
           "startup": "19",
           "active": "19—23/24—39(1—2)",
           "total": "61",
@@ -229,6 +284,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Flare)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothFlare.gif"
+          ],
           "startup": "41",
           "active": "(22—27/28—34/35—39/40—95)/98—101",
           "total": "65",
@@ -242,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Megaflare",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothMegaflare.gif"
+          ],
           "startup": "52",
           "active": "21—48/(58—60/61—66/67—68)",
           "total": "73",
@@ -256,6 +317,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gigaflare",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothGigaflare.gif"
+          ],
           "startup": "130",
           "active": "130—176/(183—184/185—200/201—202)",
           "total": "181",
@@ -268,6 +332,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Shadow Flare)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothShadowFlareMin.gif",
+            "hitboxes/sephiroth/SephirothShadowFlareMax.gif",
+            "hitboxes/sephiroth/SephirothShadowFlareAMin.gif",
+            "hitboxes/sephiroth/SephirothShadowFlareAMax.gif"
+          ],
           "startup": "16—42",
           "active": "8-14",
           "total": "38—64",
@@ -282,6 +352,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B, no charge (Blade Dash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothBladeDash.gif"
+          ],
           "startup": "25",
           "active": "25—28",
           "total": "56*",
@@ -296,6 +369,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B, charge (Octaslash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothOctaslash.gif"
+          ],
           "startup": "36",
           "active": "36/38/40/42/44/46/48/50",
           "total": "104*",
@@ -311,6 +387,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Scintilla, Miss)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothScintillaMiss.gif"
+          ],
           "startup": "38",
           "active": "38—52 (Rehit: 5)/53",
           "total": "86",
@@ -325,6 +404,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Scintilla, Success)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothScintillaHitMin.gif",
+            "hitboxes/sephiroth/SephirothScintillaHitMax.gif"
+          ],
           "startup": "7",
           "active": "7—21/22",
           "total": "51",
@@ -335,6 +418,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "36",
@@ -343,6 +429,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "44",
@@ -351,6 +440,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "39",
@@ -359,6 +451,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -367,6 +462,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothFThrow.gif"
+          ],
           "startup": "14",
           "total": "34",
           "damage": "3.0/3.0",
@@ -375,6 +473,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothBThrow.gif"
+          ],
           "startup": "18",
           "total": "31",
           "damage": "3.0/3.5",
@@ -383,6 +484,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothUThrow.gif"
+          ],
           "startup": "13(14)",
           "total": "32",
           "damage": "4.0/3.0",
@@ -391,6 +495,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sephiroth/SephirothDThrow.gif"
+          ],
           "startup": "40 (throw only)",
           "total": "47",
           "damage": "4.0"
@@ -451,11 +558,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Grab",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/sephirothledgehang.gif",
+            "ledgerolls/Sephiroth.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/sephiroth/sephirothGetupAttackU.gif",
+            "hitboxes/sephiroth/sephirothGetupAttackD.gif",
+            "hitboxes/sephiroth/sephirothTripAttack.gif",
+            "hitboxes/sephiroth/sephirothLedgeAttack.gif"
+          ]
         }
       ]
     }

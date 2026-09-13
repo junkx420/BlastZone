@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "24",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "26",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioJab3.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "35",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioFTilt.gif",
+            "hitboxes/lucario/LucarioFTiltUp.gif",
+            "hitboxes/lucario/LucarioFTiltDown.gif"
+          ],
           "startup": "12/15",
           "active": "12—14/15—16",
           "total": "32",
@@ -60,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioUTilt.gif"
+          ],
           "startup": "6",
           "active": "6—13",
           "total": "32",
@@ -73,6 +90,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "20",
@@ -85,6 +105,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—10(11—15)",
           "total": "41",
@@ -98,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioFSmash.gif"
+          ],
           "startup": "19",
           "active": "19—20(21—22)",
           "total": "54",
@@ -112,6 +138,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioUSmash.gif"
+          ],
           "startup": "15/19",
           "active": "15—17/19—20/21—23",
           "total": "63",
@@ -126,6 +155,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioDSmash.gif"
+          ],
           "startup": "16",
           "active": "16—18",
           "total": "51",
@@ -139,6 +171,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioNAir.gif"
+          ],
           "startup": "10/18",
           "active": "10—14/18—21",
           "total": "42",
@@ -153,6 +188,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioFAir.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "27",
@@ -167,6 +205,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioBAir.gif"
+          ],
           "startup": "13",
           "active": "13—14(15—16)",
           "total": "49",
@@ -181,6 +222,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioUAir.gif"
+          ],
           "startup": "10",
           "active": "10—11(12—13)",
           "total": "38",
@@ -196,6 +240,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioDAir.gif"
+          ],
           "startup": "4/11",
           "active": "4—5/11—12",
           "total": "30",
@@ -234,6 +281,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Force Palm)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioForcePalm.gif",
+            "hitboxes/lucario/LucarioForcePalmA.gif"
+          ],
           "startup": "(9)24",
           "active": "24—25",
           "total": "63",
@@ -248,6 +299,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Force Palm, Throw",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioForcePalmThrow.gif"
+          ],
           "startup": "Throw Hit: 23, Throw: 29",
           "active": "Throw Hit: 23—24",
           "total": "42",
@@ -257,6 +311,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Extreme Speed)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioExtremeSpeedG.gif",
+            "hitboxes/lucario/LucarioExtremeSpeedA.gif"
+          ],
           "startup": "46",
           "active": "46—47(1)",
           "landingLag": "40/37",
@@ -269,6 +327,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Double Team)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioDoubleTeam.gif"
+          ],
           "startup": "5 (Start of Counter)",
           "active": "5—24(counter)",
           "total": "70",
@@ -277,6 +338,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double Team, Counterattack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioDoubleTeamHit.gif"
+          ],
           "startup": "8",
           "total": "47",
           "damage": "8.2 | 12.5 | 20.0",
@@ -288,6 +352,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "39",
@@ -296,6 +363,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "46",
@@ -304,6 +374,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "42",
@@ -312,6 +385,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioPummel.gif"
+          ],
           "startup": "1",
           "total": "19 | 20 | 21",
           "damage": "0.8 | 1.3 | 2.0",
@@ -320,6 +396,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioFThrow.gif"
+          ],
           "startup": "6/7",
           "total": "21",
           "damage": "3.3 / 1.9 | 5.0 / 3.0 | 8.0 / 4.8"
@@ -327,6 +406,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioBThrow.gif"
+          ],
           "startup": "14",
           "total": "35",
           "damage": "6.6 | 10.0 | 16.0"
@@ -334,6 +416,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioUThrow.gif"
+          ],
           "startup": "16/17",
           "total": "37",
           "damage": "3.3 / 3.9 | 5.0 / 6.0 | 8.0 / 9.6"
@@ -341,6 +426,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucario/LucarioDThrow.gif"
+          ],
           "startup": "28",
           "total": "50",
           "damage": "4.6 | 7.0 | 11.2"
@@ -407,7 +495,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/lucario/lucarioGetupAttackU.gif",
+            "hitboxes/lucario/lucarioGetupAttackD.gif",
+            "hitboxes/lucario/lucarioTripAttack.gif",
+            "hitboxes/lucario/lucarioLedgeAttack.gif"
+          ]
         }
       ]
     }

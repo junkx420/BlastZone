@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiJab1.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "18",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "18",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "30",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiFTilt.gif",
+            "hitboxes/luigi/LuigiFTiltUp.gif",
+            "hitboxes/luigi/LuigiFTiltDown.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "32",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiUTilt.gif"
+          ],
           "startup": "5",
           "active": "5—10",
           "total": "27",
@@ -71,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—8",
           "total": "13",
@@ -83,6 +103,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiDashAttack.gif"
+          ],
           "startup": "4/8/12/16/25",
           "active": "4/8/12/16/25",
           "total": "47",
@@ -96,6 +119,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiFSmash.gif",
+            "hitboxes/luigi/LuigiFSmashUp.gif",
+            "hitboxes/luigi/LuigiFSmashDown.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "41",
@@ -109,6 +137,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiUSmash.gif"
+          ],
           "startup": "9",
           "active": "9—13",
           "total": "39",
@@ -123,6 +154,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiDSmash.gif"
+          ],
           "startup": "6/14",
           "active": "6—7/14—15",
           "total": "37",
@@ -137,6 +171,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Taunt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiDTaunt.gif"
+          ],
           "startup": "45",
           "total": "69",
           "damage": "2.0",
@@ -145,6 +182,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiNAir.gif"
+          ],
           "startup": "3",
           "active": "3—5(6—31)",
           "total": "44",
@@ -160,6 +200,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiFAir.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "23",
@@ -174,6 +217,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiBAir.gif"
+          ],
           "startup": "6",
           "active": "6—7(8—13)",
           "total": "44",
@@ -189,6 +235,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiUAir.gif"
+          ],
           "startup": "5",
           "active": "5—7(8—11)",
           "total": "26",
@@ -204,6 +253,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiDAir.gif"
+          ],
           "startup": "10",
           "active": "10(11—14)",
           "total": "28",
@@ -232,6 +284,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Fireball)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiFireball.gif"
+          ],
           "startup": "17",
           "active": "17—45(46—66)",
           "total": "43",
@@ -244,6 +299,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Green Missile)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiGreenMissile.gif",
+            "hitboxes/luigi/LuigiGreenMissileMisfire.gif"
+          ],
           "startup": "22",
           "active": "22—60",
           "total": "79/95",
@@ -258,6 +317,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Super Jump Punch, Ground)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiSuperJumpPunchG.gif"
+          ],
           "startup": "8",
           "active": "8(9—23)",
           "total": "109",
@@ -273,6 +335,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Super Jump Punch, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiSuperJumpPunchA.gif"
+          ],
           "startup": "6",
           "active": "6(7—23)",
           "landingLag": "45",
@@ -283,6 +348,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Luigi Cyclone)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiLuigiCycloneG.gif",
+            "hitboxes/luigi/LuigiLuigiCycloneA.gif"
+          ],
           "startup": "10.../40",
           "active": "10—33(rehit:6)/40",
           "total": "85",
@@ -297,6 +366,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiGrab.gif"
+          ],
           "startup": "14",
           "active": "14—20",
           "total": "47",
@@ -306,6 +378,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiDashGrab.gif"
+          ],
           "startup": "16",
           "active": "16—22",
           "total": "51",
@@ -315,6 +390,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiPivotGrab.gif"
+          ],
           "startup": "17",
           "active": "17—24",
           "total": "49",
@@ -324,6 +402,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "landingLag": "Total frames includes 13 frames of hitlag.",
@@ -332,6 +413,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiFThrow.gif"
+          ],
           "startup": "15",
           "total": "37",
           "damage": "9.0"
@@ -339,6 +423,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiBThrow.gif"
+          ],
           "startup": "15",
           "total": "37",
           "damage": "10.0"
@@ -346,6 +433,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiUThrow.gif"
+          ],
           "startup": "18",
           "total": "39",
           "damage": "8.0",
@@ -354,6 +444,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/luigi/LuigiDThrow.gif"
+          ],
           "startup": "18/29",
           "total": "40",
           "damage": "3.0/3.0",
@@ -421,7 +514,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/luigi/luigiGetupAttackUp.gif",
+            "hitboxes/luigi/luigiGetupAttackDown.gif",
+            "hitboxes/luigi/luigiTripAttack.gif",
+            "hitboxes/luigi/luigiLedgeAttack.gif"
+          ]
         }
       ]
     }

@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarJab1.gif"
+          ],
           "startup": "4",
           "active": "4(5)",
           "total": "19",
@@ -23,6 +26,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "17",
@@ -36,6 +42,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarFTilt.gif"
+          ],
           "startup": "15",
           "active": "15—17",
           "total": "35",
@@ -48,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarUTilt.gif"
+          ],
           "startup": "6/8/10/12/14/16",
           "active": "6/8/10/12/14/16",
           "total": "38",
@@ -61,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—12",
           "total": "29",
@@ -73,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarDashAttack.gif"
+          ],
           "startup": "8/11",
           "active": "8—10/11—14",
           "total": "37",
@@ -85,6 +103,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarFSmashRBW.gif",
+            "/hitboxes/olimar/OlimarFSmashY.gif",
+            "/hitboxes/olimar/OlimarFSmashP.gif"
+          ],
           "startup": "11",
           "active": "11—13(14-19/20—29) Purple: 11—13(14—18/19—24)",
           "total": "39",
@@ -97,6 +120,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarUSmashRBW.gif",
+            "/hitboxes/olimar/OlimarUSmashY.gif",
+            "/hitboxes/olimar/OlimarUSmashP.gif"
+          ],
           "startup": "12",
           "active": "12—13(14—16/17—22)",
           "total": "39",
@@ -109,6 +137,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarDSmashRBW.gif",
+            "/hitboxes/olimar/OlimarDSmashY.gif",
+            "/hitboxes/olimar/OlimarDSmashP.gif"
+          ],
           "startup": "10",
           "active": "10—13/14—18 Purple: 10—13/14—15",
           "total": "38",
@@ -121,6 +154,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarNAir.gif"
+          ],
           "startup": "7/11/15/19/23",
           "active": "7—8/11—12/15—16/19—20/23—24",
           "total": "53",
@@ -136,6 +172,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarFAirRBWP.gif",
+            "/hitboxes/olimar/OlimarFAirY.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "42",
@@ -149,6 +189,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarBAirRBWP.gif",
+            "/hitboxes/olimar/OlimarBAirY.gif"
+          ],
           "startup": "10",
           "active": "10—13",
           "total": "48",
@@ -162,6 +206,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarUAirRBWP.gif",
+            "/hitboxes/olimar/OlimarUAirY.gif"
+          ],
           "startup": "8",
           "active": "8—15",
           "total": "34",
@@ -175,6 +223,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarDAirRBWP.gif",
+            "/hitboxes/olimar/OlimarDAirY.gif"
+          ],
           "startup": "9",
           "active": "9—10(11—16)",
           "total": "51",
@@ -197,6 +249,13 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Pikmin Throw)",
           "section": "special",
+          "hitboxImages": [
+            "/hitboxes/olimar/RedPikminThrow.gif",
+            "/hitboxes/olimar/YellowPikminThrow.gif",
+            "/hitboxes/olimar/BluePikminThrow.gif",
+            "/hitboxes/olimar/WhitePikminThrow.gif",
+            "/hitboxes/olimar/PurplePikminThrow.gif"
+          ],
           "startup": "9",
           "active": "9—128(9—108)",
           "total": "24",
@@ -215,6 +274,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Pikmin Order/Whistle)",
           "section": "special",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarPikminOrder.gif"
+          ],
           "startup": "2 (Start of Super Armor)",
           "active": "2—7 (armor)",
           "total": "17",
@@ -223,6 +285,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Red/Blue/Yellow Grabs",
           "section": "throw",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarGrabRBY1.gif",
+            "/hitboxes/olimar/OlimarGrabRBY2.gif",
+            "/hitboxes/olimar/OlimarGrabRBY3.gif"
+          ],
           "startup": "12",
           "active": "12—23",
           "total": "41/47/56",
@@ -232,6 +299,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "White Grabs",
           "section": "throw",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarGrabWhite1.gif",
+            "/hitboxes/olimar/OlimarGrabWhite2.gif",
+            "/hitboxes/olimar/OlimarGrabWhite3.gif"
+          ],
           "startup": "12",
           "active": "12—23",
           "total": "41/47/56",
@@ -240,6 +312,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Purple Grabs",
           "section": "throw",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarGrabPurple1.gif",
+            "/hitboxes/olimar/OlimarGrabPurple2.gif",
+            "/hitboxes/olimar/OlimarGrabPurple3.gif"
+          ],
           "startup": "12",
           "active": "12—23",
           "total": "41/47/56",
@@ -272,6 +349,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarPummel.gif"
+          ],
           "startup": "1",
           "total": "16",
           "damage": "1.0",
@@ -280,6 +360,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarFThrow.gif"
+          ],
           "startup": "19",
           "total": "35",
           "damage": "5.6/7.0/11.9/7.0/7.0"
@@ -287,6 +370,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarBThrow.gif"
+          ],
           "startup": "22",
           "total": "39",
           "damage": "7.2/9.0/15.3/9.0/9.0"
@@ -294,6 +380,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarUThrow.gif"
+          ],
           "startup": "22/23",
           "total": "49",
           "damage": "6.4/8.0/13.5/8.0/8.0"
@@ -301,6 +390,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "/hitboxes/olimar/OlimarDThrow.gif"
+          ],
           "startup": "23/32",
           "total": "41",
           "damage": "6.6/8.0/12.9/7.8/8.6"
@@ -367,7 +459,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/olimar/olimarGetupAttackU.gif",
+            "hitboxes/olimar/olimarGetupAttackD.gif",
+            "hitboxes/olimar/olimarTripAttack.gif",
+            "hitboxes/olimar/olimarLedgeAttack.gif"
+          ]
         }
       ]
     }

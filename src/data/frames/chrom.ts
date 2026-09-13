@@ -9,6 +9,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromJab.gif",
+            "hitboxes/chrom/ChromJabInterpolated.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "22",
@@ -21,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "33",
@@ -33,6 +40,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromUTilt.gif"
+          ],
           "startup": "6",
           "active": "6/7—8/9—11",
           "total": "38",
@@ -46,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "21",
@@ -58,6 +71,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDashAttack.gif"
+          ],
           "startup": "13",
           "active": "13—16",
           "total": "45",
@@ -70,6 +86,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromFSmash.gif"
+          ],
           "startup": "13",
           "active": "13—14",
           "total": "53",
@@ -83,6 +102,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromUSmash.gif"
+          ],
           "startup": "12/13/15/17/19/22",
           "active": "12/13/15/17/19/22—23",
           "total": "58",
@@ -97,6 +119,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDSmash.gif"
+          ],
           "startup": "6/21",
           "active": "6—7/21—22",
           "total": "62",
@@ -110,6 +135,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromNAir.gif"
+          ],
           "startup": "6/15",
           "active": "6—7/15—21",
           "total": "45",
@@ -124,6 +152,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromFAir.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "29",
@@ -138,6 +169,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromBAir.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "35",
@@ -152,6 +186,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromUAir.gif"
+          ],
           "startup": "5",
           "active": "5—12",
           "total": "41",
@@ -166,6 +203,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDAir.gif"
+          ],
           "startup": "16",
           "active": "16—17",
           "total": "51",
@@ -181,6 +221,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Flare Blade)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromFlareBlade.gif",
+            "hitboxes/chrom/ChromFlareBladeMax.gif"
+          ],
           "startup": "21-260",
           "active": "Normal: 21—24 (or 10—14 from release) || Max: 21—25",
           "total": "44-283",
@@ -194,6 +238,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Hit 1 (Double-Edge Dance, Hit 1)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance1.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "39/29",
@@ -207,6 +254,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double-Edge Dance, Hit 2 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance2.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "38",
@@ -220,6 +270,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double-Edge Dance, Hit 3 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance3.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "43",
@@ -233,6 +286,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double-Edge Dance, Hit 4 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance4.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "58",
@@ -245,6 +301,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double-Edge Dance, Hit 2 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance2Up.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "38",
@@ -258,6 +317,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double-Edge Dance, Hit 3 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance3Up.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "43",
@@ -271,6 +333,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double-Edge Dance, Hit 4 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance4Up.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "44",
@@ -283,6 +348,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double-Edge Dance, Hit 3 Down",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance3Down.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "43",
@@ -296,6 +364,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double-Edge Dance, Hit 4 Down",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDoubleEdgedDance4Down.gif"
+          ],
           "startup": "7/10/13/16/19",
           "active": "7/10/13/16/19—21",
           "total": "71",
@@ -309,6 +380,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Soaring Slash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromSoaringSlash.gif",
+            "hitboxes/chrom/ChromSoaringSlashDescent.gif",
+            "hitboxes/chrom/ChromSoaringSlashLanding.gif"
+          ],
           "startup": "10/39/53/**",
           "active": "10—11/39—47(rehit: 7) / 54—**/1—4",
           "landingLag": "36",
@@ -322,6 +398,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Counter)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromCounter.gif"
+          ],
           "startup": "8 (Start of Counter)",
           "total": "67",
           "notes": "Invulnerable on frames 7-9. Counters on 8-29 from 8-27."
@@ -329,6 +408,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Counter, Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromCounterHit.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "40",
@@ -338,6 +420,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/chrom/CHromGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "36",
@@ -346,6 +431,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "44",
@@ -354,6 +442,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "39",
@@ -362,6 +453,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -370,6 +464,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromFThrow.gif"
+          ],
           "startup": "15",
           "total": "31",
           "damage": "5.0"
@@ -377,6 +474,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromBThrow.gif"
+          ],
           "startup": "8",
           "total": "44",
           "damage": "5.0"
@@ -384,6 +484,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromUThrow.gif"
+          ],
           "startup": "13",
           "total": "44",
           "damage": "6.0"
@@ -391,6 +494,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/chrom/ChromDThrow.gif"
+          ],
           "startup": "16",
           "total": "41",
           "damage": "5.0"
@@ -457,7 +563,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/chrom/chromGetupAttackU.gif",
+            "hitboxes/chrom/chromGetupAttackD.gif",
+            "hitboxes/chrom/chromTripAttack.gif",
+            "hitboxes/chrom/chromLedgeAttack.gif"
+          ]
         }
       ]
     }

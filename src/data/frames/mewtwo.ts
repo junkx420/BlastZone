@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoJab.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "21",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoJabRapid.gif"
+          ],
           "startup": "5/8/11...",
           "damage": "0.8",
           "shieldLag": "4",
@@ -30,6 +36,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoJabRapidEnd.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "40",
@@ -42,6 +51,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoFTilt.gif",
+            "hitboxes/mewtwo/MewtwoFTiltUp.gif",
+            "hitboxes/mewtwo/MewtwoFTiltDown.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "35",
@@ -55,6 +69,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoUTilt.gif"
+          ],
           "startup": "8",
           "active": "8(9—13)",
           "total": "29",
@@ -68,6 +85,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "23",
@@ -81,6 +101,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoDashAttack.gif"
+          ],
           "startup": "10",
           "active": "10—11(12—20)",
           "total": "38",
@@ -94,6 +117,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoFSmash.gif",
+            "hitboxes/mewtwo/MewtwoFSmashUp.gif",
+            "hitboxes/mewtwo/MewtwoFSmashDown.gif"
+          ],
           "startup": "19",
           "active": "19—22",
           "total": "52",
@@ -108,6 +136,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoUSmash.gif"
+          ],
           "startup": "9/14/18/22",
           "active": "9(10—11)/14—15/18—19/22—25",
           "total": "68",
@@ -122,6 +153,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoDSmash.gif"
+          ],
           "startup": "21",
           "active": "21—23",
           "total": "40",
@@ -135,6 +169,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoNAir.gif"
+          ],
           "startup": "7/11/15/19/23/27",
           "active": "7—8/11—12/15—16/19—20/23—24/27—28",
           "total": "49",
@@ -150,6 +187,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoFAir.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "39",
@@ -164,6 +204,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoBAir.gif"
+          ],
           "startup": "13",
           "active": "13—17",
           "total": "39",
@@ -179,6 +222,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoUAir.gif"
+          ],
           "startup": "10",
           "active": "10—14",
           "total": "39",
@@ -194,6 +240,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoDAir.gif"
+          ],
           "startup": "15",
           "active": "15—18",
           "total": "47",
@@ -232,6 +281,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Confusion)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoConfusion.gif"
+          ],
           "startup": "10 (21/23/25/27/29/31/33/39)",
           "active": "10—13",
           "total": "39/42",
@@ -248,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Disable)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoDisable.gif"
+          ],
           "startup": "16",
           "active": "16—23",
           "total": "52",
@@ -261,6 +316,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "39",
@@ -269,6 +327,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "47",
@@ -277,6 +338,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "42",
@@ -285,6 +349,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -293,6 +360,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoFThrow.gif"
+          ],
           "startup": "19/33/40/47/54/61",
           "total": "81",
           "damage": "3.0/2.0",
@@ -301,6 +371,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoBThrow.gif"
+          ],
           "startup": "30",
           "total": "54",
           "damage": "10.0"
@@ -308,6 +381,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoUThrow.gif"
+          ],
           "startup": "43",
           "total": "79",
           "damage": "12.0"
@@ -315,6 +391,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mewtwo/MewtwoDThrow.gif"
+          ],
           "startup": "16/18",
           "total": "41",
           "damage": "4.0/5.0"
@@ -381,7 +460,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/mewtwo/mewtwoGetupAttackU.gif",
+            "hitboxes/mewtwo/mewtwoGetupAttackD.gif",
+            "hitboxes/mewtwo/mewtwoTripAttack.gif",
+            "hitboxes/mewtwo/mewtwoLedgeAttack.gif"
+          ]
         }
       ]
     }

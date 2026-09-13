@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraJab1.gif"
+          ],
           "startup": "5",
           "active": "5—12",
           "total": "36",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraJab2.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "37",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraJab3.gif"
+          ],
           "startup": "10",
           "active": "10—17",
           "total": "45",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Strong/Single)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraFTilt.gif"
+          ],
           "startup": "13",
           "active": "13—17",
           "total": "41",
@@ -59,6 +71,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "FTilt 1 > FTilt 2 Combo",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraFTilt1.gif",
+            "hitboxes/sora/SoraFTilt2.gif"
+          ],
           "startup": "13, 7",
           "active": "13—17, 7—10",
           "total": "40, 35",
@@ -72,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraFTilt3.gif"
+          ],
           "startup": "10",
           "active": "10—14",
           "total": "45",
@@ -84,6 +103,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraUTilt.gif"
+          ],
           "startup": "8/12/16/20/24/28/33",
           "active": "8—9/12—13/16—17/20—21/24—25/28—29/33—36",
           "total": "53",
@@ -96,6 +118,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "31",
@@ -108,6 +133,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—12(13—18/19—24)",
           "total": "47",
@@ -122,6 +150,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraFSmash.gif"
+          ],
           "startup": "16",
           "active": "16—17(18—20)",
           "total": "52",
@@ -136,6 +167,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraUSmash.gif"
+          ],
           "startup": "11/16",
           "active": "11—12/16—19",
           "total": "52",
@@ -149,6 +183,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sora/SoraDSmash.gif"
+          ],
           "startup": "20",
           "active": "20—23(20—22)",
           "total": "55",
@@ -163,6 +200,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraNAir1.gif"
+          ],
           "startup": "8",
           "active": "8—20",
           "total": "41",
@@ -177,6 +217,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air 2",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraNAir2.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "33",
@@ -191,6 +234,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air 3",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraNAir3.gif"
+          ],
           "startup": "8",
           "active": "9—13",
           "total": "41",
@@ -205,6 +251,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraFAir1.gif"
+          ],
           "startup": "10",
           "active": "10—15",
           "total": "43",
@@ -219,6 +268,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air 2",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraFAir2.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "33",
@@ -233,6 +285,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air 3",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraFAir3.gif"
+          ],
           "startup": "8",
           "active": "9—13",
           "total": "41",
@@ -247,6 +302,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraBAir.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "37",
@@ -261,6 +319,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraUAir.gif"
+          ],
           "startup": "10",
           "active": "10—18",
           "total": "41",
@@ -275,6 +336,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sora/SoraDAir.gif",
+            "hitboxes/sora/SoraDAirLanding.gif"
+          ],
           "startup": "15",
           "active": "15—44",
           "total": "57",
@@ -290,6 +355,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Firaga)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sora/SoraMagicFiraga.gif"
+          ],
           "startup": "16",
           "active": "16—25/26—35/36—55",
           "total": "41",
@@ -303,6 +371,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Thundaga)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sora/SoraThundagaG.gif",
+            "hitboxes/sora/SoraThundagaA.gif"
+          ],
           "startup": "30/44/58",
           "active": "Ground: 30—52/44—66/58—80 Air: 29—52/43—66/58—80",
           "total": "69",
@@ -314,6 +386,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Blizzaga)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sora/SoraMagicBlizzaga.gif"
+          ],
           "startup": "15...",
           "active": "... see notes :)",
           "total": "55",
@@ -327,6 +402,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Sonic Blade)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sora/SoraSonicBlade1.gif",
+            "hitboxes/sora/SoraSonicBlade2.gif",
+            "hitboxes/sora/SoraSonicBlade3.gif"
+          ],
           "startup": "17/45/73",
           "total": "48/88/120",
           "landingLag": "20",
@@ -340,6 +420,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Aerial Sweep)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sora/SoraAerialSweep.gif"
+          ],
           "startup": "9...",
           "active": "(9/10-11)/17-19/20-22/24-26/27-29/31-33/41-43",
           "landingLag": "21",
@@ -352,6 +435,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Counterattack)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sora/SoraCounterAttack.gif"
+          ],
           "startup": "7",
           "active": "7—25 (counter)",
           "total": "51",
@@ -360,6 +446,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Counterattack, Success)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sora/SoraCounterAttackHit.gif"
+          ],
           "startup": "25",
           "active": "25—29",
           "total": "49",
@@ -369,6 +458,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sora/SoraGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "35",
@@ -377,6 +469,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sora/SoraDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "41",
@@ -385,6 +480,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sora/SoraPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "37",
@@ -393,6 +491,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sora/SoraPummel.gif"
+          ],
           "startup": "1",
           "total": "18",
           "landingLag": "Total frames includes 13 frames of hitlag.",
@@ -401,6 +502,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sora/SoraFThrow.gif"
+          ],
           "startup": "15/16",
           "total": "41",
           "damage": "5.0/3.0",
@@ -409,6 +513,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sora/SoraBThrow.gif"
+          ],
           "startup": "11",
           "total": "57",
           "damage": "11.8",
@@ -417,6 +524,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sora/SoraUThrow.gif"
+          ],
           "startup": "13",
           "total": "37",
           "damage": "6.8"
@@ -424,6 +534,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sora/SoraDThrow.gif"
+          ],
           "startup": "19",
           "total": "39",
           "damage": "4.6"
@@ -488,11 +601,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/SoraLedgehangNOW_WITH_HAIR_GEL.gif",
+            "ledgerolls/Sora.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/sora/SoraGetupAttackU.gif",
+            "hitboxes/sora/SoraGetupAttackD.gif",
+            "hitboxes/sora/SoraTripAttack.gif",
+            "hitboxes/sora/SoraLedgeAttack.gif"
+          ]
         }
       ]
     }

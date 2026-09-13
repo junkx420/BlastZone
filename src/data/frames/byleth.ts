@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "22",
@@ -21,6 +24,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "24",
@@ -33,6 +39,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethJab3.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "34",
@@ -45,6 +54,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethJabRapid.gif"
+          ],
           "startup": "11",
           "active": "11/14/17/20/23/...",
           "damage": "0.4",
@@ -54,6 +66,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethJapRapidFinisher.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "50",
@@ -66,6 +81,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "34",
@@ -78,6 +96,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethUTilt.gif"
+          ],
           "startup": "9",
           "active": "9—15",
           "total": "34",
@@ -90,6 +111,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethDTilt.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "35",
@@ -102,6 +126,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethDashAttack.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "44",
@@ -115,6 +142,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethFSmash.gif",
+            "hitboxes/byleth/BylethFSmashDown.gif",
+            "hitboxes/byleth/BylethFSmashUp.gif"
+          ],
           "startup": "23",
           "active": "23—25",
           "total": "63",
@@ -128,6 +160,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethUSmash.gif"
+          ],
           "startup": "13",
           "active": "13—16(rehit: 7)/17—27(rehit: 4)/28—29",
           "total": "56",
@@ -142,6 +177,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethDSmash.gif"
+          ],
           "startup": "19/29",
           "active": "19—21/29—31",
           "total": "74",
@@ -156,6 +194,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethNAir.gif",
+            "hitboxes/byleth/BylethNAirLanding.gif"
+          ],
           "startup": "6...",
           "active": "6—26(rehit: 7)/28/2",
           "total": "51",
@@ -171,6 +213,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethFAir.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "39",
@@ -186,6 +231,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethBAir.gif"
+          ],
           "startup": "13",
           "active": "13—14(15—17)",
           "total": "46",
@@ -201,6 +249,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethUAir.gif"
+          ],
           "startup": "10...",
           "active": "10—19(rehit: 5)/20—23",
           "total": "48",
@@ -216,6 +267,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethDAir.gif"
+          ],
           "startup": "22",
           "active": "22—24",
           "total": "59",
@@ -230,6 +284,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Failnaught)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethFailnaught.gif",
+            "hitboxes/byleth/BylethFailnaughtMax.gif"
+          ],
           "startup": "45/114",
           "active": "45—61 / 114",
           "total": "80/160",
@@ -243,6 +301,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Areadbhar)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethAreadbharGrounded.gif",
+            "hitboxes/byleth/BylethAreadbharAerial.gif"
+          ],
           "startup": "Ground: 20 || Air: 21",
           "active": "Ground: 20/21/22—24 || Air: 21—24",
           "total": "Ground: 65 || Air: 61",
@@ -257,6 +319,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Sword of the Creator)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethSwordoftheCreatorGrounded.gif",
+            "hitboxes/byleth/BylethSwordoftheCreatorAerial.gif"
+          ],
           "startup": "9(ground) || 10(air)",
           "active": "9/10—17/46(ground) || 10—17/46(air)",
           "total": "46",
@@ -268,6 +334,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Aymr)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethAymr.gif",
+            "hitboxes/byleth/BylethAymrSuperArmor.gif"
+          ],
           "startup": "62",
           "active": "62—67/2—5",
           "total": "133",
@@ -280,6 +350,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "39",
@@ -288,6 +361,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "48",
@@ -296,6 +372,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "42",
@@ -304,6 +383,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethPummel.gif"
+          ],
           "startup": "1",
           "total": "22",
           "notes": "Total frames includes 17 frames of hitlag (plus one in 1v1)"
@@ -311,6 +393,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethFThrow.gif"
+          ],
           "startup": "13",
           "total": "35",
           "damage": "6.0"
@@ -318,6 +403,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethBThrow.gif"
+          ],
           "startup": "30",
           "total": "43",
           "damage": "7.0"
@@ -325,6 +413,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethUThrow.gif"
+          ],
           "startup": "15",
           "total": "37",
           "damage": "9.0"
@@ -332,6 +423,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/byleth/BylethDThrow.gif"
+          ],
           "startup": "13",
           "total": "31",
           "damage": "5.0"
@@ -392,7 +486,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/byleth/bylethGetupAttackFront.gif",
+            "hitboxes/byleth/bylethGetupAttackBack.gif",
+            "hitboxes/byleth/bylethTripAttack.gif",
+            "hitboxes/byleth/bylethLedgeAttack.gif"
+          ]
         }
       ]
     }

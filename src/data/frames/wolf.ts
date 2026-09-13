@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfJab1.gif"
+          ],
           "startup": "4",
           "active": "4",
           "total": "21",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfJab2.gif"
+          ],
           "startup": "4",
           "active": "4",
           "total": "21",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfJab3.gif"
+          ],
           "startup": "4",
           "active": "4",
           "total": "34",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfFTilt.gif",
+            "hitboxes/wolf/WolfFTiltUp.gif",
+            "hitboxes/wolf/WolfFTiltDown.gif"
+          ],
           "startup": "8/9",
           "active": "8/9—10",
           "total": "34",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "35",
@@ -72,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "27",
@@ -84,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfDashAttack.gif"
+          ],
           "startup": "11",
           "active": "11—14/15—18",
           "total": "37",
@@ -97,6 +120,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfFSmash.gif"
+          ],
           "startup": "20",
           "active": "20—23",
           "total": "41",
@@ -110,6 +136,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfUSmash.gif"
+          ],
           "startup": "13/20",
           "active": "13—15/20—23",
           "total": "47",
@@ -124,6 +153,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfDSmash.gif"
+          ],
           "startup": "14/21",
           "active": "14—15/21—22",
           "total": "43",
@@ -138,6 +170,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfNAir.gif"
+          ],
           "startup": "7",
           "active": "7—9/10—26",
           "total": "42",
@@ -153,6 +188,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfFAir.gif",
+            "hitboxes/wolf/WolfFAirInterpolated.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "40",
@@ -167,6 +206,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfBAir.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "44",
@@ -182,6 +224,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfUAir.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "38",
@@ -196,6 +241,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfDAir.gif"
+          ],
           "startup": "16",
           "active": "16—17",
           "total": "53",
@@ -211,6 +259,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Blaster)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfBlaster.gif"
+          ],
           "startup": "15/16",
           "active": "15—19/16—50",
           "total": "52",
@@ -224,6 +275,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Wolf Flash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfWolfFlash.gif"
+          ],
           "startup": "18",
           "landingLag": "29",
           "damage": "20.0/15.0/3.0",
@@ -235,6 +289,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Fire Wolf)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfFireWolf.gif"
+          ],
           "startup": "18...",
           "active": "18—20/27—32(Rehit :2)/37—38",
           "total": "66",
@@ -250,6 +307,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Reflector)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfReflectorStart.gif",
+            "hitboxes/wolf/WolfReflector.gif",
+            "hitboxes/wolf/WolfReflectorHit.gif"
+          ],
           "startup": "6",
           "total": "30",
           "damage": "4.0",
@@ -261,6 +323,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "36",
@@ -269,6 +334,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfDashGrab.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "44",
@@ -277,6 +345,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfPivotGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "39",
@@ -285,6 +356,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "landingLag": "Total frames includes 13 frames of hitlag.",
@@ -293,6 +367,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfFThrow.gif"
+          ],
           "startup": "10/11",
           "total": "32",
           "damage": "5.0/4.0"
@@ -300,6 +377,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfBThrow.gif"
+          ],
           "startup": "23/24",
           "total": "47",
           "damage": "6.0/5.0"
@@ -307,6 +387,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfUThrow.gif"
+          ],
           "startup": "26/27",
           "total": "45",
           "damage": "5.0/2.0"
@@ -314,6 +397,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wolf/WolfDThrow.gif"
+          ],
           "startup": "26",
           "total": "40",
           "damage": "8.5"
@@ -384,11 +470,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Wolf Ledgehang.gif",
+            "ledgerolls/Wolf.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/wolf/wolfGetupAttackU.gif",
+            "hitboxes/wolf/wolfGetupAttackD.gif",
+            "hitboxes/wolf/wolfTripAttack.gif",
+            "hitboxes/wolf/wolfLedgeAttack.gif"
+          ]
         }
       ]
     }

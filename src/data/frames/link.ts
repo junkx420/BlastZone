@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkJab1.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "23",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "25",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkFTilt.gif"
+          ],
           "startup": "15",
           "active": "15(16—19)",
           "total": "39",
@@ -60,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkUTilt.gif"
+          ],
           "startup": "8",
           "active": "8—12",
           "total": "35",
@@ -72,6 +87,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkDTilt.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "30",
@@ -84,6 +102,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkDashAttack.gif"
+          ],
           "startup": "20",
           "active": "20—23",
           "total": "56",
@@ -97,6 +118,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkFSmash1.gif"
+          ],
           "startup": "17",
           "active": "17—18",
           "total": "50",
@@ -111,6 +135,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkFSmash2.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "60",
@@ -124,6 +151,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkUSmash.gif"
+          ],
           "startup": "10/25/41",
           "active": "10—13(14—15) / 25—28(29—30) / 41—45",
           "total": "77",
@@ -138,6 +168,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/link/LinkDSmash.gif"
+          ],
           "startup": "12/24",
           "active": "12—13/24—25",
           "total": "56",
@@ -152,6 +185,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/link/LinkNAir.gif"
+          ],
           "startup": "7",
           "active": "7—8(9—31)",
           "total": "38",
@@ -167,6 +203,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/link/LinkFAir.gif"
+          ],
           "startup": "16/24",
           "active": "16—17/24—25",
           "total": "51",
@@ -181,6 +220,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/link/LinkBAir.gif"
+          ],
           "startup": "6/15",
           "active": "6—8/15—17",
           "total": "30",
@@ -196,6 +238,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/link/LinkUAir.gif"
+          ],
           "startup": "11",
           "active": "11—13(14—40)",
           "total": "59",
@@ -211,6 +256,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/link/LinkDAir.gif"
+          ],
           "startup": "14",
           "active": "14—19(20—64)",
           "total": "79",
@@ -252,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Spin Attack)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/link/LinkSpinAttackG.gif"
+          ],
           "startup": "7",
           "active": "7—8(9—13/14—23/24—39)",
           "total": "76",
@@ -266,6 +317,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B, Air (Spin Attack, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/link/LinkSpinAttackA.gif"
+          ],
           "startup": "8/16/22/31/47",
           "active": "8—9/12—13/16—17/19—20/22—23/26—27/31—32/38—39/47—49",
           "landingLag": "30",
@@ -295,6 +349,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/link/LinkGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -303,6 +360,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/link/LinkDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -311,6 +371,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/link/LinkPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -319,6 +382,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/link/LinkPummel.gif"
+          ],
           "startup": "1",
           "total": "18",
           "damage": "1.3",
@@ -327,6 +393,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/link/LinkFThrow.gif"
+          ],
           "startup": "12/13",
           "total": "37",
           "damage": "3.0/2.5"
@@ -334,6 +403,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/link/LinkBThrow.gif"
+          ],
           "startup": "12/14",
           "total": "38",
           "damage": "3.0/2.5"
@@ -341,6 +413,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/link/LinkUThrow.gif"
+          ],
           "startup": "26/28",
           "total": "49",
           "damage": "5.0/2.0"
@@ -348,6 +423,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/link/LinkDThrow.gif"
+          ],
           "startup": "22/24",
           "total": "48",
           "damage": "3.0/3.0"
@@ -418,11 +496,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Link Ledgehang.gif",
+            "ledgerolls/Link.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/link/linkGetupAttackU.gif",
+            "hitboxes/link/linkGetupAttackD.gif",
+            "hitboxes/link/linkTripAttack.gif",
+            "hitboxes/link/linkLedgeAttack.gif"
+          ]
         }
       ]
     }

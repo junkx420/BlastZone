@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaJab1.gif"
+          ],
           "startup": "9",
           "active": "9—12",
           "total": "31",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaJab2.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "31",
@@ -35,6 +41,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaJab3.gif",
+            "hitboxes/bayonetta/BayonettaJab3BulletArts.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "39",
@@ -48,6 +58,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaJabRapid.gif",
+            "hitboxes/bayonetta/BayonettaJabRapidBulletArts.gif"
+          ],
           "startup": "6/10/14",
           "damage": "0.5/0.2",
           "shieldLag": "4",
@@ -56,6 +70,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaJabRapidEnd.gif"
+          ],
           "startup": "4/11",
           "active": "4—5/11—12",
           "total": "62",
@@ -68,6 +85,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaFTilt1.gif"
+          ],
           "startup": "12",
           "active": "12",
           "total": "31",
@@ -81,6 +101,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaFTilt2.gif"
+          ],
           "startup": "12",
           "active": "12",
           "total": "39",
@@ -94,6 +117,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaFTilt3.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "39",
@@ -106,6 +132,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaUTilt.gif"
+          ],
           "startup": "7/10/13",
           "active": "7—9(10—12)/13—15",
           "total": "29",
@@ -118,6 +147,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaDTilt.gif",
+            "hitboxes/bayonetta/BayonettaDTiltBulletArts.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "28",
@@ -131,6 +164,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaDashAttack.gif"
+          ],
           "startup": "15",
           "active": "15—20(21—26)",
           "total": "42",
@@ -144,6 +180,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaFSmash.gif"
+          ],
           "startup": "17",
           "active": "17—21",
           "total": "66",
@@ -158,6 +197,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaUSmash.gif",
+            "hitboxes/bayonetta/BayonettaUSmashBulletArts.gif"
+          ],
           "startup": "18",
           "active": "18—19(20—21/22—23)",
           "total": "64",
@@ -172,6 +215,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaDSmash.gif",
+            "hitboxes/bayonetta/BayonettaDSmashStomp.gif",
+            "hitboxes/bayonetta/BayonettaDSmashBulletArts.gif"
+          ],
           "startup": "17/22",
           "active": "17—18/22(23—25)",
           "total": "65",
@@ -186,6 +234,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaNAir.gif",
+            "hitboxes/bayonetta/BayonettaNAirBulletArts.gif"
+          ],
           "startup": "9",
           "active": "9—17(18—25) (full extended 26—66)",
           "total": "32",
@@ -200,6 +252,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air 1",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaFAir 1.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "37",
@@ -214,6 +269,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air 2",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaFAir2.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "39",
@@ -228,6 +286,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air 3",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaFAir3.gif",
+            "hitboxes/bayonetta/BayonettaFAir3BulletArts.gif"
+          ],
           "startup": "12",
           "active": "12—15",
           "total": "46",
@@ -242,6 +304,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaBAir.gif"
+          ],
           "startup": "11",
           "active": "11—14",
           "total": "34",
@@ -257,6 +322,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaUAir.gif",
+            "hitboxes/bayonetta/BayonettaUAirBulletArts.gif"
+          ],
           "startup": "9",
           "active": "9—18 (full extended 21—65)",
           "total": "29",
@@ -271,6 +340,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaDAir.gif",
+            "hitboxes/bayonetta/BayonettaDAirLanding.gif"
+          ],
           "startup": "18",
           "active": "18—24(25—35)/1—2",
           "total": "52",
@@ -286,6 +359,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Bullet Climax)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaBulletClimaxFeet.gif",
+            "hitboxes/bayonetta/BayonettaBulletClimaxHands.gif"
+          ],
           "startup": "17...",
           "active": "17—26, 21—30, 32—41, 36—45...",
           "total": "60",
@@ -299,6 +376,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B, Full Charge (Bullet Climax, Full Charge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaBulletClimaxFeetMax.gif",
+            "hitboxes/bayonetta/BayonettaBulletClimaxHandsMax.gif"
+          ],
           "startup": "42/47/57/62...",
           "active": "42—51/47—56/57—66/62—71...",
           "total": "100",
@@ -311,6 +392,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Heel Slide)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaHeelSlide.gif",
+            "hitboxes/bayonetta/BayonettaHeelSlideEnd.gif"
+          ],
           "startup": "15/51",
           "active": "15—16/17—18/19—24/25—39 first // 1—11/20—24 second",
           "total": "66 (first) 67 (second)",
@@ -325,6 +410,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "After Burner Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaAfterburnerKickUp.gif",
+            "hitboxes/bayonetta/BayonettaAfterBurnerKickUpBulletArts.gif"
+          ],
           "startup": "7",
           "active": "7-9/10-12/13-14/15-19",
           "total": "31",
@@ -339,6 +428,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "After Burner Kick, Down",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaAfterburnerKickDown.gif",
+            "hitboxes/bayonetta/BayonettaAfterburnerKickLanding.gif"
+          ],
           "startup": "8",
           "active": "8—25/1",
           "total": "43",
@@ -354,6 +447,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Witch Twist)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaWitchTwistG.gif",
+            "hitboxes/bayonetta/BayonettaWitchTwistA.gif",
+            "hitboxes/bayonetta/BayonettaWitchTwist1BulletArts.gif",
+            "hitboxes/bayonetta/BayonettaWitchTwist2BulletArts.gif"
+          ],
           "startup": "6/11...",
           "active": "6/11—25(rehit: 3)/27—28",
           "total": "31",
@@ -369,6 +468,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Witch Time)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaWitchTime.gif"
+          ],
           "startup": "8 (start of counter)",
           "active": "8—27 (counter)",
           "total": "66",
@@ -377,6 +479,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "37",
@@ -385,6 +490,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "45",
@@ -393,6 +501,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "40",
@@ -401,6 +512,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaPummel.gif"
+          ],
           "startup": "1/13",
           "total": "25",
           "damage": "0.6/0.7",
@@ -409,6 +523,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaFThrow.gif"
+          ],
           "startup": "14/15",
           "total": "42",
           "damage": "7.0/3.0"
@@ -416,6 +533,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaBThrow.gif"
+          ],
           "startup": "14-15",
           "total": "49",
           "damage": "3.0/6.0"
@@ -423,6 +543,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaUThrow.gif"
+          ],
           "startup": "9/10",
           "total": "35",
           "damage": "3.0/4.5"
@@ -430,6 +553,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bayonetta/BayonettaDThrow.gif"
+          ],
           "startup": "20/21",
           "total": "46",
           "damage": "3.0/5.0"
@@ -496,7 +622,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/bayonetta/bayonettaGetupAttackU.gif",
+            "hitboxes/bayonetta/bayonettaGetupAttackD.gif",
+            "hitboxes/bayonetta/bayonettaTripAttack.gif",
+            "hitboxes/bayonetta/bayonettaLedgeAttack.gif"
+          ]
         }
       ]
     }

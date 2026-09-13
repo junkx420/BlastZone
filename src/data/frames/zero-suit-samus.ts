@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusJab1.gif"
+          ],
           "startup": "1",
           "active": "1",
           "total": "23",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusJab2.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "25",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusJab3.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "34",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFTilt.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFTiltUp.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFTiltDown.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "28",
@@ -60,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusUTilt.gif"
+          ],
           "startup": "3/9",
           "active": "3—4/9—10",
           "total": "45",
@@ -72,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusDTilt.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "29",
@@ -84,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—9(10—19)",
           "total": "51",
@@ -97,6 +120,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFSmash.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFSmashUp.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFSmashDown.gif"
+          ],
           "startup": "13/26",
           "active": "13—14/26—28",
           "total": "64",
@@ -111,6 +139,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusUSmash.gif"
+          ],
           "startup": "10/14/17/20/23/26/28",
           "active": "10—11/14/17/20/23/26/28—29",
           "total": "48",
@@ -125,6 +156,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusDSmash.gif"
+          ],
           "startup": "20",
           "active": "20—24",
           "total": "41",
@@ -139,6 +173,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusNAir.gif"
+          ],
           "startup": "10",
           "active": "10—11(15—16)",
           "total": "51",
@@ -153,6 +190,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFAir.gif"
+          ],
           "startup": "6/13",
           "active": "6—7/13—14",
           "total": "46",
@@ -167,6 +207,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusBAir.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "40",
@@ -182,6 +225,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusUAir.gif"
+          ],
           "startup": "6",
           "active": "6—12",
           "total": "34",
@@ -196,6 +242,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusDAir.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusDAirLanding.gif"
+          ],
           "startup": "14",
           "active": "14—49/1—3",
           "total": "67",
@@ -211,6 +261,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Z Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusZAir.gif"
+          ],
           "startup": "9",
           "active": "9—19",
           "total": "49",
@@ -225,6 +278,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Paralyzer)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusParalyzerNoCharge.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusParalyzerMaxCharge.gif"
+          ],
           "startup": "21—43",
           "active": "21—44 (no charge) || 43—90 (max charge)",
           "total": "48—70",
@@ -237,6 +294,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Plasma Whip)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusPlasmaWhip.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusPlasmaWhipUp.gif"
+          ],
           "startup": "22/24/26/28/31",
           "active": "22—23/24—25/26—27/28—29/31—35",
           "total": "55",
@@ -251,6 +312,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Boost Kick)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusBoostKickG.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusBoostKickA.gif"
+          ],
           "startup": "6...",
           "active": "6/12—24(rehit: 4)/28/34—35",
           "landingLag": "30",
@@ -262,6 +327,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Flip Jump)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFlipJump.gif"
+          ],
           "total": "38",
           "damage": "8.0",
           "shieldLag": "13",
@@ -271,6 +339,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Flip Jump, Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFlipJumpKick.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFlipJumpFootstool.gif"
+          ],
           "startup": "9",
           "active": "9—12",
           "total": "59",
@@ -285,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusGrab.gif"
+          ],
           "startup": "15",
           "active": "15—25",
           "total": "58",
@@ -294,6 +369,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusDashGrab.gif"
+          ],
           "startup": "17",
           "active": "17—26",
           "total": "66",
@@ -303,6 +381,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusPivotGrab.gif"
+          ],
           "startup": "18",
           "active": "18—26",
           "total": "61",
@@ -312,6 +393,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -320,6 +404,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusFThrow.gif"
+          ],
           "startup": "8/9",
           "total": "25",
           "damage": "5.0/4.0"
@@ -327,6 +414,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusBThrow.gif"
+          ],
           "startup": "9/11",
           "total": "27",
           "damage": "2.0/6.0"
@@ -334,6 +424,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusUThrow.gif"
+          ],
           "startup": "3/5",
           "total": "40",
           "damage": "2.0/8.0"
@@ -341,6 +434,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusDThrow.gif"
+          ],
           "startup": "20/22",
           "total": "51",
           "damage": "4.0/4.0"
@@ -411,11 +507,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Zero Suit Samus Ledgehang.gif",
+            "ledgerolls/ZeroSuitSamus.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/zero_suit_samus/ZeroSuitSamusGetupAttackU.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusGetupAttackD.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusSlipAttack.gif",
+            "hitboxes/zero_suit_samus/ZeroSuitSamusLedgeAttack.gif"
+          ]
         }
       ]
     }

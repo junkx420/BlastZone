@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessJab1.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "19",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessJab2.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "19",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "29",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessFTilt.gif",
+            "hitboxes/ness/NessFTiltUp.gif",
+            "hitboxes/ness/NessFTiltDown.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "34",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessUTilt.gif"
+          ],
           "startup": "5",
           "active": "5—6(7—8)",
           "total": "28",
@@ -72,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessDTilt.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "11",
@@ -86,6 +106,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessDashAttack.gif"
+          ],
           "startup": "8/15/23",
           "active": "8/15—16/23—24",
           "total": "39",
@@ -98,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessFSmash.gif"
+          ],
           "startup": "21",
           "active": "21—22",
           "total": "54",
@@ -112,6 +138,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessUSmash.gif"
+          ],
           "startup": "10",
           "active": "10—32",
           "total": "52",
@@ -126,6 +155,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ness/NessDSmash.gif"
+          ],
           "startup": "12/17/23/31",
           "active": "12—15(17—18)/23—25(31—32)",
           "total": "45",
@@ -140,6 +172,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ness/NessNAir.gif"
+          ],
           "startup": "5",
           "active": "5—12(13—15)",
           "total": "35",
@@ -155,6 +190,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ness/NessFAir.gif"
+          ],
           "startup": "8.../20",
           "active": "8—18 (rehit: 5) / 20-21",
           "total": "39",
@@ -170,6 +208,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ness/NessBAir.gif"
+          ],
           "startup": "10",
           "active": "10—11(12—18)",
           "total": "35",
@@ -185,6 +226,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ness/NessUAir.gif"
+          ],
           "startup": "8.../15",
           "active": "8—14 (rehit: 2) / 15—16",
           "total": "33",
@@ -200,6 +244,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ness/NessDAir.gif"
+          ],
           "startup": "18",
           "active": "18—20/21—24",
           "total": "52",
@@ -225,6 +272,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (PK Fire)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ness/NessPKFireG.gif",
+            "hitboxes/ness/NessPKFireA.gif"
+          ],
           "startup": "18",
           "active": "18—37",
           "total": "55",
@@ -252,6 +303,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B, Self-hit (PK Thunder 2)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ness/NessPKThunder2.gif"
+          ],
           "startup": "1",
           "active": "1—10/11—32",
           "total": "56",
@@ -267,6 +321,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (PSI Magnet)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ness/NessPSIMagnet.gif",
+            "hitboxes/ness/NessPSIMagnetEnd.gif",
+            "hitboxes/ness/NessPSIMagnetA.gif"
+          ],
           "startup": "7 (7 is start of absorb)",
           "active": "7—12 (absorb)",
           "total": "24",
@@ -279,6 +338,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ness/NessGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "37",
@@ -287,6 +349,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ness/NessDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "45",
@@ -295,6 +360,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ness/NessPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "40",
@@ -303,6 +371,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ness/NessPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -311,6 +382,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ness/NessFThrow.gif"
+          ],
           "startup": "27",
           "total": "52",
           "damage": "11.0"
@@ -318,6 +392,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ness/NessBThrow.gif"
+          ],
           "startup": "27",
           "total": "52",
           "damage": "11.0"
@@ -325,6 +402,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ness/NessUThrow.gif"
+          ],
           "startup": "36",
           "total": "55",
           "damage": "12.0"
@@ -332,6 +412,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ness/NessDThrow.gif"
+          ],
           "startup": "6—9, 10—13, 14—17, 26—29",
           "total": "50",
           "damage": "0.5/0.5/0.5/1.5/4.0",
@@ -403,11 +486,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Ness Ledgehang.gif",
+            "ledgerolls/Ness.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/ness/nessGetupAttackU.gif",
+            "hitboxes/ness/nessGetupAttackD.gif",
+            "hitboxes/ness/nessTripAttack.gif",
+            "hitboxes/ness/nessLedgeAttack.gif"
+          ]
         }
       ]
     }

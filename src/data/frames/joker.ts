@@ -9,6 +9,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerJab1.gif",
+            "hitboxes/joker/JokerJab1Arsene.gif"
+          ],
           "startup": "4",
           "active": "4—5(4—5)",
           "total": "23",
@@ -22,6 +26,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerJab2.gif",
+            "hitboxes/joker/JokerJab2Arsene.gif"
+          ],
           "startup": "3",
           "active": "3—4(3—4)",
           "total": "23",
@@ -35,6 +43,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerJab3.gif",
+            "hitboxes/joker/JokerJab3Arsene.gif"
+          ],
           "startup": "3",
           "active": "3—4(3—4)",
           "total": "34",
@@ -47,6 +59,14 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerFTilt.gif",
+            "hitboxes/joker/JokerFTiltArsene.gif",
+            "hitboxes/joker/JokerFtiltUp.gif",
+            "hitboxes/joker/JokerFTiltUpArsene.gif",
+            "hitboxes/joker/JokerFTiltDown.gif",
+            "hitboxes/joker/JokerFTiltDownArsene.gif"
+          ],
           "startup": "8/13",
           "active": "8—9/13—15(8—9/13—19)",
           "total": "34",
@@ -60,6 +80,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerUTilt.gif",
+            "hitboxes/joker/JokerUTiltArsene.gif"
+          ],
           "startup": "8/11/14/17/20",
           "active": "8/9(11—19) [Final Hit: 20—23(20—23)]",
           "total": "40",
@@ -73,6 +97,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerDTilt.gif",
+            "hitboxes/joker/JokerDTiltArsene.gif"
+          ],
           "startup": "8",
           "active": "8—9/10—11/12—14(8—9/10—11/12—14)",
           "total": "37",
@@ -85,6 +113,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerDashAttack.gif",
+            "hitboxes/joker/JokerDashAttackArsene.gif"
+          ],
           "startup": "6/15",
           "active": "6—7/15—21(--/15—21)",
           "total": "45",
@@ -97,6 +129,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerFSmash.gif",
+            "hitboxes/joker/JokerFSmashArsene.gif"
+          ],
           "startup": "16",
           "active": "16—18(16—19)",
           "total": "47",
@@ -110,6 +146,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerUSmash.gif",
+            "hitboxes/joker/JokerUSmashArsene.gif"
+          ],
           "startup": "10",
           "active": "10—14(10—14)",
           "total": "51",
@@ -123,6 +163,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/joker/JokerDSmash.gif",
+            "hitboxes/joker/JokerDSmashArsene.gif"
+          ],
           "startup": "12/16",
           "active": "12—13/16—17(12—13/16—17)",
           "total": "51",
@@ -136,6 +180,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/joker/JokerNAir.gif",
+            "hitboxes/joker/JokerNAirArsene.gif"
+          ],
           "startup": "12",
           "active": "12—27(12—27)",
           "total": "54",
@@ -151,6 +199,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/joker/JokerFAir.gif",
+            "hitboxes/joker/JokerFAirArsene.gif"
+          ],
           "startup": "7/12",
           "active": "7—8/12—14(--/12—14)",
           "total": "47",
@@ -165,6 +217,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/joker/JokerBAir.gif",
+            "hitboxes/joker/JokerBAirArsene.gif"
+          ],
           "startup": "7",
           "active": "7—8(7—8)",
           "total": "31",
@@ -179,6 +235,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/joker/JokerUAir.gif",
+            "hitboxes/joker/JokerUAirArsene.gif"
+          ],
           "startup": "5...",
           "active": "5—18/20—21 (rehit: 4)",
           "total": "39",
@@ -194,6 +254,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/joker/JokerDAir.gif",
+            "hitboxes/joker/JokerDAirArsene.gif"
+          ],
           "startup": "13",
           "active": "13—16(15—16)",
           "total": "46",
@@ -209,6 +273,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Gun)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGun.gif"
+          ],
           "startup": "12/37/65",
           "active": "12",
           "total": "36/61/92",
@@ -222,6 +289,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun, Dash Forward",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunForward.gif"
+          ],
           "startup": "20",
           "active": "20",
           "total": "39",
@@ -235,6 +305,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun, Dash Back",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunBack.gif"
+          ],
           "startup": "22",
           "active": "22",
           "total": "45",
@@ -248,6 +321,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun, Jump (From Ground Only)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunJump.gif"
+          ],
           "startup": "10/17/24/31",
           "active": "10/17/24/31",
           "total": "59",
@@ -262,6 +338,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun, Spiral (From Air Only)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunUp.gif"
+          ],
           "startup": "12/15/18/24/27/30/ 36/39/42/48/51/54",
           "active": "12/15/18/24/27/30/ 36/39/42/48/51/54",
           "total": "69",
@@ -275,6 +354,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun, Shoot Below (From Air Only)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunDown.gif"
+          ],
           "startup": "7/21/35/44",
           "active": "7/21/35/44",
           "total": "48",
@@ -289,6 +371,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B, Arsene (Gun Special, Arsene)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunArsene.gif"
+          ],
           "startup": "12/18/24",
           "active": "12/18/24",
           "total": "41/**/**",
@@ -302,6 +387,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun Special, Dash Forward",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunForwardArsene.gif"
+          ],
           "startup": "21/27/33",
           "active": "21/27/33",
           "total": "45",
@@ -315,6 +403,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun Special, Dash Back",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunBackArsene.gif"
+          ],
           "startup": "23/29/35",
           "active": "23/29/35",
           "total": "49",
@@ -328,6 +419,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun Special, Jump (From Ground Only)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunJumpArsene.gif"
+          ],
           "startup": "10/13/17/20/24/27/31",
           "active": "10/13/17/20/24/27/31",
           "total": "59",
@@ -342,6 +436,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun Special, Spiral (From Air Only)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunUpArsene.gif"
+          ],
           "startup": "12/15/18/24/27/30/ 36/39/42/48/51/54",
           "active": "12/15/18/24/27/30/ 36/39/42/48/51/54",
           "total": "69",
@@ -355,6 +452,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gun Special, Shoot Below (From Air Only)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGunDownArsene.gif"
+          ],
           "startup": "7/14/21/28/35/44",
           "active": "7/14/21/28/35/44",
           "total": "48",
@@ -369,6 +469,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Eiha)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerEiha.gif"
+          ],
           "startup": "16",
           "active": "16—42/1—19",
           "total": "52",
@@ -383,6 +486,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Arsene (Eigaon)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerEigaon.gif"
+          ],
           "startup": "16 (1/6/11/16)",
           "active": "16—32(1—15/16—27)",
           "total": "57",
@@ -428,6 +534,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rebel's Guard, Counterattack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerRebelsGuardAttack.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "30",
@@ -438,6 +547,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B, Arsene (Tetrakarn/Makarakarn)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerTetrakarn_Makarakarn.gif"
+          ],
           "startup": "4 (Start of Counter)",
           "active": "4—31(Counter/Reflect active)",
           "total": "57",
@@ -446,6 +558,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Arsene, Tetrakarn Counterattack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerTetrakarn.gif"
+          ],
           "startup": "4",
           "active": "5—7",
           "total": "38",
@@ -455,6 +570,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Arsene, Makarakarn Reflect",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/joker/JokerMakarakarn.gif"
+          ],
           "active": "1—29",
           "total": "41",
           "endlag": "12",
@@ -463,6 +581,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/joker/JokerGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -471,6 +592,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/joker/JokerDashGrab.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "42",
@@ -479,6 +603,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/joker/JokerPivotGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "37",
@@ -487,6 +614,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/joker/JokerPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.5",
@@ -495,6 +625,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/joker/JokerFThrow.gif"
+          ],
           "startup": "9",
           "total": "29",
           "damage": "8.0"
@@ -502,6 +635,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/joker/JokerBThrow.gif"
+          ],
           "startup": "14",
           "total": "39",
           "damage": "10.0"
@@ -509,6 +645,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/joker/JokerUThrow.gif"
+          ],
           "startup": "16",
           "total": "37",
           "damage": "7.0"
@@ -516,6 +655,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/joker/JokerDThrow.gif"
+          ],
           "startup": "23",
           "total": "40",
           "damage": "7.0"
@@ -582,7 +724,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/joker/jokerGetupAttackU.gif",
+            "hitboxes/joker/jokerGetupAttackD.gif",
+            "hitboxes/joker/jokerTripAttack.gif",
+            "hitboxes/joker/jokerLedgeAttack.gif"
+          ]
         }
       ]
     }

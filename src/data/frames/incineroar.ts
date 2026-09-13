@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "23",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "31",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarJab3.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "37",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarFTilt.gif",
+            "hitboxes/incineroar/IncineroarFTiltUp.gif",
+            "hitboxes/incineroar/IncineroarFTiltDown.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "36",
@@ -60,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarUTilt.gif"
+          ],
           "startup": "6",
           "active": "6—11",
           "total": "34",
@@ -73,6 +90,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "29",
@@ -86,6 +106,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarDashAttack.gif"
+          ],
           "startup": "8",
           "active": "8—11/12—15",
           "total": "41",
@@ -99,6 +122,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarFSmash.gif"
+          ],
           "startup": "16",
           "active": "16—18",
           "total": "51",
@@ -113,6 +139,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarUSmash.gif"
+          ],
           "startup": "13",
           "active": "13—18",
           "total": "47",
@@ -126,6 +155,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarDSmash.gif"
+          ],
           "startup": "18",
           "active": "18—20",
           "total": "57",
@@ -139,6 +171,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarNAir.gif"
+          ],
           "startup": "5",
           "active": "5—6/7—25",
           "total": "41",
@@ -154,6 +189,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarFAir.gif"
+          ],
           "startup": "8",
           "active": "8—10(11—14)",
           "total": "44",
@@ -169,6 +207,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarBAir.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "41",
@@ -184,6 +225,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarUAir.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "31",
@@ -198,6 +242,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarDAir.gif"
+          ],
           "startup": "16",
           "active": "16—19/20—21",
           "total": "44",
@@ -213,6 +260,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Darkest Lariat)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarDarkestLariatG.gif",
+            "hitboxes/incineroar/IncineroarDarkestLariatA.gif"
+          ],
           "startup": "5/15/23/37/50/56",
           "active": "5—10/15—16/23—30/37—44/50—51/56—57",
           "total": "84",
@@ -226,6 +277,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Alolan Whip, Grab)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarAlolanWhipG.gif",
+            "hitboxes/incineroar/IncineroarAlolanWhipA.gif"
+          ],
           "startup": "16",
           "active": "16—32(grab)",
           "total": "57",
@@ -234,6 +289,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Alolan Whip, Lariat Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarAlolanWhipLariat.gif"
+          ],
           "startup": "7",
           "total": "47",
           "damage": "20.0",
@@ -242,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Alolan Whip, Back Body Drop",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarAlolanWhipEarly.gif"
+          ],
           "startup": "8",
           "total": "42",
           "damage": "12.0",
@@ -250,6 +311,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Alolan Whip, Chest Bounce (Failure)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarAlolanWhipFailure.gif"
+          ],
           "total": "32",
           "damage": "4.0",
           "notes": "Damage-based armor 1—4 (14.338% in 1v1, 11.99% base)."
@@ -257,6 +321,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Cross Chop)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarCrossChopRise.gif",
+            "hitboxes/incineroar/IncineroarCrossChopFall.gif",
+            "hitboxes/incineroar/IncineroarCrossChopLanding.gif"
+          ],
           "startup": "11/38",
           "active": "(11/13—15/16—24)(38...)",
           "total": "79",
@@ -272,6 +341,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Revenge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarRevengeStart.gif"
+          ],
           "startup": "3 (Start of Counter)",
           "total": "49",
           "notes": "Counter window 3-27. Next attack's damage increased by \"((3-x) + (Max KB Multiplier) * (x-1)) / 2\" where x = current damage dealt multiplier . Stores up to 3x Revenges for total damage combined. Revenge store is lost when you are grabbed or take 36% damage. Lasts 60 seconds at base. Jab 1/2 and the rising hits of Cross Chop don't remove revenge. For more info, including exact knockback multipliers, check Smash Wiki's page on Revenge ."
@@ -279,6 +351,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Revenge, Counter Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarRevenge.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "25",
@@ -289,6 +364,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarGrab.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "37",
@@ -297,6 +375,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "45",
@@ -305,6 +386,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "43",
@@ -313,6 +397,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarPummel.gif"
+          ],
           "startup": "1",
           "total": "20",
           "damage": "1.6",
@@ -321,6 +408,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarFThrow.gif"
+          ],
           "startup": "58",
           "total": "81",
           "damage": "12.0"
@@ -328,6 +418,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarBThrow.gif"
+          ],
           "startup": "28/30",
           "total": "51",
           "damage": "14.0"
@@ -335,6 +428,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarUThrow.gif"
+          ],
           "startup": "27",
           "total": "55",
           "damage": "12.0"
@@ -342,6 +438,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/incineroar/IncineroarDThrow.gif"
+          ],
           "startup": "22",
           "total": "35",
           "damage": "9.0"
@@ -408,7 +507,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/incineroar/incineroarGetupAttackU.gif",
+            "hitboxes/incineroar/incineroarGetupAttackD.gif",
+            "hitboxes/incineroar/incineroarTripAttack.gif",
+            "hitboxes/incineroar/incineroarLedgeAttack.gif"
+          ]
         }
       ]
     }

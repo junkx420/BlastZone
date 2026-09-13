@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeJab1.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "32",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeJab2.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "27",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeJabRapid.gif"
+          ],
           "startup": "5/8/11...",
           "active": "34—**",
           "damage": "0.5",
@@ -44,6 +53,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeJabRapidEnd.gif"
+          ],
           "startup": "4",
           "total": "49",
           "damage": "3.0",
@@ -54,6 +66,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeFTilt.gif"
+          ],
           "startup": "12/16/20/23",
           "active": "12—21/23",
           "total": "48",
@@ -67,6 +82,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—13",
           "total": "38",
@@ -81,6 +99,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—7(8—11)",
           "total": "37",
@@ -95,6 +116,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeDashAttack.gif"
+          ],
           "startup": "26",
           "active": "26—27(28—41)",
           "total": "66",
@@ -108,6 +132,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeFSmash.gif"
+          ],
           "startup": "40",
           "active": "40—41(42—43/44)",
           "total": "77",
@@ -122,6 +149,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeUSmash.gif"
+          ],
           "startup": "17",
           "active": "17—24",
           "total": "67",
@@ -135,6 +165,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeDSmash.gif"
+          ],
           "startup": "14",
           "active": "14—22",
           "total": "52",
@@ -148,6 +181,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeNAir.gif"
+          ],
           "startup": "7",
           "active": "7—8(9—29)",
           "total": "39",
@@ -163,6 +199,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeFAir.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "41",
@@ -177,6 +216,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeBAir.gif"
+          ],
           "startup": "17",
           "active": "17—19",
           "total": "37",
@@ -191,6 +233,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeUAir.gif"
+          ],
           "startup": "10/12/14/16/18/20/22/24",
           "active": "10/12/14/16/18/20/22/24—25",
           "total": "44",
@@ -206,6 +251,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeDAir.gif"
+          ],
           "startup": "22",
           "active": "22—23",
           "total": "47",
@@ -221,6 +269,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Inhale)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeInhaleStart.gif",
+            "hitboxes/king_dedede/KingDededeInhale.gif"
+          ],
           "startup": "14",
           "active": "17—**",
           "total": "74",
@@ -235,6 +287,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Gordo Throw)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeGordoThrow.gif",
+            "hitboxes/king_dedede/KingDededeGordo.gif",
+            "hitboxes/king_dedede/KingDededeGordoWall.gif"
+          ],
           "startup": "29",
           "active": "29(5—146)",
           "total": "58",
@@ -247,6 +304,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Super Dedede Jump)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeSuperDededeJump.gif",
+            "hitboxes/king_dedede/KingDededeSuperDededeJumpLanding.gif"
+          ],
           "startup": "69",
           "active": "69/4—5/6—20",
           "landingLag": "60/30",
@@ -260,6 +321,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Jet Hammer, Partial Charge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeJetHammerG.gif",
+            "hitboxes/king_dedede/KingDededeJetHammerA.gif"
+          ],
           "startup": "10(+17)",
           "active": "27—29",
           "total": "59",
@@ -273,6 +338,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B, Full Charge (Jet Hammer, Full Charge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeJet HammerGMax.gif",
+            "hitboxes/king_dedede/KingDededeJet HammerAMax.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "69",
@@ -286,6 +355,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeGrab.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "39",
@@ -294,6 +366,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "47",
@@ -302,6 +377,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededePivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "42",
@@ -310,6 +388,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededePummel.gif"
+          ],
           "startup": "2",
           "total": "21",
           "damage": "1.6",
@@ -318,6 +399,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeFthrow.gif"
+          ],
           "startup": "14",
           "total": "37",
           "damage": "4.0/6.0",
@@ -326,6 +410,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeBThrow.gif"
+          ],
           "startup": "19",
           "total": "41",
           "damage": "4.0/9.0",
@@ -334,6 +421,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeUThrow.gif"
+          ],
           "startup": "19",
           "total": "39",
           "damage": "4.0/5.0",
@@ -342,6 +432,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_dedede/KingDededeDThrow.gif"
+          ],
           "startup": "26",
           "total": "41",
           "damage": "6.0"
@@ -408,7 +501,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/king_dedede/king_dededeGetupAttackU.gif",
+            "hitboxes/king_dedede/king_dededeGetupAttackD.gif",
+            "hitboxes/king_dedede/king_dededeTripAttack.gif",
+            "hitboxes/king_dedede/king_dededeLedgeAttack.gif"
+          ]
         }
       ]
     }

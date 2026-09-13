@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaJab1.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "21",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "21",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaJab3.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "35",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaJabRapid.gif"
+          ],
           "startup": "5/8/11/14...",
           "damage": "0.5",
           "shieldLag": "4",
@@ -55,6 +67,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaJabRapidEnd.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "47",
@@ -67,6 +82,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaFTilt.gif",
+            "hitboxes/greninja/GreninjaFTiltUp.gif",
+            "hitboxes/greninja/GreninjaFTiltDown.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "32",
@@ -80,6 +100,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaUTilt.gif"
+          ],
           "startup": "9",
           "active": "9—12",
           "total": "32",
@@ -92,6 +115,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "22",
@@ -104,6 +130,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "28",
@@ -116,6 +145,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaFSmash.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "49",
@@ -129,6 +161,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaUSmash.gif"
+          ],
           "startup": "12/18",
           "active": "12—17/18(19—20/21)",
           "total": "51",
@@ -143,6 +178,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaDSmash.gif"
+          ],
           "startup": "11",
           "active": "11—12(13)",
           "total": "49",
@@ -157,6 +195,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Taunt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaDTaunt.gif"
+          ],
           "startup": "30",
           "active": "30—73 (rehit: 3)",
           "total": "109",
@@ -167,6 +208,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaNAir.gif"
+          ],
           "startup": "12",
           "active": "12—13(14—19)",
           "total": "52",
@@ -181,6 +225,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaFAir.gif"
+          ],
           "startup": "16",
           "active": "16—17",
           "total": "54",
@@ -195,6 +242,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaBAir.gif"
+          ],
           "startup": "5/7/11",
           "active": "5/7/11—14",
           "total": "40",
@@ -209,6 +259,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaUAir.gif"
+          ],
           "startup": "7/10/13/16/19/22",
           "active": "7—8/10—11/13—14/16—17/19—20/22",
           "total": "41",
@@ -224,6 +277,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaDAir.gif"
+          ],
           "startup": "17",
           "active": "17—19(20—45)",
           "total": "51",
@@ -239,6 +295,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Water Shuriken)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaWaterShurikenMin.gif",
+            "hitboxes/greninja/GreninjaWaterShurikenMax.gif"
+          ],
           "startup": "20—60",
           "active": "20—35 — 60—95",
           "total": "** (see notes)",
@@ -252,6 +312,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Shadow Sneak)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaShadowSneakF.gif",
+            "hitboxes/greninja/GreninjaShadowSneakB.gif"
+          ],
           "startup": "24(+5)",
           "active": "24—25",
           "total": "63",
@@ -266,6 +330,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Hydro Pump)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaHydroPump.gif"
+          ],
           "startup": "19",
           "landingLag": "32",
           "damage": "2.0",
@@ -275,6 +342,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Substitute)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaSubstitute.gif"
+          ],
           "startup": "8 (Start of Counter)",
           "active": "8—34 (counter)",
           "total": "69",
@@ -283,6 +353,13 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B, Attack (Substitute, Attack)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaSubstituteHitSide.gif",
+            "hitboxes/greninja/GreninjaSubstituteHitUp.gif",
+            "hitboxes/greninja/GreninjaSubstituteHitDown.gif",
+            "hitboxes/greninja/GreninjaSubstituteHitDiagonalUp.gif",
+            "hitboxes/greninja/GreninjaSubstituteHitDiagonalDown.gif"
+          ],
           "startup": "19",
           "active": "19",
           "total": "63",
@@ -297,6 +374,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "38",
@@ -305,6 +385,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaDashGrab.gif"
+          ],
           "startup": "13",
           "active": "13—14",
           "total": "46",
@@ -313,6 +396,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaPivotGrab.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "41",
@@ -321,6 +407,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaPummel.gif"
+          ],
           "startup": "2",
           "total": "18",
           "landingLag": "Total frames includes 10 frames of hitlag.",
@@ -329,6 +418,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaFThrow.gif"
+          ],
           "startup": "15/16",
           "total": "31",
           "damage": "3.5/4.5"
@@ -336,6 +428,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaBThrow.gif"
+          ],
           "startup": "18",
           "total": "44",
           "damage": "9.0"
@@ -343,6 +438,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaUThrow.gif"
+          ],
           "startup": "16",
           "total": "42",
           "damage": "5.0"
@@ -350,6 +448,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/greninja/GreninjaDThrow.gif"
+          ],
           "startup": "16",
           "total": "37",
           "damage": "5.0"
@@ -416,7 +517,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/greninja/greninjaGetupAttackU.gif",
+            "hitboxes/greninja/greninjaGetupAttackD.gif",
+            "hitboxes/greninja/greninjaTripAttack.gif",
+            "hitboxes/greninja/greninjaLedgeAttack.gif"
+          ]
         }
       ]
     }

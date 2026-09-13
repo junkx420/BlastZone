@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioJab1.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "27",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "29",
@@ -34,6 +40,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioFTilt.gif",
+            "hitboxes/wario/WarioFTiltUp.gif",
+            "hitboxes/wario/WarioFTiltDown.gif"
+          ],
           "startup": "12",
           "active": "12—15",
           "total": "39",
@@ -47,6 +58,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioUTilt.gif"
+          ],
           "startup": "8",
           "active": "8—10/11—15",
           "total": "27",
@@ -60,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioDTilt.gif"
+          ],
           "startup": "5",
           "active": "5",
           "total": "17",
@@ -72,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioDashAttack.gif"
+          ],
           "startup": "5",
           "active": "5—8/9—23",
           "total": "48",
@@ -85,6 +105,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioFSmash.gif"
+          ],
           "startup": "18",
           "active": "18—19",
           "total": "65",
@@ -98,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioUSmash.gif"
+          ],
           "startup": "11",
           "active": "11—12/13",
           "total": "57",
@@ -112,6 +138,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wario/WarioDSmash.gif"
+          ],
           "startup": "8",
           "active": "8—17/18—27/28—36",
           "total": "61",
@@ -126,6 +155,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wario/WarioNAir.gif"
+          ],
           "startup": "4/20",
           "active": "4—12(13—17)/20—26(27—42)",
           "total": "45",
@@ -141,6 +173,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wario/WarioFAir.gif"
+          ],
           "startup": "5",
           "active": "5—6/7—17",
           "total": "37",
@@ -156,6 +191,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wario/WarioBAir.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "49",
@@ -170,6 +208,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wario/WarioUAir.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "46",
@@ -184,6 +225,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wario/WarioDAir.gif"
+          ],
           "startup": "9/11/13/15/17/19/21",
           "active": "9/11/13/15/17/19/21",
           "total": "47",
@@ -199,6 +243,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Chomp)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wario/WarioChomp.gif",
+            "hitboxes/wario/WarioChompBite.gif",
+            "hitboxes/wario/WarioChompBomb.gif"
+          ],
           "startup": "8 (11 Grab Release)",
           "active": "8—16 (Can hold: 8—64)",
           "total": "41 (19 Grab Release)",
@@ -207,6 +256,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Wario Bike)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wario/WarioBikeDrive.gif"
+          ],
           "startup": "20/24",
           "active": "20—**",
           "damage": "0.6—11.4",
@@ -217,6 +269,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Wario Bike, Wheelie",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wario/WarioBikeWheelie.gif"
+          ],
           "startup": "4/54",
           "total": "64",
           "damage": "5.0/13.0",
@@ -228,6 +283,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Wario Bike, Turnaround",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wario/WarioBikeTurn.gif"
+          ],
           "startup": "6",
           "total": "45",
           "damage": "7.0",
@@ -243,6 +301,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Corkscrew)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wario/WarioCorkscrew.gif"
+          ],
           "startup": "6/8/12/16/20/29",
           "active": "6—7/8—11/12—15/16—19/20—23/29—30",
           "landingLag": "20",
@@ -254,6 +315,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Wario Waft)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wario/WarioWarioWaftToot.gif",
+            "hitboxes/wario/WarioWarioWaftLow.gif",
+            "hitboxes/wario/WarioWarioWaftHalf.gif",
+            "hitboxes/wario/WarioWarioWaftFull.gif"
+          ],
           "startup": "16, 10, 8, 12",
           "active": "16—18, 10—11, 8—11, 12—13/14—29",
           "total": "79, 64, 54, 63",
@@ -268,6 +335,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wario/WarioGrab.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "35",
@@ -276,6 +346,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wario/WarioDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "43",
@@ -284,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wario/WarioPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "38",
@@ -292,6 +368,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wario/WarioPummel.gif"
+          ],
           "startup": "2",
           "total": "21",
           "landingLag": "Total frames includes 14 frames of hitlag.",
@@ -300,6 +379,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wario/WarioFThrow.gif"
+          ],
           "startup": "20/21",
           "total": "54",
           "damage": "4.0/8.0"
@@ -307,6 +389,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wario/WarioBThrow.gif"
+          ],
           "startup": "48",
           "total": "69",
           "damage": "7.0"
@@ -314,6 +399,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wario/WarioUThrow.gif"
+          ],
           "startup": "24/25",
           "total": "43",
           "damage": "4.0/4.0"
@@ -321,6 +409,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wario/WarioDThrow.gif"
+          ],
           "startup": "22/30",
           "total": "54",
           "damage": "4.0/7.0"
@@ -391,11 +482,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Wario Ledgehang.gif",
+            "ledgerolls/Wario.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/wario/warioGetupAttackU.gif",
+            "hitboxes/wario/warioGetupAttackD.gif",
+            "hitboxes/wario/warioTripAttack.gif",
+            "hitboxes/wario/warioLedgeAttack.gif"
+          ]
         }
       ]
     }

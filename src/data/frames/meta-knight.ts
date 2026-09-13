@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightJabRapid.gif"
+          ],
           "startup": "4/7/10...",
           "active": "4/7/10...",
           "total": "15",
@@ -20,6 +23,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightJabRapidEnd.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "30",
@@ -32,6 +38,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightFTilt1.gif"
+          ],
           "startup": "6",
           "active": "6",
           "total": "25",
@@ -45,6 +54,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightFTilt2.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "27",
@@ -58,6 +70,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightFTilt3.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "30",
@@ -70,6 +85,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightUTilt.gif"
+          ],
           "startup": "8",
           "active": "8—10/11—14",
           "total": "34",
@@ -83,6 +101,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightDTilt.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "18",
@@ -95,6 +116,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "32",
@@ -108,6 +132,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightFSmash.gif"
+          ],
           "startup": "24",
           "active": "24",
           "total": "41",
@@ -121,6 +148,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightUSmash.gif"
+          ],
           "startup": "8/12/17",
           "active": "8/12/17",
           "total": "49",
@@ -134,6 +164,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightDSmash.gif"
+          ],
           "startup": "4/9",
           "active": "4/9",
           "total": "37",
@@ -147,6 +180,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightNAir.gif"
+          ],
           "startup": "6",
           "active": "6—7/8—20",
           "total": "43",
@@ -162,6 +198,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightFAir.gif"
+          ],
           "startup": "9/12/15",
           "active": "9/12/15",
           "total": "39",
@@ -177,6 +216,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightBAir.gif"
+          ],
           "startup": "7/13/20",
           "active": "7—8/13—14/20—21",
           "total": "51",
@@ -192,6 +234,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightUAir.gif"
+          ],
           "startup": "6",
           "active": "6",
           "total": "26",
@@ -206,6 +251,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightDAir.gif"
+          ],
           "startup": "4",
           "active": "4",
           "total": "27",
@@ -220,6 +268,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Mach Tornado)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightMachTornado.gif"
+          ],
           "startup": "12",
           "active": "12—21/22—46",
           "total": "104",
@@ -234,6 +285,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Drill Rush)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightDrillRush.gif",
+            "hitboxes/meta_knight/MetaKnightDrillRushEnd.gif"
+          ],
           "startup": "26/30/34/38/42/46/ 50/54/58/62/66/70",
           "active": "26—69/70",
           "total": "98",
@@ -248,6 +303,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Shuttle Loop)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightShuttleLoopG.gif"
+          ],
           "startup": "8/22",
           "active": "(8/9—10/11—12)22—27",
           "landingLag": "30",
@@ -259,6 +317,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B, Air (Shuttle Loop, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightShuttleLoopA.gif"
+          ],
           "startup": "7/20",
           "active": "(7/8—10)20—26",
           "landingLag": "30",
@@ -277,6 +338,14 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dimensional Cape, Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightDimensionalCapeA.gif",
+            "hitboxes/meta_knight/MetaKnightDimensionalCapeAB.gif",
+            "hitboxes/meta_knight/MetaKnightDimensionalCapeAF.gif",
+            "hitboxes/meta_knight/MetaKnightDimensionalCapeG.gif",
+            "hitboxes/meta_knight/MetaKnightDimensionalCapeGB.gif",
+            "hitboxes/meta_knight/MetaKnightDimensionalCapeGF.gif"
+          ],
           "startup": "34",
           "active": "34",
           "total": "92",
@@ -291,6 +360,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "36",
@@ -299,6 +371,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "44",
@@ -307,6 +382,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "39",
@@ -315,6 +393,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightPummel.gif"
+          ],
           "startup": "1",
           "total": "15",
           "damage": "1.0",
@@ -323,6 +404,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightFThrow.gif"
+          ],
           "startup": "8/10",
           "total": "27",
           "damage": "6.0/3.0"
@@ -330,6 +414,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightBThrow.gif"
+          ],
           "startup": "16/18",
           "total": "34",
           "damage": "7.0/3.0"
@@ -337,6 +424,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightUThrow.gif"
+          ],
           "startup": "46",
           "total": "77",
           "damage": "10.0",
@@ -345,6 +435,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/meta_knight/MetaKnightDThrow.gif"
+          ],
           "startup": "11—13/17—19/23—25/29—31/35—37/41—43/47—49/53—55/59—61/73—74",
           "total": "86",
           "damage": "0.5/1.0/2.0"
@@ -411,7 +504,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/meta_knight/metaknightGetupAttackU.gif",
+            "hitboxes/meta_knight/metaknightGetupAttackD.gif",
+            "hitboxes/meta_knight/metaknightTripAttack.gif",
+            "hitboxes/meta_knight/metaknightLedgeAttack.gif"
+          ]
         }
       ]
     }

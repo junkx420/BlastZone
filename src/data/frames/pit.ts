@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "25",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "29",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitJab3.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "31",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitJabRapid.gif"
+          ],
           "startup": "6/8/10...",
           "active": "6/8/10...",
           "damage": "0.5",
@@ -56,6 +68,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitJabRapidEnd.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "47",
@@ -68,6 +83,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitFTilt.gif"
+          ],
           "startup": "10",
           "active": "10—14",
           "total": "39",
@@ -81,6 +99,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitUTilt.gif"
+          ],
           "startup": "6/15",
           "active": "6—8/15—16",
           "total": "32",
@@ -93,6 +114,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "25",
@@ -105,6 +129,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "38",
@@ -117,6 +144,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitFSmash.gif"
+          ],
           "startup": "10/21",
           "active": "10/21—22",
           "total": "54",
@@ -130,6 +160,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitUSmash.gif"
+          ],
           "startup": "6/7/10/18",
           "active": "6/7/10/18",
           "total": "51",
@@ -144,6 +177,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pit/PitDSmash.gif"
+          ],
           "startup": "5/18",
           "active": "5—6/18—20",
           "total": "40",
@@ -158,6 +194,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pit/PitNAir.gif"
+          ],
           "startup": "4/7/10/13/16/19/22/25",
           "active": "4—5/7—8/10—11/13—14/16—17/19—20/22—23/25",
           "total": "54",
@@ -173,6 +212,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pit/PitFAir.gif"
+          ],
           "startup": "11/14/18",
           "active": "11—12/14—15/18—19",
           "total": "46",
@@ -188,6 +230,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pit/PitBAir.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "40",
@@ -203,6 +248,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pit/PitUAir.gif"
+          ],
           "startup": "10/13/16/19/22",
           "active": "10—12/13—15/16—18/19—21/22—23",
           "total": "40",
@@ -217,6 +265,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pit/PitDAir.gif"
+          ],
           "startup": "10",
           "active": "10/11—12",
           "total": "36",
@@ -232,6 +283,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Palutena's Bow)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pit/PitPalutenasBowMinimum.gif"
+          ],
           "startup": "16—76",
           "active": "16—60 (sideways) || 17—61 (up)",
           "total": "See Notes",
@@ -244,6 +298,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Upperdash Arm)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pit/PitUpperdashkArmG.gif",
+            "hitboxes/pit/PitUpperdashArmHitG.gif"
+          ],
           "startup": "18",
           "active": "16—35(detector)",
           "total": "79/49",
@@ -256,6 +314,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Air (Upperdash Arm, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pit/PitUpperdashArmA.gif",
+            "hitboxes/pit/PitUpperdashArmHitA.gif"
+          ],
           "startup": "21",
           "active": "19—35(detector)",
           "total": "104/51",
@@ -275,6 +337,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Guardian Orbitars)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pit/PitGuardianOrbitars.gif",
+            "hitboxes/dark_pit/PitGuardianOrbitarsAerial.gif"
+          ],
           "startup": "7 (Start of Reflect)",
           "total": "39—124",
           "notes": "Reflects/blocks as early as frame 7. 18 endlag on release."
@@ -282,6 +348,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pit/PitGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -290,6 +359,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pit/PitDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -298,6 +370,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pit/PitPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -306,6 +381,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pit/PitPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -314,6 +392,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pit/PitFThrow.gif"
+          ],
           "startup": "12/14",
           "total": "27",
           "damage": "6.0/4.0"
@@ -321,6 +402,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pit/PitBThrow.gif"
+          ],
           "startup": "29",
           "total": "38",
           "damage": "8.0"
@@ -328,6 +412,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pit/PitUThrow.gif"
+          ],
           "startup": "13/15",
           "total": "37",
           "damage": "4.0/7.0"
@@ -335,6 +422,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pit/PitDThrow.gif"
+          ],
           "startup": "13/16",
           "total": "31",
           "damage": "2.0/4.0"
@@ -401,7 +491,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/pit/pitGetupAttackU.gif",
+            "hitboxes/pit/pitGetupAttackD.gif",
+            "hitboxes/pit/pitTripAttack.gif",
+            "hitboxes/pit/pitLedgeAttack.gif"
+          ]
         }
       ]
     }

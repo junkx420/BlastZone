@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyJab1.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "14",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyJab2.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "15",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyJabRapid.gif"
+          ],
           "startup": "5/7/9/11...",
           "active": "5/7/9/11...",
           "damage": "0.2",
@@ -43,6 +52,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyJabRapidEnd.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "39",
@@ -55,6 +67,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyFTilt.gif",
+            "hitboxes/kirby/KirbyFTiltUp.gif",
+            "hitboxes/kirby/KirbyFTiltDown.gif"
+          ],
           "startup": "5",
           "active": "5—8",
           "total": "23",
@@ -68,6 +85,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyUTilt.gif"
+          ],
           "startup": "4",
           "active": "4—5/6—10",
           "total": "20",
@@ -82,6 +102,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyDTilt.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "20",
@@ -94,6 +117,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyDashAttack.gif"
+          ],
           "startup": "9",
           "active": "9—17/18—26/27—34",
           "total": "51",
@@ -105,6 +131,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyFSmash.gif",
+            "hitboxes/kirby/KirbyFSmashUp.gif",
+            "hitboxes/kirby/KirbyFSmashDown.gif"
+          ],
           "startup": "13",
           "active": "13—15/16—19",
           "total": "47",
@@ -119,6 +150,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyUSmash.gif"
+          ],
           "startup": "12",
           "active": "12—14/15—16/17",
           "total": "45",
@@ -133,6 +167,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyDSmash.gif"
+          ],
           "startup": "7",
           "active": "7—11/12—19",
           "total": "50",
@@ -146,6 +183,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyNAir.gif"
+          ],
           "startup": "8",
           "active": "8—9/10—13/14—18/19—32",
           "total": "52",
@@ -161,6 +201,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyFAir.gif"
+          ],
           "startup": "10/17/25",
           "active": "10—11/17—18/25—27",
           "total": "47",
@@ -175,6 +218,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyBAir.gif"
+          ],
           "startup": "6",
           "active": "6—8/9—12",
           "total": "40",
@@ -190,6 +236,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyUAir.gif"
+          ],
           "startup": "8",
           "active": "8—13",
           "total": "35",
@@ -204,6 +253,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyDAir.gif",
+            "hitboxes/kirby/KirbyDAirLanding.gif"
+          ],
           "startup": "18/21/24/27/30/34",
           "active": "18—19/21—22/24—25/27—28/30—31/34",
           "total": "54",
@@ -219,6 +272,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Inhale)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyInhaleStar.gif",
+            "hitboxes/kirby/KirbyInhale.gif"
+          ],
           "startup": "10",
           "active": "10—44 (longer if held)",
           "total": "67",
@@ -234,6 +291,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Hammer)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyHammerFlipG.gif"
+          ],
           "startup": "11(+15)",
           "active": "26—27 (11—12 from charge)",
           "total": "54",
@@ -247,6 +307,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Hammer, Full Charge",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyHammerFlipGMax.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "59",
@@ -260,6 +323,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Hammer (Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyHammerFlipA.gif",
+            "hitboxes/kirby/KirbyHammerFlipAMax.gif"
+          ],
           "startup": "28/42",
           "active": "28—29/42—43",
           "total": "71",
@@ -272,6 +339,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Final Cutter)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyFinalCutter.gif",
+            "hitboxes/kirby/KirbyFinalCutterLanding.gif"
+          ],
           "startup": "23/(41/50...)/**/**",
           "active": "23—26/(41—49/50...)",
           "landingLag": "30",
@@ -306,6 +377,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -314,6 +388,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "41",
@@ -322,6 +399,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "36",
@@ -330,6 +410,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyPummel.gif"
+          ],
           "startup": "1",
           "total": "15",
           "damage": "1.0",
@@ -338,6 +421,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyFThrow.gif"
+          ],
           "startup": "45",
           "total": "58",
           "damage": "2.0/5.0"
@@ -345,6 +431,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyBThrow.gif"
+          ],
           "startup": "41",
           "total": "49",
           "damage": "8.0"
@@ -352,6 +441,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyUThrow.gif"
+          ],
           "startup": "58",
           "total": "86",
           "damage": "10.0",
@@ -360,6 +452,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kirby/KirbyDThrow.gif"
+          ],
           "startup": "9",
           "total": "87",
           "damage": "1.0/2.0",
@@ -427,7 +522,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kirby/kirbyGetupAttackU.gif",
+            "hitboxes/kirby/kirbyGetupAttackD.gif",
+            "hitboxes/kirby/kirbyTripAttack.gif",
+            "hitboxes/kirby/kirbyLedgeAttack.gif"
+          ]
         }
       ]
     }

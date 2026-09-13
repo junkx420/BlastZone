@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantJab1.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "19",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantJab2.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "20",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantJab3.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "25",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantJabRapid.gif"
+          ],
           "startup": "6/10/14...",
           "active": "6/10/14...",
           "damage": "0.6",
@@ -56,6 +68,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantJabRapidEnd.gif"
+          ],
           "startup": "7",
           "active": "6—7",
           "total": "40",
@@ -68,6 +83,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantFTilt1.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "27",
@@ -81,6 +99,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantFTilt2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "31",
@@ -93,6 +114,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantUTilt.gif"
+          ],
           "startup": "6",
           "active": "6—13",
           "total": "26",
@@ -107,6 +131,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "26",
@@ -120,6 +147,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—9/10—14",
           "total": "47",
@@ -133,6 +163,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantFSmash.gif"
+          ],
           "startup": "16",
           "active": "16—17",
           "total": "51",
@@ -147,6 +180,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantUSmash.gif"
+          ],
           "startup": "12/16",
           "active": "12—15/16—18",
           "total": "51",
@@ -160,6 +196,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantDSmash.gif"
+          ],
           "startup": "10/14",
           "active": "10—11/14—15",
           "total": "43",
@@ -173,6 +212,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantNAir.gif"
+          ],
           "startup": "8/11/14/17/18",
           "active": "8—17/18—19",
           "total": "47",
@@ -188,6 +230,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantFAir.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "44",
@@ -203,6 +248,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantBAir.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "61",
@@ -217,6 +265,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantUAir.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "38",
@@ -231,6 +282,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantDAir.gif"
+          ],
           "startup": "9",
           "active": "9—11/12—14",
           "total": "44",
@@ -246,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Ptooie)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantPtooie.gif"
+          ],
           "startup": "9",
           "active": "9...",
           "damage": "14.0/18.0/15.3",
@@ -258,6 +315,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Poison Breath)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantPoisonBreathMin.gif"
+          ],
           "startup": "10(+11)",
           "active": "21—102",
           "total": "38",
@@ -269,6 +329,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Full Charge (Poison Breath, Full Charge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantPoisonBreathMax.gif"
+          ],
           "startup": "10",
           "active": "21—142",
           "total": "48",
@@ -280,6 +343,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Piranhacopter)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantPiranhacopter.gif"
+          ],
           "startup": "13...",
           "active": "13-14/15/16-55/56-61/62-67",
           "landingLag": "20",
@@ -292,6 +358,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Long Stem Strike)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantLong-StemStrike.gif"
+          ],
           "startup": "2(+18)",
           "total": "39/49",
           "damage": "8.4—26.0",
@@ -303,6 +372,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Footstool Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantFootstoolAttack.gif"
+          ],
           "startup": "13",
           "active": "5—6",
           "total": "22",
@@ -313,6 +385,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -321,6 +396,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -329,6 +407,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantPivotGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "36",
@@ -336,29 +417,44 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Pummel",
-          "section": "throw"
+          "section": "throw",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantPummel.gif"
+          ]
         },
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantFThrow.gif"
+          ],
           "startup": "13/14",
           "total": "31"
         },
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantBThrow.gif"
+          ],
           "startup": "19",
           "total": "34"
         },
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantUThrow.gif"
+          ],
           "startup": "20",
           "total": "49"
         },
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/PiranhaPlantDThrow.gif"
+          ],
           "startup": "20/30/31",
           "total": "47"
         },
@@ -424,7 +520,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/piranha_plant/piranhaplantGetupAttackUp.gif",
+            "hitboxes/piranha_plant/piranhaplantGetupAttackDown.gif",
+            "hitboxes/piranha_plant/piranhaplantTripAttack.gif",
+            "hitboxes/piranha_plant/piranhaplantLedgeAttack.gif"
+          ]
         }
       ]
     }

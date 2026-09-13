@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1 (Light)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuJab1.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "15",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab (Heavy, Close)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuJabHeavyClose.gif"
+          ],
           "startup": "7",
           "active": "7(8—11)",
           "total": "37",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab (Heavy, Far)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuJabHeavy.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "32",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "27",
@@ -60,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuJab3.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "35",
@@ -72,6 +87,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Light, Close)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuFTiltLightClose.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "29",
@@ -85,6 +103,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Light, Far)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuFTiltLight.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "23",
@@ -98,6 +119,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Heavy)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuFTiltHeavy.gif"
+          ],
           "startup": "15/17",
           "active": "15/17—18",
           "total": "36",
@@ -110,6 +134,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt (Light)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuUTiltLight.gif"
+          ],
           "startup": "3",
           "active": "3—6",
           "total": "14",
@@ -123,6 +150,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt (Heavy)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuUTiltHeavy.gif"
+          ],
           "startup": "7",
           "active": "7(8—11)",
           "total": "37",
@@ -136,6 +166,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt (Light)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuDTiltLight.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "14",
@@ -149,6 +182,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt (Heavy)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuDTiltHeavy.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "27",
@@ -163,6 +199,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—9(10—15)",
           "total": "40",
@@ -176,6 +215,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuFSmash.gif"
+          ],
           "startup": "15",
           "active": "15—17",
           "total": "45",
@@ -190,6 +232,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuUSmash.gif"
+          ],
           "startup": "9",
           "active": "9(10—12)",
           "total": "44",
@@ -204,6 +249,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuDSmash.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "41",
@@ -218,6 +266,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuNAir.gif"
+          ],
           "startup": "4",
           "active": "4—6(7—31)",
           "total": "35",
@@ -233,6 +284,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuFAir.gif"
+          ],
           "startup": "8",
           "active": "8—9(10—14)",
           "total": "36",
@@ -248,6 +302,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuBAir.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "41",
@@ -263,6 +320,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuUAir.gif"
+          ],
           "startup": "6/9",
           "active": "6—7/9—11",
           "total": "35",
@@ -277,6 +337,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuDAir.gif"
+          ],
           "startup": "8",
           "active": "8—12",
           "total": "45",
@@ -291,6 +354,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Hadouken)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuHadokenWeak.gif",
+            "hitboxes/ryu/RyuHadokenMeidum.gif",
+            "hitboxes/ryu/RyuHadokenHeavy.gif"
+          ],
           "startup": "12",
           "active": "12—18(19—93) / 12—17(18—78) / 12—16(17—61)",
           "total": "57",
@@ -303,6 +371,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Shakunetsu Hadouken",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuShakunetsuHadokenWeak.gif",
+            "hitboxes/ryu/RyuShakunetsuHadokenMeidum.gif",
+            "hitboxes/ryu/RyuShakunetsuHadokenHeavy.gif"
+          ],
           "startup": "12",
           "active": "12—21(22—79) / 12—20(21—72) / 12—19(20—66)",
           "total": "56",
@@ -316,6 +389,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Tatsumaki Senpukyaku)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuTatsumakiSenpukyakuStart.gif",
+            "hitboxes/ryu/RyuTatsumakiSenpukyakuLightGrounded.gif",
+            "hitboxes/ryu/RyuTatsumakiSenpukyakuMediumGrounded.gif",
+            "hitboxes/ryu/RyuTatsumakiSenpukyakuHeavyGrounded.gif"
+          ],
           "startup": "8",
           "active": "8-9, 13-15, 29-31, and 45-47",
           "total": "58—90",
@@ -330,6 +409,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Air (Tatsumaki Senpukyaku, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuTatsumakiSenpukyakuLightAerial.gif",
+            "hitboxes/ryu/RyuTatsumakiSenpukyakuMediumAerial.gif",
+            "hitboxes/ryu/RyuTatsumakiSenpukyakuHeavyAerial.gif"
+          ],
           "startup": "8",
           "active": "8—9/**",
           "total": "79",
@@ -343,6 +427,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Shoryuken)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuShoryukenLight.gif",
+            "hitboxes/ryu/RyuShoryukenMedium.gif",
+            "hitboxes/ryu/RyuShoryukenHeavy.gif"
+          ],
           "startup": "6",
           "active": "6(7—8/9—19)",
           "landingLag": "22",
@@ -355,6 +444,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "True Shoryuken",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuShoryukenLightInput.gif",
+            "hitboxes/ryu/RyuShoryukenMediumInput.gif",
+            "hitboxes/ryu/RyuShoryukenHeavyInput.gif"
+          ],
           "startup": "6",
           "active": "6(7—8/9—19)",
           "landingLag": "15",
@@ -367,6 +461,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Focus Attack)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuFocusAttackLvl1.gif",
+            "hitboxes/ryu/RyuFocusAttackLvl2.gif",
+            "hitboxes/ryu/RyuFocusAttackLvl3.gif"
+          ],
           "startup": "11 (+21), 11(+31), 11(+59)",
           "active": "32—33/42—43/70—71",
           "total": "55, 55, 114",
@@ -387,6 +486,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -395,6 +497,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -403,6 +508,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -411,6 +519,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuPummel.gif"
+          ],
           "startup": "1",
           "total": "16",
           "damage": "1.3",
@@ -419,6 +530,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuFThrow.gif"
+          ],
           "startup": "16",
           "total": "41",
           "damage": "9.0"
@@ -426,6 +540,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuBThrow.gif"
+          ],
           "startup": "23",
           "total": "49",
           "damage": "12.0"
@@ -433,6 +550,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuUThrow.gif"
+          ],
           "startup": "18/25",
           "total": "46",
           "damage": "8.0",
@@ -441,6 +561,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ryu/RyuDThrow.gif"
+          ],
           "startup": "18/19",
           "total": "44",
           "damage": "3.0/6.0"
@@ -511,11 +634,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Ryu Ledgehang.gif",
+            "ledgerolls/Ryu.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/ryu/ryuGetupAttackU.gif",
+            "hitboxes/ryu/ryuGetupAttackD.gif",
+            "hitboxes/ryu/ryuTripAttack.gif",
+            "hitboxes/ryu/ryuLedgeAttack.gif"
+          ]
         }
       ]
     }

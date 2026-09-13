@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconJab1.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "17",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconJab2.gif"
+          ],
           "startup": "5",
           "active": "5",
           "total": "18",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "32",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconJabRapid.gif"
+          ],
           "startup": "5/7/9",
           "damage": "0.6",
           "shieldLag": "4"
@@ -54,6 +66,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconJabRapidEnd.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "49",
@@ -66,6 +81,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconFTilt.gif",
+            "hitboxes/captain_falcon/CaptainFalconFTiltUp.gif",
+            "hitboxes/captain_falcon/CaptainFalconFTiltDown.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "29",
@@ -80,6 +100,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconUTilt.gif"
+          ],
           "startup": "14",
           "active": "14—17",
           "total": "36",
@@ -93,6 +116,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconDTilt.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "34",
@@ -105,6 +131,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—9(10—16)",
           "total": "34",
@@ -118,6 +147,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconFSmash.gif",
+            "hitboxes/captain_falcon/CaptainFalconFSmashUp.gif",
+            "hitboxes/captain_falcon/CaptainFalconFSmashDown.gif"
+          ],
           "startup": "19",
           "active": "19—22",
           "total": "59",
@@ -132,6 +166,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconUSmash.gif"
+          ],
           "startup": "22/28",
           "active": "22(23)/28—29",
           "total": "45",
@@ -146,6 +183,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconDSmash.gif"
+          ],
           "startup": "19/29",
           "active": "19—20/29—30",
           "total": "48",
@@ -159,6 +199,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconNAir.gif"
+          ],
           "startup": "7/13",
           "active": "7—8/13—15",
           "total": "39",
@@ -173,6 +216,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconFAir.gif"
+          ],
           "startup": "14",
           "active": "14(15—30)",
           "total": "45",
@@ -188,6 +234,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconBAir.gif"
+          ],
           "startup": "10",
           "active": "10—11(12—15)",
           "total": "35",
@@ -203,6 +252,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconUAir.gif"
+          ],
           "startup": "7",
           "active": "7—10(11—12)",
           "total": "31",
@@ -218,6 +270,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconDAir.gif"
+          ],
           "startup": "16",
           "active": "16—18",
           "total": "44",
@@ -232,6 +287,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Falcon Punch)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconFalconPunchG.gif",
+            "hitboxes/captain_falcon/CaptainFalconFalconPunchGR.gif",
+            "hitboxes/captain_falcon/CaptainFalconFalconPunchA.gif",
+            "hitboxes/captain_falcon/CaptainFalconFalconPunchAR.gif"
+          ],
           "startup": "53/62",
           "active": "53—57/62—66",
           "total": "103/117",
@@ -245,6 +306,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Raptor Boost)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconRaptorBoostHitG.gif",
+            "hitboxes/captain_falcon/CaptainFalconRaptorBoostG.gif"
+          ],
           "startup": "5(+10)",
           "total": "27/71",
           "damage": "10.0",
@@ -256,6 +321,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Air (Raptor Boost, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconRaptorBoostHitA.gif",
+            "hitboxes/captain_falcon/CaptainFalconRaptorBoostA.gif"
+          ],
           "startup": "5(+19)",
           "total": "44",
           "landingLag": "22",
@@ -267,6 +336,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Falcon Dive)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconFalconDiveG.gif",
+            "hitboxes/captain_falcon/CaptainFalconFalconDiveA.gif",
+            "hitboxes/captain_falcon/CaptainFalconFalconDiveCatch.gif"
+          ],
           "startup": "14",
           "active": "14—30",
           "landingLag": "24",
@@ -277,6 +351,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Falcon Kick)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconFalconKickG.gif"
+          ],
           "startup": "13",
           "active": "13—16(17—23/24—33)",
           "total": "68/65",
@@ -291,6 +368,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B, Air (Falcon Kick, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconFalconKickA.gif",
+            "hitboxes/captain_falcon/CaptainFalconFalconKickALanding.gif"
+          ],
           "startup": "14",
           "active": "14—18(19—24/25—27)/1—2",
           "total": "56",
@@ -306,6 +387,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "35",
@@ -314,6 +398,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "43",
@@ -322,6 +409,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "38",
@@ -330,6 +420,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -338,6 +431,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconFThrow.gif"
+          ],
           "startup": "11/13",
           "total": "32",
           "damage": "3.5/4.0"
@@ -345,6 +441,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconBThrow.gif"
+          ],
           "startup": "12/13",
           "total": "45",
           "damage": "3.5/4.0"
@@ -352,6 +451,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconUThrow.gif"
+          ],
           "startup": "12/14",
           "total": "37",
           "damage": "4.0/5.0"
@@ -359,6 +461,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/CaptainFalconDThrow.gif"
+          ],
           "startup": "21",
           "total": "39",
           "damage": "6.0"
@@ -425,7 +530,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/captain_falcon/captainfalconGetupAttackU.gif",
+            "hitboxes/captain_falcon/captainfalconGetupAttackD.gif",
+            "hitboxes/captain_falcon/captainfalconTripAttack.gif",
+            "hitboxes/captain_falcon/captainfalconLedgeAttack.gif"
+          ]
         }
       ]
     }

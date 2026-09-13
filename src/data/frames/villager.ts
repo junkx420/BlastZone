@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerJab1.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "21",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "23",
@@ -44,6 +50,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerJab1End.gif",
+            "hitboxes/villager/VillagerJab2End.gif"
+          ],
           "startup": "4/5",
           "total": "38",
           "damage": "2.0",
@@ -54,6 +64,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "33",
@@ -66,6 +79,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerUTilt.gif"
+          ],
           "startup": "7/22",
           "active": "7—18/22—25",
           "total": "47",
@@ -78,6 +94,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "37",
@@ -91,6 +110,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerDashAttack.gif",
+            "hitboxes/villager/VillagerDashAttackOffLedge.gif"
+          ],
           "startup": "9...",
           "active": "9-14/15-22 (Normal) 9-14/15-68 (Off-Ledge)",
           "total": "42",
@@ -103,6 +126,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerFSmash.gif"
+          ],
           "startup": "25",
           "active": "25—30(31—144)",
           "total": "49",
@@ -116,6 +142,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerUSmash.gif"
+          ],
           "startup": "12...",
           "active": "12—13/17—18/21—22/25—26/29—30/33—34",
           "total": "53",
@@ -129,6 +158,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerDSmash.gif"
+          ],
           "startup": "9/29",
           "active": "9(10—11)/29(30—31)",
           "total": "49",
@@ -143,6 +175,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerNAir.gif"
+          ],
           "startup": "3",
           "active": "3—10(11—23)",
           "total": "35",
@@ -158,6 +193,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerFAir.gif"
+          ],
           "startup": "10",
           "active": "10—12(13—18/19—23)",
           "total": "39",
@@ -173,6 +211,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerBAir.gif"
+          ],
           "startup": "13",
           "active": "13—15(16—21/22—26)",
           "total": "35",
@@ -188,6 +229,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerUAir1.gif",
+            "hitboxes/villager/VillagerUAir2.gif",
+            "hitboxes/villager/VillagerUAir3.gif"
+          ],
           "startup": "6",
           "active": "6—7(8—21)",
           "total": "42",
@@ -203,6 +249,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerDAir1.gif",
+            "hitboxes/villager/VillagerDAir2.gif",
+            "hitboxes/villager/VillagerDAir3.gif"
+          ],
           "startup": "11",
           "active": "11—12(13—26)",
           "total": "42",
@@ -218,6 +269,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Pocket)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerPocket.gif"
+          ],
           "startup": "8 (Start of projectile pocket)",
           "active": "8—23 (pocket)",
           "total": "50",
@@ -259,6 +313,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Timber Tree Grow/Fall",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerTimberGrowth.gif",
+            "hitboxes/villager/VillagerTimberFall.gif"
+          ],
           "startup": "46/16",
           "damage": "18.0/25.0",
           "advantage": "+14 / -11",
@@ -269,6 +327,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Timber Axe",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerTimberAxe.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "47/54",
@@ -282,6 +343,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerGrab.gif"
+          ],
           "startup": "14",
           "active": "14—16",
           "total": "43",
@@ -290,6 +354,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerDashGrab.gif"
+          ],
           "startup": "16",
           "active": "16—18",
           "total": "47",
@@ -298,6 +365,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerPivotGrab.gif"
+          ],
           "startup": "17",
           "active": "17—19",
           "total": "44",
@@ -306,6 +376,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerPummel.gif"
+          ],
           "startup": "3",
           "total": "19",
           "damage": "1.3",
@@ -314,6 +387,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerFThrow.gif"
+          ],
           "startup": "15",
           "total": "45",
           "damage": "9.0"
@@ -321,6 +397,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerBThrow.gif"
+          ],
           "startup": "11",
           "total": "45",
           "damage": "11.0"
@@ -328,6 +407,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerUThrow.gif"
+          ],
           "startup": "13",
           "total": "45",
           "damage": "10.0"
@@ -335,6 +417,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/villager/VillagerDThrow.gif"
+          ],
           "startup": "18",
           "total": "35",
           "damage": "6.0"
@@ -405,11 +490,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Villager Ledgehang.gif",
+            "ledgerolls/Villager.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/villager/villagerGetupAttackU.gif",
+            "hitboxes/villager/villagerGetupAttackD.gif",
+            "hitboxes/villager/villagerTripAttack.gif",
+            "hitboxes/villager/villagerLedgeAttack.gif"
+          ]
         }
       ]
     }

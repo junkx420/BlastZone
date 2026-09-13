@@ -79,6 +79,18 @@ export function privacyPage(): PageView {
           Hinweis direkt am Player.
         </p>
 
+        <h2>Hitbox-Darstellungen</h2>
+        <p>
+          Zu vielen Moves gibt es eine Hitbox-Darstellung von Ultimate Frame Data. Sie wird
+          <strong>nicht</strong> beim Aufruf der Seite geladen: Zunächst steht dort nur ein Hinweis aus eigenen
+          Daten.
+        </p>
+        <p>
+          Erst mit dem Klick darauf wird das Bild von <code>ultimateframedata.com</code> abgerufen. Dabei erfährt
+          der dortige Server die IP-Adresse und Angaben zum Gerät. Der Klick ist die Einwilligung nach Art. 6
+          Abs. 1 lit. a DSGVO; wer nicht klickt, baut keine Verbindung dorthin auf.
+        </p>
+
         <h2>Verweise auf andere Seiten</h2>
         <p>
           Jede Combo-Route verlinkt ihre Quelle (unter anderem SmashWiki, Game8, Ultimate Frame Data, EventHubs).

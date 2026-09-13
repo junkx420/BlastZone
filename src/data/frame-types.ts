@@ -38,6 +38,17 @@ export interface FrameMove {
   shieldStun?: string;
   /** Benennt die Spalten bei Mehrfachwerten, z. B. „Early/Clean/Late". */
   hitboxes?: string;
+  /**
+   * Pfade der Hitbox-Darstellungen **relativ zu https://ultimateframedata.com/**,
+   * etwa `hitboxes/mario/MarioJab1.gif`.
+   *
+   * Hier stehen bewusst nur Pfade und keine Dateien: Die Bilder sind von UFD
+   * selbst erzeugt, nicht bloßes Spielmaterial – sie ungefragt ins Repository zu
+   * kopieren wäre eine Weitergabe fremder Werke. Angezeigt werden sie deshalb
+   * erst auf Klick und von dort geladen, wie beim Guide-Video. Vor dem Klick geht
+   * keine Anfrage dorthin.
+   */
+  hitboxImages?: string[];
   /** Anmerkung von UFD, etwa Auto-Cancel-Fenster. */
   notes?: string;
 }

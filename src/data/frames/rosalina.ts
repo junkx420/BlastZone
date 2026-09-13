@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaJab1.gif"
+          ],
           "startup": "5",
           "active": "5",
           "total": "20",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1 (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaJab1.gif"
+          ],
           "startup": "4",
           "active": "4",
           "damage": "1.5",
@@ -31,6 +37,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaJab2.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "24",
@@ -44,6 +53,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2 (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaJab2.gif"
+          ],
           "startup": "6",
           "active": "6",
           "damage": "1.5",
@@ -54,6 +66,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaJab3.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "35",
@@ -66,6 +81,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3 (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaJab3.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "damage": "3.0",
@@ -75,6 +93,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaJabRapid.gif"
+          ],
           "startup": "2/5/8/11...",
           "active": "2/5/8/11...",
           "damage": "0.3",
@@ -84,6 +105,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaJabRapid.gif"
+          ],
           "startup": "3/6/9/12...",
           "active": "3/6/9/12...",
           "total": "24",
@@ -95,6 +119,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaJabRapidEnd.gif"
+          ],
           "startup": "5",
           "active": "6—7",
           "total": "38",
@@ -107,6 +134,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaJabRapidEnd.gif"
+          ],
           "startup": "5",
           "active": "6—7",
           "damage": "1.5",
@@ -117,6 +147,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaFTilt.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "37",
@@ -129,6 +162,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "damage": "6.7",
@@ -139,6 +175,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—10/11—17",
           "total": "40",
@@ -153,6 +192,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaUTilt.gif"
+          ],
           "startup": "3",
           "active": "3/4—5/6—10",
           "damage": "12.0/6.0/4.5",
@@ -164,6 +206,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—8",
           "total": "32",
@@ -176,6 +221,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaDTilt.gif"
+          ],
           "startup": "8",
           "active": "8—13",
           "damage": "5.2",
@@ -186,6 +234,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaDashAttack.gif"
+          ],
           "startup": "6/17",
           "active": "6—9/17—19",
           "total": "40",
@@ -198,6 +249,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaDashAttack.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "damage": "4.5",
@@ -208,6 +262,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaFSmash.gif",
+            "hitboxes/rosalina_and_luma/RosalinaFSmashUp.gif",
+            "hitboxes/rosalina_and_luma/RosalinaFSmashDown.gif"
+          ],
           "startup": "16",
           "active": "16—18",
           "total": "51",
@@ -222,6 +281,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaFSmash.gif",
+            "hitboxes/rosalina_and_luma/LumaFSmashUp.gif",
+            "hitboxes/rosalina_and_luma/LumaFSmashDown.gif"
+          ],
           "startup": "17",
           "active": "17—18",
           "damage": "10.5",
@@ -233,6 +297,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaUSmash.gif"
+          ],
           "startup": "8",
           "active": "8—16",
           "total": "47",
@@ -246,6 +313,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaUSmash.gif"
+          ],
           "startup": "10",
           "active": "10—12/13—17",
           "damage": "9.0",
@@ -257,6 +327,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaDSmash.gif"
+          ],
           "startup": "6/17",
           "active": "6—7/17—18",
           "total": "41",
@@ -270,6 +343,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash (Luma)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaDSmash.gif"
+          ],
           "startup": "7/19",
           "active": "7—8/19—20",
           "damage": "6.0/7.5",
@@ -280,6 +356,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaNAir.gif"
+          ],
           "startup": "9",
           "active": "9/10—19/20—31/32/33",
           "total": "43",
@@ -295,6 +374,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air (Luma)",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaNAir.gif"
+          ],
           "startup": "7/13",
           "active": "7—9/13—14",
           "damage": "3.0/3.0",
@@ -304,6 +386,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaFAir.gif"
+          ],
           "startup": "10/13/16/19/22",
           "active": "10—20(rehit rate: 3)/22",
           "total": "59",
@@ -319,6 +404,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air (Luma)",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaFAir.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "damage": "4.5",
@@ -328,6 +416,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaBAir.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "54",
@@ -342,6 +433,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air (Luma)",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaBAir.gif"
+          ],
           "startup": "10",
           "active": "10—15",
           "damage": "6.0",
@@ -351,6 +445,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaUAir.gif"
+          ],
           "startup": "8",
           "active": "8—10/11—14/15—19",
           "total": "49",
@@ -366,6 +463,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air (Luma)",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaUAir.gif"
+          ],
           "startup": "6",
           "active": "6—11",
           "damage": "4.0",
@@ -375,6 +475,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaDAir.gif"
+          ],
           "startup": "17",
           "active": "17/18—22/23—25/26—32",
           "total": "49",
@@ -390,6 +493,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air (Luma)",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaDAir.gif"
+          ],
           "startup": "15",
           "active": "15—19",
           "damage": "5.0",
@@ -399,6 +505,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Luma Shot)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaLumaShot.gif"
+          ],
           "startup": "10—91",
           "total": "34—115",
           "damage": "5.0—16.0",
@@ -410,12 +519,18 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Luma Recall",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaLumaShotCallBack.gif"
+          ],
           "total": "21/23",
           "notes": "Second total frames is in the air."
         },
         {
           "name": "Side B (Star Bits)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/LumaStarBits.gif"
+          ],
           "startup": "10/16/22",
           "total": "51",
           "damage": "3.0",
@@ -431,12 +546,18 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Gravitational Pull)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaGravitationalPull.gif"
+          ],
           "total": "39",
           "notes": "Pulls on frame 4-29"
         },
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "39",
@@ -445,6 +566,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "46",
@@ -453,6 +577,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "41",
@@ -461,6 +588,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -469,6 +599,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaFThrow.gif"
+          ],
           "startup": "28",
           "total": "37",
           "damage": "9.0"
@@ -476,6 +609,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaBThrow.gif"
+          ],
           "startup": "30",
           "total": "42",
           "damage": "11.0"
@@ -483,6 +619,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaUThrow.gif"
+          ],
           "startup": "13",
           "total": "37",
           "damage": "7.0"
@@ -490,6 +629,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/RosalinaDThrow.gif"
+          ],
           "startup": "13",
           "total": "35",
           "damage": "9.0"
@@ -556,15 +698,28 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Grab",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgegrabs/Rosalina Ledgegrab 3 (Up-B Ending Animation).gif"
+          ]
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Rosalina Ledgehang.gif",
+            "ledgerolls/Rosalina.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/rosalina_and_luma/rosalinaGetupAttackU.gif",
+            "hitboxes/rosalina_and_luma/rosalinaGetupAttackD.gif",
+            "hitboxes/rosalina_and_luma/rosalinaTripAttack.gif",
+            "hitboxes/rosalina_and_luma/rosalinaLedgeAttack.gif"
+          ]
         }
       ]
     }

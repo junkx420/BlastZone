@@ -9,6 +9,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoJab1.gif",
+            "hitboxes/ice_climbers/NanaJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "27",
@@ -22,6 +26,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoJab2.gif",
+            "hitboxes/ice_climbers/NanaJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "29",
@@ -34,6 +42,14 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoFTilt.gif",
+            "hitboxes/ice_climbers/PopoFTiltUp.gif",
+            "hitboxes/ice_climbers/PopoFTiltDown.gif",
+            "hitboxes/ice_climbers/NanaFTilt.gif",
+            "hitboxes/ice_climbers/NanaFTiltUp.gif",
+            "hitboxes/ice_climbers/NanaTiltDown.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "29",
@@ -46,6 +62,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoUTilt.gif",
+            "hitboxes/ice_climbers/NanaUTilt.gif"
+          ],
           "startup": "8/11/14/17/20/23/27",
           "active": "8—9/11—12/14—15/17—18/20—21/23—24/27",
           "total": "48",
@@ -58,6 +78,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoDTilt.gif",
+            "hitboxes/ice_climbers/NanaDTilt.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "30",
@@ -70,6 +94,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoDashAttack.gif",
+            "hitboxes/ice_climbers/NanaDashAttack.gif"
+          ],
           "startup": "9",
           "active": "9—12",
           "total": "39",
@@ -82,6 +110,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoFSmash.gif",
+            "hitboxes/ice_climbers/NanaFSmash.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "46",
@@ -95,6 +127,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoUSmash.gif",
+            "hitboxes/ice_climbers/NanaUSmash.gif"
+          ],
           "startup": "12",
           "active": "12—17",
           "total": "49",
@@ -108,6 +144,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoDSmash.gif",
+            "hitboxes/ice_climbers/NanaDSmash.gif"
+          ],
           "startup": "9/16",
           "active": "9—11/16",
           "total": "40",
@@ -121,6 +161,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoNAir.gif",
+            "hitboxes/ice_climbers/NanaNAir.gif"
+          ],
           "startup": "6",
           "active": "6—23",
           "total": "45",
@@ -135,6 +179,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoFAir.gif",
+            "hitboxes/ice_climbers/NanaFAir.gif"
+          ],
           "startup": "19",
           "active": "19—20",
           "total": "56",
@@ -149,6 +197,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoBAir.gif",
+            "hitboxes/ice_climbers/NanaBAir.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "35",
@@ -163,6 +215,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoUAir.gif",
+            "hitboxes/ice_climbers/NanaUAir.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "35",
@@ -177,6 +233,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoDAir.gif",
+            "hitboxes/ice_climbers/NanaDAir.gif"
+          ],
           "startup": "12",
           "active": "12—51",
           "total": "63",
@@ -202,6 +262,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, both (Squal Hammer, both)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoSquallHammerDuo.gif",
+            "hitboxes/ice_climbers/NanaSquallHammerDuo.gif"
+          ],
           "startup": "10/14/18/23/28/34/40/51",
           "active": "10/14/18/23/28/34/40/51—52",
           "total": "77",
@@ -216,6 +280,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, alone (Squal Hammer, alone)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoSqualHammerSolo.gif",
+            "hitboxes/ice_climbers/NanaSqualHammerSolo.gif"
+          ],
           "startup": "10/13/15/18/21/24/28/32/37/42/49",
           "active": "10/13/15/18/21/24/28/32/37/42/49—50",
           "total": "77",
@@ -230,6 +298,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Belay)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/NanaBelay.gif"
+          ],
           "startup": "13",
           "active": "16—33",
           "landingLag": "27",
@@ -241,6 +312,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Blizzard)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoBlizzard.gif",
+            "hitboxes/ice_climbers/NanaBlizzard.gif"
+          ],
           "startup": "16/21/26/31/36/41/46/51/56",
           "active": "lul",
           "total": "84",
@@ -253,6 +328,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoGrab.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "39",
@@ -261,6 +339,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "47",
@@ -269,6 +350,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "40",
@@ -277,6 +361,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoPummel.gif"
+          ],
           "startup": "1",
           "total": "16",
           "landingLag": "Total frames includes 10 frames of hitlag.",
@@ -285,6 +372,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoFThrow.gif"
+          ],
           "startup": "24/25",
           "total": "49",
           "damage": "3.0/5.0"
@@ -292,6 +382,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoBThrow.gif"
+          ],
           "startup": "18",
           "total": "39",
           "damage": "6.0"
@@ -299,6 +392,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoUThrow.gif"
+          ],
           "startup": "25/27",
           "total": "52",
           "damage": "3.0/5.0"
@@ -306,6 +402,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/PopoDThrow.gif"
+          ],
           "startup": "37",
           "total": "49",
           "damage": "6.0"
@@ -372,7 +471,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/ice_climbers/popoGetupAttackU.gif",
+            "hitboxes/ice_climbers/popoGetupAttackD.gif",
+            "hitboxes/ice_climbers/popoTripAttack.gif",
+            "hitboxes/ice_climbers/popoLedgeAttack.gif"
+          ]
         }
       ]
     }

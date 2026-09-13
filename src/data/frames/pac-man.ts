@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManJab1.gif"
+          ],
           "startup": "4",
           "active": "4",
           "total": "19",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManJab2.gif"
+          ],
           "startup": "4",
           "active": "4",
           "total": "21",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManJab3.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "33",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManFTilt.gif",
+            "hitboxes/pac_man/PacManFTiltUp.gif",
+            "hitboxes/pac_man/PacManFTiltDown.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "30",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "24",
@@ -72,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "26",
@@ -84,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManDashAttack.gif"
+          ],
           "startup": "10/19/28/37",
           "active": "10—11/19—20/28—29/37",
           "total": "45",
@@ -97,6 +120,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManFSmash.gif"
+          ],
           "startup": "16",
           "active": "16—18(19—29)",
           "total": "52",
@@ -111,6 +137,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManUSmash.gif"
+          ],
           "startup": "11/15",
           "active": "11/15—17(18—28)",
           "total": "49",
@@ -124,6 +153,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManDSmash.gif"
+          ],
           "startup": "15",
           "active": "15—17(18—28)",
           "total": "54",
@@ -138,6 +170,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManNAir.gif"
+          ],
           "startup": "3",
           "active": "3—5(6—9/10—19)",
           "total": "51",
@@ -153,6 +188,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManFAir.gif"
+          ],
           "startup": "5",
           "active": "5—8",
           "total": "25",
@@ -167,6 +205,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManBAir.gif"
+          ],
           "startup": "9",
           "active": "9—11(12—16)",
           "total": "40",
@@ -182,6 +223,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManUAir.gif"
+          ],
           "startup": "9",
           "active": "9—16",
           "total": "36",
@@ -196,6 +240,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManDAir.gif"
+          ],
           "startup": "6/13/20/27",
           "active": "6—7/13—14/20—21/27—28",
           "total": "49",
@@ -222,6 +269,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Power Pellet (Travel | Dash))",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManPowerPelletEarly.gif",
+            "hitboxes/pac_man/PacManPowerPelletLate.gif"
+          ],
           "startup": "24—42 | 35—53",
           "total": "83—118",
           "damage": "4.0—5.0 | 6.0—12.0",
@@ -233,6 +284,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Pac-Jump)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManPacJump.gif"
+          ],
           "startup": "4",
           "active": "4—12/13—16/17—21",
           "landingLag": "30",
@@ -256,6 +310,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManGrab.gif"
+          ],
           "startup": "12",
           "active": "12—33",
           "total": "58",
@@ -264,6 +321,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManDashGrab.gif"
+          ],
           "startup": "14",
           "active": "14—35",
           "total": "66",
@@ -272,6 +332,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManPivotGrab.gif"
+          ],
           "startup": "15",
           "active": "15—36",
           "total": "61",
@@ -280,6 +343,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -288,6 +354,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManFThrow.gif"
+          ],
           "startup": "13",
           "total": "33",
           "damage": "8.0"
@@ -295,6 +364,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManBThrow.gif"
+          ],
           "startup": "25",
           "total": "59",
           "damage": "11.0"
@@ -302,6 +374,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManUThrow.gif"
+          ],
           "startup": "18",
           "total": "37",
           "damage": "5.0"
@@ -309,6 +384,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pac_man/PacManDThrow.gif"
+          ],
           "startup": "16/24/32/34",
           "total": "64",
           "damage": "1.5/6.0",
@@ -376,7 +454,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/pac_man/pacmanGetupAttackU.gif",
+            "hitboxes/pac_man/pacmanGetupAttackD.gif",
+            "hitboxes/pac_man/pacmanTripAttack.gif",
+            "hitboxes/pac_man/pacmanLedgeAttack.gif"
+          ]
         }
       ]
     }

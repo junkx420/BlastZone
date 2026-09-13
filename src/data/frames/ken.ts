@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1 (Light)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenJab1.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "15",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "27",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenJab3.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "35",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab (Heavy, Close)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenJabProximity.gif"
+          ],
           "startup": "7",
           "active": "7(8—11)",
           "total": "37",
@@ -58,6 +70,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab (Heavy, Far)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenJabHeavy.gif"
+          ],
           "startup": "9/16",
           "active": "9—12/16—17",
           "total": "32",
@@ -70,6 +85,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Light, Close)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenFTiltProximity.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "29",
@@ -83,6 +101,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Light, Far)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenFTiltLight.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "23",
@@ -96,6 +117,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Heavy)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenFTiltHeavy.gif"
+          ],
           "startup": "10",
           "active": "10—13",
           "total": "34",
@@ -109,6 +133,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt (Light)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenUTiltLight.gif"
+          ],
           "startup": "3",
           "active": "3—6",
           "total": "14",
@@ -122,6 +149,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt (Heavy)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenUTiltHeavy.gif"
+          ],
           "startup": "7",
           "active": "7(8—11)",
           "total": "37",
@@ -135,6 +165,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt (Light)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenDTiltLight.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "14",
@@ -148,6 +181,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt (Heavy)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenDTiltHeavy.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "27",
@@ -162,6 +198,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—9(10—15)",
           "total": "40",
@@ -175,6 +214,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenFSmash.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "45",
@@ -189,6 +231,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenUSmash.gif"
+          ],
           "startup": "9",
           "active": "9(10—12)",
           "total": "44",
@@ -203,6 +248,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ken/KenDSmash.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "41",
@@ -217,6 +265,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ken/KenNAir.gif"
+          ],
           "startup": "6",
           "active": "6—8(9—17)",
           "total": "27",
@@ -232,6 +283,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ken/KenFAir.gif"
+          ],
           "startup": "8",
           "active": "8—9(10—14)",
           "total": "36",
@@ -247,6 +301,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ken/KenBAir.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "41",
@@ -262,6 +319,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ken/KenUAir.gif"
+          ],
           "startup": "5",
           "active": "5—9",
           "total": "35",
@@ -276,6 +336,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ken/KenDAir.gif"
+          ],
           "startup": "8",
           "active": "8—12",
           "total": "45",
@@ -290,6 +353,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Hadouken)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenHadokenWeak.gif",
+            "hitboxes/ken/KenHadokenMeidum.gif",
+            "hitboxes/ken/KenHadokenHeavy.gif"
+          ],
           "startup": "13",
           "active": "13—19(20—87) / 13—18(19—79) / 13—17(18—72)",
           "total": "57",
@@ -302,6 +370,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Tatsumaki Senpukyaku)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenTatsumakiSenpukyakuStart.gif",
+            "hitboxes/ken/KenTatsumakiSenpukyakuWeakGrounded.gif",
+            "hitboxes/ken/KenTatsumakiSenpukyakuStrongGrounded.gif"
+          ],
           "startup": "8/13—38",
           "active": "8—9(13—14/18—19/23—24/28—29/33—34/38—39)",
           "total": "32/62/62",
@@ -315,6 +388,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Air (Tatsumaki Senpukyaku, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenTatsumakiSenpukyakuWeakAerial.gif",
+            "hitboxes/ken/KenTatsumakiSenpukyakuStrongAerial.gif"
+          ],
           "startup": "8/13/18/23/28/33/38",
           "active": "8—9(13—14/18—19/23—24/28—29/33—34/38—39)",
           "total": "77",
@@ -329,6 +406,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Shoryuken)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenShoryukenLight.gif",
+            "hitboxes/ken/KenShoryukenMedium.gif"
+          ],
           "startup": "6",
           "active": "6—8(9—19)",
           "landingLag": "12",
@@ -341,6 +422,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "True Shoryuken",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenShoryukenLightInput.gif",
+            "hitboxes/ken/KenShoryukenMediumInput.gif"
+          ],
           "startup": "6",
           "active": "6—8(9—19)",
           "landingLag": "8",
@@ -353,6 +438,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Flame Shoryuken)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenShoryukenHeavy.gif"
+          ],
           "startup": "5/6/9",
           "active": "5/6—8/9—19",
           "landingLag": "18",
@@ -364,6 +452,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "True Flame Shoryuken",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenShoryukenHeavyInput.gif"
+          ],
           "startup": "5/6/9",
           "active": "5/6—8/9—19",
           "landingLag": "12",
@@ -375,6 +466,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Focus Attack)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenFocusAttackLv1.gif",
+            "hitboxes/ken/KenFocusAttackLv2.gif",
+            "hitboxes/ken/KenFocusAttackLv3.gif"
+          ],
           "startup": "12 (+21), 12(+31), 12(+59)",
           "active": "32—33/42—43/70—71",
           "total": "55",
@@ -395,6 +491,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Nata Otoshi Geri (Input Command)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenNataOtoshiGeri.gif"
+          ],
           "startup": "12/15",
           "active": "12/15—16",
           "total": "28",
@@ -409,6 +508,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "HELD Nata Otoshi Geri",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenNataOtoshiGeriHeld.gif"
+          ],
           "startup": "12/20",
           "active": "12/20—22",
           "total": "51",
@@ -423,6 +525,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Oosoto Mawashi Geri (Input Command)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenOosotoMawashiGeri.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "32",
@@ -437,6 +542,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "HELD Oosoto Mawashi Geri",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ken/KenOosotoMawashiGeriHeld.gif"
+          ],
           "startup": "9/17",
           "active": "9—10/17—19",
           "total": "48",
@@ -451,6 +559,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ken/KenGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -459,6 +570,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ken/KenDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -467,6 +581,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ken/KenPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -475,6 +592,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ken/KenPummel.gif"
+          ],
           "startup": "1",
           "total": "16",
           "damage": "1.3",
@@ -483,18 +603,27 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ken/KenFThrow.gif"
+          ],
           "startup": "16",
           "total": "41"
         },
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ken/KenBThrow.gif"
+          ],
           "startup": "41",
           "total": "69"
         },
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ken/KenUThrow.gif"
+          ],
           "startup": "18/27",
           "total": "46",
           "notes": "Kicks on frame 27. Leg intangible 27—32."
@@ -502,6 +631,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ken/KenDThrow.gif"
+          ],
           "startup": "18/19",
           "total": "44"
         },
@@ -567,7 +699,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/ken/kenGetupAttackU.gif",
+            "hitboxes/ken/kenGetupAttackD.gif",
+            "hitboxes/ken/kenTripAttack.gif",
+            "hitboxes/ken/kenLedgeAttack.gif"
+          ]
         }
       ]
     }

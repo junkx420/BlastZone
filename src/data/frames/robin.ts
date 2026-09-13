@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "31",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "34",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "35",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinJabRapid.gif"
+          ],
           "startup": "4/6/8...",
           "damage": "0.9",
           "shieldLag": "4",
@@ -55,6 +67,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinJabRapidEnd.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "47",
@@ -67,6 +82,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinFTilt.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "32",
@@ -79,6 +97,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinUTilt.gif"
+          ],
           "startup": "6",
           "active": "6—14",
           "total": "32",
@@ -91,6 +112,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "21",
@@ -103,6 +127,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinDashAttack.gif"
+          ],
           "startup": "8",
           "active": "8—10(11—18)",
           "total": "41",
@@ -116,6 +143,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinFSmashLevin.gif",
+            "hitboxes/Robin/RobinFSmashBronze.gif"
+          ],
           "startup": "16",
           "active": "16—18(19—27)",
           "total": "57",
@@ -130,6 +161,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinUSmashLevin.gif",
+            "hitboxes/Robin/RobinUSmashBronze.gif"
+          ],
           "startup": "12",
           "active": "12,13—16(17—32)",
           "total": "52",
@@ -144,6 +179,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinDSmashLevin.gif",
+            "hitboxes/Robin/RobinDSmashBronze.gif"
+          ],
           "startup": "16",
           "active": "16—17(19—22/23—28)",
           "total": "56",
@@ -158,6 +197,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinNAirLevin.gif",
+            "hitboxes/Robin/RobinNAirBronze.gif"
+          ],
           "startup": "7/20",
           "active": "7—10/20—23(24—28)",
           "total": "47",
@@ -173,6 +216,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinFAirLevin.gif",
+            "hitboxes/Robin/RobinFAirBronze.gif"
+          ],
           "startup": "12",
           "active": "12—15(16—19)",
           "total": "33",
@@ -188,6 +235,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinBAirLevin.gif",
+            "hitboxes/Robin/RobinBAirBronze.gif"
+          ],
           "startup": "9",
           "active": "9—10(11—16)",
           "total": "39",
@@ -203,6 +254,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinUAirLevin.gif",
+            "hitboxes/Robin/RobinUAirBronze.gif"
+          ],
           "startup": "10",
           "active": "10—13(14—23)",
           "total": "45",
@@ -218,6 +273,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinDAirLevin.gif",
+            "hitboxes/Robin/RobinDAirBronze.gif"
+          ],
           "startup": "13",
           "active": "13—15(16—17/18—24)",
           "total": "59",
@@ -233,6 +292,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Thunder/Elthunder/Arcthunder)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinThunder.gif",
+            "hitboxes/Robin/RobinElthunder.gif",
+            "hitboxes/Robin/RobinArcthunder.gif"
+          ],
           "startup": "8/8/8",
           "active": "8—22 / 8—49 / 8—79",
           "total": "32/38/38",
@@ -246,6 +310,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Arcthunder (Vortex)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinArcthunderHit.gif"
+          ],
           "startup": "1...",
           "active": "1—16(rehit: 4)/17",
           "damage": "6.0/2.4/8.0",
@@ -257,6 +324,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Thoron",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinThoron.gif"
+          ],
           "startup": "23/27/31/35/39/43/47",
           "active": "23—92(Rehit: 4)",
           "total": "74 (109 air)",
@@ -269,6 +339,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Arcfire)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinArcfire.gif",
+            "hitboxes/Robin/RobinArcfireHit.gif"
+          ],
           "startup": "17",
           "active": "17—76",
           "total": "63",
@@ -283,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Elwind)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinElwind.gif"
+          ],
           "startup": "8/28",
           "active": "8(9—12/13—31) / 28—32(33—55)",
           "landingLag": "25",
@@ -295,6 +372,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Nosferatu)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinNosferatu.gif",
+            "hitboxes/Robin/RobinNosferatuAir.gif"
+          ],
           "startup": "15",
           "active": "15—18",
           "total": "49",
@@ -303,11 +384,17 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Thrown Items",
-          "section": "special"
+          "section": "special",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinLevinSword.gif"
+          ]
         },
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "39",
@@ -316,6 +403,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "47",
@@ -324,6 +414,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "42",
@@ -332,6 +425,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinPummel.gif"
+          ],
           "startup": "1",
           "total": "21",
           "damage": "1.5",
@@ -340,6 +436,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinFThrow.gif"
+          ],
           "startup": "16",
           "total": "31",
           "damage": "8.0"
@@ -347,6 +446,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinBThrow.gif"
+          ],
           "startup": "25",
           "total": "44",
           "damage": "11.0"
@@ -354,6 +456,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinUThrow.gif"
+          ],
           "startup": "15",
           "total": "47",
           "damage": "9.0"
@@ -361,6 +466,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Robin/RobinDThrow.gif"
+          ],
           "startup": "16",
           "total": "37",
           "damage": "6.0"
@@ -427,7 +535,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/robin/robinGetupAttackU.gif",
+            "hitboxes/robin/robinGetupAttackD.gif",
+            "hitboxes/robin/robinTripAttack.gif",
+            "hitboxes/robin/robinLedgeAttack.gif"
+          ]
         }
       ]
     }

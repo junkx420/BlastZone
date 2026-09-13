@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasJab1.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "19",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasJab2.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "19",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "29",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasFTilt.gif",
+            "hitboxes/lucas/LucasFTiltUp.gif",
+            "hitboxes/lucas/LucasFTiltDown.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "25",
@@ -60,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasUTilt.gif"
+          ],
           "startup": "4/7",
           "active": "4/7—10(11—14/15—16)",
           "total": "33",
@@ -73,6 +90,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasDTilt.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "15",
@@ -85,6 +105,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasDashAttack.gif"
+          ],
           "startup": "13",
           "active": "13—17",
           "total": "37",
@@ -98,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasFSmash.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "45",
@@ -112,6 +138,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasUSmash.gif"
+          ],
           "startup": "28/30",
           "active": "28/30—32(33—37/38—42/43—47/48—52/53—54)",
           "total": "98",
@@ -126,6 +155,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasDSmash.gif"
+          ],
           "startup": "20/29/39",
           "active": "20—22/29—31/39—41",
           "total": "59",
@@ -139,6 +171,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasNAir.gif"
+          ],
           "startup": "7.../26",
           "active": "7—21 (rehit: 5) / 26",
           "total": "44",
@@ -154,6 +189,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasFAir.gif"
+          ],
           "startup": "9",
           "active": "9—10/11—12",
           "total": "41",
@@ -169,6 +207,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasBAir.gif"
+          ],
           "startup": "15",
           "active": "15—19(19—22)",
           "total": "39",
@@ -184,6 +225,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasUAir.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "31",
@@ -198,6 +242,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasDAir.gif"
+          ],
           "startup": "10/18/26/34",
           "active": "10—12/18—20/26—28/34—35",
           "total": "56",
@@ -213,6 +260,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Z Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasZAir.gif"
+          ],
           "startup": "9",
           "active": "9—12(13—21)",
           "total": "51",
@@ -239,6 +289,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (PK Fire)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasPKFireG.gif",
+            "hitboxes/lucas/LucasPKFireA.gif"
+          ],
           "startup": "21",
           "active": "21—38(1—19)",
           "total": "52",
@@ -265,6 +319,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B, Self-hit (PK Thunder 2)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasPKThunder2.gif"
+          ],
           "startup": "1/4/6/8/10/12/14/17/20/23/26/29",
           "active": "1—2/4—5/6—7/8—9/10—11/12—13/14—15/17—19/20—21/23—24/26—27/29—30",
           "total": "60",
@@ -280,6 +337,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (PSI Magnet)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasPSIMagnet.gif"
+          ],
           "startup": "19 (7 is start of absorb)",
           "active": "19",
           "total": "27",
@@ -293,6 +353,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasGrab.gif"
+          ],
           "startup": "12",
           "active": "12—17",
           "total": "46",
@@ -301,6 +364,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasDashGrab.gif"
+          ],
           "startup": "14",
           "active": "14—19",
           "total": "54",
@@ -309,6 +375,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasPivotGrab.gif"
+          ],
           "startup": "15",
           "active": "15—20",
           "total": "49",
@@ -317,6 +386,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -325,6 +397,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasFThrow.gif"
+          ],
           "startup": "23",
           "total": "52",
           "damage": "10.0"
@@ -332,6 +407,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasBThrow.gif"
+          ],
           "startup": "20",
           "total": "52",
           "damage": "10.0"
@@ -339,6 +417,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasUThrow.gif"
+          ],
           "startup": "25",
           "total": "55",
           "damage": "10.0"
@@ -346,6 +427,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucas/LucasDThrow.gif"
+          ],
           "startup": "41",
           "total": "57",
           "damage": "11.0"
@@ -412,7 +496,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/lucas/lucasGetupAttackU.gif",
+            "hitboxes/lucas/lucasGetupAttackD.gif",
+            "hitboxes/lucas/lucasTripAttack.gif",
+            "hitboxes/lucas/lucasLedgeAttack.gif"
+          ]
         }
       ]
     }

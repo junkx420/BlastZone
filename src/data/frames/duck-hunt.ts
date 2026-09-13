@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntJab1.gif"
+          ],
           "startup": "4",
           "active": "4",
           "total": "25",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "27",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "33",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntJabRapid.gif"
+          ],
           "startup": "5/7/9/...",
           "damage": "0.4",
           "shieldLag": "4",
@@ -55,6 +67,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntJabRapidEnd.gif"
+          ],
           "startup": "5",
           "active": "5",
           "total": "45",
@@ -67,6 +82,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntFTilt.gif",
+            "hitboxes/duck_hunt/DuckHuntFTiltUp.gif",
+            "hitboxes/duck_hunt/DuckHuntFTiltDown.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "31",
@@ -79,6 +99,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "27",
@@ -91,6 +114,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "27",
@@ -103,6 +129,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntDashAttack.gif"
+          ],
           "startup": "10",
           "active": "10—13(14—19)",
           "total": "43",
@@ -116,6 +145,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntFSmash.gif"
+          ],
           "startup": "17/23/29",
           "active": "17—18/23—24/29—30",
           "total": "66",
@@ -130,6 +162,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntUSmash.gif"
+          ],
           "startup": "12/20/28",
           "active": "12—13/20—21/28—29",
           "total": "57",
@@ -144,6 +179,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntDSmash.gif"
+          ],
           "startup": "12/20/28",
           "active": "12—13/20—21/28—29",
           "total": "57",
@@ -158,6 +196,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntNAir.gif"
+          ],
           "startup": "6",
           "active": "6—8(9—37)",
           "total": "55",
@@ -172,6 +213,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntFAir.gif"
+          ],
           "startup": "7",
           "active": "7(8—9/10—11)",
           "total": "44",
@@ -187,6 +231,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntBAir.gif"
+          ],
           "startup": "7",
           "active": "7—8(9—10)",
           "total": "41",
@@ -202,6 +249,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntUAir.gif"
+          ],
           "startup": "6/12/20",
           "active": "6—7/12—13/20—21",
           "total": "39",
@@ -217,6 +267,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntDAir.gif"
+          ],
           "startup": "14/20",
           "active": "14—15/20—21",
           "total": "49",
@@ -326,6 +379,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -334,6 +390,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -342,6 +401,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -350,6 +412,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "landingLag": "Total frames includes 13 frames of hitlag.",
@@ -358,6 +423,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntFThrow.gif"
+          ],
           "startup": "18",
           "total": "29",
           "damage": "8.0"
@@ -365,6 +433,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntBThrow.gif"
+          ],
           "startup": "15",
           "total": "39",
           "damage": "9.0"
@@ -372,6 +443,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntUThrow.gif"
+          ],
           "startup": "18",
           "total": "47",
           "damage": "6.0"
@@ -379,6 +453,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/DuckHuntDThrow.gif"
+          ],
           "startup": "23/24",
           "total": "49",
           "damage": "5.0"
@@ -445,7 +522,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/duck_hunt/duckhuntGetupAttackU.gif",
+            "hitboxes/duck_hunt/duckhuntGetupAttackD.gif",
+            "hitboxes/duck_hunt/duckhuntTripAttack.gif",
+            "hitboxes/duck_hunt/duckhuntLedgeAttack.gif"
+          ]
         }
       ]
     }

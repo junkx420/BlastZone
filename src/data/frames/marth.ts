@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "25",
@@ -23,6 +26,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "28",
@@ -36,6 +42,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "33",
@@ -49,6 +58,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthUTilt.gif"
+          ],
           "startup": "6",
           "active": "6—8/9—12",
           "total": "33",
@@ -62,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "23",
@@ -75,6 +90,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDashAttack.gif"
+          ],
           "startup": "13",
           "active": "13—16",
           "total": "49",
@@ -88,6 +106,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthFSmash.gif",
+            "hitboxes/marth/MarthFSmashInterpolated.gif"
+          ],
           "startup": "10",
           "active": "10—13",
           "total": "51",
@@ -102,6 +124,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthUSmash.gif"
+          ],
           "startup": "13",
           "active": "13—14/13—17",
           "total": "58",
@@ -116,6 +141,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDSmash.gif"
+          ],
           "startup": "6/21",
           "active": "6—7/21—23",
           "total": "55",
@@ -130,6 +158,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/marth/MarthNAir.gif"
+          ],
           "startup": "6/15",
           "active": "6—7/15—21",
           "total": "49",
@@ -145,6 +176,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/marth/MarthFAir.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "37",
@@ -160,6 +194,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/marth/MarthBAir.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "39",
@@ -175,6 +212,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/marth/MarthUAir.gif"
+          ],
           "startup": "5",
           "active": "5—9",
           "total": "45",
@@ -190,6 +230,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDAir.gif"
+          ],
           "startup": "9/11",
           "active": "9—13/11",
           "total": "59",
@@ -205,6 +248,14 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Shield Breaker)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthShieldbreaker.gif",
+            "hitboxes/marth/MarthShieldbreakerUp.gif",
+            "hitboxes/marth/MarthShieldbreakerDown.gif",
+            "hitboxes/marth/MarthShieldbreakerMax.gif",
+            "hitboxes/marth/MarthShieldbreakerUpMax.gif",
+            "hitboxes/marth/MarthShieldbreakerDownMax.gif"
+          ],
           "startup": "19—79",
           "active": "19—20 (or frames 8-9 after release)",
           "total": "50—110",
@@ -218,6 +269,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Dancing Blade)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade1.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "39/29",
@@ -232,6 +286,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 2 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade2.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "38",
@@ -246,6 +303,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 3 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade3.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "43",
@@ -260,6 +320,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 4 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade4.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "55",
@@ -273,6 +336,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 2 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade2Up.gif"
+          ],
           "startup": "4",
           "active": "4—7",
           "total": "38",
@@ -287,6 +353,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 3 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade3Up.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "43",
@@ -301,6 +370,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 4 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade4Up.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "44",
@@ -314,6 +386,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 3 Down",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade3Down.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "43",
@@ -328,6 +403,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 4 Down",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDancingBlade4Down.gif"
+          ],
           "startup": "7",
           "active": "7/10/13/16/19—21",
           "total": "74",
@@ -341,6 +419,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Dolphin Slash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDolphinSlashG.gif",
+            "hitboxes/marth/MarthDolphinSlashA.gif"
+          ],
           "startup": "5",
           "active": "5—6/6—11",
           "landingLag": "24",
@@ -353,6 +435,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Counter)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthCounter.gif"
+          ],
           "startup": "6 (Start of Counter)",
           "total": "64",
           "notes": "Intangibility on 5-6 when detecting. Counter window 6-27."
@@ -360,6 +445,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Counter, Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/marth/MarthCounterHit.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "40",
@@ -369,6 +457,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/marth/MarthGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -377,6 +468,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -385,6 +479,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/marth/MarthPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -393,6 +490,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/marth/MarthPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -401,6 +501,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/marth/MarthFThrow.gif"
+          ],
           "startup": "18",
           "total": "34",
           "damage": "4.0",
@@ -409,6 +512,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/marth/MarthBThrow.gif"
+          ],
           "startup": "19",
           "total": "44",
           "damage": "4.0",
@@ -417,6 +523,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/marth/MarthUThrow.gif"
+          ],
           "startup": "13",
           "total": "44",
           "damage": "5.0"
@@ -424,6 +533,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/marth/MarthDThrow.gif"
+          ],
           "startup": "20",
           "total": "46",
           "damage": "4.0",
@@ -491,7 +603,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/marth/marthGetupAttackU.gif",
+            "hitboxes/marth/marthGetupAttackD.gif",
+            "hitboxes/marth/marthTripAttack.gif",
+            "hitboxes/marth/marthLedgeAttack.gif"
+          ]
         }
       ]
     }

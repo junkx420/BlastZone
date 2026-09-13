@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "24",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinJab2.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "31",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "35",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinJabRapid.gif"
+          ],
           "startup": "6/8/10...",
           "active": "6/8/10...",
           "damage": "0.5",
@@ -55,6 +67,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinJabRapidFinisher.gif"
+          ],
           "startup": "7",
           "active": "6—7",
           "total": "41",
@@ -67,6 +82,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt, Dragon",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinDragonJab.gif",
+            "hitboxes/minmin/MinMinDragonAerialTilt.gif"
+          ],
           "startup": "14",
           "active": "Ground: 14(15—24) // Air: 14(15—22)",
           "total": "58 (53 air)",
@@ -80,6 +99,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt, Power Dragon",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinPowerDragonJab.gif",
+            "hitboxes/minmin/MinMinPowerDragonAerialTilt.gif"
+          ],
           "startup": "14",
           "active": "Ground: 14(15—24) // Air: 14(15—22)",
           "total": "58",
@@ -91,6 +114,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt, Ramram",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinRamRamJab.gif",
+            "hitboxes/minmin/MinMinRamRamAerialTilt.gif"
+          ],
           "startup": "14",
           "active": "Ground: 14(15—21/22—29) // Air: 14(15—19/20—24)",
           "total": "51 (47 air)",
@@ -104,6 +131,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt, Megawatt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinMegawattJab.gif",
+            "hitboxes/minmin/MinMinMegawattAerialTilt.gif"
+          ],
           "startup": "14",
           "active": "Ground: 14(15—32) // Air: 14(15—27)",
           "total": "67 (59 air)",
@@ -117,6 +148,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinUTilt.gif"
+          ],
           "startup": "5",
           "active": "(5-6/7-11)(6-9/10-15)",
           "total": "41",
@@ -131,6 +165,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinDTilt.gif"
+          ],
           "startup": "10",
           "active": "10-14/15-19",
           "total": "34",
@@ -145,6 +182,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—10/11—16",
           "total": "38",
@@ -158,6 +198,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash, Dragon (Laser)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinDragonFSmash.gif",
+            "hitboxes/minmin/MinMinDragonFSmashCharged.gif",
+            "hitboxes/minmin/MinMinDragonAerialSmash.gif"
+          ],
           "startup": "16 (40)",
           "active": "16(17—19/20—24/25—29) (40—50)",
           "total": "65 (87)",
@@ -172,6 +217,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash, Power Dragon (Laser)",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinPowerDragonFSmash.gif",
+            "hitboxes/minmin/MinMinPowerDragonAerialSmash.gif"
+          ],
           "startup": "16 (40)",
           "active": "Ground: 16(17—19/20—24/25—29) (40—50) // Air: 16(17—19/20—23/24—28) (40—50)",
           "total": "65 (87)",
@@ -184,6 +233,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash, Ramram",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinRamRamFSmashUncharged.gif",
+            "hitboxes/minmin/MinMinRamRamFSmashCharged.gif",
+            "hitboxes/minmin/MinMinRamRamAerialSmash.gif"
+          ],
           "startup": "16 (26)",
           "active": "Ground: 16(17—18/19—25/26—35) // Air: 16(17—18/19—24/25—32)",
           "total": "57 (55 air)",
@@ -198,6 +252,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash, Megawatt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinMegawattFSmashUncharged.gif",
+            "hitboxes/minmin/MinMinMegawattFSmashCharged.gif",
+            "hitboxes/minmin/MinMinMegawattAerialSmash.gif"
+          ],
           "startup": "16",
           "active": "Ground: 16(17—19/20—31/32—38) // Air: 16(17—19/20—29/30—36)",
           "total": "75 (70 air)",
@@ -212,6 +271,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinUSmash.gif"
+          ],
           "startup": "8",
           "active": "8-10/11-13/14-16",
           "total": "53",
@@ -226,6 +288,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinDSmash.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "48",
@@ -240,6 +305,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air, Dragon",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinNAirDragonLeft.gif",
+            "hitboxes/minmin/MinMinNAirDragonRight.gif"
+          ],
           "startup": "10",
           "active": "10—23",
           "total": "37",
@@ -254,6 +323,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air, Power Dragon",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinNAirPowerDragon.gif"
+          ],
           "startup": "10",
           "active": "10—23",
           "total": "37",
@@ -266,6 +338,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air, Ramram",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinNAirRamRam.gif"
+          ],
           "startup": "8",
           "active": "8—18",
           "total": "28",
@@ -280,6 +355,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air, Megawatt",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinNAirMegawatt.gif"
+          ],
           "startup": "14",
           "active": "14—32",
           "total": "50",
@@ -294,6 +372,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinUAir.gif"
+          ],
           "startup": "7",
           "active": "7—13",
           "total": "38",
@@ -308,6 +389,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinDAir.gif",
+            "hitboxes/minmin/MinMinDAirLanding.gif"
+          ],
           "startup": "15",
           "active": "15—18/19—33/1—3",
           "total": "54",
@@ -331,6 +416,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Arms Hook)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinARMSHookDragonGrounded.gif",
+            "hitboxes/minmin/MinMinARMSHookDragonAerial.gif",
+            "hitboxes/minmin/MinMinARMSHookPowerDragonGrounded.gif",
+            "hitboxes/minmin/MinMinARMSHookPowerDragonAerial.gif"
+          ],
           "startup": "12",
           "active": "12—20",
           "total": "54",
@@ -351,6 +442,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinGrab.gif"
+          ],
           "startup": "18",
           "active": "18—24",
           "total": "56",
@@ -360,6 +454,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinDashGrab.gif"
+          ],
           "startup": "18",
           "active": "18—24",
           "total": "56",
@@ -369,6 +466,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinPivotGrab.gif"
+          ],
           "startup": "18",
           "active": "18—24",
           "total": "56",
@@ -378,6 +478,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.5",
@@ -386,6 +489,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinFThrow.gif"
+          ],
           "startup": "13",
           "total": "29",
           "damage": "9.0",
@@ -394,6 +500,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinBThrow.gif"
+          ],
           "startup": "31",
           "total": "49",
           "damage": "14.0",
@@ -402,6 +511,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinUThrow.gif"
+          ],
           "startup": "11",
           "total": "54",
           "damage": "10.0",
@@ -410,6 +522,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/minmin/MinMinDThrow.gif"
+          ],
           "startup": "16",
           "total": "45",
           "damage": "8.0",
@@ -476,11 +591,20 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/MinMinLedgeHang.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/minmin/minminGetupAttackU.gif",
+            "hitboxes/minmin/minminGetupAttackD.gif",
+            "hitboxes/minmin/minminTripAttack.gif",
+            "hitboxes/minmin/minminLedgeAttack.gif"
+          ]
         }
       ]
     }

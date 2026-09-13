@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacJab1.gif"
+          ],
           "startup": "1",
           "active": "1",
           "total": "16",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacJab2.gif"
+          ],
           "startup": "1",
           "active": "1",
           "total": "16",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacJab3.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "29",
@@ -48,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacJabRapid.gif"
+          ],
           "startup": "4/6/8...",
           "damage": "0.5",
           "shieldLag": "4",
@@ -57,6 +69,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacJabRapidEnd.gif"
+          ],
           "startup": "5",
           "active": "5",
           "total": "34",
@@ -70,6 +85,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacFTilt.gif"
+          ],
           "startup": "4/12",
           "active": "4—5/12—13",
           "total": "37",
@@ -83,6 +101,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacUTilt.gif"
+          ],
           "startup": "4",
           "active": "4—10",
           "total": "29",
@@ -96,6 +117,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacDTilt.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "25",
@@ -109,6 +133,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "33",
@@ -122,6 +149,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacFSmash.gif",
+            "hitboxes/little_mac/LittleMacFSmashUp.gif",
+            "hitboxes/little_mac/LittleMacFSmashDown.gif"
+          ],
           "startup": "14/14/15",
           "active": "14—15/14—15/15",
           "total": "43/43/43",
@@ -136,6 +168,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacUSmash.gif"
+          ],
           "startup": "10",
           "active": "10(11—14)",
           "total": "47",
@@ -150,6 +185,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacDSmash.gif"
+          ],
           "startup": "10/17",
           "active": "10—11/17—18",
           "total": "42",
@@ -163,6 +201,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacNAir.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "15",
@@ -177,6 +218,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacFAir.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "36",
@@ -191,6 +235,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacBAir.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "37",
@@ -205,6 +252,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacUAir.gif"
+          ],
           "startup": "5",
           "active": "5—8",
           "total": "41",
@@ -220,6 +270,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacDAir.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "27",
@@ -235,6 +288,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B, Partial Charge (Straight Lunge, Partial Charge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacStraightLungeG.gif",
+            "hitboxes/little_mac/LittleMacStraightLungeA.gif"
+          ],
           "startup": "4(+32)",
           "total": "49",
           "damage": "12.0—28.6",
@@ -247,6 +304,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B, Full Charge (Straight Lunge, Full Charge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacStraightLungeMaxG.gif",
+            "hitboxes/little_mac/LittleMacStraightLungeMaxA.gif"
+          ],
           "startup": "123",
           "total": "231",
           "damage": "30.0",
@@ -258,6 +319,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "K.O. Punch",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacKOPunchG.gif",
+            "hitboxes/little_mac/LittleMacKOPunchA.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "76/75",
@@ -272,6 +337,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Jolt Haymaker)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacJoltHaymakerG.gif"
+          ],
           "startup": "8/25",
           "active": "8—14/25—31 (windbox: 7—17)",
           "total": "60/77",
@@ -286,6 +354,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Air (Jolt Haymaker, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacJoltHaymakerA.gif"
+          ],
           "startup": "8/25",
           "active": "8—14/25—31",
           "total": "53/70",
@@ -300,6 +371,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Rising Uppercut)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacRisingUppercut.gif"
+          ],
           "startup": "3...",
           "active": "3/6—21(rehit: 4)/26",
           "landingLag": "30",
@@ -311,6 +385,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Slip Counter)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacSlipCounter.gif"
+          ],
           "startup": "5 (Start of Counter)",
           "active": "5—27 (counter)",
           "total": "56",
@@ -319,6 +396,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Slip Counter, Counterattack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacSlipCounterHitG.gif",
+            "hitboxes/little_mac/LittleMacSlipCounterHitA.gif"
+          ],
           "startup": "16",
           "active": "16—21",
           "total": "49",
@@ -328,6 +409,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "38",
@@ -336,6 +420,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacDashGrab.gif"
+          ],
           "startup": "13",
           "active": "13—14",
           "total": "46",
@@ -344,6 +431,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacPivotGrab.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "41",
@@ -352,6 +442,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacPummel.gif"
+          ],
           "startup": "1",
           "total": "15",
           "damage": "1.0",
@@ -360,6 +453,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacFThrow.gif"
+          ],
           "startup": "15/17",
           "total": "44",
           "damage": "4.0/4.0",
@@ -368,6 +464,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacBThrow.gif"
+          ],
           "startup": "17/19",
           "total": "47",
           "damage": "4.0/5.0",
@@ -376,6 +475,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacUThrow.gif"
+          ],
           "startup": "10/12",
           "total": "40",
           "damage": "4.0/3.0",
@@ -384,6 +486,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/little_mac/LittleMacDThrow.gif"
+          ],
           "startup": "14/16",
           "total": "44",
           "damage": "4.0/3.0",
@@ -451,7 +556,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/little_mac/littlemacGetupAttackU.gif",
+            "hitboxes/little_mac/littlemacGetupAttackD.gif",
+            "hitboxes/little_mac/littlemacTripAttack.gif",
+            "hitboxes/little_mac/littlemacLedgeAttack.gif"
+          ]
         }
       ]
     }

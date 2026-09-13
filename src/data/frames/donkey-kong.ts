@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "24",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongJab2.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "31",
@@ -34,6 +40,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongFTilt.gif",
+            "hitboxes/donkey_kong/DonkeyKongFTiltUp.gif",
+            "hitboxes/donkey_kong/DonkeyKongFTiltDown.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "34",
@@ -48,6 +59,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongUTilt.gif"
+          ],
           "startup": "5",
           "active": "5—11",
           "total": "38",
@@ -61,6 +75,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "24",
@@ -74,6 +91,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongDashAttack.gif"
+          ],
           "startup": "9",
           "active": "9—12/13—24",
           "total": "34",
@@ -87,6 +107,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongFSmash.gif"
+          ],
           "startup": "22",
           "active": "22—23",
           "total": "54",
@@ -101,6 +124,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongUSmash.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "49",
@@ -114,6 +140,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongDSmash.gif"
+          ],
           "startup": "11",
           "active": "11—12/13—14",
           "total": "55",
@@ -128,6 +157,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongNAir.gif"
+          ],
           "startup": "10",
           "active": "10—13/14—26",
           "total": "38",
@@ -143,6 +175,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongFAir.gif"
+          ],
           "startup": "18",
           "active": "18—20/21—23",
           "total": "55",
@@ -158,6 +193,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongBAir.gif"
+          ],
           "startup": "7",
           "active": "7—8/9—16",
           "total": "31",
@@ -173,6 +211,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongUAir.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "37",
@@ -187,6 +228,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongDAir.gif"
+          ],
           "startup": "14",
           "active": "14—16",
           "total": "54",
@@ -201,6 +245,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Giant Punch)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongGiantPunchG.gif",
+            "hitboxes/donkey_kong/DonkeyKongGiantPunchA.gif"
+          ],
           "startup": "19(+7)",
           "active": "26—27 (19—20 after starting charge)",
           "total": "62",
@@ -214,6 +262,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Giant Punch, Full Charge",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongGiantPunchGMax.gif",
+            "hitboxes/donkey_kong/DonkeyKongGiantPunchAMax.gif"
+          ],
           "startup": "19",
           "active": "19—20",
           "total": "47",
@@ -227,6 +279,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Headbutt)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongHeadbuttG.gif",
+            "hitboxes/donkey_kong/DonkeyKongHeadbuttA.gif"
+          ],
           "startup": "20",
           "active": "20—21",
           "total": "62",
@@ -240,6 +296,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Spinning Kong)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongSpinningKongG.gif"
+          ],
           "startup": "19/25/32/40/49/55/62",
           "active": "¯\\_(ツ)_/¯ (19/25-27/32-33/40-42/49-50/55-58/62)",
           "total": "104",
@@ -254,6 +313,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Spinning Kong, Air",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongSpinningKongA.gif"
+          ],
           "startup": "4/12...",
           "active": "¯\\_(ツ)_/¯ (4-6/10-12/13-14/15-17/18-19/20-21/22-24/25-26/27-29/30-31/32-33/34-36/37-38/39-43)",
           "landingLag": "38",
@@ -266,6 +328,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Hand Slap)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongHandSlapG.gif"
+          ],
           "startup": "12/23",
           "active": "12—13/23—24...",
           "total": "46",
@@ -279,6 +344,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Hand Slap, Air",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongHandSlapA.gif"
+          ],
           "startup": "19/28",
           "active": "19—21/28—30",
           "total": "49",
@@ -294,6 +362,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongGrab.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "38",
@@ -302,6 +373,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "46",
@@ -310,6 +384,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "41",
@@ -318,6 +395,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongPummel.gif"
+          ],
           "startup": "2",
           "total": "21",
           "damage": "1.6",
@@ -326,6 +406,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Cargo Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongCargoFThrow.gif"
+          ],
           "startup": "15",
           "total": "45",
           "damage": "12.0"
@@ -333,6 +416,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Cargo Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongCargoBThrow.gif"
+          ],
           "startup": "16",
           "total": "42",
           "damage": "13.0"
@@ -340,6 +426,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Cargo Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongCargoUThrow.gif"
+          ],
           "startup": "15",
           "total": "29",
           "damage": "12.0"
@@ -347,6 +436,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Cargo Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongCargoDThrow.gif"
+          ],
           "startup": "17",
           "total": "44",
           "damage": "11.0"
@@ -354,6 +446,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongBThrow.gif"
+          ],
           "startup": "15",
           "total": "39",
           "damage": "11.0"
@@ -361,6 +456,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongUThrow.gif"
+          ],
           "startup": "14",
           "total": "43",
           "damage": "9.0"
@@ -368,6 +466,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/DonkeyKongDThrow.gif"
+          ],
           "startup": "19",
           "total": "54",
           "damage": "7.0"
@@ -434,7 +535,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/donkey_kong/donkeykongGetupAttackU.gif",
+            "hitboxes/donkey_kong/donkeykongGetupAttackD.gif",
+            "hitboxes/donkey_kong/donkeykongTripAttack.gif",
+            "hitboxes/donkey_kong/donkeykongLedgeAttack.gif"
+          ]
         }
       ]
     }

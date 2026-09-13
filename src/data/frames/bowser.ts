@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserJab1.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "25",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserJab2.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "25",
@@ -35,6 +41,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserFTilt.gif",
+            "hitboxes/bowser/BowserFTiltUp.gif",
+            "hitboxes/bowser/BowserFTiltDown.gif"
+          ],
           "startup": "10",
           "active": "10—14",
           "total": "37",
@@ -48,6 +59,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserUTilt.gif"
+          ],
           "startup": "11",
           "active": "11—16",
           "total": "40",
@@ -61,6 +75,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserDTilt.gif"
+          ],
           "startup": "10/15",
           "active": "10—12/15—17",
           "total": "45",
@@ -74,6 +91,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserDashAttack.gif"
+          ],
           "startup": "11",
           "active": "11—14/15—20",
           "total": "55",
@@ -87,6 +107,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserFSmash.gif"
+          ],
           "startup": "22",
           "active": "22—23(24—27)",
           "total": "69",
@@ -101,6 +124,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserUSmash.gif"
+          ],
           "startup": "16/37",
           "active": "16—23/37",
           "total": "57",
@@ -115,6 +141,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserDSmash.gif"
+          ],
           "startup": "12/28",
           "active": "12—14/28—30",
           "total": "72",
@@ -128,6 +157,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserNAir.gif"
+          ],
           "startup": "8/14/18/**",
           "active": "8—29/14—29/18—29/18—29",
           "total": "47",
@@ -142,6 +174,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserFAir.gif"
+          ],
           "startup": "11",
           "active": "11—14",
           "total": "41",
@@ -157,6 +192,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserBAir.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "44",
@@ -171,6 +209,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserUAir.gif"
+          ],
           "startup": "9",
           "active": "9—13",
           "total": "44",
@@ -185,6 +226,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserDAir.gif",
+            "hitboxes/bowser/BowserDAirLanding.gif"
+          ],
           "startup": "17",
           "active": "17—24/25—49/1—6",
           "total": "77",
@@ -212,6 +257,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Flying Slam)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserFlyingSlamGrabG.gif",
+            "hitboxes/bowser/BowserFlyingSlamGrabA.gif",
+            "hitboxes/bowser/BowserFlyingSlam.gif"
+          ],
           "startup": "6",
           "active": "6",
           "total": "52",
@@ -221,6 +271,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Whirling Fortress)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserWhirlingFortressG.gif"
+          ],
           "startup": "6...",
           "active": "6—38/39 (rehit: 5)",
           "total": "81",
@@ -235,6 +288,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B, Air (Whirling Fortress, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserWhirlingFortressA.gif"
+          ],
           "startup": "6...",
           "active": "6—7/8—11/12—15/16—19/20—23/24—27/28—31/32—35/36—39/40—43/44—47/48—51 (rehit: 5)",
           "landingLag": "36",
@@ -247,6 +303,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Bowser Bomb)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserBowserBombG.gif"
+          ],
           "startup": "11/37.../1",
           "active": "11/37.../1—2",
           "total": "66",
@@ -260,6 +319,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B, Air (Bowser Bomb, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserBowserBombLanding.gif"
+          ],
           "startup": "31.../1",
           "active": "31.../1—2",
           "landingLag": "55",
@@ -272,6 +334,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserGrab.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "40",
@@ -280,6 +345,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "48",
@@ -288,6 +356,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserPivotrGrab.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "43",
@@ -296,6 +367,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserPummel.gif"
+          ],
           "startup": "2",
           "total": "21",
           "damage": "1.6",
@@ -304,6 +378,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserFThrow.gif"
+          ],
           "startup": "36",
           "total": "58",
           "damage": "12.0"
@@ -311,6 +388,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserBThrow.gif"
+          ],
           "startup": "19",
           "total": "38",
           "damage": "12.0"
@@ -318,6 +398,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserUThrow.gif"
+          ],
           "startup": "21/25/29/33/37/41/45/49/57",
           "total": "74",
           "damage": "0.5/2.0/6.0"
@@ -325,6 +408,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/bowser/BowserDThrow.gif"
+          ],
           "startup": "35/37",
           "total": "84",
           "damage": "10.0/4.0"
@@ -391,7 +477,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/bowser/bowserGetupAttackU.gif",
+            "hitboxes/bowser/bowserGetupAttackD.gif",
+            "hitboxes/bowser/bowserTripAttack.gif",
+            "hitboxes/bowser/bowserLedgeAttack.gif"
+          ]
         }
       ]
     }

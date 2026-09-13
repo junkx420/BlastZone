@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "24",
@@ -21,6 +24,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "27",
@@ -33,6 +39,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolJab3.gif"
+          ],
           "startup": "5",
           "active": "5—8",
           "total": "33",
@@ -45,6 +54,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolFTilt.gif",
+            "hitboxes/king_k_rool/KingKRoolFTiltUp.gif",
+            "hitboxes/king_k_rool/KingKRoolFTiltDown.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "42",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolUTilt.gif"
+          ],
           "startup": "5",
           "active": "5—6/7—13",
           "total": "37",
@@ -73,6 +90,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolDTilt.gif"
+          ],
           "startup": "13",
           "active": "13/14—15",
           "total": "42",
@@ -86,6 +106,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—14/15—25",
           "total": "60",
@@ -100,6 +123,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolFSmash.gif",
+            "hitboxes/king_k_rool/KingKRoolFSmashUp.gif",
+            "hitboxes/king_k_rool/KingKRoolFSmashDown.gif"
+          ],
           "startup": "19",
           "active": "19—21",
           "total": "61",
@@ -114,6 +142,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolUSmash.gif"
+          ],
           "startup": "6/19/22",
           "active": "(6—9/10—11)(19/20/21—23)(22—23)",
           "total": "71",
@@ -128,6 +159,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolDSmash.gif"
+          ],
           "startup": "22",
           "active": "22—24/25",
           "total": "63",
@@ -142,6 +176,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolNAir.gif"
+          ],
           "startup": "7",
           "active": "7—8/9—30",
           "total": "45",
@@ -157,6 +194,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolFAir.gif"
+          ],
           "startup": "11",
           "active": "11/12—14/15—17",
           "total": "54",
@@ -172,6 +212,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolBAir.gif"
+          ],
           "startup": "18",
           "active": "18—20",
           "total": "49",
@@ -187,6 +230,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolUAir.gif"
+          ],
           "startup": "7",
           "active": "7—13/14—19",
           "total": "71",
@@ -202,6 +248,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolDAir.gif"
+          ],
           "startup": "14",
           "active": "14—15/16—21",
           "total": "61",
@@ -217,6 +266,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Blunderbuss Kannonball)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolBlunderbussKannonballDetection.gif"
+          ],
           "startup": "25",
           "active": "30—150",
           "total": "65",
@@ -229,6 +281,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Blunderbuss, Vacuum",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolBlunderbuss.gif"
+          ],
           "startup": "7",
           "active": "7—36",
           "notes": "Max hold of 120 frames"
@@ -248,6 +303,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Crownerang)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolCrownerangThrow.gif",
+            "hitboxes/king_k_rool/KingKRoolCrownerang.gif"
+          ],
           "startup": "27",
           "active": "27—64/65—...",
           "total": "63",
@@ -261,6 +320,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Propellerpack)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolPropellerpack.gif"
+          ],
           "startup": "11",
           "active": "11/26/41/56/71/...108",
           "landingLag": "30",
@@ -272,6 +334,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Gut Check)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolGutCheck.gif"
+          ],
           "startup": "5 (Start of Counter)",
           "total": "62",
           "notes": "Invulnerable on frame 4-15. Counters or reflects on 5-28. Must be facing attacker to activate."
@@ -279,6 +344,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gut Check, Counterattack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolGutCheckHit.gif",
+            "hitboxes/king_k_rool/KingKRoolGutCheckHitTurn.gif"
+          ],
           "startup": "3, 9",
           "active": "3—6, 9—12",
           "total": "38",
@@ -288,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolGrab.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "40",
@@ -296,6 +368,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "48",
@@ -304,6 +379,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "43",
@@ -311,29 +389,44 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Pummel",
-          "section": "throw"
+          "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolPummel.gif"
+          ]
         },
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolFThrow.gif"
+          ],
           "startup": "28",
           "total": "39"
         },
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolBThrow.gif"
+          ],
           "startup": "32",
           "total": "62"
         },
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolUThrow.gif"
+          ],
           "startup": "67",
           "total": "103"
         },
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/KingKRoolDThrow.gif"
+          ],
           "startup": "40",
           "total": "73",
           "notes": "Buries"
@@ -400,7 +493,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/king_k_rool/kingkroolGetupAttackU.gif",
+            "hitboxes/king_k_rool/kingkroolGetupAttackD.gif",
+            "hitboxes/king_k_rool/kingkroolTripAttack.gif",
+            "hitboxes/king_k_rool/kingkroolLedgeAttack.gif"
+          ]
         }
       ]
     }

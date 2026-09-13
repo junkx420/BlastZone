@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "25",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "28",
@@ -34,6 +40,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "33",
@@ -46,6 +55,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaUTilt.gif"
+          ],
           "startup": "6",
           "active": "6—8/9—12",
           "total": "33",
@@ -59,6 +71,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "23",
@@ -71,6 +86,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDashAttack.gif"
+          ],
           "startup": "13",
           "active": "13—16",
           "total": "49",
@@ -83,6 +101,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaFSmash.gif"
+          ],
           "startup": "10",
           "active": "10—13",
           "total": "51",
@@ -96,6 +117,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaUSmash.gif"
+          ],
           "startup": "13",
           "active": "13—14/13—17",
           "total": "58",
@@ -110,6 +134,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDSmash.gif"
+          ],
           "startup": "6/21",
           "active": "6—7/21—23",
           "total": "55",
@@ -123,6 +150,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaNAir.gif"
+          ],
           "startup": "6/15",
           "active": "6—7/15—21",
           "total": "49",
@@ -137,6 +167,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaFAir.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "37",
@@ -151,6 +184,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaBAir.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "39",
@@ -165,6 +201,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaUAir.gif"
+          ],
           "startup": "5",
           "active": "5—9",
           "total": "45",
@@ -179,6 +218,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDAir.gif"
+          ],
           "startup": "9/11",
           "active": "9—13/11",
           "total": "59",
@@ -194,6 +236,14 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Shieldbreaker)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaShieldbreaker.gif",
+            "hitboxes/lucina/LucinaShieldbreakerUp.gif",
+            "hitboxes/lucina/LucinaShieldbreakerDown.gif",
+            "hitboxes/lucina/LucinaShieldbreakerMax.gif",
+            "hitboxes/lucina/LucinaShieldbreakerUpMax.gif",
+            "hitboxes/lucina/LucinaShieldbreakerDownMax.gif"
+          ],
           "startup": "19—79",
           "active": "19—20 (or frames 8—9 after release)",
           "total": "50—110",
@@ -207,6 +257,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Dancing Blade)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade1.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "39/29",
@@ -220,6 +273,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 2 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade2.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "38",
@@ -233,6 +289,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 3 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade3.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "43",
@@ -246,6 +305,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 4 Neutral",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade4.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "55",
@@ -258,6 +320,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 2 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade2Up.gif"
+          ],
           "startup": "4",
           "active": "4—7",
           "total": "38",
@@ -271,6 +336,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 3 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade3Up.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "43",
@@ -284,6 +352,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 4 Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade4Up.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "44",
@@ -296,6 +367,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 3 Down",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade3Down.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "43",
@@ -309,6 +383,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dancing Blade 4 Down",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDancingBlade4Down.gif"
+          ],
           "startup": "7",
           "active": "7/10/13/16/19—21",
           "total": "74",
@@ -322,6 +399,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Dolphin Slash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDolphinSlashG.gif",
+            "hitboxes/lucina/LucinaDolphinSlashA.gif"
+          ],
           "startup": "5",
           "active": "5—6/6—11",
           "landingLag": "24",
@@ -334,6 +415,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Counter)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaCounter.gif"
+          ],
           "startup": "6 (Start of Counter)",
           "total": "64",
           "notes": "Intangibility on 5-6 when detecting. Counter window 6-27."
@@ -341,6 +425,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Counter, Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaCounterHit.gif"
+          ],
           "startup": "4",
           "active": "4—7",
           "total": "40",
@@ -350,6 +437,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -358,6 +448,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -366,6 +459,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -374,6 +470,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -382,6 +481,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaFThrow.gif"
+          ],
           "startup": "18",
           "total": "34",
           "damage": "4.0",
@@ -390,6 +492,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaBThrow.gif"
+          ],
           "startup": "19",
           "total": "44",
           "damage": "4.0",
@@ -398,6 +503,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaUThrow.gif"
+          ],
           "startup": "13",
           "total": "44",
           "damage": "5.0"
@@ -405,6 +513,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/lucina/LucinaDThrow.gif"
+          ],
           "startup": "20",
           "total": "46",
           "damage": "4.0",
@@ -472,7 +583,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/lucina/lucinaGetupAttackU.gif",
+            "hitboxes/lucina/lucinaGetupAttackD.gif",
+            "hitboxes/lucina/lucinaTripAttack.gif",
+            "hitboxes/lucina/lucinaLedgeAttack.gif"
+          ]
         }
       ]
     }

@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerJab1.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "15",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerJab2.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "18",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerJabRapid.gif"
+          ],
           "startup": "5/7/9...",
           "total": "40",
           "damage": "0.5",
@@ -44,6 +53,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerJabRapidFinisher.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "40",
@@ -56,6 +68,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerFTilt.gif",
+            "hitboxes/mii_brawler/MiiBrawlerFTiltUp.gif",
+            "hitboxes/mii_brawler/MiiBrawlerFTiltDown.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "27",
@@ -69,6 +86,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerUTilt.gif"
+          ],
           "startup": "5",
           "active": "5—12",
           "total": "29",
@@ -81,6 +101,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "27",
@@ -93,6 +116,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerDashAttack.gif"
+          ],
           "startup": "6",
           "active": "6—9(10—17)",
           "total": "35",
@@ -106,6 +132,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerFSmash.gif",
+            "hitboxes/mii_brawler/MiiBrawlerFSmashUp.gif",
+            "hitboxes/mii_brawler/MiiBrawlerFSmashDown.gif"
+          ],
           "startup": "17",
           "active": "17—18",
           "total": "67",
@@ -119,6 +150,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerUSmash.gif"
+          ],
           "startup": "8",
           "active": "8—12(13—14)",
           "total": "47",
@@ -133,6 +167,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerDSmash.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "43",
@@ -146,6 +183,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerNAir.gif"
+          ],
           "startup": "3",
           "active": "3—5(6—29)",
           "total": "45",
@@ -160,6 +200,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerFAir.gif"
+          ],
           "startup": "8/15",
           "active": "8—9/15—17",
           "total": "44",
@@ -175,6 +218,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerBAir.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "39",
@@ -189,6 +235,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerUAir.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "35",
@@ -203,6 +252,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerDAir.gif"
+          ],
           "startup": "16",
           "active": "16—17(18)",
           "total": "49",
@@ -230,6 +282,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Flashing Mach Punch",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerFlashingMachPunch.gif",
+            "hitboxes/mii_brawler/MiiBrawlerFlashingMachPunchMiss.gif"
+          ],
           "startup": "10/14/17/20/23 (25/27/29/31/33/35/37/39/41/43/45/47/49/51/53/55/65",
           "active": "10/14/17/20/23",
           "total": "93/54",
@@ -244,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Exploding Side Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerExplodingSideKick.gif"
+          ],
           "startup": "50/52",
           "active": "50—52 (Reverse: 62—64 to 81—73)",
           "total": "79",
@@ -257,6 +316,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Onslaught",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerOnslaughtG.gif",
+            "hitboxes/mii_brawler/MiiBrawlerOnslaughtHitG.gif"
+          ],
           "startup": "16—30 + 4",
           "active": "Dash: 16—30 Hit: 4—5/8—10/13/15—16/18—19/28—29",
           "total": "70/73",
@@ -269,6 +332,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Onslaught, Air",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerOnslaughtA.gif",
+            "hitboxes/mii_brawler/MiiBrawlerOnslaughtHitA.gif"
+          ],
           "startup": "16—30 + 4",
           "active": "Dash: 16—30 Hit: 4—5/8—10/13/15—16/18—19/28—30",
           "landingLag": "30/40",
@@ -280,6 +347,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Burning Dropkick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerBurningDropkick.gif"
+          ],
           "startup": "18",
           "active": "18—29",
           "total": "68/60",
@@ -293,6 +363,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Suplex, Grab",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerSuplexG.gif",
+            "hitboxes/mii_brawler/MiiBrawlerSuplexA.gif"
+          ],
           "startup": "13",
           "active": "13—21",
           "total": "51",
@@ -301,6 +375,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Suplex, Success",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerSuplexHit.gif"
+          ],
           "startup": "82",
           "total": "79",
           "damage": "3.0/15.0",
@@ -309,6 +386,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Soaring Axe Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerSoaringAxeKickRise.gif",
+            "hitboxes/mii_brawler/MiiBrawlerSoaringAxeKickLanding.gif"
+          ],
           "startup": "10/30",
           "active": "10—15/3—**/1—2",
           "landingLag": "22/29",
@@ -322,6 +403,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Helicopter Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerHelicopterKickG.gif",
+            "hitboxes/mii_brawler/MiiBrawlerHelicopterKickA.gif"
+          ],
           "startup": "8...",
           "active": "Ground: 8—9/15/20/26/31/36—37 Air: 8/15/20/26/31/36—37",
           "landingLag": "26",
@@ -333,6 +418,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Thrust Uppercut",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerThrustUppercut.gif"
+          ],
           "startup": "3/6/9/12/15/20",
           "active": "3—4/6—7/9—10/12—13/15/20—21",
           "landingLag": "30",
@@ -344,6 +432,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Head-On Assault",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerHead-OnAssault.gif",
+            "hitboxes/mii_brawler/MiiBrawlerHead-OnAssaultFall.gif",
+            "hitboxes/mii_brawler/MiiBrawlerHead-OnAssaultLanding.gif"
+          ],
           "startup": "8/31 (34/37/40...)",
           "landingLag": "58",
           "damage": "6.0/16.0/14.0",
@@ -367,6 +460,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Feint Jump",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerFeintJump.gif"
+          ],
           "total": "56",
           "landingLag": "29",
           "notes": "Total frames is if you don't land during the animation. Has detection on frames 27-42, transitions to Auto Kick which spikes."
@@ -374,6 +470,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Feint Jump, Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerFeintJumpKick.gif",
+            "hitboxes/mii_brawler/MiiBrawlerFeintJumpAutoKick.gif"
+          ],
           "startup": "8",
           "active": "8—21(1—2)",
           "total": "52",
@@ -389,6 +489,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Counter Throw",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerCounterThrow.gif"
+          ],
           "active": "6—23 (counter)",
           "total": "38",
           "notes": "Invulnerable on frame 5. Counters frame 6-23"
@@ -396,6 +499,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Counter Throw, Activated",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerCounterThrowGrabG.gif",
+            "hitboxes/mii_brawler/MiiBrawlerCounterThrowGrabA.gif",
+            "hitboxes/mii_brawler/MiiBrawlerCounterThrowThrow.gif"
+          ],
           "startup": "3/16",
           "total": "Grab: 39 (if missed) // Throw: 46",
           "notes": "Grab: has intangibility from 1-47, grabs on 4-5. Throw: hitlag on frames 1 and 13, throw on 14, hitbox on 9-12, invincibility on frames 1-13."
@@ -403,6 +511,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -411,6 +522,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -419,6 +533,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -427,6 +544,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -435,6 +555,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerFThrow.gif"
+          ],
           "startup": "14",
           "total": "37",
           "damage": "9.0"
@@ -442,6 +565,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerBThrow.gif"
+          ],
           "startup": "9/11",
           "total": "42",
           "damage": "4.0/5.0"
@@ -449,6 +575,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerUThrow.gif"
+          ],
           "startup": "16",
           "total": "39",
           "damage": "11.0"
@@ -456,6 +585,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/MiiBrawlerDThrow.gif"
+          ],
           "startup": "18/20",
           "total": "35",
           "damage": "2.0/4.0"
@@ -522,7 +654,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/mii_brawler/miibrawlerGetupAttackU.gif",
+            "hitboxes/mii_brawler/miibrawlerGetupAttackD.gif",
+            "hitboxes/mii_brawler/miibrawlerTripAttack.gif",
+            "hitboxes/mii_brawler/miibrawlerLedgeAttack.gif"
+          ]
         }
       ]
     }

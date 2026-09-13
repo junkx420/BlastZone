@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterJab1.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "19",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterJab2.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "22",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterJab3.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "38",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterFTilt.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "34",
@@ -59,6 +71,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterUTilt.gif"
+          ],
           "startup": "8",
           "active": "8—12",
           "total": "32",
@@ -71,6 +86,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "19",
@@ -83,6 +101,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterDashAttack.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "41",
@@ -95,6 +116,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterFSmash.gif"
+          ],
           "startup": "15",
           "active": "15—17",
           "total": "59",
@@ -109,6 +133,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterUSmash.gif"
+          ],
           "startup": "11/14/21",
           "active": "11—12/14—15/21—22",
           "total": "59",
@@ -122,6 +149,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterDSmash.gif"
+          ],
           "startup": "7/15",
           "active": "7—8/15—16",
           "total": "53",
@@ -135,6 +165,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterNAir.gif"
+          ],
           "startup": "10",
           "active": "10—23",
           "total": "48",
@@ -149,6 +182,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterFAir.gif"
+          ],
           "startup": "12/16/21",
           "active": "12—13/16—17/21—22",
           "total": "49",
@@ -164,6 +200,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterBAir.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -178,6 +217,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterUAir.gif"
+          ],
           "startup": "11",
           "active": "11—13(14—23)",
           "total": "44",
@@ -193,6 +235,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterDAir.gif",
+            "hitboxes/mii_swordfighter/MiiSwordfighterDAirLanding.gif"
+          ],
           "startup": "14...",
           "active": "14—37(rehit: 5)/1—3",
           "total": "58",
@@ -208,6 +254,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gale Strike",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordFighterGaleStrike.gif"
+          ],
           "startup": "20",
           "active": "20—37(38—55/56—71)",
           "total": "67",
@@ -220,6 +269,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Shuriken of Light",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordFighterShurikenofLight.gif"
+          ],
           "startup": "13",
           "active": "13—20(21—28/29—36/37—50)",
           "total": "37",
@@ -232,6 +284,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Blurring Blade",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterBlurringBladeG.gif",
+            "hitboxes/mii_swordfighter/MiiSwordfighterBlurringBladeA.gif"
+          ],
           "startup": "17/21/25/29/33/44",
           "active": "17—18/21—22/25—26/29—30/33—34/44—45",
           "total": "84",
@@ -246,6 +302,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Airborne Assault",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterAirborneAssault.gif",
+            "hitboxes/mii_swordfighter/MiiSwordfighterAirborneAssaultHit.gif"
+          ],
           "startup": "Ground: 25, Air: 30",
           "active": "Ground: 25—60 Air: 30—65 Hit: 2—5",
           "total": "104/109",
@@ -260,6 +320,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gale Stab (Charge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterGaleStabG.gif",
+            "hitboxes/mii_swordfighter/MiiSwordfighterGaleStabA.gif"
+          ],
           "startup": "8/11",
           "active": "8—21/11—24",
           "total": "72/--",
@@ -271,6 +335,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gale Stab (Hit)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterGaleStabGHit.gif",
+            "hitboxes/mii_swordfighter/MiiSwordfighterGaleStabAHit.gif"
+          ],
           "startup": "2",
           "active": "2—5",
           "total": "34/--",
@@ -299,6 +367,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Stone Scabbard",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterStoneScabbard.gif",
+            "hitboxes/mii_swordfighter/MiiSwordfighterStoneScabbardLanding.gif"
+          ],
           "startup": "13/42",
           "landingLag": "44",
           "damage": "4.0/3.0/5.0",
@@ -311,6 +383,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Skyward Slash Dash",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterSkywardSlashDash.gif"
+          ],
           "startup": "15/19/22/25/28/31/34",
           "active": "15/19—20/22—23/25—26/28—29/31—32/34—35",
           "total": "77",
@@ -326,6 +401,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Hero's Spin",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterHerosSpinG.gif"
+          ],
           "startup": "8",
           "active": "8—9(10—14/15—24/25—40)",
           "total": "78",
@@ -340,6 +418,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Hero's Spin (Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterHerosSpinA.gif"
+          ],
           "startup": "8/16/22/26/31/38/47",
           "active": "8/11/16/19/22/26/31/38/47—48",
           "landingLag": "30",
@@ -351,6 +432,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Blade Counter",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterBladeCounter.gif"
+          ],
           "startup": "5 (Start of Counter)",
           "active": "5—26 (counter)",
           "total": "59",
@@ -359,6 +443,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Blade Counter, Activated",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterBladeCounterHit.gif",
+            "hitboxes/mii_swordfighter/MiiSwordfighterBladeCounterHitAerial.gif"
+          ],
           "startup": "21",
           "active": "21—22",
           "total": "Ground 38/ Air 41",
@@ -368,6 +456,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Reversal Slash",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterReversalSlash.gif"
+          ],
           "startup": "16 (Can reflect as fast as frame 5)",
           "active": "16—17",
           "total": "36",
@@ -381,6 +472,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Power Thrust",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterPowerThrustG.gif"
+          ],
           "startup": "12",
           "active": "12—14(15—22/23—30)",
           "total": "59",
@@ -394,6 +488,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Power Thrust (Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterPowerThrustA.gif",
+            "hitboxes/mii_swordfighter/MiiSwordfighterPowerThrustALanding.gif"
+          ],
           "startup": "14",
           "active": "14—16/17—24/25—29",
           "total": "58",
@@ -409,6 +507,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -417,6 +518,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -425,6 +529,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -433,6 +540,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -441,6 +551,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterFThrow.gif"
+          ],
           "startup": "11/13",
           "total": "40",
           "damage": "3.0/3.0"
@@ -448,6 +561,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterBThrow.gif"
+          ],
           "startup": "15/16",
           "total": "46",
           "damage": "3.0/3.0"
@@ -455,6 +571,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterUThrow.gif"
+          ],
           "startup": "21/23",
           "total": "49",
           "damage": "2.0/3.0"
@@ -462,6 +581,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/MiiSwordfighterDThrow.gif"
+          ],
           "startup": "15/16",
           "total": "32",
           "damage": "2.0/2.0"
@@ -532,11 +654,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Mii Swordfighter Ledgehang.gif",
+            "ledgerolls/MiiSwordfighter.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/mii_swordfighter/miiswordfighterGetupAttackU.gif",
+            "hitboxes/mii_swordfighter/miiswordfighterGetupAttackD.gif",
+            "hitboxes/mii_swordfighter/miiswordfighterTripAttack.gif",
+            "hitboxes/mii_swordfighter/miiswordfighterLedgeAttack.gif"
+          ]
         }
       ]
     }

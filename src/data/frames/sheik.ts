@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikJab1.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "17",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikJab2.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "17",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikJabRapid.gif"
+          ],
           "startup": "5/4/9...",
           "damage": "0.3",
           "shieldLag": "4"
@@ -42,6 +51,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikJabRapidEnd.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "35",
@@ -54,6 +66,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikFTilt.gif"
+          ],
           "startup": "5",
           "active": "5—8",
           "total": "24",
@@ -66,6 +81,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikUTilt.gif"
+          ],
           "startup": "5/16",
           "active": "5—8/16—23",
           "total": "32",
@@ -78,6 +96,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "26",
@@ -90,6 +111,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikDashAttack.gif"
+          ],
           "startup": "5",
           "active": "5—6(7—8)",
           "total": "34",
@@ -102,6 +126,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikFSmash.gif"
+          ],
           "startup": "12/20",
           "active": "12/20—21",
           "total": "44",
@@ -115,6 +142,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikUSmash.gif"
+          ],
           "startup": "11/14",
           "active": "11/14—15",
           "total": "52",
@@ -128,6 +158,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikDSmash.gif"
+          ],
           "startup": "8/15",
           "active": "8—9/15—16",
           "total": "48",
@@ -141,6 +174,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikNAir.gif"
+          ],
           "startup": "3",
           "active": "3—6(7—30)",
           "total": "49",
@@ -156,6 +192,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikFAir.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "34",
@@ -171,6 +210,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikBAir.gif"
+          ],
           "startup": "4",
           "active": "4—6(7—14)",
           "total": "37",
@@ -186,6 +228,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikUAir.gif"
+          ],
           "startup": "4...",
           "active": "4—15/23—24 (rehit: 4)",
           "total": "43",
@@ -201,6 +246,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikDAir.gif",
+            "hitboxes/sheik/SheikDAirLanding.gif"
+          ],
           "startup": "15",
           "active": "15—18/19—33/1—2",
           "total": "54",
@@ -241,6 +290,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Burst Grenade)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikBurstGrenade.gif"
+          ],
           "startup": "13/67/70/73/76/79/82/88",
           "total": "75—104",
           "damage": "1.0/12.6",
@@ -252,6 +304,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Vanish)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikVanishG.gif",
+            "hitboxes/sheik/SheikVanishA.gif"
+          ],
           "startup": "36/55",
           "active": "36—38/55—57",
           "total": "95",
@@ -266,6 +322,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Bouncing Fish)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikBouncingFish.gif"
+          ],
           "startup": "18/26",
           "total": "63/50/45",
           "landingLag": "35/19",
@@ -278,6 +337,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "36",
@@ -286,6 +348,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "44",
@@ -294,6 +359,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "39",
@@ -302,6 +370,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikPummel.gif"
+          ],
           "startup": "1",
           "total": "15",
           "landingLag": "Total frames includes 10 frames of hitlag.",
@@ -310,6 +381,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikFThrow.gif"
+          ],
           "startup": "20/22",
           "total": "39",
           "damage": "5.0/2.0"
@@ -317,6 +391,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikBThrow.gif"
+          ],
           "startup": "15/17",
           "total": "35",
           "damage": "5.0/2.0"
@@ -324,6 +401,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikUThrow.gif"
+          ],
           "startup": "19/21",
           "total": "49",
           "damage": "3.0/3.0"
@@ -331,6 +411,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sheik/SheikDThrow.gif"
+          ],
           "startup": "26/30",
           "total": "53",
           "damage": "3.0/3.0",
@@ -402,11 +485,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Sheik Ledgehang.gif",
+            "ledgerolls/Sheik.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/sheik/sheikGetupAttackU.gif",
+            "hitboxes/sheik/sheikGetupAttackD.gif",
+            "hitboxes/sheik/sheikTripAttack.gif",
+            "hitboxes/sheik/sheikLedgeAttack.gif"
+          ]
         }
       ]
     }

@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleJab.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "19",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "36",
@@ -34,6 +40,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleUTilt.gif"
+          ],
           "startup": "6",
           "active": "6—13",
           "total": "29",
@@ -46,6 +55,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "31",
@@ -58,6 +70,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleDashAttack.gif",
+            "hitboxes/isabelle/IsabelleDashAttackOffLedge.gif"
+          ],
           "startup": "7",
           "active": "7—12/13—19 (Normal) 7-12/13-66 (Off Ledge)",
           "total": "39",
@@ -71,6 +87,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleFSmash.gif"
+          ],
           "startup": "14",
           "active": "14—16/17—19",
           "total": "45",
@@ -84,6 +103,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleUSmash.gif"
+          ],
           "startup": "9/14",
           "active": "9—10/14—16/17—18",
           "total": "45",
@@ -98,6 +120,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleDSmash.gif"
+          ],
           "startup": "8/12",
           "active": "8—9/12—13",
           "total": "43",
@@ -111,6 +136,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleNAir.gif"
+          ],
           "startup": "5/8",
           "active": "5—7/8—25",
           "total": "33",
@@ -125,6 +153,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleFAir.gif"
+          ],
           "startup": "10",
           "active": "10—12(13—18/19—23)",
           "total": "39",
@@ -139,6 +170,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleBAir.gif"
+          ],
           "startup": "13",
           "active": "13—15(16—21/22—26)",
           "total": "35",
@@ -153,6 +187,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleUAir.gif"
+          ],
           "startup": "6",
           "active": "6—7/8—31",
           "total": "42",
@@ -167,6 +204,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleDAir.gif"
+          ],
           "startup": "11",
           "active": "11—12/13—28",
           "total": "42",
@@ -181,6 +221,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Pocket)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabellePocket.gif"
+          ],
           "startup": "8 (Start of projectile pocket)",
           "active": "8—23",
           "total": "50",
@@ -212,6 +255,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Fishing Rod, Throw Forward",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleFishingRodFThrow.gif"
+          ],
           "startup": "15",
           "total": "45",
           "damage": "14.0—17.0"
@@ -219,6 +265,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Fishing Rod, Throw Back",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleFishingRodBThrow.gif"
+          ],
           "startup": "13",
           "total": "35",
           "damage": "11.0—14.0"
@@ -226,6 +275,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Fishing Rod, Throw Up",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleFishingRodUThrow.gif"
+          ],
           "startup": "22",
           "total": "43",
           "damage": "12.0—15.0"
@@ -233,6 +285,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Fishing Rod, Throw Down",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleFishingRodDThrow.gif"
+          ],
           "startup": "18/22",
           "total": "39",
           "damage": "9.5—15.0"
@@ -246,6 +301,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Lloid Trap)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleLloidTrap.gif"
+          ],
           "startup": "9/17/25/34/43/51",
           "active": "9/17/25/34/43/51",
           "total": "49/26",
@@ -256,6 +314,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleGrab.gif"
+          ],
           "startup": "14",
           "active": "14—16",
           "total": "43",
@@ -264,6 +325,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleDashGrab.gif"
+          ],
           "startup": "15",
           "active": "16—17",
           "total": "46",
@@ -272,6 +336,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabellePivotGrab.gif"
+          ],
           "startup": "17",
           "active": "17—19",
           "total": "44",
@@ -279,29 +346,44 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Pummel",
-          "section": "throw"
+          "section": "throw",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabellePummel.gif"
+          ]
         },
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleFThrow.gif"
+          ],
           "startup": "15",
           "total": "45"
         },
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleBThrow.gif"
+          ],
           "startup": "14",
           "total": "49"
         },
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleUThrow.gif"
+          ],
           "startup": "20",
           "total": "52"
         },
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/isabelle/IsabelleDThrow.gif"
+          ],
           "startup": "18",
           "total": "35"
         },
@@ -367,7 +449,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/isabelle/isabelleGetupAttackU.gif",
+            "hitboxes/isabelle/isabelleGetupAttackD.gif",
+            "hitboxes/isabelle/isabelleTripAttack.gif",
+            "hitboxes/isabelle/isabelleLedgeAttack.gif"
+          ]
         }
       ]
     }

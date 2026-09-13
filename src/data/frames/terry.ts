@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryJab1.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "13",
@@ -20,6 +23,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryJab2.gif"
+          ],
           "startup": "3/4",
           "active": "3/4—7",
           "total": "24",
@@ -31,6 +37,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryJab3.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "33",
@@ -41,6 +50,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—13",
           "total": "27",
@@ -55,6 +67,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "30",
@@ -66,6 +81,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "16",
@@ -77,6 +95,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryDashAttack.gif"
+          ],
           "startup": "10",
           "active": "10—14(15—22)",
           "total": "40",
@@ -88,6 +109,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryFSmash.gif"
+          ],
           "startup": "18",
           "active": "18—21",
           "total": "50",
@@ -99,6 +123,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryUSmash.gif"
+          ],
           "startup": "10",
           "active": "10(11—14)",
           "total": "41",
@@ -111,6 +138,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/terry/TerryDSmash.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "40",
@@ -122,6 +152,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/terry/TerryNAir.gif"
+          ],
           "startup": "4",
           "active": "4—8(9—19)",
           "total": "33",
@@ -137,6 +170,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/terry/TerryFAir.gif"
+          ],
           "startup": "7",
           "active": "7—10(11—17)",
           "total": "39",
@@ -152,6 +188,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/terry/TerryBAir.gif"
+          ],
           "startup": "11",
           "active": "11—13(14—15)",
           "total": "39",
@@ -167,6 +206,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/terry/TerryUAir.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "35",
@@ -181,6 +223,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/terry/TerryDAir.gif"
+          ],
           "startup": "12",
           "active": "12—15",
           "total": "32",
@@ -196,6 +241,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Power Wave, Ground)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryPowerWaveGWeak.gif",
+            "hitboxes/terry/TerryPowerWaveGStrong.gif"
+          ],
           "startup": "18 (21)",
           "active": "18—86 (21—66)",
           "total": "49 (52)",
@@ -206,6 +255,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Power Wave, Air",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryPowerWaveAWeak.gif",
+            "hitboxes/terry/TerryPowerWaveAStrong.gif"
+          ],
           "startup": "18 (18)",
           "active": "18—27 (18—24)",
           "total": "49 (49)",
@@ -216,6 +269,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward B (Burning Knuckle)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryBurningKnuckleGroundWeak.gif",
+            "hitboxes/terry/TerryBurningKnuckleGroundStrong.gif",
+            "hitboxes/terry/TerryBurningKnuckleAirWeak.gif",
+            "hitboxes/terry/TerryBurningKnuckleAirStrong.gif"
+          ],
           "startup": "15/19 (21/26) | 14—17(18—26)",
           "active": "15—19(20—30) | 21—28(27—39) | 14—17(18—26) | 18—21(22—30)",
           "total": "60 (69) | 46 (50)",
@@ -228,6 +287,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Burning Knuckle, Input",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryBurningKnuckleGroundWeakInput.gif",
+            "hitboxes/terry/TerryBurningKnuckleGroundStrongInput.gif",
+            "hitboxes/terry/TerryBurningKnuckleAirWeakInput.gif",
+            "hitboxes/terry/TerryBurningKnuckleAirStrongInput.gif"
+          ],
           "startup": "15/21 (21/28) | 14/19 (18/23)",
           "active": "15—21(22—30) | 21—28(29—39) | 14—19(20—26) | 18—23(24—30)",
           "total": "60 (69) | 46 (50)",
@@ -240,6 +305,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back B (Crack Shoot)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryCrackShootWeak.gif",
+            "hitboxes/terry/TerryCrackShootStrong.gif"
+          ],
           "startup": "13/21",
           "active": "13(14—20)/21(22—26)",
           "total": "46 (45 air)",
@@ -252,6 +321,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Rising Tackle)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryRisingTackle.gif"
+          ],
           "startup": "10/12/15/20/25",
           "active": "10/12/15/20/25",
           "landingLag": "15",
@@ -262,6 +334,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rising Tackle (Charged Input)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryRisingTackleCharged.gif"
+          ],
           "startup": "10/12/14/16/19/21/24/29/34",
           "active": "10/12/14/16/19/21/24/29/34",
           "landingLag": "15",
@@ -272,6 +347,15 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Power Dunk)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryPowerDunkRiseWeak.gif",
+            "hitboxes/terry/TerryPowerDunkRiseWeakInput.gif",
+            "hitboxes/terry/TerryPowerDunkWeak.gif",
+            "hitboxes/terry/TerryPowerDunkRiseStrong.gif",
+            "hitboxes/terry/TerryPowerDunkRiseStrongInput.gif",
+            "hitboxes/terry/TerryPowerDunkStrong.gif",
+            "hitboxes/terry/TerryPowerDunkSpike.gif"
+          ],
           "startup": "Weak: 6/9/29 | Strong: 6/9/35",
           "active": "6/9/11/29—30/31—41",
           "total": "Ground Weak 54, Ground Strong 65 | Air Weak 67, Air Strong 74",
@@ -285,6 +369,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Power Geyser",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryPowerGeyser.gif"
+          ],
           "startup": "20",
           "active": "20—23/24—29",
           "total": "71",
@@ -297,6 +384,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Buster Wolf",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/terry/TerryBusterWolf.gif",
+            "hitboxes/terry/TerryBusterWolfThrow.gif"
+          ],
           "startup": "14",
           "active": "14—23/46",
           "total": "65/64",
@@ -309,6 +400,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/terry/TerryGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -317,6 +411,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/terry/TerryDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -325,6 +422,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/terry/TerryPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -333,6 +433,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/terry/TerryPummel.gif"
+          ],
           "startup": "1",
           "total": "16",
           "damage": "1.5",
@@ -341,6 +444,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/terry/TerryFThrow.gif"
+          ],
           "startup": "21",
           "total": "40",
           "damage": "10.0"
@@ -348,6 +454,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/terry/TerryBThrow.gif"
+          ],
           "startup": "21",
           "total": "44",
           "damage": "10.0"
@@ -355,6 +464,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/terry/TerryUThrow.gif"
+          ],
           "startup": "12/13",
           "total": "33",
           "damage": "5.0/1.0"
@@ -362,6 +474,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/terry/TerryDThrow.gif"
+          ],
           "startup": "23",
           "total": "47",
           "damage": "8.0"
@@ -375,6 +490,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Spot Dodge ATTACK",
           "section": "dodge",
+          "hitboxImages": [
+            "hitboxes/terry/TerryUTiltBullshit.gif"
+          ],
           "startup": "5",
           "active": "5—9",
           "total": "28 Total",
@@ -426,11 +544,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Terry Ledgehang.gif",
+            "ledgerolls/Terry.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/terry/terryGetupAttackU.gif",
+            "hitboxes/terry/terryGetupAttackD.gif",
+            "hitboxes/terry/terryTripAttack.gif",
+            "hitboxes/terry/terryLedgeAttack.gif"
+          ]
         }
       ]
     }

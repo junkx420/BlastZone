@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "23",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "26",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyJab3.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "35",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyJabRapid.gif"
+          ],
           "startup": "4/7/10...",
           "damage": "0.7",
           "shieldLag": "4"
@@ -54,6 +66,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyJabRapidEnd.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "45",
@@ -66,6 +81,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyFTilt.gif",
+            "hitboxes/ridley/RidleyFTiltUp.gif",
+            "hitboxes/ridley/RidleyFTiltDown.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "32",
@@ -79,6 +99,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyUTilt.gif"
+          ],
           "startup": "8",
           "active": "8—12",
           "total": "29",
@@ -92,6 +115,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "30",
@@ -105,6 +131,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyDashAttack.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "39",
@@ -117,6 +146,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyFSmash.gif"
+          ],
           "startup": "18",
           "active": "18—21",
           "total": "53",
@@ -130,6 +162,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyUSmash.gif"
+          ],
           "startup": "12",
           "active": "12—17",
           "total": "47",
@@ -143,6 +178,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyDSmash.gif"
+          ],
           "startup": "24",
           "active": "24—27",
           "total": "57",
@@ -156,6 +194,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyNAir.gif"
+          ],
           "startup": "8",
           "active": "8—14/15—20",
           "total": "39",
@@ -171,6 +212,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyFAir.gif"
+          ],
           "startup": "10/13/16",
           "active": "10—11/13—14/16—17",
           "total": "41",
@@ -186,6 +230,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyBAir.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "43",
@@ -200,6 +247,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyUAir.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "39",
@@ -215,6 +265,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyDAir.gif"
+          ],
           "startup": "11",
           "active": "11—18/19—40",
           "total": "55",
@@ -230,6 +283,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Plasma Breath)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyPlasmaBreath.gif",
+            "hitboxes/ridley/RidleyPlasmaBreathCharge.gif"
+          ],
           "startup": "29 | 56/65/73/84/92",
           "active": "29—58/59—78 | ***",
           "total": "55 | 102",
@@ -243,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Space Pirate Rush)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleySpacePirateRushG.gif"
+          ],
           "startup": "22",
           "active": "22—34",
           "total": "78",
@@ -251,6 +311,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Space Pirate Rush, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleySpacePirateRushA.gif"
+          ],
           "startup": "22",
           "active": "22—34",
           "total": "60",
@@ -260,6 +323,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Space Pirate Rush, Success)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleySpacePirateRushDragStart.gif",
+            "hitboxes/ridley/RidleySpacePirateRushDrag.gif"
+          ],
           "startup": "10/24/28/32...",
           "total": "60",
           "damage": "4.0/2.0",
@@ -278,6 +345,13 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Wing Blitz)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyWingBlitzForward.gif",
+            "hitboxes/ridley/RidleyWingBlitzBack.gif",
+            "hitboxes/ridley/RidleyWingBlitzUp.gif",
+            "hitboxes/ridley/RidleyWingBlitzDown.gif",
+            "hitboxes/ridley/RidleyWingBlitzDownLanding.gif"
+          ],
           "startup": "34/36/37",
           "active": "34—57/36—55/37—59",
           "landingLag": "32/35",
@@ -291,6 +365,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Skewer)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleySkewer.gif"
+          ],
           "startup": "30",
           "active": "30—31",
           "total": "96/67",
@@ -305,6 +382,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyGrab.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "34",
@@ -313,6 +393,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "42",
@@ -321,6 +404,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "39",
@@ -328,29 +414,44 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Pummel",
-          "section": "throw"
+          "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyPummel.gif"
+          ]
         },
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyFThrow.gif"
+          ],
           "startup": "13",
           "total": "37"
         },
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyBThrow.gif"
+          ],
           "startup": "18",
           "total": "45"
         },
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyUThrow.gif"
+          ],
           "startup": "14/19",
           "total": "43"
         },
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ridley/RidleyDThrow.gif"
+          ],
           "startup": "25",
           "total": "35"
         },
@@ -420,11 +521,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Ridley Ledgehang.gif",
+            "ledgerolls/Ridley.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/ridley/ridleyGetupAttackU.gif",
+            "hitboxes/ridley/ridleyGetupAttackD.gif",
+            "hitboxes/ridley/ridleyTripAttack.gif",
+            "hitboxes/ridley/ridleyLedgeAttack.gif"
+          ]
         }
       ]
     }

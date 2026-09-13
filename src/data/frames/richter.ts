@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterJab1.gif"
+          ],
           "startup": "5",
           "active": "5",
           "total": "29",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "29",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterJabRapid.gif"
+          ],
           "startup": "9/12/15...",
           "damage": "0.5",
           "shieldLag": "4"
@@ -42,6 +51,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterJabRapidEnd.gif"
+          ],
           "startup": "3",
           "total": "44",
           "damage": "2.5",
@@ -61,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterFTilt.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "30",
@@ -74,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterUTilt.gif"
+          ],
           "startup": "10",
           "active": "10—22",
           "total": "37",
@@ -87,6 +105,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterDTilt1.gif"
+          ],
           "startup": "7",
           "active": "7—23",
           "total": "44",
@@ -100,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterDTilt2.gif"
+          ],
           "startup": "8",
           "active": "8—19/20—28",
           "total": "57/43",
@@ -114,6 +138,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterDashAttack.gif"
+          ],
           "startup": "10/13/16/19/22/24",
           "active": "10/13/16/19/22/24",
           "total": "54",
@@ -126,6 +153,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterFSmash.gif",
+            "hitboxes/richter/RichterFSmashUp.gif",
+            "hitboxes/richter/RichterFSmashDown.gif"
+          ],
           "startup": "24",
           "active": "24—25",
           "total": "62",
@@ -140,6 +172,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterUSmash.gif"
+          ],
           "startup": "16",
           "active": "16—18",
           "total": "53",
@@ -154,6 +189,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/richter/RichterDSmash.gif"
+          ],
           "startup": "14/20",
           "active": "14—15/20—21",
           "total": "55",
@@ -168,6 +206,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/richter/RichterNAir.gif"
+          ],
           "startup": "8...",
           "active": "8—9/11—12/14—15/17—18/20—21/23—24/26—27",
           "total": "42",
@@ -183,6 +224,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/richter/RichterFAir.gif",
+            "hitboxes/richter/RichterFAirUp.gif",
+            "hitboxes/richter/RichterFAirDown.gif"
+          ],
           "startup": "14",
           "active": "14",
           "total": "39",
@@ -198,6 +244,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/richter/RichterBAir.gif",
+            "hitboxes/richter/RichterBAirUp.gif",
+            "hitboxes/richter/RichterBAirDown.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "39",
@@ -213,6 +264,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/richter/RichterUAir.gif"
+          ],
           "startup": "14",
           "active": "14—16",
           "total": "39",
@@ -228,6 +282,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/richter/RichterDAir.gif"
+          ],
           "startup": "13",
           "active": "13—14/15—36",
           "total": "48",
@@ -243,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Axe)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/richter/RichterAxe.gif"
+          ],
           "startup": "30",
           "active": "30—97",
           "total": "66",
@@ -267,6 +327,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Uppercut)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/richter/RichterUppercut.gif"
+          ],
           "startup": "6/9/...",
           "active": "6/9—20/21 (rehit: 3)",
           "landingLag": "26",
@@ -291,6 +354,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Holy Water Explosion",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Richter/RichterHolyWater.gif"
+          ],
           "startup": "1/4/7/15/23/31/39/47/55",
           "active": "1/4/7/15/23/31/39/47/55",
           "damage": "1.4",
@@ -299,6 +365,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/richter/RichterGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -307,6 +376,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/richter/RichterDashGrab.gif"
+          ],
           "startup": "13",
           "active": "13—14",
           "total": "45",
@@ -315,6 +387,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/richter/RichterPivotGrab.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "42",
@@ -323,6 +398,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/richter/RichterPummel.gif"
+          ],
           "startup": "1",
           "total": "18",
           "damage": "1.3",
@@ -331,6 +409,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/richter/RichterFThrow.gif"
+          ],
           "startup": "24",
           "total": "41",
           "damage": "7.0"
@@ -338,6 +419,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/richter/RichterBThrow.gif"
+          ],
           "startup": "18",
           "total": "41",
           "damage": "7.0"
@@ -345,6 +429,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/richter/RichterUThrow.gif"
+          ],
           "startup": "25/26",
           "total": "46",
           "damage": "6.0/4.0"
@@ -352,6 +439,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/richter/RichterDThrow.gif"
+          ],
           "startup": "33",
           "total": "48",
           "damage": "8.0"
@@ -418,7 +508,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/richter/richterGetupAttackU.gif",
+            "hitboxes/richter/richterGetupAttackD.gif",
+            "hitboxes/richter/richterTripAttack.gif",
+            "hitboxes/richter/richterLedgeAttack.gif"
+          ]
         }
       ]
     }

@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachJab1.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "27",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachJab2.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "29",
@@ -34,6 +40,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachFTilt.gif"
+          ],
           "startup": "7",
           "active": "7/8—9/10—15",
           "total": "36",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachUTilt.gif"
+          ],
           "startup": "9",
           "active": "9—13",
           "total": "37",
@@ -60,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachDTilt.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "23",
@@ -72,6 +87,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachDashAttack.gif"
+          ],
           "startup": "6/17",
           "active": "6—9/17—19",
           "total": "37",
@@ -85,6 +103,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachFSmashFryingPan.gif",
+            "hitboxes/Peach/PeachFSmashGolfClub.gif",
+            "hitboxes/Peach/PeachFSmashTennisRacket.gif"
+          ],
           "startup": "15",
           "active": "15—17/15—17/15—17",
           "total": "45",
@@ -99,6 +122,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachUSmash.gif"
+          ],
           "startup": "14",
           "active": "14—16/17—20",
           "total": "44",
@@ -113,6 +139,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachDSmash.gif"
+          ],
           "startup": "6/10/14/18/22/26/30",
           "active": "6—7/10—11/14—15/18—19/ 22—23/26—27/30—31",
           "total": "54",
@@ -127,6 +156,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachNAir.gif"
+          ],
           "startup": "5",
           "active": "5—8/9—19",
           "total": "48",
@@ -142,6 +174,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachFAir.gif"
+          ],
           "startup": "16",
           "active": "16—20",
           "total": "57",
@@ -157,6 +192,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachBAir.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "53",
@@ -172,6 +210,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachUAir.gif"
+          ],
           "startup": "10/15",
           "active": "(10/11/12—13)(15/16—19)",
           "total": "45",
@@ -187,6 +228,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachDAir.gif"
+          ],
           "startup": "12/18/24/30",
           "active": "12—13/18—19/24—25/30—31",
           "total": "38",
@@ -216,6 +260,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Peach Bomber)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachPeachBomberHit.gif"
+          ],
           "startup": "13",
           "active": "13—36(detector)",
           "total": "62/87",
@@ -241,6 +288,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Peach Parasol)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachPeachParasol.gif",
+            "hitboxes/Peach/PeachPeachParasolFall.gif"
+          ],
           "startup": "7/11/16/21/26/31",
           "active": "7/11/16/21/26/31",
           "landingLag": "26/40",
@@ -262,6 +313,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "36",
@@ -270,6 +324,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "44",
@@ -278,6 +335,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "39",
@@ -286,6 +346,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -294,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachFThrow.gif"
+          ],
           "startup": "14/16",
           "total": "39",
           "damage": "2.0/6.0"
@@ -301,6 +367,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachBThrow.gif"
+          ],
           "startup": "20/21",
           "total": "49",
           "damage": "2.0/9.0",
@@ -309,6 +378,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachUThrow.gif"
+          ],
           "startup": "19/26",
           "total": "49",
           "damage": "2.0/6.0"
@@ -316,6 +388,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Peach/PeachDThrow.gif"
+          ],
           "startup": "34/43",
           "total": "64",
           "damage": "1.0/7.0"
@@ -382,7 +457,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/peach/peachGetupAttackU.gif",
+            "hitboxes/peach/peachGetupAttackD.gif",
+            "hitboxes/peach/peachTripAttack.gif",
+            "hitboxes/peach/peachLedgeAttack.gif"
+          ]
         }
       ]
     }

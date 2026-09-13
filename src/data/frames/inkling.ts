@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingJab1.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "19",
@@ -21,6 +24,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingJab2.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "21",
@@ -33,6 +39,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingJab3.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "29",
@@ -45,6 +54,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingJabRapid.gif"
+          ],
           "startup": "4/7/10...",
           "active": "4/7/10...",
           "damage": "0.4",
@@ -55,6 +67,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingJabRapidEnd.gif"
+          ],
           "startup": "6",
           "active": "6",
           "total": "48",
@@ -68,6 +83,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "34",
@@ -80,6 +98,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingUTilt_.gif"
+          ],
           "startup": "7",
           "active": "7—12",
           "total": "29",
@@ -92,6 +113,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingDTilt.gif"
+          ],
           "startup": "5/12",
           "active": "5—8/12—15",
           "total": "31",
@@ -104,6 +128,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingDashAttack.gif"
+          ],
           "startup": "8",
           "active": "8—9/10—13",
           "total": "35",
@@ -116,6 +143,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingFSmash.gif"
+          ],
           "startup": "16",
           "active": "16—17",
           "total": "51",
@@ -130,6 +160,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingUSmash.gif",
+            "hitboxes/inkling/InklingUSmashNoInk.gif"
+          ],
           "startup": "9/18",
           "active": "9—10/18—20",
           "total": "57",
@@ -144,6 +178,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingDSmash.gif"
+          ],
           "startup": "11/20",
           "active": "(11—12/13—15)/(20—21/22—24)",
           "total": "49",
@@ -157,6 +194,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingNAir.gif"
+          ],
           "startup": "6",
           "active": "6—9",
           "total": "31",
@@ -171,6 +211,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingFAir.gif"
+          ],
           "startup": "10",
           "active": "10—11/12—21",
           "total": "41",
@@ -186,6 +229,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingBAir.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "36",
@@ -201,6 +247,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingUAir.gif"
+          ],
           "startup": "12/17",
           "active": "12—15/17—20",
           "total": "43",
@@ -215,6 +264,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingDAir.gif"
+          ],
           "startup": "16",
           "active": "16—17",
           "total": "61",
@@ -256,6 +308,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Super Jump)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingSuperJump.gif"
+          ],
           "startup": "12",
           "active": "12/15—21/1—10",
           "landingLag": "40",
@@ -269,6 +324,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Splat Bomb)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingSplatBomb.gif",
+            "hitboxes/inkling/InklingSplatBombExplosion.gif"
+          ],
           "startup": "20—40",
           "total": "47—65",
           "damage": "9.4—15.0",
@@ -279,6 +338,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingGrab.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "34",
@@ -287,6 +349,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "41",
@@ -295,6 +360,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -303,6 +371,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingPummel.gif"
+          ],
           "startup": "1",
           "total": "18",
           "damage": "1.3",
@@ -311,6 +382,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingFThrow.gif"
+          ],
           "startup": "22/23",
           "total": "39",
           "damage": "5.0/3.0"
@@ -318,6 +392,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingBThrow.gif"
+          ],
           "startup": "17",
           "total": "36",
           "damage": "9.0"
@@ -325,6 +402,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingUThrow.gif"
+          ],
           "startup": "21/22",
           "total": "36",
           "damage": "3.0/3.0"
@@ -332,6 +412,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/inkling/InklingDThrow.gif"
+          ],
           "startup": "20",
           "total": "34",
           "damage": "7.0"
@@ -398,7 +481,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/inkling/inklingGetupAttackU.gif",
+            "hitboxes/inkling/inklingGetupAttackD.gif",
+            "hitboxes/inkling/inklingTripAttack.gif",
+            "hitboxes/inkling/inklingLedgeAttack.gif"
+          ]
         }
       ]
     }

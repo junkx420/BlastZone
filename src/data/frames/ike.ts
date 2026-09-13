@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "23",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "27",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeJab3.gif"
+          ],
           "startup": "5",
           "active": "5—8",
           "total": "40",
@@ -48,6 +57,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeFTilt.gif",
+            "hitboxes/ike/IkeFTiltUp.gif",
+            "hitboxes/ike/IkeFTiltDown.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "41",
@@ -60,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeUTilt.gif"
+          ],
           "startup": "11",
           "active": "11—16/17—21",
           "total": "39",
@@ -73,6 +90,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "28",
@@ -85,6 +105,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeDashAttack.gif"
+          ],
           "startup": "15",
           "active": "15—16/17—19",
           "total": "47",
@@ -97,6 +120,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeFSmash.gif"
+          ],
           "startup": "31",
           "active": "31—32/33—35",
           "total": "83",
@@ -111,6 +137,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeUSmash.gif"
+          ],
           "startup": "25",
           "active": "25—29/30—31",
           "total": "70",
@@ -125,6 +154,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ike/IkeDSmash.gif"
+          ],
           "startup": "13/32",
           "active": "13—15/32—33/34—36",
           "total": "70",
@@ -139,6 +171,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ike/IkeNAir.gif"
+          ],
           "startup": "10",
           "active": "10—14/15—22",
           "total": "59",
@@ -154,6 +189,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ike/IkeFAir.gif"
+          ],
           "startup": "11",
           "active": "11—15",
           "total": "51",
@@ -168,6 +206,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ike/IkeBAir.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "54",
@@ -182,6 +223,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ike/IkeUAir.gif"
+          ],
           "startup": "13",
           "active": "13—18",
           "total": "56",
@@ -196,6 +240,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ike/IkeDAir.gif"
+          ],
           "startup": "16",
           "active": "16—17",
           "total": "54",
@@ -210,6 +257,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Eruption)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ike/IkeEruption.gif",
+            "hitboxes/ike/IkeEruptionMid.gif",
+            "hitboxes/ike/IkeEruptionMax.gif"
+          ],
           "startup": "30-239",
           "total": "78-287",
           "damage": "10.0—35.0",
@@ -221,6 +273,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Quickdraw)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ike/IkeQuickDraw.gif",
+            "hitboxes/ike/IkeQuickDrawDash.gif"
+          ],
           "startup": "16",
           "total": "53/34/44",
           "landingLag": "30",
@@ -233,6 +289,13 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Aether)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ike/IkeAetherG.gif",
+            "hitboxes/ike/IkeAetherA.gif",
+            "hitboxes/ike/IkeAetherFall.gif",
+            "hitboxes/ike/IkeAetherLanding.gif",
+            "hitboxes/ike/IkeAetherSword.gif"
+          ],
           "startup": "15/44/51/61",
           "landingLag": "36",
           "damage": "6.0/1.0/3.0/6.0",
@@ -245,6 +308,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Counter)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ike/IkeCounter.gif"
+          ],
           "startup": "9 (Start of Counter)",
           "total": "73",
           "notes": "Invulnerable on frame 8. Counters on frame 9-33"
@@ -252,6 +318,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Counter, Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ike/IkeCounterHit.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "43",
@@ -261,6 +330,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ike/IkeGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "36",
@@ -269,6 +341,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ike/IkeDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "44",
@@ -277,6 +352,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ike/IkePivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "39",
@@ -285,6 +363,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ike/IkePummel.gif"
+          ],
           "startup": "1",
           "total": "20",
           "landingLag": "Total frames includes 14 frames of hitlag.",
@@ -293,6 +374,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ike/IkeFThrow.gif"
+          ],
           "startup": "5/8",
           "total": "32",
           "damage": "3.5/4.0"
@@ -300,6 +384,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ike/IkeBThrow.gif"
+          ],
           "startup": "20/22",
           "total": "37",
           "damage": "3.0/4.0"
@@ -307,6 +394,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ike/IkeUThrow.gif"
+          ],
           "startup": "18/20",
           "total": "42",
           "damage": "3.5/4.0"
@@ -314,6 +404,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ike/IkeDThrow.gif"
+          ],
           "startup": "35/40",
           "total": "57",
           "damage": "3.0/4.0"
@@ -380,7 +473,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/ike/ikeGetupAttackU.gif",
+            "hitboxes/ike/ikeGetupAttackD.gif",
+            "hitboxes/ike/ikeTripAttack.gif",
+            "hitboxes/ike/ikeLedgeAttack.gif"
+          ]
         }
       ]
     }

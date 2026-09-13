@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuJab.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "16",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuFTilt.gif"
+          ],
           "startup": "5",
           "active": "5—12",
           "total": "24",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—14",
           "total": "23",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "18",
@@ -59,6 +71,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuDashAttack.gif"
+          ],
           "startup": "6",
           "active": "6—9/10—15",
           "total": "34",
@@ -72,6 +87,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuFSmash.gif"
+          ],
           "startup": "16/19/22/25/28/31",
           "active": "16—18/19—21/22—24/25—27/28—30/31—33",
           "total": "53",
@@ -86,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuUSmash.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "40",
@@ -99,6 +120,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuDSmash.gif"
+          ],
           "startup": "8/11/15/19/23",
           "active": "8—9/11—12/15—16/19—20/23—24",
           "total": "50",
@@ -113,6 +137,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuNAir.gif"
+          ],
           "startup": "3",
           "active": "3—9/10—27",
           "total": "39",
@@ -128,6 +155,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuFAir.gif"
+          ],
           "startup": "10/14/18/22",
           "active": "10—12/14—16/18—20/22—23",
           "total": "39",
@@ -143,6 +173,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuBAir.gif"
+          ],
           "startup": "5/11/15/19/26/30",
           "active": "5—6/11—12/15—16/19—20/26—27/30—31",
           "total": "54",
@@ -158,6 +191,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuUAir.gif"
+          ],
           "startup": "4",
           "active": "4—9",
           "total": "26",
@@ -172,6 +208,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuDAir.gif",
+            "hitboxes/pichu/PichuDAirLanding.gif"
+          ],
           "startup": "14",
           "active": "14—17/18—26/1—2",
           "total": "47",
@@ -187,6 +227,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Thunderjolt)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuThunderjoltAerial.gif"
+          ],
           "startup": "18",
           "active": "18—47/48—77/78—101",
           "total": "51",
@@ -200,6 +243,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Skull Bash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuSkullBash.gif"
+          ],
           "startup": "17",
           "active": "17—52 (4—39 on charge release)",
           "total": "96/86",
@@ -221,6 +267,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Thunder)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuThunder.gif",
+            "hitboxes/pichu/PichuThunderHit.gif"
+          ],
           "startup": "9",
           "active": "Bolt 1: 9-11/12-67 | Bolt 2: 16—18/19—74",
           "total": "86/66",
@@ -235,6 +285,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "31",
@@ -243,6 +296,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuDashGrab.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "39",
@@ -251,6 +307,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuPivotGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "36",
@@ -259,6 +318,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuPummel.gif"
+          ],
           "startup": "1",
           "total": "18",
           "damage": "1.4",
@@ -267,6 +329,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuFThrow.gif"
+          ],
           "startup": "11/15/19/23/27",
           "total": "43",
           "damage": "1.5/6.0",
@@ -275,6 +340,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuBThrow.gif"
+          ],
           "startup": "26",
           "total": "49",
           "damage": "9.0"
@@ -282,6 +350,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuUThrow.gif"
+          ],
           "startup": "14/15",
           "total": "35",
           "damage": "5.0/5.0"
@@ -289,6 +360,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pichu/PichuDThrow.gif"
+          ],
           "startup": "14/19",
           "total": "39",
           "damage": "4.0/4.0"
@@ -359,11 +433,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Pichu Ledgehang.gif",
+            "ledgerolls/Pichu.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/pichu/pichuGetupAttackU.gif",
+            "hitboxes/pichu/pichuGetupAttackD.gif",
+            "hitboxes/pichu/pichuTripAttack.gif",
+            "hitboxes/pichu/pichuLedgeAttack.gif"
+          ]
         }
       ]
     }

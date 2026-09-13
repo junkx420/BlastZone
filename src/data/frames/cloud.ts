@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "29",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "32",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "37",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudFTilt.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "35",
@@ -59,6 +71,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudUTilt.gif"
+          ],
           "startup": "6",
           "active": "6—9",
           "total": "32",
@@ -71,6 +86,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8(9—17)",
           "total": "40",
@@ -84,6 +102,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudDashAttack.gif"
+          ],
           "startup": "9",
           "active": "9—13(14—18)",
           "total": "45",
@@ -97,6 +118,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudFSmash.gif"
+          ],
           "startup": "19/24/28",
           "active": "19/24/28",
           "total": "66",
@@ -111,6 +135,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudUSmash.gif"
+          ],
           "startup": "12",
           "active": "12(13—14/15—16)",
           "total": "45",
@@ -124,6 +151,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudDSmash.gif"
+          ],
           "startup": "8/21",
           "active": "8—9/21—23",
           "total": "49",
@@ -137,6 +167,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudNAir.gif"
+          ],
           "startup": "5",
           "active": "5—15",
           "total": "38",
@@ -151,6 +184,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudFAir.gif"
+          ],
           "startup": "18",
           "active": "18—19(20—25)",
           "total": "53",
@@ -166,6 +202,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudBAir.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "42",
@@ -180,6 +219,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudUAir.gif"
+          ],
           "startup": "8",
           "active": "8—9(10—23)",
           "total": "44",
@@ -195,6 +237,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudDAir.gif"
+          ],
           "startup": "11",
           "active": "11—13(14—39)",
           "total": "64",
@@ -210,6 +255,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Blade Beam)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudBladeBeamG.gif",
+            "hitboxes/cloud/CloudBladeBeamA.gif"
+          ],
           "startup": "18(18)",
           "active": "18—35(36—67)",
           "total": "53(60)",
@@ -223,6 +272,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Limit Blade Beam",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudBladeBeamLimitG.gif",
+            "hitboxes/cloud/CloudBladeBeamLimitA.gif"
+          ],
           "startup": "16 (1/7/13/19/25/28)",
           "active": "16—62, Multihits: (1—28 (Rehit : 6)/29—30)",
           "total": "60",
@@ -236,6 +289,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Hit 1 (Cross Slash, Hit 1)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudCrossSlash1Left.gif",
+            "hitboxes/cloud/CloudCrossSlash1Right.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "40",
@@ -249,6 +306,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Cross Slash, Hit 2",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudCrossSlash2Left.gif",
+            "hitboxes/cloud/CloudCrossSlash2Right.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "31",
@@ -262,6 +323,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Cross Slash, Hit 3",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudCrossSlash3Left.gif",
+            "hitboxes/cloud/CloudCrossSlash3Right.gif"
+          ],
           "startup": "2/11/25",
           "active": "2—3/11—12/25—26",
           "total": "55",
@@ -274,6 +339,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Limit Cross Slash",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudCrossSlashLimitLeft.gif",
+            "hitboxes/cloud/CloudCrossSlashLimitRight.gif"
+          ],
           "startup": "10/15/21/28/38",
           "active": "10—11/15—16/21—22/28/38—39",
           "total": "60",
@@ -288,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Climhazzard)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudClimhazzard.gif"
+          ],
           "startup": "7/10",
           "active": "7/10(11/12—15/**)",
           "landingLag": "20",
@@ -299,6 +371,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Climhazzard, Followup",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudClimhazzardFall.gif",
+            "hitboxes/cloud/CloudClimhazzardLanding.gif"
+          ],
           "startup": "12",
           "active": "12—**",
           "landingLag": "26",
@@ -309,6 +385,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Limit Climhazzard",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudClimhazzardLimit.gif"
+          ],
           "startup": "7/10",
           "active": "7—9/10(11—16)/1—3",
           "landingLag": "20",
@@ -327,6 +406,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Finishing Touch)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudFinishingTouchG.gif",
+            "hitboxes/cloud/CloudFinishingTouchA.gif"
+          ],
           "startup": "12 (ground) // 14 (air)",
           "active": "12(13—14)/22—26 // 14—15(17)/25—29",
           "total": "84/87",
@@ -339,6 +422,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "36",
@@ -347,6 +433,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudDashGrab.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "44",
@@ -355,6 +444,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudPivotGrab.gif"
+          ],
           "startup": "13",
           "active": "13—14",
           "total": "39",
@@ -363,6 +455,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudPummel.gif"
+          ],
           "startup": "1",
           "total": "18",
           "damage": "1.3",
@@ -371,6 +466,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudFThrow.gif"
+          ],
           "startup": "7/9",
           "total": "35",
           "damage": "4.0/3.0"
@@ -378,6 +476,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudBThrow.gif"
+          ],
           "startup": "13/15",
           "total": "31",
           "damage": "3.0/3.0"
@@ -385,6 +486,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudUThrow.gif"
+          ],
           "startup": "8/13/15",
           "total": "50",
           "damage": "2.0/2.5/4.0"
@@ -392,6 +496,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/cloud/CloudDThrow.gif"
+          ],
           "startup": "18",
           "total": "43",
           "damage": "7.0"
@@ -458,7 +565,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/cloud/cloudGetupAttackU.gif",
+            "hitboxes/cloud/cloudGetupAttackD.gif",
+            "hitboxes/cloud/cloudTripAttack.gif",
+            "hitboxes/cloud/cloudLedgeAttack.gif"
+          ]
         }
       ]
     }

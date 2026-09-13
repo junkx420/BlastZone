@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "16",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "16",
@@ -34,6 +40,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffFTilt.gif",
+            "hitboxes/jigglypuff/JigglypuffFTiltUp.gif",
+            "hitboxes/jigglypuff/JigglypuffFTiltDown.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "24",
@@ -46,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffUTilt.gif"
+          ],
           "startup": "9",
           "active": "9—10(11—13)",
           "total": "24",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffDTilt.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "30",
@@ -71,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffDashAttack.gif"
+          ],
           "startup": "5",
           "active": "5—7(8—20)",
           "total": "39",
@@ -84,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffFSmash.gif"
+          ],
           "startup": "16",
           "active": "16—19(20—24)",
           "total": "49",
@@ -98,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffUSmash.gif"
+          ],
           "startup": "16",
           "active": "16—19",
           "total": "45",
@@ -111,6 +137,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffDSmash.gif"
+          ],
           "startup": "14",
           "active": "14—16",
           "total": "48",
@@ -124,6 +153,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffNAir.gif"
+          ],
           "startup": "6",
           "active": "6—7(8—30)",
           "total": "43",
@@ -139,6 +171,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffFAir.gif"
+          ],
           "startup": "8",
           "active": "8—9(10—20)",
           "total": "36",
@@ -154,6 +189,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffBAir.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "35",
@@ -168,6 +206,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffUAir.gif"
+          ],
           "startup": "9",
           "active": "9—21",
           "total": "39",
@@ -182,6 +223,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffDAir.gif"
+          ],
           "startup": "7/10/13/16/19/22/25/28/31",
           "active": "7—8/10—11/13—14/16—17/19—20/22—23/25—26/28—29/31—32",
           "total": "52",
@@ -207,6 +251,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Pound)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffPound.gif"
+          ],
           "startup": "13",
           "active": "13—28",
           "total": "39",
@@ -219,6 +266,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Sing)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffSing.gif"
+          ],
           "startup": "27/61/100",
           "active": "27—36/61—70/100—115",
           "total": "149",
@@ -227,6 +277,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Rest)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffRest.gif"
+          ],
           "startup": "2",
           "active": "2—4",
           "total": "209 (186 on hit)",
@@ -240,6 +293,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "32",
@@ -248,6 +304,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "39",
@@ -256,6 +315,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "34",
@@ -264,6 +326,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -272,6 +337,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffFThrow.gif"
+          ],
           "startup": "10/12",
           "total": "35",
           "damage": "5.0/5.0"
@@ -279,6 +347,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffBThrow.gif"
+          ],
           "startup": "26",
           "total": "49",
           "damage": "10.0"
@@ -286,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffUThrow.gif"
+          ],
           "startup": "9",
           "total": "37",
           "damage": "8.0"
@@ -293,6 +367,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/JigglypuffDThrow.gif"
+          ],
           "startup": "60/62",
           "total": "83",
           "damage": "6.0/6.0"
@@ -359,7 +436,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/jigglypuff/jigglypuffGetupAttackU.gif",
+            "hitboxes/jigglypuff/jigglypuffGetupAttackD.gif",
+            "hitboxes/jigglypuff/jigglypuffTripAttack.gif",
+            "hitboxes/jigglypuff/jigglypuffLedgeAttack.gif"
+          ]
         }
       ]
     }

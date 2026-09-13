@@ -85,6 +85,12 @@ Stand 13.09.2026: 86 Fighter, 3745 Moves. Vier Dinge, die man wissen muss:
 
 Geladen wird pro Fighter und erst beim Heranscrollen (`frames-index.ts` über `import.meta.glob`, dazu ein IntersectionObserver in `frameTable.ts`) – die 1,3 MB dürfen das Startbundle nicht anfassen.
 
+**Hitbox-Darstellungen** – 2748 der 3745 Moves führen einen Bildpfad (`hitboxImages`), etwa `hitboxes/mario/MarioJab1.gif`. Ohne Bild sind vor allem Projektil-Specials, Dodges und Rolls, für die UFD keine Darstellung hat.
+
+Gespeichert sind **nur Pfade, keine Dateien**: Die Bilder sind von UFD selbst erzeugt und nicht bloßes Spielmaterial – sie ins Repository zu kopieren wäre eine Weitergabe fremder Werke. Angezeigt werden sie deshalb über eine Klick-Fassade wie beim Guide-Video: Vor dem Klick steht nur ein Knopf, der die Herkunft nennt, und es geht keine Anfrage dorthin. Das hält die Zusage der Datenschutzerklärung ein, dass beim Aufruf der Seite nichts an Dritte geht; der Abschnitt „Hitbox-Darstellungen" dort beschreibt genau diesen Fall.
+
+**Nicht vergessen, wenn sich daran etwas ändert:** Die CSP in `vercel.json` führt `ultimateframedata.com` in `img-src`. Fehlt der Eintrag, funktioniert die Fassade in der Entwicklung und wird in der Produktion stillschweigend blockiert.
+
 **Artwork** – Die offiziellen Fighter-Bilder stammen von smashbros.com (© Nintendo) und liegen **verkleinert und selbst gehostet** unter `public/fighters/`: 84 Gesichtsausschnitte (270×164, zusammen 0,9 MB) für Kacheln, Tier-Liste, Suche und HUD, dazu 84 Ganzkörper-Render für Profil-Header, Hero-Replay und Rang 1. Die Render sind auf 1000 px Höhe skaliert und als WebP gespeichert – aus 151 MB Originalen werden 9 MB, die größte Datei misst 203 KB statt 4,12 MB. Erzeugt wurden sie mit `scripts/build-fighter-images.mjs` (sharp); die Pfade baut `src/data/art.ts` zusammen. `sigil.ts` zeichnet dahinter die farbige Bühne; lädt ein Bild nicht, zeigt die Bühne stattdessen die Fighter-Nummer. Abweichende URLs lassen sich pro Fighter in `Fighter.art` hinterlegen.
 
 ## Rechtliches

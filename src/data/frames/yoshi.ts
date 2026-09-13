@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiJab1.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "17",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "19",
@@ -34,6 +40,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiFTilt.gif",
+            "hitboxes/yoshi/YoshiFTiltUp.gif",
+            "hitboxes/yoshi/YoshiFTiltDown.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "29",
@@ -46,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiUTilt.gif"
+          ],
           "startup": "8",
           "active": "8—15",
           "total": "31",
@@ -58,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiDTilt.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "23",
@@ -71,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiDashAttack.gif"
+          ],
           "startup": "10",
           "active": "10—12/13—20",
           "total": "40",
@@ -84,6 +104,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiFSmash.gif",
+            "hitboxes/yoshi/YoshiFSmashUp.gif",
+            "hitboxes/yoshi/YoshiFSmashDown.gif"
+          ],
           "startup": "14",
           "active": "14—16",
           "total": "52",
@@ -97,6 +122,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiUSmash.gif"
+          ],
           "startup": "11",
           "active": "11—13/14—16",
           "total": "46",
@@ -111,6 +139,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiDSmash.gif"
+          ],
           "startup": "7/22",
           "active": "7—8/22—23",
           "total": "49",
@@ -125,6 +156,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiNAir.gif"
+          ],
           "startup": "3",
           "active": "3—4(5—11/12—25)",
           "total": "44",
@@ -140,6 +174,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiFAir.gif"
+          ],
           "startup": "16",
           "active": "16—20",
           "total": "43",
@@ -155,6 +192,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiBAir.gif"
+          ],
           "startup": "11/14/18",
           "active": "11/14/18—19",
           "total": "55",
@@ -170,6 +210,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiUAir.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "36",
@@ -184,6 +227,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiDAir.gif",
+            "hitboxes/yoshi/YoshiDAirLanding.gif"
+          ],
           "startup": "16/18/20/22/24/26/28/30/32/34/36/38/41",
           "active": "16/18/20/22/24/26/28/30/32/34/36/38/41",
           "total": "56",
@@ -199,6 +246,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Egg Lay)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiEggLay.gif"
+          ],
           "startup": "19",
           "active": "19—22",
           "total": "49/41",
@@ -230,6 +280,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Yoshi Bomb, Yoshi Bomb Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiYoshiBombG.gif"
+          ],
           "startup": "7/27, 19",
           "active": "7/27/*, 19/*",
           "total": "77, --",
@@ -244,6 +297,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiGrab.gif"
+          ],
           "startup": "14",
           "active": "14—21",
           "total": "48",
@@ -252,6 +308,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiDashGrab.gif"
+          ],
           "startup": "16",
           "active": "16—23",
           "total": "56",
@@ -260,6 +319,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiPivotGrab.gif"
+          ],
           "startup": "17",
           "active": "17—24",
           "total": "51",
@@ -268,6 +330,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -276,6 +341,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiFThrow.gif"
+          ],
           "startup": "15",
           "total": "39",
           "damage": "9.0"
@@ -283,6 +351,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiBThrow.gif"
+          ],
           "startup": "20",
           "total": "43",
           "damage": "9.0"
@@ -290,6 +361,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiUThrow.gif"
+          ],
           "startup": "13",
           "total": "43",
           "damage": "5.0"
@@ -297,6 +371,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/yoshi/YoshiDThrow.gif"
+          ],
           "startup": "25",
           "total": "43",
           "damage": "4.0"
@@ -367,11 +444,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Yoshi Ledgehang.gif",
+            "ledgerolls/Yoshi.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/yoshi/yoshiGetupAttackU.gif",
+            "hitboxes/yoshi/yoshiGetupAttackD.gif",
+            "hitboxes/yoshi/yoshiTripAttack.gif",
+            "hitboxes/yoshi/yoshiLedgeAttack.gif"
+          ]
         }
       ]
     }

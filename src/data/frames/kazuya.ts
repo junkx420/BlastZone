@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab1.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "22",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab2.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "26",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab3.gif"
+          ],
           "startup": "7",
           "active": "7",
           "total": "30",
@@ -48,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 4",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab4.gif"
+          ],
           "startup": "10",
           "active": "11—12",
           "total": "39",
@@ -61,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 5",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab5.gif"
+          ],
           "startup": "12",
           "active": "12",
           "total": "39",
@@ -74,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 6",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab6.gif"
+          ],
           "startup": "23",
           "active": "24—25",
           "total": "52",
@@ -87,6 +105,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 7",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab7.gif"
+          ],
           "startup": "15",
           "active": "14",
           "total": "42",
@@ -100,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 8",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab8.gif"
+          ],
           "startup": "18",
           "active": "18",
           "total": "46",
@@ -113,6 +137,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 9",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab9.gif"
+          ],
           "startup": "16",
           "active": "16",
           "total": "48",
@@ -126,6 +153,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 10",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab10.gif"
+          ],
           "startup": "29",
           "active": "29",
           "total": "70",
@@ -139,6 +169,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Flash Punch Combo (Final Hit)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Jab3Delayed.gif"
+          ],
           "startup": "7",
           "active": "7—10",
           "total": "36",
@@ -152,6 +185,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt (Oni Front Kick)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4FTilt.gif"
+          ],
           "startup": "12",
           "active": "12—16",
           "total": "40",
@@ -165,6 +201,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down-Forward Tilt (Tsunami Kick)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DFTilt1.gif",
+            "hitboxes/kazuya/Shoto4DFTilt2.gif"
+          ],
           "startup": "10/26",
           "active": "10—11/14—16",
           "total": "36/54",
@@ -178,6 +218,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt (Neijiri Uraken)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DTilt.gif"
+          ],
           "startup": "16",
           "active": "16—18",
           "total": "45",
@@ -191,6 +234,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down-Back Tilt (Stature Smash)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DBTilt.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "39",
@@ -204,6 +250,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Tilt (Flash Tornado)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4BTilt.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "34",
@@ -217,6 +266,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up-Back Tilt (Jump Side Kick)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4UBTilt.gif"
+          ],
           "startup": "14",
           "active": "14—17",
           "total": "39",
@@ -230,6 +282,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt (Twin Pistons)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4UTilt1.gif",
+            "hitboxes/kazuya/Shoto4UTilt2.gif"
+          ],
           "startup": "9/24",
           "active": "9—10/14—16",
           "total": "29/52",
@@ -243,6 +299,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up-Forward Tilt (Roundhouse to Triple Spin Kicks...)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4UFTilt1.gif",
+            "hitboxes/kazuya/Shoto4UFTilt2.gif",
+            "hitboxes/kazuya/Shoto4UFTilt3.gif",
+            "hitboxes/kazuya/Shoto4UFTilt4.gif"
+          ],
           "startup": "14/30/49/67",
           "active": "14—16/11—12/16—17/14—16",
           "total": "42/64/81/100",
@@ -257,6 +319,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Demon's Wrath (Side Taunt)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4SideTaunt.gif"
+          ],
           "startup": "18/31/47/62",
           "active": "7—10",
           "total": "89",
@@ -270,6 +335,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "*Crouching* Down-Forward Tilt (Tombstone Crusher)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4CrouchFTilt.gif"
+          ],
           "startup": "14",
           "active": "14—16",
           "total": "50",
@@ -283,6 +351,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "*Crouching* Down Tilt (Crouch Jab)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4CrouchJab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "26",
@@ -296,6 +367,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "*Crouching* Down-Back Tilt (Crouch Spin Kick)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4CrouchBTilt.gif"
+          ],
           "startup": "11",
           "active": "11—16",
           "total": "35",
@@ -309,6 +383,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Double Dash Attack (Left Splits Kick)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DoubleDashAttack.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "40",
@@ -322,6 +399,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DashAttack.gif"
+          ],
           "startup": "15",
           "active": "15—16(17—19)",
           "total": "47",
@@ -336,6 +416,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4FSmash.gif"
+          ],
           "startup": "25",
           "active": "25—26",
           "total": "67",
@@ -350,6 +433,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4USmash.gif"
+          ],
           "startup": "12",
           "active": "12—13(14—16)",
           "total": "47",
@@ -364,6 +450,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DSmash.gif"
+          ],
           "startup": "17",
           "active": "17—18(19)",
           "total": "46",
@@ -378,6 +467,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Demon God Fist (Uncrouching Attack)",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4UncrouchingAttack.gif"
+          ],
           "startup": "13",
           "active": "13—14",
           "total": "40",
@@ -391,6 +483,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Wind God Fist",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4WindGodFist.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "35",
@@ -404,6 +499,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Electric Wind God Fist",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4ElectricWindGodFist.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "35",
@@ -415,6 +513,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dragon Uppercut",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DragonUppercut.gif"
+          ],
           "startup": "5+15",
           "active": "15(16/17/18-20)",
           "total": "47",
@@ -429,6 +530,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Spinning Demon to Left Hook",
           "section": "misc",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4SpinningDragonToLeftHook.gif"
+          ],
           "startup": "10/34",
           "active": "10—12/34—36",
           "total": "66",
@@ -442,6 +546,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4NAir.gif"
+          ],
           "startup": "8",
           "active": "8—9(10—16)",
           "total": "28",
@@ -456,6 +563,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4FAir.gif"
+          ],
           "startup": "8",
           "active": "8—9(10—14)",
           "total": "30",
@@ -470,6 +580,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4BAir.gif"
+          ],
           "startup": "11",
           "active": "11—13(14—18)",
           "total": "45",
@@ -484,6 +597,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4UAir.gif"
+          ],
           "startup": "4",
           "active": "4—6(7—9)",
           "total": "33",
@@ -497,6 +613,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DAir.gif",
+            "hitboxes/kazuya/Shoto4DAirLanding.gif"
+          ],
           "startup": "17/19",
           "active": "17—18/19—39/1—2",
           "total": "57",
@@ -511,6 +631,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Devil Blaster)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DevilBlasterG.gif"
+          ],
           "startup": "27",
           "active": "27—43",
           "total": "82",
@@ -524,6 +647,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Devil Blaster, Air",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Shieldbreaker.gif"
+          ],
           "startup": "27",
           "active": "27—43",
           "total": "67",
@@ -537,6 +663,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Devil Fist)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DevilFistG.gif",
+            "hitboxes/kazuya/Shoto4DevilFistA.gif"
+          ],
           "startup": "16",
           "active": "16/17—22",
           "total": "66 (68 Air)",
@@ -550,6 +680,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Devil Wings)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DevilWings.gif"
+          ],
           "startup": "12",
           "total": "66",
           "landingLag": "24",
@@ -563,6 +696,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Heaven's Door)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4HeavensDoorG.gif",
+            "hitboxes/kazuya/Shoto4HeavensDoorA.gif",
+            "hitboxes/kazuya/Shoto4HeavensDoorFalling.gif",
+            "hitboxes/kazuya/Shoto4HeavensDoorGround.gif"
+          ],
           "startup": "14",
           "total": "49 (59 in air)",
           "damage": "17.0",
@@ -571,6 +710,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rage Drive (Non Input)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4RageDriveG.gif",
+            "hitboxes/kazuya/Shoto4RageDriveFall.gif",
+            "hitboxes/kazuya/Shoto4RageDriveLand.gif"
+          ],
           "startup": "14",
           "active": "14—15",
           "total": "57 (42 throw)",
@@ -580,6 +724,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rage Drive (Input)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4RageDriveInput.gif",
+            "hitboxes/kazuya/Shoto4RageDriveFall.gif",
+            "hitboxes/kazuya/Shoto4RageDriveInputLand.gif"
+          ],
           "startup": "10",
           "active": "10—13",
           "total": "54 (42 throw)",
@@ -588,6 +737,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Grab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "39"
@@ -595,6 +747,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "43"
@@ -602,6 +757,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4PivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "43"
@@ -609,6 +767,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Gates of Hell (Gates of Hell, Success)",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4GatesOfHellGrab.gif",
+            "hitboxes/kazuya/Shoto4GatesOfHellThrow.gif"
+          ],
           "startup": "7 (32/80/81)",
           "active": "7—8",
           "total": "36 (104)",
@@ -618,6 +780,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4Pummel.gif"
+          ],
           "startup": "5",
           "total": "33",
           "damage": "3.4",
@@ -626,6 +791,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4FThrow.gif"
+          ],
           "startup": "11/39/42",
           "total": "75",
           "damage": "5.0/5.0/2.0"
@@ -633,6 +801,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4BThrow.gif"
+          ],
           "startup": "46",
           "total": "83",
           "damage": "14.0"
@@ -640,6 +811,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4UThrow.gif"
+          ],
           "startup": "14",
           "total": "65",
           "damage": "2.0/10.0",
@@ -648,6 +822,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4DThrow.gif"
+          ],
           "startup": "34/35",
           "total": "54",
           "damage": "7.0/1.0"
@@ -655,6 +832,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Crouch Dash",
           "section": "dodge",
+          "hitboxImages": [
+            "hitboxes/kazuya/Shoto4CrouchDash.gif"
+          ],
           "total": "19",
           "notes": "Upper body intangible on frame 1-12. Fully intangible on frames 2-4. Does not stale other dodge options. Can be cancelled into both Wind God Fists, Dragon Uppercut, or Spinning Demon. You can cancel Crouch Dash with Jump on Frame 3 via a 6231 input, more information here . You can cancel Crouch Dash on Frame 2 by reseting the stick to neutral, more information here ."
         },
@@ -714,7 +894,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/bayonetta/bayonettaGetupAttackU.gif",
+            "hitboxes/bayonetta/bayonettaGetupAttackD.gif",
+            "hitboxes/bayonetta/bayonettaTripAttack.gif",
+            "hitboxes/bayonetta/bayonettaLedgeAttack.gif"
+          ]
         }
       ]
     }

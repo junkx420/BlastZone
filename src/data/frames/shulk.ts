@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkJab1.gif"
+          ],
           "startup": "5",
           "active": "5",
           "total": "25",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkJab2.gif"
+          ],
           "startup": "5",
           "active": "5",
           "total": "33",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7/8",
           "total": "44",
@@ -48,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkFTilt.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "43",
@@ -61,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkUTilt.gif"
+          ],
           "startup": "11",
           "active": "11—12/13—23",
           "total": "39",
@@ -74,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkDTilt.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "31",
@@ -87,6 +105,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkDashAttack.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "40",
@@ -100,6 +121,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkFSmash.gif",
+            "hitboxes/shulk/ShulkFSmashUp.gif",
+            "hitboxes/shulk/ShulkFSmashDown.gif"
+          ],
           "startup": "14/23",
           "active": "14—15/23 (Angled: 14—16/23)",
           "total": "67",
@@ -114,6 +140,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkUSmash.gif"
+          ],
           "startup": "18/30",
           "active": "(18—21/22—29)/(30—33)",
           "total": "67",
@@ -128,6 +157,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkDSmash.gif"
+          ],
           "startup": "18/23/28/35/41",
           "active": "18—19/23—24/28—29/35—36/41—42",
           "total": "82",
@@ -142,6 +174,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkNAir.gif"
+          ],
           "startup": "13",
           "active": "13—30",
           "total": "59",
@@ -157,6 +192,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkFAir.gif"
+          ],
           "startup": "14",
           "active": "14—18",
           "total": "41",
@@ -172,6 +210,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkBAir.gif"
+          ],
           "startup": "19",
           "active": "19—21(22—23)",
           "total": "54",
@@ -187,6 +228,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkUAir.gif"
+          ],
           "startup": "14/24",
           "active": "14—16/24—26",
           "total": "54",
@@ -202,6 +246,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkDAir.gif"
+          ],
           "startup": "14/23",
           "active": "14—15/23—25",
           "total": "60",
@@ -223,6 +270,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Back Slash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkBackSlashG.gif",
+            "hitboxes/shulk/ShulkBackSlashA.gif"
+          ],
           "startup": "22",
           "active": "Ground: 22/23-31/32-33 Air: 22/23—...1—2",
           "total": "71",
@@ -238,6 +289,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Air Slash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkAirSlash1.gif"
+          ],
           "startup": "10",
           "active": "10—11/12—14/15—17",
           "landingLag": "30",
@@ -250,6 +304,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Air Slash 2",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkAirSlash2.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "landingLag": "30",
@@ -260,6 +317,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Vision)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkVision.gif",
+            "hitboxes/shulk/ShulkVisionForward.gif",
+            "hitboxes/shulk/ShulkVisionBack.gif"
+          ],
           "startup": "7 (Start of Counter)",
           "total": "69",
           "notes": "Invulnerable on frame 6. Counters on 7-41 when fresh. No data on Activated/Reversal Vision at this time. Vision Forward hit has 79 total frames (active 37-39). Vision Back hit has 56 active frames and is active on 21-22."
@@ -267,6 +329,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "36",
@@ -275,6 +340,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "44",
@@ -283,6 +351,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "39",
@@ -291,6 +362,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkPummel.gif"
+          ],
           "startup": "1",
           "total": "15",
           "landingLag": "Total frames includes 13 frames of hitlag.",
@@ -299,6 +373,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkFThrow.gif"
+          ],
           "startup": "15/16",
           "total": "37",
           "damage": "3.0/5.0"
@@ -306,6 +383,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkBThrow.gif"
+          ],
           "startup": "18/20",
           "total": "45",
           "damage": "3.0/6.0"
@@ -313,6 +393,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkUThrow.gif"
+          ],
           "startup": "20/22",
           "total": "47",
           "damage": "3.0/4.0"
@@ -320,6 +403,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/shulk/ShulkDThrow.gif"
+          ],
           "startup": "23/25",
           "total": "43",
           "damage": "3.0/2.5"
@@ -386,7 +472,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/shulk/shulkGetupAttackU.gif",
+            "hitboxes/shulk/shulkGetupAttackD.gif",
+            "hitboxes/shulk/shulkTripAttack.gif",
+            "hitboxes/shulk/shulkLedgeAttack.gif"
+          ]
         }
       ]
     }

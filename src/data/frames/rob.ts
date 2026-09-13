@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBJab1.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "20",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "20",
@@ -34,6 +40,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBFTilt.gif",
+            "hitboxes/rob/ROBFTiltUp.gif",
+            "hitboxes/rob/ROBFTiltDown.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "33",
@@ -47,6 +58,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBUTilt.gif"
+          ],
           "startup": "4/6",
           "active": "4—5/6—7",
           "total": "26",
@@ -60,6 +74,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBDTilt.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "14",
@@ -72,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBDashAttack.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "31",
@@ -84,6 +104,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBFSmash.gif",
+            "hitboxes/rob/ROBFSmashUp.gif",
+            "hitboxes/rob/ROBFSmashDown.gif"
+          ],
           "startup": "16",
           "active": "16—17",
           "total": "54",
@@ -98,6 +123,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBUSmash.gif"
+          ],
           "startup": "10/14",
           "active": "10—11/14—18",
           "total": "48",
@@ -112,6 +140,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/rob/ROBDSmash.gif"
+          ],
           "startup": "7/11/16",
           "active": "7—8/11—12/16",
           "total": "45",
@@ -126,6 +157,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rob/ROBNAir.gif"
+          ],
           "startup": "14",
           "active": "14—32",
           "total": "47",
@@ -141,6 +175,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rob/ROBFAir.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "35",
@@ -155,6 +192,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rob/ROBBAir.gif"
+          ],
           "startup": "19",
           "active": "19—23/24—32",
           "total": "52",
@@ -170,6 +210,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rob/ROBUAir.gif"
+          ],
           "startup": "7/9/13/17/23",
           "active": "7/9/13/17/23—24",
           "total": "51",
@@ -185,6 +228,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/rob/ROBDAir.gif"
+          ],
           "startup": "20",
           "active": "20—21/20—26/22—26",
           "total": "69",
@@ -200,6 +246,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Robo Beam)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/rob/ROBRoboBeam.gif",
+            "hitboxes/rob/ROBRoboBeamMid.gif",
+            "hitboxes/rob/ROBRoboBeamMax.gif"
+          ],
           "startup": "25",
           "active": "25—27 (melee), 25—43 (small beam), 25—66 (large beam)",
           "total": "49",
@@ -213,6 +264,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Arm Rotor)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/rob/ROBArmRotorNew.gif"
+          ],
           "startup": "13...",
           "active": "13/14—21/22—37/44",
           "total": "85",
@@ -244,6 +298,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Gyro)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/rob/ROBGyroEnd.gif"
+          ],
           "startup": "3(+6), 9",
           "total": "36, 42",
           "damage": "3.6—10.7, 10.7",
@@ -256,6 +313,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rob/ROBGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "37",
@@ -264,6 +324,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rob/ROBDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "45",
@@ -272,6 +335,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rob/ROBPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "40",
@@ -280,6 +346,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rob/ROBPummel.gif"
+          ],
           "startup": "1",
           "total": "18",
           "damage": "1.3",
@@ -288,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rob/ROBFThrow.gif"
+          ],
           "startup": "11",
           "total": "23",
           "damage": "8.0"
@@ -295,6 +367,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rob/ROBBThrow.gif"
+          ],
           "startup": "12",
           "total": "26",
           "damage": "10.0"
@@ -302,6 +377,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rob/ROBUThrow.gif"
+          ],
           "startup": "58",
           "total": "81",
           "damage": "12.0"
@@ -309,6 +387,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/rob/ROBDThrow.gif"
+          ],
           "startup": "50",
           "total": "75",
           "damage": "5.0",
@@ -380,11 +461,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/R.O.B. Ledgehang.gif",
+            "ledgerolls/ROB.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/rob/robGetupAttackU.gif",
+            "hitboxes/rob/robGetupAttackD.gif",
+            "hitboxes/rob/robTripAttack.gif",
+            "hitboxes/rob/robLedgeAttack.gif"
+          ]
         }
       ]
     }

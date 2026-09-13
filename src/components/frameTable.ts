@@ -38,6 +38,11 @@ function zeile(move: FrameMove): Markup {
       <span class="frame__name">${move.name}</span>
       ${move.hitboxes ? html`<span class="frame__spalten">${move.hitboxes}</span>` : ''}
       ${move.notes ? html`<span class="frame__notiz">${move.notes}</span>` : ''}
+      ${move.hitboxImages?.length
+        ? html`<button class="frame__hitbox" type="button" data-hitbox="${move.hitboxImages.join('|')}" data-hitbox-move="${move.name}">
+            Hitbox ansehen
+          </button>`
+        : ''}
     </th>
     ${zelle(move.startup)} ${zelle(move.active)} ${zelle(move.total)} ${zelle(move.endlag)} ${zelle(move.landingLag)}
     ${zelle(move.damage)} ${zelle(move.advantage)}
@@ -190,6 +195,38 @@ export function wireFrames(root: HTMLElement, slug: string): () => void {
     );
     tabsVerdrahten();
   };
+
+  /*
+   * Klick auf „Hitbox ansehen" – erst hier entsteht überhaupt eine Anfrage an
+   * ultimateframedata.com. Delegiert am Abschnitt, weil die Tabellen zum
+   * Zeitpunkt des Verdrahtens noch gar nicht im DOM stehen; ein Listener je
+   * Knopf müsste nach jedem Nachladen erneut gesetzt werden.
+   *
+   * Der Knopf wird durch das Bild ersetzt: einmal geholt, bleibt es stehen.
+   */
+  const hitboxKlick = (e: Event): void => {
+    const knopf = (e.target as Element | null)?.closest<HTMLButtonElement>('[data-hitbox]');
+    if (!knopf || !host.contains(knopf)) return;
+    const pfade = (knopf.dataset.hitbox ?? '').split('|').filter(Boolean);
+    if (!pfade.length) return;
+    const name = knopf.dataset.hitboxMove ?? 'Move';
+
+    const figur = document.createElement('figure');
+    figur.className = 'frame__figur';
+    for (const pfad of pfade) {
+      const bild = document.createElement('img');
+      bild.src = `https://ultimateframedata.com/${pfad}`;
+      bild.alt = `Hitbox-Darstellung von ${name}`;
+      bild.loading = 'lazy';
+      figur.append(bild);
+    }
+    const beschriftung = document.createElement('figcaption');
+    beschriftung.textContent = 'Darstellung von ultimateframedata.com';
+    figur.append(beschriftung);
+    knopf.replaceWith(figur);
+  };
+  host.addEventListener('click', hitboxKlick);
+  aufraeumen.push(() => host.removeEventListener('click', hitboxKlick));
 
   // 400 px Vorlauf: Die Daten stehen bereit, bevor der Abschnitt sichtbar wird.
   const beobachter = new IntersectionObserver(

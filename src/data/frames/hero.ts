@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroJab1.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "25",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroJab2.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "25",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroJab3.gif"
+          ],
           "startup": "7",
           "active": "7—9",
           "total": "37",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroFTilt1.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "36",
@@ -60,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroFTilt2.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "47",
@@ -72,6 +87,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroUTilt.gif"
+          ],
           "startup": "8",
           "active": "8—9/10—11",
           "total": "41",
@@ -85,6 +103,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "32",
@@ -97,6 +118,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroDashAttack.gif"
+          ],
           "startup": "21",
           "active": "21/22—23",
           "total": "51",
@@ -110,6 +134,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroFSmash.gif"
+          ],
           "startup": "17",
           "active": "17—19",
           "total": "65",
@@ -123,6 +150,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroUSmash.gif"
+          ],
           "startup": "13",
           "active": "13—17",
           "total": "53",
@@ -137,6 +167,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/hero/HeroDSmash.gif"
+          ],
           "startup": "9/20",
           "active": "9—10/20—21",
           "total": "55",
@@ -151,6 +184,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/hero/HeroNAir.gif"
+          ],
           "startup": "8",
           "active": "8—16",
           "total": "45",
@@ -164,6 +200,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/hero/HeroFAir.gif"
+          ],
           "startup": "14",
           "active": "14—17",
           "total": "42",
@@ -178,6 +217,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/hero/HeroBAir.gif"
+          ],
           "startup": "18",
           "active": "18—20",
           "total": "47",
@@ -192,6 +234,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/hero/HeroUAir.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "32",
@@ -205,6 +250,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/hero/HeroDAir.gif"
+          ],
           "startup": "16",
           "active": "16—18/19—24",
           "total": "62",
@@ -233,6 +281,12 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, (Zap/Zapple/Kazap)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/HeroZapNoMana.gif",
+            "hitboxes/hero/HeroZap.gif",
+            "hitboxes/hero/HeroZapple.gif",
+            "hitboxes/hero/HeroKazap.gif"
+          ],
           "startup": "[9/13(+7)] [10/15(+16)] [43/50/72/75/81]",
           "active": "[9—13/1—8] [10—15/1—8] [43—49/50/72/75/81—83/1—8]",
           "total": "30/50/126",
@@ -275,6 +329,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Kaboom",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/Kaboom.gif"
+          ],
           "startup": "6",
           "active": "6—27/1—16/17—40",
           "total": "43",
@@ -303,6 +360,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Sizzle",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/Sizzle.gif"
+          ],
           "startup": "6",
           "active": "6—17/1—24",
           "total": "43",
@@ -342,6 +402,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Kamikazee",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/Kamikazee.gif"
+          ],
           "startup": "44/50",
           "active": "44—49/50",
           "total": "??",
@@ -353,6 +416,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Magic Burst",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/Magic Burst.gif"
+          ],
           "startup": "23/33/43/53/63/73/83/93/101",
           "active": "23/33/43/53/63/73/83/93/101",
           "total": "151",
@@ -415,6 +481,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Flame Slash",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/HeroFlameSlash.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "38",
@@ -428,6 +497,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Kacrackle Slash",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/HeroKacrackleSlash.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "35",
@@ -441,6 +513,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Hatchet Man",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/HeroHatchetMan.gif"
+          ],
           "startup": "37",
           "active": "37—40",
           "total": "88",
@@ -454,6 +529,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Metal Slash",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/hero/HeroMetalSlash.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "39",
@@ -473,6 +551,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/hero/HeroGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -481,6 +562,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/hero/HeroDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -489,6 +573,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/hero/HeroPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -496,11 +583,17 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Pummel",
-          "section": "throw"
+          "section": "throw",
+          "hitboxImages": [
+            "hitboxes/hero/HeroPummel.gif"
+          ]
         },
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/hero/HeroFThrow.gif"
+          ],
           "startup": "16",
           "total": "44",
           "damage": "7.0"
@@ -508,6 +601,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/hero/HeroBThrow.gif"
+          ],
           "startup": "18",
           "total": "43",
           "damage": "9.0"
@@ -515,6 +611,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/hero/HeroUThrow.gif"
+          ],
           "startup": "17",
           "total": "35",
           "damage": "7.0"
@@ -522,6 +621,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/hero/HeroDThrow.gif"
+          ],
           "startup": "19",
           "total": "38",
           "damage": "6.0"
@@ -580,7 +682,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/hero/heroGetupAttackU.gif",
+            "hitboxes/hero/heroGetupAttackD.gif",
+            "hitboxes/hero/heroTripAttack.gif",
+            "hitboxes/hero/heroLedgeAttack.gif"
+          ]
         }
       ]
     }

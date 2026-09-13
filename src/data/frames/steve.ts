@@ -9,6 +9,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab / Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/steve/SteveJabFTiltWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveJabFTiltGold.gif",
+            "hitboxes/steve/SteveJabFTiltPunch.gif"
+          ],
           "startup": "4 (Gold: 3)",
           "active": "4—6 (Gold: 3—5)",
           "total": "16 (Gold: 14)",
@@ -23,6 +28,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/steve/SteveUTiltWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveUTiltGold.gif",
+            "hitboxes/steve/SteveUTiltPunch.gif"
+          ],
           "startup": "6 (Gold: 4)",
           "active": "6—9 (Gold: 4—7)",
           "total": "16 (Gold: 12)",
@@ -37,6 +47,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/steve/SteveDTilt.gif",
+            "hitboxes/steve/SteveDTiltGravity.gif"
+          ],
           "startup": "12...",
           "active": "12—35(Rehit: 6)/36—39",
           "total": "52",
@@ -51,6 +65,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/steve/SteveDashAttackWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveDashAttackGold.gif",
+            "hitboxes/steve/SteveDashAttackPunch.gif"
+          ],
           "startup": "8 (Gold: 8)",
           "active": "8—10/11—13",
           "total": "31 (Gold: 28)",
@@ -64,6 +83,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/steve/SteveFSmashWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveFSmashGold.gif",
+            "hitboxes/steve/SteveFSmashPunch.gif"
+          ],
           "startup": "13 (Gold: 10)",
           "active": "13—15",
           "total": "43 (Gold: 35)",
@@ -78,6 +102,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/steve/SteveUSmash.gif"
+          ],
           "startup": "8...",
           "active": "8—9/8—48/49—50",
           "total": "76",
@@ -92,6 +119,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/steve/SteveDSmash.gif",
+            "hitboxes/steve/SteveDSmashGravity.gif"
+          ],
           "startup": "8...",
           "active": "8—11(Rehit: 2)/12—17 // 26—29(Rehit:2)/30—35",
           "total": "51",
@@ -106,6 +137,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/steve/SteveNAirWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveNAirGold.gif",
+            "hitboxes/steve/SteveNAirPunch.gif"
+          ],
           "startup": "4 (Gold: 3)",
           "active": "4—6 (Gold: 3—5)",
           "total": "17 (Gold: 15)",
@@ -118,6 +154,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/steve/SteveFAirPickaxeWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveFAirPickaxeGold.gif",
+            "hitboxes/steve/SteveFAirPunch.gif"
+          ],
           "startup": "8",
           "active": "8—9/10—12 (Punch) // 8/9/10—12 (All Pickaxes)",
           "total": "31/28",
@@ -132,6 +173,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Sword Forward Air (Short Hop Macro FAir)",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/steve/SteveFAirSwordWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveFAirSwordGold.gif",
+            "hitboxes/steve/SteveFAirSwordPunch.gif"
+          ],
           "startup": "4 (Gold: 3)",
           "active": "4—6 (Gold: 3—5)",
           "total": "16 (Gold: 14)",
@@ -147,6 +193,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/steve/SteveBAirPickaxeWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveBAirPickaxeGold.gif",
+            "hitboxes/steve/SteveBAirPunch.gif"
+          ],
           "startup": "12",
           "active": "12—13/14—16",
           "total": "47/41",
@@ -162,6 +213,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Sword Back Air (Short Hop Macro BAir)",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/steve/SteveBAirSwordWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveBAirSwordGold.gif",
+            "hitboxes/steve/SteveBAirSwordPunch.gif"
+          ],
           "startup": "4 (Gold: 3)",
           "active": "4—6 (Gold: 3—5)",
           "total": "16 (Gold: 14)",
@@ -177,6 +233,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/steve/SteveUAirWoodStoneIronDiamond.gif",
+            "hitboxes/steve/SteveUAirGold.gif",
+            "hitboxes/steve/SteveUAirPunch.gif"
+          ],
           "startup": "4 (Gold: 4)",
           "active": "4—8",
           "total": "13 (Gold: 11)",
@@ -222,6 +283,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Minecart)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/steve/SteveMinecartFree.gif"
+          ],
           "startup": "18",
           "active": "18—...",
           "notes": "If Steve lacks the materials, he has a 15 frame failure animation instead. Damage depends on current speed. If traveling too slow, there's no hitbox. For Bailout, the jumping out animation is 5 frames before Steve can act. On frame 6 is when the cart can grab opponents. Armor notes: the minecart has 8.4HP and Steve himself has 60 knockback armor. The part of the armor that's hitpoint based can't drop to 0 during the first 17 frames."
@@ -229,17 +293,27 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Elytra)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/steve/SteveElytra.gif"
+          ],
           "startup": "28 (Ground) / 23 (Air)",
           "active": "28—37/38—44 (Ground) // 23—32/33—39 (Air)"
         },
         {
           "name": "Down B (TNT)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/steve/SteveTNTPressurePlate.gif",
+            "hitboxes/steve/SteveTNT.gif"
+          ],
           "damage": "28.0/14.0"
         },
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/steve/SteveGrab.gif"
+          ],
           "startup": "13",
           "active": "13—27",
           "total": "56",
@@ -248,6 +322,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/steve/SteveDashGrab.gif"
+          ],
           "startup": "16",
           "active": "16—30",
           "total": "62",
@@ -256,6 +333,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/steve/StevePivotGrab.gif"
+          ],
           "startup": "17",
           "active": "17—31",
           "total": "59",
@@ -264,6 +344,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/steve/StevePummel.gif"
+          ],
           "startup": "1",
           "total": "20",
           "damage": "1.5",
@@ -272,6 +355,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/steve/SteveFThrow.gif"
+          ],
           "startup": "13(14)",
           "total": "49",
           "damage": "3.0/6.0",
@@ -280,6 +366,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/steve/SteveBThrow.gif"
+          ],
           "startup": "24",
           "total": "34",
           "damage": "10.0"
@@ -287,6 +376,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/steve/SteveUThrow.gif"
+          ],
           "startup": "18(19)",
           "total": "47",
           "damage": "3.0/8.0",
@@ -295,6 +387,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/steve/SteveDThrowAnvil.gif",
+            "hitboxes/steve/SteveDThrow.gif"
+          ],
           "startup": "15(20)",
           "total": "29",
           "damage": "7.0/8.0 (anvil) // (8.0 no anvil)",
@@ -360,11 +456,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/SteveLedgeHang.gif",
+            "ledgerolls/Steve.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/steve/steveGetupAttackU.gif",
+            "hitboxes/steve/steveGetupAttackD.gif",
+            "hitboxes/steve/steveTripAttack.gif",
+            "hitboxes/steve/steveLedgeAttack.gif"
+          ]
         }
       ]
     }

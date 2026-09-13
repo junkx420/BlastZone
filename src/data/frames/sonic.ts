@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicJab1.gif"
+          ],
           "startup": "3",
           "active": "3",
           "total": "19",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicJab2.gif"
+          ],
           "startup": "2",
           "active": "2",
           "total": "21",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicJab3.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "35",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicFTilt.gif",
+            "hitboxes/sonic/SonicFTiltUp.gif",
+            "hitboxes/sonic/SonicFTiltDown.gif"
+          ],
           "startup": "6/8",
           "active": "6/8—11",
           "total": "35",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicUTilt.gif"
+          ],
           "startup": "6(7)/13",
           "active": "6—8(7—8)/13—14",
           "total": "35",
@@ -72,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicDTilt.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "27",
@@ -84,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicDashAttack.gif"
+          ],
           "startup": "5",
           "active": "5—8(9—20)",
           "total": "49",
@@ -97,6 +120,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicFSmash.gif",
+            "hitboxes/sonic/SonicFSmashUp.gif",
+            "hitboxes/sonic/SonicFSmashDown.gif"
+          ],
           "startup": "18",
           "active": "18—20",
           "total": "47",
@@ -110,6 +138,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicUSmash.gif"
+          ],
           "startup": "14...",
           "active": "14/17/19/21/23/25/27/29-30",
           "total": "61",
@@ -124,6 +155,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicDSmash.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "54",
@@ -137,6 +171,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicNAir.gif"
+          ],
           "startup": "6",
           "active": "6—9(10—19/20—38)",
           "total": "49",
@@ -152,6 +189,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicFAir.gif"
+          ],
           "startup": "5/7/9/11/13/15",
           "active": "5/7/9/11/13/15",
           "total": "45",
@@ -167,6 +207,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicBAir.gif"
+          ],
           "startup": "13",
           "active": "13—14(15—19)",
           "total": "37",
@@ -182,6 +225,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicUAir.gif"
+          ],
           "startup": "5/14",
           "active": "5—7/14—15",
           "total": "39",
@@ -196,6 +242,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicDAir.gif"
+          ],
           "startup": "17",
           "active": "17—19/20—32",
           "total": "45",
@@ -221,6 +270,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Spin Dash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicSpinDashAerial.gif"
+          ],
           "startup": "17",
           "damage": "5.0/7.0—10.9",
           "advantage": "+6 (hop) +8 (grounded, no charge) +11 (grounded, full charge) +11 (aerial, any)",
@@ -231,6 +283,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Spin Dash, Jump",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicSpinDashJump.gif"
+          ],
           "startup": "3",
           "advantage": "+4",
           "notes": "Cancelable into: -Up/Neutral special -All aerials -Double jump"
@@ -262,6 +317,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Spin Charge, Jump",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicSpinChargeJump.gif"
+          ],
           "startup": "3",
           "total": "10",
           "damage": "3.0/6.0",
@@ -273,6 +331,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Spin Charge, Aerial",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicSpinChargeAerial.gif"
+          ],
           "startup": "3",
           "total": "10",
           "damage": "3.0/6.0",
@@ -284,6 +345,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "37",
@@ -292,6 +356,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "47",
@@ -300,6 +367,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "39",
@@ -308,6 +378,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "landingLag": "Total frames includes 13 frames of hitlag.",
@@ -316,6 +389,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicFThrow.gif"
+          ],
           "startup": "10/11",
           "total": "37",
           "damage": "1.0/6.0"
@@ -323,6 +399,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicBThrow.gif"
+          ],
           "startup": "43",
           "total": "66",
           "damage": "7.0"
@@ -330,6 +409,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicUThrow.gif"
+          ],
           "startup": "22/23",
           "total": "42",
           "damage": "1.0/5.0"
@@ -337,6 +419,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/sonic/SonicDThrow.gif"
+          ],
           "startup": "18/26/34/42",
           "total": "74",
           "damage": "1.0/5.0"
@@ -407,11 +492,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Sonic Ledgehang.gif",
+            "ledgerolls/Sonic.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/sonic/sonicGetupAttackU.gif",
+            "hitboxes/sonic/sonicGetupAttackD.gif",
+            "hitboxes/sonic/sonicTripAttack.gif",
+            "hitboxes/sonic/sonicLedgeAttack.gif"
+          ]
         }
       ]
     }

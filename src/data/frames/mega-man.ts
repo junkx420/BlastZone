@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManJab.gif"
+          ],
           "startup": "7/19/31",
           "active": "7 [7-8/9-12/13-36] / 19 [19-20/11-24/25-42] / 31 [31-32/33-36/37-54]",
           "total": "35/47/59",
@@ -35,6 +38,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManUTilt.gif"
+          ],
           "startup": "6",
           "active": "6(7—9/10—16)",
           "total": "70/52/54",
@@ -49,6 +55,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—8(9—21)",
           "total": "46",
@@ -63,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManDashAttack.gif"
+          ],
           "startup": "7/10/13/16/19/22/25/35",
           "active": "7/10/13/16/19/22/25/35",
           "total": "59",
@@ -76,6 +88,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManFSmashMinimum.gif",
+            "hitboxes/mega_man/MegaManFSmashMaximum.gif"
+          ],
           "startup": "19",
           "active": "19—42(79—108/199—222)",
           "total": "54",
@@ -88,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManUSmash.gif"
+          ],
           "startup": "8/11/15/19/23/27/31",
           "active": "8/11—12/15—16/19—20/23—24/27—28/31",
           "total": "68",
@@ -102,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManDSmash.gif"
+          ],
           "startup": "17",
           "active": "17(18—19/20—33)",
           "total": "78",
@@ -115,6 +137,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManNAir.gif"
+          ],
           "startup": "7/19/31",
           "active": "7—9 [7-8/9-12/13-36] / 19—21 [19-20/11-24/25-42] / 31—34 [31-32/33-36/37-54]",
           "total": "33/45/57",
@@ -128,6 +153,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManFAir.gif"
+          ],
           "startup": "9",
           "active": "9—11(12—17)",
           "total": "40",
@@ -143,6 +171,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManBAir.gif"
+          ],
           "startup": "4/7/10",
           "active": "4—5/7—8/10—11",
           "total": "44",
@@ -157,6 +188,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManUAir.gif"
+          ],
           "startup": "11...",
           "active": "11—17/18—31/32—54/55—61 (rehit: 3/5/5/5)",
           "total": "53",
@@ -170,6 +204,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManDAir.gif"
+          ],
           "startup": "23",
           "active": "23—25(26—35)",
           "total": "64",
@@ -196,6 +233,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Crash Bomber)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManCrashBomberExplosion.gif"
+          ],
           "startup": "19",
           "active": "19—69",
           "total": "44",
@@ -214,6 +254,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Leaf Shield)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManLeafShield.gif"
+          ],
           "startup": "9—**",
           "active": "9—**",
           "total": "35",
@@ -225,6 +268,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Leaf Shield, Throw",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManLeafShieldFly.gif"
+          ],
           "total": "55",
           "damage": "3.8",
           "shieldLag": "5",
@@ -234,6 +280,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "37",
@@ -242,6 +291,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "45",
@@ -250,6 +302,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "40",
@@ -258,6 +313,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -266,6 +324,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManFThrow.gif"
+          ],
           "startup": "10",
           "total": "32",
           "damage": "8.0"
@@ -273,6 +334,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManBThrow.gif"
+          ],
           "startup": "18",
           "total": "43",
           "damage": "11.0"
@@ -280,6 +344,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManUThrow.gif"
+          ],
           "startup": "12",
           "total": "39",
           "damage": "7.0"
@@ -287,6 +354,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mega_man/MegaManDThrow.gif"
+          ],
           "startup": "17",
           "total": "39",
           "damage": "4.5"
@@ -353,7 +423,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/mega_man/megamanGetupAttackU.gif",
+            "hitboxes/mega_man/megamanGetupAttackD.gif",
+            "hitboxes/mega_man/megamanTripAttack.gif",
+            "hitboxes/mega_man/megamanLedgeAttack.gif"
+          ]
         }
       ]
     }

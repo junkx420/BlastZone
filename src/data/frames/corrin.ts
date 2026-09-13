@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "27",
@@ -23,6 +26,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "29",
@@ -36,6 +42,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinJab3.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "30",
@@ -49,6 +58,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinJabRapid.gif"
+          ],
           "startup": "12/16/20...",
           "damage": "0.5",
           "shieldLag": "4"
@@ -56,6 +68,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinJabRapidEnd.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "39",
@@ -68,6 +83,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "34",
@@ -80,6 +98,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8(9—16)",
           "total": "35",
@@ -92,6 +113,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "30",
@@ -104,6 +128,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDashAttack.gif"
+          ],
           "startup": "12/14/16/18/20/23",
           "active": "12/14/16/18/20/23",
           "total": "49",
@@ -117,6 +144,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinFSmashCharge.gif"
+          ],
           "startup": "12/17",
           "active": "12—**/17—18",
           "total": "56",
@@ -131,6 +161,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinUSmash.gif"
+          ],
           "startup": "13",
           "active": "13—17",
           "total": "51",
@@ -145,6 +178,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDSmash.gif"
+          ],
           "startup": "13",
           "active": "13—15",
           "total": "48",
@@ -159,6 +195,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinNAir.gif"
+          ],
           "startup": "6",
           "active": "6—7(8—19)",
           "total": "46",
@@ -174,6 +213,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinFAir.gif"
+          ],
           "startup": "9",
           "active": "9—12",
           "total": "35",
@@ -188,6 +230,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinBAir.gif"
+          ],
           "startup": "13",
           "active": "13(14—16)",
           "total": "41",
@@ -203,6 +248,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinUAir.gif"
+          ],
           "startup": "7",
           "active": "7—12",
           "total": "37",
@@ -217,6 +265,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDAir.gif",
+            "hitboxes/corrin/CorrinDAirLanding.gif"
+          ],
           "startup": "12...",
           "active": "12—28(rehit: 2)/1—5",
           "total": "51",
@@ -289,6 +341,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dragon Lunge, Pin Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDragonLungeKick.gif"
+          ],
           "startup": "10",
           "active": "10—17(18—24)",
           "total": "56/45",
@@ -304,6 +359,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dragon Lunge, Back Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDragonLungeKickBack.gif"
+          ],
           "startup": "6",
           "active": "6/14—21(22—28)",
           "total": "60/45",
@@ -319,6 +377,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Dragon Ascent)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDragonAscent.gif"
+          ],
           "startup": "18...",
           "active": "18—19/20—28(rehit: 2)/29—30",
           "landingLag": "30",
@@ -331,6 +392,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Counter Surge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinCounterSurge.gif"
+          ],
           "startup": "7 (Start of Counter)",
           "active": "7—26 (counter)",
           "total": "66",
@@ -339,6 +403,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Counter Surge, Attack",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinCounterSurgeHit.gif"
+          ],
           "startup": "27",
           "active": "27—31",
           "total": "66",
@@ -348,6 +415,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "36",
@@ -356,6 +426,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDashGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "44",
@@ -364,6 +437,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinPivotGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "39",
@@ -372,11 +448,17 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinPummel.gif"
+          ],
           "damage": "1.3"
         },
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinFThrow.gif"
+          ],
           "startup": "14/15",
           "total": "34",
           "damage": "5.0/2.0",
@@ -385,6 +467,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinBThrow.gif"
+          ],
           "startup": "12/13",
           "total": "37",
           "damage": "6.5/2.0",
@@ -393,6 +478,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinUThrow.gif"
+          ],
           "startup": "12/13",
           "total": "51",
           "damage": "6.5/3.0",
@@ -401,6 +489,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/corrin/CorrinDThrow.gif"
+          ],
           "startup": "26/27",
           "total": "54",
           "damage": "6.5/3.0",
@@ -468,7 +559,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/corrin/corrinGetupAttackU.gif",
+            "hitboxes/corrin/corrinGetupAttackD.gif",
+            "hitboxes/corrin/corrinTripAttack.gif",
+            "hitboxes/corrin/corrinLedgeAttack.gif"
+          ]
         }
       ]
     }

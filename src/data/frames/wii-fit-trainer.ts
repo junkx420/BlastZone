@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerJab1.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "25",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerJab2.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "29",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerJab3.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "39",
@@ -48,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerFTilt.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "32",
@@ -60,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerUTilt.gif"
+          ],
           "startup": "5",
           "active": "5—12",
           "total": "29",
@@ -73,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—12",
           "total": "38",
@@ -85,6 +103,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerDashAttack.gif"
+          ],
           "startup": "6",
           "active": "6—8(9—13)",
           "total": "38",
@@ -98,6 +119,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerFSmash.gif"
+          ],
           "startup": "16",
           "active": "16—19",
           "total": "56",
@@ -111,6 +135,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerUSmash.gif"
+          ],
           "startup": "11",
           "active": "11—12(13—19)",
           "total": "54",
@@ -125,6 +152,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerDSmash.gif"
+          ],
           "startup": "18",
           "active": "18—21",
           "total": "46",
@@ -138,6 +168,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerNAir.gif"
+          ],
           "startup": "9/12",
           "active": "9—11/12—13",
           "total": "34",
@@ -152,6 +185,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerFAir.gif"
+          ],
           "startup": "9",
           "active": "9(10/11—15)",
           "total": "35",
@@ -167,6 +203,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerBAir.gif"
+          ],
           "startup": "5",
           "active": "5(6—11)",
           "total": "48",
@@ -182,6 +221,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerUAir.gif"
+          ],
           "startup": "6",
           "active": "6—10",
           "total": "39",
@@ -196,6 +238,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerDAir.gif"
+          ],
           "startup": "15",
           "active": "15—17(18—20)",
           "total": "39",
@@ -210,6 +255,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Sun Salutation)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerSunSalutationNoCharge.gif"
+          ],
           "startup": "4(+17)",
           "active": "21—90",
           "total": "39",
@@ -223,6 +271,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Sun Salutation, Full Charge",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerSunSalutationMaxCharge.gif"
+          ],
           "startup": "21",
           "active": "21—90",
           "total": "56",
@@ -235,6 +286,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Header)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerHeader.gif"
+          ],
           "startup": "15—31",
           "total": "40—56",
           "landingLag": "15",
@@ -248,6 +302,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Super Hoop)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerSuperHoop.gif"
+          ],
           "startup": "6/23/40",
           "total": "30",
           "damage": "5.0",
@@ -263,6 +320,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -271,6 +331,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -279,6 +342,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -287,6 +353,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -295,6 +364,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerFThrow.gif"
+          ],
           "startup": "36/38",
           "total": "49",
           "damage": "3.0/7.0"
@@ -302,6 +374,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerBThrow.gif"
+          ],
           "startup": "19/21",
           "total": "49",
           "damage": "3.0/6.0"
@@ -309,6 +384,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerUThrow.gif"
+          ],
           "startup": "28",
           "total": "49",
           "damage": "8.0"
@@ -316,6 +394,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/WiiFitTrainerDThrow.gif"
+          ],
           "startup": "24",
           "total": "49",
           "damage": "7.0"
@@ -386,11 +467,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/Wii Fit Trainer Ledgehang.gif",
+            "ledgerolls/WiiFitTrainer.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/wii_fit_trainer/wiifittrainerGetupAttackU.gif",
+            "hitboxes/wii_fit_trainer/wiifittrainerGetupAttackD.gif",
+            "hitboxes/wii_fit_trainer/wiifittrainerTripAttack.gif",
+            "hitboxes/wii_fit_trainer/wiifittrainerLedgeAttack.gif"
+          ]
         }
       ]
     }

@@ -105,9 +105,15 @@ function seiteAuswerten(html) {
     for (const block of bloecke) {
       const name = feld(block, 'movename');
       if (!name) continue;
+      // Hitbox-Bilder: UFD haengt sie als <a class="hitboximg" data-featherlight="..."> an
+      // den Move. Gespeichert wird nur der relative Pfad, nichts wird heruntergeladen –
+      // die Bilder sind Erzeugnisse von UFD und gehoeren nicht ins Repository.
+      const bilder = [...block.matchAll(/data-featherlight="([^"]+\.gif)"/g)].map((m) => m[1]);
+
       const move = {
         name,
         section,
+        hitboxImages: bilder.length ? [...new Set(bilder)] : undefined,
         startup: feld(block, 'startup'),
         active: feld(block, 'activeframes'),
         total: feld(block, 'totalframes'),

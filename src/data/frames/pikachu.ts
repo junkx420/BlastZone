@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuJab.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "17",
@@ -22,6 +25,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuFTilt.gif",
+            "hitboxes/pikachu/PikachuFTiltUp.gif",
+            "hitboxes/pikachu/PikachuFTiltDown.gif"
+          ],
           "startup": "6",
           "active": "6—8",
           "total": "29",
@@ -35,6 +43,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuUTilt.gif"
+          ],
           "startup": "7",
           "active": "7—13",
           "total": "26",
@@ -47,6 +58,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuDTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "18",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuDashAttack.gif"
+          ],
           "startup": "6",
           "active": "6—8(9—12)",
           "total": "35",
@@ -72,6 +89,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuFSmash.gif"
+          ],
           "startup": "15",
           "active": "15—16/17—19/20—29",
           "total": "53",
@@ -86,6 +106,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuUSmash.gif"
+          ],
           "startup": "10",
           "active": "10—12/13—14/15—17",
           "total": "44",
@@ -100,6 +123,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuDSmash.gif"
+          ],
           "startup": "8/11/14/17/20/23",
           "active": "8—9/11—12/14—15/17—18/20—21",
           "total": "65",
@@ -114,6 +140,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuNAir.gif"
+          ],
           "startup": "3/9/15/21",
           "active": "3—6/9—12/15—18/21—22",
           "total": "38",
@@ -129,6 +158,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuFAir.gif"
+          ],
           "startup": "11...",
           "active": "11—25/27 (rehit: 3)",
           "total": "41",
@@ -144,6 +176,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuBAir.gif",
+            "hitboxes/pikachu/PikachuBAirLanding.gif"
+          ],
           "startup": "4/8/12/16/20/24",
           "active": "4—5/8—9/12—13/16—17/20—21/24—25/1—2",
           "total": "43",
@@ -159,6 +195,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuUAir.gif"
+          ],
           "startup": "4",
           "active": "4—6/7—8",
           "total": "26",
@@ -174,6 +213,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuDAir.gif",
+            "hitboxes/pikachu/PikachuDAirLanding.gif"
+          ],
           "startup": "14",
           "active": "14—15/16—26/1—2",
           "total": "47",
@@ -189,6 +232,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Thunderjolt)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuThunderjoltAerial.gif"
+          ],
           "startup": "19",
           "active": "19—52(53—85/86—114)",
           "total": "51",
@@ -201,6 +247,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Skull Bash)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuSkullBash.gif"
+          ],
           "startup": "18/18",
           "active": "18—52",
           "total": "96/74",
@@ -215,6 +264,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Quick Attack)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuQuickAttack.gif"
+          ],
           "startup": "15/29",
           "active": "15—19/29—33",
           "total": "52/66",
@@ -230,6 +282,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Thunder)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuThunder.gif",
+            "hitboxes/pikachu/PikachuThunderHit.gif"
+          ],
           "startup": "13/**",
           "active": "13—15(16—85): Early // 21—23(24—93): Late // 1-2: Contact",
           "total": "86/74",
@@ -244,6 +300,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "36",
@@ -252,6 +311,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "44",
@@ -260,6 +322,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "39",
@@ -268,6 +333,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuPummel.gif"
+          ],
           "startup": "1",
           "total": "16",
           "damage": "1.0",
@@ -276,6 +344,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuFThrow.gif"
+          ],
           "startup": "11/15/19/23/30",
           "total": "43",
           "damage": "2.0/2.0"
@@ -283,6 +354,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuBThrow.gif"
+          ],
           "startup": "26",
           "total": "49",
           "damage": "9.0"
@@ -290,6 +364,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuUThrow.gif"
+          ],
           "startup": "14/16",
           "total": "35",
           "damage": "3.0/5.0"
@@ -297,6 +374,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/pikachu/PikachuDThrow.gif"
+          ],
           "startup": "29",
           "total": "51",
           "damage": "5.0"
@@ -363,7 +443,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/pikachu/pikachuGetupAttackU.gif",
+            "hitboxes/pikachu/pikachuGetupAttackD.gif",
+            "hitboxes/pikachu/pikachuTripAttack.gif",
+            "hitboxes/pikachu/pikachuLedgeAttack.gif"
+          ]
         }
       ]
     }

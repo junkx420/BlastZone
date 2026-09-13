@@ -10,6 +10,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraJab1.gif"
+          ],
           "startup": "3",
           "active": "3—5",
           "total": "21",
@@ -23,6 +26,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraJab2.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "31",
@@ -36,6 +42,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraJab3.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "35",
@@ -48,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraJabRapid.gif"
+          ],
           "startup": "9/13/17...",
           "active": "9/13/17...",
           "damage": "0.6",
@@ -57,6 +69,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraJabRapidFinisher.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "37",
@@ -69,6 +84,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraFTilt.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "37",
@@ -82,6 +100,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraUTilt.gif",
+            "hitboxes/Pyra/PyraUTiltInterpolated.gif"
+          ],
           "startup": "11",
           "active": "11—16",
           "total": "39",
@@ -94,6 +116,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraDTilt.gif"
+          ],
           "startup": "9",
           "active": "9—11",
           "total": "26",
@@ -107,6 +132,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraDashAttack.gif"
+          ],
           "startup": "17",
           "active": "17—18",
           "total": "52",
@@ -120,6 +148,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraFSmash.gif",
+            "hitboxes/Pyra/PyraFSmashInterpolated.gif"
+          ],
           "startup": "20",
           "active": "20—23",
           "total": "67",
@@ -133,6 +165,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraUSmash.gif"
+          ],
           "startup": "15/17",
           "active": "15—16/17—23/24—33",
           "total": "66",
@@ -147,6 +182,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraDSmash.gif"
+          ],
           "startup": "12/18",
           "active": "12—14/18—20",
           "total": "47",
@@ -161,6 +199,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraNAir.gif"
+          ],
           "startup": "11",
           "active": "11—16(17—22)",
           "total": "56",
@@ -176,6 +217,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraFAir.gif"
+          ],
           "startup": "11",
           "active": "11—14",
           "total": "48",
@@ -190,6 +234,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraBAir.gif"
+          ],
           "startup": "16",
           "active": "16—17(18)",
           "total": "49",
@@ -205,6 +252,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraUAir.gif"
+          ],
           "startup": "13",
           "active": "13—17",
           "total": "57",
@@ -219,6 +269,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraDAir.gif",
+            "hitboxes/Pyra/PyraDAirInerpolated.gif"
+          ],
           "startup": "17",
           "active": "17/18/19—20",
           "total": "65",
@@ -234,6 +288,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Flame Nova)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraFlameNova1.gif",
+            "hitboxes/Pyra/PyraFlameNova2.gif",
+            "hitboxes/Pyra/PyraFlameNova3.gif"
+          ],
           "startup": "13/27/33—56/68/78/87/94",
           "active": "... FN1) 4—6/12—14/18—20/26—32 FN2) 7—9/14—16/20—22/25—27/30—32/38—44 FN3) 7—9/13—15/19—21/24—26/29—31/34—36/38—40/45—52",
           "total": "58—117 FN1) 49 from release FN2) 61 from release FN3) 69 from release",
@@ -247,6 +306,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Blazing End)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraBlazingEndStart.gif",
+            "hitboxes/Pyra/PyraBlazingEnd.gif"
+          ],
           "startup": "14/16...74",
           "total": "55 ground, 50 air",
           "damage": "8.0/1.5/0.8/10.0",
@@ -258,6 +321,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Prominence Revolt)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraProminenceRevolt.gif"
+          ],
           "startup": "13/41",
           "active": "13—15/41—...",
           "landingLag": "54",
@@ -271,12 +337,18 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Swap to Mythra)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraSwapToMythra.gif"
+          ],
           "total": "32",
           "notes": "Invulnerable on frame 6-18."
         },
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraGrab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "37",
@@ -285,6 +357,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraDashGrab.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "44",
@@ -293,6 +368,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraPivotGrab.gif"
+          ],
           "startup": "13",
           "active": "13—14",
           "total": "39",
@@ -301,6 +379,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.5",
@@ -309,6 +390,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraFThrow.gif"
+          ],
           "startup": "10/11",
           "total": "27",
           "damage": "3.5/5.5"
@@ -316,6 +400,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraBThrow.gif"
+          ],
           "startup": "15/17",
           "total": "35",
           "damage": "3.0/4.0"
@@ -323,6 +410,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraUThrow.gif"
+          ],
           "startup": "9",
           "total": "29",
           "damage": "5.0"
@@ -330,6 +420,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Pyra/PyraDThrow.gif"
+          ],
           "startup": "20/28",
           "total": "48",
           "damage": "4.0/4.0"
@@ -394,11 +487,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/PyraLedgehang.gif",
+            "ledgerolls/Pyra.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/pyra/pyraGetupAttackU.gif",
+            "hitboxes/pyra/pyraGetupAttackD.gif",
+            "hitboxes/pyra/pyraTripAttack.gif",
+            "hitboxes/pyra/pyraLedgeAttack.gif"
+          ]
         }
       ]
     },
@@ -408,6 +511,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraJab1.gif"
+          ],
           "startup": "2",
           "active": "2—4",
           "total": "20",
@@ -421,6 +527,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraJab2.gif"
+          ],
           "startup": "4",
           "active": "4—5",
           "total": "30",
@@ -434,6 +543,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraJab3.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "29",
@@ -446,6 +558,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraJabRapid.gif"
+          ],
           "startup": "8/12/16...",
           "active": "8/12/16...",
           "damage": "0.4",
@@ -455,6 +570,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Rapid Jab Finisher",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraJabRapidFinisher.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "37",
@@ -467,6 +585,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraFTilt.gif"
+          ],
           "startup": "8",
           "active": "8—9",
           "total": "25",
@@ -479,6 +600,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraUTilt.gif",
+            "hitboxes/Mythra/MythraUTiltInterpolated.gif"
+          ],
           "startup": "7",
           "active": "7—12",
           "total": "26",
@@ -491,6 +616,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "20",
@@ -504,6 +632,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraDashAttack.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "39",
@@ -517,6 +648,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraFSmash.gif",
+            "hitboxes/Mythra/MythraFSmashInterpolated.gif"
+          ],
           "startup": "14",
           "active": "14—17",
           "total": "49",
@@ -530,6 +665,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraUSmash.gif"
+          ],
           "startup": "9/12/17/22/26",
           "active": "9—10/11—24(rehit: 5)/26—27",
           "total": "52",
@@ -544,6 +682,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraDSmash.gif"
+          ],
           "startup": "8/14",
           "active": "8—10/14—16",
           "total": "44",
@@ -558,6 +699,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraNAir.gif",
+            "hitboxes/Mythra/MythraNAirLanding.gif"
+          ],
           "startup": "8",
           "active": "8—13(rehit: 3)(14—19)",
           "total": "50",
@@ -573,6 +718,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraFAir.gif"
+          ],
           "startup": "8",
           "active": "8—11",
           "total": "37",
@@ -587,6 +735,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraBAir.gif"
+          ],
           "startup": "10",
           "active": "10—11(12)",
           "total": "33",
@@ -602,6 +753,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraUAir.gif"
+          ],
           "startup": "9",
           "active": "9—13",
           "total": "30",
@@ -616,6 +770,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraDAir.gif",
+            "hitboxes/Mythra/MythraDAirInterpolated.gif"
+          ],
           "startup": "13",
           "active": "13—15(16)",
           "total": "40",
@@ -631,6 +789,13 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Lightning Buster)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraLightningBusterCharge.gif",
+            "hitboxes/Mythra/MythraLightningBuster.gif",
+            "hitboxes/Mythra/MythraLightningBusterMax.gif",
+            "hitboxes/Mythra/MythraLightningBusterAerial.gif",
+            "hitboxes/Mythra/MythraLightningBusterAerial2.gif"
+          ],
           "startup": "9/20/30/40—69/80/90/99/109",
           "total": "67—132",
           "damage": "2.0/6.0/4.0/17.0",
@@ -643,6 +808,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Photon Edge)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraPhotonEdge.gif",
+            "hitboxes/Mythra/MythraPhotonEdge2.gif",
+            "hitboxes/Mythra/MythraPhotonEdgeMod.gif"
+          ],
           "startup": "18/25/32/39/46/54",
           "active": "18—19/25/32/39/46/54",
           "total": "100",
@@ -658,6 +828,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Ray of Punishment)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraUpSpecial.gif",
+            "hitboxes/Mythra/MythraRayOfPunishment.gif"
+          ],
           "startup": "10/40",
           "active": "10—12/40—56",
           "landingLag": "15",
@@ -670,6 +844,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Chroma Dust",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraUpSpecial.gif",
+            "hitboxes/Mythra/MythraChromaDustInterpolated.gif"
+          ],
           "startup": "10...",
           "active": "10—12/41-56/42-57/43-58/44-59/45-60",
           "landingLag": "20",
@@ -681,12 +859,18 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Swap to Pyra)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraSwapToPyra.gif"
+          ],
           "total": "32",
           "notes": "Invulnerable on frame 6-18."
         },
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "36",
@@ -695,6 +879,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—12",
           "total": "43",
@@ -703,6 +890,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—13",
           "total": "38",
@@ -711,6 +901,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.5",
@@ -719,6 +912,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraFThrow.gif"
+          ],
           "startup": "10/11",
           "total": "27",
           "damage": "3.0/2.5"
@@ -726,6 +922,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraBThrow.gif"
+          ],
           "startup": "15/17",
           "total": "35",
           "damage": "3.0/2.5"
@@ -733,6 +932,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraUThrow.gif"
+          ],
           "startup": "9",
           "total": "29",
           "damage": "4.0"
@@ -740,6 +942,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/Mythra/MythraDThrow.gif"
+          ],
           "startup": "20/28",
           "total": "48",
           "damage": "4.0/3.0"
@@ -804,11 +1009,21 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Ledge Hang",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "ledgehangs/MythraLedgehang.gif",
+            "ledgerolls/Mythra.gif"
+          ]
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/mythra/mythraGetupAttackU.gif",
+            "hitboxes/mythra/mythraGetupAttackD.gif",
+            "hitboxes/mythra/mythraTripAttack.gif",
+            "hitboxes/mythra/mythraLedgeAttack.gif"
+          ]
         }
       ]
     }

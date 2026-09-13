@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioJab1.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "19",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioJab2.gif"
+          ],
           "startup": "2",
           "active": "2—3",
           "total": "21",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioJab3.gif"
+          ],
           "startup": "3",
           "active": "3—4",
           "total": "33",
@@ -47,6 +56,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioFTilt.gif",
+            "hitboxes/dr_mario/DrMarioFTiltUp.gif",
+            "hitboxes/dr_mario/DrMarioFTiltDown.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "25",
@@ -59,6 +73,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioUTilt.gif"
+          ],
           "startup": "5",
           "active": "5—11",
           "total": "29",
@@ -71,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioDTilt.gif"
+          ],
           "startup": "5",
           "active": "5—7",
           "total": "27",
@@ -84,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioDashAttack.gif"
+          ],
           "startup": "6",
           "active": "6—9/10—25",
           "total": "37",
@@ -97,6 +120,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioFSmash.gif",
+            "hitboxes/dr_mario/DrMarioFSmashUp.gif",
+            "hitboxes/dr_mario/DrMarioFSmashDown.gif"
+          ],
           "startup": "15",
           "active": "15—17",
           "total": "47",
@@ -111,6 +139,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioUSmash.gif"
+          ],
           "startup": "9",
           "active": "9—13",
           "total": "39",
@@ -124,6 +155,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioDSmash.gif"
+          ],
           "startup": "5/14",
           "active": "5—6/14",
           "total": "43",
@@ -138,6 +172,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioNAir.gif"
+          ],
           "startup": "3",
           "active": "3—10/11—27",
           "total": "45",
@@ -153,6 +190,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioFAir.gif"
+          ],
           "startup": "16",
           "active": "16/17—20/21",
           "total": "59",
@@ -168,6 +208,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioBAir.gif"
+          ],
           "startup": "6",
           "active": "6—8/9—13",
           "total": "33",
@@ -183,6 +226,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioUAir.gif"
+          ],
           "startup": "4",
           "active": "4—7",
           "total": "30",
@@ -197,6 +243,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioDAir.gif"
+          ],
           "startup": "14",
           "active": "14—17",
           "total": "42",
@@ -223,6 +272,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Super Sheet)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioSuperSheet.gif"
+          ],
           "startup": "12",
           "active": "12—16",
           "total": "35",
@@ -236,6 +288,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Super Jump Punch)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioSuperJumpPunch.gif"
+          ],
           "startup": "3",
           "active": "3—5/6—19",
           "landingLag": "30",
@@ -247,6 +302,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Dr. Tornado)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioDrTornadoG.gif",
+            "hitboxes/dr_mario/DrMarioDrTornadoA.gif"
+          ],
           "startup": "10/14/18/22/26/30/40",
           "active": "10/14/18/22/26/30/40—41",
           "total": "74",
@@ -261,6 +320,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -269,6 +331,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -277,6 +342,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "36",
@@ -285,6 +353,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "landingLag": "Total frames includes 13 frames of hitlag.",
@@ -293,6 +364,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioFThrow.gif"
+          ],
           "startup": "13",
           "total": "27",
           "damage": "9.4"
@@ -300,6 +374,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioBThrow.gif"
+          ],
           "startup": "40",
           "total": "59",
           "damage": "12.9"
@@ -307,6 +384,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioUThrow.gif"
+          ],
           "startup": "18",
           "total": "39",
           "damage": "8.2"
@@ -314,6 +394,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/dr_mario/DrMarioDThrow.gif"
+          ],
           "startup": "18",
           "total": "39",
           "damage": "5.8"
@@ -380,7 +463,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/dr_mario/drmarioGetupAttackU.gif",
+            "hitboxes/dr_mario/drmarioGetupAttackD.gif",
+            "hitboxes/dr_mario/drmarioTripAttack.gif",
+            "hitboxes/dr_mario/drmarioLedgeAttack.gif"
+          ]
         }
       ]
     }

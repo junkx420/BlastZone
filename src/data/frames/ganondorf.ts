@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfJab.gif"
+          ],
           "startup": "7",
           "active": "7—8",
           "total": "26",
@@ -21,6 +24,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfFTilt.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "39",
@@ -34,6 +40,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfUTilt.gif"
+          ],
           "startup": "60",
           "active": "60—61(62—63) / Windboxes 6—52",
           "total": "95",
@@ -48,6 +57,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfDTilt.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "35",
@@ -60,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfDashAttack.gif"
+          ],
           "startup": "10",
           "active": "10—12/13—19",
           "total": "37",
@@ -73,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfFSmash.gif"
+          ],
           "startup": "29",
           "active": "29—31",
           "total": "69",
@@ -86,6 +104,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfUSmash.gif"
+          ],
           "startup": "20",
           "active": "20—25",
           "total": "61",
@@ -100,6 +121,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfDSmash.gif"
+          ],
           "startup": "15/35",
           "active": "15—18/35—38",
           "total": "59",
@@ -114,6 +138,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfNAir.gif"
+          ],
           "startup": "7/17",
           "active": "(7—8/9—12)(17—18/19—26)",
           "total": "40",
@@ -129,6 +156,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfFAir.gif"
+          ],
           "startup": "14",
           "active": "14—19",
           "total": "44",
@@ -144,6 +174,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfBAir.gif"
+          ],
           "startup": "10",
           "active": "10—12",
           "total": "35",
@@ -159,6 +192,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfUAir.gif"
+          ],
           "startup": "8",
           "active": "8—10/11—13/14—16 (Close/Early/Late)",
           "total": "33",
@@ -173,6 +209,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfDAir.gif"
+          ],
           "startup": "16",
           "active": "16—18",
           "total": "44",
@@ -188,6 +227,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B (Warlock Punch)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfWarlockPunchG.gif",
+            "hitboxes/ganondorf/GanondorfWarlockPunchRG.gif"
+          ],
           "startup": "70/80",
           "active": "70—73/80—83",
           "total": "117/127",
@@ -202,6 +245,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral B, Air (Warlock Punch, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfWarlockPunchA.gif",
+            "hitboxes/ganondorf/GanondorfWarlockPunchRA.gif"
+          ],
           "startup": "70/80",
           "active": "70—73/80—83",
           "total": "117/127",
@@ -216,6 +263,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B (Flame Choke)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfFlameChokeG.gif"
+          ],
           "startup": "16",
           "active": "16—30",
           "total": "59",
@@ -225,6 +275,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Flame Choke, Success",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfFlameChoke.gif"
+          ],
           "startup": "31",
           "active": "32",
           "total": "57",
@@ -235,6 +288,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Side B, Air (Flame Choke, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfFlameChokeA.gif"
+          ],
           "startup": "16",
           "active": "16—28",
           "landingLag": "29/20",
@@ -251,6 +307,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up B (Dark Dive)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfDarkDive1.gif"
+          ],
           "startup": "14",
           "active": "14—28(Grab)/34—36(Attack)",
           "landingLag": "30",
@@ -262,6 +321,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dark Dive, Grab Success",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfDarkDiveCatch1.gif"
+          ],
           "startup": "4/8/12/16/17",
           "total": "40",
           "damage": "1.9/9.0",
@@ -270,6 +332,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B (Wizard's Foot)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfWizardsFootG.gif"
+          ],
           "startup": "16",
           "active": "16—35",
           "total": "60/68",
@@ -284,6 +349,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down B, Air (Wizard's Foot, Air)",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfWizardsFootA.gif",
+            "hitboxes/ganondorf/GanondorfWizardsFootALand.gif"
+          ],
           "startup": "16",
           "active": "16—18/19—29/2—3",
           "total": "57",
@@ -299,6 +368,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfGrab.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "38",
@@ -307,6 +379,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfDashGrab.gif"
+          ],
           "startup": "11",
           "active": "11—13",
           "total": "46",
@@ -315,6 +390,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfPivotGrab.gif"
+          ],
           "startup": "12",
           "active": "12—14",
           "total": "41",
@@ -323,6 +401,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfPummel.gif"
+          ],
           "startup": "2",
           "total": "21",
           "landingLag": "Total frames includes 14 frames of hitlag.",
@@ -331,6 +412,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfFThrow.gif"
+          ],
           "startup": "11/13",
           "total": "39",
           "damage": "5.0/8.0"
@@ -338,6 +422,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfBThrow.gif"
+          ],
           "startup": "12/14",
           "total": "49",
           "damage": "5.0/5.0"
@@ -345,6 +432,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfUThrow.gif"
+          ],
           "startup": "11/13",
           "total": "43",
           "damage": "10.0/3.0"
@@ -352,6 +442,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/ganondorf/GanondorfDThrow.gif"
+          ],
           "startup": "23",
           "total": "39",
           "damage": "7.0"
@@ -418,7 +511,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/ganondorf/ganondorfGetupAttackUp.gif",
+            "hitboxes/ganondorf/ganondorfGetupAttackDown.gif",
+            "hitboxes/ganondorf/ganondorfTripAttack.gif",
+            "hitboxes/ganondorf/ganondorfLedgeGetupAttack.gif"
+          ]
         }
       ]
     }

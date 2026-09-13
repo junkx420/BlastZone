@@ -9,6 +9,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 1",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerJab1.gif"
+          ],
           "startup": "5",
           "active": "5—6",
           "total": "25",
@@ -22,6 +25,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 2",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerJab2.gif"
+          ],
           "startup": "4",
           "active": "4—6",
           "total": "25",
@@ -35,6 +41,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Jab 3",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerJab3.gif"
+          ],
           "startup": "6/12",
           "active": "6—8, 12—13",
           "total": "37",
@@ -47,6 +56,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerFTilt.gif"
+          ],
           "startup": "7",
           "active": "7—8/9—10/11—12",
           "total": "33",
@@ -60,6 +72,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerUTilt.gif"
+          ],
           "startup": "5",
           "active": "5—7/8—9",
           "total": "37",
@@ -73,6 +88,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Tilt",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerDTilt.gif"
+          ],
           "startup": "8",
           "active": "8—10",
           "total": "40",
@@ -85,6 +103,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Attack",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerDashAttack.gif"
+          ],
           "startup": "10",
           "active": "10—14",
           "total": "45",
@@ -97,6 +118,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerFSmash.gif"
+          ],
           "startup": "17...",
           "active": "17—38(rehit: 4)/40",
           "total": "77",
@@ -111,6 +135,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerUSmash.gif"
+          ],
           "startup": "11/15/19/23/27",
           "active": "11—12/15—16/19—20/23—24/27—28",
           "total": "55",
@@ -125,6 +152,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Smash",
           "section": "ground",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerDSmash.gif"
+          ],
           "startup": "9/23",
           "active": "9/23—25",
           "total": "52",
@@ -138,6 +168,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Neutral Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerNAir.gif"
+          ],
           "startup": "8",
           "active": "8—21",
           "total": "41",
@@ -152,6 +185,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerFAir.gif"
+          ],
           "startup": "12",
           "active": "12—16/17—20",
           "total": "43",
@@ -167,6 +203,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Back Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerBAir.gif"
+          ],
           "startup": "9",
           "active": "9—10/11",
           "total": "47",
@@ -182,6 +221,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerUAir.gif"
+          ],
           "startup": "17...",
           "active": "17/18—32(rehit: 3)/34",
           "total": "59",
@@ -197,6 +239,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Air",
           "section": "aerial",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerDAir.gif"
+          ],
           "startup": "20",
           "active": "20—21/22—25",
           "total": "54",
@@ -212,6 +257,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Charge Blast",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerChargeBlastMin.gif",
+            "hitboxes/mii_gunner/MiiGunnerChargeBlastMax.gif"
+          ],
           "startup": "3(+12)",
           "active": "3—62",
           "total": "39",
@@ -224,6 +273,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Laser Blaze",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerLaserBlaze.gif"
+          ],
           "startup": "10",
           "active": "10—33",
           "total": "42",
@@ -237,6 +289,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grenade Launch",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerGrenadeLaunch.gif"
+          ],
           "startup": "32",
           "active": "32—111",
           "total": "53",
@@ -250,6 +305,11 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Flame Pillar",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerFlamePillarG.gif",
+            "hitboxes/mii_gunner/MiiGunnerFlamePillarA.gif",
+            "hitboxes/mii_gunner/MiiGunnerFlamePillar.gif"
+          ],
           "startup": "21",
           "active": "21—40",
           "total": "63",
@@ -264,6 +324,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Stealth Burst",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerStealthBurstMin.gif",
+            "hitboxes/mii_gunner/MiiGunnerStealthBurstMax.gif"
+          ],
           "startup": "36—66",
           "active": "Min: 36—38 Max: 66—68",
           "total": "70—105",
@@ -299,6 +363,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Lunar Launch",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerLunarLaunch.gif"
+          ],
           "startup": "10",
           "active": "10—25",
           "landingLag": "18",
@@ -309,6 +376,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Cannon Jump Kick",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerCannonJumpKickG.gif",
+            "hitboxes/mii_gunner/MiiGunnerCannonJumpKickA.gif"
+          ],
           "startup": "6/10",
           "active": "6—7/(10—15/16—30)",
           "landingLag": "28",
@@ -326,6 +397,10 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Echo Reflector",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerEchoReflectorStart.gif",
+            "hitboxes/mii_gunner/MiiGunnerEchoReflector.gif"
+          ],
           "startup": "3 (4 is Start of Reflector)",
           "total": "38",
           "damage": "2.0",
@@ -350,6 +425,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Absorbing Vortex",
           "section": "special",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerAbsorbingVortex.gif"
+          ],
           "startup": "7",
           "active": "7—11",
           "total": "24",
@@ -363,6 +441,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerGrab.gif"
+          ],
           "startup": "6",
           "active": "6—7",
           "total": "34",
@@ -371,6 +452,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Dash Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerDashGrab.gif"
+          ],
           "startup": "9",
           "active": "9—10",
           "total": "42",
@@ -379,6 +463,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pivot Grab",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerPivotGrab.gif"
+          ],
           "startup": "10",
           "active": "10—11",
           "total": "37",
@@ -387,6 +474,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Pummel",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerPummel.gif"
+          ],
           "startup": "1",
           "total": "19",
           "damage": "1.3",
@@ -395,6 +485,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Forward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerFThrow.gif"
+          ],
           "startup": "10/12",
           "total": "33",
           "damage": "4.0/3.0"
@@ -402,6 +495,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Backward Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerBThrow.gif"
+          ],
           "startup": "10",
           "total": "49",
           "damage": "7.0/3.0",
@@ -410,6 +506,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Up Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerUThrow.gif"
+          ],
           "startup": "7",
           "total": "51",
           "damage": "7.0/3.0",
@@ -418,6 +517,9 @@ export const FRAMES: FighterFrames = {
         {
           "name": "Down Throw",
           "section": "throw",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerDThrow.gif"
+          ],
           "startup": "16",
           "total": "40",
           "damage": "7.0"
@@ -484,7 +586,13 @@ export const FRAMES: FighterFrames = {
         },
         {
           "name": "Getup Attacks",
-          "section": "misc"
+          "section": "misc",
+          "hitboxImages": [
+            "hitboxes/mii_gunner/MiiGunnerGetupAttackU.gif",
+            "hitboxes/mii_gunner/MiiGunnerGetupAttackD.gif",
+            "hitboxes/mii_gunner/MiiGunnerTripAttack.gif",
+            "hitboxes/mii_gunner/MiiGunnerLedgeAttack.gif"
+          ]
         }
       ]
     }

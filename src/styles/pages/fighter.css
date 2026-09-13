@@ -341,6 +341,12 @@
     padding: 10px var(--sp-3);
     text-align: left;
     white-space: nowrap;
+    /*
+     * Zellen stehen oben, nicht mittig. Sobald jemand eine Hitbox-Darstellung
+     * öffnet, wird die Zeile mehrfach so hoch – mittig ausgerichtet schwebten
+     * die Zahlen dann weit unterhalb des Move-Namens, zu dem sie gehören.
+     */
+    vertical-align: top;
   }
   .frame thead th {
     position: sticky;
@@ -384,6 +390,53 @@
   }
   .frame__leer {
     color: var(--text-subtle);
+  }
+  /*
+   * Klick-Fassade für die Hitbox-Darstellung. Vor dem Klick steht hier nur ein
+   * Knopf aus eigenen Daten – das Bild kommt von ultimateframedata.com und wird
+   * erst auf Klick geholt, wie beim Guide-Video. Deshalb nennt der Knopf die
+   * Herkunft, bevor jemand darauf drückt.
+   */
+  .frame__hitbox {
+    justify-self: start;
+    margin-top: 4px;
+    padding: 3px 9px;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    background: none;
+    color: var(--accent-text);
+    font-size: var(--fs-100);
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background-color var(--t-fast),
+      color var(--t-fast);
+  }
+  .frame__hitbox:hover,
+  .frame__hitbox:focus-visible {
+    background: var(--accent-soft);
+  }
+  .frame__figur {
+    display: grid;
+    gap: 4px;
+    margin-top: 6px;
+  }
+  /*
+   * Bewusst schmal: Die Darstellung soll die Zeile begleiten, nicht beherrschen.
+   * Bei 260 px drueckte sie die Zeile auf ein Vielfaches ihrer Hoehe und zog den
+   * Blick von den Zahlen weg, um die es in der Tabelle geht.
+   */
+  .frame__figur img {
+    width: 100%;
+    max-width: 170px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--void-800);
+  }
+  .frame__figur figcaption {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 400;
   }
 
   .tabs {
