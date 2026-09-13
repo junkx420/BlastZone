@@ -597,6 +597,17 @@
   }
 
   /* ── Combo card ─────────────────────────────────────────────────────── */
+  /*
+   * Glas, damit sich die Karte vom Fighter-Hintergrund abhebt. Der weisse
+   * Verlauf allein lag bei 3,5 Prozent, und seit hinter der Karte ein Muster
+   * laeuft, verschwamm ihre Kante damit einfach mit dem Grund. Der Verlauf
+   * bleibt als Glanz oben liegen, der Koerper darunter ist jetzt --glass-bg.
+   *
+   * DER BLUR GEHOERT HIERHER UND NICHT ZUSAETZLICH NACH INNEN. Fuer .step und
+   * .combo__hud ist der Hintergrund dann bereits diese Karte; ein zweiter Blur
+   * darueber aendert optisch nichts und kostet je Schritt eine weitere
+   * geblurrte Flaeche. Kontrast holen die inneren Teile ueber ihren Ton.
+   */
   .combo {
     display: grid;
     align-content: start;
@@ -604,7 +615,11 @@
     padding: var(--sp-5);
     border: 1px solid var(--line);
     border-radius: var(--r-panel);
-    background: linear-gradient(180deg, rgb(255 255 255 / 0.035), rgb(255 255 255 / 0.01));
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.035), rgb(255 255 255 / 0.01)),
+      var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
   }
   .combo__head {
     display: grid;
@@ -963,9 +978,14 @@
 
   /* No overflow clipping here: the KO stamp is allowed to overhang the panel. */
   /*
-   * Glas wie beim Video-Block. Die Combo-Karte drumherum ist ohnehin schon
-   * durchsichtig (weisser Verlauf bei 3,5 Prozent), deckend war allein das HUD
-   * darin, und davon stehen fuenf auf einer Seite.
+   * Fuellung ohne eigenen Blur, und das ist Absicht.
+   *
+   * Solange die Combo-Karte drumherum nur ein weisser Verlauf bei 3,5 Prozent
+   * war, brauchte das HUD einen eigenen Blur. Seit die Karte selbst Glas ist,
+   * waere es ein Blur auf einer bereits geblurrten Flaeche: optisch kein
+   * Unterschied, aber fuenf zusaetzliche geblurrte Flaechen pro Seite. Der Ton
+   * allein trennt das HUD ausreichend von der Karte, weil --glass-bg sich hier
+   * ein zweites Mal darueberlegt und damit abdunkelt.
    */
   .combo__hud {
     position: relative;
@@ -977,8 +997,6 @@
     border: 1px solid var(--line);
     border-radius: 12px;
     background: var(--glass-bg);
-    -webkit-backdrop-filter: var(--glass-blur);
-    backdrop-filter: var(--glass-blur);
   }
   .combo__hud::after {
     content: '';

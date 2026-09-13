@@ -828,6 +828,14 @@
     gap: var(--sp-3);
     padding-top: var(--sp-7);
   }
+  /*
+   * Auch Glas. Der Akzentverlauf lief nach 70 Prozent in nichts aus, die Karte
+   * hatte also ueber die halbe Breite gar keinen Koerper und verschwamm mit dem
+   * Muster dahinter. Der Verlauf bleibt und liegt jetzt auf --glass-bg.
+   *
+   * Wichtig bei der Variante --next: Sie setzt `background` komplett neu. Wer
+   * dort nur den Verlauf drehte, nahm der Karte den Glaskoerper wieder weg.
+   */
   .fnav__link {
     display: flex;
     align-items: center;
@@ -836,13 +844,19 @@
     padding: var(--sp-4) var(--sp-5);
     border: 1px solid var(--line);
     border-radius: var(--r-panel);
-    background: linear-gradient(90deg, var(--accent-soft), transparent 70%);
+    background:
+      linear-gradient(90deg, var(--accent-soft), transparent 70%),
+      var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
     transition: border-color var(--t-fast);
   }
   .fnav__link--next {
     justify-content: flex-end;
     text-align: right;
-    background: linear-gradient(270deg, var(--accent-soft), transparent 70%);
+    background:
+      linear-gradient(270deg, var(--accent-soft), transparent 70%),
+      var(--glass-bg);
   }
   .fnav__link > span {
     display: grid;
