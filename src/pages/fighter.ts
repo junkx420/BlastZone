@@ -1,9 +1,11 @@
 import { bindComboCards, comboCard, playFirstVisible } from '../components/comboPlayer';
 import { faceThumb, fighterArt } from '../components/fighterTile';
+import { framesSection, wireFrames } from '../components/frameTable';
 import { ICONS } from '../components/icons';
 import { tierBadge } from '../components/tierBadge';
 import { videoSection, wireVideo } from '../components/videoEmbed';
 import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, WEIGHT_RANGE, weightClass } from '../data/fighters';
+import { hasFrames } from '../data/frames-index';
 import { GUIDE_COUNT, GUIDE_SLUGS, guideFor, loadLateGuides } from '../data/guide-index';
 import { videoFor } from '../data/videos';
 import { TIER_BY_SLUG, TIER_TOTAL } from '../data/tiers';
@@ -224,9 +226,17 @@ function navSection(prev: Fighter, next: Fighter): Markup {
 }
 
 function mountTabs(root: HTMLElement, combos: Combo[]): () => void {
-  const tabs = qsa<HTMLButtonElement>('[role="tab"]', root);
-  const panels = qsa<HTMLElement>('[role="tabpanel"]', root);
-  const ink = qs<HTMLElement>('.tabs__ink', root);
+  /*
+   * Auf den Combo-Abschnitt eingeschränkt. Seit die Frame-Daten eine zweite
+   * Tab-Leiste auf derselben Seite haben, würde ein Suchlauf über die ganze
+   * Seite deren Tabs mit einsammeln – beide Leisten würden sich gegenseitig
+   * umschalten, und `select()` würde `?routen=` schreiben, sobald jemand auf
+   * „Luft" klickt.
+   */
+  const bereich = qs<HTMLElement>('.fcombos', root) ?? root;
+  const tabs = qsa<HTMLButtonElement>('[role="tab"]', bereich);
+  const panels = qsa<HTMLElement>('[role="tabpanel"]', bereich);
+  const ink = qs<HTMLElement>('.tabs__ink', bereich);
   let stopAutoplay: () => void = () => {};
 
   const moveInk = (tab: HTMLElement, animate: boolean): void => {
@@ -317,6 +327,7 @@ export function fighterPage(route: Route): PageView {
       <div data-meta>${metaSection(f, guide)}</div>
       ${video ? videoSection(video, f.name) : ''}
       <div data-combos>${combosSection(f, guide, active, hasGuide && !guide)}</div>
+      ${hasFrames(f.slug) ? framesSection(f.name) : ''}
       ${navSection(prev, next)}
     </article>`,
     mount(root) {
@@ -342,6 +353,7 @@ export function fighterPage(route: Route): PageView {
       if (hero && art) cleanups.push(pointerDepth(hero, [[art, 28]]));
 
       cleanups.push(wireVideo(root));
+      cleanups.push(wireFrames(root, f.slug));
 
       let comboCleanups: Array<() => void> = [];
       const wireCombos = (g: FighterGuide): void => {

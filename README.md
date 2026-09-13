@@ -69,6 +69,22 @@ Tokens stehen in `src/data/notation.ts` (`sh`, `fh`, `jump`, `nair`, `utilt`, `d
 
 **Guide-Videos** – `src/data/videos.ts` ordnet jedem Fighter ein YouTube-Guide zu. Der Player lädt erst auf Klick: Bis dahin steht nur eine Fassade da, danach ein `youtube-nocookie`-Embed. So bleibt die Seite beim Laden frei von Requests an Dritte. Jede Video-ID stammt aus einem echten Suchtreffer; `creator` wird nur gesetzt, wenn der Kanal tatsächlich benannt ist.
 
+**Frame Data** – `src/data/frames/<slug>.ts`, erzeugt von `scripts/build-frame-data.mjs` aus [Ultimate Frame Data](https://ultimateframedata.com). **Diese Dateien nicht von Hand bearbeiten** – wer einen Wert ändern will, ändert das Skript oder die Quelle.
+
+```bash
+node scripts/build-frame-data.mjs              # alle 86 Fighter
+node scripts/build-frame-data.mjs --only=mario # nur einer, zum Prüfen
+```
+
+Stand 13.09.2026: 86 Fighter, 3745 Moves. Vier Dinge, die man wissen muss:
+
+- **Werte sind Zeichenketten, keine Zahlen.** UFD führt für viele Moves mehrere Werte nebeneinander (`16/17—20/21`, `-12/-12/-13`). Als `number` ließe sich davon nur einer halten, der Rest ginge still verloren. Welche Spalte wozu gehört, steht in `hitboxes`.
+- **Vier Zeilen pro Seite fehlen bewusst**: „Stats", „Ledge Grab", „Ledge Hang" und „Ledge Roll" baut UFD erst per JavaScript ein, im ausgelieferten HTML stehen sie nicht. Für einen Combo-Hub sind sie ohne Wert – Ground, Aerial, Special und Throws sind vollständig.
+- **Zwei Fighter haben mehrere Sätze**: Pokémon-Trainer (Squirtle, Ivysaur, Glurak) und Pyra/Mythra, weil UFD sie getrennt führt. Das Modell bildet das über `sets[]` mit `label` ab.
+- **Frame-Daten veralten mit jedem Spiel-Patch.** Das Abrufdatum steht in jeder Datei unter `source.fetched` und wird auf der Seite angezeigt.
+
+Geladen wird pro Fighter und erst beim Heranscrollen (`frames-index.ts` über `import.meta.glob`, dazu ein IntersectionObserver in `frameTable.ts`) – die 1,3 MB dürfen das Startbundle nicht anfassen.
+
 **Artwork** – Die offiziellen Fighter-Bilder stammen von smashbros.com (© Nintendo) und liegen **verkleinert und selbst gehostet** unter `public/fighters/`: 84 Gesichtsausschnitte (270×164, zusammen 0,9 MB) für Kacheln, Tier-Liste, Suche und HUD, dazu 84 Ganzkörper-Render für Profil-Header, Hero-Replay und Rang 1. Die Render sind auf 1000 px Höhe skaliert und als WebP gespeichert – aus 151 MB Originalen werden 9 MB, die größte Datei misst 203 KB statt 4,12 MB. Erzeugt wurden sie mit `scripts/build-fighter-images.mjs` (sharp); die Pfade baut `src/data/art.ts` zusammen. `sigil.ts` zeichnet dahinter die farbige Bühne; lädt ein Bild nicht, zeigt die Bühne stattdessen die Fighter-Nummer. Abweichende URLs lassen sich pro Fighter in `Fighter.art` hinterlegen.
 
 ## Rechtliches

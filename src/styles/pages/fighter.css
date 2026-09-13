@@ -298,6 +298,94 @@
   .fcombos {
     padding-block: var(--sp-7);
   }
+  /* ── Frame Data ─────────────────────────────────────────────────────── */
+  .fframes {
+    margin-top: var(--sp-8);
+  }
+  .fframes__satz + .fframes__satz {
+    margin-top: var(--sp-7);
+  }
+  .fframes__label {
+    margin-bottom: var(--sp-3);
+    color: var(--accent-text);
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-stretch: var(--stretch-condensed);
+    text-transform: uppercase;
+  }
+  .fframes__laden {
+    color: var(--text-muted);
+  }
+  .fframes__quelle {
+    margin-top: var(--sp-4);
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  /*
+   * Acht Spalten passen auf kein Telefon. Die Tabelle scrollt deshalb in ihrem
+   * eigenen Kasten – die Seite selbst darf nie waagerecht scrollen.
+   */
+  .frame__scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .frame {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-200);
+    font-variant-numeric: tabular-nums;
+  }
+  .frame th,
+  .frame td {
+    padding: 10px var(--sp-3);
+    text-align: left;
+    white-space: nowrap;
+  }
+  .frame thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    font-size: var(--fs-100);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .frame tbody tr + tr {
+    border-top: 1px solid var(--line);
+  }
+  .frame tbody tr:hover {
+    background: rgb(255 255 255 / 0.03);
+  }
+  /* Die Move-Spalte trägt Name, Spaltenlegende und Notiz – die darf umbrechen. */
+  .frame tbody th {
+    display: grid;
+    gap: 2px;
+    min-width: 210px;
+    max-width: 340px;
+    white-space: normal;
+  }
+  .frame__name {
+    color: var(--text);
+    font-weight: 800;
+  }
+  .frame__spalten {
+    color: var(--accent-text);
+    font-size: var(--fs-100);
+    font-weight: 600;
+  }
+  .frame__notiz {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .frame__leer {
+    color: var(--text-subtle);
+  }
+
   .tabs {
     position: relative;
     display: flex;
