@@ -32,7 +32,8 @@ function voll({ name, row, dmg }) {
   const i = felder.indexOf(name);
   let multi = null;
   if (i >= 0 && /^\d+(\/\d+)+$/.test(felder[i + 1] ?? '')) multi = felder[i + 1].split('/').length - 1;
-  const rehit = row.match(/(\d+)—(\d+)\s*\(rehit:\s*(\d+)\)/);
+  // Auch "4—15/23—24 (rehit: 4)": Das Rehit gilt dem ersten Fenster, das zweite ist der Abschluss.
+  const rehit = row.match(/(\d+)—(\d+)(?:\/\d+(?:—\d+)?)?\s*\(rehit:\s*(\d+)\)/);
   if (multi === null && rehit) multi = Math.floor((rehit[2] - rehit[1]) / rehit[3]) + 1;
   if (!multi) return null;
   return { multi, basis: multi * ns[0] + ns[1], ns };

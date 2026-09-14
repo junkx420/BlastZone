@@ -213,7 +213,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'sh nair', label: 'SH Nair', dmg: 16 },
           { input: 'sh nair', label: 'SH Nair', dmg: 16 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 11 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 12 },
         ],
         tip: 'Gegen große Hurtboxes einfach. Kleine Charaktere wie Pikachu können per SDI entkommen, dann nach zwei Nairs abbrechen.',
         source: game8('281038'),
