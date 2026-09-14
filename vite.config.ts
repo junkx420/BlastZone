@@ -70,11 +70,13 @@ export default defineConfig(({ mode, command }) => {
     // Server-Variablen aus .env für die lokalen Functions. Nur process.env, nie import.meta.env:
     // Ohne VITE_-Präfix kommt davon nichts ins Browser-Bundle.
     const fileEnv = loadEnv(mode, process.cwd(), '');
-    for (const key of ['SUPABASE_URL', 'SUPABASE_ANON_KEY', 'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']) {
-      if (fileEnv[key] && !process.env[key]) process.env[key] = fileEnv[key];
+    // Bewusst ohne SUPABASE_SECRET_KEY: Der Code braucht ihn nicht, also wird er auch nicht geladen.
+    for (const key of ['SUPABASE_URL', 'SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_ANON_KEY', 'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']) {
+      if (fileEnv[key]) process.env[key] = fileEnv[key];
     }
     // Ohne Keys: Speicher-Backend für lokale Tests. api/_lib/env.ts verweigert es auf Vercel.
-    if (!process.env.SUPABASE_URL) process.env.BLASTZONE_BACKEND = 'mock';
+    if (process.env.SUPABASE_URL) delete process.env.BLASTZONE_BACKEND;
+    else process.env.BLASTZONE_BACKEND = 'mock';
   }
 
   return {

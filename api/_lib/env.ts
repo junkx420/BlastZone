@@ -14,7 +14,9 @@ export interface Env {
 
 export function readEnv(): Env | null {
   const supabaseUrl = process.env.SUPABASE_URL?.replace(/\/+$/, '');
-  const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+  // Neue Supabase-Projekte geben einen Publishable Key (sb_publishable_…), ältere einen Anon-Key (JWT).
+  // Beide dürfen öffentlich sein und haben dieselbe Rolle. Den Secret Key liest der Code nirgends.
+  const supabaseAnonKey = process.env.SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_ANON_KEY;
   if (!supabaseUrl || !supabaseAnonKey) return null;
   return {
     supabaseUrl,

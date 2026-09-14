@@ -99,9 +99,10 @@ async function fehler(res: Response): Promise<BackendError> {
 }
 
 export function supabaseBackend(env: Env): Backend {
+  // Ohne Nutzer nur `apikey`. Ein Publishable Key ist kein JWT und gehört nicht in den Authorization-Header.
   const authHeaders = (token?: string): Record<string, string> => ({
     apikey: env.supabaseAnonKey,
-    Authorization: `Bearer ${token ?? env.supabaseAnonKey}`,
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
     'Content-Type': 'application/json',
   });
 

@@ -53,12 +53,12 @@ Supabase begrenzt selbst, etwa Mails pro Stunde und Anmeldeversuche. Wichtig: Al
 
 ## 7. API-Keys an Vercel
 
-Unter **Project Settings → API**:
+Unter **Project Settings → API Keys**:
 
-- `Project URL` → `SUPABASE_URL`
-- `anon` / `publishable` Key → `SUPABASE_ANON_KEY`
+- Projekt-URL → `SUPABASE_URL`
+- **Publishable Key** (`sb_publishable_…`) → `SUPABASE_PUBLISHABLE_KEY`. Ältere Projekte haben stattdessen einen `anon`-Key, der geht als `SUPABASE_ANON_KEY`.
 
-Den **service_role**-Key **nicht** eintragen. Er wird nirgends gebraucht und hebelt Row Level Security aus.
+Den **Secret Key** (`sb_secret_…`, früher service_role) **nicht** eintragen. Er wird nirgends gebraucht und umgeht Row Level Security. Ist er einmal irgendwo gelandet, wo er nicht hingehört (Chat, Screenshot, Repo), in Supabase widerrufen und neu erzeugen.
 
 Bei Vercel unter **Project Settings → Environment Variables** für Production (und Preview, falls gewünscht) setzen, danach neu deployen. Lokal dieselben Werte in `.env` (Vorlage `.env.example`). Ohne `.env` läuft der Dev-Server mit einem Speicher-Mock, der den Bestätigungslink ins Terminal schreibt.
 
