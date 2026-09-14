@@ -18,7 +18,7 @@ export interface Shell {
 
 const brand = html`<span class="brand__mark">${ICONS.burst}</span><span class="brand__word">Blastzone</span>`;
 
-export function renderShell(app: HTMLElement, onSearch: () => void): Shell {
+export function renderShell(app: HTMLElement, onSearch: (query?: string) => void): Shell {
   mount(
     app,
     html`<header class="nav" data-nav>
@@ -30,9 +30,12 @@ export function renderShell(app: HTMLElement, onSearch: () => void): Shell {
                 html`<a class="nav__link${item.wide ? ' nav__link--wide' : ''}" href="${link(item.path)}" data-route="${item.route}">${item.label}</a>`,
             )}
           </nav>
-          <button class="nav__search" type="button" data-search aria-label="Fighter suchen" aria-keyshortcuts="/ Control+K">
-            ${ICONS.search}<span class="nav__search-label" aria-hidden="true">Fighter suchen</span><kbd aria-hidden="true">/</kbd>
-          </button>
+          <div class="nav__search" role="search">
+            ${ICONS.search}
+            <label class="vh" for="nav-search">Fighter suchen</label>
+            <input id="nav-search" class="nav__search-input" type="search" placeholder="Fighter suchen" readonly
+              aria-haspopup="dialog" aria-keyshortcuts="/ Control+K" autocomplete="off" data-search />
+          </div>
         </div>
       </header>
       <main id="main" class="main" tabindex="-1"></main>
@@ -65,7 +68,27 @@ export function renderShell(app: HTMLElement, onSearch: () => void): Shell {
 
   const nav = qs<HTMLElement>('[data-nav]', app)!;
   const links = qsa<HTMLAnchorElement>('.nav__link', app);
-  qs('[data-search]', app)?.addEventListener('click', onSearch);
+  /*
+   * Das Feld in der Leiste ist der Einstieg, gesucht wird im Overlay. Es steht
+   * auf readonly, damit auf dem Handy nicht erst eine Tastatur für ein Feld
+   * aufgeht, das sofort vom Overlay abgelöst wird. Ein getippter Buchstabe geht
+   * direkt ins Overlay mit.
+   *
+   * Bewusst kein focus-Listener: Beim Schließen gibt der Dialog den Fokus an
+   * genau dieses Feld zurück, und ein focus-Listener öffnete das Overlay dann
+   * sofort wieder.
+   */
+  const search = qs<HTMLInputElement>('[data-search]', app);
+  search?.addEventListener('click', () => onSearch());
+  search?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown' || e.key === '/') {
+      e.preventDefault();
+      onSearch();
+    } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      onSearch(e.key);
+    }
+  });
 
   let ticking = false;
   const onScroll = (): void => {

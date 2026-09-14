@@ -1,11 +1,10 @@
 import { faceArt, renderArt } from '../data/art';
-import { GUIDE_SLUGS } from '../data/guide-index';
 import { TIER_BY_SLUG } from '../data/tiers';
 import type { Fighter } from '../data/types';
 import { accentVars } from '../lib/color';
 import { html, type Markup } from '../lib/dom';
 import { link } from '../lib/router';
-import { ICONS } from './icons';
+import { franchiseGlyph } from './franchise';
 import { sigil } from './sigil';
 import { tierBadge } from './tierBadge';
 
@@ -29,17 +28,13 @@ export function faceThumb(f: Fighter, className: string): Markup {
 
 /** Character-select tile. Name comes first in the DOM so the link reads naturally. */
 export function fighterTile(f: Fighter): Markup {
-  // GUIDE_SLUGS, not the loaded guides: the later tiers arrive after this renders.
-  const hasGuide = GUIDE_SLUGS.has(f.slug);
   return html`<li class="tile" data-slug="${f.slug}" style="${accentVars(f.colors)}">
     <a class="tile__link" href="${link(`/fighter/${f.slug}`)}">
       <span class="tile__art" data-vt="art">${fighterArt(f, 'tile')}</span>
       <span class="tile__plate"><span class="tile__name" data-vt="name">${f.name}</span></span>
       <span class="tile__top">
         ${tierBadge(TIER_BY_SLUG.get(f.slug))}
-        ${hasGuide
-          ? html`<span class="tile__guide" title="Hat Combos">${ICONS.combo}<span class="vh">Hat Combos</span></span>`
-          : ''}
+        <span class="tile__franchise" title="${f.series}">${franchiseGlyph(f.series)}<span class="vh">${f.series}</span></span>
       </span>
       <span class="tile__p1" aria-hidden="true">P1</span>
     </a>

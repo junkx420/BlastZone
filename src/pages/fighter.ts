@@ -1,5 +1,6 @@
 import { bindComboCards, comboCard, playFirstVisible } from '../components/comboPlayer';
 import { fighterBackdrop } from '../components/fighterBackdrop';
+import { franchiseGlyph } from '../components/franchise';
 import { faceThumb, fighterArt } from '../components/fighterTile';
 import { framesSection, wireFrames } from '../components/frameTable';
 import { ICONS } from '../components/icons';
@@ -23,7 +24,7 @@ const MOBILITY = ['', 'Sehr langsam', 'Langsam', 'Durchschnittlich', 'Schnell', 
 const ARCHETYPE_HINT: Record<Archetype, string> = {
   rushdown: 'Hält Druck mit Tempo und Frame-Vorteil',
   zoner: 'Kontrolliert die Distanz mit Projektilen',
-  swordie: 'Gewinnt über Reichweite und Disjoints',
+  swordie: 'Gewinnt über Reichweite und abgekoppelte Hitboxen',
   allrounder: 'Hat für jede Situation ein Werkzeug',
   setplay: 'Baut Situationen mit Items und Fallen',
   grappler: 'Gewinnt über Grabs und Würfe',
@@ -51,7 +52,7 @@ function heroSection(f: Fighter): Markup {
       <div class="fhero__badges" data-hero-in>
         ${tierBadge(TIER_BY_SLUG.get(f.slug), 'lg')}
         <span class="tag">${ARCHETYPES[f.archetype]}</span>
-        <span class="tag">${f.series}</span>
+        <span class="tag tag--series">${franchiseGlyph(f.series)}${f.series}</span>
         <span class="tag">Fighter-Nr. ${f.no}</span>
       </div>
       <p class="fhero__tagline" data-hero-in>${f.tagline}</p>
@@ -170,7 +171,7 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
         : html`<div class="empty">
             <h3>Für ${f.name} stehen noch keine Combos drin.</h3>
             <p>Tier-Platzierung und Werte sind da. Combos gibt es bisher für ${GUIDE_COUNT} Fighter.</p>
-            <a class="btn btn--sm" href="${link('/roster', { routen: '1' })}">${ICONS.combo}Fighter mit Combos</a>
+            <a class="btn btn--sm" href="${link('/roster')}">Zum Roster</a>
           </div>`}
     </section>`;
   }
@@ -224,6 +225,35 @@ function navSection(prev: Fighter, next: Fighter): Markup {
     </a>`;
   };
   return html`<nav class="container fnav" aria-label="Fighter nach Tier-Rang">${item(prev, 'prev')}${item(next, 'next')}</nav>`;
+}
+
+/**
+ * Platzhalter für die Kommentare, noch ohne Funktion. Das Formular ist
+ * deaktiviert statt versteckt, damit sichtbar ist, was hier hinkommt.
+ *
+ * Bewusst keine Beispielkommentare: Erfundene Stimmen unter belegten
+ * Combo-Routen würden genau die Glaubwürdigkeit kosten, auf der die Seite
+ * steht. Kein inline `onsubmit` am Formular, die CSP verbietet Inline-Skripte;
+ * mit deaktiviertem Feld und Knopf lässt es sich ohnehin nicht absenden.
+ */
+function commentsSection(f: Fighter): Markup {
+  return html`<section class="container fcomments" aria-labelledby="comments-title">
+    <div class="section-head">
+      <h2 id="comments-title">Diskussion</h2>
+      <p>Matchups, Setups und eigene Routen zu ${f.name}.</p>
+    </div>
+    <div class="fcomments__box">
+      <form class="fcomments__composer" aria-describedby="comments-hint">
+        <label class="vh" for="comment-text">Kommentar schreiben</label>
+        <textarea id="comment-text" class="fcomments__input" rows="3" placeholder="Kommentare kommen bald." disabled></textarea>
+        <div class="fcomments__row">
+          <p class="fcomments__hint" id="comments-hint">Die Kommentarfunktion ist noch nicht freigeschaltet.</p>
+          <button class="btn btn--primary btn--sm" type="submit" disabled>Posten</button>
+        </div>
+      </form>
+      <p class="fcomments__empty">Noch keine Kommentare.</p>
+    </div>
+  </section>`;
 }
 
 function mountTabs(root: HTMLElement, combos: Combo[]): () => void {
@@ -329,7 +359,7 @@ export function fighterPage(route: Route): PageView {
       ${video ? videoSection(video, f.name) : ''}
       <div data-combos>${combosSection(f, guide, active, hasGuide && !guide)}</div>
       ${hasFrames(f.slug) ? framesSection(f.name) : ''}
-      ${navSection(prev, next)}
+      ${navSection(prev, next)} ${commentsSection(f)}
     </article>`,
     mount(root) {
       const cleanups: Array<() => void> = [];

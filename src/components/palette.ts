@@ -13,7 +13,7 @@ import { tierBadge } from './tierBadge';
 const LIMIT = 8;
 
 /** Global fighter jump: "/" or Ctrl/Cmd+K from anywhere. */
-export function initPalette(): { open: () => void } {
+export function initPalette(): { open: (query?: string) => void } {
   const dialog = document.createElement('dialog');
   dialog.className = 'palette';
   dialog.setAttribute('aria-labelledby', 'palette-title');
@@ -96,9 +96,9 @@ export function initPalette(): { open: () => void } {
   });
   dialog.addEventListener('close', () => lockScroll(false));
 
-  const open = (): void => {
+  const open = (query = ''): void => {
     if (dialog.open) return;
-    input.value = '';
+    input.value = query;
     active = 0;
     render();
     dialog.showModal();

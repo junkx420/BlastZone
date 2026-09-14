@@ -206,36 +206,44 @@
   .fhero__stage::after {
     background:
       linear-gradient(to bottom, rgb(6 7 10 / 0.05) 30%, var(--bg) 97%),
-      linear-gradient(to right, rgb(6 7 10 / 0.9) 0%, rgb(6 7 10 / 0) 60%);
-  }
-  .fhero__art {
-    position: absolute;
-    inset: -4% -4% -4% 28%;
+      linear-gradient(to right, rgb(6 7 10 / 0.8) 0%, rgb(6 7 10 / 0.4) 36%, rgb(6 7 10 / 0) 64%);
   }
   /*
-   * Zwischen Telefon und Desktop war niemand zuständig, und genau dort brach
-   * der Render weg.
+   * Die Bildbox deckt den ganzen Header ab, bei jeder Breite.
    *
-   * Der Einzug von 28 Prozent stammt vom zweispaltigen Aufbau, wo links der
-   * Text steht, und bleibt beim Verkleinern einfach stehen. Die Box wird dadurch
-   * schmaler als das Seitenverhältnis des Renders, `contain` bindet sich an die
-   * Breite statt an die Höhe, und oben bleibt Leerraum stehen. Gemessen an
-   * Mario (Render 758 zu 855, also hochkant):
+   * Sie begann früher erst bei 28 Prozent. Hinter dem Render liegt die
+   * generierte Bühne mit den Strahlen, und die füllt nur diese Box. Links davon
+   * war schlicht nichts: Das war der schwarze Balken mit der harten senkrechten
+   * Kante. Die Bühne schneidet per `preserveAspectRatio="xMidYMid slice"`, also
+   * wie `background-size: cover` mittig, der Fighter bleibt über
+   * `object-position` rechts, und die Schrift links trägt der Verlauf aus
+   * `.fhero__stage::after`.
    *
-   *   1280 px: Box 961x855, gemalt 758x855, leer oben 0
-   *   1000 px: Box 748x855, gemalt 748x845, leer oben 11 px
-   *    860 px: Box 642x855, gemalt 642x725, leer oben 131 px (15 %)
-   *    740 px: Box 562x855, gemalt 562x635, leer oben 221 px (26 %)
-   *
-   * Die Mobilregel unten greift erst ab 700 px, die Lücke lag also dazwischen.
-   * Ohne den Einzug ist die Box breiter als hoch, `contain` bindet sich wieder
-   * an die Höhe, und der Leerraum verschwindet. Der Text bleibt lesbar, weil
-   * `.fhero__stage::after` von links ohnehin abdunkelt.
+   * Damit erledigt sich auch der Leerraum über dem Render zwischen 700 und
+   * 1040 px, der eine eigene Zwischenregel brauchte: Mit dem Einzug wurde die
+   * Box schmaler als das Bild hoch ist, `contain` band sich an die Breite, und
+   * oben blieben bis zu 26 % frei.
    */
-  @media (max-width: 1040px) and (min-width: 701px) {
-    .fhero__art {
-      inset: -4% -4% -4% 0;
-    }
+  .fhero__art {
+    position: absolute;
+    inset: -4% -4% -4% 0;
+  }
+  /*
+   * Der Kopf des Fighters bleibt unter der Leiste frei. Die Box reicht weiter
+   * bis ganz nach oben, damit die Bühne auch hinter der gläsernen Leiste liegt;
+   * nur das Bild beginnt erst unterhalb von Leiste und Abstand.
+   */
+  /*
+   * Die Höhe steht ausdrücklich da, nicht als `height: auto`. Bei einer
+   * normalen Box spannt `auto` zwischen `top` und `bottom` auf, bei einem
+   * `<img>` nicht: Ein ersetztes Element rechnet `auto` aus seinem eigenen
+   * Seitenverhältnis. Bei voller Headerbreite (1331 px) ergab das für Marios
+   * Render gut 1500 px Höhe, `contain` griff gar nicht mehr, und der Fighter
+   * stand riesig und abgeschnitten im Bild.
+   */
+  .fhero__art-inner .art__img {
+    top: calc(var(--nav-h) + var(--sp-7));
+    height: calc(100% - var(--nav-h) - var(--sp-7));
   }
   /*
    * Auf schmalen Schirmen war der Render links angeschnitten: Die 28 Prozent
@@ -275,6 +283,8 @@
      * noch einen Arm.
      */
     .fhero__art-inner .art__img {
+      top: calc(var(--nav-h) + var(--sp-3));
+      height: calc(100% - var(--nav-h) - var(--sp-3));
       object-position: 50% 100%;
     }
     .fhero__stage::after {
@@ -743,35 +753,52 @@
     font-weight: 400;
   }
 
+  /*
+   * Kapseln statt Reiterleiste, mittig.
+   *
+   * Der bewegte Unterstrich `.tabs__ink` bleibt als Mechanik und ist jetzt die
+   * Kapsel hinter dem aktiven Tab: GSAP setzt weiter nur `x` und `width` auf
+   * `offsetLeft` und `offsetWidth` des Tabs, die Höhe kommt aus `top` und
+   * `bottom`. So gleitet die Hervorhebung von Tab zu Tab, ohne neues JS.
+   *
+   * Zentriert über `margin-inline: auto` an einer Leiste mit `fit-content`,
+   * nicht über `justify-content: center`. Letzteres schneidet bei Überlauf den
+   * linken Rand unerreichbar ab.
+   *
+   * Die Leiste scrollt selbst, statt die Seite breiter zu machen. Die
+   * Frame-Daten haben sechs Tabs, die drückten auf einem Telefon (375 px) das
+   * Dokument einmal auf 815 px auf. Umbruch wäre falsch: In einer zweiten Zeile
+   * säße die Kapsel neben ihrem Tab.
+   */
   .tabs {
     position: relative;
     display: flex;
-    gap: var(--sp-2);
-    margin-bottom: var(--sp-5);
-    border-bottom: 1px solid var(--line);
-    /*
-     * Die Leiste scrollt selbst, statt die Seite breiter zu machen. Bei den
-     * Combo-Routen fällt das nie auf – zwei Tabs passen immer. Die Frame-Daten
-     * haben sechs, und die drückten auf einem Telefon (375 px) das Dokument auf
-     * 815 px auf: 440 px waagerechter Seitenscroll.
-     *
-     * Umbruch wäre die falsche Lösung: `.tabs__ink` ist absolut positioniert und
-     * folgt `offsetLeft` des aktiven Tabs – in einer zweiten Zeile säße der
-     * Unterstrich falsch. Beim Scrollen bleibt die Rechnung gültig.
-     */
+    gap: 4px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto var(--sp-5);
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
     overflow-x: auto;
-    scrollbar-width: thin;
+    scrollbar-width: none;
     overscroll-behavior-x: contain;
   }
   .tab {
+    position: relative;
+    z-index: 1;
     display: inline-flex;
     flex: none;
     align-items: center;
     gap: var(--sp-2);
-    min-height: 52px;
-    padding: 0 var(--sp-4);
+    min-height: 44px;
+    padding: 0 var(--sp-5);
+    border-radius: 9999px;
     color: var(--text-muted);
-    font-size: var(--fs-400);
+    font-size: var(--fs-300);
     font-weight: 800;
     font-stretch: var(--stretch-semi);
     transition: color var(--t-fast);
@@ -798,11 +825,15 @@
   }
   .tabs__ink {
     position: absolute;
+    top: 4px;
+    bottom: 4px;
     left: 0;
-    bottom: -1px;
+    z-index: 0;
     width: 0;
-    height: 3px;
-    background: var(--accent);
+    border: 1px solid var(--accent-line);
+    border-radius: 9999px;
+    background: var(--accent-soft);
+    pointer-events: none;
   }
   .tabpanel:focus-visible {
     outline: 2px solid var(--focus);
@@ -819,6 +850,63 @@
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr));
     align-items: start;
     gap: var(--sp-4);
+  }
+
+  /* ── Kommentare (Platzhalter) ───────────────────────────────────────── */
+  .fcomments {
+    padding-block: var(--sp-8) var(--sp-4);
+  }
+  .fcomments__box {
+    display: grid;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: var(--r-panel);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+  }
+  .fcomments__composer {
+    display: grid;
+    gap: var(--sp-3);
+  }
+  .fcomments__input {
+    width: 100%;
+    min-height: 96px;
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgb(255 255 255 / 0.03);
+    color: var(--text);
+    font: inherit;
+    resize: vertical;
+  }
+  .fcomments__input:disabled {
+    cursor: not-allowed;
+  }
+  /* Deaktiviert muss auch so aussehen: In voller Akzentfarbe wirkte der Knopf klickbar. */
+  .fcomments .btn:disabled {
+    opacity: 0.45;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  .fcomments__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+  .fcomments__hint {
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+  }
+  .fcomments__empty {
+    padding: var(--sp-5);
+    border: 1px dashed var(--line-strong);
+    border-radius: 12px;
+    color: var(--text-muted);
+    text-align: center;
   }
 
   /* ── Prev / next ────────────────────────────────────────────────────── */

@@ -295,10 +295,10 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'ike',
     meta: [
-      'Ikes Power ist sein Markenzeichen: Sein Moveset enthält einige der stärksten Angriffe im Spiel, und mit Rage wird sein KO-Potenzial noch furchteinflößender. Dazu kommt große, disjointe Reichweite, und mit dem Neutral Air ein richtig guter Combo-Starter.',
+      'Ikes Power ist sein Markenzeichen: Sein Moveset enthält einige der stärksten Angriffe im Spiel, und mit Rage wird sein KO-Potenzial noch furchteinflößender. Dazu kommen große, abgekoppelte Hitboxen, und mit dem Neutral Air ein richtig guter Combo-Starter.',
       'Dafür bewegt er sich vor allem am Boden langsam und hat mit die schlechteste Frame Data im Spiel: Fast alles endet mit viel Lag. Sein Gewicht lässt ihn lange überleben, macht ihn aber auch leicht combo- und jonglierbar.',
     ],
-    strengths: ['Einige der stärksten Angriffe im Spiel', 'Große disjointe Reichweite', 'Nair als bester Combo-Starter'],
+    strengths: ['Einige der stärksten Angriffe im Spiel', 'Große abgekoppelte Hitboxen', 'Nair als bester Combo-Starter'],
     weaknesses: ['Langsame Bewegung, besonders am Boden', 'Mit die schlechteste Frame Data im Spiel', 'Schlechter Nachteil-Zustand'],
     sources: [wiki('Ike_(SSBU)'), game8('281203'), ufd('ike')],
     combos: [
@@ -585,10 +585,10 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'king-dedede',
     meta: [
-      'King Dedede ist gemeinsam mit Donkey Kong der drittschwerste Charakter, fällt sehr schnell und kommt mit vier Luftsprüngen plus Super Dedede Jump für ein Schwergewicht hervorragend zurück. Sein Hammer gibt vielen Angriffen einen langen Disjoint, und an Finishern mangelt es ihm nicht, die Dash Attack killt laut SmashWiki verlässlich unter 100 %.',
+      'King Dedede ist gemeinsam mit Donkey Kong der drittschwerste Charakter, fällt sehr schnell und kommt mit vier Luftsprüngen plus Super Dedede Jump für ein Schwergewicht hervorragend zurück. Sein Hammer gibt vielen Angriffen eine lange, abgekoppelte Hitbox, und an Finishern mangelt es ihm nicht, die Dash Attack killt laut SmashWiki verlässlich unter 100 %.',
       'Sein größtes Problem ist die Annäherung, die zu den schlechtesten im Spiel zählt. Träge Luftgeschwindigkeit, große Hurtbox und fehlende schnelle Fluchtoptionen machen ihn zusätzlich anfällig für Combos und Jonglage.',
     ],
-    strengths: ['Drittschwerster Charakter mit starker Recovery', 'Hammer mit langem Disjoint', 'Dash Attack killt unter 100 %'],
+    strengths: ['Drittschwerster Charakter mit starker Recovery', 'Hammer mit langer, abgekoppelter Hitbox', 'Dash Attack killt unter 100 %'],
     weaknesses: ['Eine der schlechtesten Annäherungen im Spiel', 'Träge Luftgeschwindigkeit', 'Sehr combo- und jonglieranfällig'],
     sources: [wiki('King_Dedede_(SSBU)'), game8('281219'), ufd('king_dedede')],
     combos: [

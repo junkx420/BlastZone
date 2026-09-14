@@ -19,13 +19,14 @@
     z-index: -1;
     overflow: hidden;
   }
+  /*
+   * Startseite komplett tiefschwarz. Hier lagen zwei Farbkerne in der
+   * Akzentfarbe, und weil das Replay alle paar Sekunden den Fighter wechselt,
+   * blendete jedes Mal der ganze Grund mit um. Dazu endete der Schimmer sichtbar
+   * dort, wo der Hero aufhört. Farbe trägt hier nur noch der Render.
+   */
   .hero__stage::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(55% 60% at 72% 42%, color-mix(in oklch, var(--accent) 34%, transparent), transparent 70%),
-      radial-gradient(40% 40% at 20% 90%, color-mix(in oklch, var(--accent-2) 12%, transparent), transparent 70%);
+    content: none;
   }
   .hero__stage::after {
     content: '';
@@ -33,11 +34,32 @@
     inset: 0;
     background: linear-gradient(to bottom, rgb(6 7 10 / 0) 55%, var(--bg) 98%);
   }
+  /* Links und unten ausblenden, damit der Render ohne Kante im Schwarz steht. */
   .hero__art {
     position: absolute;
     inset: -4% -6% -4% 36%;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 34%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 34%);
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 34%),
+      linear-gradient(to bottom, #000 72%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 34%),
+      linear-gradient(to bottom, #000 72%, transparent 100%);
+    mask-composite: intersect;
+  }
+  /* Nur der Render, keine farbige Bühne dahinter. Die bleibt Ersatz, falls das Bild fehlt. */
+  .hero__art .art:not(.is-art-missing) > .sigil {
+    display: none;
+  }
+  /*
+   * Der Kopf beginnt unterhalb der Leiste statt dahinter. Höhe ausdrücklich
+   * gerechnet: Ein `<img>` löst `height: auto` über sein Seitenverhältnis auf,
+   * nicht zwischen `top` und `bottom`. Die 102 % übernehmen den Überstand von
+   * 2 % nach unten aus art.css.
+   */
+  .hero__art-layer .art__img--render {
+    top: calc(var(--nav-h) + var(--sp-8));
+    height: calc(102% - var(--nav-h) - var(--sp-8));
   }
   .hero__art-host,
   .hero__art-layer {
@@ -187,6 +209,47 @@
     }
   }
 
+  /* ── Combos quer durchs Roster ──────────────────────────────────────── */
+  .picks__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+    align-items: start;
+    gap: var(--sp-5) var(--sp-4);
+  }
+  .pick {
+    display: grid;
+    gap: var(--sp-3);
+  }
+  .pick__who {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-height: 44px;
+    color: var(--text);
+  }
+  .pick__face {
+    position: relative;
+    display: block;
+    flex: none;
+    width: 56px;
+    height: 34px;
+    overflow: hidden;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 0 1px var(--accent-line);
+  }
+  .pick__name {
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .pick__who:hover .pick__name {
+    color: var(--accent-text);
+  }
+
   /* ── Top of the meta · bento with rank 1 as the anchor ──────────────── */
   .top__list {
     display: grid;
@@ -325,6 +388,19 @@
     gap: var(--sp-3);
     margin-bottom: var(--sp-5);
     padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  }
+  /*
+   * Handy im Querformat: Der Filterblock ist gut 180 px hoch, bei 390 px
+   * Bildschirmhöhe blieb unter Leiste und Filter kaum etwas vom Roster übrig.
+   * Dort klebt er nicht mit, sondern scrollt mit dem Inhalt weg; nach oben
+   * scrollen holt ihn zurück. Hochkant greift ab 760 px dieselbe Regel weiter
+   * unten.
+   */
+  @media (orientation: landscape) and (max-height: 560px) {
+    .filters {
+      position: relative;
+      top: auto;
+    }
   }
   .filters__row {
     display: flex;

@@ -13,7 +13,7 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
   {
     slug: 'isabelle',
     meta: [
-      'Isabelles Bodenangriffe starten alle unter 10 Frames und haben Disjoints, ihre Aerials autocanceln im Short Hop. Zusammen mit ihrer schwebenden Natur macht das Edgeguarding zu einem Schwerpunkt: schnelle, weit reichende Aerials weit außerhalb der Stage.',
+      'Isabelles Bodenangriffe starten alle unter 10 Frames und haben abgekoppelte Hitboxen, ihre Aerials autocanceln im Short Hop. Zusammen mit ihrer schwebenden Natur macht das Edgeguarding zu einem Schwerpunkt: schnelle, weit reichende Aerials weit außerhalb der Stage.',
       'Dafür kommt sie schlecht wieder herunter, leicht und schwebend wird sie gejongliert und früh geworfen. Ihre Bewegungs-Mixups sind begrenzt, und mehrere Specials haben deutliche Mängel. Gegenüber Villager ist sie die risikoärmere Wahl mit schwächerem Zoning, aber besseren Punishes.',
     ],
     strengths: ['Alle Bodenangriffe unter 10 Frames', 'Aerials autocanceln im Short Hop', 'Starkes Edgeguarding'],
@@ -461,10 +461,10 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
     slug: 'wii-fit-trainer',
     meta: [
       'Wii Fit Trainer macht mit vielen Angriffen ungewöhnlich viel Schaden, und mehrere Hitboxen treffen unabhängig von der Blickrichtung. Sun Salutation und Header sind zwei schadensstarke Projektile, und Deep Breathing erhöht Schaden, Boden-, Luft- und Fallgeschwindigkeit sowie die Verteidigung.',
-      'Vielen Angriffen fehlen allerdings Disjoints, und sie haben seltsame tote Winkel, gegen kleine Hurtboxen und auf mittlere Distanz hat sie wenig Antworten. Durch den langsamen Fall ist sie leicht zu jonglieren.',
+      'Vielen Angriffen fehlen allerdings abgekoppelte Hitboxen, und sie haben seltsame tote Winkel, gegen kleine Hurtboxen und auf mittlere Distanz hat sie wenig Antworten. Durch den langsamen Fall ist sie leicht zu jonglieren.',
     ],
     strengths: ['Ungewöhnlich hoher Schaden', 'Zwei starke Projektile', 'Deep Breathing verbessert alle Werte'],
-    weaknesses: ['Wenige Disjoints, tote Winkel', 'Schwach auf mittlere Distanz', 'Leicht zu jonglieren'],
+    weaknesses: ['Wenige abgekoppelte Hitboxen, tote Winkel', 'Schwach auf mittlere Distanz', 'Leicht zu jonglieren'],
     sources: [wiki('Wii_Fit_Trainer_(SSBU)'), game8('281220'), ufd('wii_fit_trainer')],
     combos: [
       {
@@ -687,7 +687,7 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
   {
     slug: 'ridley',
     meta: [
-      'Ridley lebt von Punish-Spiel und Luftdruck: schnelle, kräftige, weit reichende Aerials mit ordentlicher Luftmobilität. Seine Disjoints bestrafen reichweitenschwache Gegner, der Kommando-Grab knackt defensive, und das Projektil hilft gegen alle ohne eigenes.',
+      'Ridley lebt von Punish-Spiel und Luftdruck: schnelle, kräftige, weit reichende Aerials mit ordentlicher Luftmobilität. Seine abgekoppelten Hitboxen bestrafen reichweitenschwache Gegner, der Kommando-Grab knackt defensive, und das Projektil hilft gegen alle ohne eigenes.',
       'Seine Hurtbox gehört zu den größten und unhandlichsten im Cast, zusammen mit hohem Gewicht und schnellem Fall wird er extrem leicht combot und jongliert. Gegen Zoner hat er kaum Antworten, und die stark schwankende Qualität seiner Moves macht ihn berechenbar.',
     ],
     strengths: ['Starkes Punish-Spiel und Luftdruck', 'Weit reichende, kräftige Aerials', 'Kommando-Grab gegen defensive Gegner'],

@@ -714,6 +714,18 @@
     -webkit-backdrop-filter: var(--glass-blur);
     backdrop-filter: var(--glass-blur);
   }
+  /*
+   * Handy im Querformat: Bei 16:9 über die volle Breite war der Player höher als
+   * der ganze Bildschirm (844 px breit ergibt 475 px, bei 390 px Viewport). Die
+   * Breite richtet sich dort nach 70 % der Höhe, das Seitenverhältnis bleibt,
+   * der Player steht mittig.
+   */
+  @media (orientation: landscape) and (max-height: 560px) {
+    .vplayer {
+      width: min(100%, calc(70dvh * 16 / 9));
+      margin-inline: auto;
+    }
+  }
   .vplayer__start {
     display: flex;
     align-items: center;
@@ -1111,18 +1123,33 @@
     align-items: start;
     justify-content: space-between;
   }
-  .tile__guide {
+  /*
+   * Franchise-Symbol oben rechts. Die Ecke trug früher einen Blitz für „hat
+   * Combos", und das trifft inzwischen auf alle 86 Fighter zu.
+   */
+  .tile__franchise {
     display: grid;
     place-items: center;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     background: rgb(11 13 18 / 0.82);
-    color: var(--dmg-40);
+    color: var(--text);
   }
-  .tile__guide .icon {
-    width: 14px;
-    height: 14px;
+  .tile__franchise .icon {
+    width: 15px;
+    height: 15px;
+  }
+  .tag--series {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tag--series .franchise-glyph {
+    flex: none;
+    width: 1.1em;
+    height: 1.1em;
+    color: var(--accent-text);
   }
   /* Sits below the badge row, like the player token dropped onto a portrait. */
   .tile__p1 {

@@ -1,16 +1,16 @@
-import { comboSteps, meter, playCombo } from '../components/comboPlayer';
+import { bindComboCards, comboCard, comboSteps, meter, playCombo } from '../components/comboPlayer';
 import { faceThumb, fighterArt, fighterTile } from '../components/fighterTile';
 import { ICONS } from '../components/icons';
 import { glyph, inputKeys } from '../components/notation';
 import { tierBadge, tierGroup } from '../components/tierBadge';
 import { renderArt } from '../data/art';
 import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, weightClass } from '../data/fighters';
-import { GUIDE_SLUGS, loadLateGuides } from '../data/guide-index';
+import { guideFor, loadLateGuides } from '../data/guide-index';
 import { SHOWCASE } from '../data/guides';
 import { BUTTON_LEGEND, resolveToken } from '../data/notation';
 import { matchScore } from '../data/search';
 import { TIER_BY_SLUG, TIER_ORDER, TIER_PLACEMENTS, TIER_SOURCE, TIER_TOTAL } from '../data/tiers';
-import type { Archetype, Fighter, TierId, WeightClass } from '../data/types';
+import type { Archetype, Combo, Fighter, TierId, WeightClass } from '../data/types';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, qsa, type Markup } from '../lib/dom';
 import { gsap, loadFlip, motionOK, parallax, pointerDepth, reveals, scope, type FlipApi } from '../lib/motion';
@@ -259,7 +259,6 @@ interface Filters {
   arch: Archetype | '';
   weight: WeightClass | '';
   sort: Sort;
-  guides: boolean;
 }
 
 const SORTS: Array<[Sort, string]> = [
@@ -280,7 +279,6 @@ function readFilters(query: URLSearchParams): Filters {
     arch: arch in ARCHETYPES ? (arch as Archetype) : '',
     weight: weight in WEIGHT_CLASSES ? (weight as WeightClass) : '',
     sort: SORTS.some(([s]) => s === sort) ? (sort as Sort) : 'rank',
-    guides: query.get('routen') === '1',
   };
 }
 
@@ -291,11 +289,10 @@ function writeFilters(f: Filters): void {
   if (f.arch) p.set('archetyp', f.arch);
   if (f.weight) p.set('gewicht', f.weight);
   if (f.sort !== 'rank') p.set('sort', f.sort);
-  if (f.guides) p.set('routen', '1');
   replaceQuery(p);
 }
 
-const isFiltered = (f: Filters): boolean => Boolean(f.q || f.tiers.size || f.arch || f.weight || f.guides);
+const isFiltered = (f: Filters): boolean => Boolean(f.q || f.tiers.size || f.arch || f.weight);
 const rankOf = (f: Fighter): number => TIER_BY_SLUG.get(f.slug)?.rank ?? 999;
 
 const SORTERS: Record<Sort, (a: Fighter, b: Fighter) => number> = {
@@ -312,7 +309,6 @@ function visibleFighters(f: Filters): Fighter[] {
     if (f.tiers.size && (!placement || !f.tiers.has(placement.tier))) return false;
     if (f.arch && x.archetype !== f.arch) return false;
     if (f.weight && weightClass(x.weight) !== f.weight) return false;
-    if (f.guides && !GUIDE_SLUGS.has(x.slug)) return false;
     return true;
   }).sort((a, b) => (f.q ? matchScore(b, f.q) - matchScore(a, f.q) : 0) || SORTERS[f.sort](a, b));
 }
@@ -358,7 +354,6 @@ function rosterSection(): Markup {
           <div class="filters__tiers" role="group" aria-label="Nach Tier filtern">
             ${TIER_ORDER.map((t) => html`<button type="button" class="chip" data-tier="${tierGroup(t)}" data-tier-id="${t}" aria-pressed="false">${t}</button>`)}
           </div>
-          <button type="button" class="chip chip--guides" data-guides aria-pressed="false">${ICONS.combo}Mit Combos</button>
           <button type="button" class="btn btn--sm btn--ghost filters__reset" data-reset hidden>${ICONS.reset}Filter zurücksetzen</button>
         </div>
       </div>
@@ -382,7 +377,6 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
   const arch = qs<HTMLSelectElement>('[data-arch]', section)!;
   const weight = qs<HTMLSelectElement>('[data-weight]', section)!;
   const sort = qs<HTMLSelectElement>('[data-sort]', section)!;
-  const guides = qs<HTMLButtonElement>('[data-guides]', section)!;
   const count = qs<HTMLElement>('[data-count]', section)!;
   const empty = qs<HTMLElement>('[data-empty]', section)!;
   const tierChips = qsa<HTMLButtonElement>('[data-tier-id]', section);
@@ -408,7 +402,6 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
     arch.value = state.arch;
     weight.value = state.weight;
     sort.value = state.sort;
-    guides.setAttribute('aria-pressed', String(state.guides));
     tierChips.forEach((chip) => chip.setAttribute('aria-pressed', String(state.tiers.has(chip.dataset.tierId as TierId))));
   };
 
@@ -472,10 +465,6 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
     state.sort = sort.value as Sort;
     update();
   });
-  guides.addEventListener('click', () => {
-    state.guides = !state.guides;
-    update();
-  });
   tierChips.forEach((chip) =>
     chip.addEventListener('click', () => {
       const tier = chip.dataset.tierId as TierId;
@@ -486,7 +475,7 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
   );
   resets.forEach((b) =>
     b.addEventListener('click', () => {
-      Object.assign(state, { q: '', arch: '', weight: '', guides: false });
+      Object.assign(state, { q: '', arch: '', weight: '' });
       state.tiers.clear();
       input.value = '';
       update();
@@ -499,6 +488,77 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
   return () => {
     window.clearTimeout(debounce);
     flip?.kill();
+  };
+}
+
+/* ───────────────────────────── Combos quer durchs Roster ───────────────────────────── */
+
+/**
+ * Sechs Routen von sechs Fightern, über mehrere Tiers verteilt. Das Replay im
+ * Hero zeigt nur Kill-Confirms aus der Spitze; hier soll man sehen, dass es für
+ * das ganze Roster etwas gibt.
+ *
+ * Die meisten Fighter liegen in `guides-late` und kommen erst mit
+ * `loadLateGuides()`, deshalb stehen zuerst Platzhalter da. Eine ID, die es
+ * nicht mehr gibt, fällt still heraus und meldet sich im Dev-Modus.
+ */
+const PICKS = ['pikachu-dthrow-uair', 'wolf-uthrow-uair', 'dk-cargo-uair', 'ness-pkfire-dthrow', 'ike-nair-fair', 'ganon-flamechoke-dtilt'];
+
+function picksSection(): Markup {
+  return html`<section class="section picks" id="picks" aria-labelledby="picks-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="picks-title" data-reveal="wipe">Combos aus dem Roster</h2>
+        <p>Sechs Fighter, sechs Routen, quer durch die Tiers.</p>
+      </div>
+      <ul class="picks__grid" role="list" data-picks aria-busy="true">
+        ${PICKS.map(
+          () => html`<li class="skeleton__card" aria-hidden="true">
+            <span class="skeleton__bar skeleton__bar--title"></span>
+            <span class="skeleton__bar"></span>
+            <span class="skeleton__bar skeleton__bar--step"></span>
+            <span class="skeleton__bar skeleton__bar--step"></span>
+          </li>`,
+        )}
+      </ul>
+    </div>
+  </section>`;
+}
+
+const pickCard = (f: Fighter, combo: Combo): Markup =>
+  html`<li class="pick" style="${accentVars(f.colors)}">
+    <a class="pick__who" href="${link(`/fighter/${f.slug}`)}">
+      ${faceThumb(f, 'pick__face')}
+      <span class="pick__name">${f.name}</span>
+      ${tierBadge(TIER_BY_SLUG.get(f.slug))}
+    </a>
+    ${comboCard(combo)}
+  </li>`;
+
+function mountPicks(root: HTMLElement): () => void {
+  const host = qs<HTMLElement>('[data-picks]', root);
+  if (!host) return () => {};
+  let alive = true;
+  let unbind: () => void = () => {};
+
+  void loadLateGuides().then(() => {
+    if (!alive || !host.isConnected) return;
+    const found = PICKS.flatMap((id) => {
+      for (const f of FIGHTERS) {
+        const combo = guideFor(f.slug)?.combos.find((c) => c.id === id);
+        if (combo) return [{ f, combo }];
+      }
+      if (import.meta.env.DEV) console.warn(`Startseite: Combo "${id}" nicht gefunden.`);
+      return [];
+    });
+    mount(host, html`${found.map(({ f, combo }) => pickCard(f, combo))}`);
+    host.removeAttribute('aria-busy');
+    unbind = bindComboCards(host, found.map(({ combo }) => combo));
+  });
+
+  return () => {
+    alive = false;
+    unbind();
   };
 }
 
@@ -555,7 +615,7 @@ export function homePage(route: Route): PageView {
   return {
     title: 'Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate',
     anchor: route.name === 'roster' ? '#roster' : route.name === 'notation' ? '#notation' : undefined,
-    markup: html`<div class="page page--flush page--home">${heroSection()}${topSection()}${rosterSection()}${notationSection()}</div>`,
+    markup: html`<div class="page page--flush page--home">${heroSection()}${topSection()}${picksSection()}${rosterSection()}${notationSection()}</div>`,
     mount(root) {
       const cleanups: Array<() => void> = [];
       cleanups.push(
@@ -565,6 +625,7 @@ export function homePage(route: Route): PageView {
         }),
       );
       cleanups.push(mountHero(root));
+      cleanups.push(mountPicks(root));
       cleanups.push(mountRoster(root, route));
       return () => cleanups.forEach((fn) => fn());
     },

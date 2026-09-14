@@ -129,31 +129,55 @@
     transform: skewX(var(--slant)) scaleX(1);
   }
 
+  /*
+   * Echte kleine Suchleiste statt Knopf. Die Kurztaste "/" funktioniert weiter,
+   * sie steht nur nicht mehr als Tastenkappe im Feld.
+   */
   .nav__search {
-    display: inline-flex;
+    position: relative;
+    display: flex;
+    flex: none;
     align-items: center;
-    gap: var(--sp-2);
-    min-height: 44px;
-    padding: 0 8px 0 12px;
-    border-radius: var(--r-control);
-    border: 1px solid var(--line);
-    background: rgb(255 255 255 / 0.04);
+    width: clamp(180px, 20vw, 260px);
+    height: 40px;
     color: var(--text-muted);
-    font-size: var(--fs-200);
-    font-weight: 600;
-    transition:
-      border-color var(--t-fast),
-      color var(--t-fast),
-      background-color var(--t-fast);
-  }
-  .nav__search:hover {
-    border-color: var(--line-strong);
-    background: rgb(255 255 255 / 0.07);
-    color: var(--text);
   }
   .nav__search .icon {
-    width: 18px;
-    height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    width: 16px;
+    height: 16px;
+    translate: 0 -50%;
+    pointer-events: none;
+  }
+  .nav__search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 14px 0 38px;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.05);
+    color: var(--text);
+    font: inherit;
+    font-size: var(--fs-200);
+    cursor: pointer;
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast);
+  }
+  .nav__search-input::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+  .nav__search-input:hover,
+  .nav__search-input:focus-visible {
+    border-color: var(--line-strong);
+    background: rgb(255 255 255 / 0.08);
+  }
+  .nav__search-input::-webkit-search-decoration,
+  .nav__search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
   }
 
   kbd {
@@ -184,13 +208,16 @@
       max-width: none;
       padding-inline: var(--sp-3);
     }
+    /*
+     * Basis 0 und Wachstum statt fester Breite: Beim Zeilenumbruch rechnet
+     * Flexbox mit der Basis, und 200 px neben dem Logo hätten die Leiste auf
+     * 375 px in drei statt zwei Zeilen gebrochen.
+     */
     .nav__search {
+      flex: 1 1 0;
+      width: auto;
+      max-width: 220px;
       margin-inline-start: auto;
-      padding: 0 12px;
-    }
-    .nav__search-label,
-    .nav__search kbd {
-      display: none;
     }
     .nav__links {
       order: 3;
@@ -207,8 +234,13 @@
   }
 
   /* ── Page frame ─────────────────────────────────────────────────────── */
+  /*
+   * Abstand unter der Leiste. Sie schwebt als Glas-Panel über dem Inhalt, und
+   * Inhalt, der direkt an ihrer Unterkante begann, wirkte wie darunter
+   * eingeklemmt.
+   */
   .page {
-    padding-top: var(--nav-h);
+    padding-top: calc(var(--nav-h) + var(--sp-6));
   }
   .page--flush {
     padding-top: 0;

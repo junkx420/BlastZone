@@ -119,10 +119,10 @@ export const A_GUIDES: FighterGuide[] = [
   {
     slug: 'hero',
     meta: [
-      'Hero hat viel disjointe Reichweite in Forward, Neutral und Back Air, und seine Specials sind sein größter Trumpf: Frizz, Zap und die zufällige Command Selection können Matches kippen. Smash-Angriffe treffen mit einer Chance von 1 zu 8 kritisch.',
+      'Hero hat in Forward, Neutral und Back Air viel Reichweite mit abgekoppelten Hitboxen, und seine Specials sind sein größter Trumpf: Frizz, Zap und die zufällige Command Selection können Matches kippen. Smash-Angriffe treffen mit einer Chance von 1 zu 8 kritisch.',
       'Seine Zauber kosten MP, und die füllen sich zuverlässig nur über Treffer mit normalen Angriffen. Dazu kommen unterdurchschnittliche Frame Data und schwache Out-of-Shield-Optionen.',
     ],
-    strengths: ['Disjointe Reichweite in den Aerials', 'Starke, vielseitige Specials', 'Critical Hits können extrem früh killen'],
+    strengths: ['Weit reichende, abgekoppelte Hitboxen in den Aerials', 'Starke, vielseitige Specials', 'Critical Hits können extrem früh killen'],
     weaknesses: ['MP füllt sich nur über normale Treffer', 'Unterdurchschnittliche Frame Data', 'Schwaches Out-of-Shield'],
     sources: [wiki('Hero_(SSBU)'), game8('281243'), ufd('hero')],
     combos: [
