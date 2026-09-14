@@ -1,4 +1,4 @@
-import { game8, ufd, wiki } from './guide-helpers';
+import { doc, game8, ufd, wiki } from './guide-helpers';
 import type { FighterGuide } from './types';
 
 /**
@@ -303,7 +303,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'utilt', dmg: 11 },
           { input: 'utilt', dmg: 11 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 9 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 18 },
         ],
         tip: 'Laut Game8 eine gute Antwort auf Gegner, die viel mit Down Airs von oben kommen.',
         source: game8('281184'),
@@ -317,8 +317,8 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 8 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 8 },
-          { input: 'dj fair', label: 'DJ Fair', dmg: 8 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 12 },
+          { input: 'dj fair', label: 'DJ Fair', dmg: 12 },
         ],
         tip: 'Laut SmashWiki hat der Down Throw garantierte Follow-ups in Nair, Fair und Up Air.',
         source: game8('281184'),
@@ -360,7 +360,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
         kills: true,
         difficulty: 2,
         steps: [
-          { input: 'fh uair', label: 'FH Uair', dmg: 9, note: 'Nur der letzte Treffer trägt den Knockback.' },
+          { input: 'fh uair', label: 'FH Uair', dmg: 18, note: 'Nur der letzte Treffer trägt den Knockback.' },
         ],
         tip: 'Laut SmashWiki hat der letzte Treffer des Up Airs extrem hohe Knockback-Skalierung, nahe der oberen Blastzone killt er bei hohen Prozenten verlässlich.',
         tags: ['Nahe der oberen Blastzone'],
@@ -392,8 +392,81 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 8 },
           { input: 'fh nair', label: 'FH Nair', dmg: 13 },
         ],
-        tip: 'Die schadensstärkste der drei garantierten Fortsetzungen aus dem Down Throw.',
+        tip: 'Laut SmashWiki eine der drei garantierten Fortsetzungen aus dem Down Throw.',
         source: wiki('Ness_(SSBU)'),
+      },
+      {
+        id: 'ness-dthrow-uair',
+        kind: 'bnb',
+        title: 'Down Throw → Up Air',
+        start: 20,
+        difficulty: 1,
+        steps: [
+          { input: 'grab', dmg: 0 },
+          { input: 'dthrow', dmg: 8 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 18 },
+        ],
+        tip: 'Laut SmashWiki die dritte garantierte Fortsetzung aus dem Down Throw, neben Nair und Forward Air.',
+        source: wiki('Ness_(SSBU)'),
+      },
+      {
+        id: 'ness-dair-utilt-uair',
+        kind: 'bnb',
+        title: 'Down Air → Up Tilt → Up Air',
+        start: 20,
+        difficulty: 2,
+        steps: [
+          { input: 'sh dair', label: 'SH Dair gegen Gegner am Boden', dmg: 17, note: 'Früher Treffer gerechnet, der späte macht 14 %.' },
+          { input: 'utilt', dmg: 11 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 18 },
+        ],
+        tip: 'SmashWiki nennt den Down Air gegen Gegner am Boden einen verlässlichen Combo-Starter, GamersDecide diese Fortsetzung über Up Tilt in Up Air.',
+        source: doc('https://www.gamersdecide.com/articles/smash-ultimate-ness-combos', 'GamersDecide'),
+      },
+      {
+        id: 'ness-uair-chain',
+        kind: 'bnb',
+        title: 'Up Air ×3',
+        start: 30,
+        windowLabel: 'niedrige bis mittlere Prozente',
+        difficulty: 2,
+        steps: [
+          { input: 'fh uair', label: 'FH Uair', dmg: 18 },
+          { input: 'dj uair', label: 'DJ Uair', dmg: 18 },
+          { input: 'uair', dmg: 18 },
+        ],
+        tip: 'Laut GamersDecide bei niedrigen bis mittleren Prozenten. Gerechnet ist jeweils der volle Up Air mit allen fünf Treffern.',
+        source: doc('https://www.gamersdecide.com/articles/smash-ultimate-ness-combos', 'GamersDecide'),
+      },
+      {
+        id: 'ness-bair-utilt-uair',
+        kind: 'bnb',
+        title: 'Back Air → Up Tilt ×2 → Up Air',
+        start: 10,
+        difficulty: 2,
+        steps: [
+          { input: 'sh bair', label: 'SH Bair', dmg: 10, note: 'Später Treffer gerechnet, der frühe macht 18 %.' },
+          { input: 'utilt', dmg: 11 },
+          { input: 'utilt', dmg: 11 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 18 },
+        ],
+        tip: 'Route aus der Liste von GamersDecide. Der Up Tilt ist laut Game8 zugleich eine gute Antwort auf Gegner, die viel von oben kommen.',
+        source: doc('https://www.gamersdecide.com/articles/smash-ultimate-ness-combos', 'GamersDecide'),
+      },
+      {
+        id: 'ness-dair-uair-ko',
+        kind: 'meta',
+        title: 'Down Air → Up Air',
+        start: 120,
+        windowLabel: 'hohe Prozente, auch gegen Schwergewichte',
+        kills: true,
+        difficulty: 2,
+        steps: [
+          { input: 'sh dair', label: 'SH Dair gegen Gegner am Boden', dmg: 17, note: 'Früher Treffer gerechnet, der späte macht 14 %.' },
+          { input: 'fh uair', label: 'FH Uair', dmg: 18 },
+        ],
+        tip: 'Laut GamersDecide killt die Route bei hohen Prozenten selbst gegen Schwergewichte. SmashWiki bestätigt, dass der Up Air trotz Drag-down seine KO-Kraft behält.',
+        source: doc('https://www.gamersdecide.com/articles/smash-ultimate-ness-combos', 'GamersDecide'),
       },
     ],
   },

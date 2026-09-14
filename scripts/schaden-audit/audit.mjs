@@ -45,6 +45,31 @@ const FOLGE = /\b(First|Second|Third|Multi|Multihit|Final|Hits? \d|Landing)\b/i;
 const nums = (s) => (s.match(/\d+(?:\.\d+)?/g) || []).map(Number).filter((n) => n > 0 && n < 100);
 const r12 = (x) => Math.round(x * 1.2);
 
+/*
+ * Höchstzahl der Wiederholungen eines Mehrfachtreffers. Die erste Fassung ließ
+ * jede Zahl bis 16 zu, und damit ging Pikachus Nair mit 12 % durch (4 × 1,7 + 3,5),
+ * obwohl UFD nur vier Startframes nennt: drei Multi-Treffer und den Abschluss.
+ * Quelle der Zahl ist die Startframe-Spalte ("3/9/15/21"). Steht dort "..." oder
+ * nur ein Wert, zählt das Aktivfenster mit Rehit-Rate ("11—25 (rehit: 3)").
+ * Ist beides nicht ablesbar, bleibt es bei 16. Weniger Treffer als möglich sind
+ * immer erlaubt, in einer Route verbinden oft nicht alle.
+ */
+function maxWiederholungen({ name, row }) {
+  const felder = row.split('|').map((s) => s.trim());
+  const labelFinal = /\bFinal\b/i.test(row);
+  // Die Startframes stehen direkt hinter dem Namen, nicht irgendwo in der Zeile:
+  // Knockback-Spalten wie "6/13" sähen sonst genauso aus.
+  const i = felder.indexOf(name);
+  const start = i >= 0 && /^\d+(\/\d+)+$/.test(felder[i + 1] ?? '') ? felder[i + 1] : null;
+  if (start) {
+    const n = start.split('/').length;
+    return labelFinal ? Math.max(1, n - 1) : n;
+  }
+  const rehit = row.match(/(\d+)—(\d+)(?:\/\d+(?:—\d+)?)?\s*\(rehit:\s*(\d+)\)/);
+  if (rehit) return Math.floor((Number(rehit[2]) - Number(rehit[1])) / Number(rehit[3])) + 1;
+  return 16;
+}
+
 function candidates(rows) {
   const c = new Set();
   let acc = 0;
@@ -58,7 +83,8 @@ function candidates(rows) {
       const sum = ns.reduce((a, b) => a + b, 0);
       c.add(sum);
       rowMax = sum;
-      for (let k = 1; k <= 16; k++) {
+      const maxK = maxWiederholungen(r);
+      for (let k = 1; k <= maxK; k++) {
         if (ns.length >= 3) c.add(ns[0] + k * ns[1] + ns[ns.length - 1]);
         if (ns.length === 2) {
           c.add(k * ns[0] + ns[1]);
