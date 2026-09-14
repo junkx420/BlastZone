@@ -242,61 +242,88 @@
   /* ── Seitengrund ────────────────────────────────────────────────────── */
   /*
    * Raster der Trainings-Stage statt nacktem Schwarz: feine Linien alle 28 px,
-   * Hauptlinien alle 112 px mit einem Hauch der Schadensrampe. Das Raster
-   * driftet langsam diagonal, genau eine Hauptzelle pro Durchlauf, deshalb
-   * springt die Schleife nicht.
+   * Hauptlinien alle 112 px mit einem Hauch der Schadensrampe.
+   *
+   * KEINE Dauer-Animation. Die erste Fassung driftete endlos per `transform`,
+   * und die 1-px-Linien landeten dabei ständig zwischen zwei Pixeln: Sie
+   * flimmerten, auf manchen Bildschirmen wirkte das wie Blinken. Jetzt bewegt
+   * `siteBackground.ts` das Raster nur, wenn etwas passiert, und immer auf ganze
+   * Pixel gerundet:
+   * - mit Maus: leichte Parallaxe zur Mausposition, dazu leuchtet das Raster
+   *   rund um den Zeiger auf (`.sitebg__lit`, eine hellere Kopie mit runder Maske)
+   * - ohne Maus (Touch): Das Raster läuft beim Scrollen langsamer mit als der Inhalt
    *
    * Liegt fest am Viewport auf z-index -3, also unter dem Fighter-Hintergrund
    * (-2) und der Körnung (-1). Auf Fighter-Seiten ist es aus, dort trägt
-   * `.fbg` den Grund. Die Maske hält die Mitte ruhig: oben am deutlichsten,
-   * nach unten und zu den Seiten läuft es aus, damit Text nie auf Linien steht,
-   * die mit ihm konkurrieren.
-   *
-   * Animiert wird nur `transform` auf einer eigenen Ebene, das kostet keinen
-   * Layout- oder Paint-Durchlauf pro Frame.
+   * `.fbg` den Grund. Die äußere Maske hält die Seite ruhig: oben am
+   * deutlichsten, nach unten und zu den Seiten läuft es aus.
    */
   .sitebg {
+    --gx: 0px;
+    --gy: 0px;
+    --mx: 50vw;
+    --my: -40vh;
     position: fixed;
     inset: 0;
     z-index: -3;
     overflow: hidden;
     pointer-events: none;
-    -webkit-mask-image: radial-gradient(130% 95% at 50% 0%, #000 0%, rgb(0 0 0 / 0.6) 40%, rgb(0 0 0 / 0.18) 72%, transparent 100%);
-    mask-image: radial-gradient(130% 95% at 50% 0%, #000 0%, rgb(0 0 0 / 0.6) 40%, rgb(0 0 0 / 0.18) 72%, transparent 100%);
+    -webkit-mask-image: radial-gradient(130% 95% at 50% 0%, #000 0%, rgb(0 0 0 / 0.6) 40%, rgb(0 0 0 / 0.22) 72%, rgb(0 0 0 / 0.08) 100%);
+    mask-image: radial-gradient(130% 95% at 50% 0%, #000 0%, rgb(0 0 0 / 0.6) 40%, rgb(0 0 0 / 0.22) 72%, rgb(0 0 0 / 0.08) 100%);
   }
-  .sitebg::before {
-    content: '';
+  .sitebg__grid,
+  .sitebg__lit {
     position: absolute;
     inset: -112px;
-    background-image:
-      linear-gradient(color-mix(in oklch, var(--dmg-120) 16%, rgb(var(--fg-rgb) / 0.05)) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in oklch, var(--dmg-120) 16%, rgb(var(--fg-rgb) / 0.05)) 1px, transparent 1px),
-      linear-gradient(rgb(var(--fg-rgb) / 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(var(--fg-rgb) / 0.035) 1px, transparent 1px);
     background-size:
       112px 112px,
       112px 112px,
       28px 28px,
       28px 28px;
-    animation: sitebg-drift 60s linear infinite;
-    will-change: transform;
+    transform: translate3d(var(--gx), var(--gy), 0);
   }
-  /* Ein weicher Lichtkegel von oben, wie der Scheinwerfer über der Stage. Ohne Farbe, damit das Replay nichts umfärbt. */
+  .sitebg__grid {
+    background-image:
+      linear-gradient(color-mix(in oklch, var(--dmg-120) 16%, rgb(var(--fg-rgb) / 0.05)) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklch, var(--dmg-120) 16%, rgb(var(--fg-rgb) / 0.05)) 1px, transparent 1px),
+      linear-gradient(rgb(var(--fg-rgb) / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--fg-rgb) / 0.035) 1px, transparent 1px);
+  }
+  /*
+   * Dieselbe Geometrie, heller, nur in einem Kreis um den Mauszeiger sichtbar.
+   * Die Maske sitzt am verschobenen Element, deshalb wird die Verschiebung
+   * (--gx/--gy) und der Überstand (112 px) aus der Mausposition wieder herausgerechnet.
+   */
+  .sitebg__lit {
+    background-image:
+      linear-gradient(color-mix(in oklch, var(--dmg-120) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklch, var(--dmg-120) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(rgb(var(--fg-rgb) / 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--fg-rgb) / 0.14) 1px, transparent 1px);
+    -webkit-mask-image: radial-gradient(
+      circle 300px at calc(var(--mx) + 112px - var(--gx)) calc(var(--my) + 112px - var(--gy)),
+      #000 0%,
+      rgb(0 0 0 / 0.35) 45%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      circle 300px at calc(var(--mx) + 112px - var(--gx)) calc(var(--my) + 112px - var(--gy)),
+      #000 0%,
+      rgb(0 0 0 / 0.35) 45%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 500ms var(--ease-out);
+  }
+  .sitebg.is-lit .sitebg__lit {
+    opacity: 1;
+  }
+  /* Weicher Lichtkegel von oben, wie der Scheinwerfer über der Stage. Ohne Farbe, damit das Replay nichts umfärbt. */
   .sitebg::after {
     content: '';
     position: absolute;
     inset: 0;
     background: radial-gradient(60% 45% at 50% -8%, rgb(var(--fg-rgb) / 0.05), transparent 70%);
-  }
-  @keyframes sitebg-drift {
-    to {
-      transform: translate3d(112px, 112px, 0);
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .sitebg::before {
-      animation: none;
-    }
   }
   :root:has(.fighter) .sitebg {
     display: none;

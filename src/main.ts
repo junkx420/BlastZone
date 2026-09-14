@@ -14,6 +14,7 @@ import { mountAccountNav } from './components/accountNav';
 import { initBookmarkButtons } from './components/bookmarkButtons';
 import { initPalette } from './components/palette';
 import { renderShell } from './components/shell';
+import { initSiteBackground } from './components/siteBackground';
 import { applyTheme } from './lib/theme';
 import { onAuth, refreshSession } from './services/auth';
 import { clearBookmarkCache, loadBookmarks } from './services/db';
@@ -35,6 +36,7 @@ if (!app) throw new Error('#app fehlt in index.html');
 
 const palette = initPalette();
 const shell = renderShell(app, palette.open);
+initSiteBackground(app);
 initSmoothScroll();
 
 /*
