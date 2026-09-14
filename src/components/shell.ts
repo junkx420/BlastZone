@@ -24,7 +24,8 @@ const brand = html`<span class="brand__mark">${ICONS.burst}</span><span class="b
 export function renderShell(app: HTMLElement, onSearch: (query?: string) => void): Shell {
   mount(
     app,
-    html`<header class="nav" data-nav>
+    html`<div class="sitebg" aria-hidden="true"></div>
+      <header class="nav" data-nav>
         <div class="nav__inner">
           <a class="brand" href="${link('/')}" aria-label="Blastzone, Startseite">${brand}</a>
           <nav class="nav__links" aria-label="Hauptnavigation">

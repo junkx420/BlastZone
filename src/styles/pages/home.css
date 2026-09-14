@@ -28,11 +28,14 @@
   .hero__stage::before {
     content: none;
   }
+  /*
+   * Früher lag hier ein Verlauf auf deckendes --bg am unteren Rand. Seit das
+   * Stage-Raster (`.sitebg`) den Grund bildet, schnitt er es als dunkler Balken
+   * ab und das Raster setzte darunter mit Kante wieder ein. Die Unterkante des
+   * Renders blendet ohnehin die Maske von `.hero__art` aus.
+   */
   .hero__stage::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgb(6 7 10 / 0) 55%, var(--bg) 98%);
+    content: none;
   }
   /* Links und unten ausblenden, damit der Render ohne Kante im Schwarz steht. */
   .hero__art {
