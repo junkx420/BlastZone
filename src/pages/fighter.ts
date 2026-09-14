@@ -1,4 +1,5 @@
 import { bindComboCards, comboCard, playFirstVisible } from '../components/comboPlayer';
+import { commentsSection, mountComments } from '../components/comments';
 import { fighterBackdrop } from '../components/fighterBackdrop';
 import { franchiseGlyph } from '../components/franchise';
 import { faceThumb, fighterArt } from '../components/fighterTile';
@@ -230,26 +231,6 @@ function navSection(prev: Fighter, next: Fighter): Markup {
  * steht. Kein inline `onsubmit` am Formular, die CSP verbietet Inline-Skripte;
  * mit deaktiviertem Feld und Knopf lässt es sich ohnehin nicht absenden.
  */
-function commentsSection(f: Fighter): Markup {
-  return html`<section class="container fcomments" aria-labelledby="comments-title">
-    <div class="section-head">
-      <h2 id="comments-title">Diskussion</h2>
-      <p>Matchups, Setups und eigene Routen zu ${f.name}.</p>
-    </div>
-    <div class="fcomments__box">
-      <form class="fcomments__composer" aria-describedby="comments-hint">
-        <label class="vh" for="comment-text">Kommentar schreiben</label>
-        <textarea id="comment-text" class="fcomments__input" rows="3" placeholder="Kommentare kommen bald." disabled></textarea>
-        <div class="fcomments__row">
-          <p class="fcomments__hint" id="comments-hint">Die Kommentarfunktion ist noch nicht freigeschaltet.</p>
-          <button class="btn btn--primary btn--sm" type="submit" disabled>Posten</button>
-        </div>
-      </form>
-      <p class="fcomments__empty">Noch keine Kommentare.</p>
-    </div>
-  </section>`;
-}
-
 function mountTabs(root: HTMLElement, combos: Combo[]): () => void {
   /*
    * Auf den Combo-Abschnitt eingeschränkt. Seit die Frame-Daten eine zweite
@@ -388,6 +369,7 @@ export function fighterPage(route: Route): PageView {
       }
 
       cleanups.push(wireVideo(root));
+      cleanups.push(mountComments(root, f));
       cleanups.push(wireFrames(root, f.slug));
 
       let comboCleanups: Array<() => void> = [];

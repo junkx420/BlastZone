@@ -14,6 +14,8 @@ const NAV: Array<{ route: RouteName; path: string; label: string; wide?: boolean
 
 export interface Shell {
   main: HTMLElement;
+  /** Platz für Anmelden, Theme-Umschalter und Profil-Chip, siehe accountNav.ts. */
+  account: HTMLElement;
   setActive(route: RouteName): void;
 }
 
@@ -37,6 +39,7 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
             <input id="nav-search" class="nav__search-input" type="search" placeholder="Fighter suchen" readonly
               aria-haspopup="dialog" aria-keyshortcuts="/ Control+K" autocomplete="off" data-search />
           </div>
+          <div class="nav__account" data-account></div>
         </div>
       </header>
       <main id="main" class="main" tabindex="-1"></main>
@@ -105,7 +108,12 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
 
   return {
     main: qs<HTMLElement>('#main', app)!,
+    account: qs<HTMLElement>('[data-account]', app)!,
     setActive(route) {
+      qsa<HTMLAnchorElement>('.nav__me', app).forEach((a) => {
+        if (route === 'profil') a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
       links.forEach((a) => {
         if (a.dataset.route === route) a.setAttribute('aria-current', 'page');
         else a.removeAttribute('aria-current');

@@ -69,6 +69,8 @@
   --text: var(--mist-100);
   --text-muted: var(--mist-300);
   --text-subtle: var(--mist-400);
+  /* Vordergrund als RGB-Tripel für halbtransparente Flächen: rgb(var(--fg-rgb) / 0.05). Im Light-Mode dunkel. */
+  --fg-rgb: 255 255 255;
   --line: rgb(255 255 255 / 0.08);
   --line-strong: rgb(255 255 255 / 0.16);
   --focus: var(--dmg-40);
@@ -185,6 +187,8 @@
  */
 :root,
 [style*='--accent'] {
+  /* accentVars() liefert beide Lesarten, das Farbschema wählt. Ohne Fighter gilt der Standard aus :root. */
+  --accent-text: var(--accent-text-dark, #ff8d5c);
   --accent-soft: color-mix(in oklch, var(--accent) 18%, transparent);
   --accent-line: color-mix(in oklch, var(--accent) 45%, transparent);
   --accent-glow: color-mix(in oklch, var(--accent) 60%, transparent);

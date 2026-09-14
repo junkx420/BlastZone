@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Light-Mode, nur für angemeldete Nutzer (Umschalter in der Leiste).
+
+   Funktionsweise: Die Seite ist dunkel gebaut und rechnet fast überall mit
+   Tokens. Hier werden die Primitive umgedreht (void wird hell, mist wird
+   dunkel), dadurch folgen Flächen, Text und Linien von selbst. Halbtransparente
+   Waschungen laufen über --fg-rgb, das hier dunkel wird.
+
+   Bewusst dunkel bleiben: Fighter-Artwork-Bühnen und die Abdunkler über Bildern
+   (rgb(6 7 10 / …)). Weiße Schrift auf Artwork braucht dort weiter dunklen Grund.
+   ========================================================================== */
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --void-950: #f3f4f7;
+  --void-900: #ffffff;
+  --void-850: #f8f9fb;
+  --void-800: #eceef2;
+  --void-700: #e1e4ea;
+  --void-600: #cfd4dc;
+  --mist-400: #5b6270; /* 5.6:1 auf --bg */
+  --mist-300: #3f4552; /* 9.4:1 */
+  --mist-100: #0f1218; /* 17:1 */
+
+  --fg-rgb: 15 18 24;
+  --line: rgb(15 18 24 / 0.1);
+  --line-strong: rgb(15 18 24 / 0.2);
+  --focus: #c2410c;
+  --ink: #0b0d12;
+  --tier-d: #d6dae2;
+  --tier-e: #7b8190;
+
+  --glass-bg: rgb(255 255 255 / 0.7);
+  --glass-bg-strong: rgb(255 255 255 / 0.9);
+  --glass-border: rgb(15 18 24 / 0.1);
+  --glass-rim: inset 0 1px 0 rgb(255 255 255 / 0.9);
+  --glass-blur: blur(18px) saturate(140%);
+
+  --elev-1: 0 1px 0 rgb(15 18 24 / 0.04), 0 8px 24px -14px rgb(15 18 24 / 0.25);
+  --elev-2: 0 1px 0 rgb(15 18 24 / 0.05), 0 24px 60px -28px rgb(15 18 24 / 0.3);
+}
+
+:root[data-theme='light'],
+:root[data-theme='light'] [style*='--accent'] {
+  --accent-text: var(--accent-text-light, #c2410c);
+}
+
+/* Die Leiste hat über dem Hero eine eigene, fest dunkle Glasfarbe (layout.css). */
+:root[data-theme='light'] .nav__inner {
+  background: rgb(255 255 255 / 0.55);
+}
+:root[data-theme='light'] .nav.is-scrolled .nav__inner {
+  background: var(--glass-bg);
+}
+
+/*
+ * Die Schadensanzeige bleibt ein Spielbildschirm: helle Hitze-Ziffern mit
+ * dunkler Kontur wie im Spiel. Auf hellem Grund gingen die weißen Ziffern
+ * niedriger Prozente unter, deshalb ist das HUD im Light-Mode eine dunkle Insel.
+ * Die Tokens werden lokal zurückgesetzt, damit der Abspielen-Knopf mitzieht.
+ */
+:root[data-theme='light'] .combo__hud {
+  --fg-rgb: 255 255 255;
+  --surface-3: #161a23;
+  --surface-4: #20252f;
+  --text: #eceef2;
+  --text-muted: #aab0bd;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --glass-bg: rgb(14 17 24 / 0.94);
+  --accent-text: var(--accent-text-dark, #ff8d5c);
+  color: var(--text);
+}
+
+/* Startseiten-Headline: Die erste Zeile läuft im Dunkeln von Weiß in Gelb, auf Hell unlesbar. */
+:root[data-theme='light'] .hero__line:nth-child(1) {
+  background-image: linear-gradient(95deg, var(--text) 20%, #b45309 75%, var(--dmg-120));
+}
+
+/* Körnung aus base.css ist für dunklen Grund gemischt und legt auf Hell einen Grauschleier. */
+:root[data-theme='light'] body::before {
+  opacity: 0.25;
+}
+
+/* Hintergrund-Muster der Fighter-Seiten: auf Hell etwas kräftiger, sonst verschwinden die Linien. */
+:root[data-theme='light'] .fbg {
+  --fbg-kraft: 1.6;
+}
+
+/* Theme-Wechsel weich, aber nur die Farben und nur beim Umschalten (Klasse setzt theme.ts kurz). */
+:root.is-theme-switching,
+:root.is-theme-switching *,
+:root.is-theme-switching *::before,
+:root.is-theme-switching *::after {
+  transition:
+    background-color 240ms ease,
+    border-color 240ms ease,
+    color 240ms ease,
+    fill 240ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root.is-theme-switching * {
+    transition: none !important;
+  }
+}

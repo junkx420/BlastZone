@@ -158,7 +158,7 @@
     padding: 0 14px 0 38px;
     border: 1px solid var(--line);
     border-radius: 9999px;
-    background: rgb(255 255 255 / 0.05);
+    background: rgb(var(--fg-rgb) / 0.05);
     color: var(--text);
     font: inherit;
     font-size: var(--fs-200);
@@ -174,7 +174,7 @@
   .nav__search-input:hover,
   .nav__search-input:focus-visible {
     border-color: var(--line-strong);
-    background: rgb(255 255 255 / 0.08);
+    background: rgb(var(--fg-rgb) / 0.08);
   }
   .nav__search-input::-webkit-search-decoration,
   .nav__search-input::-webkit-search-cancel-button {

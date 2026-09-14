@@ -5,23 +5,30 @@ import type { PageView } from './types';
 /**
  * Datenschutzerklärung.
  *
- * Der Text beschreibt exakt das, was die Seite technisch tut – nachgeprüft am
- * 13.09.2026: kein localStorage, keine Cookies, kein fetch, kein Tracking, die
- * Schriften liegen lokal, und vor dem Klick auf ein Video geht keine einzige
- * Anfrage an Dritte. Ändert sich daran etwas, muss dieser Text mitgeändert
- * werden – eine Datenschutzerklärung, die etwas anderes behauptet als der Code
- * tut, ist schlimmer als keine.
+ * Der Text beschreibt exakt das, was die Seite technisch tut. Stand 14.09.2026,
+ * mit Konten: Cookies nur nach dem Anmelden (zwei HttpOnly-Sitzungscookies für
+ * /api), kein localStorage, kein Tracking, Schriften lokal, vor dem Klick auf
+ * ein Video keine Anfrage an Dritte. Ändert sich daran etwas, muss dieser Text
+ * mitgeändert werden. Eine Datenschutzerklärung, die etwas anderes behauptet als
+ * der Code tut, ist schlimmer als keine.
  *
- * UNVOLLSTÄNDIG – bewusst, auf Wunsch des Betreibers. Es fehlen:
+ * VOR DEM LIVEGANG ABGLEICHEN (siehe supabase/SETUP.md):
+ *   - Supabase-Region muss Frankfurt (eu-central-1) sein, sonst stimmt der
+ *     Abschnitt „Konten“ nicht.
+ *   - Upstash nur erwähnen, wenn es wirklich eingerichtet ist. Der Absatz steht
+ *     unten und ist als bedingt formuliert.
+ *   - Eigener SMTP-Dienst für die Bestätigungsmails? Dann hier nennen.
+ *
+ * UNVOLLSTÄNDIG, bewusst, auf Wunsch des Betreibers. Es fehlen:
  *   1. Der Abschnitt „Verantwortlich" mit Klarname, ladungsfähiger Anschrift
- *      und Kontakt. Er stand hier schon einmal mit Platzhaltern und wurde auf
- *      Wunsch vorübergehend entfernt; er gehört wieder an den Anfang von
- *      .legal__body, vor „Hosting und Server-Protokolle".
+ *      und Kontakt. Er gehört an den Anfang von .legal__body, vor „Hosting und
+ *      Server-Protokolle".
  *   2. Ein Impressum nach § 5 DDG als eigene Seite.
  *
  * Ohne 1. nennt die Erklärung keinen Verantwortlichen, und Art. 13 Abs. 1 lit. a
- * DSGVO verlangt genau das. Solange beides fehlt, ist die Seite rechtlich nicht
- * fertig – technisch aber vollständig und korrekt.
+ * DSGVO verlangt genau das. Mit Konten, öffentlichen Kommentaren und einem
+ * Auftragsverarbeiter mehr wiegt das schwerer als vorher. Vor dem Freischalten
+ * der Konten sollte das rechtlich geprüft sein.
  */
 export function privacyPage(): PageView {
   return {
@@ -30,8 +37,8 @@ export function privacyPage(): PageView {
       <section class="container page-head">
         <h1>Datenschutzerklärung</h1>
         <p>
-          Blastzone ist ein privates Fanprojekt. Die Seite setzt keine Cookies, bindet keine Analyse- oder
-          Tracking-Dienste ein und speichert nichts im Browser. Was trotzdem an Daten anfällt, steht hier.
+          Blastzone ist ein privates Fanprojekt ohne Analyse- oder Tracking-Dienste. Wer die Seite nur liest,
+          bekommt keine Cookies. Wer ein Konto anlegt, gibt ein paar Daten dafür her. Was genau anfällt, steht hier.
         </p>
       </section>
 
@@ -50,11 +57,48 @@ export function privacyPage(): PageView {
           nach den Datenschutzangaben von Vercel.
         </p>
 
-        <h2>Keine Cookies, kein Tracking</h2>
+        <h2>Kein Tracking, Cookies nur mit Konto</h2>
         <p>
-          Die Seite speichert keine Cookies und legt nichts im lokalen Speicher des Browsers ab. Es gibt keine
-          Reichweitenmessung, keine Analyse-Werkzeuge und keine Einbindung von Werbenetzwerken. Ein
-          Cookie-Banner ist deshalb nicht nötig. Es gäbe nichts, worin eingewilligt werden könnte.
+          Es gibt keine Reichweitenmessung, keine Analyse-Werkzeuge und keine Werbenetzwerke. Im lokalen Speicher
+          des Browsers legt die Seite nichts ab.
+        </p>
+        <p>
+          Cookies entstehen erst, wenn du dich anmeldest: zwei Sitzungscookies (<code>bz_at</code> und
+          <code>bz_rt</code>), die dich angemeldet halten. Sie sind für JavaScript nicht lesbar, gehen nur an die
+          Schnittstelle dieser Seite und an keinen Dritten. <code>bz_at</code> läuft nach etwa einer Stunde ab,
+          <code>bz_rt</code> nach 30 Tagen. Beim Abmelden werden beide gelöscht. Weil die Anmeldung ohne sie
+          technisch nicht funktioniert, braucht es dafür keine Einwilligung (§ 25 Abs. 2 Nr. 2 TDDDG) und kein
+          Cookie-Banner.
+        </p>
+
+        <h2>Konten, Kommentare und gespeicherte Combos</h2>
+        <p>
+          Für ein Konto speichern wir deine E-Mail-Adresse, einen Benutzernamen und dein Passwort, dieses nur als
+          Hash, nie im Klartext. Dazu kommt, was du selbst anlegst: deinen Main-Fighter, das Farbschema, gespeicherte
+          Combos und Kommentare, jeweils mit Zeitpunkt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, die
+          Bereitstellung des Kontos, das du anlegst.
+        </p>
+        <p>
+          <strong>Kommentare sind öffentlich.</strong> Jeder Besucher sieht sie zusammen mit deinem Benutzernamen,
+          deinem Main-Fighter und dem Zeitpunkt. E-Mail-Adresse und gespeicherte Combos sieht niemand außer dir.
+        </p>
+        <p>
+          Die Daten liegen bei Supabase Inc. als Auftragsverarbeiter nach Art. 28 DSGVO, in einem Rechenzentrum in
+          der EU (Frankfurt am Main). Supabase verschickt auch die Mail, mit der du deine Adresse bestätigst. Erst
+          nach dieser Bestätigung ist das Konto nutzbar (Double Opt-In).
+        </p>
+        <p>
+          Zum Schutz vor Missbrauch prüfen wir bei der Registrierung, ob die Domain deiner Adresse Mail empfangen kann
+          und nicht zu einem Wegwerf-Dienst gehört. Dafür wird nur die Domain (etwa <code>gmail.com</code>) per DNS
+          abgefragt, nicht die ganze Adresse. Gegen das Durchprobieren von Passwörtern zählen wir Anmeldeversuche
+          pro IP-Adresse. Gespeichert wird dafür ein Hashwert statt der Adresse selbst, und nach spätestens
+          24 Stunden ist der Zähler weg. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, das berechtigte Interesse an einem
+          sicheren Betrieb. Falls dieser Zähler über den Dienst Upstash (Upstash Inc.) läuft, ist Upstash dafür
+          Auftragsverarbeiter.
+        </p>
+        <p>
+          Du kannst dein Konto jederzeit im Profil selbst löschen. Konto, Profil, Kommentare und gespeicherte Combos
+          werden dabei sofort und vollständig entfernt.
         </p>
 
         <h2>Schriften</h2>
@@ -106,13 +150,13 @@ export function privacyPage(): PageView {
           Datenschutz-Aufsichtsbehörde, Art. 77 DSGVO.
         </p>
         <p>
-          Da die Seite außer den Server-Protokollen nichts erhebt und keine Nutzerkonten führt, lassen sich
-          Anfragen praktisch nur über die Protokolldaten beantworten, und die sind einer Person in aller Regel
-          nicht zuzuordnen.
+          Mit Konto siehst du deine gespeicherten Daten im Profil und kannst sie dort selbst löschen. Ohne Konto
+          fallen außer den Server-Protokollen keine Daten an, und die sind einer Person in aller Regel nicht
+          zuzuordnen.
         </p>
 
         <h2>Stand</h2>
-        <p>Diese Erklärung gilt seit dem 13. September 2026.</p>
+        <p>Diese Erklärung gilt seit dem 14. September 2026.</p>
 
         <p><a class="btn btn--ghost" href="${link('/')}">Zurück zur Startseite</a></p>
       </section>

@@ -677,7 +677,7 @@
     border-top: 1px solid var(--line);
   }
   .frame tbody tr:hover {
-    background: rgb(255 255 255 / 0.03);
+    background: rgb(var(--fg-rgb) / 0.03);
   }
   /* Die Move-Spalte trägt Name, Spaltenlegende und Notiz – die darf umbrechen. */
   .frame tbody th {
@@ -912,7 +912,7 @@
     padding: var(--sp-3) var(--sp-4);
     border: 1px solid var(--line);
     border-radius: 12px;
-    background: rgb(255 255 255 / 0.03);
+    background: rgb(var(--fg-rgb) / 0.03);
     color: var(--text);
     font: inherit;
     resize: vertical;

@@ -92,7 +92,7 @@
   }
   .pyr__ring {
     fill: var(--void-600);
-    stroke: rgb(255 255 255 / 0.35);
+    stroke: rgb(var(--fg-rgb) / 0.35);
     stroke-width: 1.5;
   }
   .pyr__face.is-added .pyr__ring {
@@ -220,7 +220,7 @@
     padding: 4px 12px 4px 4px;
     border: 1px solid var(--line);
     border-radius: 8px;
-    background: rgb(255 255 255 / 0.03);
+    background: rgb(var(--fg-rgb) / 0.03);
     font-size: var(--fs-200);
     font-weight: 700;
     transition:
@@ -229,7 +229,7 @@
   }
   .archchip.is-added {
     border-style: dashed;
-    border-color: rgb(255 255 255 / 0.28);
+    border-color: rgb(var(--fg-rgb) / 0.28);
   }
   .archchip:hover,
   .archchip:focus-visible {

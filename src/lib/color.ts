@@ -1,6 +1,8 @@
 type RGB = [number, number, number];
 
 const BG = '#06070a';
+/** --bg im Light-Mode, siehe theme-light.css. */
+const LIGHT_BG = '#f3f4f7';
 const INK = '#0b0d12';
 
 export function hexToRgb(hex: string): RGB {
@@ -63,6 +65,13 @@ export function mix(a: string, b: string, t: number): string {
 }
 
 /** Lightens a color until it reaches `min` contrast on the page ground. */
+/** Dunkelt eine Farbe ab, bis sie auf dem hellen Grund des Light-Modes lesbar ist. */
+export function dropForLight(hex: string, min = 4.5): string {
+  let out = hex;
+  for (let t = 0.08; contrast(out, LIGHT_BG) < min && t <= 1; t += 0.08) out = mix(hex, '#000000', t);
+  return out;
+}
+
 export function liftForDark(hex: string, min = 4.5): string {
   let out = hex;
   for (let t = 0.08; contrast(out, BG) < min && t <= 1; t += 0.08) out = mix(hex, '#ffffff', t);
@@ -97,7 +106,9 @@ export function accentVars([primary, secondary]: readonly [string, string]): str
   return [
     `--accent:${primary}`,
     `--accent-2:${secondary}`,
-    `--accent-text:${liftForDark(primary)}`,
+    // Zwei Lesarten statt --accent-text direkt: Ein Inline-Style ließe sich vom Light-Mode nicht mehr überschreiben.
+    `--accent-text-dark:${liftForDark(primary)}`,
+    `--accent-text-light:${dropForLight(primary)}`,
     `--accent-ink:${inkOn(primary)}`,
   ].join(';');
 }

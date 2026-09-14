@@ -7,17 +7,26 @@ import './styles/pages/fighter.css';
 import './styles/pages/tiers.css';
 import './styles/pages/archetypes.css';
 import './styles/art.css';
+import './styles/pages/account.css';
+import './styles/theme-light.css';
 
+import { mountAccountNav } from './components/accountNav';
+import { initBookmarkButtons } from './components/bookmarkButtons';
 import { initPalette } from './components/palette';
 import { renderShell } from './components/shell';
+import { applyTheme } from './lib/theme';
+import { onAuth, refreshSession } from './services/auth';
+import { clearBookmarkCache, loadBookmarks } from './services/db';
 import { mount, qs, qsa } from './lib/dom';
 import { initSmoothScroll, motionOK, scrollToTarget, ScrollTrigger } from './lib/motion';
 import { startRouter, type NavContext, type Route } from './lib/router';
 import { archetypesPage } from './pages/archetypes';
+import { confirmPage } from './pages/confirm';
 import { fighterPage } from './pages/fighter';
 import { homePage } from './pages/home';
 import { notFoundPage } from './pages/notFound';
 import { privacyPage } from './pages/privacy';
+import { profilePage } from './pages/profile';
 import { tiersPage } from './pages/tiers';
 import type { PageView } from './pages/types';
 
@@ -27,6 +36,24 @@ if (!app) throw new Error('#app fehlt in index.html');
 const palette = initPalette();
 const shell = renderShell(app, palette.open);
 initSmoothScroll();
+
+/*
+ * Konten. Die Seite rendert sofort als Gast und schaltet um, sobald
+ * /api/auth/session antwortet. Antwortet nichts (kein Backend), bleibt alles
+ * wie vor den Konten.
+ */
+mountAccountNav(shell.account);
+initBookmarkButtons();
+let lastUserId: string | null = null;
+onAuth((state) => {
+  const user = state.status === 'user' ? state.user : null;
+  applyTheme(user?.theme ?? 'dark');
+  if (user?.id === lastUserId) return;
+  lastUserId = user?.id ?? null;
+  if (user) void loadBookmarks(true).catch(() => {});
+  else clearBookmarkCache();
+});
+void refreshSession();
 
 // Renders load from smashbros.com. If one fails, its stage falls back to the fighter number.
 document.addEventListener(
@@ -55,6 +82,10 @@ function view(route: Route): PageView {
       return tiersPage();
     case 'archetypen':
       return archetypesPage(route);
+    case 'profil':
+      return profilePage();
+    case 'bestaetigen':
+      return confirmPage(route);
     case 'datenschutz':
       return privacyPage();
     case 'fighter':

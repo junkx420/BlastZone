@@ -1,4 +1,4 @@
-export type RouteName = 'home' | 'roster' | 'notation' | 'tiers' | 'archetypen' | 'fighter' | 'datenschutz' | 'notfound';
+export type RouteName = 'home' | 'roster' | 'notation' | 'tiers' | 'archetypen' | 'profil' | 'bestaetigen' | 'fighter' | 'datenschutz' | 'notfound';
 
 export interface Route {
   name: RouteName;
@@ -18,6 +18,8 @@ const TABLE: Array<{ name: RouteName; pattern: RegExp; keys: string[] }> = [
   { name: 'notation', pattern: /^\/notation$/, keys: [] },
   { name: 'tiers', pattern: /^\/tiers$/, keys: [] },
   { name: 'archetypen', pattern: /^\/archetypen$/, keys: [] },
+  { name: 'profil', pattern: /^\/profil$/, keys: [] },
+  { name: 'bestaetigen', pattern: /^\/bestaetigen$/, keys: [] },
   { name: 'datenschutz', pattern: /^\/datenschutz$/, keys: [] },
   { name: 'fighter', pattern: /^\/fighter\/([a-z0-9-]+)$/, keys: ['slug'] },
 ];

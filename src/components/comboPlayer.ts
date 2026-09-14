@@ -51,6 +51,9 @@ export function comboCard(combo: Combo): Markup {
   return html`<article class="combo" data-combo="${combo.id}" aria-labelledby="${combo.id}-title">
     <header class="combo__head">
       <h3 class="combo__title" id="${combo.id}-title">${combo.title}</h3>
+      <button class="combo__bookmark" type="button" data-bookmark="${combo.id}" aria-pressed="false" aria-describedby="${combo.id}-title" title="In deinen Mains speichern">
+        <span class="combo__bookmark-off">${ICONS.bookmark}</span><span class="combo__bookmark-on">${ICONS.bookmarkFilled}</span><span class="vh">Combo speichern</span>
+      </button>
       <dl class="combo__facts">
         <div class="fact"><dt>Prozent</dt><dd>${windowText(combo)}</dd></div>
         <div class="fact"><dt>Quelle</dt><dd><a href="${combo.source.url}" target="_blank" rel="noopener">${combo.source.label}${ICONS.external}</a></dd></div>
