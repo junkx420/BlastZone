@@ -1,10 +1,89 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 
-// Relative base + hash routing: the build runs from any static host or sub-path.
-export default defineConfig({
-  base: './',
-  // host: true bindet auf 0.0.0.0 – der Dev-Server ist damit aus dem ganzen LAN erreichbar.
-  server: { port: 5173, strictPort: true, host: true },
-  preview: { port: 4173, strictPort: true, host: true },
-  build: { target: 'es2022', cssMinify: true },
+/**
+ * Führt die Vercel-Functions aus api/ im Dev-Server aus.
+ *
+ * Auf Vercel läuft jede Datei unter api/ als eigene Function. Lokal gibt es das
+ * nicht, deshalb leitet dieses Plugin /api/<pfad> an api/<pfad>.ts weiter und
+ * ruft dort die exportierte Methode (GET, POST, …) mit einem echten Web-Request
+ * auf. Damit testet man lokal genau den Code, der später live läuft.
+ *
+ * Nur im Dev-Server aktiv (`apply: 'serve'`). Dateien mit Unterstrich (api/_lib)
+ * sind wie auf Vercel keine Routen.
+ */
+function vercelApiDev(): Plugin {
+  return {
+    name: 'blastzone-api-dev',
+    apply: 'serve',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        if (!req.url?.startsWith('/api/')) return next();
+        const url = new URL(req.url, `http://${req.headers.host ?? 'localhost'}`);
+        const route = url.pathname.replace(/^\/api\//, '').replace(/\/+$/, '');
+        const send = (status: number, message: string): void => {
+          res.statusCode = status;
+          res.setHeader('Content-Type', 'application/json; charset=utf-8');
+          res.end(JSON.stringify({ ok: false, error: { code: 'dev', message } }));
+        };
+        if (!/^[a-z0-9-]+(\/[a-z0-9-]+)*$/.test(route) || route.split('/').some((p) => p.startsWith('_'))) return send(404, 'Unbekannte Route.');
+
+        let mod: Record<string, unknown>;
+        try {
+          mod = await server.ssrLoadModule(`/api/${route}.ts`);
+        } catch (err) {
+          server.config.logger.error(`[api] ${route}: ${String(err)}`);
+          return send(404, 'Unbekannte Route.');
+        }
+        const handler = mod[req.method ?? 'GET'];
+        if (typeof handler !== 'function') return send(405, 'Methode nicht erlaubt.');
+
+        const chunks: Uint8Array[] = [];
+        for await (const chunk of req) chunks.push(chunk as Uint8Array);
+        const headers = new Headers();
+        for (const [key, value] of Object.entries(req.headers)) {
+          if (Array.isArray(value)) value.forEach((v) => headers.append(key, v));
+          else if (value !== undefined) headers.set(key, value);
+        }
+        const hasBody = req.method !== 'GET' && req.method !== 'HEAD';
+        const request = new Request(url, { method: req.method, headers, body: hasBody ? Buffer.concat(chunks) : undefined });
+
+        try {
+          const response = (await (handler as (r: Request) => Promise<Response>)(request)) as Response;
+          res.statusCode = response.status;
+          response.headers.forEach((value, key) => {
+            if (key !== 'set-cookie') res.setHeader(key, value);
+          });
+          const cookies = response.headers.getSetCookie();
+          if (cookies.length) res.setHeader('Set-Cookie', cookies);
+          res.end(Buffer.from(await response.arrayBuffer()));
+        } catch (err) {
+          server.config.logger.error(`[api] ${route}: ${String(err)}`);
+          send(500, 'Fehler im Handler, siehe Terminal.');
+        }
+      });
+    },
+  };
+}
+
+export default defineConfig(({ mode, command }) => {
+  if (command === 'serve') {
+    // Server-Variablen aus .env für die lokalen Functions. Nur process.env, nie import.meta.env:
+    // Ohne VITE_-Präfix kommt davon nichts ins Browser-Bundle.
+    const fileEnv = loadEnv(mode, process.cwd(), '');
+    for (const key of ['SUPABASE_URL', 'SUPABASE_ANON_KEY', 'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']) {
+      if (fileEnv[key] && !process.env[key]) process.env[key] = fileEnv[key];
+    }
+    // Ohne Keys: Speicher-Backend für lokale Tests. api/_lib/env.ts verweigert es auf Vercel.
+    if (!process.env.SUPABASE_URL) process.env.BLASTZONE_BACKEND = 'mock';
+  }
+
+  return {
+    // Relative base + hash routing: the build runs from any static host or sub-path.
+    base: './',
+    plugins: [vercelApiDev()],
+    // host: true bindet auf 0.0.0.0 – der Dev-Server ist damit aus dem ganzen LAN erreichbar.
+    server: { port: 5173, strictPort: true, host: true },
+    preview: { port: 4173, strictPort: true, host: true },
+    build: { target: 'es2022', cssMinify: true },
+  };
 });

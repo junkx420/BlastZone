@@ -1,0 +1,56 @@
+import { COMBO_ID_PATTERN } from '../src/shared/account-rules.js';
+import { backend, toHttp } from './_lib/backend.js';
+import { assertSameOrigin, handle, HttpError, ok, readJson, str } from './_lib/http.js';
+import { enforce } from './_lib/ratelimit.js';
+import { requireAuth } from './_lib/session.js';
+
+/**
+ * GET    /api/bookmarks               gespeicherte Combo-IDs, neueste zuerst
+ * POST   /api/bookmarks  { comboId }
+ * DELETE /api/bookmarks?combo=<id>
+ *
+ * Gespeichert werden nur IDs. Welche Route dahintersteht, löst das Frontend aus
+ * den Guide-Daten auf, damit Korrekturen an einer Route sofort auch in den
+ * Lesezeichen stehen.
+ */
+const comboId = (v: string): string => {
+  if (!COMBO_ID_PATTERN.test(v)) throw new HttpError(400, 'invalid-combo', 'Unbekannte Combo.');
+  return v;
+};
+
+export const GET = handle(async (request) => {
+  const be = backend();
+  const { auth, cookies } = await requireAuth(request, be);
+  try {
+    return ok({ ids: await be.listBookmarks(auth.token) }, cookies);
+  } catch (err) {
+    toHttp(err);
+  }
+});
+
+export const POST = handle(async (request) => {
+  assertSameOrigin(request);
+  const be = backend();
+  const { auth, cookies } = await requireAuth(request, be);
+  await enforce({ name: 'bookmark-user', key: auth.userId, max: 60, windowSec: 60 });
+  const id = comboId(str((await readJson(request)).comboId));
+  try {
+    await be.addBookmark(auth.token, id);
+    return ok({ comboId: id }, cookies, 201);
+  } catch (err) {
+    toHttp(err);
+  }
+});
+
+export const DELETE = handle(async (request) => {
+  assertSameOrigin(request);
+  const be = backend();
+  const { auth, cookies } = await requireAuth(request, be);
+  const id = comboId(new URL(request.url).searchParams.get('combo') ?? '');
+  try {
+    await be.removeBookmark(auth.token, id);
+    return ok({ comboId: id }, cookies);
+  } catch (err) {
+    toHttp(err);
+  }
+});
