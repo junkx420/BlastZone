@@ -448,6 +448,26 @@
     color: var(--text-muted);
     font-size: var(--fs-200);
   }
+  /* Archetyp: kleine Pyramide mit dem eigenen Feld, führt zur großen. */
+  .stat__arch {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-height: 44px;
+    color: var(--text);
+  }
+  .stat__arch-mini {
+    flex: none;
+    width: 44px;
+    height: auto;
+  }
+  .stat__arch:hover .stat__value,
+  .stat__arch:focus-visible .stat__value {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--accent-line);
+    text-underline-offset: 0.2em;
+  }
   .bar {
     position: relative;
     height: 6px;

@@ -6,12 +6,14 @@ import { framesSection, wireFrames } from '../components/frameTable';
 import { ICONS } from '../components/icons';
 import { tierBadge } from '../components/tierBadge';
 import { videoSection, wireVideo } from '../components/videoEmbed';
+import { miniPyramid } from '../components/pyramid';
+import { ARCHETYPE_INFO } from '../data/archetypes';
 import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, WEIGHT_RANGE, weightClass } from '../data/fighters';
 import { hasFrames } from '../data/frames-index';
 import { GUIDE_COUNT, GUIDE_SLUGS, guideFor, loadLateGuides } from '../data/guide-index';
 import { videoFor } from '../data/videos';
 import { TIER_BY_SLUG, TIER_TOTAL } from '../data/tiers';
-import type { Archetype, Combo, Fighter, FighterGuide } from '../data/types';
+import type { Combo, Fighter, FighterGuide } from '../data/types';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, qsa, raw, type Markup } from '../lib/dom';
 import { gsap, motionOK, parallax, pointerDepth, reveals, scope, scrollToTarget } from '../lib/motion';
@@ -20,17 +22,6 @@ import { notFoundPage } from './notFound';
 import type { PageView } from './types';
 
 const MOBILITY = ['', 'Sehr langsam', 'Langsam', 'Durchschnittlich', 'Schnell', 'Sehr schnell'] as const;
-
-const ARCHETYPE_HINT: Record<Archetype, string> = {
-  rushdown: 'Hält Druck mit Tempo und Frame-Vorteil',
-  zoner: 'Kontrolliert die Distanz mit Projektilen',
-  swordie: 'Gewinnt über Reichweite und abgekoppelte Hitboxen',
-  allrounder: 'Hat für jede Situation ein Werkzeug',
-  setplay: 'Baut Situationen mit Items und Fallen',
-  grappler: 'Gewinnt über Grabs und Würfe',
-  bruiser: 'Viel Gewicht, viel Kill-Power',
-  bait: 'Wartet auf Fehler und bestraft hart',
-};
 
 const de = (n: number): string => n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const rankOf = (f: Fighter): number => TIER_BY_SLUG.get(f.slug)?.rank ?? 999;
@@ -89,8 +80,11 @@ function statsSection(f: Fighter): Markup {
       <div class="stat" data-reveal data-reveal-delay="0.12">
         <dt>Archetyp</dt>
         <dd>
-          <span class="stat__value stat__value--word">${ARCHETYPES[f.archetype]}</span>
-          <span class="stat__meta">${ARCHETYPE_HINT[f.archetype]}</span>
+          <a class="stat__arch" href="${link('/archetypen', { typ: f.archetype, fighter: f.slug })}">
+            ${miniPyramid(f.archetype, 'stat__arch-mini')}
+            <span class="stat__value stat__value--word">${ARCHETYPES[f.archetype]}</span>
+          </a>
+          <span class="stat__meta">${ARCHETYPE_INFO[f.archetype].hint}</span>
         </dd>
       </div>
       <div class="stat" data-reveal data-reveal-delay="0.18">

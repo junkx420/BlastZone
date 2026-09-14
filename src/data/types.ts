@@ -1,6 +1,23 @@
 export type TierId = 'S+' | 'S' | 'S-' | 'A+' | 'A' | 'A-' | 'B+' | 'B' | 'B-' | 'C+' | 'C' | 'C-' | 'D+' | 'D' | 'D-' | 'E';
 
-export type Archetype = 'rushdown' | 'zoner' | 'swordie' | 'allrounder' | 'setplay' | 'grappler' | 'bruiser' | 'bait';
+/** Die 16 Felder der Archetypen-Pyramide, Reihe für Reihe von oben. Details in `archetypes.ts`. */
+export type Archetype =
+  | 'pure-rushdown'
+  | 'mixup'
+  | 'zone-breaker'
+  | 'footsies'
+  | 'spacing'
+  | 'glasscannon'
+  | 'variability'
+  | 'hit-and-run'
+  | 'brawler'
+  | 'pure-zoner'
+  | 'turtle'
+  | 'trapping'
+  | 'neutral-beast'
+  | 'trickster'
+  | 'setup'
+  | 'grappler';
 
 export type WeightClass = 'feather' | 'light' | 'middle' | 'heavy' | 'super';
 

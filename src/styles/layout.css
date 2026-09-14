@@ -106,6 +106,7 @@
     font-size: var(--fs-200);
     font-weight: 650;
     font-stretch: var(--stretch-semi);
+    white-space: nowrap;
     transition: color var(--t-fast) var(--ease-out);
   }
   .nav__link::after {
@@ -196,7 +197,8 @@
     font-weight: 700;
   }
 
-  @media (max-width: 760px) {
+  /* Vier Links, Logo und Suche passen erst ab rund 900 px in eine Zeile. */
+  @media (max-width: 900px) {
     /*
      * Kein eigener Aussenabstand hier. `.nav` behaelt var(--gutter), damit die
      * Panelkanten auch auf dem Handy genau auf denen des Filterblocks liegen.
@@ -226,7 +228,11 @@
       justify-content: space-between;
     }
     .nav__link {
-      padding: 0 10px;
+      padding: 0 8px;
+    }
+    .nav__link::after {
+      left: 8px;
+      right: 8px;
     }
     .nav__link--wide {
       display: none;

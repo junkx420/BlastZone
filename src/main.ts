@@ -5,6 +5,7 @@ import './styles/components.css';
 import './styles/pages/home.css';
 import './styles/pages/fighter.css';
 import './styles/pages/tiers.css';
+import './styles/pages/archetypes.css';
 import './styles/art.css';
 
 import { initPalette } from './components/palette';
@@ -12,6 +13,7 @@ import { renderShell } from './components/shell';
 import { mount, qs, qsa } from './lib/dom';
 import { initSmoothScroll, motionOK, scrollToTarget, ScrollTrigger } from './lib/motion';
 import { startRouter, type NavContext, type Route } from './lib/router';
+import { archetypesPage } from './pages/archetypes';
 import { fighterPage } from './pages/fighter';
 import { homePage } from './pages/home';
 import { notFoundPage } from './pages/notFound';
@@ -51,6 +53,8 @@ function view(route: Route): PageView {
       return homePage(route);
     case 'tiers':
       return tiersPage();
+    case 'archetypen':
+      return archetypesPage(route);
     case 'datenschutz':
       return privacyPage();
     case 'fighter':

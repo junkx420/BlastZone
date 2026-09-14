@@ -1,3 +1,4 @@
+import { ARCHETYPE_INFO } from '../data/archetypes';
 import type { Fighter } from '../data/types';
 import { html, type Markup } from '../lib/dom';
 import { hash, random } from './sigil';
@@ -15,8 +16,9 @@ import { hash, random } from './sigil';
  * 2. Die Anordnung aus dem slug-gesäten Zufall. Es ist dieselbe Folge wie beim
  *    Sigil, damit ein Fighter auf jeder erzeugten Fläche dieselbe Handschrift
  *    hat, und sie ist deterministisch: Beim Seitenwechsel springt nichts um.
- * 3. Das Muster nach Archetyp, acht Sorten. Die Auswahl steckt im
- *    `data-muster`-Attribut, die Muster selbst in `fighter.css`.
+ * 3. Das Muster nach Archetyp. Die 16 Felder der Pyramide teilen sich acht
+ *    Muster, die Zuordnung steht als `muster` in `archetypes.ts`, die Muster
+ *    selbst in `fighter.css`.
  *
  * Die Werte gehen als Custom Properties raus statt als fertige Farben, damit
  * die CSS entscheidet, wie stark daraus aufgetragen wird. Wie stark insgesamt,
@@ -42,5 +44,5 @@ export function fighterBackdrop(f: Fighter): Markup {
     `--fbg-drift:${Math.round(rnd() * 60)}px`,
   ].join(';');
 
-  return html`<div class="fbg" data-muster="${f.archetype}" style="${werte}" aria-hidden="true"></div>`;
+  return html`<div class="fbg" data-muster="${ARCHETYPE_INFO[f.archetype].muster}" style="${werte}" aria-hidden="true"></div>`;
 }

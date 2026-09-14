@@ -190,7 +190,8 @@
   --accent-glow: color-mix(in oklch, var(--accent) 60%, transparent);
 }
 
-@media (max-width: 760px) {
+/* Gleiche Grenze wie der Umbruch der Leiste in layout.css. */
+@media (max-width: 900px) {
   :root {
     --nav-h: 104px;
   }
