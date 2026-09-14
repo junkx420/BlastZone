@@ -1,6 +1,23 @@
-// Strenge Fassung: Varianten eines Moves (Early/Late, Close/Far, Sweet/Sour ...)
-// gelten nur einzeln, Treffer einer Folge (First/Second, Multi/Final, Hit N) auch
-// als Summe. Folgetreffer über mehrere UFD-Blöcke nur in ihrer Reihenfolge.
+// Schadens-Audit: prüft jeden Combo-Schritt gegen Ultimate Frame Data (Basis mal 1,2).
+// Ablauf: node extract.mjs && node fetch-ufd.mjs && node audit.mjs, Ergebnis in report.txt.
+//
+// Streng: Varianten eines Moves (Early/Late, Close/Far, Sweet/Sour ...) gelten nur
+// einzeln, Treffer einer Folge (First/Second, Multi/Final, Hit N) auch als Summe.
+// Folgetreffer über mehrere UFD-Blöcke nur in ihrer Reihenfolge.
+//
+// GRENZEN, BEIM LESEN DES BERICHTS IM KOPF BEHALTEN:
+// - Gefunden werden nur UNMÖGLICHE Werte. Ein Wert, der existiert, aber zum falschen
+//   Treffer gehört (zweiter statt erster Treffer), fällt nicht auf.
+// - Eine lockere Fassung, die auch Varianten addiert, ließ Fehler zufällig passieren.
+//   Ein kurzer Bericht ist deshalb kein Beleg für richtige Daten.
+// - Bekannte Fehlalarme: Moves mit EINEM Wert und mehreren Startframes (sechs Treffer
+//   à 1,0 stehen als "1.0"), Zeilen mit "Early"/"Normal", die trotzdem zwei Treffer
+//   nacheinander meinen, und UFD-Lücken ("--", "**"), deren Wert aus SmashWiki kommt
+//   und in der Notiz des Schritts steht.
+// - Jede Meldung vor einer Korrektur am rohen UFD-Block nachrechnen, nie die
+//   Skriptausgabe übernehmen.
+// - Kommando-Eingaben (623a …) und frei belegbare Specials (Miis) ordnet das Skript
+//   nicht zu; die stehen am Ende des Berichts nicht und müssen von Hand geprüft werden.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

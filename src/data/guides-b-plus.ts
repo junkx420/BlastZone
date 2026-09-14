@@ -662,7 +662,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'jab', dmg: 2 },
           { input: 'jab', dmg: 2 },
-          { input: '623a', label: 'Shoryuken', dmg: 16 },
+          { input: '623a', label: 'Shoryuken', dmg: 19 },
         ],
         tip: 'Kens Brot-und-Butter: zwei leichte Jabs, dann sofort die Kommando-Eingabe.',
         source: game8('281245'),
@@ -675,7 +675,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'ftilt', label: 'Forward Tilt aus nächster Nähe', dmg: 7 },
-          { input: '623a', label: 'Shoryuken', dmg: 16 },
+          { input: '623a', label: 'Shoryuken', dmg: 19 },
         ],
         tip: 'Nur aus nächster Nähe. Nach dem Treffer so schnell wie möglich den Shoryuken eingeben.',
         source: game8('281245'),
@@ -688,7 +688,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'utilt', label: 'Up Tilt, getippt', dmg: 2 },
-          { input: '623a', label: 'Shoryuken', dmg: 16 },
+          { input: '623a', label: 'Shoryuken', dmg: 19 },
         ],
         tip: 'Den Shoryuken direkt nach dem Treffer buffern. Laut SmashWiki combot der getippte Up Tilt auch in sich selbst.',
         source: game8('281245'),
@@ -701,7 +701,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'fh uair', label: 'FH Uair', dmg: 8 },
-          { input: '623a', label: 'Shoryuken', dmg: 16 },
+          { input: '623a', label: 'Shoryuken', dmg: 19 },
         ],
         tip: 'Die Luftvariante, laut Game8 mit beachtlichem Schaden.',
         source: game8('281245'),
@@ -716,7 +716,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 3,
         steps: [
           { input: 'sh dair ff', label: 'Dair im Fallen', dmg: 14 },
-          { input: '623a', label: 'Shoryuken', dmg: 16 },
+          { input: '623a', label: 'Shoryuken', dmg: 19 },
         ],
         tip: 'Laut Game8 hoher Schaden, und bei hohen Prozenten beendet die Route den Stock.',
         source: game8('281245'),
