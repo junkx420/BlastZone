@@ -8,3 +8,9 @@ Thumbs.db
 .claude/
 CLAUDE.md
 HANDOFF.md
+
+# Schadens-Audit: Cache und Ergebnisse, jederzeit neu erzeugbar
+scripts/schaden-audit/js/
+scripts/schaden-audit/ufd/
+scripts/schaden-audit/*.json
+scripts/schaden-audit/report.txt

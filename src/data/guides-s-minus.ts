@@ -446,7 +446,7 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'dtilt', dmg: 7 },
           { input: 'utilt', dmg: 7 },
-          { input: 'sh uair', label: 'SH Uair', dmg: 6 },
+          { input: 'sh uair', label: 'SH Uair', dmg: 7 },
         ],
         tip: 'Down Tilt verliert in den späten Hitboxen nicht an Stärke.',
         source: game8('281247'),
@@ -533,7 +533,7 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 3,
         steps: [
           { input: 'sh fair', label: 'SH Fair', dmg: 8 },
-          { input: 'dj uair', label: 'DJ Uair', dmg: 6 },
+          { input: 'dj uair', label: 'DJ Uair', dmg: 7 },
           { input: 'ub', label: 'Grappling Hook', dmg: 13, note: 'Zieht Joker zum Gegner heran.' },
           { input: 'fair', dmg: 8 },
         ],
@@ -550,9 +550,9 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
         ztd: true,
         difficulty: 3,
         steps: [
-          { input: 'dj uair', label: 'Dragdown Up Air', dmg: 6, note: 'Den Gegner mit dem letzten Treffer wieder auf die Plattform ziehen.' },
-          { input: 'dj uair', label: 'Dragdown Up Air', dmg: 6 },
-          { input: 'dj uair', label: 'Dragdown Up Air', dmg: 6 },
+          { input: 'dj uair', label: 'Dragdown Up Air', dmg: 7, note: 'Den Gegner mit dem letzten Treffer wieder auf die Plattform ziehen.' },
+          { input: 'dj uair', label: 'Dragdown Up Air', dmg: 7 },
+          { input: 'dj uair', label: 'Dragdown Up Air', dmg: 7 },
           { input: 'usmash', dmg: 14, note: 'Mit Arsène rund 20 %.' },
         ],
         tip: 'SmashWiki führt das als Infinite: Der Gegner muss auf einer Plattform stehen, dort hält ihn der Dragdown-Up-Air fest, während der Schaden steigt. Die Zahl der Wiederholungen ist offen, hier stehen nur drei.',

@@ -599,7 +599,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'sh fair', label: 'SH Fair', dmg: 11 },
-          { input: 'sb', label: 'Double-Edge Dance, Folgetreffer nach unten', dmg: 19 },
+          { input: 'sb', label: 'Double-Edge Dance, Folgetreffer nach unten', dmg: 26 },
         ],
         tip: 'Laut Game8 bis in die mittleren Prozente. Die Folgetreffer je nach DI des Gegners nach unten oder oben lenken.',
         source: game8('281239'),
@@ -658,7 +658,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 3,
         steps: [
           { input: 'sh nair', label: 'SH Nair, 1. Treffer', dmg: 6 },
-          { input: 'sb', label: 'Double-Edge Dance', dmg: 19 },
+          { input: 'sb', label: 'Double-Edge Dance', dmg: 18 },
         ],
         tip: 'Laut SmashWiki startet der erste Nair-Treffer garantierte Combos, er endet nur so schnell, dass das Timing sitzen muss.',
         source: wiki('Chrom_(SSBU)'),
@@ -686,7 +686,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'jab', dmg: 8 },
-          { input: 'sb', label: 'Double-Edge Dance, Folgetreffer nach unten', dmg: 19 },
+          { input: 'sb', label: 'Double-Edge Dance, Folgetreffer nach unten', dmg: 26 },
         ],
         tip: 'Laut SmashWiki startet Chroms Jab mühelos Combos in Griff, Tilts, Aerials oder Double-Edge Dance.',
         source: wiki('Chrom_(SSBU)'),

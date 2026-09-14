@@ -703,7 +703,7 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'utilt', dmg: 11 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 14 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 13, note: 'Nah gerechnet. Mit dem äußeren Sweetspot 20 %.' },
         ],
         tip: 'Bei niedrigeren Prozenten der Forward Air, höher hinauf laut Game8 lieber der Up Air.',
         source: game8('281236'),
@@ -732,7 +732,7 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'sh nair land', label: 'SH Nair, landen', dmg: 14 },
           { input: 'dtilt', dmg: 11 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 14 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 13, note: 'Nah gerechnet. Mit dem äußeren Sweetspot 20 %.' },
         ],
         tip: 'Laut SmashWiki combot der landende Nair bei niedrigen Prozenten in Jab, Ftilt, Dtilt oder Grab, hier in die Down-Tilt-Route.',
         source: game8('281236'),
@@ -746,7 +746,7 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'dtilt', dmg: 11 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 14 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 13, note: 'Nah gerechnet. Mit dem äußeren Sweetspot 20 %.' },
         ],
         tip: 'Der Down Tilt launcht nach oben und combot laut SmashWiki über weite Prozentbereiche in Aerials.',
         source: game8('281236'),

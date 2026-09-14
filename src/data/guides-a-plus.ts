@@ -27,7 +27,7 @@ const SAMUS: FighterGuide = {
       steps: [
         { input: 'grab', dmg: 0 },
         { input: 'dthrow', dmg: 10 },
-        { input: 'fh fair', label: 'FH Fair', dmg: 14 },
+        { input: 'fh fair', label: 'FH Fair', dmg: 15 },
       ],
       tip: 'Das Fenster hängt von der Größe des Gegners ab. Alternativ Nair: bei niedrigen Prozenten aus dem Short Hop, ab mittleren aus dem Full Hop.',
       source: game8('281178'),
@@ -99,7 +99,7 @@ const SAMUS: FighterGuide = {
       difficulty: 2,
       steps: [
         { input: 'utilt', label: 'Up Tilt, Meteor am Boden', dmg: 16 },
-        { input: 'nb', label: 'Charge Shot (voll geladen)', dmg: 34 },
+        { input: 'nb', label: 'Charge Shot (voll geladen)', dmg: 31 },
       ],
       tip: 'Der Charge Shot muss vorher voll geladen sein. Der Meteor des Up Tilts setzt den Gegner dafür am Boden fest.',
       tags: ['Charge Shot geladen'],
@@ -114,7 +114,7 @@ const SAMUS: FighterGuide = {
       difficulty: 2,
       steps: [
         { input: 'ftilt', dmg: 11 },
-        { input: 'nb', label: 'Charge Shot (geladen)', dmg: 34, note: 'Voll geladen am stärksten.' },
+        { input: 'nb', label: 'Charge Shot (geladen)', dmg: 31, note: 'Voll geladen am stärksten.' },
       ],
       tip: 'Egal welche Tech-Option der Gegner wählt, der Charge Shot erwischt sie rechtzeitig.',
       tags: ['Garantiert', 'Charge Shot geladen'],
@@ -144,7 +144,7 @@ const SAMUS: FighterGuide = {
       difficulty: 1,
       steps: [
         { input: 'da', dmg: 12 },
-        { input: 'fh uair', label: 'FH Uair', dmg: 12 },
+        { input: 'fh uair', label: 'FH Uair', dmg: 13 },
       ],
       tip: 'Laut SmashWiki ist der Up Air die Folge auf Dash Attack, Up Tilt am Boden, Down Air und Down Throw, und aus ihm heraus geht noch ein Up Air.',
       source: wiki('Samus_(SSBU)'),
@@ -175,7 +175,7 @@ const SAMUS: FighterGuide = {
       difficulty: 3,
       steps: [
         { input: 'dair', label: 'Down Air, Meteor am Boden', dmg: 17, note: 'Der Meteor schlägt den Gegner in den Boden und lässt ihn hochprallen.' },
-        { input: 'nb', label: 'Charge Shot (voll geladen)', dmg: 34 },
+        { input: 'nb', label: 'Charge Shot (voll geladen)', dmg: 31 },
       ],
       tip: 'Laut SmashWiki setzt der Meteor am Boden bei hohen Prozenten KO-Confirms in den voll geladenen Charge Shot auf.',
       tags: ['Charge Shot geladen'],
@@ -211,8 +211,8 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
         windowLabel: 'niedrige Prozente',
         difficulty: 1,
         steps: [
-          { input: 'sh nair', label: 'SH Nair', dmg: 12 },
-          { input: 'sh nair', label: 'SH Nair', dmg: 12 },
+          { input: 'sh nair', label: 'SH Nair', dmg: 16 },
+          { input: 'sh nair', label: 'SH Nair', dmg: 16 },
           { input: 'fh uair', label: 'FH Uair', dmg: 11 },
         ],
         tip: 'Gegen große Hurtboxes einfach. Kleine Charaktere wie Pikachu können per SDI entkommen, dann nach zwei Nairs abbrechen.',
@@ -242,7 +242,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 6 },
-          { input: 'fh nair', label: 'FH Nair', dmg: 12 },
+          { input: 'fh nair', label: 'FH Nair', dmg: 16 },
           { input: 'fh uair', label: 'Landen → FH Uair', dmg: 11, note: 'Nach dem Nair landen und neu springen.' },
         ],
         tip: 'Eine der schadensstärksten Grab-Routen. Statt Up Air geht auch ein zweiter Nair.',
@@ -331,7 +331,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 6 },
           { input: 'utilt', dmg: 6 },
           { input: 'fh uair', label: 'FH Uair', dmg: 7 },
-          { input: 'dj bair', label: 'DJ Bair', dmg: 12 },
+          { input: 'dj bair', label: 'DJ Bair', dmg: 10 },
         ],
         tip: 'Nach zwei bis drei Up Tilts in Up Air, als Abschluss Back Air oder Nair.',
         source: game8('281182'),
@@ -420,8 +420,8 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
         windowLabel: 'niedrige Prozente',
         difficulty: 2,
         steps: [
-          { input: 'sh bair', label: 'SH Bair', dmg: 12 },
-          { input: 'dj bair', label: 'DJ Bair', dmg: 12 },
+          { input: 'sh bair', label: 'SH Bair', dmg: 10 },
+          { input: 'dj bair', label: 'DJ Bair', dmg: 10 },
         ],
         tip: 'Laut SmashWiki kettet der Back Air bei niedrigen Prozenten mehrfach in sich selbst, genug für eine Pseudo-Wall-of-Pain über der Kante.',
         tags: ['Offstage'],

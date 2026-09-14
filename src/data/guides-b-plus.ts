@@ -607,7 +607,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'sh fair ff', label: 'Fair mit Fast Fall', dmg: 13 },
-          { input: 'sb', label: 'Dancing Blade, Folgetreffer nach unten', dmg: 18 },
+          { input: 'sb', label: 'Dancing Blade, Folgetreffer nach unten', dmg: 25 },
         ],
         tip: 'Aus dem fast gefallenen Forward Air heraus, die Folgetreffer mit Stick nach unten eingeben.',
         source: game8('281195'),
@@ -2037,7 +2037,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         kills: true,
         difficulty: 2,
         steps: [
-          { input: 'db', label: 'Hand Slap aus der Luft', dmg: 7 },
+          { input: 'db', label: 'Hand Slap aus der Luft', dmg: 13 },
           { input: 'usmash', dmg: 23 },
         ],
         tip: 'Laut SmashWiki ein KO-Confirm zwischen 60 und 80 %. DKs verlässlichster Stock-Ender aus einem Setup.',

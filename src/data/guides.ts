@@ -423,7 +423,7 @@ export const GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 5 },
-          { input: 'fh nair', label: 'FH Nair', dmg: 10 },
+          { input: 'fh nair', label: 'FH Nair', dmg: 16 },
         ],
         tip: 'Verlässlicher Starter. Je nach Flugbahn funktionieren auch Judge, Fire oder Up Air.',
         source: wiki('Mr._Game_%26_Watch_(SSBU)'),
@@ -451,9 +451,9 @@ export const GUIDES: FighterGuide[] = [
         windowLabel: 'niedrige Prozente',
         difficulty: 2,
         steps: [
-          { input: 'sh nair', label: 'SH Nair', dmg: 10 },
-          { input: 'sh nair', label: 'SH Nair', dmg: 10 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 7 },
+          { input: 'sh nair', label: 'SH Nair', dmg: 16 },
+          { input: 'sh nair', label: 'SH Nair', dmg: 16 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 14 },
         ],
         tip: 'Nair in sich selbst und in Up Air ketten; als längere String laut SmashWiki über 60 % Schaden.',
         source: wiki('Mr._Game_%26_Watch_(SSBU)'),
@@ -468,7 +468,7 @@ export const GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'uthrow', dmg: 14 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 7 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 14 },
         ],
         tip: 'Laut SmashWiki folgen auf den Up Throw bei niedrigen Prozenten Up Air oder Nair, bei hohen stattdessen Fire.',
         source: wiki('Mr._Game_%26_Watch_(SSBU)'),
@@ -482,7 +482,7 @@ export const GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'ub', label: 'Fire', dmg: 11 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 7 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 14 },
         ],
         tip: 'Laut SmashWiki lässt sich Fire bei niedrigen Prozenten in Nair oder Up Air verlängern, aus der besten Out-of-Shield-Option wird so eine Jonglage.',
         source: wiki('Mr._Game_%26_Watch_(SSBU)'),
@@ -614,9 +614,9 @@ export const GUIDES: FighterGuide[] = [
         windowLabel: 'niedrige Prozente',
         difficulty: 2,
         steps: [
-          { input: 'dbh', label: 'Gyro (aufgeladen)', dmg: 11 },
+          { input: 'dbh', label: 'Gyro (aufgeladen)', dmg: 13 },
           { input: 'da', dmg: 8 },
-          { input: 'db', label: 'Gyro', dmg: 11 },
+          { input: 'db', label: 'Gyro', dmg: 13 },
         ],
         tip: 'Den Gyro nach dem Combo wieder aufheben, damit er für das nächste Setup bereitliegt.',
         source: game8('SSBU/archives/281209'),
@@ -664,9 +664,9 @@ export const GUIDES: FighterGuide[] = [
         ztd: true,
         difficulty: 3,
         steps: [
-          { input: 'dbh', label: 'Gyro (aufgeladen)', dmg: 11 },
+          { input: 'dbh', label: 'Gyro (aufgeladen)', dmg: 13 },
           { input: 'da', dmg: 8, note: 'Den Gyro dabei wieder aufheben.' },
-          { input: 'db', label: 'Gyro', dmg: 11 },
+          { input: 'db', label: 'Gyro', dmg: 13 },
           { input: 'da', dmg: 8 },
           { input: 'sb', label: 'Arm Rotor', dmg: 18, note: 'Der Finisher. Knöpfe mashen erhöht die Trefferzahl.' },
         ],

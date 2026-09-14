@@ -59,7 +59,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'sh fair', label: 'SH Fair (Tipper)', dmg: 14 },
-          { input: 'sb', label: 'Dancing Blade, Folgetreffer nach unten', dmg: 18 },
+          { input: 'sb', label: 'Dancing Blade, Folgetreffer nach unten', dmg: 24, note: 'Ohne Tipper gerechnet. Mit Tipper 28 %.' },
         ],
         tip: 'Laut Game8 bringt die Eingabe nach unten den meisten Schaden.',
         source: game8('281194'),
@@ -270,7 +270,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 7 },
-          { input: 'db', label: 'Dr. Tornado', dmg: 14, note: 'Mehrfachtreffer. Gesamtwert.' },
+          { input: 'db', label: 'Dr. Tornado', dmg: 17, note: 'Mehrfachtreffer. Gesamtwert.' },
         ],
         tip: 'Laut Game8 an der Kante einer seiner stärksten KO-Confirms.',
         tags: ['Nahe der Kante'],

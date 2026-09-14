@@ -951,7 +951,7 @@ export const A_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'sh nair land', label: 'SH Nair, landen', dmg: 10 },
-          { input: 'sb', label: 'Cross Slash', dmg: 16 },
+          { input: 'sb', label: 'Cross Slash', dmg: 23 },
         ],
         tip: 'Mit dem Treffer hinter Cloud nur bis etwa 30 %.',
         source: game8('281232'),
@@ -980,7 +980,7 @@ export const A_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'sh uair land', label: 'Up Air, später Treffer', dmg: 10 },
-          { input: 'sb', label: 'Limit Cross Slash', dmg: 22 },
+          { input: 'sb', label: 'Limit Cross Slash', dmg: 31 },
         ],
         tip: 'Der späte Up-Air-Treffer setzt KO-Confirms in Limit Cross Slash auf, nur mit geladenem Limit.',
         tags: ['Limit geladen'],

@@ -535,7 +535,7 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
         start: 70,
         difficulty: 2,
         steps: [
-          { input: 'sh fair', label: 'SH Fair', dmg: 10 },
+          { input: 'sh fair', label: 'SH Fair', dmg: 5 },
           { input: 'db', label: 'Bouncing Fish', dmg: 13 },
         ],
         tip: 'Laut SmashWiki combot der Forward Air hervorragend in sich selbst und in den Bouncing Fish, was zum KO führen kann.',
