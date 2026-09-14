@@ -345,7 +345,21 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
           { input: 'utilt', dmg: 8 },
           { input: 'fh uair', label: 'FH Uair', dmg: 14 },
         ],
-        tip: 'Statt Up Tilt reicht auch ein kurzer Schritt nach vorn vor dem Up Air.',
+        tip: 'Laut Game8 nur bei niedrigen Prozenten. Trifft nur die Spitze des Forward Tilt, fliegt der Gegner zu weit weg.',
+        source: game8('281179'),
+      },
+      {
+        id: 'yoshi-ftilt-walk-uair',
+        kind: 'bnb',
+        title: 'Forward Tilt → Schritt vor → Up Air',
+        start: 10,
+        windowLabel: 'niedrige Prozente',
+        difficulty: 2,
+        steps: [
+          { input: 'ftilt', dmg: 10 },
+          { input: 'uair', label: 'Schritt vor, dann Up Air', dmg: 14 },
+        ],
+        tip: 'Laut Game8 die Variante ohne Up Tilt: Nach dem Forward Tilt kurz nach vorn gehen und direkt den Up Air.',
         source: game8('281179'),
       },
       {
