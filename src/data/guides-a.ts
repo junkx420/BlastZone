@@ -114,6 +114,32 @@ export const A_GUIDES: FighterGuide[] = [
         tags: ['An der Kante'],
         source: wiki('Roy_(SSBU)'),
       },
+      {
+        id: 'roy-jab-blazer',
+        kind: 'bnb',
+        title: 'Jab → Blazer',
+        start: 40,
+        difficulty: 1,
+        steps: [
+          { input: 'jab', dmg: 9 },
+          { input: 'ub', label: 'Blazer', dmg: 20 },
+        ],
+        tip: 'Laut SmashWiki startet Roys Jab mühelos Combos in Griff, Tilts, Aerials, Double-Edge Dance oder Blazer.',
+        source: wiki('Roy_(SSBU)'),
+      },
+      {
+        id: 'roy-jab-dance',
+        kind: 'bnb',
+        title: 'Jab → Double-Edge Dance',
+        start: 30,
+        difficulty: 2,
+        steps: [
+          { input: 'jab', dmg: 9 },
+          { input: 'sb', label: 'Double-Edge Dance, Folgetreffer nach unten', dmg: 28 },
+        ],
+        tip: 'Laut SmashWiki eine der Folgen aus dem Jab. Mit den Folgetreffern nach unten macht Double-Edge Dance laut Game8 den meisten Schaden.',
+        source: wiki('Roy_(SSBU)'),
+      },
     ],
   },
   {
