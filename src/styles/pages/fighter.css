@@ -30,19 +30,35 @@
     /* Eine Stellschraube für die Stärke des ganzen Entwurfs. */
     --fbg-kraft: 1;
     /*
-     * Oben blendet die Ebene unter dem Helden aus, unten vor dem Footer. Als
-     * Maske statt als weiterer Verlauf, weil sie so Farbfeld und Muster
-     * gemeinsam erfasst. Die 880 px sind an der Heldenhöhe orientiert, das
-     * min() fängt kurze Seiten ab, die keine Frame-Daten haben.
+     * Ein- und Ausblenden als Maske statt als weiterer Verlauf, weil sie so
+     * Farbfeld und Muster gemeinsam erfasst.
+     *
+     * Die Einblendung beginnt genau an der Unterkante des Headers und läuft
+     * von dort 560 px weich hoch. Früher war sie auf feste 880 px gerechnet,
+     * und weil der Header fast genauso hoch ist, stand der Hintergrund an seiner
+     * Unterkante schon beinahe voll da: Das tiefschwarze Ende des Headers traf
+     * mit harter waagerechter Kante auf das Muster, direkt über den Stat-Karten.
+     *
+     * `--fbg-start` setzt `fighter.ts` aus der gemessenen Headerhöhe und hält
+     * sie per ResizeObserver aktuell. Die 860 px sind nur der Wert bis dahin.
      */
+    --fbg-start: 860px;
     -webkit-mask-image: linear-gradient(
       to bottom,
       transparent 0,
-      #000 min(880px, 30%),
+      transparent var(--fbg-start),
+      #000 calc(var(--fbg-start) + 560px),
       #000 calc(100% - 240px),
       transparent 100%
     );
-    mask-image: linear-gradient(to bottom, transparent 0, #000 min(880px, 30%), #000 calc(100% - 240px), transparent 100%);
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent var(--fbg-start),
+      #000 calc(var(--fbg-start) + 560px),
+      #000 calc(100% - 240px),
+      transparent 100%
+    );
   }
   /* Farbfeld: zwei weiche Kerne aus den beiden Fighter-Farben, dazu ein Zug quer. */
   .fbg::before {

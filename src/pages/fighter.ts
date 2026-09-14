@@ -383,6 +383,16 @@ export function fighterPage(route: Route): PageView {
       const art = qs<HTMLElement>('[data-depth]', root);
       if (hero && art) cleanups.push(pointerDepth(hero, [[art, 28]]));
 
+      // Der Seitenhintergrund blendet erst ab der Header-Unterkante ein, siehe `.fbg` in fighter.css.
+      const backdrop = qs<HTMLElement>('.fbg', root);
+      if (hero && backdrop) {
+        const syncBackdrop = (): void => backdrop.style.setProperty('--fbg-start', `${hero.offsetHeight}px`);
+        syncBackdrop();
+        const observer = new ResizeObserver(syncBackdrop);
+        observer.observe(hero);
+        cleanups.push(() => observer.disconnect());
+      }
+
       cleanups.push(wireVideo(root));
       cleanups.push(wireFrames(root, f.slug));
 
