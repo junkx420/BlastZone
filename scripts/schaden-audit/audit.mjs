@@ -86,6 +86,13 @@ function candidates(rows) {
       const maxK = maxWiederholungen(r);
       for (let k = 1; k <= maxK; k++) {
         if (ns.length >= 3) c.add(ns[0] + k * ns[1] + ns[ns.length - 1]);
+        // Dreiteilige Zeilen wie „Multi/Final/Landing“ (Falco Fair) oder „Multi Front/Multi Back/Final“
+        // (Zelda Nair): k Multi-Treffer plus einer der beiden anderen Werte als Abschluss.
+        if (ns.length === 3) {
+          c.add(k * ns[0] + ns[1]);
+          c.add(k * ns[0] + ns[2]);
+          c.add(k * ns[1] + ns[2]);
+        }
         if (ns.length === 2) {
           // Nur Multi-Treffer, ohne Abschluss: Landung mitten im Move.
           c.add(k * ns[0]);
