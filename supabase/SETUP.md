@@ -25,7 +25,7 @@ Wird die Domainliste in `src/shared/disposable-email.ts` erweitert: `node script
 - **Confirm email:** **an** (das ist das Double Opt-In, ohne diese Einstellung kann sich jeder sofort anmelden)
 - **Secure email change:** an
 - **Minimum password length:** 8
-- **Password requirements:** „Lowercase, uppercase letters, digits and symbols“ oder mindestens „digits and symbols“, je nachdem, was das Dashboard anbietet. Der Server prüft zusätzlich selbst: 8 Zeichen, Zahl, Sonderzeichen.
+- **Password requirements:** „Lowercase, uppercase letters, digits and symbols“ oder mindestens „digits and symbols“, je nachdem, was das Dashboard anbietet. Formular und Server prüfen selbst: 8 Zeichen, Groß- und Kleinbuchstaben, Zahl, Sonderzeichen. Das deckt jede dieser Supabase-Einstellungen ab. Wird Supabase noch strenger gestellt, `checkPassword` in `src/shared/account-rules.ts` nachziehen, sonst zeigt das Formular grüne Haken und Supabase lehnt trotzdem ab.
 - **Leaked password protection** (falls im Tarif verfügbar): an
 
 ## 4. Authentication → URL Configuration
@@ -60,7 +60,7 @@ Unter **Project Settings → API Keys**:
 
 Den **Secret Key** (`sb_secret_…`, früher service_role) **nicht** eintragen. Er wird nirgends gebraucht und umgeht Row Level Security. Ist er einmal irgendwo gelandet, wo er nicht hingehört (Chat, Screenshot, Repo), in Supabase widerrufen und neu erzeugen.
 
-Bei Vercel unter **Project Settings → Environment Variables** für Production (und Preview, falls gewünscht) setzen, danach neu deployen. Lokal dieselben Werte in `.env` (Vorlage `.env.example`). Ohne `.env` läuft der Dev-Server mit einem Speicher-Mock, der den Bestätigungslink ins Terminal schreibt.
+Bei Vercel unter **Project Settings → Environment Variables** für Production (und Preview, falls gewünscht) setzen, danach **neu deployen**: Geänderte Variablen gelten erst für den nächsten Deploy. Der Server akzeptiert auch die Namen `SUPABASE_ANON_KEY`, `VITE_SUPABASE_URL` und `VITE_SUPABASE_ANON_KEY`. Fehlen sie, antwortet `/api/auth/session` mit `"available":false`, und im Function-Log steht, welche Variable fehlt. Lokal dieselben Werte in `.env` (Vorlage `.env.example`). Ohne `.env` läuft der Dev-Server mit einem Speicher-Mock, der den Bestätigungslink ins Terminal schreibt.
 
 ## 8. Optional: Upstash Redis
 

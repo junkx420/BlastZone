@@ -32,7 +32,7 @@ export const POST = handle(async (request) => {
     throw new HttpError(400, 'invalid-username', 'Der Name braucht 3 bis 20 Zeichen: Buchstaben, Ziffern, Unterstrich oder Bindestrich.');
   }
   if (!passwordOk(password)) {
-    throw new HttpError(400, 'weak-password', 'Das Passwort braucht mindestens 8 Zeichen, eine Zahl und ein Sonderzeichen.');
+    throw new HttpError(400, 'weak-password', 'Das Passwort braucht mindestens 8 Zeichen, Groß- und Kleinbuchstaben, eine Zahl und ein Sonderzeichen.');
   }
 
   const domain = domainOf(email);

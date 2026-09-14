@@ -35,7 +35,7 @@ export function toHttp(err: unknown, context: 'default' | 'login' | 'signup' = '
     case 'email-not-confirmed':
       throw new HttpError(403, err.code, 'Bestätige zuerst deine E-Mail-Adresse. Den Link haben wir dir bei der Registrierung geschickt.');
     case 'weak-password':
-      throw new HttpError(400, err.code, 'Das Passwort ist zu schwach.');
+      throw new HttpError(400, err.code, 'Das Passwort ist zu schwach. Es braucht mindestens 8 Zeichen, Groß- und Kleinbuchstaben, eine Zahl und ein Sonderzeichen.');
     case 'rate-limited':
       throw new HttpError(429, err.code, 'Zu viele Anfragen in kurzer Zeit. Warte kurz und versuch es dann erneut.');
     case 'invalid-token':

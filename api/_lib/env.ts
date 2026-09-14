@@ -12,12 +12,33 @@ export interface Env {
   upstashToken: string | null;
 }
 
+/** Erster gesetzter, nicht leerer Wert. Leerzeichen um den Wert herum stammen oft aus dem Kopieren. */
+const first = (...names: string[]): string | undefined =>
+  names.map((n) => process.env[n]?.trim()).find((v): v is string => Boolean(v));
+
+let warned = false;
+
 export function readEnv(): Env | null {
-  const supabaseUrl = process.env.SUPABASE_URL?.replace(/\/+$/, '');
-  // Neue Supabase-Projekte geben einen Publishable Key (sb_publishable_…), ältere einen Anon-Key (JWT).
-  // Beide dürfen öffentlich sein und haben dieselbe Rolle. Den Secret Key liest der Code nirgends.
-  const supabaseAnonKey = process.env.SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_ANON_KEY;
-  if (!supabaseUrl || !supabaseAnonKey) return null;
+  /*
+   * Mehrere Schreibweisen, weil Supabase und Vercel unterschiedliche vorschlagen:
+   * - SUPABASE_PUBLISHABLE_KEY: neue Projekte (sb_publishable_…)
+   * - SUPABASE_ANON_KEY: ältere Projekte und die Vercel-Integration
+   * - VITE_…: so heißen sie in vielen Anleitungen für reine Frontend-Apps
+   * Alle sind öffentliche Keys mit derselben Rolle. Gelesen werden sie hier nur
+   * auf dem Server; ins Browser-Bundle kämen VITE_-Variablen nur, wenn Code in
+   * src/ sie über import.meta.env anspräche, und das tut keiner.
+   * Den Secret Key liest der Code nirgends.
+   */
+  const supabaseUrl = first('SUPABASE_URL', 'VITE_SUPABASE_URL')?.replace(/\/+$/, '');
+  const supabaseAnonKey = first('SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_ANON_KEY', 'VITE_SUPABASE_PUBLISHABLE_KEY', 'VITE_SUPABASE_ANON_KEY');
+  if (!supabaseUrl || !supabaseAnonKey) {
+    // Einmal pro Instanz ins Function-Log, nie in eine Antwort: Welche Variablen fehlen, geht Besucher nichts an.
+    if (!warned && !mockAllowed()) {
+      warned = true;
+      console.warn(`[env] Supabase nicht konfiguriert: ${supabaseUrl ? '' : 'SUPABASE_URL '}${supabaseAnonKey ? '' : 'SUPABASE_PUBLISHABLE_KEY'}fehlt. Nach dem Eintragen bei Vercel neu deployen.`);
+    }
+    return null;
+  }
   return {
     supabaseUrl,
     supabaseAnonKey,

@@ -10,7 +10,7 @@
  */
 
 export interface PasswordCheck {
-  id: 'length' | 'digit' | 'special' | 'max';
+  id: 'length' | 'case' | 'digit' | 'special' | 'max';
   label: string;
   ok: boolean;
 }
@@ -22,6 +22,8 @@ export function checkPassword(password: string): PasswordCheck[] {
   const bytes = new TextEncoder().encode(password).length;
   return [
     { id: 'length', label: 'Mindestens 8 Zeichen', ok: password.length >= 8 },
+    // Supabase ist im Projekt auf „Klein- und Großbuchstaben und Ziffern“ gestellt und zählt dabei nur a-z und A-Z.
+    { id: 'case', label: 'Groß- und Kleinbuchstaben', ok: /[a-z]/.test(password) && /[A-Z]/.test(password) },
     { id: 'digit', label: 'Mindestens eine Zahl', ok: /\d/.test(password) },
     { id: 'special', label: 'Mindestens ein Sonderzeichen', ok: /[^\p{L}\p{N}\s]/u.test(password) },
     { id: 'max', label: 'Höchstens 72 Byte', ok: bytes <= PASSWORD_MAX_BYTES },
