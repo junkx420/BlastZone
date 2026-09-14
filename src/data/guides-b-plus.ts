@@ -1,5 +1,14 @@
-import { game8, ufd, wiki } from './guide-helpers';
+import { doc, game8, ufd, wiki } from './guide-helpers';
 import type { FighterGuide } from './types';
+
+/**
+ * Young Link Combo Tracker, geführt von n8 aus der Young-Link-Szene und von
+ * JustNAir.com verlinkt. Übernommen werden Route, Prozentfenster, Kill-Bereich
+ * und Hinweise. Die Schadenswerte dort nicht: Sie enthalten zusätzlich den
+ * Frische-Bonus von 1,05 und stammen teils aus älteren Patches. Schaden kommt
+ * wie überall von Ultimate Frame Data mal 1,2.
+ */
+const YL_TRACKER = doc('https://docs.google.com/spreadsheets/d/1HOk4nSG3Rrnm3Ik0Uhw2dhtQuvpfQed9ofrFaKS0tmU', 'YL Combo Tracker (n8)');
 
 /**
  * B+ tier profiles (UltRank 2026, ranks 35–40), first pass.
@@ -891,7 +900,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
     ],
     strengths: ['Gute Frame Data und starkes Combo-Spiel', 'Abgekoppelte Hitboxen als Absicherung', 'Feuerpfeil als Combo-Starter'],
     weaknesses: ['Geringe Reichweite für einen Schwertkämpfer', 'Berechenbare Recovery', 'Kills nur über Confirms'],
-    sources: [wiki('Young_Link_(SSBU)'), game8('280977'), ufd('young_link')],
+    sources: [wiki('Young_Link_(SSBU)'), game8('280977'), YL_TRACKER, ufd('young_link')],
     combos: [
       {
         id: 'younglink-upb-uair',
@@ -931,9 +940,9 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'dtilt', dmg: 12 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 10 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 17 },
         ],
-        tip: 'Der Down Tilt ist laut SmashWiki sein bester Combo-Starter, der Forward Air der Abschluss.',
+        tip: 'Laut Game8 bei fast jedem Prozent, auch direkt aus dem Bumerang heraus.',
         source: game8('280977'),
       },
       {
@@ -941,56 +950,178 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         kind: 'meta',
         title: 'Down Tilt → Spin Attack (Luft)',
         start: 110,
-        windowLabel: 'Kill-Prozente',
+        window: [100, null],
         kills: true,
         difficulty: 2,
         steps: [
           { input: 'dtilt', dmg: 12 },
           { input: 'fh ub', label: 'Spin Attack in der Luft', dmg: 10 },
         ],
-        tip: 'Dieselbe Eingabe, anderer Abschluss: Laut Game8 beendet der Luft-Spin-Attack aus dem Down Tilt bei Kill-Prozenten den Stock.',
-        source: game8('280977'),
+        tip: 'Laut YL Combo Tracker bei jedem Prozent ein True Combo. An der Kante killt der Spin Attack ab etwa 100 %.',
+        source: YL_TRACKER,
       },
       {
         id: 'younglink-arrow-nair',
         kind: 'meta',
         title: 'Feuerpfeil → Nair',
-        start: 30,
+        start: 120,
+        window: [75, 175],
+        kills: true,
         difficulty: 2,
         steps: [
           { input: 'nb', label: 'Feuerpfeil', dmg: 5, note: 'Geladen bis 14 %.' },
           { input: 'sh nair', label: 'SH Nair', dmg: 12 },
         ],
-        tip: 'Laut SmashWiki ist der Feuerpfeil dank kurzem Startlag ein verlässlicher Combo-Starter, vorausgesetzt, Young Link steht nah genug.',
-        source: wiki('Young_Link_(SSBU)'),
+        tip: 'Laut YL Combo Tracker ein True Combo von 75 bis 175 %, der Pfeil wird dabei vom Boden geschossen. An der Kante killt der Nair ab etwa 120 %.',
+        source: YL_TRACKER,
       },
       {
         id: 'younglink-utilt-uair',
         kind: 'bnb',
         title: 'Up Tilt → Up Air',
-        start: 20,
-        windowLabel: 'niedrige Prozente',
+        start: 50,
+        window: [45, 85],
         difficulty: 1,
         steps: [
           { input: 'utilt', dmg: 10 },
           { input: 'fh uair', label: 'FH Uair', dmg: 18 },
         ],
-        tip: 'Laut SmashWiki sind Up Tilt und vor allem Down Tilt darauf ausgelegt, Combos zu starten: Sie werfen den Gegner mit wenig Knockback nach oben.',
-        source: wiki('Young_Link_(SSBU)'),
+        tip: 'Laut YL Combo Tracker ein True Combo von 45 bis 85 %. Zwischen 25 und 45 % gehört stattdessen der Back Air dahinter.',
+        source: YL_TRACKER,
       },
       {
-        id: 'younglink-nair-fair',
+        id: 'younglink-weaknair-dtilt-uair',
         kind: 'bnb',
-        title: 'Nair (später Treffer) → Forward Air',
-        start: 60,
-        windowLabel: 'bis in hohe Prozente',
+        title: 'Nair (später Treffer) → Down Tilt → Up Air',
+        start: 45,
+        window: [40, 60],
         difficulty: 2,
         steps: [
           { input: 'sh nair ff', label: 'SH Nair, später Treffer', dmg: 6 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 10 },
+          { input: 'dtilt', dmg: 12 },
+          { input: 'uair', label: 'Uair', dmg: 18 },
         ],
-        tip: 'Laut SmashWiki ist besonders der späte Nair-Treffer stark: Er startet Combos und hält sie bis weit in hohe Prozente hinein am Laufen.',
-        source: wiki('Young_Link_(SSBU)'),
+        tip: 'Laut YL Combo Tracker ein True Combo von 40 bis 60 %. Im selben Fenster geht statt des Up Air auch der Spin Attack in der Luft.',
+        source: YL_TRACKER,
+      },
+      {
+        id: 'younglink-dthrow-nair',
+        kind: 'bnb',
+        title: 'Down Throw → Nair',
+        start: 10,
+        window: [0, 40],
+        difficulty: 1,
+        steps: [
+          { input: 'grab', dmg: 0 },
+          { input: 'dthrow', dmg: 7 },
+          { input: 'nair', label: 'Nair', dmg: 12 },
+        ],
+        tip: 'Laut YL Combo Tracker ein True Combo bis 40 %. Down Throw → Up Air hält deutlich länger, bis etwa 90 %.',
+        source: YL_TRACKER,
+      },
+      {
+        id: 'younglink-uthrow-uair',
+        kind: 'bnb',
+        title: 'Up Throw → Up Air',
+        start: 20,
+        window: [0, 60],
+        difficulty: 1,
+        steps: [
+          { input: 'grab', dmg: 0 },
+          { input: 'uthrow', dmg: 7 },
+          { input: 'uair', label: 'Uair', dmg: 18 },
+        ],
+        tip: 'Laut YL Combo Tracker ein True Combo bis 60 %.',
+        source: YL_TRACKER,
+      },
+      {
+        id: 'younglink-utilt-bair',
+        kind: 'bnb',
+        title: 'Up Tilt → Back Air',
+        start: 30,
+        window: [25, 45],
+        difficulty: 1,
+        steps: [
+          { input: 'utilt', dmg: 10 },
+          { input: 'bair', label: 'Bair', dmg: 14 },
+        ],
+        tip: 'Laut YL Combo Tracker ein True Combo von 25 bis 45 %. Ab 45 % übernimmt Up Tilt → Up Air.',
+        source: YL_TRACKER,
+      },
+      {
+        id: 'younglink-dtilt-uair',
+        kind: 'meta',
+        title: 'Down Tilt → Up Air',
+        start: 130,
+        window: [130, null],
+        kills: true,
+        difficulty: 1,
+        steps: [
+          { input: 'dtilt', dmg: 12 },
+          { input: 'uair', label: 'Uair', dmg: 18 },
+        ],
+        tip: 'Laut YL Combo Tracker bei jedem Prozent ein True Combo und ab etwa 130 % ein Kill, egal wo auf der Stage.',
+        source: YL_TRACKER,
+      },
+      {
+        id: 'younglink-dtilt-arrow-dair',
+        kind: 'meta',
+        title: 'Down Tilt → Feuerpfeil → Down Air',
+        start: 90,
+        window: [80, 100],
+        kills: true,
+        difficulty: 3,
+        steps: [
+          { input: 'dtilt', dmg: 12 },
+          { input: 'nb', label: 'Feuerpfeil', dmg: 5 },
+          { input: 'dair', label: 'Dair', dmg: 22 },
+        ],
+        tip: 'Laut YL Combo Tracker killt die Route immer dann, wenn sie true ist. Wann das ist, hängt vom Gegner ab: Bei Lucina ab 90 bis 100 %, King Dedede hat mit 100 % das höchste Minimum.',
+        source: YL_TRACKER,
+      },
+      {
+        id: 'younglink-arrow-uair',
+        kind: 'meta',
+        title: 'Feuerpfeil → Up Air',
+        start: 150,
+        window: [150, null],
+        kills: true,
+        difficulty: 2,
+        steps: [
+          { input: 'nb', label: 'Feuerpfeil vom Boden', dmg: 5 },
+          { input: 'uair', label: 'Uair', dmg: 18 },
+        ],
+        tip: 'Laut YL Combo Tracker ab 100 % ein True Combo und ab etwa 150 % ein Kill. Young Link muss dafür direkt neben dem Gegner stehen.',
+        source: YL_TRACKER,
+      },
+      {
+        id: 'younglink-zair-da',
+        kind: 'meta',
+        title: 'Zair → Dash Attack',
+        start: 130,
+        window: [130, null],
+        kills: true,
+        difficulty: 2,
+        steps: [
+          { input: 'zair', label: 'Zair', dmg: 5 },
+          { input: 'da', label: 'Dash Attack', dmg: 13 },
+        ],
+        tip: 'Laut YL Combo Tracker ein True Combo bis etwa 180 %, an der Kante ein Kill ab 130 %. Nur statt des Jab Locks nehmen, wenn der Zair den Gegner nicht in Tumble schickt oder die Route ohnehin killt.',
+        source: YL_TRACKER,
+      },
+      {
+        id: 'younglink-fair1-usmash',
+        kind: 'meta',
+        title: 'Forward Air (erster Treffer) → Up Smash',
+        start: 70,
+        windowLabel: 'obere mittlere Prozente',
+        difficulty: 3,
+        steps: [
+          { input: 'fair ff land', label: 'Fair, erster Treffer', dmg: 7 },
+          { input: 'usmash', label: 'Up Smash', dmg: 17 },
+        ],
+        tip: 'Laut Game8 den Fair am Scheitelpunkt des Sprungs auslösen, sofort fast fallen und direkt nach der Landung den Up Smash.',
+        source: game8('280977'),
       },
     ],
   },
