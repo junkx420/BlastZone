@@ -644,7 +644,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'uthrow', dmg: 11 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 7 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 14 },
         ],
         tip: 'Rund 25 % laut Game8.',
         source: game8('281219'),
@@ -718,7 +718,7 @@ export const D_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 7 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 7 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 14 },
         ],
         tip: 'Laut SmashWiki ist der Down Throw in den Up Air inzwischen ein KO-Confirm.',
         source: wiki('King_Dedede_(SSBU)'),

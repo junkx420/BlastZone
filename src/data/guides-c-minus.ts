@@ -192,7 +192,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'sh dair', label: 'SH Dair', dmg: 7 },
-          { input: 'da', dmg: 7 },
+          { input: 'da', dmg: 16 },
         ],
         tip: 'Früh im Stock die einfachste Fortsetzung aus der Luft.',
         source: game8('281229'),
@@ -1418,7 +1418,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'utilt', dmg: 11 },
-          { input: 'fh nair', label: 'FH Nair', dmg: 6 },
+          { input: 'fh nair', label: 'FH Nair', dmg: 13 },
         ],
         tip: 'Ab 20 % übernimmt der Nair, weil der Gegner höher fliegt.',
         source: game8('281244'),
@@ -1474,7 +1474,7 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'dtilt', dmg: 8 },
-          { input: 'fh nair', label: 'FH Nair', dmg: 6 },
+          { input: 'fh nair', label: 'FH Nair', dmg: 13 },
         ],
         tip: 'Laut SmashWiki ist der Down Tilt ein vielseitiger Starter, auch in Forward Tilt und Forward Air.',
         source: game8('281244'),

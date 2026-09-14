@@ -330,7 +330,7 @@ export const GUIDES: FighterGuide[] = [
         window: [20, 40],
         difficulty: 2,
         steps: [
-          { input: 'sh nair', label: 'SH Nair', dmg: 18 },
+          { input: 'sh nair', label: 'SH Nair', dmg: 25 },
           { input: 'da', dmg: 13 },
         ],
         tip: 'Der Nair muss aus dem Short Hop kommen. Zwischen 0 und 10 % lieber Down Tilt statt Dash Attack.',
@@ -570,7 +570,7 @@ export const GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'uthrow', dmg: 14 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 10 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 12 },
         ],
         tip: 'Alternativ Forward Air oder ein Up Smash aus dem Dash.',
         source: wiki('R.O.B._(SSBU)'),
@@ -587,7 +587,7 @@ export const GUIDES: FighterGuide[] = [
           { input: 'dthrow', dmg: 6 },
           { input: 'utilt', dmg: 10 },
           { input: 'utilt', dmg: 10 },
-          { input: 'jump uair', label: 'Sprung → Up Air', dmg: 10 },
+          { input: 'jump uair', label: 'Sprung → Up Air', dmg: 12 },
         ],
         tip: 'Up Tilt kettet bei niedrigen Prozenten in sich selbst.',
         source: game8('SSBU/archives/281209'),
@@ -631,7 +631,7 @@ export const GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'utilt', dmg: 10 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 10 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 12 },
         ],
         tip: 'R.O.B.s verlässlichster Kill-Confirm. Unter 80 % fliegt der Gegner nicht weit genug, über 110 % zu weit.',
         source: wiki('R.O.B._(SSBU)'),

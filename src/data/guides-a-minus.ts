@@ -412,7 +412,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'uthrow', dmg: 6 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 8 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 11 },
         ],
         tip: 'Die Standardfortsetzung nach dem Griff. Greninjas Sprunghöhe reicht auch bei höheren Prozenten.',
         source: game8('281223'),
@@ -517,7 +517,7 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'da', dmg: 10 },
-          { input: 'fh uair', label: 'FH Uair', dmg: 8 },
+          { input: 'fh uair', label: 'FH Uair', dmg: 11 },
         ],
         tip: 'Die Dash Attack setzt laut SmashWiki Up-Air-Ketten und Drag-Down-Combos auf.',
         source: wiki('Greninja_(SSBU)'),

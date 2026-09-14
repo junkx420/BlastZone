@@ -41,7 +41,7 @@ export const D_PLUS_GUIDES: FighterGuide[] = [
         window: [40, 60],
         difficulty: 2,
         steps: [
-          { input: 'sh fair', label: 'SH Fair, erste zwei Treffer', dmg: 10 },
+          { input: 'sh fair', label: 'SH Fair, erste zwei Treffer', dmg: 7 },
           { input: 'utilt', dmg: 8 },
         ],
         tip: 'Laut Game8 lässt sich bei passendem Winkel noch ein Up Air anhängen.',
@@ -71,7 +71,7 @@ export const D_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'dtilt', dmg: 10 },
-          { input: 'sh fair', label: 'SH Fair', dmg: 10 },
+          { input: 'sh fair', label: 'SH Fair', dmg: 13 },
         ],
         tip: 'Laut SmashWiki eine verlässliche Fortsetzung aus dem Down Tilt bei niedrigen Prozenten, reiner Schadensaufbau.',
         source: wiki('Mii_Swordfighter_(SSBU)'),
@@ -249,7 +249,7 @@ export const D_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'nb', label: 'Shadow Ball, voll geladen', dmg: 30 },
-          { input: 'usmash', dmg: 14 },
+          { input: 'usmash', dmg: 19 },
         ],
         tip: 'Laut SmashWiki combot der Shadow Ball je nach Ladung und Prozentwert in praktisch jeden seiner schnelleren Moves. Down Tilt, Up Tilt, Grab, Dash Attack, Forward Air und Up Smash.',
         source: wiki('Mewtwo_(SSBU)'),

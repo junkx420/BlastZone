@@ -303,7 +303,7 @@ export const A_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'fthrow', dmg: 11 },
-          { input: 'sb', label: 'Explosive Flame', dmg: 16 },
+          { input: 'sb', label: 'Explosive Flame', dmg: 17 },
         ],
         tip: 'Aus dem Forward Throw ist Explosive Flame bei hohen Prozenten ein KO-Confirm statt eines lesbaren Neutral-Moves.',
         source: wiki('Palutena_(SSBU)'),

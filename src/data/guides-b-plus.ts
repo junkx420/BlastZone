@@ -898,7 +898,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         start: 30,
         difficulty: 2,
         steps: [
-          { input: 'sh dair', label: 'SH Dair', dmg: 8 },
+          { input: 'sh dair', label: 'SH Dair', dmg: 16 },
           { input: 'fair', dmg: 9 },
           { input: 'dj fair', label: 'DJ Fair', dmg: 9 },
         ],
@@ -915,7 +915,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'sh fair', label: 'SH Fair', dmg: 9 },
           { input: 'dj fair', label: 'DJ Fair', dmg: 9 },
-          { input: 'dair', dmg: 8 },
+          { input: 'dair', dmg: 16 },
         ],
         tip: 'Laut SmashWiki killt der Down Air nach zwei Forward Airs früh, offstage Pac-Mans stärkster Abschluss.',
         tags: ['Offstage'],
@@ -979,7 +979,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 3,
         steps: [
           { input: 'grab', dmg: 0 },
-          { input: 'dthrow', dmg: 9 },
+          { input: 'dthrow', dmg: 13 },
           { input: 'nb', label: 'Bonus Fruit: Schlüssel', dmg: 19, note: 'Der Schlüssel muss vorher durchgeladen sein, er ist die achte und letzte Frucht.' },
         ],
         tip: 'Laut SmashWiki der stärkste Tech-Chase aus dem Down Throw: Der Schlüssel hat für sich genommen hohe KO-Kraft.',
@@ -1380,7 +1380,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'dtilt', dmg: 7 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 10 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 13 },
         ],
         tip: 'Funktioniert laut Game8 auch bei hohen Prozenten, wird dort aber zunehmend schwerer zu landen.',
         source: game8('281199'),
@@ -1409,7 +1409,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 7 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 10 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 13 },
         ],
         tip: 'Forward und Up Air sind laut SmashWiki die verlässlichen Fortsetzungen aus dem Down Throw.',
         source: wiki('Pit_(SSBU)'),
@@ -1539,7 +1539,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 1,
         steps: [
           { input: 'dtilt', dmg: 7 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 10 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 13 },
         ],
         tip: 'Wie bei Pit: geht auch hoch hinauf, wird dort aber schwerer zu treffen.',
         source: game8('281200'),
@@ -1553,7 +1553,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 7 },
-          { input: 'fh nair', label: 'FH Nair', dmg: 7 },
+          { input: 'fh nair', label: 'FH Nair', dmg: 11 },
         ],
         tip: 'Der Down Throw hebt den Gegner leicht an, laut Game8 der Standardwurf zum Schadensaufbau.',
         source: game8('281200'),
@@ -1569,7 +1569,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 7 },
           { input: 'dash utilt', label: 'Schritt → Up Tilt', dmg: 6 },
-          { input: 'fh nair', label: 'FH Nair', dmg: 7 },
+          { input: 'fh nair', label: 'FH Nair', dmg: 11 },
         ],
         tip: 'Laut Game8 nur zwischen 0 und 40 %, danach fliegt der Gegner zu weit für den Up Tilt.',
         source: game8('281200'),
@@ -1585,7 +1585,7 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
         steps: [
           { input: 'grab', dmg: 0 },
           { input: 'dthrow', dmg: 7 },
-          { input: 'fh fair', label: 'FH Fair', dmg: 10 },
+          { input: 'fh fair', label: 'FH Fair', dmg: 13 },
         ],
         tip: 'Derselbe Wurf, anderer Abschluss: Laut Game8 killt der Forward Air ab etwa 120 %.',
         source: game8('281200'),

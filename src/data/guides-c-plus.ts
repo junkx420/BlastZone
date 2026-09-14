@@ -201,7 +201,7 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
         difficulty: 2,
         steps: [
           { input: 'sh nair ff', label: 'SH Nair, fallend', dmg: 12 },
-          { input: 'fsmash', dmg: 11 },
+          { input: 'fsmash', dmg: 22 },
         ],
         tip: 'Kleines Fenster, dafür laut Game8 viel Schaden.',
         source: game8('281225'),
@@ -390,7 +390,7 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
         kills: true,
         difficulty: 3,
         steps: [
-          { input: 'sh dair', label: 'SH Dair', dmg: 10 },
+          { input: 'sh dair', label: 'SH Dair', dmg: 19 },
           { input: 'fsmash', dmg: 18 },
         ],
         tip: 'Laut SmashWiki loopt der Down Air bei mittleren bis hohen Prozenten und richtet Kill-Confirms ein, vor allem Forward Smash, Down Smash und Forward Air.',
@@ -404,8 +404,8 @@ export const C_PLUS_GUIDES: FighterGuide[] = [
         windowLabel: 'niedrige Prozente',
         difficulty: 2,
         steps: [
-          { input: 'sh nair', label: 'SH Nair', dmg: 7 },
-          { input: 'dj nair', label: 'DJ Nair', dmg: 7 },
+          { input: 'sh nair', label: 'SH Nair', dmg: 12 },
+          { input: 'dj nair', label: 'DJ Nair', dmg: 12 },
         ],
         tip: 'Laut SmashWiki combot der Neutral Air in sich selbst, bekannt geworden ist die Schleife durch den Spieler Remi.',
         source: wiki('Lucas_(SSBU)'),

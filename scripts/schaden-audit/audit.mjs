@@ -87,6 +87,8 @@ function candidates(rows) {
       for (let k = 1; k <= maxK; k++) {
         if (ns.length >= 3) c.add(ns[0] + k * ns[1] + ns[ns.length - 1]);
         if (ns.length === 2) {
+          // Nur Multi-Treffer, ohne Abschluss: Landung mitten im Move.
+          c.add(k * ns[0]);
           c.add(k * ns[0] + ns[1]);
           c.add(ns[0] + k * ns[1]);
         }
