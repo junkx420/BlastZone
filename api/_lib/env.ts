@@ -92,6 +92,24 @@ export function readStartggConfig(): StartggConfig {
 }
 
 /**
+ * OAuth-Anwendung auf start.gg (Settings → Developer Settings → OAuth), für
+ * „Mit start.gg bestätigen“. Beides nur auf dem Server:
+ * - STARTGG_OAUTH_CLIENT_ID: die ID der Anwendung, eine Zahl
+ * - STARTGG_OAUTH_CLIENT_SECRET: geht nur im Körper des Token-Tauschs an start.gg, nie in eine URL
+ */
+export interface StartggOauthConfig {
+  clientId: string;
+  clientSecret: string;
+}
+
+export function readStartggOauthConfig(): StartggOauthConfig | null {
+  const clientId = process.env.STARTGG_OAUTH_CLIENT_ID?.trim() ?? '';
+  const clientSecret = process.env.STARTGG_OAUTH_CLIENT_SECRET?.trim() ?? '';
+  if (!/^[0-9]{1,12}$/.test(clientId) || !/^[A-Za-z0-9._-]{16,256}$/.test(clientSecret)) return null;
+  return { clientId, clientSecret };
+}
+
+/**
  * Speicher-Backend nur für den lokalen Dev-Server, wenn noch keine Keys da sind.
  * Der Vite-Dev-Server setzt BLASTZONE_BACKEND=mock. Auf Vercel ist VERCEL
  * immer gesetzt, dort greift der Mock nie, egal was sonst konfiguriert ist.

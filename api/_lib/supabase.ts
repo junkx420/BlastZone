@@ -81,9 +81,27 @@ interface StartggLinkDbRow {
   slug: string;
   gamer_tag: string | null;
   updated_at: string;
+  startgg_user_id?: string | null;
+  verified_at?: string | null;
+  verification?: string | null;
 }
-const toStartggLink = (r: StartggLinkDbRow): StartggLinkRow => ({ userId: r.user_id, slug: r.slug, gamerTag: r.gamer_tag, updatedAt: r.updated_at });
-const STARTGG_LINK_SELECT = 'user_id,slug,gamer_tag,updated_at';
+const toStartggLink = (r: StartggLinkDbRow): StartggLinkRow => ({
+  userId: r.user_id,
+  slug: r.slug,
+  gamerTag: r.gamer_tag,
+  updatedAt: r.updated_at,
+  verification: r.startgg_user_id && r.verified_at && r.verification ? { startggUserId: r.startgg_user_id, verifiedAt: r.verified_at, signature: r.verification } : null,
+});
+const STARTGG_LINK_SELECT_BASE = 'user_id,slug,gamer_tag,updated_at';
+const STARTGG_LINK_SELECT = `${STARTGG_LINK_SELECT_BASE},startgg_user_id,verified_at,verification`;
+
+/*
+ * Migration 0005 bringt die Spalten für die Bestätigung. Läuft der Code schon, bevor
+ * sie eingespielt ist, antwortet PostgREST auf die Spalten mit 400. Dann liest und
+ * schreibt der Server ohne sie weiter, damit die Verknüpfung selbst nicht ausfällt.
+ * Nur Bestätigen geht erst nach der Migration.
+ */
+let verificationColumnsMissing = false;
 
 interface StartggCacheDbRow {
   user_id: string;
@@ -139,8 +157,12 @@ async function fehler(res: Response): Promise<BackendError> {
   if (/database error saving new user/i.test(message)) return new BackendError('conflict');
   log();
   if (res.status >= 500) return new BackendError('unavailable');
-  return new BackendError('bad-request');
+  // Der Postgres- bzw. PostgREST-Code als Nachricht, etwa 42703 (Spalte fehlt). Geht nie an den Browser.
+  return new BackendError('bad-request', code || 'bad-request');
 }
+
+/** Spalte unbekannt: beim Lesen 42703 von Postgres, beim Schreiben PGRST204 aus dem Schema-Cache. */
+const isMissingColumn = (err: unknown): boolean => err instanceof BackendError && err.code === 'bad-request' && (err.message === '42703' || err.message === 'PGRST204');
 
 export function supabaseBackend(env: Env): Backend {
   // Ohne Nutzer nur `apikey`. Ein Publishable Key ist kein JWT und gehört nicht in den Authorization-Header.
@@ -358,27 +380,59 @@ export function supabaseBackend(env: Env): Backend {
     },
 
     async getStartggLink(auth) {
-      const rows = await call<StartggLinkDbRow[]>(restPath('startgg_links', { select: STARTGG_LINK_SELECT, where: { user_id: eq(auth.userId) }, limit: 1 }), {
-        token: auth.token,
-      });
-      return (rows ?? []).map(toStartggLink);
+      const read = (select: string): Promise<StartggLinkDbRow[]> =>
+        call<StartggLinkDbRow[]>(restPath('startgg_links', { select, where: { user_id: eq(auth.userId) }, limit: 1 }), { token: auth.token });
+      if (!verificationColumnsMissing) {
+        try {
+          return ((await read(STARTGG_LINK_SELECT)) ?? []).map(toStartggLink);
+        } catch (err) {
+          if (!isMissingColumn(err)) throw err;
+          verificationColumnsMissing = true;
+          console.error(JSON.stringify({ t: 'supabase', hinweis: 'Migration 0005 fehlt: startgg_links ohne Bestätigungsspalten. supabase/migrations/0005_startgg_verification.sql ausführen.' }));
+        }
+      }
+      return ((await read(STARTGG_LINK_SELECT_BASE)) ?? []).map(toStartggLink);
     },
 
-    async saveStartggLink(auth, slug, gamerTag) {
+    async saveStartggLink(auth, { slug, gamerTag, verification }, clearCache) {
       // Upsert auf den Primärschlüssel. user_id setzt der Trigger ohnehin auf auth.uid(), RLS prüft es zusätzlich.
-      const rows = await call<StartggLinkDbRow[]>(restPath('startgg_links', { select: STARTGG_LINK_SELECT, onConflict: ['user_id'] }), {
-        method: 'POST',
-        token: auth.token,
-        prefer: 'resolution=merge-duplicates,return=representation',
-        body: JSON.stringify({ user_id: auth.userId, slug, gamer_tag: gamerTag }),
-      });
+      // Die Bestätigung geht immer mit, auch als null: Wer das Profil wechselt, verliert sie ausdrücklich.
+      const write = (withVerification: boolean): Promise<StartggLinkDbRow[]> =>
+        call<StartggLinkDbRow[]>(restPath('startgg_links', { select: withVerification ? STARTGG_LINK_SELECT : STARTGG_LINK_SELECT_BASE, onConflict: ['user_id'] }), {
+          method: 'POST',
+          token: auth.token,
+          prefer: 'resolution=merge-duplicates,return=representation',
+          body: JSON.stringify({
+            user_id: auth.userId,
+            slug,
+            gamer_tag: gamerTag,
+            ...(withVerification
+              ? { startgg_user_id: verification?.startggUserId ?? null, verified_at: verification?.verifiedAt ?? null, verification: verification?.signature ?? null }
+              : {}),
+          }),
+        });
+
+      let rows: StartggLinkDbRow[] | undefined;
+      if (!verificationColumnsMissing) {
+        try {
+          rows = await write(true);
+        } catch (err) {
+          if (!isMissingColumn(err)) throw err;
+          verificationColumnsMissing = true;
+        }
+      }
+      if (!rows) {
+        // Ohne Spalten lässt sich eine Bestätigung nicht speichern. Lieber melden als stillschweigend unbestätigt ablegen.
+        if (verification) throw new BackendError('unavailable', 'startgg-verification-columns-missing');
+        rows = await write(false);
+      }
       // Ein neues Profil macht den alten Cache wertlos.
-      await call(restPath('startgg_cache', { where: { user_id: eq(auth.userId) } }), { method: 'DELETE', token: auth.token, prefer: 'return=minimal' });
+      if (clearCache) await call(restPath('startgg_cache', { where: { user_id: eq(auth.userId) } }), { method: 'DELETE', token: auth.token, prefer: 'return=minimal' });
       return (rows ?? []).map(toStartggLink);
     },
 
     async deleteStartggLink(auth) {
-      const rows = await call<StartggLinkDbRow[]>(restPath('startgg_links', { select: STARTGG_LINK_SELECT, where: { user_id: eq(auth.userId) } }), {
+      const rows = await call<StartggLinkDbRow[]>(restPath('startgg_links', { select: STARTGG_LINK_SELECT_BASE, where: { user_id: eq(auth.userId) } }), {
         method: 'DELETE',
         token: auth.token,
         prefer: 'return=representation',

@@ -35,11 +35,22 @@ export function json(data: unknown, status = 200, cookies: string[] = [], extra:
 
 export const ok = (data: Record<string, unknown> = {}, cookies: string[] = [], status = 200): Response => json({ ok: true, ...data }, status, cookies);
 
+/**
+ * 302 für Routen, die der Browser als Seite aufruft (OAuth). Kein Response.redirect:
+ * Dessen Header sind unveränderlich, route() setzt aber noch X-Request-Id.
+ * `no-referrer`, damit der OAuth-Code aus der URL nicht als Referrer weiterwandert.
+ */
+export function redirect(location: string, cookies: string[] = []): Response {
+  const headers = new Headers({ Location: location, 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer' });
+  cookies.forEach((c) => headers.append('Set-Cookie', c));
+  return new Response(null, { status: 302, headers });
+}
+
 // Fehlerbehandlung, Logging, Timeout und Grundlimit jeder Route: route.ts.
 
 /* ── Herkunft ───────────────────────────────────────────────────────────── */
 
-const requestHost = (request: Request): string =>
+export const requestHost = (request: Request): string =>
   (request.headers.get('x-forwarded-host') ?? request.headers.get('host') ?? new URL(request.url).host).toLowerCase();
 
 /**

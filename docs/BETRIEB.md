@@ -44,6 +44,9 @@ Alles, was Blastzone im Livebetrieb stabil hält: Grenzen, Überwachung, Fehlers
 | Fehlerberichte | 20 pro 10 min pro IP, 5 verschiedene pro Seitenaufruf |
 | start.gg verknüpfen | 10 pro Stunde pro Konto (jeder Versuch kostet eine start.gg-Anfrage) |
 | start.gg lösen | 20 pro Stunde pro Konto |
+| Mit start.gg bestätigen starten | 10 pro Stunde pro Konto |
+| Rücksprung von start.gg (Callback) | 20 pro Stunde pro IP (noch ohne Sitzung, jeder kann zwei start.gg-Anfragen auslösen) |
+| Bestätigung speichern | 20 pro Stunde pro Konto |
 | start.gg insgesamt | 60 Anfragen pro Minute für alle Nutzer zusammen (start.gg erlaubt 80 pro Token) |
 | Placements lesen | 60 pro Minute pro Konto, aus dem Cache |
 | Placements neu von start.gg | 6 pro Stunde pro Konto; Cache gilt 24 h, „nicht gefunden“ 1 h, manuelles Aktualisieren frühestens nach 15 min |

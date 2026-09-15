@@ -38,15 +38,20 @@ const RESOLVE_USER = `query ResolveStartggUser($slug: String!) {
 
 const unavailable = (): HttpError => new HttpError(503, 'startgg-unavailable', 'start.gg ist gerade nicht erreichbar. Versuch es gleich noch einmal.');
 
-async function graphql<T>(query: string, variables: Record<string, unknown>, token: string): Promise<T> {
-  await enforce({ name: 'startgg-global', key: 'alle', max: 60, windowSec: 60 });
+/**
+ * `kind: 'user'` heißt: Der Token stammt aus dem OAuth-Login eines Nutzers. Er hat bei
+ * start.gg ein eigenes Kontingent, zählt also nicht gegen den gemeinsamen Topf, und ein
+ * 401 ist dann ein abgelehnter Login, kein Einrichtungsfehler.
+ */
+export async function graphql<T>(query: string, variables: Record<string, unknown>, token: string, kind: 'app' | 'user' = 'app'): Promise<T> {
+  if (kind === 'app') await enforce({ name: 'startgg-global', key: 'alle', max: 60, windowSec: 60 });
   let res: Response;
   try {
     res = await fetch(ENDPOINT, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({ query, variables }),
-      signal: AbortSignal.timeout(TIMEOUT),
+      signal: AbortSignal.timeout(kind === 'user' ? 3500 : TIMEOUT),
     });
   } catch (err) {
     const timedOut = err instanceof Error && (err.name === 'TimeoutError' || err.name === 'AbortError');
@@ -57,6 +62,10 @@ async function graphql<T>(query: string, variables: Record<string, unknown>, tok
   if (res.status === 429) {
     console.warn(JSON.stringify({ t: 'startgg', status: 429 }));
     throw new HttpError(503, 'startgg-rate-limited', 'start.gg bremst gerade die Anfragen. Versuch es in ein paar Minuten erneut.', { 'Retry-After': '120' });
+  }
+  if ((res.status === 401 || res.status === 403) && kind === 'user') {
+    console.warn(JSON.stringify({ t: 'startgg', status: res.status, hinweis: 'OAuth-Token des Nutzers abgelehnt' }));
+    throw new HttpError(502, 'startgg-oauth-failed', 'start.gg hat die Anmeldung nicht bestätigt. Versuch es noch einmal.');
   }
   if (res.status === 401 || res.status === 403) {
     // Token falsch, abgelaufen oder widerrufen. Das ist ein Einrichtungsfehler, kein Nutzerfehler.
@@ -268,19 +277,27 @@ export async function resolveStartggUser(slug: string): Promise<StartggUser | nu
     throw new HttpError(503, 'startgg-not-configured', 'Die start.gg-Anbindung ist noch nicht eingerichtet.');
   }
 
-  const data = await graphql<{ user: { id: number | string | null; slug: string | null; player: { gamerTag: string | null; prefix: string | null } | null } | null }>(
-    RESOLVE_USER,
-    { slug },
-    token,
-  );
-  const user = data.user;
+  const data = await graphql<{ user: RawUser | null }>(RESOLVE_USER, { slug }, token);
+  return toStartggUser(data.user, slug);
+}
+
+export interface RawUser {
+  id: number | string | null;
+  slug: string | null;
+  player: { gamerTag: string | null; prefix: string | null } | null;
+}
+
+export function toStartggUser(user: RawUser | null | undefined, fallbackSlug: string): StartggUser | null {
   if (!user?.id) return null;
   const tag = user.player?.gamerTag?.trim() ?? '';
   const prefix = user.player?.prefix?.trim() ?? '';
   return {
     userId: String(user.id),
-    slug: user.slug ?? slug,
+    slug: user.slug ?? fallbackSlug,
     // Präfix wie auf start.gg: „Team | Tag“. Auf 80 Zeichen begrenzt, wie in der Datenbank.
     gamerTag: tag ? (prefix ? `${prefix} | ${tag}` : tag).slice(0, 80) : null,
   };
 }
+
+/** Nur für den lokalen Speicher-Mock der OAuth-Anmeldung (startggOauth.ts). */
+export const mockStartggUser = (slug: string): StartggUser | null => mockResolve(slug);

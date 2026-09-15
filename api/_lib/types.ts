@@ -60,6 +60,23 @@ export interface StartggLinkRow {
   slug: string;
   gamerTag: string | null;
   updatedAt: string;
+  /** Ungeprüft, bis startggOauth.ts `isVerified` die Signatur bestätigt. Die Zeile ist vom Nutzer beschreibbar. */
+  verification: StartggVerification | null;
+}
+
+/** Nachweis aus dem OAuth-Login: start.gg hat bestätigt, dass dieses Konto das Profil besitzt. */
+export interface StartggVerification {
+  /** start.gg-Nutzer-ID aus `currentUser`. */
+  startggUserId: string;
+  verifiedAt: string;
+  /** HMAC über Besitzer, Slug, start.gg-ID und Zeitpunkt. */
+  signature: string;
+}
+
+export interface StartggLinkInput {
+  slug: string;
+  gamerTag: string | null;
+  verification: StartggVerification | null;
 }
 
 /** Zeile im Placement-Cache. `payload` ist ungeprüft, bis startggCache.ts die Signatur bestätigt. */
@@ -85,7 +102,7 @@ export type BackendErrorCode =
 export class BackendError extends Error {
   constructor(
     readonly code: BackendErrorCode,
-    message = code,
+    message: string = code,
   ) {
     super(message);
   }
@@ -125,8 +142,11 @@ export interface Backend {
 
   /** Leer, wenn nicht verknüpft. Liefert höchstens eine Zeile. */
   getStartggLink(auth: Auth): Promise<StartggLinkRow[]>;
-  /** Legt an oder ersetzt. Liefert die gespeicherte Zeile. */
-  saveStartggLink(auth: Auth, slug: string, gamerTag: string | null): Promise<StartggLinkRow[]>;
+  /**
+   * Legt an oder ersetzt. Liefert die gespeicherte Zeile. `clearCache`: Placement-Cache
+   * leeren, weil das Profil gewechselt hat. Beim Bestätigen desselben Profils bleibt er.
+   */
+  saveStartggLink(auth: Auth, link: StartggLinkInput, clearCache: boolean): Promise<StartggLinkRow[]>;
   /** Löst die Verknüpfung und leert den Placement-Cache. Liefert die gelöschte Zeile. */
   deleteStartggLink(auth: Auth): Promise<StartggLinkRow[]>;
   /** Eigene Cache-Zeile, höchstens eine. */

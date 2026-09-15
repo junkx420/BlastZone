@@ -876,6 +876,109 @@
     min-height: 118px;
     border-left-color: var(--line-strong);
   }
+
+  /*
+   * Bestätigung per start.gg-Login. Grün nur hier: Es heißt „geprüft“, nicht „Treffer“.
+   * Im Light-Mode dunkler, sonst unter 4,5:1 auf der hellen Karte.
+   */
+  .startgg {
+    --verified: oklch(0.8 0.15 150);
+  }
+  :root[data-theme='light'] .startgg {
+    --verified: oklch(0.45 0.13 150);
+  }
+  .startgg-card__name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-1) var(--sp-3);
+    min-width: 0;
+  }
+  .startgg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 700;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .startgg-badge .icon {
+    width: 14px;
+    height: 14px;
+  }
+  .startgg-badge--verified {
+    border-color: color-mix(in oklch, var(--verified) 55%, transparent);
+    background: color-mix(in oklch, var(--verified) 14%, transparent);
+    color: var(--verified);
+  }
+  .startgg-verify {
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px dashed var(--line-strong);
+    border-radius: 10px;
+  }
+  .startgg-verify__text {
+    flex: 1 1 260px;
+    min-width: 0;
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+  }
+  .startgg-oauth {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-3) var(--sp-4);
+    max-width: 640px;
+  }
+  .startgg-oauth__hint {
+    flex: 1 1 260px;
+    min-width: 0;
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+  }
+  .startgg .btn .icon {
+    width: 16px;
+    height: 16px;
+  }
+  /* Trennlinie mit Text in der Mitte zwischen Login und Formular. */
+  .startgg-or {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    max-width: 640px;
+    margin-block: var(--sp-4) var(--sp-3);
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .startgg-or::before,
+  .startgg-or::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .startgg-notice {
+    max-width: 640px;
+    margin-bottom: var(--sp-4);
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid color-mix(in oklch, var(--dmg-160) 55%, transparent);
+    border-radius: 10px;
+    background: color-mix(in oklch, var(--dmg-160) 10%, transparent);
+    font-size: var(--fs-200);
+  }
+  .startgg-notice--success {
+    border-color: color-mix(in oklch, var(--verified) 55%, transparent);
+    background: color-mix(in oklch, var(--verified) 10%, transparent);
+  }
   @media (max-width: 520px) {
     .startgg-card {
       grid-template-columns: minmax(0, 1fr);

@@ -151,6 +151,8 @@ const SERVER_ENV_KEYS = [
   'UPSTASH_REDIS_REST_TOKEN',
   'STARTGG_TOKEN',
   'STARTGG_CACHE_KEY',
+  'STARTGG_OAUTH_CLIENT_ID',
+  'STARTGG_OAUTH_CLIENT_SECRET',
 ];
 
 export default defineConfig(({ mode, command }) => {

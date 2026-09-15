@@ -212,17 +212,17 @@ export function mockBackend(): Backend {
     async getStartggLink(auth) {
       const user = userFor(auth.token);
       const row = user.id === auth.userId ? store.startggLinks?.get(user.id) : undefined;
-      return row ? [{ ...row }] : [];
+      return row ? [JSON.parse(JSON.stringify(row)) as StartggLinkRow] : [];
     },
 
-    async saveStartggLink(auth, slug, gamerTag) {
+    async saveStartggLink(auth, { slug, gamerTag, verification }, clearCache) {
       const user = userFor(auth.token);
       if (!user.confirmed) throw new BackendError('forbidden');
       const links = (store.startggLinks ??= new Map());
-      const row: StartggLinkRow = { userId: user.id, slug, gamerTag, updatedAt: new Date().toISOString() };
+      const row: StartggLinkRow = { userId: user.id, slug, gamerTag, updatedAt: new Date().toISOString(), verification: verification ? { ...verification } : null };
       links.set(user.id, row);
-      store.startggCache?.delete(user.id);
-      return [{ ...row }];
+      if (clearCache) store.startggCache?.delete(user.id);
+      return [JSON.parse(JSON.stringify(row)) as StartggLinkRow];
     },
 
     async deleteStartggLink(auth) {

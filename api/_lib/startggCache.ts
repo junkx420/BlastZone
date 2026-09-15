@@ -73,6 +73,25 @@ function equalHex(a: string, b: string): boolean {
 
 const message = (ownerId: string, payload: PlacementsPayload): string => `blastzone-startgg-cache\n${ownerId}\n${canonicalJson(payload)}`;
 
+/*
+ * Weitere Signaturen mit demselben Schlüssel (Bestätigung, OAuth-Cookies).
+ * Jede Verwendung hat ein eigenes Präfix, damit eine gültige Signatur aus der
+ * einen Stelle nie an einer anderen passt. Teile dürfen keinen Zeilenumbruch
+ * enthalten, sonst ließen sich zwei Teile zu einem anderen Paar verschieben.
+ */
+export function signParts(domain: string, parts: string[]): Promise<string> {
+  if (parts.some((p) => p.includes('\n'))) throw new Error('signParts: Zeilenumbruch im signierten Teil');
+  return hmacHex(cacheKey(), [domain, ...parts].join('\n'));
+}
+
+export async function checkParts(domain: string, parts: string[], signature: string): Promise<boolean> {
+  if (!/^[0-9a-f]{64}$/.test(signature) || parts.some((p) => p.includes('\n'))) return false;
+  return equalHex(await signParts(domain, parts), signature);
+}
+
+/** Konstantzeit-Vergleich für andere Geheimnisse gleicher Form, etwa den OAuth-State. */
+export const sameSecret = equalHex;
+
 /**
  * Signiert für genau einen Blastzone-Nutzer. Die Besitzer-ID steckt in der
  * Signatur: Eine gültige Zeile lässt sich nicht in ein anderes Konto kopieren.

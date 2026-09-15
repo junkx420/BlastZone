@@ -73,7 +73,8 @@ export function privacyPage(): PageView {
           Cookies entstehen erst, wenn du dich anmeldest: zwei Sitzungscookies (<code>bz_at</code> und
           <code>bz_rt</code>), die dich angemeldet halten. Sie sind für JavaScript nicht lesbar, gehen nur an die
           Schnittstelle dieser Seite und an keinen Dritten. <code>bz_at</code> läuft nach etwa einer Stunde ab,
-          <code>bz_rt</code> nach 30 Tagen. Beim Abmelden werden beide gelöscht. Weil die Anmeldung ohne sie
+          <code>bz_rt</code> nach 30 Tagen. Beim Abmelden werden beide gelöscht. Nur während einer Bestätigung über
+          start.gg kommen zwei kurzlebige Cookies dazu, mehr dazu unten bei start.gg. Weil die Anmeldung ohne sie
           technisch nicht funktioniert, braucht es dafür keine Einwilligung (§ 25 Abs. 2 Nr. 2 TDDDG) und kein
           Cookie-Banner.
         </p>
@@ -115,6 +116,18 @@ export function privacyPage(): PageView {
           Zeitpunkt. Beim Verknüpfen fragt unser Server bei start.gg nach, ob es das Profil gibt. Diese Anfrage
           stellt der Server, nicht dein Browser; start.gg erfährt dabei nur die Profiladresse, weder deine
           IP-Adresse noch dein Blastzone-Konto.
+        </p>
+        <p>
+          Wählst du „Mit start.gg anmelden“ bzw. „Mit start.gg bestätigen“, leitet dich die Seite zu start.gg weiter.
+          Dort meldest du dich bei start.gg selbst an; dein start.gg-Passwort sehen wir nie. start.gg schickt dich mit
+          einem Einmal-Code zurück, den unser Server gegen einen Zugangsschlüssel tauscht. Mit diesem Schlüssel fragt
+          der Server genau einmal ab, welches start.gg-Konto angemeldet ist (Berechtigung <code>user.identity</code>:
+          Konto-ID, Profiladresse, Spielername). Den Schlüssel speichern wir nicht, er wird sofort verworfen. Wir
+          speichern zusätzlich nur die start.gg-Konto-ID, den Zeitpunkt der Bestätigung und eine Prüfsumme unseres
+          Servers. Für die Dauer der Anmeldung setzt die Seite zwei technisch notwendige Cookies
+          (<code>bz_sg_state</code> und <code>bz_sg_result</code>), die höchstens zehn Minuten gelten und danach bzw.
+          nach Abschluss gelöscht werden. Wie start.gg bei der Anmeldung mit deinen Daten umgeht, regelt dessen eigene
+          Datenschutzerklärung.
         </p>
         <p>
           Für die Liste „Meine Turniere“ fragt unser Server bei start.gg deine öffentlichen Ergebnisse in Turnieren

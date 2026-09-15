@@ -119,11 +119,30 @@ export interface StartggLink {
   gamerTag: string | null;
   profileUrl: string;
   updatedAt: string;
+  /** Per start.gg-Login bestätigt. Der Server prüft dafür eine Signatur, der Browser vertraut nur dieser Antwort. */
+  verified: boolean;
+  verifiedAt: string | null;
+  /** Ob „Mit start.gg bestätigen“ gerade angeboten werden kann. */
+  canVerify: boolean;
 }
 
-/** Eigene Verknüpfung oder `null`. Privat, deshalb ohne Cache. */
-export const getStartggLink = (): Promise<StartggLink | null> =>
-  guarded(async () => (await api<{ link: StartggLink | null }>('startgg/link')).link);
+/** Eigene Verknüpfung oder `null`, dazu, ob Bestätigen möglich ist. Privat, deshalb ohne Cache. */
+export const getStartggLink = (): Promise<{ link: StartggLink | null; canVerify: boolean }> =>
+  guarded(async () => {
+    const res = await api<{ link: StartggLink | null; canVerify?: boolean }>('startgg/link');
+    return { link: res.link, canVerify: Boolean(res.canVerify) };
+  });
+
+/** Startet den Login bei start.gg. Ein Seitenaufruf, kein fetch: start.gg zeigt eine eigene Seite. */
+export const STARTGG_AUTHORIZE_URL = './api/startgg/authorize';
+
+/** Schließt „Mit start.gg bestätigen“ ab, nachdem start.gg zurückgeleitet hat. */
+export const verifyStartgg = (): Promise<{ link: StartggLink; previousSlug: string | null }> =>
+  guarded(async () => {
+    const res = await api<{ link: StartggLink; previousSlug?: string | null }>('startgg/verify', { method: 'POST', body: {} });
+    invalidate('startgg/');
+    return { link: res.link, previousSlug: res.previousSlug ?? null };
+  });
 
 /** Prüft das Profil bei start.gg und speichert es. Wirft ApiError mit deutscher Meldung, etwa „kein Profil unter dieser Adresse“. */
 export const linkStartgg = (profile: string): Promise<StartggLink> =>
