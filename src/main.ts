@@ -56,7 +56,7 @@ initReveals(shell.main);
  * /api/auth/session antwortet. Antwortet nichts (kein Backend), bleibt alles
  * wie vor den Konten.
  */
-mountAccountNav(shell.account);
+mountAccountNav(shell.account, shell.menuExtra);
 initBookmarkButtons();
 let lastUserId: string | null = null;
 onAuth((state) => {

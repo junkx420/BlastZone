@@ -13,6 +13,7 @@ export const common = defineMessages({
     'nav.inputs': 'Inputs',
     'nav.community': 'Community',
     'nav.search': 'Fighter suchen',
+    'nav.menu': 'Menü',
 
     'footer.tagline': 'Ein Fanprojekt für die Competitive-Szene von Super Smash Bros. Ultimate.',
     'footer.nav': 'Fußzeile',
@@ -86,6 +87,7 @@ export const common = defineMessages({
     'nav.inputs': 'Inputs',
     'nav.community': 'Community',
     'nav.search': 'Search fighters',
+    'nav.menu': 'Menu',
 
     'footer.tagline': 'A fan project for the Super Smash Bros. Ultimate competitive scene.',
     'footer.nav': 'Footer',

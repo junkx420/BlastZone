@@ -1,4 +1,5 @@
 import { LANGUAGES, pickLang, type Lang } from './lang';
+import { auth } from './messages/auth';
 import { combo } from './messages/combo';
 import { common } from './messages/common';
 import { notation } from './messages/notation';
@@ -34,8 +35,8 @@ export const lang: Lang = detected.lang;
 export const langSource = detected.source;
 export const locale = LANGUAGES.find((l) => l.code === lang)?.locale ?? 'de-DE';
 
-const DE = { ...common.de, ...combo.de, ...notation.de };
-const EN: { [K in keyof typeof DE]: string } = { ...common.en, ...combo.en, ...notation.en };
+const DE = { ...common.de, ...combo.de, ...notation.de, ...auth.de };
+const EN: { [K in keyof typeof DE]: string } = { ...common.en, ...combo.en, ...notation.en, ...auth.en };
 
 export type MessageKey = keyof typeof DE;
 

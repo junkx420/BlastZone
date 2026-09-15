@@ -95,6 +95,83 @@
   .btn--ghost {
     --btn-bg: transparent;
   }
+  /*
+   * Wartezustand (aria-busy="true"): Ein Ladekreis ersetzt das Symbol vorn im Knopf,
+   * die Beschriftung bleibt („Wird geprüft …“). So springt die Knopfbreite nicht.
+   * Gilt für jeden Knopf, der auf eine Antwort wartet.
+   */
+  .btn[aria-busy='true'] {
+    cursor: progress;
+  }
+  .btn[aria-busy='true'] > .icon:first-child {
+    display: none;
+  }
+  .btn[aria-busy='true']::after {
+    content: '';
+    order: -1;
+    flex: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: btn-spin 0.7s linear infinite;
+  }
+  @keyframes btn-spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn[aria-busy='true']::after {
+      animation-duration: 2.4s;
+    }
+  }
+  .btn:disabled:not([aria-busy='true']) {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  /* ── Toast (components/toast.ts): kurze Bestätigung unten mittig ────── */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(var(--sp-5) + env(safe-area-inset-bottom, 0px));
+    z-index: var(--z-toast);
+    max-width: min(440px, calc(100vw - 32px));
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, 12px);
+    transition:
+      opacity var(--t-base) var(--ease-out),
+      transform var(--t-base) var(--ease-out);
+  }
+  .toast.is-visible {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  .toast__body {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim), var(--elev-2);
+    color: var(--text);
+    font-size: var(--fs-200);
+    font-weight: 700;
+  }
+  .toast__body .icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    color: var(--gc-a);
+  }
   .btn--sm {
     min-height: 40px;
     padding: 0 var(--sp-4);

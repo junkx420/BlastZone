@@ -41,6 +41,7 @@
   --line: rgb(15 18 24 / 0.13);
   --line-strong: rgb(15 18 24 / 0.25);
   --focus: #9a3409;
+  --danger-text: #9c1226; /* 4,6:1 auf --surface-4, 5,7:1 auf dem Grund */
   --ink: #0b0d12;
   --tier-d: #b9bfc9;
   --tier-e: #7c8290; /* dunkle Schrift darauf 4,9:1; #6c7280 kam nur auf 4,0 */

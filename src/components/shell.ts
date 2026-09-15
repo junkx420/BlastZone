@@ -19,6 +19,8 @@ const NAV: Array<{ route: RouteName; path: string; label: string; wide?: boolean
 
 export interface Shell {
   main: HTMLElement;
+  /** Platz im Mobile-Menü für Konto-Einträge (Theme-Umschalter auf kleinen Handys), siehe accountNav.ts. */
+  menuExtra: HTMLElement;
   /** Platz für Anmelden, Theme-Umschalter und Profil-Chip, siehe accountNav.ts. */
   account: HTMLElement;
   setActive(route: RouteName): void;
@@ -33,11 +35,12 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
       <header class="nav" data-nav>
         <div class="nav__inner">
           <a class="brand" href="${link('/')}" aria-label="${t('nav.home')}">${brand}</a>
-          <nav class="nav__links" aria-label="${t('nav.main')}">
+          <nav class="nav__links" id="nav-links" aria-label="${t('nav.main')}" data-nav-links>
             ${NAV.map(
               (item) =>
                 html`<a class="nav__link${item.wide ? ' nav__link--wide' : ''}" href="${link(item.path)}" data-route="${item.route}">${item.label}</a>`,
             )}
+            <div class="nav__menu-extra" data-menu-extra></div>
           </nav>
           <div class="nav__search" role="search">
             ${ICONS.search}
@@ -47,6 +50,9 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
           </div>
           <div class="nav__lang" data-lang-switch>${langSwitch()}</div>
           <div class="nav__account" data-account></div>
+          <button class="nav__menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" data-menu-btn>
+            ${ICONS.menu}<span class="vh">${t('nav.menu')}</span>
+          </button>
         </div>
       </header>
       <main id="main" class="main" tabindex="-1"></main>
@@ -76,6 +82,33 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
 
   const nav = qs<HTMLElement>('[data-nav]', app)!;
   mountLangSwitch(qs<HTMLElement>('[data-lang-switch]', app)!);
+
+  /*
+   * Mobile-Menü (unter 900 px): Der Knopf klappt die Links als Panel unter der Leiste auf.
+   * Darüber sind die Links normal in der Leiste, der Knopf ist ausgeblendet.
+   * Zu per Escape (Fokus zurück auf den Knopf), Klick daneben, Linkklick und Seitenwechsel.
+   */
+  const menuButton = qs<HTMLButtonElement>('[data-menu-btn]', app)!;
+  const menu = qs<HTMLElement>('[data-nav-links]', app)!;
+  const setMenu = (open: boolean, returnFocus = false): void => {
+    menu.classList.toggle('is-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+    mount(menuButton, html`${open ? ICONS.close : ICONS.menu}<span class="vh">${t('nav.menu')}</span>`);
+    if (!open && returnFocus) menuButton.focus();
+  };
+  menuButton.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
+  menu.addEventListener('click', (e) => {
+    if ((e.target as Element).closest('a')) setMenu(false);
+  });
+  nav.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) setMenu(false, true);
+  });
+  document.addEventListener('click', (e) => {
+    if (menu.classList.contains('is-open') && !menu.contains(e.target as Node) && !menuButton.contains(e.target as Node)) setMenu(false);
+  });
+  matchMedia('(min-width: 901px)').addEventListener('change', (e) => {
+    if (e.matches) setMenu(false);
+  });
   const links = qsa<HTMLAnchorElement>('.nav__link', app);
   /*
    * Das Feld in der Leiste ist der Einstieg, gesucht wird im Overlay. Es steht
@@ -114,7 +147,9 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
   return {
     main: qs<HTMLElement>('#main', app)!,
     account: qs<HTMLElement>('[data-account]', app)!,
+    menuExtra: qs<HTMLElement>('[data-menu-extra]', app)!,
     setActive(route) {
+      setMenu(false);
       qsa<HTMLAnchorElement>('.nav__me', app).forEach((a) => {
         if (route === 'profil') a.setAttribute('aria-current', 'page');
         else a.removeAttribute('aria-current');
