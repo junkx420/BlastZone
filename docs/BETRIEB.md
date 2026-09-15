@@ -42,6 +42,9 @@ Alles, was Blastzone im Livebetrieb stabil hält: Grenzen, Überwachung, Fehlers
 | Konto löschen | 3 pro Stunde |
 | Health | 30 pro Minute pro IP |
 | Fehlerberichte | 20 pro 10 min pro IP, 5 verschiedene pro Seitenaufruf |
+| start.gg verknüpfen | 10 pro Stunde pro Konto (jeder Versuch kostet eine start.gg-Anfrage) |
+| start.gg lösen | 20 pro Stunde pro Konto |
+| start.gg insgesamt | 60 Anfragen pro Minute für alle Nutzer zusammen (start.gg erlaubt 80 pro Token) |
 
 Ohne Upstash zählt jede Vercel-Instanz für sich. Für echte Obergrenzen über alle Instanzen `UPSTASH_REDIS_REST_URL` und `UPSTASH_REDIS_REST_TOKEN` bei Vercel eintragen.
 

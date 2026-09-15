@@ -4,6 +4,7 @@ import { faceThumb } from '../components/fighterTile';
 import { ICONS } from '../components/icons';
 import { FIGHTER_BY_SLUG, FIGHTERS } from '../data/fighters';
 import { bindErrorState, errorState, LOAD_FAILED_TEXT } from '../components/states';
+import { mountStartggSection, startggSection } from '../components/startggLink';
 import { guideFor, loadLateGuides } from '../data/guide-index';
 import type { Combo, Fighter } from '../data/types';
 import { accentVars } from '../lib/color';
@@ -81,6 +82,8 @@ function userView(user: User): Markup {
       <p class="profile-section__lead">Deine gespeicherten Combos. Speichern geht mit dem Lesezeichen oben rechts an jeder Combo.</p>
       <div data-saved><p class="profile-status">Lädt …</p></div>
     </section>
+
+    ${startggSection()}
 
     ${mainPicker(user)}
 
@@ -170,6 +173,9 @@ export function profilePage(): PageView {
             location.hash = link('/');
           });
         });
+
+        /* start.gg */
+        cleanups.push(mountStartggSection(host));
 
         /* Main */
         const grid = qs<HTMLElement>('[data-main-grid]', host)!;

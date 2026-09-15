@@ -15,6 +15,7 @@ Im Dashboard unter **SQL Editor** nacheinander komplett ausführen:
 1. `supabase/migrations/0001_blastzone.sql` (Tabellen, Row Level Security, Trigger, Kontolöschung)
 2. `supabase/migrations/0002_blocked_email_domains.sql` (gesperrte Wegwerf-Domains)
 3. `supabase/migrations/0003_indexes_pagination.sql` (Indizes für Kommentar-Seiten und Lesezeichen, Namensprüfung über den Index). Prüfabfragen dazu in `docs/BETRIEB.md`.
+4. `supabase/migrations/0004_startgg.sql` (start.gg-Verknüpfung und Placement-Cache, beide nur für den Besitzer lesbar). Dazu bei Vercel `STARTGG_TOKEN` und `STARTGG_CACHE_KEY` setzen, siehe `.env.example`.
 
 Danach unter **Table Editor** prüfen: `profiles`, `comments`, `bookmarks`, `blocked_email_domains` zeigen alle das Schloss für aktives RLS.
 

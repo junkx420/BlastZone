@@ -1,4 +1,4 @@
-import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type Profile, type Theme, type VerifiedToken } from './types.js';
+import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type Profile, type StartggLinkRow, type Theme, type VerifiedToken } from './types.js';
 import type { Env } from './env.js';
 import { createJwtVerifier } from './jwt.js';
 import { eq, ilikeExact, ltInt, restPath, rpcPath, type Filter } from './postgrest.js';
@@ -75,6 +75,15 @@ const toComment = (c: CommentDbRow): CommentRow => ({
 });
 
 const toBookmark = (b: { user_id: string; combo_id: string }): BookmarkRow => ({ userId: b.user_id, comboId: b.combo_id });
+
+interface StartggLinkDbRow {
+  user_id: string;
+  slug: string;
+  gamer_tag: string | null;
+  updated_at: string;
+}
+const toStartggLink = (r: StartggLinkDbRow): StartggLinkRow => ({ userId: r.user_id, slug: r.slug, gamerTag: r.gamer_tag, updatedAt: r.updated_at });
+const STARTGG_LINK_SELECT = 'user_id,slug,gamer_tag,updated_at';
 
 /* Ein Verifier pro Projekt-URL, damit die Schlüsselliste über Anfragen hinweg im Speicher der Instanz bleibt. */
 const verifiers = new Map<string, ReturnType<typeof createJwtVerifier>>();
@@ -337,6 +346,36 @@ export function supabaseBackend(env: Env): Backend {
         body: JSON.stringify({ combo_id: comboId }),
       });
       return (rows ?? []).map(toBookmark);
+    },
+
+    async getStartggLink(auth) {
+      const rows = await call<StartggLinkDbRow[]>(restPath('startgg_links', { select: STARTGG_LINK_SELECT, where: { user_id: eq(auth.userId) }, limit: 1 }), {
+        token: auth.token,
+      });
+      return (rows ?? []).map(toStartggLink);
+    },
+
+    async saveStartggLink(auth, slug, gamerTag) {
+      // Upsert auf den Primärschlüssel. user_id setzt der Trigger ohnehin auf auth.uid(), RLS prüft es zusätzlich.
+      const rows = await call<StartggLinkDbRow[]>(restPath('startgg_links', { select: STARTGG_LINK_SELECT, onConflict: ['user_id'] }), {
+        method: 'POST',
+        token: auth.token,
+        prefer: 'resolution=merge-duplicates,return=representation',
+        body: JSON.stringify({ user_id: auth.userId, slug, gamer_tag: gamerTag }),
+      });
+      // Ein neues Profil macht den alten Cache wertlos.
+      await call(restPath('startgg_cache', { where: { user_id: eq(auth.userId) } }), { method: 'DELETE', token: auth.token, prefer: 'return=minimal' });
+      return (rows ?? []).map(toStartggLink);
+    },
+
+    async deleteStartggLink(auth) {
+      const rows = await call<StartggLinkDbRow[]>(restPath('startgg_links', { select: STARTGG_LINK_SELECT, where: { user_id: eq(auth.userId) } }), {
+        method: 'DELETE',
+        token: auth.token,
+        prefer: 'return=representation',
+      });
+      await call(restPath('startgg_cache', { where: { user_id: eq(auth.userId) } }), { method: 'DELETE', token: auth.token, prefer: 'return=minimal' });
+      return (rows ?? []).map(toStartggLink);
     },
 
     async removeBookmark(auth, comboId) {

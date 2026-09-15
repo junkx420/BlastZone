@@ -54,6 +54,14 @@ export interface BookmarkRow {
   comboId: string;
 }
 
+/** Verknüpfung mit einem start.gg-Profil. Privat, nur der Besitzer liest sie. */
+export interface StartggLinkRow {
+  userId: string;
+  slug: string;
+  gamerTag: string | null;
+  updatedAt: string;
+}
+
 export type BackendErrorCode =
   | 'invalid-credentials'
   | 'email-not-confirmed'
@@ -106,4 +114,11 @@ export interface Backend {
   listBookmarks(auth: Auth): Promise<BookmarkRow[]>;
   addBookmark(auth: Auth, comboId: string): Promise<BookmarkRow[]>;
   removeBookmark(auth: Auth, comboId: string): Promise<BookmarkRow[]>;
+
+  /** Leer, wenn nicht verknüpft. Liefert höchstens eine Zeile. */
+  getStartggLink(auth: Auth): Promise<StartggLinkRow[]>;
+  /** Legt an oder ersetzt. Liefert die gespeicherte Zeile. */
+  saveStartggLink(auth: Auth, slug: string, gamerTag: string | null): Promise<StartggLinkRow[]>;
+  /** Löst die Verknüpfung und leert den Placement-Cache. Liefert die gelöschte Zeile. */
+  deleteStartggLink(auth: Auth): Promise<StartggLinkRow[]>;
 }

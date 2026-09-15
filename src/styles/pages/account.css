@@ -782,6 +782,110 @@
     gap: var(--sp-4);
   }
 
+  /* ── Meine Turniere: start.gg-Verknüpfung ──────────────────────────── */
+  .startgg-form {
+    display: grid;
+    gap: var(--sp-2);
+    max-width: 640px;
+  }
+  .startgg-form__label {
+    font-size: var(--fs-200);
+    font-weight: 700;
+  }
+  .startgg-form__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+  }
+  .startgg-form__input {
+    flex: 1 1 260px;
+    min-width: 0;
+    padding-left: 14px;
+  }
+  .startgg-form__input[aria-invalid='true'] {
+    border-color: color-mix(in oklch, var(--dmg-160) 70%, transparent);
+  }
+  .startgg-form__hint {
+    max-width: var(--measure);
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+  }
+
+  /*
+   * Verknüpfte Karte: Tag groß und kursiv wie die Namensschilder im Spiel,
+   * Akzentkante links. Grid mit minmax(0, 1fr), damit lange Tags umbrechen statt
+   * die Karte zu sprengen.
+   */
+  .startgg-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--sp-3) var(--sp-5);
+    padding: var(--sp-4) var(--sp-5);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--dmg-120);
+    border-radius: 12px;
+    background: rgb(var(--fg-rgb) / 0.03);
+  }
+  .startgg-card__who {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+  .startgg-card__label,
+  .startgg-card__since {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .startgg-card__tag {
+    font-size: var(--fs-600);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1.05;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+  .startgg-card__url {
+    justify-self: start;
+    font-size: var(--fs-200);
+    overflow-wrap: anywhere;
+  }
+  .startgg-card__url .icon {
+    width: 14px;
+    height: 14px;
+  }
+  .startgg-card__since {
+    align-self: start;
+    text-align: right;
+  }
+  .startgg-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+    gap: var(--sp-2);
+  }
+  .startgg-card__unlink.is-armed {
+    --btn-line: var(--dmg-160);
+    --btn-bg: color-mix(in oklch, var(--dmg-160) 18%, transparent);
+  }
+  .startgg-card--skeleton {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-3);
+    min-height: 118px;
+    border-left-color: var(--line-strong);
+  }
+  @media (max-width: 520px) {
+    .startgg-card {
+      grid-template-columns: minmax(0, 1fr);
+      padding: var(--sp-4);
+    }
+    .startgg-card__since {
+      text-align: left;
+    }
+  }
+
   .profile-danger {
     border: 1px solid color-mix(in oklch, var(--dmg-160) 40%, transparent);
     border-radius: var(--r-panel);

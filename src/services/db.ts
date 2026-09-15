@@ -112,6 +112,33 @@ export async function toggleBookmark(comboId: string): Promise<boolean> {
   }
 }
 
+/* ── start.gg ───────────────────────────────────────────────────────────── */
+
+export interface StartggLink {
+  slug: string;
+  gamerTag: string | null;
+  profileUrl: string;
+  updatedAt: string;
+}
+
+/** Eigene Verknüpfung oder `null`. Privat, deshalb ohne Cache. */
+export const getStartggLink = (): Promise<StartggLink | null> =>
+  guarded(async () => (await api<{ link: StartggLink | null }>('startgg/link')).link);
+
+/** Prüft das Profil bei start.gg und speichert es. Wirft ApiError mit deutscher Meldung, etwa „kein Profil unter dieser Adresse“. */
+export const linkStartgg = (profile: string): Promise<StartggLink> =>
+  guarded(async () => {
+    const { link } = await api<{ link: StartggLink }>('startgg/link', { method: 'PUT', body: { profile } });
+    invalidate('startgg/');
+    return link;
+  });
+
+export const unlinkStartgg = (): Promise<void> =>
+  guarded(async () => {
+    await api('startgg/link', { method: 'DELETE' });
+    invalidate('startgg/');
+  });
+
 /* ── Profil und Konto ───────────────────────────────────────────────────── */
 
 export async function updateProfile(patch: { mainFighter?: string | null; theme?: 'dark' | 'light' }): Promise<User['mainFighter']> {

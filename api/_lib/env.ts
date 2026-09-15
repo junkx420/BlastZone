@@ -70,6 +70,28 @@ export function readEnv(): Env | null {
 }
 
 /**
+ * start.gg-Anbindung. Beides nur auf dem Server, nie mit Präfix für das Bundle:
+ * - STARTGG_TOKEN: persönlicher API-Token von start.gg (Settings → Developer Settings)
+ * - STARTGG_CACHE_KEY: Schlüssel für die HMAC-Signatur des Placement-Caches (Schritt 2)
+ * Fehlt der Token, meldet die API „nicht eingerichtet“. Im lokalen Speicher-Mock
+ * springt ein Test-Resolver ein (api/_lib/startgg.ts).
+ */
+export interface StartggConfig {
+  token: string | null;
+  cacheKey: string | null;
+}
+
+export function readStartggConfig(): StartggConfig {
+  const token = process.env.STARTGG_TOKEN?.trim() || null;
+  const cacheKey = process.env.STARTGG_CACHE_KEY?.trim() || null;
+  return {
+    // Ein Token mit Leerzeichen oder Zeilenumbruch stammt aus fehlerhaftem Kopieren und würde den Header zerlegen.
+    token: token && /^[A-Za-z0-9._-]{16,256}$/.test(token) ? token : null,
+    cacheKey: cacheKey && cacheKey.length >= 32 ? cacheKey : null,
+  };
+}
+
+/**
  * Speicher-Backend nur für den lokalen Dev-Server, wenn noch keine Keys da sind.
  * Der Vite-Dev-Server setzt BLASTZONE_BACKEND=mock. Auf Vercel ist VERCEL
  * immer gesetzt, dort greift der Mock nie, egal was sonst konfiguriert ist.

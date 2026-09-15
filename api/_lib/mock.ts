@@ -1,4 +1,4 @@
-import { BackendError, type AuthSession, type AuthUser, type Backend, type CommentRow, type Profile } from './types.js';
+import { BackendError, type AuthSession, type AuthUser, type Backend, type CommentRow, type Profile, type StartggLinkRow } from './types.js';
 
 /**
  * Speicher-Backend NUR für den lokalen Dev-Server, solange keine Supabase-Keys
@@ -26,6 +26,7 @@ interface Store {
   confirmations: Map<string, string>;
   comments: CommentRow[];
   bookmarks: Map<string, string[]>;
+  startggLinks?: Map<string, StartggLinkRow>;
   nextComment: number;
 }
 
@@ -154,6 +155,7 @@ export function mockBackend(): Backend {
       store.users.delete(user.email);
       store.comments = store.comments.filter((c) => c.userId !== user.id);
       store.bookmarks.delete(user.id);
+      store.startggLinks?.delete(user.id);
       for (const [t, v] of store.tokens) if (v.userId === user.id) store.tokens.delete(t);
     },
 
@@ -203,6 +205,29 @@ export function mockBackend(): Backend {
       list.unshift(comboId);
       store.bookmarks.set(user.id, list);
       return [{ userId: user.id, comboId }];
+    },
+
+    async getStartggLink(auth) {
+      const user = userFor(auth.token);
+      const row = user.id === auth.userId ? store.startggLinks?.get(user.id) : undefined;
+      return row ? [{ ...row }] : [];
+    },
+
+    async saveStartggLink(auth, slug, gamerTag) {
+      const user = userFor(auth.token);
+      if (!user.confirmed) throw new BackendError('forbidden');
+      const links = (store.startggLinks ??= new Map());
+      const row: StartggLinkRow = { userId: user.id, slug, gamerTag, updatedAt: new Date().toISOString() };
+      links.set(user.id, row);
+      return [{ ...row }];
+    },
+
+    async deleteStartggLink(auth) {
+      const user = userFor(auth.token);
+      const row = store.startggLinks?.get(user.id);
+      if (!row || user.id !== auth.userId) return [];
+      store.startggLinks?.delete(user.id);
+      return [{ ...row }];
     },
 
     async removeBookmark(auth, comboId) {

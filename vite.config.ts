@@ -87,19 +87,36 @@ function secretGuard(): Plugin {
   };
 }
 
+/**
+ * Server-Variablen, die der Dev-Server aus .env an die lokalen Functions weitergibt.
+ * Eine Whitelist: Was hier nicht steht, erreicht auch api/ lokal nicht.
+ * Bewusst ohne SUPABASE_SECRET_KEY, der Code braucht ihn nicht.
+ */
+const SERVER_ENV_KEYS = [
+  'SUPABASE_URL',
+  'VITE_SUPABASE_URL',
+  'SUPABASE_PUBLISHABLE_KEY',
+  'SUPABASE_ANON_KEY',
+  'VITE_SUPABASE_PUBLISHABLE_KEY',
+  'VITE_SUPABASE_ANON_KEY',
+  'UPSTASH_REDIS_REST_URL',
+  'UPSTASH_REDIS_REST_TOKEN',
+  'STARTGG_TOKEN',
+  'STARTGG_CACHE_KEY',
+];
+
 export default defineConfig(({ mode, command }) => {
   if (command === 'serve' && process.env.BLASTZONE_FORCE_MOCK === '1') {
-    // Lasttest (scripts/lasttest.mjs): nie gegen das echte Supabase-Projekt, auch wenn .env Keys hat.
-    for (const key of ['SUPABASE_URL', 'VITE_SUPABASE_URL', 'SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_ANON_KEY', 'VITE_SUPABASE_PUBLISHABLE_KEY', 'VITE_SUPABASE_ANON_KEY', 'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']) {
+    // Lasttest (scripts/lasttest.mjs): nie gegen echte Dienste, weder Supabase noch start.gg, auch wenn .env Keys hat.
+    for (const key of SERVER_ENV_KEYS) {
       delete process.env[key];
     }
     process.env.BLASTZONE_BACKEND = 'mock';
   } else if (command === 'serve') {
     // Server-Variablen aus .env für die lokalen Functions. Nur process.env, nie import.meta.env:
-    // Ohne VITE_-Präfix kommt davon nichts ins Browser-Bundle.
+    // Ohne Präfix BLASTZONE_PUBLIC_ kommt davon nichts ins Browser-Bundle.
     const fileEnv = loadEnv(mode, process.cwd(), '');
-    // Bewusst ohne SUPABASE_SECRET_KEY: Der Code braucht ihn nicht, also wird er auch nicht geladen.
-    for (const key of ['SUPABASE_URL', 'VITE_SUPABASE_URL', 'SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_ANON_KEY', 'VITE_SUPABASE_PUBLISHABLE_KEY', 'VITE_SUPABASE_ANON_KEY', 'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']) {
+    for (const key of SERVER_ENV_KEYS) {
       if (fileEnv[key]) process.env[key] = fileEnv[key];
     }
     // Ohne Keys: Speicher-Backend für lokale Tests. api/_lib/env.ts verweigert es auf Vercel.

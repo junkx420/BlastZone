@@ -108,6 +108,21 @@ export function privacyPage(): PageView {
           werden dabei sofort und vollständig entfernt.
         </p>
 
+        <h2>Verknüpfung mit start.gg</h2>
+        <p>
+          Im Profil kannst du freiwillig dein Profil auf der Turnierplattform start.gg verknüpfen. Wir speichern dann
+          die Adresse dieses Profils (etwa <code>user/1a2b3c4d</code>), den dort angezeigten Spielernamen und den
+          Zeitpunkt. Beim Verknüpfen fragt unser Server bei start.gg nach, ob es das Profil gibt. Diese Anfrage
+          stellt der Server, nicht dein Browser; start.gg erfährt dabei nur die Profiladresse, weder deine
+          IP-Adresse noch dein Blastzone-Konto.
+        </p>
+        <p>
+          Die Verknüpfung sieht nur du. Sie ist nicht Teil deines öffentlichen Profils und steht auch nicht neben
+          deinen Kommentaren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, die Funktion, die du selbst einschaltest.
+          Du kannst die Verknüpfung jederzeit im Profil lösen, sie wird dann sofort gelöscht, ebenso beim Löschen
+          deines Kontos.
+        </p>
+
         <h2>Schriften</h2>
         <p>
           Die verwendete Schrift Archivo liegt auf demselben Server wie die Seite und wird von dort geladen. Es
