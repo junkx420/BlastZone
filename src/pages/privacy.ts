@@ -56,6 +56,13 @@ export function privacyPage(): PageView {
           die USA stützt sich Vercel auf Standardvertragsklauseln. Einzelheiten und Speicherdauer richten sich
           nach den Datenschutzangaben von Vercel.
         </p>
+        <p>
+          Stürzt im Browser etwas ab, schickt die Seite eine kurze Fehlermeldung an ihren eigenen Server: Fehlertext,
+          aufgerufene Seite ohne Parameter, Browserkennung und Version der Seite. Mailadressen und Zeichenketten,
+          die wie Zugangsschlüssel aussehen, werden dabei geschwärzt. Die Meldung enthält keine Nutzer-ID und landet
+          nur in den Server-Protokollen oben. Zweck ist, Fehler zu finden, die nur auf fremden Geräten auftreten.
+          Rechtsgrundlage ist ebenfalls Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
 
         <h2>Kein Tracking, Cookies nur mit Konto</h2>
         <p>

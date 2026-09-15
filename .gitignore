@@ -20,3 +20,6 @@ scripts/schaden-audit/ufd/
 scripts/schaden-audit/*.json
 scripts/schaden-audit/report.txt
 scripts/schaden-audit/unterzaehlt.txt
+
+# Datenbank-Sicherungen (docs/BETRIEB.md): enthalten Nutzerdaten
+backup/

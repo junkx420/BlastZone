@@ -88,7 +88,13 @@ function secretGuard(): Plugin {
 }
 
 export default defineConfig(({ mode, command }) => {
-  if (command === 'serve') {
+  if (command === 'serve' && process.env.BLASTZONE_FORCE_MOCK === '1') {
+    // Lasttest (scripts/lasttest.mjs): nie gegen das echte Supabase-Projekt, auch wenn .env Keys hat.
+    for (const key of ['SUPABASE_URL', 'VITE_SUPABASE_URL', 'SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_ANON_KEY', 'VITE_SUPABASE_PUBLISHABLE_KEY', 'VITE_SUPABASE_ANON_KEY', 'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']) {
+      delete process.env[key];
+    }
+    process.env.BLASTZONE_BACKEND = 'mock';
+  } else if (command === 'serve') {
     // Server-Variablen aus .env für die lokalen Functions. Nur process.env, nie import.meta.env:
     // Ohne VITE_-Präfix kommt davon nichts ins Browser-Bundle.
     const fileEnv = loadEnv(mode, process.cwd(), '');
