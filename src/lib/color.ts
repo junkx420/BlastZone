@@ -1,8 +1,8 @@
 type RGB = [number, number, number];
 
 const BG = '#06070a';
-/** --bg im Light-Mode, siehe theme-light.css. */
-const LIGHT_BG = '#f3f4f7';
+/** --bg im Light-Mode (--void-950 in theme-light.css). Ändert sich der Grund, hier nachziehen, sonst stimmt der Kontrast der Akzenttexte nicht. */
+const LIGHT_BG = '#e5e8ed';
 const INK = '#0b0d12';
 
 export function hexToRgb(hex: string): RGB {
@@ -65,8 +65,12 @@ export function mix(a: string, b: string, t: number): string {
 }
 
 /** Lightens a color until it reaches `min` contrast on the page ground. */
-/** Dunkelt eine Farbe ab, bis sie auf dem hellen Grund des Light-Modes lesbar ist. */
-export function dropForLight(hex: string, min = 4.5): string {
+/**
+ * Dunkelt eine Farbe ab, bis sie auf dem hellen Grund des Light-Modes lesbar ist.
+ * Ziel 5 statt 4,5: Akzenttext steht oft auf akzentgetönten Flächen (--accent-soft),
+ * die dunkler sind als der Grund. Mit 4,5 kam „+23 %“ in der Schrittliste auf 4,44.
+ */
+export function dropForLight(hex: string, min = 5): string {
   let out = hex;
   for (let t = 0.08; contrast(out, LIGHT_BG) < min && t <= 1; t += 0.08) out = mix(hex, '#000000', t);
   return out;

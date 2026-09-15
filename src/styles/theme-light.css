@@ -8,47 +8,59 @@
 
    Bewusst dunkel bleiben: Fighter-Artwork-Bühnen und die Abdunkler über Bildern
    (rgb(6 7 10 / …)). Weiße Schrift auf Artwork braucht dort weiter dunklen Grund.
+
+   Kein reines Weiß (Nutzerwunsch 15.09.2026, „brennt in den Augen“): Grund und
+   Flächen sind ein kühles Hellgrau mit einem Hauch Blau, passend zum dunklen
+   Schiefer des Dark-Modes. Die hellste Fläche (Glas) liegt bei Luminanz 0,87
+   statt 1,0, der Grund bei 0,80. Neue helle Flächen deshalb nie #fff oder
+   rgb(255 255 255 / hoch), sondern die Tokens hier oder --paper-rgb.
+   Kontraste (WCAG) gegen Grund / Glas / --surface-4:
+     --text 14,9 / 16,0 / 12,6   --text-muted 8,5 / 9,1 / 7,2
+     --text-subtle 5,8 / 6,3 / 4,9   Standard-Akzent #b23c0b 4,8 / 5,2
    ========================================================================== */
 
 :root[data-theme='light'] {
   color-scheme: light;
 
-  --void-950: #f3f4f7;
-  --void-900: #ffffff;
-  --void-850: #f8f9fb;
-  --void-800: #eceef2;
-  --void-700: #e1e4ea;
-  --void-600: #cfd4dc;
-  --mist-400: #5b6270; /* 5.6:1 auf --bg */
-  --mist-300: #3f4552; /* 9.4:1 */
-  --mist-100: #0f1218; /* 17:1 */
+  /* Hellste Papierfarbe als RGB-Tripel, für Glas und Lichtkanten. */
+  --paper-rgb: 239 241 245;
+
+  --void-950: #e5e8ed; /* Grund */
+  --void-900: #edf0f3;
+  --void-850: #eaedf1;
+  --void-800: #dde1e7;
+  --void-700: #d2d7df;
+  --void-600: #c0c7d1;
+  --mist-400: #515866;
+  --mist-300: #3a404c;
+  --mist-100: #12151c;
 
   --fg-rgb: 15 18 24;
-  --line: rgb(15 18 24 / 0.1);
-  --line-strong: rgb(15 18 24 / 0.2);
-  --focus: #c2410c;
+  --line: rgb(15 18 24 / 0.11);
+  --line-strong: rgb(15 18 24 / 0.22);
+  --focus: #b23c0b;
   --ink: #0b0d12;
-  --tier-d: #d6dae2;
-  --tier-e: #7b8190;
+  --tier-d: #c8cdd6;
+  --tier-e: #767c8b;
 
-  --glass-bg: rgb(255 255 255 / 0.7);
-  --glass-bg-strong: rgb(255 255 255 / 0.9);
+  --glass-bg: rgb(var(--paper-rgb) / 0.74);
+  --glass-bg-strong: rgb(var(--paper-rgb) / 0.92);
   --glass-border: rgb(15 18 24 / 0.1);
-  --glass-rim: inset 0 1px 0 rgb(255 255 255 / 0.9);
+  --glass-rim: inset 0 1px 0 rgb(255 255 255 / 0.4);
   --glass-blur: blur(18px) saturate(140%);
 
-  --elev-1: 0 1px 0 rgb(15 18 24 / 0.04), 0 8px 24px -14px rgb(15 18 24 / 0.25);
-  --elev-2: 0 1px 0 rgb(15 18 24 / 0.05), 0 24px 60px -28px rgb(15 18 24 / 0.3);
+  --elev-1: 0 1px 0 rgb(15 18 24 / 0.04), 0 8px 24px -14px rgb(15 18 24 / 0.22);
+  --elev-2: 0 1px 0 rgb(15 18 24 / 0.05), 0 24px 60px -28px rgb(15 18 24 / 0.28);
 }
 
 :root[data-theme='light'],
 :root[data-theme='light'] [style*='--accent'] {
-  --accent-text: var(--accent-text-light, #c2410c);
+  --accent-text: var(--accent-text-light, #b23c0b);
 }
 
 /* Die Leiste hat über dem Hero eine eigene, fest dunkle Glasfarbe (layout.css). */
 :root[data-theme='light'] .nav__inner {
-  background: rgb(255 255 255 / 0.55);
+  background: rgb(var(--paper-rgb) / 0.6);
 }
 :root[data-theme='light'] .nav.is-scrolled .nav__inner {
   background: var(--glass-bg);
