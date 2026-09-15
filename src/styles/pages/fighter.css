@@ -309,10 +309,25 @@
         linear-gradient(to right, rgb(6 7 10 / 0.92) 0%, rgb(6 7 10 / 0.35) 55%, rgb(6 7 10 / 0) 100%);
     }
   }
+  /*
+   * Die Blende nach unten sitzt als Maske auf dem Bild selbst, nicht nur im
+   * Verlauf von `.fhero__stage::after` darüber.
+   *
+   * Grund ist der Seitenwechsel: `view-transition-name` hebt dieses Element als
+   * eigenes Bild aus der Bühne heraus und legt es über die ganze Seite. Der
+   * Verlauf, der es im fertigen Layout abdunkelt, bleibt dabei zurück. Ohne
+   * eigene Maske kam der Header deshalb als Rechteck mit harter Unterkante an
+   * und lag über der Navigation. Mit Maske blendet das Bild auch mitten im
+   * Übergang weich aus. Im fertigen Layout ändert sich nichts Sichtbares: Unten
+   * deckt der Verlauf ohnehin auf die Hintergrundfarbe ab.
+   */
   .fhero__art-inner {
     position: absolute;
     inset: 0;
     view-transition-name: fighter-art;
+    /* Erst ab 80 %: Früher einsetzend blendete die Maske zusammen mit dem Verlauf die Beine der Renders sichtbar aus. */
+    -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
   }
   .fhero__art-inner > .sigil,
   .fhero__art-inner > .art-img {

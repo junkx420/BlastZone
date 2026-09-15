@@ -253,6 +253,14 @@
     animation-duration: 620ms;
     animation-timing-function: var(--ease-out);
   }
+  /*
+   * Benannte Gruppen liegen in Malreihenfolge übereinander, das große Headerbild
+   * landete dadurch über der Leiste und die Navigation war für die Dauer des
+   * Wechsels verschwunden. Die Leiste bleibt oben.
+   */
+  ::view-transition-group(site-nav) {
+    z-index: 100;
+  }
   @keyframes vt-leave {
     to {
       opacity: 0;
