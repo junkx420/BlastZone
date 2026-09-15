@@ -224,13 +224,14 @@
   }
   /*
    * Light-Mode: Die aufgehellte Tier-Farbe stand hell auf Hell (C+ 1,1:1, S+ 3,4:1).
-   * Feste Helligkeit 0,5 bei gleichem Farbton hält jedes Tier bei mindestens 5,8:1
-   * und die Tiers bleiben an ihrer Farbe erkennbar. Der color-mix davor ist der
-   * Rückfall für Browser ohne relative Farbsyntax (mindestens 5,7:1).
+   * Feste Helligkeit bei gleichem Farbton hält die Tiers an ihrer Farbe erkennbar.
+   * 0,44 statt 0,5, seit der Light-Mode-Grund gedimmt ist (15.09.2026): C+ kam mit
+   * 0,5 nur noch auf 4,4:1. Der color-mix davor ist der Rückfall für Browser ohne
+   * relative Farbsyntax.
    */
   :root[data-theme='light'] .chip[data-tier]:not([aria-pressed='true']) {
-    color: color-mix(in oklch, var(--tier-fill) 45%, #0b0d12);
-    color: oklch(from var(--tier-fill) 0.5 c h);
+    color: color-mix(in oklch, var(--tier-fill) 38%, #0b0d12);
+    color: oklch(from var(--tier-fill) 0.44 c h);
   }
   .chip .icon {
     width: 14px;

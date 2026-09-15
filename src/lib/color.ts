@@ -2,7 +2,7 @@ type RGB = [number, number, number];
 
 const BG = '#06070a';
 /** --bg im Light-Mode (--void-950 in theme-light.css). Ändert sich der Grund, hier nachziehen, sonst stimmt der Kontrast der Akzenttexte nicht. */
-const LIGHT_BG = '#e5e8ed';
+const LIGHT_BG = '#d3d7de';
 const INK = '#0b0d12';
 
 export function hexToRgb(hex: string): RGB {
