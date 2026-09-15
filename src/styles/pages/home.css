@@ -119,11 +119,63 @@
   }
 
   /* HUD */
+  /*
+   * Das HUD ist ein Größen-Container. Die Schadensanzeige richtete sich vorher
+   * nach der Fensterbreite (--fs-hud, bis 6rem) und war bei 1280 px mit den
+   * Knöpfen 45 px breiter als die Glasbox. Das innere Raster wuchs mit, alles
+   * ragte rechts über den Rand. Jetzt:
+   * - `minmax(0, 1fr)`: Die Spalte darf nie breiter werden als die Box.
+   * - Ziffern als `min(var(--fs-hud), 19cqi)`: Sie skalieren mit der Box,
+   *   höchstens bis --fs-hud. Unter 400 px Boxbreite greift die Container Query weiter unten.
+   * - `min-width: 0` als Grid-Item im Hero, sonst setzt der Inhalt die Mindestbreite.
+   */
   .hud {
+    container-type: inline-size;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--sp-4);
+    min-width: 0;
     padding: var(--sp-5);
     border-radius: var(--r-stage);
+  }
+  .hud .meter--lg .meter__int {
+    font-size: min(var(--fs-hud), 19cqi);
+  }
+  .hud .meter--lg .meter__dec {
+    font-size: calc(min(var(--fs-hud), 19cqi) * 0.5);
+  }
+  .hud .meter--lg .meter__pct {
+    font-size: calc(min(var(--fs-hud), 19cqi) * 0.42);
+  }
+  .hud .meter--lg .meter__ko {
+    font-size: calc(min(var(--fs-hud), 19cqi) * 0.42);
+  }
+  .hud__bottom {
+    gap: var(--sp-3);
+    min-width: 0;
+  }
+  .hud__controls {
+    flex: none;
+  }
+  /* Handy: Ziffern und Knöpfe passen sich der schmalen Box an, statt rechts hinauszuragen. */
+  @container (max-width: 400px) {
+    .hud .meter--lg .meter__int {
+      font-size: 15cqi;
+    }
+    .hud .meter--lg .meter__dec {
+      font-size: 7.5cqi;
+    }
+    .hud .meter--lg .meter__pct,
+    .hud .meter--lg .meter__ko {
+      font-size: 6.3cqi;
+    }
+    .hud__controls {
+      gap: 6px;
+    }
+    .hud__controls .btn--icon {
+      width: 40px;
+      min-height: 40px;
+    }
   }
   .hud__head {
     display: grid;
@@ -136,6 +188,8 @@
   }
   .hud__who {
     display: flex;
+    /* Sehr schmal (Klapphandys) rutscht das Tier-Abzeichen unter den Namen, statt aus der Box zu ragen. */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: var(--sp-3);
@@ -219,8 +273,15 @@
     align-items: start;
     gap: var(--sp-5) var(--sp-4);
   }
+  /*
+   * `minmax(0, 1fr)` und `min-width: 0`: Ein Grid-Element ist sonst mindestens so
+   * breit wie sein längster nicht umbrechbarer Inhalt. Die Combo-Karte hat davon
+   * genug (Tastenfolgen), bei 970 px ragte eine Karte 133 px aus dem Fenster.
+   */
   .pick {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
     gap: var(--sp-3);
   }
   .pick__who {
@@ -432,10 +493,35 @@
   .filters__reset {
     margin-inline-start: auto;
   }
+  /*
+   * 86 Kacheln mit gut 5 000 Knoten. Beim Seitenwechsel lagen sie komplett im
+   * ersten Frame (Layout 25 bis 50 ms), obwohl sie weit unter dem Hero stehen.
+   * `content-visibility: auto` überspringt sie, bis sie in die Nähe des
+   * Viewports kommen.
+   *
+   * Die Kehrseite ist Paint-Containment: Alles, was über die Box hinausragt,
+   * wird abgeschnitten. Hover-Glow (18 px Versatz, 42 px Blur), Anheben um 4 px
+   * und Fokusrahmen brauchen Platz. Den bekommen sie als Innenabstand, den ein
+   * gleich großer negativer Außenabstand wieder aufhebt. Die Kacheln stehen
+   * dadurch exakt wie vorher, der Glow liegt aber innerhalb der Box.
+   * Seitlich höchstens 16 px: So viel Rand hat der Container auch auf dem
+   * kleinsten Handy, sonst entstünde horizontales Scrollen.
+   *
+   * Die Höhe ist geschätzt, bis das Raster einmal gerendert wurde; danach merkt
+   * sich `mountRoster` die echte Höhe für den nächsten Besuch (Scroll-
+   * Wiederherstellung beim Zurückgehen).
+   */
   .roster__grid {
+    --roster-bleed-x: var(--sp-4);
+    --roster-bleed-top: var(--sp-3);
+    --roster-bleed-bottom: var(--sp-7);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
     gap: var(--sp-3);
+    margin: calc(var(--roster-bleed-top) * -1) calc(var(--roster-bleed-x) * -1) calc(var(--roster-bleed-bottom) * -1);
+    padding: var(--roster-bleed-top) var(--roster-bleed-x) var(--roster-bleed-bottom);
+    content-visibility: auto;
+    contain-intrinsic-size: auto var(--roster-h, 2400px);
   }
   .tile.is-out {
     display: none;
@@ -493,7 +579,8 @@
   }
   .notation__groups {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* min(100%, …): Unter 332 px Fensterbreite war die Spalte breiter als der Container. */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
     gap: var(--sp-6);
   }
   .token-group h3 {
@@ -524,7 +611,7 @@
   }
   @media (max-width: 900px) {
     .notation__layout {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: var(--sp-6);
     }
     .notation__intro {

@@ -45,7 +45,14 @@ export function tiersPage(): PageView {
       </div>
     </div>`,
     mount(root) {
-      return scope(root, () => reveals(root));
+      let stopReveals = (): void => {};
+      const undo = scope(root, () => {
+        stopReveals = reveals(root);
+      });
+      return () => {
+        stopReveals();
+        undo();
+      };
     },
   };
 }

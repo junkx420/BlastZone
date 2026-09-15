@@ -81,6 +81,29 @@
     .nav__me-name {
       display: none;
     }
+    /*
+     * Neben Logo, Theme-Knopf und Avatar blieb für das Suchfeld nur ein Streifen,
+     * der Platzhalter war mitten im Wort abgeschnitten. Unter 560 px ist es ein
+     * runder Lupen-Knopf. Das Label für Screenreader bleibt, geöffnet wird wie
+     * vorher das Such-Overlay.
+     */
+    .nav__search {
+      flex: none;
+      width: 40px;
+      max-width: 40px;
+      margin-inline-start: auto;
+    }
+    .nav__search-input {
+      padding: 0;
+      color: transparent;
+    }
+    .nav__search-input::placeholder {
+      color: transparent;
+    }
+    .nav__search .icon {
+      left: 50%;
+      translate: -50% -50%;
+    }
     .nav__login {
       width: 40px;
       padding: 0;

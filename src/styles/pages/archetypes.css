@@ -164,6 +164,8 @@
     gap: var(--sp-4);
   }
   .archcard {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 420px;
     display: grid;
     align-content: start;
     gap: var(--sp-3);

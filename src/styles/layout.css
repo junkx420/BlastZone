@@ -238,6 +238,33 @@
       display: none;
     }
   }
+  /*
+   * 320 px (iPhone SE der ersten Generation): Die vier Links standen 2 px über,
+   * und mit klassischer Scrollleiste (305 px Inhalt) brach die Leiste in drei
+   * Zeilen, deren letzte unter der Glasbox heraushing.
+   */
+  @media (max-width: 359px) {
+    .nav__inner {
+      gap: 0 var(--sp-2);
+    }
+    .nav .brand {
+      font-size: 1rem;
+    }
+    .nav__link {
+      padding: 0 5px;
+      font-stretch: var(--stretch-condensed);
+    }
+    .nav__link::after {
+      left: 5px;
+      right: 5px;
+    }
+  }
+  /* Klappbildschirme (280 px): Nur das Zeichen bleibt, der Link heißt über aria-label weiter „Blastzone“. */
+  @media (max-width: 300px) {
+    .nav .brand__word {
+      display: none;
+    }
+  }
 
   /* ── Seitengrund ────────────────────────────────────────────────────── */
   /*
@@ -250,7 +277,7 @@
    * `siteBackground.ts` das Raster nur, wenn etwas passiert, und immer auf ganze
    * Pixel gerundet:
    * - mit Maus: leichte Parallaxe zur Mausposition, dazu leuchtet das Raster
-   *   rund um den Zeiger auf (`.sitebg__lit`, eine hellere Kopie mit runder Maske)
+   *   rund um den Zeiger auf (`.sitebg__lit`, ein kleiner Lichtkegel, der per transform wandert)
    * - ohne Maus (Touch): Das Raster läuft beim Scrollen langsamer mit als der Inhalt
    *
    * Liegt fest am Viewport auf z-index -3, also unter dem Fighter-Hintergrund
@@ -259,10 +286,6 @@
    * deutlichsten, nach unten und zu den Seiten läuft es aus.
    */
   .sitebg {
-    --gx: 0px;
-    --gy: 0px;
-    --mx: 50vw;
-    --my: -40vh;
     position: fixed;
     inset: 0;
     z-index: -3;
@@ -274,15 +297,15 @@
   .sitebg__grid,
   .sitebg__lit {
     position: absolute;
-    inset: -112px;
     background-size:
       112px 112px,
       112px 112px,
       28px 28px,
       28px 28px;
-    transform: translate3d(var(--gx), var(--gy), 0);
+    will-change: transform;
   }
   .sitebg__grid {
+    inset: -112px;
     background-image:
       linear-gradient(color-mix(in oklch, var(--dmg-120) 16%, rgb(var(--fg-rgb) / 0.05)) 1px, transparent 1px),
       linear-gradient(90deg, color-mix(in oklch, var(--dmg-120) 16%, rgb(var(--fg-rgb) / 0.05)) 1px, transparent 1px),
@@ -290,28 +313,24 @@
       linear-gradient(90deg, rgb(var(--fg-rgb) / 0.035) 1px, transparent 1px);
   }
   /*
-   * Dieselbe Geometrie, heller, nur in einem Kreis um den Mauszeiger sichtbar.
-   * Die Maske sitzt am verschobenen Element, deshalb wird die Verschiebung
-   * (--gx/--gy) und der Überstand (112 px) aus der Mausposition wieder herausgerechnet.
+   * Lichtkegel: dieselbe Geometrie, heller, in einem 640-px-Kreis. Das Element
+   * wandert per transform mit der Maus, die Maske ist fest. `siteBackground.ts`
+   * verschiebt dazu die background-position gegenläufig, damit die hellen Linien
+   * genau auf dem Grundraster liegen. Neu gemalt wird so nur diese kleine Fläche.
    */
   .sitebg__lit {
+    top: 0;
+    left: 0;
+    width: 640px;
+    height: 640px;
     background-image:
       linear-gradient(color-mix(in oklch, var(--dmg-120) 55%, transparent) 1px, transparent 1px),
       linear-gradient(90deg, color-mix(in oklch, var(--dmg-120) 55%, transparent) 1px, transparent 1px),
       linear-gradient(rgb(var(--fg-rgb) / 0.14) 1px, transparent 1px),
       linear-gradient(90deg, rgb(var(--fg-rgb) / 0.14) 1px, transparent 1px);
-    -webkit-mask-image: radial-gradient(
-      circle 300px at calc(var(--mx) + 112px - var(--gx)) calc(var(--my) + 112px - var(--gy)),
-      #000 0%,
-      rgb(0 0 0 / 0.35) 45%,
-      transparent 100%
-    );
-    mask-image: radial-gradient(
-      circle 300px at calc(var(--mx) + 112px - var(--gx)) calc(var(--my) + 112px - var(--gy)),
-      #000 0%,
-      rgb(0 0 0 / 0.35) 45%,
-      transparent 100%
-    );
+    -webkit-mask-image: radial-gradient(closest-side, #000 0%, rgb(0 0 0 / 0.35) 45%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 0%, rgb(0 0 0 / 0.35) 45%, transparent 100%);
+    transform: translate3d(-9999px, -9999px, 0);
     opacity: 0;
     transition: opacity 500ms var(--ease-out);
   }

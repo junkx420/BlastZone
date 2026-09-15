@@ -103,8 +103,12 @@ export function archetypesPage(route: Route): PageView {
       const list = qs('.archgrid', root);
       list?.addEventListener('pointerover', onOver);
       list?.addEventListener('pointerleave', onOver);
-      const undo = scope(root, () => reveals(root));
+      let stopReveals = (): void => {};
+      const undo = scope(root, () => {
+        stopReveals = reveals(root);
+      });
       return () => {
+        stopReveals();
         root.removeEventListener('click', onClick);
         list?.removeEventListener('pointerover', onOver);
         list?.removeEventListener('pointerleave', onOver);

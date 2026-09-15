@@ -171,11 +171,19 @@
     outline-offset: 3px;
   }
 
+  /*
+   * Deutsche Komposita sind in großen Überschriften breiter als ein Handy:
+   * „Datenschutzerklärung“ lief bei 375 px 45 px über den Rand und machte die
+   * ganze Seite seitlich scrollbar. Silbentrennung zuerst, Umbruch an beliebiger
+   * Stelle nur als letzter Ausweg.
+   */
   h1,
   h2,
   h3 {
     line-height: var(--lh-snug);
     text-wrap: balance;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   p {
@@ -261,6 +269,48 @@
     from {
       opacity: 0;
       transform: translateY(-24px);
+    }
+  }
+}
+
+/*
+ * Einblenden beim Hineinscrollen (Gegenstück zu `initReveals` in lib/motion.ts).
+ *
+ * - Eigene Layer `utilities`: Sie steht nach `components` und `pages`, der
+ *   Startzustand gewinnt also auch dort, wo eine Komponente `opacity` setzt.
+ * - Keyframes statt Transition: Eine `transition`-Angabe hier würde die Hover-
+ *   Übergänge der Komponenten überschreiben. Die Animation läuft daneben her.
+ * - `translate` statt `transform` und Füllmodus `backwards`: Nach dem Ende gilt
+ *   wieder das eigene Styling des Elements, auch jedes Hover-`transform`.
+ * - Nur `opacity`, nie `visibility`: Wer per Tastatur zu einem noch verborgenen
+ *   Element springt, scrollt es damit in den Blick, und der Observer blendet es ein.
+ */
+@layer utilities {
+  :root.has-motion [data-reveal]:not(.is-revealed) {
+    opacity: 0;
+  }
+  :root.has-motion [data-reveal='wipe']:not(.is-revealed) {
+    opacity: 1;
+    clip-path: polygon(0% 0%, 0% 0%, -14% 100%, -14% 100%);
+  }
+  :root.has-motion [data-reveal].is-revealed {
+    animation: reveal-rise 900ms var(--ease-out) var(--reveal-delay, 0s) backwards;
+  }
+  :root.has-motion [data-reveal='wipe'].is-revealed {
+    animation: reveal-wipe 1050ms var(--ease-out) var(--reveal-delay, 0s) backwards;
+  }
+  @keyframes reveal-rise {
+    from {
+      opacity: 0;
+      translate: 0 28px;
+    }
+  }
+  @keyframes reveal-wipe {
+    from {
+      clip-path: polygon(0% 0%, 0% 0%, -14% 100%, -14% 100%);
+    }
+    to {
+      clip-path: polygon(0% 0%, 114% 0%, 100% 100%, -14% 100%);
     }
   }
 }

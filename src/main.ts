@@ -19,7 +19,7 @@ import { applyTheme } from './lib/theme';
 import { onAuth, refreshSession } from './services/auth';
 import { clearBookmarkCache, loadBookmarks } from './services/db';
 import { mount, qs, qsa } from './lib/dom';
-import { initSmoothScroll, motionOK, scrollToTarget, ScrollTrigger } from './lib/motion';
+import { initReveals, initSmoothScroll, motionOK, scrollToTarget, ScrollTrigger } from './lib/motion';
 import { startRouter, type NavContext, type Route } from './lib/router';
 import { archetypesPage } from './pages/archetypes';
 import { confirmPage } from './pages/confirm';
@@ -38,6 +38,7 @@ const palette = initPalette();
 const shell = renderShell(app, palette.open);
 initSiteBackground(app);
 initSmoothScroll();
+initReveals(shell.main);
 
 /*
  * Konten. Die Seite rendert sofort als Gast und schaltet um, sobald
@@ -120,10 +121,16 @@ document.addEventListener(
 
 function linkReturningTile(nav: NavContext): void {
   if (nav.previous?.name !== 'fighter') return;
-  const tile = qs<HTMLElement>(`.tile[data-slug="${CSS.escape(nav.previous.params.slug ?? '')}"]:not(.is-out)`, shell.main);
-  if (!tile) return;
-  const rect = tile.getBoundingClientRect();
-  if (rect.bottom > 0 && rect.top < window.innerHeight) nameShared(tile);
+  const onScreen = (el: Element): boolean => {
+    const rect = el.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < window.innerHeight;
+  };
+  // Erst das Raster messen: Es steht auf `content-visibility: auto`, die Box einer Kachel darin
+  // zu erfragen würde alle 86 Kacheln im Frame des Seitenwechsels layouten (70 ms).
+  const grid = qs<HTMLElement>('[data-grid]', shell.main);
+  if (!grid || !onScreen(grid)) return;
+  const tile = qs<HTMLElement>(`.tile[data-slug="${CSS.escape(nav.previous.params.slug ?? '')}"]:not(.is-out)`, grid);
+  if (tile && onScreen(tile)) nameShared(tile);
 }
 
 function render(route: Route, nav: NavContext): void {

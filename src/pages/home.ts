@@ -411,17 +411,13 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
     flip?.progress(1).kill();
     const before = Flip && animate && motionOK() ? Flip.getState([...tiles.values()]) : null;
 
-    order.forEach((f) => {
-      const el = tiles.get(f.slug);
-      if (!el) return;
-      el.classList.remove('is-out');
-      grid.append(el);
-    });
-    tiles.forEach((el, slug) => {
-      if (shown.has(slug)) return;
-      el.classList.add('is-out');
-      grid.append(el);
-    });
+    const wanted = [...order.map((f) => tiles.get(f.slug)), ...[...tiles].filter(([slug]) => !shown.has(slug)).map(([, el]) => el)].filter(
+      (el): el is HTMLElement => Boolean(el),
+    );
+    tiles.forEach((el, slug) => el.classList.toggle('is-out', !shown.has(slug)));
+    // Nur umhängen, wenn sich die Reihenfolge wirklich ändert. Beim ersten Aufruf ohne Filter
+    // stimmt sie schon, 86 append() hätten das Raster trotzdem komplett neu layouten lassen.
+    if (wanted.some((el, i) => grid.children[i] !== el)) grid.append(...wanted);
 
     if (before && Flip) {
       flip = Flip.from(before, {
@@ -485,11 +481,28 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
 
   apply(false);
 
+  // Geschätzte Höhe des übersprungenen Rasters durch die zuletzt gemessene ersetzen (siehe home.css).
+  if (rosterHeight && rosterHeight.width === window.innerWidth) grid.style.setProperty('--roster-h', `${rosterHeight.h}px`);
+  let rendered = false;
+  const onCvState = (e: Event): void => {
+    rendered = !(e as Event & { skipped?: boolean }).skipped;
+  };
+  const sizes = new ResizeObserver(([entry]) => {
+    if (rendered && entry) rosterHeight = { width: window.innerWidth, h: Math.round(entry.contentRect.height) };
+  });
+  grid.addEventListener('contentvisibilityautostatechange', onCvState);
+  sizes.observe(grid);
+
   return () => {
     window.clearTimeout(debounce);
     flip?.kill();
+    sizes.disconnect();
+    grid.removeEventListener('contentvisibilityautostatechange', onCvState);
   };
 }
+
+/** Letzte echte Höhe des Rasters, pro Fensterbreite. Überlebt den Seitenwechsel, nicht das Neuladen. */
+let rosterHeight: { width: number; h: number } | null = null;
 
 /* ───────────────────────────── Combos quer durchs Roster ───────────────────────────── */
 
@@ -618,9 +631,11 @@ export function homePage(route: Route): PageView {
     markup: html`<div class="page page--flush page--home">${heroSection()}${topSection()}${picksSection()}${rosterSection()}${notationSection()}</div>`,
     mount(root) {
       const cleanups: Array<() => void> = [];
+      let stopReveals = (): void => {};
+      cleanups.push(() => stopReveals());
       cleanups.push(
         scope(root, () => {
-          reveals(root);
+          stopReveals = reveals(root);
           parallax(root);
         }),
       );

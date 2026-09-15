@@ -80,36 +80,70 @@ export function scope(root: HTMLElement, setup: () => void): () => void {
   return () => ctx.revert();
 }
 
-/**
- * [data-reveal]        rise into place once
- * [data-reveal="wipe"] slanted wipe, echoing Ultimate's angled screen transitions
+/*
+ * Einblenden beim Hineinscrollen.
+ *
+ * [data-reveal]        steigt einmal an seinen Platz
+ * [data-reveal="wipe"] schräger Wisch wie Ultimates schräge Bildschirmwechsel
+ * data-reveal-delay    Verzögerung in Sekunden, für Staffelungen
+ *
+ * Geschichte, damit das nicht zurückgebaut wird:
+ * 1. Jedes Element bekam einen eigenen ScrollTrigger. Der misst beim Anlegen
+ *    sofort das Layout, direkt nachdem `fromTo` Startwerte geschrieben hat.
+ *    Startseite: 109 ms am Stück, im Frame des Seitenwechsels.
+ * 2. IntersectionObserver plus `gsap.set` für die Startwerte: immer noch 59 ms,
+ *    weil GSAP beim Setzen den berechneten Transform jedes Elements zurückliest.
+ * 3. Jetzt: Den Startzustand setzt CSS (base.css, `:root.has-motion
+ *    [data-reveal]`), die Einblendung ist eine CSS-Transition, und ein einziger
+ *    globaler IntersectionObserver setzt nur `.is-revealed`. Kein Lesen, kein
+ *    Schreiben aus JavaScript im kritischen Frame.
+ *
+ * Ein MutationObserver meldet neu eingefügte `[data-reveal]`-Elemente an. Das
+ * ist wichtig, weil CSS sie sonst dauerhaft unsichtbar ließe, etwa die Combo-
+ * Karten, die erst nach `loadLateGuides()` gerendert werden.
  */
-export function reveals(root: HTMLElement): void {
+let revealIO: IntersectionObserver | null = null;
+const PENDING = '[data-reveal]:not(.is-revealed):not([data-reveal-watch])';
+
+function watchReveals(scope: ParentNode): void {
+  if (!revealIO) return;
+  const found = scope instanceof Element && scope.matches(PENDING) ? [scope, ...scope.querySelectorAll(PENDING)] : [...scope.querySelectorAll(PENDING)];
+  for (const el of found as HTMLElement[]) {
+    el.setAttribute('data-reveal-watch', '');
+    if (el.dataset.revealDelay) el.style.setProperty('--reveal-delay', `${parseFloat(el.dataset.revealDelay)}s`);
+    revealIO.observe(el);
+  }
+}
+
+/** Einmal beim Start aufrufen. Ohne Bewegung (prefers-reduced-motion) bleibt alles sofort sichtbar. */
+export function initReveals(container: HTMLElement): void {
+  document.documentElement.classList.toggle('has-motion', motionOK());
   if (!motionOK()) return;
-  gsap.utils.toArray<HTMLElement>('[data-reveal]', root).forEach((el) => {
-    const wipe = el.dataset.reveal === 'wipe';
-    const delay = parseFloat(el.dataset.revealDelay ?? '0');
-    if (wipe) {
-      gsap.fromTo(
-        el,
-        { clipPath: 'polygon(0% 0%, 0% 0%, -14% 100%, -14% 100%)' },
-        {
-          clipPath: 'polygon(0% 0%, 114% 0%, 100% 100%, -14% 100%)',
-          duration: 1.05,
-          delay,
-          ease: 'expo.out',
-          clearProps: 'clipPath',
-          scrollTrigger: { trigger: el, start: 'top 90%', once: true },
-        },
-      );
-    } else {
-      gsap.fromTo(
-        el,
-        { autoAlpha: 0, y: 28 },
-        { autoAlpha: 1, y: 0, duration: 0.9, delay, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } },
-      );
-    }
-  });
+  revealIO = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        revealIO?.unobserve(entry.target);
+        entry.target.classList.add('is-revealed');
+      }
+    },
+    // Entspricht dem alten ScrollTrigger-Start „top 90%“.
+    { rootMargin: '0px 0px -10% 0px' },
+  );
+  watchReveals(document);
+  new MutationObserver((records) => {
+    for (const r of records) r.addedNodes.forEach((n) => n instanceof Element && watchReveals(n));
+  }).observe(container, { childList: true, subtree: true });
+}
+
+/**
+ * Früher pro Seite aufgerufen. Bleibt als Einstieg bestehen, damit Seiten nach
+ * einem eigenen Neu-Rendern sofort anmelden können; der MutationObserver macht
+ * das ohnehin. Gibt eine leere Aufräumfunktion zurück.
+ */
+export function reveals(root: HTMLElement): () => void {
+  watchReveals(root);
+  return () => {};
 }
 
 /** [data-parallax="0.2"] moves a decorative layer against the scroll. Never text. */
@@ -139,8 +173,13 @@ export function pointerDepth(area: HTMLElement, layers: Array<[Element, number]>
     x: gsap.quickTo(el, 'x', { duration: 0.9, ease: 'expo.out' }),
     y: gsap.quickTo(el, 'y', { duration: 0.9, ease: 'expo.out' }),
   }));
+  // Maße einmal beim Betreten messen statt bei jeder Mausbewegung: getBoundingClientRect erzwingt Layout.
+  let rect: DOMRect | null = null;
+  const onEnter = (): void => {
+    rect = area.getBoundingClientRect();
+  };
   const onMove = (e: PointerEvent): void => {
-    const r = area.getBoundingClientRect();
+    const r = (rect ??= area.getBoundingClientRect());
     const nx = (e.clientX - r.left) / r.width - 0.5;
     const ny = (e.clientY - r.top) / r.height - 0.5;
     movers.forEach((m) => {
@@ -148,11 +187,24 @@ export function pointerDepth(area: HTMLElement, layers: Array<[Element, number]>
       m.y(ny * m.depth);
     });
   };
-  const onLeave = (): void => movers.forEach((m) => (m.x(0), m.y(0)));
-  area.addEventListener('pointermove', onMove);
+  const onLeave = (): void => {
+    rect = null;
+    movers.forEach((m) => (m.x(0), m.y(0)));
+  };
+  // Scrollen verschiebt die Box, die gemerkten Maße stimmen dann nicht mehr.
+  const invalidate = (): void => {
+    rect = null;
+  };
+  area.addEventListener('pointerenter', onEnter);
+  area.addEventListener('pointermove', onMove, { passive: true });
   area.addEventListener('pointerleave', onLeave);
+  window.addEventListener('scroll', invalidate, { passive: true });
+  window.addEventListener('resize', invalidate);
   return () => {
+    area.removeEventListener('pointerenter', onEnter);
     area.removeEventListener('pointermove', onMove);
     area.removeEventListener('pointerleave', onLeave);
+    window.removeEventListener('scroll', invalidate);
+    window.removeEventListener('resize', invalidate);
   };
 }

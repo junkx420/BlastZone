@@ -608,8 +608,20 @@
    * darueber aendert optisch nichts und kostet je Schritt eine weitere
    * geblurrte Flaeche. Kontrast holen die inneren Teile ueber ihren Ton.
    */
+  /*
+   * content-visibility: Karten außerhalb des Bildschirms rechnet der Browser erst,
+   * wenn sie in die Nähe kommen. Auf einer Fighter-Seite sind das über 80 Prozent
+   * aller Elemente; der Seitenwechsel ins Profil brauchte vorher einen 125-ms-Frame.
+   * Die Paint-Containment dahinter schneidet an der Kartenkante ab, deshalb darf
+   * hier nichts nach außen ragen (KO-Stempel und Schritte liegen innen).
+   * `auto 560px` merkt sich nach dem ersten Rendern die echte Höhe.
+   */
   .combo {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 560px;
     display: grid;
+    /* Ohne feste Spalte wächst sie auf die Mindestbreite der HUD-Zeile, auf 320 px ragte der Inhalt 35 px aus der Karte. */
+    grid-template-columns: minmax(0, 1fr);
     align-content: start;
     gap: var(--sp-4);
     padding: var(--sp-5);
@@ -766,6 +778,20 @@
     display: grid;
     gap: 4px;
     min-width: 0;
+  }
+  /* Unter 360 px ist der 16:9-Player nur rund 150 px hoch. Der Titel lief dort über den Rand, der Player schneidet ab. */
+  @media (max-width: 359px) {
+    .vplayer__start {
+      gap: var(--sp-3);
+      padding: var(--sp-4);
+    }
+    .vplayer__play {
+      width: 48px;
+      height: 48px;
+    }
+    .vplayer__title {
+      font-size: var(--fs-300);
+    }
   }
   .vplayer__title {
     font-size: var(--fs-400);
@@ -1002,6 +1028,7 @@
   .combo__hud {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: var(--sp-4);

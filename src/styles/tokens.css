@@ -194,6 +194,20 @@
   --accent-glow: color-mix(in oklch, var(--accent) 60%, transparent);
 }
 
+/*
+ * Handys und Tablets: kleinerer Blur-Radius, dafür dichteres Glas.
+ * backdrop-filter kostet mit dem Quadrat des Radius, und eine Fighter-Seite hat
+ * über zwanzig Glasflächen. Mit 10 statt 18 px bleibt der Glaseffekt sichtbar,
+ * die GPU schwacher Geräte kommt aber beim Scrollen mit. Die höhere Deckkraft
+ * gleicht die geringere Unschärfe für die Lesbarkeit aus.
+ */
+@media (max-width: 760px), (pointer: coarse) {
+  :root {
+    --glass-blur: blur(10px) saturate(135%);
+    --glass-bg: rgb(14 17 24 / 0.72);
+  }
+}
+
 /* Gleiche Grenze wie der Umbruch der Leiste in layout.css. */
 @media (max-width: 900px) {
   :root {

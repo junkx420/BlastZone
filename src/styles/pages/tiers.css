@@ -4,6 +4,8 @@
     gap: var(--sp-3);
   }
   .tierrow {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 320px;
     display: grid;
     grid-template-columns: 112px 1fr;
     overflow: hidden;

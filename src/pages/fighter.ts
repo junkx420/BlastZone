@@ -338,12 +338,19 @@ export function fighterPage(route: Route): PageView {
     </article>`,
     mount(root) {
       const cleanups: Array<() => void> = [];
+      let stopReveals = (): void => {};
+      cleanups.push(() => stopReveals());
       cleanups.push(
         scope(root, () => {
-          reveals(root);
+          stopReveals = reveals(root);
           parallax(root);
           if (!motionOK()) return;
-          gsap.fromTo('.fhero__name-text', { fontStretch: '125%', autoAlpha: 0, x: -24 }, { fontStretch: '74%', autoAlpha: 1, x: 0, duration: 1.2, ease: 'expo.out' });
+          // Früher font-stretch 125 → 74 %: neues Text-Layout in jedem Frame. scaleX sieht fast gleich aus und läuft im Compositor.
+          gsap.fromTo(
+            '.fhero__name-text',
+            { autoAlpha: 0, x: -24, scaleX: 1.28, transformOrigin: '0% 60%' },
+            { autoAlpha: 1, x: 0, scaleX: 1, duration: 1.2, ease: 'expo.out', clearProps: 'transform' },
+          );
           gsap.fromTo('[data-hero-in]', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.08, delay: 0.25, ease: 'expo.out' });
           gsap.from('.bar__fill', { scaleX: 0, duration: 1.2, stagger: 0.12, ease: 'expo.out', scrollTrigger: { trigger: '.stats', start: 'top 90%', once: true } });
         }),
