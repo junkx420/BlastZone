@@ -1,10 +1,10 @@
-import { DISPOSABLE_MESSAGE, normalizeEmail, passwordOk, usernameOk } from '../../src/shared/account-rules.js';
-import { domainOf, isDisposableDomain } from '../../src/shared/disposable-email.js';
-import { backend, toHttp } from '../_lib/backend.js';
-import { assertSameOrigin, clientIp, HttpError, ok, readJson, str } from '../_lib/http.js';
-import { route } from '../_lib/route.js';
-import { checkMx } from '../_lib/mx.js';
-import { enforce } from '../_lib/ratelimit.js';
+import { DISPOSABLE_MESSAGE, normalizeEmail, passwordOk, usernameOk } from '../../../src/shared/account-rules.js';
+import { domainOf, isDisposableDomain } from '../../../src/shared/disposable-email.js';
+import { backend, toHttp } from '../../_lib/backend.js';
+import { assertSameOrigin, clientIp, HttpError, ok, readJson, str } from '../../_lib/http.js';
+import { route } from '../../_lib/route.js';
+import { checkMx } from '../../_lib/mx.js';
+import { enforce } from '../../_lib/ratelimit.js';
 
 /**
  * POST /api/auth/signup  { email, password, username, website }

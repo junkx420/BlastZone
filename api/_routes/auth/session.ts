@@ -1,8 +1,8 @@
-import { backend, BackendError } from '../_lib/backend.js';
-import { ok } from '../_lib/http.js';
-import { route } from '../_lib/route.js';
-import { ownProfile } from '../_lib/owner.js';
-import { authenticate, clearCookies, publicUser } from '../_lib/session.js';
+import { backend, BackendError } from '../../_lib/backend.js';
+import { ok } from '../../_lib/http.js';
+import { route } from '../../_lib/route.js';
+import { ownProfile } from '../../_lib/owner.js';
+import { authenticate, clearCookies, publicUser } from '../../_lib/session.js';
 
 /**
  * GET /api/auth/session

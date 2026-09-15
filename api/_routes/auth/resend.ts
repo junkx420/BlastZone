@@ -1,8 +1,8 @@
-import { normalizeEmail } from '../../src/shared/account-rules.js';
-import { backend, BackendError } from '../_lib/backend.js';
-import { assertSameOrigin, clientIp, ok, readJson, str } from '../_lib/http.js';
-import { route } from '../_lib/route.js';
-import { enforce } from '../_lib/ratelimit.js';
+import { normalizeEmail } from '../../../src/shared/account-rules.js';
+import { backend, BackendError } from '../../_lib/backend.js';
+import { assertSameOrigin, clientIp, ok, readJson, str } from '../../_lib/http.js';
+import { route } from '../../_lib/route.js';
+import { enforce } from '../../_lib/ratelimit.js';
 
 /**
  * POST /api/auth/resend  { email }

@@ -1,10 +1,10 @@
-import { normalizeEmail } from '../../src/shared/account-rules.js';
-import { backend, BackendError, toHttp } from '../_lib/backend.js';
-import { assertSameOrigin, clientIp, HttpError, ok, readJson, str } from '../_lib/http.js';
-import { route } from '../_lib/route.js';
-import { ownProfile } from '../_lib/owner.js';
-import { enforce } from '../_lib/ratelimit.js';
-import { publicUser, sessionCookies } from '../_lib/session.js';
+import { normalizeEmail } from '../../../src/shared/account-rules.js';
+import { backend, BackendError, toHttp } from '../../_lib/backend.js';
+import { assertSameOrigin, clientIp, HttpError, ok, readJson, str } from '../../_lib/http.js';
+import { route } from '../../_lib/route.js';
+import { ownProfile } from '../../_lib/owner.js';
+import { enforce } from '../../_lib/ratelimit.js';
+import { publicUser, sessionCookies } from '../../_lib/session.js';
 
 /**
  * POST /api/auth/login  { email, password }

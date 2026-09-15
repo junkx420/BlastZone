@@ -1,12 +1,12 @@
-import { startggProfileUrl } from '../../src/shared/startgg.js';
-import { backend, toHttp, type Auth, type Backend, type StartggLinkRow } from '../_lib/backend.js';
-import { HttpError, ok } from '../_lib/http.js';
-import { ownRows } from '../_lib/owner.js';
-import { enforce } from '../_lib/ratelimit.js';
-import { route } from '../_lib/route.js';
-import { requireAuth } from '../_lib/session.js';
-import { fetchStartggPlacements, resolveStartggUser } from '../_lib/startgg.js';
-import { ageMs, CACHE_VERSION, isFresh, REFRESH_COOLDOWN_MS, signPayload, verifiedPayload, type PlacementsPayload } from '../_lib/startggCache.js';
+import { startggProfileUrl } from '../../../src/shared/startgg.js';
+import { backend, toHttp, type Auth, type Backend, type StartggLinkRow } from '../../_lib/backend.js';
+import { HttpError, ok } from '../../_lib/http.js';
+import { ownRows } from '../../_lib/owner.js';
+import { enforce } from '../../_lib/ratelimit.js';
+import { route } from '../../_lib/route.js';
+import { requireAuth } from '../../_lib/session.js';
+import { fetchStartggPlacements, resolveStartggUser } from '../../_lib/startgg.js';
+import { ageMs, CACHE_VERSION, isFresh, REFRESH_COOLDOWN_MS, signPayload, verifiedPayload, type PlacementsPayload } from '../../_lib/startggCache.js';
 
 /**
  * GET /api/startgg/placements[?refresh=1]

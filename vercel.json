@@ -6,7 +6,11 @@
   "functions": {
     "api/**/*.ts": { "maxDuration": 10 }
   },
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }],
+  "rewrites": [
+    { "source": "/api/auth/:action", "destination": "/api/auth?action=:action" },
+    { "source": "/api/startgg/:action", "destination": "/api/startgg?action=:action" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -1,5 +1,44 @@
+import { existsSync, readdirSync, statSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import { findSecretKeys } from './src/shared/key-guard';
+
+/**
+ * Vercel Hobby erlaubt ohne Framework höchstens 12 Functions pro Deployment. Jede
+ * .ts-Datei unter api/ zählt, außer in Ordnern oder Dateien mit Unterstrich.
+ * Mit 13 und 14 Dateien lief der Build durch und das Deployment scheiterte erst bei
+ * Vercel. Diese Prüfung bricht schon lokal ab. Mehr Endpunkte: in eine
+ * Dispatcher-Datei bündeln (api/_lib/dispatch.ts).
+ */
+const MAX_FUNCTIONS = 12;
+
+export function countApiFunctions(root: string): string[] {
+  const out: string[] = [];
+  const walk = (dir: string): void => {
+    for (const name of readdirSync(dir)) {
+      if (name.startsWith('_') || name.startsWith('.')) continue;
+      const full = join(dir, name);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (/[.](ts|js|mjs)$/.test(name) && !name.endsWith('.d.ts')) out.push(relative(root, full).split('\\').join('/'));
+    }
+  };
+  const api = join(root, 'api');
+  if (existsSync(api)) walk(api);
+  return out;
+}
+
+function functionBudget(): Plugin {
+  return {
+    name: 'blastzone-function-budget',
+    apply: 'build',
+    buildStart() {
+      const files = countApiFunctions(process.cwd());
+      if (files.length > MAX_FUNCTIONS) {
+        this.error(`${files.length} Vercel Functions, erlaubt sind ${MAX_FUNCTIONS} (Hobby). Endpunkte bündeln, siehe api/_lib/dispatch.ts.\n${files.join('\n')}`);
+      }
+    },
+  };
+}
 
 /**
  * Führt die Vercel-Functions aus api/ im Dev-Server aus.
@@ -28,9 +67,18 @@ function vercelApiDev(): Plugin {
         };
         if (!/^[a-z0-9-]+(\/[a-z0-9-]+)*$/.test(route) || route.split('/').some((p) => p.startsWith('_'))) return send(404, 'Unbekannte Route.');
 
+        // Wie die Rewrites in vercel.json: erst die exakte Datei, sonst die Datei eine Ebene höher
+        // (api/auth/login → api/auth.ts). Der Dispatcher liest die Aktion aus dem Pfad. Siehe api/_lib/dispatch.ts.
+        let file = `api/${route}.ts`;
+        if (!existsSync(join(server.config.root, file))) {
+          const parent = route.split('/').slice(0, -1).join('/');
+          if (!parent || !existsSync(join(server.config.root, `api/${parent}.ts`))) return send(404, 'Unbekannte Route.');
+          file = `api/${parent}.ts`;
+        }
+
         let mod: Record<string, unknown>;
         try {
-          mod = await server.ssrLoadModule(`/api/${route}.ts`);
+          mod = await server.ssrLoadModule(`/${file}`);
         } catch (err) {
           server.config.logger.error(`[api] ${route}: ${String(err)}`);
           return send(404, 'Unbekannte Route.');
@@ -135,7 +183,7 @@ export default defineConfig(({ mode, command }) => {
      * Der Browser braucht keinen einzigen Key, er spricht nur mit /api.
      */
     envPrefix: 'BLASTZONE_PUBLIC_',
-    plugins: [vercelApiDev(), secretGuard()],
+    plugins: [vercelApiDev(), secretGuard(), functionBudget()],
     // host: true bindet auf 0.0.0.0 – der Dev-Server ist damit aus dem ganzen LAN erreichbar.
     server: { port: 5173, strictPort: true, host: true },
     preview: { port: 4173, strictPort: true, host: true },
