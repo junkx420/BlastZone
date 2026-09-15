@@ -45,6 +45,8 @@ Alles, was Blastzone im Livebetrieb stabil hält: Grenzen, Überwachung, Fehlers
 | start.gg verknüpfen | 10 pro Stunde pro Konto (jeder Versuch kostet eine start.gg-Anfrage) |
 | start.gg lösen | 20 pro Stunde pro Konto |
 | start.gg insgesamt | 60 Anfragen pro Minute für alle Nutzer zusammen (start.gg erlaubt 80 pro Token) |
+| Placements lesen | 60 pro Minute pro Konto, aus dem Cache |
+| Placements neu von start.gg | 6 pro Stunde pro Konto; Cache gilt 24 h, „nicht gefunden“ 1 h, manuelles Aktualisieren frühestens nach 15 min |
 
 Ohne Upstash zählt jede Vercel-Instanz für sich. Für echte Obergrenzen über alle Instanzen `UPSTASH_REDIS_REST_URL` und `UPSTASH_REDIS_REST_TOKEN` bei Vercel eintragen.
 

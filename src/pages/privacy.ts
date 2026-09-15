@@ -117,10 +117,18 @@ export function privacyPage(): PageView {
           IP-Adresse noch dein Blastzone-Konto.
         </p>
         <p>
-          Die Verknüpfung sieht nur du. Sie ist nicht Teil deines öffentlichen Profils und steht auch nicht neben
-          deinen Kommentaren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, die Funktion, die du selbst einschaltest.
-          Du kannst die Verknüpfung jederzeit im Profil lösen, sie wird dann sofort gelöscht, ebenso beim Löschen
-          deines Kontos.
+          Für die Liste „Meine Turniere“ fragt unser Server bei start.gg deine öffentlichen Ergebnisse in Turnieren
+          zu Super Smash Bros. Ultimate ab: Turniername, Event, Datum, Ort oder Online, deine Platzierung und die
+          Teilnehmerzahl. Damit start.gg nicht bei jedem Aufruf gefragt wird, speichern wir dieses Ergebnis bis zu
+          24 Stunden bei Supabase zwischen. Das Turnierlogo lädt dein Browser beim Anzeigen direkt von start.gg
+          (<code>images.start.gg</code>); dabei sieht start.gg wie jede aufgerufene Seite deine IP-Adresse.
+        </p>
+        <p>
+          Die Verknüpfung und die zwischengespeicherten Ergebnisse sieht nur du. Sie sind nicht Teil deines
+          öffentlichen Profils und stehen auch nicht neben deinen Kommentaren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b
+          DSGVO, die Funktion, die du selbst einschaltest. Du kannst die Verknüpfung jederzeit im Profil lösen;
+          Verknüpfung und zwischengespeicherte Ergebnisse werden dann sofort gelöscht, ebenso beim Löschen deines
+          Kontos.
         </p>
 
         <h2>Schriften</h2>

@@ -92,6 +92,174 @@ function mockResolve(slug: string): StartggUser | null {
   return { userId: String(parseInt(discriminator.slice(0, 6), 36)), slug, gamerTag: `Testspieler ${discriminator.slice(0, 4).toUpperCase()}` };
 }
 
+/* ── Placements (Query B) ─────────────────────────────────────────────── */
+
+/** start.gg-ID von Super Smash Bros. Ultimate. */
+const SSBU = 1386;
+/** Wie viele Turniere pro Abruf. 15 Turniere mit je bis zu drei SSBU-Events bleiben weit unter start.ggs 1 000 Objekten. */
+const TOURNAMENTS_PER_FETCH = 15;
+/** Höchstens so viele Einträge zeigen und speichern. */
+export const MAX_PLACEMENTS = 30;
+
+/*
+ * Live geprüft am 15.09.2026:
+ * - Ohne `tournamentView` kommen genau die Turniere, an denen der Spieler teilnahm.
+ *   Mit "competitor" oder "admin" kam 0 zurück, deshalb bleibt der Filter weg.
+ * - Standardmäßig neueste zuerst; `sortBy: "startAt desc"` steht trotzdem da, damit
+ *   eine Änderung bei start.gg die Reihenfolge nicht umdreht.
+ * - Ob wirklich eine Teilnahme vorliegt, entscheidet `userEntrant`: Events ohne
+ *   eigenen Entrant fallen in `toPlacements` heraus.
+ */
+const PLACEMENTS = `query StartggUltimatePlacements($slug: String!, $userId: ID!, $perPage: Int!) {
+  user(slug: $slug) {
+    tournaments(query: { page: 1, perPage: $perPage, sortBy: "startAt desc", filter: { past: true, videogameId: [${SSBU}] } }) {
+      nodes {
+        id
+        name
+        slug
+        startAt
+        isOnline
+        city
+        countryCode
+        images(type: "profile") { url }
+        events(filter: { videogameId: [${SSBU}] }) {
+          id
+          name
+          slug
+          startAt
+          state
+          numEntrants
+          userEntrant(userId: $userId) {
+            id
+            standing { placement }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+export interface Placement {
+  tournamentId: string;
+  tournament: string;
+  eventId: string;
+  event: string;
+  /** start.gg-Pfad des Events, etwa „tournament/x/event/ultimate-singles“. */
+  eventSlug: string;
+  /** ISO-Datum des Events, sonst des Turniers. */
+  startAt: string;
+  isOnline: boolean;
+  location: string | null;
+  placement: number;
+  entrants: number;
+  /** Nur Bilder von images.start.gg, alles andere wird verworfen (CSP, keine fremden Hosts). */
+  imageUrl: string | null;
+}
+
+interface RawEvent {
+  id: number | string;
+  name: string | null;
+  slug: string | null;
+  startAt: number | null;
+  state: string | null;
+  numEntrants: number | null;
+  userEntrant: { standing: { placement: number | null } | null } | null;
+}
+interface RawTournament {
+  id: number | string;
+  name: string | null;
+  slug: string | null;
+  startAt: number | null;
+  isOnline: boolean | null;
+  city: string | null;
+  countryCode: string | null;
+  images: Array<{ url: string | null }> | null;
+  events: RawEvent[] | null;
+}
+
+const clip = (s: string | null | undefined, max: number): string => (s ?? '').trim().slice(0, max);
+const SAFE_SLUG = /^tournament[/][a-z0-9-]+[/]event[/][a-z0-9-]+$/;
+
+function safeImage(url: string | null | undefined): string | null {
+  if (!url) return null;
+  try {
+    const u = new URL(url);
+    return u.protocol === 'https:' && u.hostname === 'images.start.gg' ? u.href : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Nur abgeschlossene SSBU-Events mit eigenem Placement, neueste zuerst. */
+export function toPlacements(tournaments: RawTournament[]): Placement[] {
+  const out: Placement[] = [];
+  for (const t of tournaments) {
+    for (const e of t.events ?? []) {
+      const placement = e.userEntrant?.standing?.placement;
+      const entrants = e.numEntrants ?? 0;
+      if (e.state !== 'COMPLETED' || !placement || placement < 1 || entrants < 1) continue;
+      const when = e.startAt ?? t.startAt;
+      const eventSlug = clip(e.slug, 200);
+      out.push({
+        tournamentId: String(t.id),
+        tournament: clip(t.name, 120) || 'Unbenanntes Turnier',
+        eventId: String(e.id),
+        event: clip(e.name, 80) || 'Event',
+        eventSlug: SAFE_SLUG.test(eventSlug) ? eventSlug : '',
+        startAt: when ? new Date(when * 1000).toISOString() : '',
+        isOnline: Boolean(t.isOnline),
+        location: t.isOnline ? null : [clip(t.city, 60), clip(t.countryCode, 3)].filter(Boolean).join(', ') || null,
+        placement: Math.min(placement, entrants),
+        entrants,
+        imageUrl: safeImage(t.images?.[0]?.url),
+      });
+    }
+  }
+  return out.sort((a, b) => b.startAt.localeCompare(a.startAt)).slice(0, MAX_PLACEMENTS);
+}
+
+/** Test-Placements für den Speicher-Mock. `user/00000001` hat keine SSBU-Turniere. */
+function mockPlacements(slug: string): Placement[] {
+  if (slug === 'user/00000001') return [];
+  const day = 86400000;
+  const base = Date.UTC(2026, 8, 12);
+  const rows: Array<[string, string, number, number, boolean]> = [
+    // Erkennbar erfundene Namen: Das sind Testdaten für den lokalen Mock, keine echten Turniere.
+    ['Testturnier Nord #3', 'Ultimate Singles', 5, 48, false],
+    ['Testturnier Nord #3', 'Ultimate Doubles', 3, 16, false],
+    ['Testturnier Online 12', 'Ultimate Singles', 17, 129, true],
+    ['Testturnier Groß 2026', 'Ultimate Singles', 33, 256, false],
+    ['Testturnier Amateure', 'Amateur Bracket', 1, 12, false],
+  ];
+  return rows.map(([tournament, event, placement, entrants, online], i) => ({
+    tournamentId: String(900 + i),
+    tournament,
+    eventId: String(9000 + i),
+    event,
+    eventSlug: '',
+    startAt: new Date(base - i * 9 * day).toISOString(),
+    isOnline: online,
+    location: online ? null : 'Norddeutschland, DE',
+    placement,
+    entrants,
+    imageUrl: null,
+  }));
+}
+
+export async function fetchStartggPlacements(slug: string, userId: string): Promise<Placement[]> {
+  const { token } = readStartggConfig();
+  if (!token) {
+    if (mockAllowed()) return mockPlacements(slug);
+    throw new HttpError(503, 'startgg-not-configured', 'Die start.gg-Anbindung ist noch nicht eingerichtet.');
+  }
+  const data = await graphql<{ user: { tournaments: { nodes: RawTournament[] | null } | null } | null }>(
+    PLACEMENTS,
+    { slug, userId, perPage: TOURNAMENTS_PER_FETCH },
+    token,
+  );
+  return toPlacements(data.user?.tournaments?.nodes ?? []);
+}
+
 /** Löst einen normalisierten Slug auf. `null` heißt: Dieses Profil gibt es auf start.gg nicht. */
 export async function resolveStartggUser(slug: string): Promise<StartggUser | null> {
   const { token } = readStartggConfig();

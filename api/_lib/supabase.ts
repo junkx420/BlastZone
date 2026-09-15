@@ -1,4 +1,4 @@
-import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type Profile, type StartggLinkRow, type Theme, type VerifiedToken } from './types.js';
+import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type Profile, type StartggCacheRow, type StartggLinkRow, type Theme, type VerifiedToken } from './types.js';
 import type { Env } from './env.js';
 import { createJwtVerifier } from './jwt.js';
 import { eq, ilikeExact, ltInt, restPath, rpcPath, type Filter } from './postgrest.js';
@@ -84,6 +84,15 @@ interface StartggLinkDbRow {
 }
 const toStartggLink = (r: StartggLinkDbRow): StartggLinkRow => ({ userId: r.user_id, slug: r.slug, gamerTag: r.gamer_tag, updatedAt: r.updated_at });
 const STARTGG_LINK_SELECT = 'user_id,slug,gamer_tag,updated_at';
+
+interface StartggCacheDbRow {
+  user_id: string;
+  slug: string;
+  payload: unknown;
+  signature: string;
+}
+const toStartggCache = (r: StartggCacheDbRow): StartggCacheRow => ({ userId: r.user_id, slug: r.slug, payload: r.payload, signature: r.signature });
+const STARTGG_CACHE_SELECT = 'user_id,slug,payload,signature';
 
 /* Ein Verifier pro Projekt-URL, damit die Schlüsselliste über Anfragen hinweg im Speicher der Instanz bleibt. */
 const verifiers = new Map<string, ReturnType<typeof createJwtVerifier>>();
@@ -376,6 +385,23 @@ export function supabaseBackend(env: Env): Backend {
       });
       await call(restPath('startgg_cache', { where: { user_id: eq(auth.userId) } }), { method: 'DELETE', token: auth.token, prefer: 'return=minimal' });
       return (rows ?? []).map(toStartggLink);
+    },
+
+    async getStartggCache(auth) {
+      const rows = await call<StartggCacheDbRow[]>(restPath('startgg_cache', { select: STARTGG_CACHE_SELECT, where: { user_id: eq(auth.userId) }, limit: 1 }), {
+        token: auth.token,
+      });
+      return (rows ?? []).map(toStartggCache);
+    },
+
+    async saveStartggCache(auth, slug, payload, signature) {
+      const rows = await call<StartggCacheDbRow[]>(restPath('startgg_cache', { select: STARTGG_CACHE_SELECT, onConflict: ['user_id'] }), {
+        method: 'POST',
+        token: auth.token,
+        prefer: 'resolution=merge-duplicates,return=representation',
+        body: JSON.stringify({ user_id: auth.userId, slug, payload, signature, fetched_at: new Date().toISOString() }),
+      });
+      return (rows ?? []).map(toStartggCache);
     },
 
     async removeBookmark(auth, comboId) {

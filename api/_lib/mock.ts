@@ -1,4 +1,4 @@
-import { BackendError, type AuthSession, type AuthUser, type Backend, type CommentRow, type Profile, type StartggLinkRow } from './types.js';
+import { BackendError, type AuthSession, type AuthUser, type Backend, type CommentRow, type Profile, type StartggCacheRow, type StartggLinkRow } from './types.js';
 
 /**
  * Speicher-Backend NUR für den lokalen Dev-Server, solange keine Supabase-Keys
@@ -27,6 +27,7 @@ interface Store {
   comments: CommentRow[];
   bookmarks: Map<string, string[]>;
   startggLinks?: Map<string, StartggLinkRow>;
+  startggCache?: Map<string, StartggCacheRow>;
   nextComment: number;
 }
 
@@ -156,6 +157,7 @@ export function mockBackend(): Backend {
       store.comments = store.comments.filter((c) => c.userId !== user.id);
       store.bookmarks.delete(user.id);
       store.startggLinks?.delete(user.id);
+      store.startggCache?.delete(user.id);
       for (const [t, v] of store.tokens) if (v.userId === user.id) store.tokens.delete(t);
     },
 
@@ -219,6 +221,7 @@ export function mockBackend(): Backend {
       const links = (store.startggLinks ??= new Map());
       const row: StartggLinkRow = { userId: user.id, slug, gamerTag, updatedAt: new Date().toISOString() };
       links.set(user.id, row);
+      store.startggCache?.delete(user.id);
       return [{ ...row }];
     },
 
@@ -227,7 +230,23 @@ export function mockBackend(): Backend {
       const row = store.startggLinks?.get(user.id);
       if (!row || user.id !== auth.userId) return [];
       store.startggLinks?.delete(user.id);
+      store.startggCache?.delete(user.id);
       return [{ ...row }];
+    },
+
+    async getStartggCache(auth) {
+      const user = userFor(auth.token);
+      const row = user.id === auth.userId ? store.startggCache?.get(user.id) : undefined;
+      // Tiefe Kopie wie ein echter Datenbank-Rundweg, damit Tests keine Referenzen teilen.
+      return row ? [JSON.parse(JSON.stringify(row)) as StartggCacheRow] : [];
+    },
+
+    async saveStartggCache(auth, slug, payload, signature) {
+      const user = userFor(auth.token);
+      const cache = (store.startggCache ??= new Map());
+      const row: StartggCacheRow = { userId: user.id, slug, payload: JSON.parse(JSON.stringify(payload)), signature };
+      cache.set(user.id, row);
+      return [JSON.parse(JSON.stringify(row)) as StartggCacheRow];
     },
 
     async removeBookmark(auth, comboId) {

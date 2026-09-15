@@ -62,6 +62,14 @@ export interface StartggLinkRow {
   updatedAt: string;
 }
 
+/** Zeile im Placement-Cache. `payload` ist ungeprüft, bis startggCache.ts die Signatur bestätigt. */
+export interface StartggCacheRow {
+  userId: string;
+  slug: string;
+  payload: unknown;
+  signature: string;
+}
+
 export type BackendErrorCode =
   | 'invalid-credentials'
   | 'email-not-confirmed'
@@ -121,4 +129,8 @@ export interface Backend {
   saveStartggLink(auth: Auth, slug: string, gamerTag: string | null): Promise<StartggLinkRow[]>;
   /** Löst die Verknüpfung und leert den Placement-Cache. Liefert die gelöschte Zeile. */
   deleteStartggLink(auth: Auth): Promise<StartggLinkRow[]>;
+  /** Eigene Cache-Zeile, höchstens eine. */
+  getStartggCache(auth: Auth): Promise<StartggCacheRow[]>;
+  /** Legt an oder ersetzt die eigene Cache-Zeile. */
+  saveStartggCache(auth: Auth, slug: string, payload: unknown, signature: string): Promise<StartggCacheRow[]>;
 }
