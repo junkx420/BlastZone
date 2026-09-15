@@ -1,10 +1,12 @@
+import { dateFormat, tr } from '../i18n';
 import type { TierId, TierListSource, TierPlacement } from './types';
 
 export const TIER_SOURCE: TierListSource = {
-  name: 'UltRank-Tier-Liste #4',
-  published: '6. Mai 2026',
+  name: tr({ de: 'UltRank-Tier-Liste #4', en: 'UltRank Tier List #4' }),
+  // Als Datum gespeichert, formatiert in der Seitensprache („6. Mai 2026“ bzw. „May 6, 2026“).
+  published: dateFormat({ dateStyle: 'long' }).format(new Date('2026-05-06T12:00:00Z')),
   url: 'https://www.ssbwiki.com/Tier_list',
-  note: 'Alle Echofighter haben die selbe Platzierung.',
+  note: tr({ de: 'Alle Echofighter haben die selbe Platzierung.', en: 'Echo fighters share their placement.' }),
 };
 
 /** [rank, tier, panel score, ...slugs] exactly as published. Echo pairs share a rank. */

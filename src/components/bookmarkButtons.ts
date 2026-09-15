@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import { qsa } from '../lib/dom';
 import { ApiError } from '../services/api';
 import { currentUser } from '../services/auth';
@@ -23,9 +24,9 @@ export function initBookmarkButtons(): void {
       const on = ids.has(b.dataset.bookmark ?? '');
       if (b.getAttribute('aria-pressed') === String(on)) return;
       b.setAttribute('aria-pressed', String(on));
-      b.title = on ? 'Aus deinen Mains entfernen' : 'In deinen Mains speichern';
+      b.title = on ? t('bookmark.remove') : t('bookmark.save');
       const label = b.querySelector('.vh');
-      if (label) label.textContent = on ? 'Gespeichert, entfernen' : 'Combo speichern';
+      if (label) label.textContent = on ? t('bookmark.savedVh') : t('bookmark.saveVh');
     });
   };
 
@@ -49,14 +50,14 @@ export function initBookmarkButtons(): void {
     if (!button) return;
     e.preventDefault();
     if (!currentUser()) {
-      openAuth('login', 'Melde dich an, um Combos zu speichern.');
+      openAuth('login', t('bookmark.loginPrompt'));
       return;
     }
     button.disabled = true;
     try {
       await toggleBookmark(button.dataset.bookmark!);
     } catch (err) {
-      if (err instanceof ApiError && err.status === 401) openAuth('login', 'Deine Sitzung ist abgelaufen. Melde dich neu an.');
+      if (err instanceof ApiError && err.status === 401) openAuth('login', t('bookmark.sessionExpired'));
     } finally {
       button.disabled = false;
     }

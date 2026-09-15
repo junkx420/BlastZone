@@ -1,6 +1,7 @@
 import { FIGHTER_BY_SLUG } from '../data/fighters';
 import { html, mount, qs } from '../lib/dom';
 import { link } from '../lib/router';
+import { t } from '../i18n';
 import { applyTheme, currentTheme } from '../lib/theme';
 import { onAuth, type AuthState } from '../services/auth';
 import { updateProfile } from '../services/db';
@@ -23,7 +24,7 @@ export function mountAccountNav(host: HTMLElement): void {
       return;
     }
     if (state.status === 'guest') {
-      mount(host, html`<button class="nav__login btn btn--sm" type="button" data-login>${ICONS.user}<span class="nav__login-label">Anmelden</span></button>`);
+      mount(host, html`<button class="nav__login btn btn--sm" type="button" data-login>${ICONS.user}<span class="nav__login-label">${t('account.login')}</span></button>`);
       qs('[data-login]', host)!.addEventListener('click', () => openAuth('login'));
       return;
     }
@@ -34,8 +35,8 @@ export function mountAccountNav(host: HTMLElement): void {
     mount(
       host,
       html`<button class="nav__theme btn btn--icon btn--ghost" type="button" data-theme-toggle aria-pressed="${light ? 'true' : 'false'}"
-          title="${light ? 'Zum Dark-Mode wechseln' : 'Zum Light-Mode wechseln'}">
-          ${light ? ICONS.moon : ICONS.sun}<span class="vh">Light-Mode</span>
+          title="${light ? t('account.toDark') : t('account.toLight')}">
+          ${light ? ICONS.moon : ICONS.sun}<span class="vh">${t('account.lightMode')}</span>
         </button>
         <a class="nav__me" href="${link('/profil')}" data-route="profil">
           ${main ? faceThumb(main, 'nav__me-face') : html`<span class="nav__me-face nav__me-face--empty">${ICONS.user}</span>`}

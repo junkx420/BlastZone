@@ -1,5 +1,6 @@
 import type { FighterFrames, FrameMove, FrameSection } from '../data/frame-types';
 import { loadFrames } from '../data/frames-index';
+import { dateFormat, t } from '../i18n';
 import { html, mount, qs, qsa, raw, type Markup } from '../lib/dom';
 
 /**
@@ -19,12 +20,12 @@ import { html, mount, qs, qsa, raw, type Markup } from '../lib/dom';
  */
 
 const LABELS: Record<FrameSection, string> = {
-  ground: 'Boden',
-  aerial: 'Luft',
-  special: 'Spezial',
-  throw: 'Würfe',
-  dodge: 'Ausweichen',
-  misc: 'Sonstiges',
+  ground: t('frames.ground'),
+  aerial: t('frames.aerial'),
+  special: t('frames.special'),
+  throw: t('frames.throw'),
+  dodge: t('frames.dodge'),
+  misc: t('frames.misc'),
 };
 
 /** Reihenfolge der Tabs – dieselbe wie auf der Quellseite. */
@@ -77,19 +78,19 @@ interface Spalte {
  */
 const SPALTEN: Spalte[] = [
   {
-    kopf: 'Start',
-    hinweis: 'Erster Frame mit aktiver Hitbox',
+    kopf: t('frames.startup'),
+    hinweis: t('frames.startupHint'),
     wert: (m) => m.startup,
     klasse: (m) => `frame__zahl${stufe(ersteZahl(m.startup), START_GRENZEN)}`,
   },
-  { kopf: 'Aktiv', hinweis: 'Frames mit aktiver Hitbox', wert: (m) => m.active },
-  { kopf: 'Gesamt', hinweis: 'Gesamtdauer der Animation', wert: (m) => m.total },
-  { kopf: 'Endlag', hinweis: 'Frames nach der letzten Hitbox', wert: (m) => m.endlag },
-  { kopf: 'Landing', hinweis: 'Landing Lag, nur bei Luftangriffen', wert: (m) => m.landingLag },
-  { kopf: 'Schaden', hinweis: 'Basisschaden ohne 1v1-Faktor', wert: (m) => m.damage },
+  { kopf: t('frames.active'), hinweis: t('frames.activeHint'), wert: (m) => m.active },
+  { kopf: t('frames.total'), hinweis: t('frames.totalHint'), wert: (m) => m.total },
+  { kopf: t('frames.endlag'), hinweis: t('frames.endlagHint'), wert: (m) => m.endlag },
+  { kopf: t('frames.landing'), hinweis: t('frames.landingHint'), wert: (m) => m.landingLag },
+  { kopf: t('frames.damage'), hinweis: t('frames.damageHint'), wert: (m) => m.damage },
   {
-    kopf: 'Schild',
-    hinweis: 'Vorteil am Schild, negativ heisst bestrafbar',
+    kopf: t('frames.shield'),
+    hinweis: t('frames.shieldHint'),
     wert: (m) => m.advantage,
     // Gespiegelt: Beim Schild ist der kleinste Wert der schlechteste.
     klasse: (m) => {
@@ -107,7 +108,7 @@ function zeile(move: FrameMove, spalten: Spalte[]): Markup {
       ${move.notes ? html`<span class="frame__notiz">${move.notes}</span>` : ''}
       ${move.hitboxImages?.length
         ? html`<button class="frame__hitbox" type="button" data-hitbox="${move.hitboxImages.join('|')}" data-hitbox-move="${move.name}">
-            Hitbox
+            ${t('frames.hitbox')}
           </button>`
         : ''}
     </th>
@@ -122,7 +123,7 @@ function tabelle(moves: FrameMove[], titel: string): Markup {
       <caption class="vh">${titel}</caption>
       <thead>
         <tr>
-          <th scope="col">Move</th>
+          <th scope="col">${t('frames.move')}</th>
           ${spalten.map((s) => html`<th scope="col" title="${s.hinweis}">${s.kopf}</th>`)}
         </tr>
       </thead>
@@ -142,7 +143,7 @@ function inhalt(daten: FighterFrames): Markup {
     const id = satz.label ? satz.label.toLowerCase().replace(/[^a-z]/g, '') : 'alle';
     return html`<div class="fframes__satz">
       ${satz.label ? html`<h3 class="fframes__label">${satz.label}</h3>` : ''}
-      <div class="tabs" role="tablist" aria-label="Move-Kategorie${satz.label ? `, ${satz.label}` : ''}">
+      <div class="tabs" role="tablist" aria-label="${t('frames.tablist')}${satz.label ? `, ${satz.label}` : ''}">
         ${vorhanden.map(
           (s, i) => html`<button class="tab" type="button" role="tab" id="ftab-${id}-${s}" aria-controls="fpanel-${id}-${s}"
             aria-selected="${String(i === 0)}" tabindex="${i === 0 ? '0' : '-1'}">
@@ -168,13 +169,10 @@ export function framesSection(fighterName: string): Markup {
   return html`<section class="container fframes" id="frames" aria-labelledby="frames-title" data-frames>
     <div class="section-head">
       <h2 id="frames-title" data-reveal="wipe">Frame Data</h2>
-      <p>
-        Alle Moves von ${fighterName}: wie schnell sie rauskommen, wie lange sie aktiv sind und was du auf Schild
-        riskierst. Stehen mehrere Werte in einer Spalte, sind das die Hitboxen des Moves.
-      </p>
+      <p>${t('frames.intro', { fighter: fighterName })}</p>
     </div>
     <div class="fframes__body" data-frames-body>
-      <p class="fframes__laden" role="status">Frame-Daten werden geladen …</p>
+      <p class="fframes__laden" role="status">${t('frames.loading')}</p>
     </div>
   </section>`;
 }
@@ -243,15 +241,15 @@ export function wireFrames(root: HTMLElement, slug: string): () => void {
     const daten = await loadFrames(slug);
     if (abgebrochen) return;
     if (!daten) {
-      mount(body, html`<p class="fframes__laden">Für diesen Fighter liegen keine Frame-Daten vor.</p>`);
+      mount(body, html`<p class="fframes__laden">${t('frames.none')}</p>`);
       return;
     }
     mount(
       body,
       html`${inhalt(daten)}
         <p class="fframes__quelle">
-          Quelle: <a href="${daten.source.url}" target="_blank" rel="noopener">Ultimate Frame Data</a>, abgerufen am
-          ${daten.source.fetched.split('-').reverse().join('.')}. Frame-Daten ändern sich mit Spiel-Patches.
+          ${t('frames.sourcePrefix')} <a href="${daten.source.url}" target="_blank" rel="noopener">Ultimate Frame Data</a>,
+          ${t('frames.sourceSuffix', { date: dateFormat({ dateStyle: 'medium' }).format(new Date(`${daten.source.fetched}T12:00:00Z`)) })}
         </p>`,
     );
     tabsVerdrahten();
@@ -277,12 +275,12 @@ export function wireFrames(root: HTMLElement, slug: string): () => void {
     for (const pfad of pfade) {
       const bild = document.createElement('img');
       bild.src = `https://ultimateframedata.com/${pfad}`;
-      bild.alt = `Hitbox-Darstellung von ${name}`;
+      bild.alt = t('frames.hitboxAlt', { move: name });
       bild.loading = 'lazy';
       figur.append(bild);
     }
     const beschriftung = document.createElement('figcaption');
-    beschriftung.textContent = 'Darstellung von ultimateframedata.com';
+    beschriftung.textContent = t('frames.hitboxCaption');
     figur.append(beschriftung);
     knopf.replaceWith(figur);
   };

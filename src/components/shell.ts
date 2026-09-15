@@ -1,18 +1,20 @@
 import { TIER_SOURCE } from '../data/tiers';
+import { t } from '../i18n';
 import { html, mount, qs, qsa } from '../lib/dom';
 import { link, type RouteName } from '../lib/router';
 import { ICONS } from './icons';
+import { langSwitch, mountLangSwitch } from './langSwitch';
 
 const NAV: Array<{ route: RouteName; path: string; label: string; wide?: boolean }> = [
-  { route: 'roster', path: '/roster', label: 'Roster' },
-  { route: 'tiers', path: '/tiers', label: 'Tier-Liste' },
-  { route: 'archetypen', path: '/archetypen', label: 'Archetypen' },
+  { route: 'roster', path: '/roster', label: t('nav.roster') },
+  { route: 'tiers', path: '/tiers', label: t('nav.tiers') },
+  { route: 'archetypen', path: '/archetypen', label: t('nav.archetypes') },
   // Label bewusst "Inputs": "Notation" sagt in der Szene niemand.
   // Der Pfad bleibt /notation, damit vorhandene Links weiter funktionieren.
-  { route: 'notation', path: '/notation', label: 'Inputs' },
+  { route: 'notation', path: '/notation', label: t('nav.inputs') },
   // Unter 900 px ausgeblendet (wide): Fünf Links passen auf dem Handy nicht in die Leiste.
   // Dort führen Fußzeile, Profil und jedes Spielerprofil zur Community.
-  { route: 'community', path: '/community', label: 'Community', wide: true },
+  { route: 'community', path: '/community', label: t('nav.community'), wide: true },
 ];
 
 export interface Shell {
@@ -30,8 +32,8 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
     html`<div class="sitebg" aria-hidden="true"><div class="sitebg__grid"></div><div class="sitebg__lit"></div></div>
       <header class="nav" data-nav>
         <div class="nav__inner">
-          <a class="brand" href="${link('/')}" aria-label="Blastzone, Startseite">${brand}</a>
-          <nav class="nav__links" aria-label="Hauptnavigation">
+          <a class="brand" href="${link('/')}" aria-label="${t('nav.home')}">${brand}</a>
+          <nav class="nav__links" aria-label="${t('nav.main')}">
             ${NAV.map(
               (item) =>
                 html`<a class="nav__link${item.wide ? ' nav__link--wide' : ''}" href="${link(item.path)}" data-route="${item.route}">${item.label}</a>`,
@@ -39,10 +41,11 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
           </nav>
           <div class="nav__search" role="search">
             ${ICONS.search}
-            <label class="vh" for="nav-search">Fighter suchen</label>
-            <input id="nav-search" class="nav__search-input" type="search" placeholder="Fighter suchen" readonly
+            <label class="vh" for="nav-search">${t('nav.search')}</label>
+            <input id="nav-search" class="nav__search-input" type="search" placeholder="${t('nav.search')}" readonly
               aria-haspopup="dialog" aria-keyshortcuts="/ Control+K" autocomplete="off" data-search />
           </div>
+          <div class="nav__lang" data-lang-switch>${langSwitch()}</div>
           <div class="nav__account" data-account></div>
         </div>
       </header>
@@ -50,32 +53,29 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
       <footer class="footer">
         <div class="footer__inner">
           <div class="footer__brand">
-            <a class="brand" href="${link('/')}" aria-label="Blastzone, Startseite">${brand}</a>
-            <p>Ein Fanprojekt für die Competitive-Szene von Super Smash Bros. Ultimate.</p>
+            <a class="brand" href="${link('/')}" aria-label="${t('nav.home')}">${brand}</a>
+            <p>${t('footer.tagline')}</p>
           </div>
-          <nav class="footer__nav" aria-label="Fußzeile">
+          <nav class="footer__nav" aria-label="${t('footer.nav')}">
             ${NAV.map((item) => html`<a href="${link(item.path)}">${item.label}</a>`)}
             <!-- Nur in der Fußzeile, nicht in der Hauptnavigation: Pflichtangabe, kein Inhalt. -->
-            <a href="${link('/datenschutz')}">Datenschutz</a>
-            <a href="${link('/impressum')}">Impressum</a>
+            <a href="${link('/datenschutz')}">${t('footer.privacy')}</a>
+            <a href="${link('/impressum')}">${t('footer.imprint')}</a>
           </nav>
           <div class="footer__data">
-            <h2 class="footer__title">Datenstand</h2>
+            <h2 class="footer__title">${t('footer.dataTitle')}</h2>
             <p>
-              Tier-Daten: <a href="${TIER_SOURCE.url}" target="_blank" rel="noopener">${TIER_SOURCE.name}</a> vom
-              ${TIER_SOURCE.published}. Combo-Routen mit Quelle pro Route (SmashWiki, Game8, EventHubs), Schaden aus
-              Ultimate Frame Data inklusive 1v1-Faktor und gerundet.
+              ${t('footer.tierData')} <a href="${TIER_SOURCE.url}" target="_blank" rel="noopener">${TIER_SOURCE.name}</a> ${t('footer.tierFrom')}
+              ${TIER_SOURCE.published}. ${t('footer.dataRest')}
             </p>
           </div>
         </div>
-        <p class="footer__legal">
-          Blastzone steht in keiner Verbindung zu Nintendo, Bandai Namco oder Sora Ltd. Fighter-Artwork von
-          smashbros.com, © Nintendo. Fighter- und Seriennamen gehören ihren Rechteinhabern.
-        </p>
+        <p class="footer__legal">${t('footer.legal')}</p>
       </footer>`,
   );
 
   const nav = qs<HTMLElement>('[data-nav]', app)!;
+  mountLangSwitch(qs<HTMLElement>('[data-lang-switch]', app)!);
   const links = qsa<HTMLAnchorElement>('.nav__link', app);
   /*
    * Das Feld in der Leiste ist der Einstieg, gesucht wird im Overlay. Es steht

@@ -1,15 +1,16 @@
+import { t } from '../i18n';
 import { html } from '../lib/dom';
 import { link } from '../lib/router';
 import type { PageView } from './types';
 
-export function notFoundPage(what = 'Seite'): PageView {
+export function notFoundPage(kind: 'page' | 'fighter' = 'page'): PageView {
   return {
-    title: `${what} nicht gefunden | Blastzone`,
+    title: `${t(kind === 'fighter' ? 'notFound.fighter' : 'notFound.page')} | Blastzone`,
     markup: html`<div class="page">
       <section class="container page-head">
-        <h1>Diese ${what} liegt hinter der Blastzone.</h1>
-        <p>Der Link führt ins Leere. Such direkt nach einem Fighter oder geh zurück zum Roster.</p>
-        <p><a class="btn btn--primary" href="${link('/roster')}">Zum Roster</a></p>
+        <h1>${t(kind === 'fighter' ? 'notFound.fighterHeading' : 'notFound.pageHeading')}</h1>
+        <p>${t('notFound.text')}</p>
+        <p><a class="btn btn--primary" href="${link('/roster')}">${t('notFound.cta')}</a></p>
       </section>
     </div>`,
   };

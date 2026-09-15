@@ -1,4 +1,5 @@
 import type { FighterVideo } from '../data/videos';
+import { t } from '../i18n';
 import { html, qs, type Markup } from '../lib/dom';
 import { ICONS } from './icons';
 
@@ -13,8 +14,8 @@ import { ICONS } from './icons';
 export function videoSection(video: FighterVideo, fighterName: string): Markup {
   return html`<section class="container fvideo" aria-labelledby="video-title">
     <div class="section-head">
-      <h2 id="video-title" data-reveal="wipe">Guide-Video</h2>
-      <p>${video.creator ? `${fighterName} erklärt von ${video.creator}.` : `Ein Guide zu ${fighterName}.`}</p>
+      <h2 id="video-title" data-reveal="wipe">${t('video.title')}</h2>
+      <p>${video.creator ? t('video.byCreator', { fighter: fighterName, creator: video.creator }) : t('video.generic', { fighter: fighterName })}</p>
     </div>
     <div class="vplayer" data-video="${video.id}" data-video-title="${video.title}" data-reveal>
       <button class="vplayer__start" type="button" data-video-start>
@@ -23,11 +24,11 @@ export function videoSection(video: FighterVideo, fighterName: string): Markup {
           <span class="vplayer__title">${video.title}</span>
           ${video.creator ? html`<span class="vplayer__creator">${video.creator}</span>` : ''}
         </span>
-        <span class="vh">Video abspielen</span>
+        <span class="vh">${t('video.play')}</span>
       </button>
     </div>
     <p class="fvideo__link">
-      <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener">Stattdessen auf YouTube öffnen${ICONS.external}</a>
+      <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener">${t('video.openYoutube')}${ICONS.external}</a>
     </p>
   </section>`;
 }
@@ -44,7 +45,7 @@ export function wireVideo(root: HTMLElement): () => void {
     const frame = document.createElement('iframe');
     // nocookie + autoplay: Der Klick war die Zustimmung, also soll er auch starten.
     frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-    frame.title = videoTitle ?? 'Guide-Video';
+    frame.title = videoTitle ?? t('video.title');
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     frame.allowFullscreen = true;
     frame.loading = 'lazy';

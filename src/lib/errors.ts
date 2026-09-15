@@ -11,6 +11,8 @@
  * - Ein kleiner Hinweis erscheint, solange das Gerät offline ist.
  */
 
+import { t } from '../i18n';
+
 const MAX_REPORTS = 5;
 const seen = new Set<string>();
 
@@ -83,7 +85,7 @@ export function initErrorHandling(): void {
   const note = document.createElement('p');
   note.className = 'netstatus';
   note.setAttribute('role', 'status');
-  note.textContent = 'Keine Verbindung. Kommentare und Lesezeichen gehen erst wieder, wenn du online bist.';
+  note.textContent = t('net.offline');
   const sync = (): void => {
     note.hidden = navigator.onLine !== false;
   };

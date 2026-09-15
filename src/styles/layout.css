@@ -198,20 +198,42 @@
   }
 
   /*
-   * Einzeilige Leiste zwischen 901 und 1279 px: Mit fünf Links, Suche und dem
+   * Einzeilige Leiste zwischen 901 und 1359 px: Mit fünf Links, Suche und dem
    * Profil-Chip eines 20 Zeichen langen Namens stand der Chip bei 960 px 150 px
    * über die Leiste, und schon mit vier Links 50 px. Deshalb verschwinden hier
    * die breiten Links (Community), die Links rücken enger, und der Chip zeigt unter
    * 1100 px nur den Avatar (pages/account.css). Gemessen am 15.09.2026 mit dem
    * breitesten Namen (20 × W): bis 1279 passt es so, bei 1180 mit Community ragte
-   * der Chip 57 px über, ab 1280 passt Community.
+   * der Chip 57 px über, ab 1280 passte Community.
+   * Seit der Sprachwahl (16.09.2026, rund 70 px): Community erst ab 1360, unter 1180
+   * Globus ohne Kürzel, bis 1259 Chip ohne Namen (account.css), unter 1100 schmalere
+   * Suche, unter 1024 noch engere Links.
+   * Neu gemessen in Deutsch und Englisch von 320 bis 1440 px.
    */
-  @media (min-width: 901px) and (max-width: 1279px) {
+  @media (min-width: 901px) and (max-width: 1359px) {
     .nav__link--wide {
       display: none;
     }
   }
-  @media (min-width: 901px) and (max-width: 1179px) {
+  @media (min-width: 901px) and (max-width: 1099px) {
+    .nav__search {
+      width: 150px;
+    }
+  }
+  @media (min-width: 901px) and (max-width: 1023px) {
+    /* Deutsch bei 901 px sonst 3 px über (längere Linktexte als Englisch). */
+    .nav__search {
+      width: 140px;
+    }
+    .nav__link {
+      padding: 0 8px;
+    }
+    .nav__link::after {
+      left: 8px;
+      right: 8px;
+    }
+  }
+  @media (min-width: 1024px) and (max-width: 1179px) {
     .nav__link {
       padding: 0 10px;
     }

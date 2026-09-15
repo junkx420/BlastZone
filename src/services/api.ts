@@ -17,6 +17,8 @@
  *   Alles mit Nutzerbezug bleibt ohne Cache, außer wer ihn ausdrücklich will.
  */
 
+import { lang, t } from '../i18n';
+
 export class ApiError extends Error {
   constructor(
     readonly status: number,
@@ -31,8 +33,8 @@ export class ApiError extends Error {
 
 type Json = Record<string, unknown>;
 
-const OFFLINE = 'Keine Verbindung zum Server. Prüf deine Internetverbindung und versuch es erneut.';
-const TIMEOUT = 'Der Server antwortet gerade nicht. Versuch es gleich noch einmal.';
+const OFFLINE = t('api.offline');
+const TIMEOUT = t('api.timeout');
 
 /** Der Pfad ist relativ, damit es in Unterordnern und im LAN-Dev genauso funktioniert. */
 const url = (path: string): string => `./api/${path.replace(/^\//, '')}`;
@@ -64,7 +66,8 @@ async function once(path: string, method: string, body: unknown): Promise<Json> 
       method,
       credentials: 'same-origin',
       cache: 'no-store',
-      headers: body === undefined ? { Accept: 'application/json' } : { Accept: 'application/json', 'Content-Type': 'application/json' },
+      // X-Blastzone-Lang: Der Server übersetzt Fehlermeldungen in die Seitensprache, auch wenn sie von der Gerätesprache abweicht.
+      headers: body === undefined ? { Accept: 'application/json', 'X-Blastzone-Lang': lang } : { Accept: 'application/json', 'Content-Type': 'application/json', 'X-Blastzone-Lang': lang },
       body: body === undefined ? undefined : JSON.stringify(body),
       signal: controller.signal,
     });
@@ -79,13 +82,13 @@ async function once(path: string, method: string, body: unknown): Promise<Json> 
     data = (await res.json()) as Json;
   } catch {
     // Kein JSON, etwa eine HTML-Fehlerseite, wenn die Functions nicht deployt sind oder Vercel selbst abbricht.
-    if (res.status === 404) throw new ApiError(404, 'bad-response', 'Konten sind auf dieser Installation nicht eingerichtet.');
+    if (res.status === 404) throw new ApiError(404, 'bad-response', t('api.notConfigured'));
     throw new ApiError(res.status, RETRY_STATUS.has(res.status) ? 'unavailable' : 'bad-response', res.status >= 500 ? TIMEOUT : OFFLINE);
   }
 
   if (!res.ok || data.ok !== true) {
     const err = (data.error ?? {}) as { code?: string; message?: string; ref?: string };
-    throw new ApiError(res.status, err.code ?? 'error', err.message ?? 'Das hat nicht geklappt.', err.ref);
+    throw new ApiError(res.status, err.code ?? 'error', err.message ?? t('api.failed'), err.ref);
   }
   return data;
 }

@@ -315,7 +315,7 @@ function mountTabs(root: HTMLElement, combos: Combo[]): () => void {
 
 export function fighterPage(route: Route): PageView {
   const f = FIGHTER_BY_SLUG.get(route.params.slug ?? '');
-  if (!f) return notFoundPage('Fighter-Seite');
+  if (!f) return notFoundPage('fighter');
 
   // Tiers from A+ downwards load on demand; until then the sections render as pending.
   const hasGuide = GUIDE_SLUGS.has(f.slug);

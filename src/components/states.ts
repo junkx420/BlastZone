@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import { html, qs, type Markup } from '../lib/dom';
 
 /**
@@ -13,8 +14,8 @@ export function errorState(title: string, text: string): Markup {
     <h3>${title}</h3>
     <p>${text}</p>
     <div class="empty__actions">
-      <button class="btn btn--sm" type="button" data-retry>Erneut versuchen</button>
-      <button class="btn btn--sm btn--ghost" type="button" data-reload>Seite neu laden</button>
+      <button class="btn btn--sm" type="button" data-retry>${t('state.retry')}</button>
+      <button class="btn btn--sm btn--ghost" type="button" data-reload>${t('state.reload')}</button>
     </div>
   </div>`;
 }
@@ -25,7 +26,7 @@ export function bindErrorState(host: ParentNode, retry: () => void): void {
     (e) => {
       const button = e.currentTarget as HTMLButtonElement;
       button.disabled = true;
-      button.textContent = 'Wird geladen …';
+      button.textContent = t('state.loading');
       retry();
     },
     { once: true },
@@ -33,4 +34,4 @@ export function bindErrorState(host: ParentNode, retry: () => void): void {
   qs<HTMLButtonElement>('[data-reload]', host)?.addEventListener('click', () => window.location.reload());
 }
 
-export const LOAD_FAILED_TEXT = 'Die Daten konnten nicht geladen werden. Meist hilft ein zweiter Versuch, nach einem Update der Seite ein Neuladen.';
+export const LOAD_FAILED_TEXT = t('state.loadFailed');

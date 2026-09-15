@@ -4,6 +4,7 @@ import { TIER_BY_SLUG } from '../data/tiers';
 import type { Fighter } from '../data/types';
 import { accentVars } from '../lib/color';
 import { html, mount, qs } from '../lib/dom';
+import { t } from '../i18n';
 import { lockScroll } from '../lib/motion';
 import { link } from '../lib/router';
 import { faceThumb } from './fighterTile';
@@ -21,17 +22,17 @@ export function initPalette(): { open: (query?: string) => void } {
   mount(
     dialog,
     html`<div class="palette__panel">
-      <h2 class="vh" id="palette-title">Fighter suchen</h2>
+      <h2 class="vh" id="palette-title">${t('palette.title')}</h2>
       <div class="palette__field">
         ${ICONS.search}
-        <label class="vh" for="palette-input">Name, Serie, Spitzname oder Fighter-Nummer</label>
+        <label class="vh" for="palette-input">${t('palette.inputLabel')}</label>
         <input id="palette-input" class="palette__input" type="text" role="combobox" aria-expanded="true"
           aria-controls="palette-list" aria-autocomplete="list" autocomplete="off" spellcheck="false"
-          placeholder="Name, Serie, Spitzname oder Nummer" />
-        <button class="palette__close" type="button" data-close>Esc<span class="vh">, Suche schließen</span></button>
+          placeholder="${t('palette.placeholder')}" />
+        <button class="palette__close" type="button" data-close>Esc<span class="vh">${t('palette.close')}</span></button>
       </div>
-      <ul id="palette-list" class="palette__list" role="listbox" aria-label="Treffer"></ul>
-      <p class="palette__empty" hidden>Kein Fighter gefunden. Probier den Seriennamen oder eine Abkürzung wie ZSS.</p>
+      <ul id="palette-list" class="palette__list" role="listbox" aria-label="${t('palette.results')}"></ul>
+      <p class="palette__empty" hidden>${t('palette.empty')}</p>
     </div>`,
   );
   document.body.append(dialog);

@@ -15,6 +15,7 @@ import { initBookmarkButtons } from './components/bookmarkButtons';
 import { initPalette } from './components/palette';
 import { renderShell } from './components/shell';
 import { initSiteBackground } from './components/siteBackground';
+import { lang, t } from './i18n';
 import { initErrorHandling, reportError } from './lib/errors';
 import { applyTheme } from './lib/theme';
 import { onAuth, refreshSession } from './services/auth';
@@ -37,6 +38,11 @@ import type { PageView } from './pages/types';
 
 const app = document.getElementById('app');
 if (!app) throw new Error('#app fehlt in index.html');
+
+// Sprache der Seite (i18n/lang.ts). index.html steht fest auf Deutsch, das hier zieht nach.
+document.documentElement.lang = lang;
+const skipLink = document.querySelector<HTMLAnchorElement>('.skip-link');
+if (skipLink) skipLink.textContent = t('skip');
 
 initErrorHandling();
 const palette = initPalette();
@@ -152,14 +158,14 @@ function linkReturningTile(nav: NavContext): void {
 
 /** Ersatzseite, wenn eine Seite beim Aufbau abstürzt. Besser als eine leere Fläche unter der Leiste. */
 const crashPage = (): PageView => ({
-  title: 'Fehler | Blastzone',
+  title: `${t('crash.pageTitle')} | Blastzone`,
   markup: html`<div class="page container page-crash">
     <div class="empty empty--error" role="alert">
-      <h1>Diese Seite ließ sich nicht aufbauen.</h1>
-      <p>Der Fehler ist gemeldet. Neu laden hilft meistens, sonst geht es über die Leiste oben weiter.</p>
+      <h1>${t('crash.heading')}</h1>
+      <p>${t('crash.text')}</p>
       <div class="empty__actions">
-        <button class="btn btn--sm" type="button" data-crash-reload>Seite neu laden</button>
-        <a class="btn btn--sm btn--ghost" href="#/">Zur Startseite</a>
+        <button class="btn btn--sm" type="button" data-crash-reload>${t('state.reload')}</button>
+        <a class="btn btn--sm btn--ghost" href="#/">${t('crash.home')}</a>
       </div>
     </div>
   </div>`,

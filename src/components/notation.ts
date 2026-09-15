@@ -1,4 +1,5 @@
 import { parseInput, type Glyph, type Token } from '../data/notation';
+import { t } from '../i18n';
 import { html, raw, type Markup } from '../lib/dom';
 
 const ARROW = raw('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2 19.2 11h-4.7v9.8H9.5V11H4.8z"/></svg>');
@@ -19,7 +20,7 @@ export function glyph(g: Glyph): Markup {
 export const tokenKeys = (token: Token): Markup =>
   html`<span class="keys__token" title="${token.name}">${token.glyphs.map(glyph)}</span>`;
 
-/** Controller glyphs for one combo step, e.g. "sh nair" → [X tap] [Luft] [A]. */
+/** Controller glyphs for one combo step, e.g. "sh nair" → [X tap] [Air] [A]. */
 export function inputKeys(input: string): Markup {
   const tokens = parseInput(input);
   return html`<span class="keys" aria-hidden="true">${tokens.map(
@@ -35,4 +36,4 @@ export const inputLabel = (input: string, label?: string): string =>
 export const inputDescription = (input: string): string =>
   parseInput(input)
     .map((t) => t.name)
-    .join(', dann ');
+    .join(t('join.then'));

@@ -1,11 +1,12 @@
 import type { Combo } from '../data/types';
+import { t } from '../i18n';
 import { heatColor } from '../lib/color';
 import { html, qs, qsa, type Markup } from '../lib/dom';
 import { gsap, motionOK } from '../lib/motion';
 import { ICONS } from './icons';
 import { inputDescription, inputKeys, inputLabel } from './notation';
 
-const DIFFICULTY: Record<Combo['difficulty'], string> = { 1: 'Einsteiger', 2: 'Fortgeschritten', 3: 'Präzise' };
+const DIFFICULTY: Record<Combo['difficulty'], string> = { 1: t('combo.diff1'), 2: t('combo.diff2'), 3: t('combo.diff3') };
 
 export const comboTotal = (combo: Combo): number => combo.steps.reduce((sum, s) => sum + s.dmg, 0);
 
@@ -33,17 +34,17 @@ export function comboSteps(combo: Combo): Markup {
           <span class="vh">${inputDescription(step.input)}.</span>
           ${step.note ? html`<span class="step__note">${step.note}</span>` : ''}
         </span>
-        <span class="step__dmg">${step.dmg ? `+${step.dmg} %` : ''}</span>
+        <span class="step__dmg">${step.dmg ? t('combo.stepDamage', { n: step.dmg }) : ''}</span>
       </li>`,
     )}
   </ol>`;
 }
 
-/** Percent window as the source states it: "0–30 %", "ab 160 %" or a qualitative label. */
+/** Percent window as the source states it: "0 bis 30 %", "ab 160 %" or a qualitative label. */
 export function windowText(combo: Combo): string {
-  if (!combo.window) return combo.windowLabel ?? 'situativ';
+  if (!combo.window) return combo.windowLabel ?? t('combo.situational');
   const [from, to] = combo.window;
-  return to === null ? `ab ${from} %` : `${from} bis ${to} %`;
+  return to === null ? t('combo.windowFrom', { from }) : t('combo.windowRange', { from, to });
 }
 
 export function comboCard(combo: Combo): Markup {
@@ -51,19 +52,19 @@ export function comboCard(combo: Combo): Markup {
   return html`<article class="combo" data-combo="${combo.id}" aria-labelledby="${combo.id}-title">
     <header class="combo__head">
       <h3 class="combo__title" id="${combo.id}-title">${combo.title}</h3>
-      <button class="combo__bookmark" type="button" data-bookmark="${combo.id}" aria-pressed="false" aria-describedby="${combo.id}-title" title="In deinen Mains speichern">
-        <span class="combo__bookmark-off">${ICONS.bookmark}</span><span class="combo__bookmark-on">${ICONS.bookmarkFilled}</span><span class="vh">Combo speichern</span>
+      <button class="combo__bookmark" type="button" data-bookmark="${combo.id}" aria-pressed="false" aria-describedby="${combo.id}-title" title="${t('bookmark.save')}">
+        <span class="combo__bookmark-off">${ICONS.bookmark}</span><span class="combo__bookmark-on">${ICONS.bookmarkFilled}</span><span class="vh">${t('bookmark.saveVh')}</span>
       </button>
       <dl class="combo__facts">
-        <div class="fact"><dt>Prozent</dt><dd>${windowText(combo)}</dd></div>
-        <div class="fact"><dt>Quelle</dt><dd><a href="${combo.source.url}" target="_blank" rel="noopener">${combo.source.label}${ICONS.external}</a></dd></div>
-        <div class="fact"><dt>Schaden</dt><dd>≈ ${total} %</dd></div>
-        <div class="fact"><dt>Ausführung</dt><dd><span class="difficulty" data-level="${combo.difficulty}">${DIFFICULTY[combo.difficulty]}</span></dd></div>
+        <div class="fact"><dt>${t('combo.percent')}</dt><dd>${windowText(combo)}</dd></div>
+        <div class="fact"><dt>${t('combo.source')}</dt><dd><a href="${combo.source.url}" target="_blank" rel="noopener">${combo.source.label}${ICONS.external}</a></dd></div>
+        <div class="fact"><dt>${t('combo.damage')}</dt><dd>${t('combo.approxDamage', { n: total })}</dd></div>
+        <div class="fact"><dt>${t('combo.execution')}</dt><dd><span class="difficulty" data-level="${combo.difficulty}">${DIFFICULTY[combo.difficulty]}</span></dd></div>
       </dl>
       ${combo.ztd || combo.kills || combo.tags?.length
         ? html`<ul class="combo__tags" role="list">
-            ${combo.ztd ? html`<li class="tag tag--ztd">0-to-Death</li>` : ''}
-            ${combo.kills && !combo.ztd ? html`<li class="tag tag--ko">Kill-Confirm</li>` : ''}
+            ${combo.ztd ? html`<li class="tag tag--ztd">${t('combo.tagZtd')}</li>` : ''}
+            ${combo.kills && !combo.ztd ? html`<li class="tag tag--ko">${t('combo.tagKo')}</li>` : ''}
             ${(combo.tags ?? []).map((t) => html`<li class="tag">${t}</li>`)}
           </ul>`
         : ''}
@@ -72,7 +73,7 @@ export function comboCard(combo: Combo): Markup {
     <div class="combo__hud">
       ${meter(combo.start)}
       <button class="btn btn--play" type="button" data-play aria-describedby="${combo.id}-title">
-        ${ICONS.play}<span data-play-label>Abspielen</span>
+        ${ICONS.play}<span data-play-label>${t('combo.play')}</span>
       </button>
     </div>
     <p class="combo__tip">${combo.tip}</p>
@@ -167,9 +168,9 @@ export function bindComboCards(root: HTMLElement, combos: Combo[]): () => void {
     const label = qs<HTMLElement>('[data-play-label]', card);
     const tl = playCombo(card, combo);
     tl.eventCallback('onComplete', () => {
-      if (label) label.textContent = 'Nochmal';
+      if (label) label.textContent = t('combo.again');
     });
-    if (!motionOK() && label) label.textContent = 'Nochmal';
+    if (!motionOK() && label) label.textContent = t('combo.again');
     running.set(card, tl);
   };
 

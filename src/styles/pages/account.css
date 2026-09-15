@@ -4,6 +4,86 @@
 
 @layer components {
   /* ── Leiste ─────────────────────────────────────────────────────────── */
+  /* Sprachwahl (components/langSwitch.ts): Globus mit Sprachkürzel, Menü darunter. */
+  .nav__lang {
+    position: relative;
+    flex: none;
+  }
+  .lang__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0 10px;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    background: rgb(var(--fg-rgb) / 0.05);
+    color: var(--text-muted);
+    font-size: var(--fs-100);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast),
+      color var(--t-fast);
+  }
+  .lang__btn:hover,
+  .lang__btn[aria-expanded='true'] {
+    border-color: var(--line-strong);
+    background: rgb(var(--fg-rgb) / 0.09);
+    color: var(--text);
+  }
+  .lang__btn:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .lang__btn .icon {
+    width: 18px;
+    height: 18px;
+  }
+  .lang__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: var(--z-overlay);
+    display: grid;
+    min-width: 180px;
+    padding: 6px;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim), var(--elev-2);
+  }
+  .lang__opt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    min-height: 44px;
+    padding: 0 12px;
+    border-radius: 8px;
+    color: var(--text);
+    font-weight: 700;
+  }
+  .lang__opt:hover,
+  .lang__opt:focus-visible {
+    background: rgb(var(--fg-rgb) / 0.08);
+  }
+  .lang__opt:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: -2px;
+  }
+  .lang__opt[aria-current='true'] {
+    color: var(--accent-text);
+  }
+  .lang__opt .icon {
+    width: 16px;
+    height: 16px;
+  }
   .nav__account {
     display: flex;
     flex: none;
@@ -69,10 +149,20 @@
     white-space: nowrap;
   }
   /*
-   * Einzeilige Leiste unter 1100 px: nur Avatar, sonst schiebt ein langer Name den Chip aus der Leiste (layout.css).
+   * Einzeilige Leiste unter 1180 px: nur Avatar und Globus ohne Kürzel, sonst schiebt ein langer Name den Chip aus der Leiste (layout.css).
    * Nur optisch ausblenden, nie display: none: Das Bild ist aria-hidden, ohne den Text hätte der Link keinen Namen.
    */
-  @media (min-width: 901px) and (max-width: 1099px) {
+  @media (min-width: 901px) and (max-width: 1179px) {
+    .lang__code {
+      display: none;
+    }
+    .lang__btn {
+      justify-content: center;
+      width: 40px;
+      padding: 0;
+    }
+  }
+  @media (min-width: 901px) and (max-width: 1259px) {
     .nav__me-name {
       position: absolute;
       width: 1px;
@@ -88,6 +178,7 @@
     }
   }
   @media (max-width: 900px) {
+    .nav__lang,
     .nav__account {
       order: 2;
     }
@@ -110,6 +201,15 @@
     .nav__login,
     .nav__me {
       position: relative;
+    }
+    /* Nur der Globus. Das Kürzel ist aria-hidden, der Name für Screenreader steht im .vh-Text. */
+    .lang__code {
+      display: none;
+    }
+    .lang__btn {
+      justify-content: center;
+      width: 40px;
+      padding: 0;
     }
     /*
      * Neben Logo, Theme-Knopf und Avatar blieb für das Suchfeld nur ein Streifen,
