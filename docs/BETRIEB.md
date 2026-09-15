@@ -45,6 +45,8 @@ Alles, was Blastzone im Livebetrieb stabil hält: Grenzen, Überwachung, Fehlers
 | start.gg verknüpfen | 10 pro Stunde pro Konto (jeder Versuch kostet eine start.gg-Anfrage) |
 | start.gg lösen | 20 pro Stunde pro Konto |
 | Spielerprofil ansehen | 60 pro Minute pro Konto (bremst das Durchprobieren von Namen) |
+| Community-Verzeichnis | 60 pro Minute pro Konto, 24 Einträge pro Seite |
+| Community-Einstellungen (Verzeichnis, Secondaries) ändern | 30 pro Minute pro Konto |
 | Mit start.gg bestätigen starten | 10 pro Stunde pro Konto |
 | Rücksprung von start.gg (Callback) | 20 pro Stunde pro IP (noch ohne Sitzung, jeder kann zwei start.gg-Anfragen auslösen) |
 | Bestätigung speichern | 20 pro Stunde pro Konto |

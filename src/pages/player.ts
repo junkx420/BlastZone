@@ -81,13 +81,23 @@ function commentList(p: Player): Markup {
   </ol>`;
 }
 
+function secondaryChips(p: Player): Markup {
+  const fighters = p.secondaries.map((s) => FIGHTER_BY_SLUG.get(s)).filter((f) => f !== undefined);
+  if (!fighters.length) return html`Keine`;
+  return html`<span class="player-secs">
+    ${fighters.map((f) => html`<a class="comment__flair" href="${link(`/fighter/${f.slug}`)}" style="${accentVars(f.colors)}">${faceThumb(f, 'comment__flair-face')}<span>${f.name}</span></a>`)}
+  </span>`;
+}
+
 function playerView(p: Player): Markup {
   const main = p.mainFighter ? FIGHTER_BY_SLUG.get(p.mainFighter) : undefined;
   return html`<header class="container profile-head" ${main ? html`style="${accentVars(main.colors)}"` : ''}>
       <span class="profile-head__avatar">${main ? faceThumb(main, 'profile-head__face') : ICONS.user}</span>
       <div class="profile-head__text">
         <h1 class="profile-head__name">${p.username}</h1>
-        <p class="profile-head__meta">${p.isSelf ? 'Das bist du. So sehen dich andere Mitglieder.' : 'Spielerprofil'}</p>
+        <p class="profile-head__meta">
+          ${p.isSelf ? 'Das bist du. So sehen dich andere Mitglieder.' : html`Spielerprofil aus der <a class="link link--inline" href="${link('/community')}">Community</a>`}
+        </p>
       </div>
       ${p.isSelf ? html`<a class="btn btn--sm" href="${link('/profil')}">${ICONS.user}Profil bearbeiten</a>` : ''}
     </header>
@@ -97,6 +107,10 @@ function playerView(p: Player): Markup {
         <div class="player-stat">
           <dt>Main</dt>
           <dd>${main ? html`<a class="link" href="${link(`/fighter/${main.slug}`)}">${main.name}</a>` : 'Kein Main'}</dd>
+        </div>
+        <div class="player-stat">
+          <dt>Secondaries</dt>
+          <dd>${secondaryChips(p)}</dd>
         </div>
         <div class="player-stat">
           <dt>Kommentare</dt>

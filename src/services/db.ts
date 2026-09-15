@@ -117,6 +117,7 @@ export async function toggleBookmark(comboId: string): Promise<boolean> {
 export interface Player {
   username: string;
   mainFighter: string | null;
+  secondaries: string[];
   /** „2026-09“ */
   memberSince: string;
   isSelf: boolean;
@@ -130,6 +131,47 @@ export interface Player {
  */
 export const getPlayer = (name: string): Promise<Player> =>
   guarded(async () => (await api<{ player: Player }>(`community/player?name=${encodeURIComponent(name)}`)).player);
+
+export interface CommunitySettings {
+  /** Im Verzeichnis sichtbar. Standard: nein. */
+  listed: boolean;
+  secondaries: string[];
+}
+
+export const getCommunitySettings = (): Promise<CommunitySettings> =>
+  guarded(async () => (await api<{ settings: CommunitySettings }>('community/me')).settings);
+
+export const saveCommunitySettings = (patch: Partial<CommunitySettings>): Promise<CommunitySettings> =>
+  guarded(async () => {
+    const { settings } = await api<{ settings: CommunitySettings }>('community/me', { method: 'PATCH', body: patch });
+    invalidate('community/');
+    return settings;
+  });
+
+export interface DirectoryEntry {
+  username: string;
+  mainFighter: string | null;
+  secondaries: string[];
+  memberSince: string;
+}
+
+export interface DirectoryPage {
+  players: DirectoryEntry[];
+  nextCursor: string | null;
+}
+
+/** Eine Seite des Verzeichnisses. `q`: Namensanfang, `fighter`: als Main oder Secondary. 30 Sekunden zwischengespeichert. */
+export const listDirectory = (opts: { q?: string; fighter?: string; after?: string }): Promise<DirectoryPage> => {
+  const params = new URLSearchParams();
+  if (opts.q) params.set('q', opts.q);
+  if (opts.fighter) params.set('fighter', opts.fighter);
+  if (opts.after) params.set('after', opts.after);
+  const qs = params.toString();
+  return guarded(async () => {
+    const res = await api<{ players: DirectoryEntry[]; nextCursor?: string | null }>(`community/directory${qs ? `?${qs}` : ''}`, { ttl: 30_000 });
+    return { players: res.players, nextCursor: res.nextCursor ?? null };
+  });
+};
 
 /* ── start.gg ───────────────────────────────────────────────────────────── */
 

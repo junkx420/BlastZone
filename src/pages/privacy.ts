@@ -95,10 +95,16 @@ export function privacyPage(): PageView {
         </p>
         <p>
           <strong>Spielerprofile sehen nur angemeldete Mitglieder.</strong> Wer angemeldet ist, kann auf deinen Namen
-          klicken und sieht dann eine Profilseite mit Benutzername, Main-Fighter, dem Monat deiner Registrierung, der
-          Anzahl deiner Kommentare und deinen letzten Kommentaren. Das sind Angaben, die über deine Kommentare ohnehin
-          sichtbar sind, zusammengefasst an einer Stelle. E-Mail-Adresse, gespeicherte Combos und deine
-          start.gg-Verknüpfung erscheinen dort nicht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, die
+          klicken und sieht dann eine Profilseite mit Benutzername, Main-Fighter, deinen Secondaries (falls gewählt),
+          dem Monat deiner Registrierung, der Anzahl deiner Kommentare und deinen letzten Kommentaren. E-Mail-Adresse,
+          gespeicherte Combos und deine start.gg-Verknüpfung erscheinen dort nicht.
+        </p>
+        <p>
+          <strong>Ins Community-Verzeichnis kommst du nur, wenn du es selbst einschaltest.</strong> Dann erscheinst du
+          in der Liste unter <code>#/community</code> mit Benutzername, Main, Secondaries und Monat der Registrierung,
+          ebenfalls nur für angemeldete Mitglieder. Abschalten geht jederzeit im Profil, du verschwindest dann sofort
+          aus der Liste. Secondaries und die Einstellung für das Verzeichnis liegen bei Supabase und werden mit dem
+          Konto gelöscht. Rechtsgrundlage für Spielerprofil und Verzeichnis ist Art. 6 Abs. 1 lit. b DSGVO, die
           Community-Funktionen des Kontos.
         </p>
         <p>

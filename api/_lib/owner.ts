@@ -1,5 +1,5 @@
 import { HttpError } from './http.js';
-import type { Auth, BookmarkRow, CommentRow, PlayerRow, Profile } from './types.js';
+import type { Auth, BookmarkRow, CommentRow, DirectoryRow, PlayerRow, Profile } from './types.js';
 
 /**
  * Letzte Prüfung vor der Antwort: Gehört das, was zurückgeht, dem angemeldeten Nutzer?
@@ -60,19 +60,38 @@ export interface PublicPlayer {
   mainFighter: string | null;
   /** Nur Jahr und Monat („2026-09“). Der genaue Tag wird nicht gebraucht. */
   memberSince: string;
+  secondaries: string[];
   isSelf: boolean;
   stats: { comments: number };
   recentComments: Array<{ id: number; fighter: string; body: string; createdAt: string }>;
 }
 
+/** Secondaries ohne den Main: Wechselt jemand den Main auf einen Secondary, steht er nicht doppelt da. */
+const secondariesWithout = (secondaries: string[], main: string | null): string[] => secondaries.filter((s) => s !== main).slice(0, 2);
+
 /** Spielerprofil für andere Mitglieder. Keine Nutzer-ID, keine E-Mail, nichts Privates. */
 export const publicPlayer = (row: PlayerRow, viewerId: string): PublicPlayer => ({
   username: row.username,
   mainFighter: row.mainFighter,
+  secondaries: secondariesWithout(row.secondaries, row.mainFighter),
   memberSince: row.createdAt.slice(0, 7),
   isSelf: row.userId === viewerId,
   stats: { comments: row.commentCount },
   recentComments: row.recentComments.map((c) => ({ id: c.id, fighter: c.fighter, body: c.body, createdAt: c.createdAt })),
+});
+
+export interface PublicDirectoryEntry {
+  username: string;
+  mainFighter: string | null;
+  secondaries: string[];
+  memberSince: string;
+}
+
+export const publicDirectoryEntry = (row: DirectoryRow): PublicDirectoryEntry => ({
+  username: row.username,
+  mainFighter: row.mainFighter,
+  secondaries: secondariesWithout(row.secondaries, row.mainFighter),
+  memberSince: row.createdAt.slice(0, 7),
 });
 
 /** Ein gerade geschriebener Kommentar muss vom Schreibenden stammen. */

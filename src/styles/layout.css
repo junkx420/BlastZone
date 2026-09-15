@@ -197,6 +197,30 @@
     font-weight: 700;
   }
 
+  /*
+   * Einzeilige Leiste zwischen 901 und 1279 px: Mit fünf Links, Suche und dem
+   * Profil-Chip eines 20 Zeichen langen Namens stand der Chip bei 960 px 150 px
+   * über die Leiste, und schon mit vier Links 50 px. Deshalb verschwinden hier
+   * die breiten Links (Community), die Links rücken enger, und der Chip zeigt unter
+   * 1100 px nur den Avatar (pages/account.css). Gemessen am 15.09.2026 mit dem
+   * breitesten Namen (20 × W): bis 1279 passt es so, bei 1180 mit Community ragte
+   * der Chip 57 px über, ab 1280 passt Community.
+   */
+  @media (min-width: 901px) and (max-width: 1279px) {
+    .nav__link--wide {
+      display: none;
+    }
+  }
+  @media (min-width: 901px) and (max-width: 1179px) {
+    .nav__link {
+      padding: 0 10px;
+    }
+    .nav__link::after {
+      left: 10px;
+      right: 10px;
+    }
+  }
+
   /* Vier Links, Logo und Suche passen erst ab rund 900 px in eine Zeile. */
   @media (max-width: 900px) {
     /*

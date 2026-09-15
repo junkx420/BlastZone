@@ -23,6 +23,7 @@ import { html, mount, qs, qsa } from './lib/dom';
 import { initReveals, initSmoothScroll, motionOK, scrollToTarget, ScrollTrigger } from './lib/motion';
 import { startRouter, type NavContext, type Route } from './lib/router';
 import { archetypesPage } from './pages/archetypes';
+import { communityPage } from './pages/community';
 import { confirmPage } from './pages/confirm';
 import { fighterPage } from './pages/fighter';
 import { homePage } from './pages/home';
@@ -99,6 +100,8 @@ function view(route: Route): PageView {
       return imprintPage();
     case 'spieler':
       return playerPage(route);
+    case 'community':
+      return communityPage(route);
     case 'fighter':
       return fighterPage(route);
     default:

@@ -90,6 +90,33 @@ export interface PlayerRow {
   createdAt: string;
   commentCount: number;
   recentComments: Array<{ id: number; fighter: string; body: string; createdAt: string }>;
+  /** Leer, solange Migration 0006 fehlt oder nichts gewählt ist. */
+  secondaries: string[];
+}
+
+/** Eigene Community-Einstellungen. Fehlt die Zeile, gelten die Standardwerte (nicht gelistet, keine Secondaries). */
+export interface CommunityRow {
+  userId: string;
+  listed: boolean;
+  secondaries: string[];
+}
+
+/** Ein Eintrag im Verzeichnis. Ohne Nutzer-ID, das Verzeichnis braucht keine. */
+export interface DirectoryRow {
+  username: string;
+  mainFighter: string | null;
+  secondaries: string[];
+  createdAt: string;
+}
+
+export interface DirectoryQuery {
+  /** Anfang des Benutzernamens, Groß- und Kleinschreibung egal. */
+  query: string | null;
+  /** Fighter als Main oder Secondary. */
+  fighter: string | null;
+  /** Benutzername des letzten Eintrags der vorigen Seite. */
+  after: string | null;
+  limit: number;
 }
 
 /** Zeile im Placement-Cache. `payload` ist ungeprüft, bis startggCache.ts die Signatur bestätigt. */
@@ -140,6 +167,13 @@ export interface Backend {
    * spätere Policies „nur authenticated“ greifen. `null`, wenn es den Namen nicht gibt.
    */
   getPlayer(auth: Auth, username: string): Promise<PlayerRow | null>;
+
+  /** Eigene Community-Zeile, höchstens eine. */
+  getCommunity(auth: Auth): Promise<CommunityRow[]>;
+  /** Legt an oder ändert nur die übergebenen Felder. Liefert die gespeicherte Zeile. */
+  saveCommunity(auth: Auth, patch: { listed?: boolean; secondaries?: string[] }): Promise<CommunityRow[]>;
+  /** Eingetragene Mitglieder, nach Name sortiert. */
+  listDirectory(auth: Auth, q: DirectoryQuery): Promise<DirectoryRow[]>;
 
   /*
    * Alles, was einem Nutzer gehört, bekommt `auth` statt nur des Tokens: Die

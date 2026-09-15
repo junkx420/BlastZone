@@ -10,6 +10,9 @@ const NAV: Array<{ route: RouteName; path: string; label: string; wide?: boolean
   // Label bewusst "Inputs": "Notation" sagt in der Szene niemand.
   // Der Pfad bleibt /notation, damit vorhandene Links weiter funktionieren.
   { route: 'notation', path: '/notation', label: 'Inputs' },
+  // Unter 900 px ausgeblendet (wide): Fünf Links passen auf dem Handy nicht in die Leiste.
+  // Dort führen Fußzeile, Profil und jedes Spielerprofil zur Community.
+  { route: 'community', path: '/community', label: 'Community', wide: true },
 ];
 
 export interface Shell {

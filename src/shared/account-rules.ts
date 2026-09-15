@@ -80,5 +80,24 @@ export function cleanComment(input: string): string {
 export const FIGHTER_SLUG_PATTERN = /^[a-z0-9-]{2,40}$/;
 export const COMBO_ID_PATTERN = /^[a-z0-9-]{3,80}$/;
 
+/** Höchstens so viele Secondaries neben dem Main. Die Datenbank prüft dieselbe Grenze (Migration 0006). */
+export const MAX_SECONDARIES = 2;
+
+/**
+ * Prüft eine Secondary-Auswahl. Liefert die bereinigte Liste oder einen Fehlertext.
+ * Doppelte Einträge fallen still weg, der Main darf nicht gleichzeitig Secondary sein.
+ */
+export function checkSecondaries(input: unknown, main: string | null): { ok: true; value: string[] } | { ok: false; message: string } {
+  if (!Array.isArray(input)) return { ok: false, message: 'Secondaries müssen eine Liste sein.' };
+  const value = [...new Set(input)];
+  if (value.some((s) => typeof s !== 'string' || !FIGHTER_SLUG_PATTERN.test(s))) return { ok: false, message: 'Unbekannter Fighter.' };
+  if (value.length > MAX_SECONDARIES) return { ok: false, message: `Höchstens ${MAX_SECONDARIES} Secondaries.` };
+  if (main && value.includes(main)) return { ok: false, message: 'Dein Main kann nicht gleichzeitig Secondary sein.' };
+  return { ok: true, value: value as string[] };
+}
+
+/** Anfang eines Benutzernamens für die Suche im Verzeichnis. */
+export const USERNAME_PREFIX_PATTERN = /^[A-Za-z0-9_-]{1,20}$/;
+
 /** Einheitlicher Text, wenn eine Adresse als Wegwerf-Mail erkannt wird. Vorgabe des Betreibers. */
 export const DISPOSABLE_MESSAGE = 'Bitte nutze eine echte E-Mail-Adresse.';

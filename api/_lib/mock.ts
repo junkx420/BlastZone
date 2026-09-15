@@ -29,6 +29,7 @@ interface Store {
   bookmarks: Map<string, string[]>;
   startggLinks?: Map<string, StartggLinkRow>;
   startggCache?: Map<string, StartggCacheRow>;
+  community?: Map<string, { listed: boolean; secondaries: string[] }>;
   nextComment: number;
 }
 
@@ -143,7 +144,44 @@ export function mockBackend(): Backend {
         createdAt: user.createdAt ?? new Date().toISOString(),
         commentCount: own.length,
         recentComments: own.slice(0, 5).map((c) => ({ id: c.id, fighter: c.fighter, body: c.body, createdAt: c.createdAt })),
+        secondaries: [...(store.community?.get(user.id)?.secondaries ?? [])],
       };
+    },
+
+    async getCommunity(auth) {
+      const user = userFor(auth.token);
+      const row = user.id === auth.userId ? store.community?.get(user.id) : undefined;
+      return row ? [{ userId: user.id, listed: row.listed, secondaries: [...row.secondaries] }] : [];
+    },
+
+    async saveCommunity(auth, patch) {
+      const user = userFor(auth.token);
+      if (!user.confirmed) throw new BackendError('forbidden');
+      const map = (store.community ??= new Map());
+      const row = map.get(user.id) ?? { listed: false, secondaries: [] };
+      if (patch.listed !== undefined) row.listed = patch.listed;
+      if (patch.secondaries !== undefined) {
+        // Wie der CHECK in 0006
+        const s = patch.secondaries;
+        if (s.length > 2 || (s.length === 2 && s[0] === s[1]) || s.some((x) => !/^[a-z0-9-]{2,40}$/.test(x))) throw new BackendError('bad-request');
+        row.secondaries = [...s];
+      }
+      map.set(user.id, row);
+      return [{ userId: user.id, listed: row.listed, secondaries: [...row.secondaries] }];
+    },
+
+    async listDirectory(auth, q) {
+      userFor(auth.token);
+      const after = q.after?.toLowerCase() ?? null;
+      return [...store.users.values()]
+        .filter((u) => store.community?.get(u.id)?.listed)
+        .map((u) => ({ u, c: store.community!.get(u.id)! }))
+        .filter(({ u }) => !q.query || u.profile.username.toLowerCase().startsWith(q.query.toLowerCase()))
+        .filter(({ u, c }) => !q.fighter || u.profile.mainFighter === q.fighter || c.secondaries.includes(q.fighter))
+        .filter(({ u }) => !after || u.profile.username.toLowerCase() > after)
+        .sort((a, b) => (a.u.profile.username.toLowerCase() < b.u.profile.username.toLowerCase() ? -1 : 1))
+        .slice(0, Math.min(Math.max(q.limit, 1), 50))
+        .map(({ u, c }) => ({ username: u.profile.username, mainFighter: u.profile.mainFighter, secondaries: [...c.secondaries], createdAt: u.createdAt ?? new Date().toISOString() }));
     },
 
     /*
@@ -174,6 +212,7 @@ export function mockBackend(): Backend {
       store.bookmarks.delete(user.id);
       store.startggLinks?.delete(user.id);
       store.startggCache?.delete(user.id);
+      store.community?.delete(user.id);
       for (const [t, v] of store.tokens) if (v.userId === user.id) store.tokens.delete(t);
     },
 

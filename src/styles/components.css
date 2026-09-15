@@ -131,6 +131,11 @@
     text-underline-offset: 0.3em;
     transition: text-decoration-color var(--t-fast);
   }
+  /* Link mitten im Satz: bricht mit dem Text um, statt als 44 px hoher Block eine eigene Zeile zu nehmen. */
+  .link.link--inline {
+    display: inline;
+    min-height: 0;
+  }
   .link:hover {
     text-decoration-color: var(--accent-text);
   }

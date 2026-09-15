@@ -13,7 +13,8 @@ import { link } from '../lib/router';
 import { applyTheme } from '../lib/theme';
 import { ApiError } from '../services/api';
 import { logout, onAuth, type AuthState, type User } from '../services/auth';
-import { deleteAccount, loadBookmarks, onBookmarks, updateProfile } from '../services/db';
+import { deleteAccount, getCommunitySettings, loadBookmarks, onBookmarks, saveCommunitySettings, updateProfile } from '../services/db';
+import { MAX_SECONDARIES } from '../shared/account-rules';
 import type { PageView } from './types';
 
 /**
@@ -64,6 +65,24 @@ function mainPicker(user: User): Markup {
   </section>`;
 }
 
+function secondaryPicker(selected: readonly string[], main: string | null): Markup {
+  return html`<div class="field profile-filter">
+      ${ICONS.search}
+      <label class="vh" for="sec-filter">Fighter filtern</label>
+      <input id="sec-filter" class="input" type="search" placeholder="Fighter filtern" autocomplete="off" spellcheck="false" data-sec-filter />
+    </div>
+    <fieldset class="mainpick" data-sec-grid>
+      <legend class="vh">Secondaries auswählen, höchstens ${MAX_SECONDARIES}</legend>
+      ${BY_NAME.map(
+        (f) => html`<label class="mainpick__opt" style="${accentVars(f.colors)}" data-name="${normalize(`${f.name} ${f.aliases.join(' ')}`)}">
+          <input type="checkbox" name="secondary" value="${f.slug}" ${selected.includes(f.slug) ? 'checked' : ''} ${f.slug === main ? 'disabled' : ''} />
+          ${faceThumb(f, 'mainpick__face')}
+          <span class="mainpick__name">${f.name}${f.slug === main ? html`<span class="mainpick__tag">Main</span>` : ''}</span>
+        </label>`,
+      )}
+    </fieldset>`;
+}
+
 function userView(user: User): Markup {
   const main = user.mainFighter ? FIGHTER_BY_SLUG.get(user.mainFighter) : undefined;
   return html`<header class="container profile-head" ${main ? html`style="${accentVars(main.colors)}"` : ''}>
@@ -87,6 +106,31 @@ function userView(user: User): Markup {
     ${startggSection()}
 
     ${mainPicker(user)}
+
+    <section class="container profile-section glass" aria-labelledby="sec-title">
+      <div class="profile-section__head">
+        <h2 id="sec-title">Secondaries</h2>
+        <p class="profile-status" role="status" data-sec-status></p>
+      </div>
+      <p class="profile-section__lead">Bis zu ${MAX_SECONDARIES} Fighter, die du neben deinem Main spielst. Sehen andere Mitglieder in deinem Spielerprofil und im Verzeichnis.</p>
+      <div data-sec-host><p class="profile-status">Lädt …</p></div>
+    </section>
+
+    <section class="container profile-section glass" aria-labelledby="community-title">
+      <div class="profile-section__head">
+        <h2 id="community-title">Community</h2>
+        <p class="profile-status" role="status" data-community-status></p>
+      </div>
+      <p class="profile-section__lead">
+        Im <a class="link link--inline" href="${link('/community')}">Community-Verzeichnis</a> finden dich andere Mitglieder mit Name, Main und
+        Secondaries. Freiwillig und jederzeit abschaltbar. Dein Spielerprofil ist für Mitglieder immer über deinen Namen erreichbar.
+      </p>
+      <label class="switch">
+        <input type="checkbox" role="switch" disabled data-listed />
+        <span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>
+        <span class="switch__label">Im Verzeichnis zeigen</span>
+      </label>
+    </section>
 
     <section class="container profile-section glass" aria-labelledby="theme-title">
       <div class="profile-section__head">
@@ -178,6 +222,104 @@ export function profilePage(): PageView {
         /* start.gg */
         cleanups.push(mountStartggSection(host));
 
+        /* Secondaries und Verzeichnis (eine Zeile in community_profiles, erst nach dem Laden bedienbar) */
+        const secHost = qs<HTMLElement>('[data-sec-host]', host)!;
+        const secStatus = qs<HTMLElement>('[data-sec-status]', host)!;
+        const listedInput = qs<HTMLInputElement>('[data-listed]', host)!;
+        const communityStatus = qs<HTMLElement>('[data-community-status]', host)!;
+        let secondaries: string[] = [];
+        let currentMain = user.mainFighter;
+
+        const secSummary = (): string =>
+          secondaries.length ? `Gewählt: ${secondaries.map((s) => FIGHTER_BY_SLUG.get(s)?.name ?? s).join(', ')}` : 'Keine Secondaries';
+
+        /** Bei zwei gewählten sind die übrigen gesperrt, der Main ist es immer. */
+        const syncSecGrid = (): void => {
+          qsa<HTMLInputElement>('input[name="secondary"]', secHost).forEach((input) => {
+            const isMain = input.value === currentMain;
+            input.checked = secondaries.includes(input.value);
+            input.disabled = isMain || (!input.checked && secondaries.length >= MAX_SECONDARIES);
+            const name = qs<HTMLElement>('.mainpick__name', input.closest('label')!)!;
+            const tag = qs('.mainpick__tag', name);
+            if (isMain && !tag) {
+              const badge = document.createElement('span');
+              badge.className = 'mainpick__tag';
+              badge.textContent = 'Main';
+              name.append(badge);
+            }
+            if (!isMain) tag?.remove();
+          });
+        };
+
+        const saveSecondaries = async (next: string[], previous: string[]): Promise<void> => {
+          secondaries = next;
+          syncSecGrid();
+          secStatus.textContent = 'Wird gespeichert …';
+          try {
+            secondaries = (await saveCommunitySettings({ secondaries: next })).secondaries;
+            secStatus.textContent = `Gespeichert. ${secSummary()}`;
+          } catch (err) {
+            secondaries = previous;
+            secStatus.textContent = err instanceof ApiError ? err.message : 'Nicht gespeichert.';
+          }
+          syncSecGrid();
+        };
+
+        const loadCommunity = (): void => {
+          getCommunitySettings().then(
+            (settings) => {
+              if (!secHost.isConnected) return;
+              secondaries = settings.secondaries.filter((s) => s !== currentMain);
+              mount(secHost, secondaryPicker(secondaries, currentMain));
+              syncSecGrid();
+              secStatus.textContent = secSummary();
+              listedInput.checked = settings.listed;
+              listedInput.disabled = false;
+
+              const secGrid = qs<HTMLElement>('[data-sec-grid]', secHost)!;
+              qs<HTMLInputElement>('[data-sec-filter]', secHost)!.addEventListener('input', (e) => {
+                const q = normalize((e.target as HTMLInputElement).value);
+                qsa<HTMLElement>('[data-name]', secGrid).forEach((opt) => (opt.hidden = Boolean(q) && !opt.dataset.name!.includes(q)));
+              });
+              secGrid.addEventListener('change', (e) => {
+                const input = e.target as HTMLInputElement;
+                if (input.name !== 'secondary') return;
+                const previous = [...secondaries];
+                const next = input.checked ? [...previous, input.value] : previous.filter((s) => s !== input.value);
+                if (next.length > MAX_SECONDARIES) {
+                  input.checked = false;
+                  secStatus.textContent = `Höchstens ${MAX_SECONDARIES}. Nimm erst einen raus.`;
+                  return;
+                }
+                void saveSecondaries(next, previous);
+              });
+            },
+            (err: unknown) => {
+              if (!secHost.isConnected) return;
+              mount(secHost, errorState('Secondaries konnten nicht geladen werden.', err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
+              bindErrorState(secHost, loadCommunity);
+              communityStatus.textContent = 'Nicht geladen';
+            },
+          );
+        };
+        loadCommunity();
+
+        listedInput.addEventListener('change', async () => {
+          const wanted = listedInput.checked;
+          listedInput.disabled = true;
+          communityStatus.textContent = 'Wird gespeichert …';
+          try {
+            const saved = await saveCommunitySettings({ listed: wanted });
+            listedInput.checked = saved.listed;
+            communityStatus.textContent = saved.listed ? 'Du stehst im Verzeichnis' : 'Nicht im Verzeichnis';
+          } catch (err) {
+            listedInput.checked = !wanted;
+            communityStatus.textContent = err instanceof ApiError ? err.message : 'Nicht gespeichert.';
+          } finally {
+            listedInput.disabled = false;
+          }
+        });
+
         /* Main */
         const grid = qs<HTMLElement>('[data-main-grid]', host)!;
         const mainStatus = qs<HTMLElement>('[data-main-status]', host)!;
@@ -193,6 +335,10 @@ export function profilePage(): PageView {
             const saved = await updateProfile({ mainFighter: input.value || null });
             const f = saved ? FIGHTER_BY_SLUG.get(saved) : undefined;
             mainStatus.textContent = f ? `Gespeichert: ${f.name}` : 'Gespeichert: kein Main';
+            currentMain = saved;
+            // Neuer Main war Secondary: dort herausnehmen, sonst lehnt der Server jede weitere Secondary-Änderung ab.
+            if (saved && secondaries.includes(saved)) void saveSecondaries(secondaries.filter((s) => s !== saved), [...secondaries]);
+            else syncSecGrid();
             const head = qs<HTMLElement>('.profile-head', host);
             if (head) {
               const avatar = qs<HTMLElement>('.profile-head__avatar', head)!;

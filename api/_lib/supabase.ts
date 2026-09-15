@@ -1,4 +1,4 @@
-import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type Profile, type StartggCacheRow, type StartggLinkRow, type Theme, type VerifiedToken } from './types.js';
+import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type CommunityRow, type Profile, type StartggCacheRow, type StartggLinkRow, type Theme, type VerifiedToken } from './types.js';
 import type { Env } from './env.js';
 import { createJwtVerifier } from './jwt.js';
 import { eq, ilikeExact, ltInt, restPath, rpcPath, type Filter } from './postgrest.js';
@@ -102,6 +102,26 @@ const STARTGG_LINK_SELECT = `${STARTGG_LINK_SELECT_BASE},startgg_user_id,verifie
  * Nur Bestätigen geht erst nach der Migration.
  */
 let verificationColumnsMissing = false;
+
+interface CommunityDbRow {
+  user_id: string;
+  listed: boolean;
+  secondaries: string[] | null;
+}
+const toCommunity = (r: CommunityDbRow): CommunityRow => ({ userId: r.user_id, listed: r.listed, secondaries: r.secondaries ?? [] });
+const COMMUNITY_SELECT = 'user_id,listed,secondaries';
+
+/** Merkt pro Instanz, dass Migration 0006 fehlt. Wird beim nächsten Kaltstart neu geprüft. */
+let communityTableMissing = false;
+
+function communityMissing(err: unknown): unknown {
+  if (!(err instanceof BackendError && err.code === 'not-found')) return err;
+  if (!communityTableMissing) {
+    communityTableMissing = true;
+    console.error(JSON.stringify({ t: 'supabase', hinweis: 'Migration 0006 fehlt: community_profiles bzw. community_directory. supabase/migrations/0006_community.sql ausführen.' }));
+  }
+  return new BackendError('unavailable', 'community-missing');
+}
 
 interface StartggCacheDbRow {
   user_id: string;
@@ -235,6 +255,23 @@ export function supabaseBackend(env: Env): Backend {
     return total;
   }
 
+  /*
+   * Community (Migration 0006). Fehlt die Tabelle noch, antwortet PostgREST mit 404.
+   * Lesen liefert dann Standardwerte, damit Spielerprofile weiter laden. Schreiben und
+   * das Verzeichnis melden „nicht verfügbar“ und nennen im Log die Migration.
+   */
+  async function readCommunity(userId: string, token: string): Promise<CommunityRow[]> {
+    if (communityTableMissing) return [];
+    try {
+      const rows = await call<CommunityDbRow[]>(restPath('community_profiles', { select: COMMUNITY_SELECT, where: { user_id: eq(userId) }, limit: 1 }), { token });
+      return (rows ?? []).map(toCommunity);
+    } catch (err) {
+      if (!(err instanceof BackendError && err.code === 'not-found')) throw err;
+      communityMissing(err);
+      return [];
+    }
+  }
+
   // Alle PostgREST-Pfade entstehen über restPath/rpcPath: Eingaben sind dort nur Literale (siehe postgrest.ts).
   const COMMENT_SELECT = 'id,user_id,fighter_slug,body,created_at,author:profiles(username,main_fighter)';
   const PROFILE_SELECT = 'id,username,main_fighter,theme';
@@ -335,12 +372,13 @@ export function supabaseBackend(env: Env): Backend {
       );
       const p = profiles[0];
       if (!p) return null;
-      const [commentCount, recent] = await Promise.all([
+      const [commentCount, recent, community] = await Promise.all([
         count(restPath('comments', { select: 'id', where: { user_id: eq(p.id) } }), auth.token),
         call<Array<{ id: number; fighter_slug: string; body: string; created_at: string }>>(
           restPath('comments', { select: 'id,fighter_slug,body,created_at', where: { user_id: eq(p.id) }, order: 'id.desc', limit: 5 }),
           { token: auth.token },
         ),
+        readCommunity(p.id, auth.token),
       ]);
       return {
         userId: p.id,
@@ -349,7 +387,46 @@ export function supabaseBackend(env: Env): Backend {
         createdAt: p.created_at,
         commentCount,
         recentComments: recent.map((c) => ({ id: c.id, fighter: c.fighter_slug, body: c.body, createdAt: c.created_at })),
+        secondaries: community[0]?.secondaries ?? [],
       };
+    },
+
+    async getCommunity(auth) {
+      return readCommunity(auth.userId, auth.token);
+    },
+
+    async saveCommunity(auth, patch) {
+      const body: Record<string, unknown> = { user_id: auth.userId };
+      if (patch.listed !== undefined) body.listed = patch.listed;
+      if (patch.secondaries !== undefined) body.secondaries = patch.secondaries;
+      try {
+        // Upsert: Nur die übergebenen Spalten ändern sich, beim ersten Mal gelten für den Rest die Standardwerte.
+        const rows = await call<CommunityDbRow[]>(restPath('community_profiles', { select: COMMUNITY_SELECT, onConflict: ['user_id'] }), {
+          method: 'POST',
+          token: auth.token,
+          prefer: 'resolution=merge-duplicates,return=representation',
+          body: JSON.stringify(body),
+        });
+        return (rows ?? []).map(toCommunity);
+      } catch (err) {
+        throw communityMissing(err);
+      }
+    },
+
+    async listDirectory(auth, q) {
+      try {
+        const rows = await call<Array<{ username: string; main_fighter: string | null; secondaries: string[] | null; member_since: string }>>(
+          rpcPath('community_directory'),
+          {
+            method: 'POST',
+            token: auth.token,
+            body: JSON.stringify({ p_query: q.query, p_fighter: q.fighter, p_after: q.after, p_limit: q.limit }),
+          },
+        );
+        return (rows ?? []).map((r) => ({ username: r.username, mainFighter: r.main_fighter, secondaries: r.secondaries ?? [], createdAt: r.member_since }));
+      } catch (err) {
+        throw communityMissing(err);
+      }
     },
 
     /*

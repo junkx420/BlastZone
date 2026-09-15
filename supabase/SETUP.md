@@ -17,6 +17,7 @@ Im Dashboard unter **SQL Editor** nacheinander komplett ausführen:
 3. `supabase/migrations/0003_indexes_pagination.sql` (Indizes für Kommentar-Seiten und Lesezeichen, Namensprüfung über den Index). Prüfabfragen dazu in `docs/BETRIEB.md`.
 4. `supabase/migrations/0004_startgg.sql` (start.gg-Verknüpfung und Placement-Cache, beide nur für den Besitzer lesbar). Dazu bei Vercel `STARTGG_TOKEN` und `STARTGG_CACHE_KEY` setzen, siehe `.env.example`.
 5. `supabase/migrations/0005_startgg_verification.sql` (Spalten für „Mit start.gg bestätigen“: start.gg-ID, Zeitpunkt, Signatur). Dazu bei Vercel `STARTGG_OAUTH_CLIENT_ID` und `STARTGG_OAUTH_CLIENT_SECRET`. Läuft der Code vor der Migration, funktioniert die Verknüpfung weiter, nur Bestätigen meldet „nicht verfügbar“ und das Function-Log nennt 0005.
+6. `supabase/migrations/0006_community.sql` (Tabelle `community_profiles` für Verzeichnis und Secondaries, Funktion `community_directory`, beides nur für angemeldete Nutzer). Ohne sie laden Spielerprofile weiter (ohne Secondaries), Verzeichnis und Speichern melden „nicht verfügbar“, das Function-Log nennt 0006.
 
 Danach unter **Table Editor** prüfen: `profiles`, `comments`, `bookmarks`, `blocked_email_domains` zeigen alle das Schloss für aktives RLS.
 
