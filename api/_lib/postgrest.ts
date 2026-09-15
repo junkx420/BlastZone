@@ -23,7 +23,7 @@ const ORDER = /^[a-z_][a-z0-9_]*\.(asc|desc)$/;
 const CONTROL = /[\x00-\x1f\x7f]/;
 
 export interface Filter {
-  readonly op: 'eq' | 'ilike';
+  readonly op: 'eq' | 'ilike' | 'lt';
   readonly literal: string;
 }
 
@@ -38,6 +38,9 @@ function literal(value: string | number): string {
 
 /** Spalte = Wert, exakt. */
 export const eq = (value: string | number): Filter => ({ op: 'eq', literal: literal(value) });
+
+/** Spalte < Zahl. Nur ganze Zahlen, für Seiten per id. */
+export const ltInt = (value: number): Filter => ({ op: 'lt', literal: literal(Math.trunc(value) === value ? value : Number.NaN) });
 
 /**
  * Spalte = Wert ohne Rücksicht auf Groß- und Kleinschreibung, aber OHNE Muster.

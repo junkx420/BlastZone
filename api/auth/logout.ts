@@ -1,9 +1,10 @@
 import { backend } from '../_lib/backend.js';
-import { assertSameOrigin, handle, ok, parseCookies } from '../_lib/http.js';
+import { assertSameOrigin, ok, parseCookies } from '../_lib/http.js';
+import { route } from '../_lib/route.js';
 import { clearCookies } from '../_lib/session.js';
 
 /** POST /api/auth/logout. Beendet die Sitzung bei Supabase und löscht die Cookies, auch wenn Supabase gerade nicht antwortet. */
-export const POST = handle(async (request) => {
+export const POST = route(async (request) => {
   assertSameOrigin(request);
   const token = parseCookies(request).bz_at;
   if (token) {

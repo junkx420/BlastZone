@@ -1,5 +1,6 @@
 import { backend, BackendError } from '../_lib/backend.js';
-import { assertSameOrigin, clientIp, handle, HttpError, ok, readJson, str } from '../_lib/http.js';
+import { assertSameOrigin, clientIp, HttpError, ok, readJson, str } from '../_lib/http.js';
+import { route } from '../_lib/route.js';
 import { ownProfile } from '../_lib/owner.js';
 import { enforce } from '../_lib/ratelimit.js';
 import { publicUser, sessionCookies } from '../_lib/session.js';
@@ -12,7 +13,7 @@ import { publicUser, sessionCookies } from '../_lib/session.js';
  * Absicht: Mail-Scanner, die Links vorab aufrufen, würden sonst den einmaligen
  * Token verbrauchen, bevor der Mensch klickt.
  */
-export const POST = handle(async (request) => {
+export const POST = route(async (request) => {
   assertSameOrigin(request);
   await enforce({ name: 'confirm-ip', key: clientIp(request), max: 10, windowSec: 10 * 60 });
 

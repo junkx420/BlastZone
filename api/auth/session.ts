@@ -1,5 +1,6 @@
 import { backend, BackendError } from '../_lib/backend.js';
-import { handle, ok } from '../_lib/http.js';
+import { ok } from '../_lib/http.js';
+import { route } from '../_lib/route.js';
 import { ownProfile } from '../_lib/owner.js';
 import { authenticate, clearCookies, publicUser } from '../_lib/session.js';
 
@@ -10,7 +11,7 @@ import { authenticate, clearCookies, publicUser } from '../_lib/session.js';
  * angemeldet ist. Antwortet mit `user: null`, wenn niemand angemeldet ist oder
  * keine Keys konfiguriert sind. Die Seite funktioniert dann wie bisher.
  */
-export const GET = handle(async (request) => {
+export const GET = route(async (request) => {
   let be;
   try {
     be = backend();

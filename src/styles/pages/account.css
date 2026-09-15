@@ -454,6 +454,11 @@
   .fcomments__status:empty {
     display: none;
   }
+  .fcomments__more {
+    display: flex;
+    justify-content: center;
+    padding-top: var(--sp-2);
+  }
   .fcomments__list {
     display: grid;
     gap: var(--sp-3);

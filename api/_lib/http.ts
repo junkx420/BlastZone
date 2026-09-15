@@ -35,23 +35,7 @@ export function json(data: unknown, status = 200, cookies: string[] = [], extra:
 
 export const ok = (data: Record<string, unknown> = {}, cookies: string[] = [], status = 200): Response => json({ ok: true, ...data }, status, cookies);
 
-const fail = (e: HttpError, cookies: string[] = []): Response =>
-  json({ ok: false, error: { code: e.code, message: e.message } }, e.status, cookies, e.headers);
-
-type Handler = (request: Request) => Promise<Response>;
-
-/** Fängt Fehler ab und übersetzt sie in JSON. Jede Route wird damit umwickelt. */
-export function handle(fn: Handler): Handler {
-  return async (request) => {
-    try {
-      return await fn(request);
-    } catch (err) {
-      if (err instanceof HttpError) return fail(err);
-      console.error('[api] unerwarteter Fehler', err);
-      return fail(new HttpError(500, 'server-error', 'Da ist auf unserer Seite etwas schiefgelaufen. Versuch es gleich noch einmal.'));
-    }
-  };
-}
+// Fehlerbehandlung, Logging, Timeout und Grundlimit jeder Route: route.ts.
 
 /* ── Herkunft ───────────────────────────────────────────────────────────── */
 

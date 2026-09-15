@@ -11,6 +11,7 @@ import { miniPyramid } from '../components/pyramid';
 import { ARCHETYPE_INFO } from '../data/archetypes';
 import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, WEIGHT_RANGE, weightClass } from '../data/fighters';
 import { hasFrames } from '../data/frames-index';
+import { bindErrorState, errorState, LOAD_FAILED_TEXT } from '../components/states';
 import { GUIDE_COUNT, GUIDE_SLUGS, guideFor, loadLateGuides } from '../data/guide-index';
 import { videoFor } from '../data/videos';
 import { TIER_BY_SLUG, TIER_TOTAL } from '../data/tiers';
@@ -387,15 +388,30 @@ export function fighterPage(route: Route): PageView {
 
       if (guide) wireCombos(guide);
       else if (hasGuide) {
-        void loadLateGuides().then(() => {
-          const loaded = guideFor(f.slug);
-          const host = qs<HTMLElement>('[data-combos]', root);
-          if (!loaded || !host?.isConnected) return;
-          const metaHost = qs<HTMLElement>('[data-meta]', root);
-          if (metaHost) mount(metaHost, metaSection(f, loaded));
-          mount(host, combosSection(f, loaded, active));
-          wireCombos(loaded);
-        });
+        // Skelett, bis die Daten da sind. Scheitert das Laden, ersetzt ein Fehler mit Ausweg das Skelett.
+        const loadCombos = (): void => {
+          loadLateGuides().then(
+            () => {
+              const loaded = guideFor(f.slug);
+              const host = qs<HTMLElement>('[data-combos]', root);
+              if (!loaded || !host?.isConnected) return;
+              const metaHost = qs<HTMLElement>('[data-meta]', root);
+              if (metaHost) mount(metaHost, metaSection(f, loaded));
+              mount(host, combosSection(f, loaded, active));
+              wireCombos(loaded);
+            },
+            () => {
+              const slot = qs<HTMLElement>('[data-combos] .skeleton, [data-combos] [data-load-error]', root);
+              if (!slot?.isConnected) return;
+              const box = document.createElement('div');
+              box.dataset.loadError = '';
+              slot.replaceWith(box);
+              mount(box, errorState(`Die Combos für ${f.name} konnten nicht geladen werden.`, LOAD_FAILED_TEXT));
+              bindErrorState(box, loadCombos);
+            },
+          );
+        };
+        loadCombos();
       }
 
       cleanups.push(() => comboCleanups.forEach((fn) => fn()));

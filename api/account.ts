@@ -1,5 +1,6 @@
 import { backend, toHttp } from './_lib/backend.js';
-import { assertSameOrigin, handle, HttpError, ok, readJson, str } from './_lib/http.js';
+import { assertSameOrigin, HttpError, ok, readJson, str } from './_lib/http.js';
+import { route } from './_lib/route.js';
 import { ownProfile } from './_lib/owner.js';
 import { enforce } from './_lib/ratelimit.js';
 import { clearCookies, requireAuth } from './_lib/session.js';
@@ -11,7 +12,7 @@ import { clearCookies, requireAuth } from './_lib/session.js';
  * der Datenbank). Recht auf Löschung nach Art. 17 DSGVO, ohne dass jemand eine
  * Mail schreiben muss. Der Benutzername muss zur Bestätigung mitgeschickt werden.
  */
-export const DELETE = handle(async (request) => {
+export const DELETE = route(async (request) => {
   assertSameOrigin(request);
   const be = backend();
   const { auth } = await requireAuth(request, be);

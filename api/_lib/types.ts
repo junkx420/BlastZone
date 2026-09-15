@@ -97,7 +97,8 @@ export interface Backend {
   updateProfile(auth: Auth, patch: { mainFighter?: string | null; theme?: Theme }): Promise<Profile>;
   deleteAccount(auth: Auth): Promise<void>;
 
-  listComments(fighter: string, limit: number): Promise<CommentRow[]>;
+  /** Neueste zuerst. `before`: nur Kommentare mit kleinerer id (nächste Seite). */
+  listComments(fighter: string, limit: number, before?: number): Promise<CommentRow[]>;
   addComment(auth: Auth, fighter: string, body: string): Promise<CommentRow>;
   /** Liefert die tatsächlich gelöschten Zeilen, leer, wenn nichts Eigenes passte. */
   deleteComment(auth: Auth, id: number): Promise<Array<{ id: number; userId: string }>>;

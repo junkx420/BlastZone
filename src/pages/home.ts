@@ -5,6 +5,7 @@ import { glyph, inputKeys } from '../components/notation';
 import { tierBadge, tierGroup } from '../components/tierBadge';
 import { renderArt } from '../data/art';
 import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, weightClass } from '../data/fighters';
+import { bindErrorState, errorState, LOAD_FAILED_TEXT } from '../components/states';
 import { guideFor, loadLateGuides } from '../data/guide-index';
 import { SHOWCASE } from '../data/guides';
 import { BUTTON_LEGEND, resolveToken } from '../data/notation';
@@ -554,20 +555,32 @@ function mountPicks(root: HTMLElement): () => void {
   let alive = true;
   let unbind: () => void = () => {};
 
-  void loadLateGuides().then(() => {
-    if (!alive || !host.isConnected) return;
-    const found = PICKS.flatMap((id) => {
-      for (const f of FIGHTERS) {
-        const combo = guideFor(f.slug)?.combos.find((c) => c.id === id);
-        if (combo) return [{ f, combo }];
-      }
-      if (import.meta.env.DEV) console.warn(`Startseite: Combo "${id}" nicht gefunden.`);
-      return [];
-    });
-    mount(host, html`${found.map(({ f, combo }) => pickCard(f, combo))}`);
-    host.removeAttribute('aria-busy');
-    unbind = bindComboCards(host, found.map(({ combo }) => combo));
-  });
+  const load = (): void => {
+    loadLateGuides().then(
+      () => {
+        if (!alive || !host.isConnected) return;
+        const found = PICKS.flatMap((id) => {
+          for (const f of FIGHTERS) {
+            const combo = guideFor(f.slug)?.combos.find((c) => c.id === id);
+            if (combo) return [{ f, combo }];
+          }
+          if (import.meta.env.DEV) console.warn(`Startseite: Combo "${id}" nicht gefunden.`);
+          return [];
+        });
+        mount(host, html`${found.map(({ f, combo }) => pickCard(f, combo))}`);
+        host.removeAttribute('aria-busy');
+        unbind = bindComboCards(host, found.map(({ combo }) => combo));
+      },
+      () => {
+        // Skelett gegen Fehler mit Ausweg tauschen. Die Liste bleibt ein <ul>, der Fehler steht in einem <li>.
+        if (!alive || !host.isConnected) return;
+        host.removeAttribute('aria-busy');
+        mount(host, html`<li class="picks__error">${errorState('Die Combos konnten nicht geladen werden.', LOAD_FAILED_TEXT)}</li>`);
+        bindErrorState(host, load);
+      },
+    );
+  };
+  load();
 
   return () => {
     alive = false;

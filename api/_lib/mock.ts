@@ -157,10 +157,10 @@ export function mockBackend(): Backend {
       for (const [t, v] of store.tokens) if (v.userId === user.id) store.tokens.delete(t);
     },
 
-    async listComments(fighter, limit) {
+    async listComments(fighter, limit, before) {
       return store.comments
-        .filter((c) => c.fighter === fighter)
-        .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+        .filter((c) => c.fighter === fighter && (!before || c.id < before))
+        .sort((a, b) => b.id - a.id)
         .slice(0, limit)
         .map((c) => ({ ...c, author: { ...c.author } }));
     },

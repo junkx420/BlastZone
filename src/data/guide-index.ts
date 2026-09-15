@@ -39,9 +39,27 @@ export const GUIDE_SLUGS: ReadonlySet<string> = new Set<string>([...GUIDES.map((
 const lateBySlug = new Map<string, FighterGuide>();
 let latePromise: Promise<FighterGuide[]> | null = null;
 
+/*
+ * Nachladen mit Wiederholung. Vorher blieb ein fehlgeschlagener Import für immer
+ * im Promise hängen: Skelett auf Fighter-Seite und Startseite, bis jemand neu lud.
+ * Jetzt: bis zu drei Versuche mit wachsender Pause, und scheitern alle, wird das
+ * Promise verworfen, damit der nächste Aufruf (etwa „Erneut versuchen“) neu anfängt.
+ */
+async function importLate(): Promise<typeof import('./guides-late')> {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await import('./guides-late');
+    } catch (err) {
+      if (attempt >= 2 || navigator.onLine === false) throw err;
+      await new Promise((r) => setTimeout(r, 600 * 2 ** attempt));
+    }
+  }
+}
+
 /** Loads the A+ and lower tiers once; repeated calls share the same promise. */
 export function loadLateGuides(): Promise<FighterGuide[]> {
-  latePromise ??= import('./guides-late').then(({ LATE_GUIDES }) => {
+  if (latePromise) return latePromise;
+  const pending = importLate().then(({ LATE_GUIDES }) => {
     LATE_GUIDES.forEach((g) => lateBySlug.set(g.slug, g));
     if (import.meta.env.DEV) {
       const listed = new Set<string>(LATE_SLUGS);
@@ -54,7 +72,11 @@ export function loadLateGuides(): Promise<FighterGuide[]> {
     }
     return LATE_GUIDES;
   });
-  return latePromise;
+  latePromise = pending;
+  pending.catch(() => {
+    if (latePromise === pending) latePromise = null;
+  });
+  return pending;
 }
 
 /** Static guides are available immediately; late ones only once loadLateGuides() resolved. */

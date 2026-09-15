@@ -1,6 +1,7 @@
 import { normalizeEmail } from '../../src/shared/account-rules.js';
 import { backend, BackendError, toHttp } from '../_lib/backend.js';
-import { assertSameOrigin, clientIp, handle, HttpError, ok, readJson, str } from '../_lib/http.js';
+import { assertSameOrigin, clientIp, HttpError, ok, readJson, str } from '../_lib/http.js';
+import { route } from '../_lib/route.js';
 import { ownProfile } from '../_lib/owner.js';
 import { enforce } from '../_lib/ratelimit.js';
 import { publicUser, sessionCookies } from '../_lib/session.js';
@@ -13,7 +14,7 @@ import { publicUser, sessionCookies } from '../_lib/session.js';
  * Gezählt wird VOR der Prüfung, also auch erfolgreiche Versuche. Das hält die
  * Logik einfach und verrät über die Antwortzeit nichts.
  */
-export const POST = handle(async (request) => {
+export const POST = route(async (request) => {
   assertSameOrigin(request);
   const body = await readJson(request);
   const email = normalizeEmail(str(body.email));

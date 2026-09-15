@@ -5,7 +5,7 @@ import { html, mount, qs, type Markup } from '../lib/dom';
 import { link } from '../lib/router';
 import { ApiError } from '../services/api';
 import { onAuth, type AuthState } from '../services/auth';
-import { deleteComment, listComments, postComment, type Comment } from '../services/db';
+import { deleteComment, invalidateComments, listComments, postComment, type Comment } from '../services/db';
 import { cleanComment, COMMENT_MAX } from '../shared/account-rules';
 import { openAuth } from './authDialog';
 import { faceThumb } from './fighterTile';
@@ -69,6 +69,9 @@ export function commentsSection(f: Fighter): Markup {
       <div data-composer></div>
       <p class="fcomments__status" role="status" data-list-status>Kommentare werden geladen …</p>
       <ol class="fcomments__list" role="list" data-list></ol>
+      <div class="fcomments__more" data-more hidden>
+        <button class="btn btn--ghost btn--sm" type="button" data-more-btn>Ältere Kommentare laden</button>
+      </div>
     </div>
   </section>`;
 }
@@ -79,8 +82,12 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
   const composerHost = qs<HTMLElement>('[data-composer]', section)!;
   const list = qs<HTMLOListElement>('[data-list]', section)!;
   const status = qs<HTMLElement>('[data-list-status]', section)!;
+  const more = qs<HTMLElement>('[data-more]', section)!;
+  const moreBtn = qs<HTMLButtonElement>('[data-more-btn]', section)!;
 
   let comments: Comment[] = [];
+  let nextCursor: number | null = null;
+  let loadingMore = false;
   let auth: AuthState = { status: 'unknown' };
   let alive = true;
 
@@ -91,6 +98,7 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     mount(list, html`${comments.map((c) => commentItem(c, c.mine && myId() !== null))}`);
     if (comments.length) status.textContent = '';
     else if (!status.dataset.error) status.textContent = 'Noch keine Kommentare. Fang an.';
+    more.hidden = nextCursor === null || Boolean(status.dataset.error);
   };
 
   const renderComposer = (): void => {
@@ -196,7 +204,7 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     armed.delete(id);
     button.disabled = true;
     try {
-      await deleteComment(id);
+      await deleteComment(id, f.slug);
       comments = comments.filter((c) => c.id !== id);
       renderList();
     } catch (err) {
@@ -205,17 +213,54 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     }
   });
 
+  const failText = (err: unknown): string =>
+    err instanceof ApiError && (err.code === 'offline' || err.code === 'timeout')
+      ? err.message
+      : err instanceof ApiError && err.status === 429
+        ? err.message
+        : 'Kommentare sind gerade nicht verfügbar.';
+
   const load = async (): Promise<void> => {
+    status.textContent = 'Kommentare werden geladen …';
     try {
-      comments = await listComments(f.slug);
+      const page = await listComments(f.slug);
+      comments = page.comments;
+      nextCursor = page.nextCursor;
       delete status.dataset.error;
     } catch (err) {
       comments = [];
+      nextCursor = null;
       status.dataset.error = '1';
-      status.textContent = err instanceof ApiError && err.code !== 'offline' ? 'Kommentare sind gerade nicht verfügbar.' : 'Kommentare konnten nicht geladen werden.';
+      if (!alive) return;
+      // Fehlerzustand mit Ausweg statt stummer Leere.
+      mount(status, html`${failText(err)} <button class="link-btn" type="button" data-retry>Erneut versuchen</button>`);
+      qs('[data-retry]', status)?.addEventListener('click', () => void load(), { once: true });
     }
     if (alive) renderList();
   };
+
+  moreBtn.addEventListener('click', async () => {
+    if (loadingMore || nextCursor === null) return;
+    loadingMore = true;
+    moreBtn.disabled = true;
+    moreBtn.setAttribute('aria-busy', 'true');
+    moreBtn.textContent = 'Wird geladen …';
+    try {
+      const page = await listComments(f.slug, nextCursor);
+      // Doppelte ausschließen, falls sich Seiten durch neue Kommentare überschneiden.
+      const known = new Set(comments.map((c) => c.id));
+      comments = [...comments, ...page.comments.filter((c) => !known.has(c.id))];
+      nextCursor = page.nextCursor;
+      moreBtn.textContent = 'Ältere Kommentare laden';
+    } catch (err) {
+      moreBtn.textContent = `${failText(err)} Nochmal versuchen`;
+    } finally {
+      loadingMore = false;
+      moreBtn.disabled = false;
+      moreBtn.removeAttribute('aria-busy');
+    }
+    if (alive) renderList();
+  });
 
   const stop = onAuth((next) => {
     const changedUser = (next.status === 'user' ? next.user.id : null) !== myId() || next.status !== auth.status;
@@ -230,7 +275,10 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     if (changedUser || mainChanged) renderComposer();
     renderList();
     // Welche Kommentare die eigenen sind, weiß nur der Server. Nach An- oder Abmelden neu fragen.
-    if (changedUser && wasKnown) void load();
+    if (changedUser && wasKnown) {
+      invalidateComments();
+      void load();
+    }
   });
   void load();
 

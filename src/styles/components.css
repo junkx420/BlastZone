@@ -1249,6 +1249,65 @@
     max-width: 52ch;
     color: var(--text-muted);
   }
+  /* Fehlerzustand (components/states.ts): gleiche Form wie leer, Kante in Warnfarbe. */
+  .empty--error {
+    border-style: solid;
+    border-color: color-mix(in oklch, var(--dmg-160) 55%, transparent);
+    background: color-mix(in oklch, var(--dmg-160) 6%, transparent);
+  }
+  .empty--error h1 {
+    font-size: var(--fs-600);
+    font-weight: 850;
+    line-height: var(--lh-snug);
+  }
+  .empty__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+  .picks__error {
+    grid-column: 1 / -1;
+  }
+  .page-crash {
+    padding-block: calc(var(--nav-h) + var(--sp-8)) var(--sp-9);
+  }
+
+  /* Textknopf in Fließtext, etwa „Erneut versuchen“ im Kommentar-Status. */
+  .link-btn {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--accent-text);
+    font: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .link-btn:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* Offline-Hinweis (lib/errors.ts). Unten mittig, über allem außer Dialogen. */
+  .netstatus {
+    position: fixed;
+    left: 50%;
+    bottom: max(var(--sp-4), env(safe-area-inset-bottom));
+    z-index: var(--z-toast);
+    max-width: calc(100vw - 2 * var(--sp-4));
+    padding: var(--sp-2) var(--sp-4);
+    border: 1px solid color-mix(in oklch, var(--dmg-160) 55%, transparent);
+    border-radius: 9999px;
+    background: var(--glass-bg-strong);
+    color: var(--text);
+    font-size: var(--fs-200);
+    font-weight: 650;
+    text-align: center;
+    translate: -50% 0;
+    box-shadow: var(--elev-2);
+  }
 
   /* ── Command palette ────────────────────────────────────────────────── */
   .palette {

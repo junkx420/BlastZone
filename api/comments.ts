@@ -1,12 +1,13 @@
 import { cleanComment, COMMENT_MAX, FIGHTER_SLUG_PATTERN } from '../src/shared/account-rules.js';
 import { backend, toHttp } from './_lib/backend.js';
-import { assertSameOrigin, clientIp, handle, HttpError, ok, readJson, str } from './_lib/http.js';
+import { assertSameOrigin, clientIp, HttpError, ok, readJson, str } from './_lib/http.js';
+import { route } from './_lib/route.js';
 import { ownComment, ownRows, publicComment } from './_lib/owner.js';
 import { enforce } from './_lib/ratelimit.js';
 import { authenticate, requireAuth } from './_lib/session.js';
 
 /**
- * GET    /api/comments?fighter=<slug>          öffentlich, neueste 50
+ * GET    /api/comments?fighter=<slug>[&before=<id>]   öffentlich, neueste 20, `nextCursor` für die nächste Seite
  * POST   /api/comments  { fighter, body }      nur angemeldet und bestätigt
  * DELETE /api/comments?id=<id>                 nur eigene
  *
@@ -19,21 +20,30 @@ const fighterSlug = (v: string): string => {
   return v;
 };
 
-export const GET = handle(async (request) => {
-  const fighter = fighterSlug(new URL(request.url).searchParams.get('fighter') ?? '');
+/** Kommentare pro Seite. Eine Seite mehr wird geladen, um zu wissen, ob es weitergeht. */
+const COMMENTS_PAGE_SIZE = 20;
+
+export const GET = route(async (request) => {
+  const params = new URL(request.url).searchParams;
+  const fighter = fighterSlug(params.get('fighter') ?? '');
+  const beforeRaw = params.get('before');
+  const before = beforeRaw === null ? undefined : Number(beforeRaw);
+  if (before !== undefined && (!Number.isSafeInteger(before) || before <= 0)) throw new HttpError(400, 'invalid-cursor', 'Ungültige Seite.');
   await enforce({ name: 'comments-read-ip', key: clientIp(request), max: 120, windowSec: 60 });
   const be = backend();
   // Lesen ist öffentlich. Angemeldet (geprüftes Token) erfährt man zusätzlich, welche Kommentare die eigenen sind.
   const { auth, cookies } = await authenticate(request, be);
   try {
-    const rows = await be.listComments(fighter, 50);
-    return ok({ comments: rows.map((row) => publicComment(row, auth?.userId ?? null)) }, cookies);
+    const rows = await be.listComments(fighter, COMMENTS_PAGE_SIZE + 1, before);
+    const page = rows.slice(0, COMMENTS_PAGE_SIZE);
+    const nextCursor = rows.length > COMMENTS_PAGE_SIZE ? (page.at(-1)?.id ?? null) : null;
+    return ok({ comments: page.map((row) => publicComment(row, auth?.userId ?? null)), nextCursor }, cookies);
   } catch (err) {
     toHttp(err);
   }
 });
 
-export const POST = handle(async (request) => {
+export const POST = route(async (request) => {
   assertSameOrigin(request);
   const be = backend();
   const { auth, cookies } = await requireAuth(request, be);
@@ -56,7 +66,7 @@ export const POST = handle(async (request) => {
   }
 });
 
-export const DELETE = handle(async (request) => {
+export const DELETE = route(async (request) => {
   assertSameOrigin(request);
   const be = backend();
   const { auth, cookies } = await requireAuth(request, be);

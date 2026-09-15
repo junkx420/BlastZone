@@ -1,4 +1,4 @@
-import { api, ApiError } from './api';
+import { api, ApiError, invalidate } from './api';
 import { markSignedOut, patchUser, type User } from './auth';
 
 /**
@@ -30,15 +30,38 @@ export interface Comment {
   author: { username: string; mainFighter: string | null };
 }
 
-export const listComments = async (fighter: string): Promise<Comment[]> =>
-  (await api<{ comments: Comment[] }>(`comments?fighter=${encodeURIComponent(fighter)}`)).comments;
+export interface CommentPage {
+  comments: Comment[];
+  /** id für die nächste Seite, `null` wenn es keine ältere mehr gibt. */
+  nextCursor: number | null;
+}
+
+const commentsPath = (fighter: string): string => `comments?fighter=${encodeURIComponent(fighter)}`;
+
+/**
+ * Eine Seite Kommentare, neueste zuerst. 30 Sekunden zwischengespeichert: Wer
+ * zwischen zwei Fightern hin- und herwechselt, lädt nicht jedes Mal neu. Eigene
+ * Änderungen und An-/Abmelden leeren den Cache (`invalidateComments`).
+ */
+export async function listComments(fighter: string, before?: number): Promise<CommentPage> {
+  const data = await api<{ comments: Comment[]; nextCursor?: number | null }>(`${commentsPath(fighter)}${before ? `&before=${before}` : ''}`, { ttl: 30_000 });
+  return { comments: data.comments, nextCursor: data.nextCursor ?? null };
+}
+
+/** `mine` hängt an der Sitzung, also nach jedem An- oder Abmelden verwerfen. */
+export const invalidateComments = (fighter?: string): void => invalidate(fighter ? commentsPath(fighter) : 'comments?');
 
 export const postComment = (fighter: string, body: string): Promise<Comment> =>
-  guarded(async () => (await api<{ comment: Comment }>('comments', { method: 'POST', body: { fighter, body } })).comment);
+  guarded(async () => {
+    const { comment } = await api<{ comment: Comment }>('comments', { method: 'POST', body: { fighter, body } });
+    invalidateComments(fighter);
+    return comment;
+  });
 
-export const deleteComment = (id: number): Promise<void> =>
+export const deleteComment = (id: number, fighter: string): Promise<void> =>
   guarded(async () => {
     await api(`comments?id=${id}`, { method: 'DELETE' });
+    invalidateComments(fighter);
   });
 
 /* ── Lesezeichen ────────────────────────────────────────────────────────── */

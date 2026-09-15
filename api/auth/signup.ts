@@ -1,7 +1,8 @@
 import { DISPOSABLE_MESSAGE, normalizeEmail, passwordOk, usernameOk } from '../../src/shared/account-rules.js';
 import { domainOf, isDisposableDomain } from '../../src/shared/disposable-email.js';
 import { backend, toHttp } from '../_lib/backend.js';
-import { assertSameOrigin, clientIp, handle, HttpError, ok, readJson, str } from '../_lib/http.js';
+import { assertSameOrigin, clientIp, HttpError, ok, readJson, str } from '../_lib/http.js';
+import { route } from '../_lib/route.js';
 import { checkMx } from '../_lib/mx.js';
 import { enforce } from '../_lib/ratelimit.js';
 
@@ -13,7 +14,7 @@ import { enforce } from '../_lib/ratelimit.js';
  * Konto-Enumeration). Supabase verschickt die Bestätigungsmail, ein Konto kann
  * sich erst nach dem Klick darauf anmelden (Double Opt-In).
  */
-export const POST = handle(async (request) => {
+export const POST = route(async (request) => {
   assertSameOrigin(request);
   const ip = clientIp(request);
   await enforce({ name: 'signup-ip', key: ip, max: 5, windowSec: 3600 });

@@ -1,6 +1,7 @@
 import { normalizeEmail } from '../../src/shared/account-rules.js';
 import { backend, BackendError } from '../_lib/backend.js';
-import { assertSameOrigin, clientIp, handle, ok, readJson, str } from '../_lib/http.js';
+import { assertSameOrigin, clientIp, ok, readJson, str } from '../_lib/http.js';
+import { route } from '../_lib/route.js';
 import { enforce } from '../_lib/ratelimit.js';
 
 /**
@@ -9,7 +10,7 @@ import { enforce } from '../_lib/ratelimit.js';
  * Schickt die Bestätigungsmail erneut. Antwortet immer gleich, damit sich
  * darüber nicht herausfinden lässt, welche Adressen ein Konto haben.
  */
-export const POST = handle(async (request) => {
+export const POST = route(async (request) => {
   assertSameOrigin(request);
   const body = await readJson(request);
   const email = normalizeEmail(str(body.email));

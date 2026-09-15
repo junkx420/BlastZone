@@ -1,7 +1,10 @@
 import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type Profile, type Theme, type VerifiedToken } from './types.js';
 import type { Env } from './env.js';
 import { createJwtVerifier } from './jwt.js';
-import { eq, ilikeExact, restPath, rpcPath } from './postgrest.js';
+import { eq, ilikeExact, ltInt, restPath, rpcPath, type Filter } from './postgrest.js';
+
+/** Merkt pro Instanz, dass Migration 0003 noch fehlt, damit nicht jede Registrierung zweimal fragt. */
+let usernameRpcMissing = false;
 
 /**
  * Supabase über REST, ohne SDK.
@@ -44,7 +47,8 @@ interface CommentDbRow {
   author: { username: string; main_fighter: string | null } | null;
 }
 
-const TIMEOUT = 8000;
+const TIMEOUT_READ = 4000;
+const TIMEOUT_WRITE = 7000;
 
 const toUser = (u: GoTrueUser): AuthUser => ({
   id: u.id,
@@ -128,20 +132,43 @@ export function supabaseBackend(env: Env): Backend {
     'Content-Type': 'application/json',
   });
 
+  /*
+   * Ein Aufruf mit Timeout. Lesende Anfragen (GET) laufen bei Netzfehler,
+   * Timeout oder 502/503/504 genau einmal erneut, nach kurzer Pause. Schreibende
+   * nie: Ob ein POST angekommen ist, weiß man nach einem Timeout nicht, ein
+   * zweiter Versuch könnte einen Kommentar doppelt anlegen.
+   * Zwei Versuche à 4 s plus Pause bleiben unter dem 9-Sekunden-Limit aus route.ts.
+   */
   async function call<T>(path: string, init: RequestInit & { token?: string; prefer?: string } = {}): Promise<T> {
     const headers: Record<string, string> = { ...authHeaders(init.token) };
     if (init.prefer) headers.Prefer = init.prefer;
-    let res: Response;
-    try {
-      res = await fetch(`${env.supabaseUrl}${path}`, { ...init, headers, signal: AbortSignal.timeout(TIMEOUT) });
-    } catch (err) {
-      console.error('[supabase] nicht erreichbar', err);
-      throw new BackendError('unavailable');
+    const idempotent = (init.method ?? 'GET') === 'GET';
+    const attempts = idempotent ? 2 : 1;
+
+    let res: Response | null = null;
+    for (let attempt = 1; attempt <= attempts; attempt++) {
+      try {
+        res = await fetch(`${env.supabaseUrl}${path}`, { ...init, headers, signal: AbortSignal.timeout(idempotent ? TIMEOUT_READ : TIMEOUT_WRITE) });
+        if (![502, 503, 504].includes(res.status) || attempt === attempts) break;
+      } catch (err) {
+        const timedOut = err instanceof Error && (err.name === 'TimeoutError' || err.name === 'AbortError');
+        console.warn(JSON.stringify({ t: 'supabase', path: path.split('?')[0], attempt, error: timedOut ? 'timeout' : 'network' }));
+        if (attempt === attempts) throw new BackendError('unavailable');
+      }
+      await new Promise((r) => setTimeout(r, 250));
     }
+    if (!res) throw new BackendError('unavailable');
     if (!res.ok) throw await fehler(res);
     if (res.status === 204) return undefined as T;
     const text = await res.text();
-    return (text ? JSON.parse(text) : undefined) as T;
+    if (!text) return undefined as T;
+    try {
+      return JSON.parse(text) as T;
+    } catch {
+      // Ein Proxy oder eine Wartungsseite liefert HTML mit Status 200. Nicht als Daten weiterreichen.
+      console.warn(JSON.stringify({ t: 'supabase', path: path.split('?')[0], error: 'kein JSON' }));
+      throw new BackendError('unavailable');
+    }
   }
 
   // Alle PostgREST-Pfade entstehen über restPath/rpcPath: Eingaben sind dort nur Literale (siehe postgrest.ts).
@@ -220,7 +247,18 @@ export function supabaseBackend(env: Env): Backend {
     },
 
     async usernameTaken(username) {
-      // Groß- und Kleinschreibung zählen nicht, „Fox“ und „fox“ sind derselbe Name. ilikeExact maskiert alle Platzhalter.
+      // Groß- und Kleinschreibung zählen nicht, „Fox“ und „fox“ sind derselbe Name.
+      // Bevorzugt die Funktion aus Migration 0003, die den Index auf lower(username) nutzt.
+      if (!usernameRpcMissing) {
+        try {
+          return (await call<boolean>(rpcPath('username_taken'), { method: 'POST', body: JSON.stringify({ p_username: username }) })) === true;
+        } catch (err) {
+          if (!(err instanceof BackendError && err.code === 'not-found')) throw err;
+          usernameRpcMissing = true;
+          console.warn(JSON.stringify({ t: 'supabase', hinweis: 'username_taken fehlt, Migration 0003 ausführen. Nutze ilike.' }));
+        }
+      }
+      // Rückfall vor Migration 0003. ilikeExact maskiert alle Platzhalter.
       const rows = await call<Array<{ id: string }>>(restPath('profiles', { select: 'id', where: { username: ilikeExact(username) }, limit: 1 }));
       return rows.length > 0;
     },
@@ -254,10 +292,12 @@ export function supabaseBackend(env: Env): Backend {
       await call(rpcPath('delete_own_account'), { method: 'POST', token: auth.token, body: '{}' });
     },
 
-    async listComments(fighter, limit) {
-      const rows = await call<CommentDbRow[]>(
-        restPath('comments', { select: COMMENT_SELECT, where: { fighter_slug: eq(fighter) }, order: 'created_at.desc', limit }),
-      );
+    async listComments(fighter, limit, before) {
+      // Seiten per id statt offset: bleibt stabil, wenn währenddessen neue Kommentare dazukommen,
+      // und nutzt den Index (fighter_slug, id desc) aus Migration 0003.
+      const where: Record<string, Filter> = { fighter_slug: eq(fighter) };
+      if (before) where.id = ltInt(before);
+      const rows = await call<CommentDbRow[]>(restPath('comments', { select: COMMENT_SELECT, where, order: 'id.desc', limit }));
       return rows.map(toComment);
     },
 

@@ -15,10 +15,11 @@ import { initBookmarkButtons } from './components/bookmarkButtons';
 import { initPalette } from './components/palette';
 import { renderShell } from './components/shell';
 import { initSiteBackground } from './components/siteBackground';
+import { initErrorHandling, reportError } from './lib/errors';
 import { applyTheme } from './lib/theme';
 import { onAuth, refreshSession } from './services/auth';
 import { clearBookmarkCache, loadBookmarks } from './services/db';
-import { mount, qs, qsa } from './lib/dom';
+import { html, mount, qs, qsa } from './lib/dom';
 import { initReveals, initSmoothScroll, motionOK, scrollToTarget, ScrollTrigger } from './lib/motion';
 import { startRouter, type NavContext, type Route } from './lib/router';
 import { archetypesPage } from './pages/archetypes';
@@ -34,6 +35,7 @@ import type { PageView } from './pages/types';
 const app = document.getElementById('app');
 if (!app) throw new Error('#app fehlt in index.html');
 
+initErrorHandling();
 const palette = initPalette();
 const shell = renderShell(app, palette.open);
 initSiteBackground(app);
@@ -133,16 +135,43 @@ function linkReturningTile(nav: NavContext): void {
   if (tile && onScreen(tile)) nameShared(tile);
 }
 
+/** Ersatzseite, wenn eine Seite beim Aufbau abstürzt. Besser als eine leere Fläche unter der Leiste. */
+const crashPage = (): PageView => ({
+  title: 'Fehler | Blastzone',
+  markup: html`<div class="page container page-crash">
+    <div class="empty empty--error" role="alert">
+      <h1>Diese Seite ließ sich nicht aufbauen.</h1>
+      <p>Der Fehler ist gemeldet. Neu laden hilft meistens, sonst geht es über die Leiste oben weiter.</p>
+      <div class="empty__actions">
+        <button class="btn btn--sm" type="button" data-crash-reload>Seite neu laden</button>
+        <a class="btn btn--sm btn--ghost" href="#/">Zur Startseite</a>
+      </div>
+    </div>
+  </div>`,
+});
+
 function render(route: Route, nav: NavContext): void {
   cleanup?.();
   cleanup = null;
   ScrollTrigger.getAll().forEach((t) => t.kill());
 
-  const page = view(route);
-  document.title = page.title;
-  mount(shell.main, page.markup);
-  shell.setActive(route.name);
-  cleanup = page.mount?.(shell.main) ?? null;
+  let page: PageView;
+  try {
+    page = view(route);
+    document.title = page.title;
+    mount(shell.main, page.markup);
+    shell.setActive(route.name);
+    cleanup = page.mount?.(shell.main) ?? null;
+  } catch (err) {
+    reportError('render', err);
+    cleanup?.();
+    cleanup = null;
+    page = crashPage();
+    document.title = page.title;
+    mount(shell.main, page.markup);
+    // Kein onclick im Markup: Die CSP erlaubt keine Inline-Handler.
+    qs('[data-crash-reload]', shell.main)?.addEventListener('click', () => window.location.reload());
+  }
 
   const key = pageKey(route);
   const saved = nav.direction === 'back' ? scrollMemory.get(key) : undefined;

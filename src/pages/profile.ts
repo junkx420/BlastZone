@@ -3,6 +3,7 @@ import { bindComboCards, comboCard } from '../components/comboPlayer';
 import { faceThumb } from '../components/fighterTile';
 import { ICONS } from '../components/icons';
 import { FIGHTER_BY_SLUG, FIGHTERS } from '../data/fighters';
+import { bindErrorState, errorState, LOAD_FAILED_TEXT } from '../components/states';
 import { guideFor, loadLateGuides } from '../data/guide-index';
 import type { Combo, Fighter } from '../data/types';
 import { accentVars } from '../lib/color';
@@ -228,7 +229,15 @@ export function profilePage(): PageView {
           const signature = ids.join(',');
           if (signature === lastIds) return;
           lastIds = signature;
-          await loadLateGuides();
+          try {
+            await loadLateGuides();
+          } catch {
+            if (!saved.isConnected) return;
+            lastIds = '';
+            mount(saved, errorState('Gespeicherte Combos konnten nicht geladen werden.', LOAD_FAILED_TEXT));
+            bindErrorState(saved, () => void renderSaved(ids));
+            return;
+          }
           if (!saved.isConnected) return;
           const bySlug = new Map<string, SavedGroup>();
           let missing = 0;
@@ -250,9 +259,15 @@ export function profilePage(): PageView {
           comboCleanup = bindComboCards(saved, groups.flatMap((g) => g.combos));
         };
 
-        void loadBookmarks().catch((err: unknown) => {
-          mount(saved, html`<p class="profile-status">${err instanceof ApiError ? err.message : 'Gespeicherte Combos konnten nicht geladen werden.'}</p>`);
-        });
+        const fetchBookmarks = (force: boolean): void => {
+          loadBookmarks(force).catch((err: unknown) => {
+            if (!saved.isConnected) return;
+            lastIds = '';
+            mount(saved, errorState('Gespeicherte Combos konnten nicht geladen werden.', err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
+            bindErrorState(saved, () => fetchBookmarks(true));
+          });
+        };
+        fetchBookmarks(false);
         cleanups.push(onBookmarks((ids) => void renderSaved([...ids])));
         cleanups.push(() => comboCleanup());
 

@@ -1,7 +1,9 @@
 import { FIGHTER_SLUG_PATTERN } from '../src/shared/account-rules.js';
 import { backend, toHttp, type Theme } from './_lib/backend.js';
-import { assertSameOrigin, handle, HttpError, ok, readJson } from './_lib/http.js';
+import { assertSameOrigin, HttpError, ok, readJson } from './_lib/http.js';
+import { route } from './_lib/route.js';
 import { ownProfile } from './_lib/owner.js';
+import { enforce } from './_lib/ratelimit.js';
 import { requireAuth } from './_lib/session.js';
 
 /**
@@ -11,7 +13,7 @@ import { requireAuth } from './_lib/session.js';
  * Den Benutzernamen kann niemand über die API ändern: Die Datenbank erlaubt
  * UPDATE nur auf main_fighter und theme (Spaltenrechte in der Migration).
  */
-export const GET = handle(async (request) => {
+export const GET = route(async (request) => {
   const be = backend();
   const { auth, cookies } = await requireAuth(request, be);
   try {
@@ -23,10 +25,11 @@ export const GET = handle(async (request) => {
   }
 });
 
-export const PATCH = handle(async (request) => {
+export const PATCH = route(async (request) => {
   assertSameOrigin(request);
   const be = backend();
   const { auth, cookies } = await requireAuth(request, be);
+  await enforce({ name: 'profile-update-user', key: auth.userId, max: 30, windowSec: 60 });
   const body = await readJson(request);
 
   const patch: { mainFighter?: string | null; theme?: Theme } = {};
