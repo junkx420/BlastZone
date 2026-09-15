@@ -29,13 +29,24 @@ export function clearCookies(request: Request): string[] {
   return [cookie(AT, '', { maxAge: 0, secure }), cookie(RT, '', { maxAge: 0, sameSite: 'Strict', secure })];
 }
 
+/*
+ * Cookies kommen vom Browser und damit potenziell von jedem. Bevor ein Wert in
+ * einen Header, eine Filter-URL oder einen JSON-Körper geht, muss er seine Form
+ * haben: ein JWT aus Base64url-Teilen, eine UUID als Nutzer-ID, ein Refresh-Token
+ * ohne Sonderzeichen. Alles andere gilt als nicht angemeldet.
+ */
+const JWT_SHAPE = /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/;
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const REFRESH_SHAPE = /^[A-Za-z0-9_-]{1,512}$/;
+
 /** Liest nur den Ablauf und die Nutzer-ID aus dem JWT. Die Signatur prüft Supabase bei jeder Anfrage selbst. */
 function claims(token: string): { sub: string; exp: number } | null {
+  if (token.length > 8192 || !JWT_SHAPE.test(token)) return null;
   const payload = token.split('.')[1];
   if (!payload) return null;
   try {
     const data = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/'))) as { sub?: unknown; exp?: unknown };
-    return typeof data.sub === 'string' && typeof data.exp === 'number' ? { sub: data.sub, exp: data.exp } : null;
+    return typeof data.sub === 'string' && UUID.test(data.sub) && typeof data.exp === 'number' ? { sub: data.sub, exp: data.exp } : null;
   } catch {
     return null;
   }
@@ -59,7 +70,7 @@ export interface AuthResult {
 export async function authenticate(request: Request, be: Backend): Promise<AuthResult> {
   const jar = parseCookies(request);
   const at = jar[AT];
-  const rt = jar[RT];
+  const rt = jar[RT] && REFRESH_SHAPE.test(jar[RT]) ? jar[RT] : undefined;
 
   const c = at ? claims(at) : null;
   if (at && c && c.exp * 1000 > Date.now() + 60_000) return { auth: { token: at, userId: c.sub }, cookies: [] };

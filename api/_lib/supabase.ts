@@ -1,5 +1,6 @@
 import { BackendError, type AuthSession, type AuthUser, type Backend, type CommentRow, type Profile, type Theme } from './types.js';
 import type { Env } from './env.js';
+import { eq, ilikeExact, restPath, rpcPath } from './postgrest.js';
 
 /**
  * Supabase über REST, ohne SDK.
@@ -122,7 +123,9 @@ export function supabaseBackend(env: Env): Backend {
     return (text ? JSON.parse(text) : undefined) as T;
   }
 
-  const q = encodeURIComponent;
+  // Alle PostgREST-Pfade entstehen über restPath/rpcPath: Eingaben sind dort nur Literale (siehe postgrest.ts).
+  const COMMENT_SELECT = 'id,fighter_slug,body,created_at,author:profiles(id,username,main_fighter)';
+  const PROFILE_SELECT = 'id,username,main_fighter,theme';
 
   return {
     async signUp(email, password, username) {
@@ -155,14 +158,13 @@ export function supabaseBackend(env: Env): Backend {
     },
 
     async usernameTaken(username) {
-      // ilike ohne Platzhalter: Groß- und Kleinschreibung zählen nicht, „Fox“ und „fox“ sind derselbe Name.
-      const escaped = username.replace(/[%_\\]/g, (c) => `\\${c}`);
-      const rows = await call<Array<{ id: string }>>(`/rest/v1/profiles?select=id&username=ilike.${q(escaped)}&limit=1`);
+      // Groß- und Kleinschreibung zählen nicht, „Fox“ und „fox“ sind derselbe Name. ilikeExact maskiert alle Platzhalter.
+      const rows = await call<Array<{ id: string }>>(restPath('profiles', { select: 'id', where: { username: ilikeExact(username) }, limit: 1 }));
       return rows.length > 0;
     },
 
     async getProfile(accessToken, userId) {
-      const rows = await call<ProfileRow[]>(`/rest/v1/profiles?select=id,username,main_fighter,theme&id=eq.${q(userId)}&limit=1`, { token: accessToken });
+      const rows = await call<ProfileRow[]>(restPath('profiles', { select: PROFILE_SELECT, where: { id: eq(userId) }, limit: 1 }), { token: accessToken });
       return rows[0] ? toProfile(rows[0]) : null;
     },
 
@@ -170,7 +172,7 @@ export function supabaseBackend(env: Env): Backend {
       const body: Record<string, unknown> = {};
       if (patch.mainFighter !== undefined) body.main_fighter = patch.mainFighter;
       if (patch.theme !== undefined) body.theme = patch.theme;
-      const rows = await call<ProfileRow[]>(`/rest/v1/profiles?id=eq.${q(userId)}&select=id,username,main_fighter,theme`, {
+      const rows = await call<ProfileRow[]>(restPath('profiles', { select: PROFILE_SELECT, where: { id: eq(userId) } }), {
         method: 'PATCH',
         token: accessToken,
         prefer: 'return=representation',
@@ -181,19 +183,19 @@ export function supabaseBackend(env: Env): Backend {
     },
 
     async deleteAccount(accessToken) {
-      await call('/rest/v1/rpc/delete_own_account', { method: 'POST', token: accessToken, body: '{}' });
+      await call(rpcPath('delete_own_account'), { method: 'POST', token: accessToken, body: '{}' });
     },
 
     async listComments(fighter, limit) {
       const rows = await call<CommentDbRow[]>(
-        `/rest/v1/comments?select=id,fighter_slug,body,created_at,author:profiles(id,username,main_fighter)&fighter_slug=eq.${q(fighter)}&order=created_at.desc&limit=${limit}`,
+        restPath('comments', { select: COMMENT_SELECT, where: { fighter_slug: eq(fighter) }, order: 'created_at.desc', limit }),
       );
       return rows.map(toComment);
     },
 
     async addComment(accessToken, fighter, body) {
       const rows = await call<CommentDbRow[]>(
-        '/rest/v1/comments?select=id,fighter_slug,body,created_at,author:profiles(id,username,main_fighter)',
+        restPath('comments', { select: COMMENT_SELECT }),
         { method: 'POST', token: accessToken, prefer: 'return=representation', body: JSON.stringify({ fighter_slug: fighter, body }) },
       );
       if (!rows[0]) throw new BackendError('forbidden');
@@ -202,17 +204,17 @@ export function supabaseBackend(env: Env): Backend {
 
     async deleteComment(accessToken, id) {
       // RLS lässt nur eigene Kommentare löschen. Trifft die Bedingung nichts, kommt eine leere Liste zurück.
-      const rows = await call<Array<{ id: number }>>(`/rest/v1/comments?id=eq.${id}&select=id`, { method: 'DELETE', token: accessToken, prefer: 'return=representation' });
+      const rows = await call<Array<{ id: number }>>(restPath('comments', { select: 'id', where: { id: eq(id) } }), { method: 'DELETE', token: accessToken, prefer: 'return=representation' });
       if (!rows.length) throw new BackendError('not-found');
     },
 
     async listBookmarks(accessToken) {
-      const rows = await call<Array<{ combo_id: string }>>('/rest/v1/bookmarks?select=combo_id&order=created_at.desc', { token: accessToken });
+      const rows = await call<Array<{ combo_id: string }>>(restPath('bookmarks', { select: 'combo_id', order: 'created_at.desc' }), { token: accessToken });
       return rows.map((r) => r.combo_id);
     },
 
     async addBookmark(accessToken, comboId) {
-      await call('/rest/v1/bookmarks?on_conflict=user_id,combo_id', {
+      await call(restPath('bookmarks', { onConflict: ['user_id', 'combo_id'] }), {
         method: 'POST',
         token: accessToken,
         prefer: 'resolution=ignore-duplicates,return=minimal',
@@ -221,7 +223,7 @@ export function supabaseBackend(env: Env): Backend {
     },
 
     async removeBookmark(accessToken, comboId) {
-      await call(`/rest/v1/bookmarks?combo_id=eq.${q(comboId)}`, { method: 'DELETE', token: accessToken, prefer: 'return=minimal' });
+      await call(restPath('bookmarks', { where: { combo_id: eq(comboId) } }), { method: 'DELETE', token: accessToken, prefer: 'return=minimal' });
     },
   };
 }
