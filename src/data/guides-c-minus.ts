@@ -160,10 +160,10 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'bowser-jr',
     meta: [
-      'Bowser Jr. sitzt im Clown Car: Sein ganzes Moveset trifft mit abgekoppelten Hitboxen, der Wagen nimmt die Treffer statt seiner. Clown Cannon und Mechakoopa geben ihm zwei Projektile, und der Clown Kart Dash gleicht mit seinem Tempo die schwache Annäherung aus.',
+      'Bowser Jr. sitzt im Clown Car: Sein Moveset ist komplett disjoint, der Wagen nimmt die Treffer statt seiner. Clown Cannon und Mechakoopa geben ihm zwei Projektile, und der Clown Kart Dash gleicht mit seinem Tempo die schwache Annäherung aus.',
       'Seine Recovery lässt sich sehr leicht gimpen, Out-of-Shield hat er kaum Optionen, und sein Grab gehört zu den langsamsten ohne Tether. Dazu kommen wenige verlässliche Kill-Optionen.',
     ],
-    strengths: ['Moveset komplett mit abgekoppelten Hitboxen', 'Zwei Projektile plus Clown Kart Dash', 'Up Air zum Jonglieren'],
+    strengths: ['Komplett disjointes Moveset', 'Zwei Projektile plus Clown Kart Dash', 'Up Air zum Jonglieren'],
     weaknesses: ['Recovery leicht zu gimpen', 'Kaum Out-of-Shield-Optionen', 'Wenige verlässliche Kill-Optionen'],
     sources: [wiki('Bowser_Jr._(SSBU)'), game8('281229'), ufd('bowser_jr')],
     combos: [
@@ -784,10 +784,10 @@ export const C_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'link',
     meta: [
-      'Das Master-Schwert gibt Link Reichweite mit abgekoppelten Hitboxen und mehrere starke Kill-Moves, doch seine Nicht-Schwert-Moves sind mindestens genauso wichtig: Der Neutral Air gilt als Stütze seines Neutrals, und die Remote Bomb ist Werkzeug für Mindgames, Item-Combos, Edgeguards, Recovery und Ledgetrapping zugleich.',
+      'Das Master-Schwert gibt Link disjointe Reichweite und mehrere starke Kill-Moves, doch seine Nicht-Schwert-Moves sind mindestens genauso wichtig: Der Neutral Air gilt als Stütze seines Neutrals, und die Remote Bomb ist Werkzeug für Mindgames, Item-Combos, Edgeguards, Recovery und Ledgetrapping zugleich.',
       'Er gehört allerdings zur langsameren Hälfte des Casts und kommt gegen schnelle Charaktere schwer hinterher. Die Schwert-Moves haben träge Frame Data, und der Spin Attack fliegt eine so berechenbare Bahn, dass seine Recovery ausnutzbar bleibt.',
     ],
-    strengths: ['Abgekoppelte Hitboxen und starke Kill-Moves', 'Remote Bomb als Allzweckwerkzeug', 'Nair als Stütze im Neutral'],
+    strengths: ['Disjointe Reichweite mit starken Kill-Moves', 'Remote Bomb als Allzweckwerkzeug', 'Nair als Stütze im Neutral'],
     weaknesses: ['Langsam gegen schnelle Charaktere', 'Träge Frame Data beim Schwert', 'Berechenbare Recovery'],
     sources: [wiki('Link_(SSBU)'), game8('281037'), ufd('link')],
     combos: [

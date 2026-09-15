@@ -21,10 +21,10 @@ export const GUIDES: FighterGuide[] = [
     slug: 'steve',
     meta: [
       'Steve spielt anders als jeder andere Fighter: Er baut Material ab, verbessert damit seine Werkzeuge und setzt Blöcke, Minecart und Amboss ein. Das bringt ihm enorme Stage-Kontrolle, eine starke Defensive und einen der besten Advantage-States im Spiel.',
-      'Seine Schwächen: geringe Mobilität am Boden und in der Luft, und ohne Material fehlen ihm Moves wie Minecart und TNT. Gegen Reichweite und abgekoppelte Hitboxen gerät er schnell ins Hintertreffen.',
+      'Seine Schwächen: geringe Mobilität am Boden und in der Luft, und ohne Material fehlen ihm Moves wie Minecart und TNT. Gegen Reichweite und Disjoints gerät er schnell ins Hintertreffen.',
     ],
     strengths: ['Stage-Kontrolle und Recovery-Hilfe durch Blöcke', 'Einer der besten Advantage-States im Spiel', 'Viele einzigartige Techniken'],
-    weaknesses: ['Geringe Mobilität am Boden und in der Luft', 'Ohne Material keine Minecart- oder TNT-Optionen', 'Anfällig gegen Reichweite und abgekoppelte Hitboxen'],
+    weaknesses: ['Geringe Mobilität am Boden und in der Luft', 'Ohne Material keine Minecart- oder TNT-Optionen', 'Anfällig gegen Reichweite und Disjoints'],
     sources: [wiki('Steve_(SSBU)'), game8('SSBU/archives/316020'), ufd('steve')],
     combos: [
       {
@@ -286,10 +286,10 @@ export const GUIDES: FighterGuide[] = [
   {
     slug: 'snake',
     meta: [
-      'Snake kontrolliert die Stage: Granaten, C4 und Nikita sperren Räume, und viele seiner Angriffe starten schnell, treffen weit mit abgekoppelten Hitboxen und haben enorme Kill-Power. Sein Dash Attack ist eine der besten Burst-Optionen im Spiel.',
+      'Snake kontrolliert die Stage: Granaten, C4 und Nikita sperren Räume, und viele seiner Angriffe starten schnell, treffen weit mit Disjoints und haben enorme Kill-Power. Sein Dash Attack ist eine der besten Burst-Optionen im Spiel.',
       'Die Schwachstellen liegen woanders: Cypher trägt ihn weit, ist aber berechenbar, leicht abzufangen und zerstörbar. Dazu kommen ein schwacher Disadvantage und gut lesbare Kill-Optionen.',
     ],
-    strengths: ['Schnelle Angriffe mit großen abgekoppelten Hitboxen', 'Stage-Kontrolle, Ledge-Trapping und Edgeguards', 'Garantierter Kill aus dem Down Throw ab 160 %'],
+    strengths: ['Schnelle Angriffe mit großen Disjoints', 'Stage-Kontrolle, Ledge-Trapping und Edgeguards', 'Garantierter Kill aus dem Down Throw ab 160 %'],
     weaknesses: ['Berechenbare, zerstörbare Recovery', 'Schwacher Disadvantage-State', 'Kill-Optionen sind gut lesbar'],
     sources: [wiki('Snake_(SSBU)'), game8('Super-Smash-Bros-Ultimate/archives/281202'), GIMR_SNAKE, ufd('snake')],
     combos: [

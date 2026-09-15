@@ -1035,10 +1035,10 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
     slug: 'toon-link',
     meta: [
       'Bogen und Bumerang sind laut SmashWiki im Neutral sehr stark, beide b-reversibel und schnell, und die Bombe eröffnet über viele Prozente Follow-ups. Wenig Endlag bei Forward und Back Air plus langsamer Fall lassen ihn die Luft dominieren.',
-      'Seine Schwebefähigkeit macht ihn aber anfällig für vertikale Angriffe und seine Recovery berechenbar. Die Reichweite seiner abgekoppelten Hitboxen relativiert seine kleine Statur, und der defensive Projektilplan passt nur bedingt zum Tempo von Ultimate.',
+      'Seine Schwebefähigkeit macht ihn aber anfällig für vertikale Angriffe und seine Recovery berechenbar. Die disjointe Reichweite relativiert seine kleine Statur, und der defensive Projektilplan passt nur bedingt zum Tempo von Ultimate.',
     ],
     strengths: ['Bogen und Bumerang b-reversibel im Neutral', 'Bombe eröffnet Follow-ups über viele Prozente', 'Dominantes Luftspiel mit wenig Endlag'],
-    weaknesses: ['Floaty: anfällig für vertikale Angriffe', 'Berechenbare Recovery', 'Kleine Statur trotz abgekoppelter Hitboxen'],
+    weaknesses: ['Floaty: anfällig für vertikale Angriffe', 'Berechenbare Recovery', 'Kleine Statur trotz Disjoints'],
     sources: [wiki('Toon_Link_(SSBU)'), game8('281210'), ufd('toon_link')],
     combos: [
       {
@@ -1159,10 +1159,10 @@ export const B_PLUS_GUIDES: FighterGuide[] = [
   {
     slug: 'young-link',
     meta: [
-      'Young Link hat laut SmashWiki gute Frame Data und viel Combo-Potenzial: Der geringe Knockback seiner Angriffe baut schnell Schaden auf, die Reichweite seiner abgekoppelten Hitboxen hält ihn sicher, und der Feuerpfeil startet dank kurzem Startlag Combos.',
+      'Young Link hat laut SmashWiki gute Frame Data und viel Combo-Potenzial: Der geringe Knockback seiner Angriffe baut schnell Schaden auf, die disjointe Reichweite hält ihn sicher, und der Feuerpfeil startet dank kurzem Startlag Combos.',
       'Für einen Schwertkämpfer ist seine Reichweite gering, er muss nah heran. Seine Recovery beschreibt berechenbare Bögen, und ohne Kill-Confirms tut er sich bei hohen Prozenten schwer, Stocks zu beenden.',
     ],
-    strengths: ['Gute Frame Data und starkes Combo-Spiel', 'Abgekoppelte Hitboxen als Absicherung', 'Feuerpfeil als Combo-Starter'],
+    strengths: ['Gute Frame Data und starkes Combo-Spiel', 'Disjointe Reichweite als Absicherung', 'Feuerpfeil als Combo-Starter'],
     weaknesses: ['Geringe Reichweite für einen Schwertkämpfer', 'Berechenbare Recovery', 'Kills nur über Confirms'],
     sources: [wiki('Young_Link_(SSBU)'), game8('280977'), YL_TRACKER, ufd('young_link')],
     combos: [

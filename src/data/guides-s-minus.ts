@@ -100,7 +100,7 @@ const PEACH: FighterGuide = {
         { input: 'dthrow', dmg: 10 },
         { input: 'ftilt', dmg: 10 },
       ],
-      tip: 'Laut SmashWiki eine der Folgen aus dem Down Throw: Der Forward Tilt hat eine abgekoppelte Hitbox und deckt horizontal wie vertikal ordentlich Raum ab.',
+      tip: 'Laut SmashWiki eine der Folgen aus dem Down Throw: Der Forward Tilt ist disjoint und deckt horizontal wie vertikal ordentlich Raum ab.',
       source: wiki('Peach_(SSBU)'),
     },
     {
@@ -410,10 +410,10 @@ export const S_MINUS_GUIDES: FighterGuide[] = [
     slug: 'yoshi',
     meta: [
       'Yoshi verbindet hohes Tempo, vor allem in der Luft, mit hohem Schaden und einem soliden Combo-Game. Die Armor seines Doppelsprungs lässt ihn Angriffe durchstehen, die andere den Stock kosten würden.',
-      'Seine geringe Reichweite lässt ihn gegen abgekoppelte Hitboxen oft den Kürzeren ziehen, und gegen Jonglagen tut er sich schwer. Egg Throw hilft ihm, das Neutral trotzdem zu gewinnen.',
+      'Seine geringe Reichweite lässt ihn gegen Disjoints oft den Kürzeren ziehen, und gegen Jonglagen tut er sich schwer. Egg Throw hilft ihm, das Neutral trotzdem zu gewinnen.',
     ],
     strengths: ['Hohe Mobilität, besonders in der Luft', 'Armor im Doppelsprung', 'Starkes Combo-Game mit hohem Schaden'],
-    weaknesses: ['Geringe Reichweite gegen abgekoppelte Hitboxen', 'Anfällig für Jonglagen'],
+    weaknesses: ['Geringe Reichweite gegen Disjoints', 'Anfällig für Jonglagen'],
     sources: [wiki('Yoshi_(SSBU)'), game8('281179'), ufd('yoshi')],
     combos: [
       {

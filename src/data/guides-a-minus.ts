@@ -384,10 +384,10 @@ export const A_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'shulk',
     meta: [
-      'Shulks größtes Pfund ist die Reichweite: Das Monado gibt ihm einige der längsten abgekoppelten Hitboxen im Spiel, und seine Aerials verbinden große Hitboxen mit langer Dauer und wenig Landing Lag. Die Monado-Arts, Buster, Smash, Shield, Speed, Jump, stellen seine Werte je nach Situation um.',
+      'Shulks größtes Pfund ist die Reichweite: Das Monado gibt ihm einige der längsten Disjoints im Spiel, und seine Aerials verbinden große Hitboxen mit langer Dauer und wenig Landing Lag. Die Monado-Arts, Buster, Smash, Shield, Speed, Jump, stellen seine Werte je nach Situation um.',
       'Dafür ist sein Moveset behäbig: Außer Jab, stehendem Grab und Vision trifft kein Angriff vor Frame 10. Ihm fehlt ein Projektil, und als einziger Charakter kann er keinen seiner Aerials vor dem Ende der Animation auto-canceln.',
     ],
-    strengths: ['Einige der längsten abgekoppelten Hitboxen im Spiel', 'Aerials mit großen, lang aktiven Hitboxen', 'Monado-Arts passen die Werte an jede Situation an'],
+    strengths: ['Einige der längsten Disjoints im Spiel', 'Aerials mit großen, lang aktiven Hitboxen', 'Monado-Arts passen die Werte an jede Situation an'],
     weaknesses: ['Kein Angriff vor Frame 10 (außer Jab, Grab, Vision)', 'Kein Projektil und keine Antwort auf Projektile', 'Kann keinen Aerial auto-canceln'],
     sources: [wiki('Shulk_(SSBU)'), game8('281228'), ufd('shulk')],
     combos: [

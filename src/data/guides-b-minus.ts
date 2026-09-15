@@ -256,8 +256,8 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'ness',
     meta: [
-      'Ness’ Aerials autocanceln im Short Hop, haben wenig Landing Lag und abgekoppelte Hitboxen, sind schnell und stark, bauen Schaden auf und killen. Sein Grab-Spiel gehört laut SmashWiki zu den besten im Cast: Down Throw als Combo-Starter, Forward und Up Throw für Juggles, Back Throw als einer der stärksten Kill-Würfe im Spiel.',
-      'Am Boden ist er dagegen langsam, seine Normals haben wenig Reichweite, und gegen große oder abgekoppelte Hitboxen muss er defensiv spielen. Seine Recovery bleibt trotz Verbesserungen ausnutzbar.',
+      'Ness’ Aerials autocanceln im Short Hop, haben wenig Landing Lag und sind schnell, stark und disjoint, sie bauen Schaden auf und killen. Sein Grab-Spiel gehört laut SmashWiki zu den besten im Cast: Down Throw als Combo-Starter, Forward und Up Throw für Juggles, Back Throw als einer der stärksten Kill-Würfe im Spiel.',
+      'Am Boden ist er dagegen langsam, seine Normals haben wenig Reichweite, und gegen große oder disjointe Hitboxen muss er defensiv spielen. Seine Recovery bleibt trotz Verbesserungen ausnutzbar.',
     ],
     strengths: ['Aerials autocanceln im Short Hop', 'Eines der besten Grab-Spiele im Cast', 'Back Throw als extrem starker Kill-Wurf'],
     weaknesses: ['Langsam am Boden, wenig Reichweite', 'Begrenzte Annäherungsoptionen', 'Ausnutzbare Recovery'],
@@ -763,10 +763,10 @@ export const B_MINUS_GUIDES: FighterGuide[] = [
   {
     slug: 'byleth',
     meta: [
-      'Byleths größte Stärke ist die Reichweite: Schwert, Bogen, Lanze und Axt geben ihm auf vielen Moves lange, abgekoppelte Hitboxen, und jede Waffe hat ihren eigenen Zweck. Der Down Throw ist laut SmashWiki der beste Teil seines Grab-Spiels, unter 80 % ein verlässlicher Combo-Starter.',
+      'Byleths größte Stärke ist die Reichweite: Schwert, Bogen, Lanze und Axt geben ihm auf vielen Moves lange, disjointe Hitboxen, und jede Waffe hat ihren eigenen Zweck. Der Down Throw ist laut SmashWiki der beste Teil seines Grab-Spiels, unter 80 % ein verlässlicher Combo-Starter.',
       'Im Nahkampf wird es dagegen eng, und seine Mobilität gehört zu den langsamsten im ganzen Spiel. Die Areadbhar-Moves leben vom Sweetspot; ohne ihn bleiben Schaden und Knockback deutlich schwächer.',
     ],
-    strengths: ['Lange, abgekoppelte Hitboxen', 'Jede Waffe mit eigenem Zweck', 'Down Throw als verlässlicher Starter unter 80 %'],
+    strengths: ['Lange, disjointe Reichweite', 'Jede Waffe mit eigenem Zweck', 'Down Throw als verlässlicher Starter unter 80 %'],
     weaknesses: ['Schwach im Nahkampf', 'Eine der langsamsten Mobilitäten im Spiel', 'Areadbhar nur mit Sweetspot stark'],
     sources: [wiki('Byleth_(SSBU)'), game8('281250'), ufd('byleth')],
     combos: [

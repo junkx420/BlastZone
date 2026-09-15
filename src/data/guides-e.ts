@@ -12,10 +12,10 @@ import type { FighterGuide } from './types';
 const SIMON: FighterGuide = {
   slug: 'simon',
   meta: [
-    'Die Vampire Killer gibt Simon laut SmashWiki die zweitlängste abgekoppelte Hitbox im ganzen Roster, und seine Aerials decken enorm viel Raum ab. Der Down Air ist sein berüchtigtes Combo-Werkzeug: Er prallt diagonal ab und öffnet dadurch viele KO-Confirms, vor allem in den Uppercut.',
+    'Die Vampire Killer gibt Simon laut SmashWiki die zweitlängste disjointe Reichweite im ganzen Roster, und seine Aerials decken enorm viel Raum ab. Der Down Air ist sein berüchtigtes Combo-Werkzeug: Er prallt diagonal ab und öffnet dadurch viele KO-Confirms, vor allem in den Uppercut.',
     'Dafür hat er eine der schlechtesten Recoveries im Spiel und lässt sich sehr leicht gimpen. Als Schwergewicht mit schwachen Luftwerten ist er combo-anfällig, und außerhalb des Uppercuts fehlt ihm ein brauchbares Out-of-Shield-Spiel.',
   ],
-  strengths: ['Zweitlängste abgekoppelte Hitbox im Spiel', 'Down Air öffnet viele KO-Confirms', 'Drei Projektile für die Distanzkontrolle'],
+  strengths: ['Zweitlängste disjointe Reichweite im Spiel', 'Down Air öffnet viele KO-Confirms', 'Drei Projektile für die Distanzkontrolle'],
   weaknesses: ['Eine der schlechtesten Recoveries im Spiel', 'Sehr leicht zu gimpen', 'Schwaches Out-of-Shield außer Uppercut'],
   sources: [wiki('Simon_(SSBU)'), game8('281237'), ufd('simon')],
   combos: [
@@ -288,7 +288,7 @@ export const E_GUIDES: FighterGuide[] = [
   {
     slug: 'ganondorf',
     meta: [
-      'Ganondorfs bestimmendes Merkmal ist rohe Kill-Power: Die meisten seiner Moves machen über 10 % Schaden und killen unter 100 %. Forward Tilt und Down Smash sind starke Semi-Spikes, Forward und Up Smash riesige abgekoppelte Hitboxen, und seine Aerials sind trotz ihrer Wucht schnell.',
+      'Ganondorfs bestimmendes Merkmal ist rohe Kill-Power: Die meisten seiner Moves machen über 10 % Schaden und killen unter 100 %. Forward Tilt und Down Smash sind starke Semi-Spikes, Forward und Up Smash riesige Disjoints, und seine Aerials sind trotz ihrer Wucht schnell.',
       'Dafür ist er extrem combo- und jonglieranfällig, hat kein Projektil und kaum defensive Optionen. Seine Frame Data gehört zu den schlechtesten im Spiel, sein Grab ist kurz, und die Recovery verläuft geradlinig und berechenbar.',
     ],
     strengths: ['Höchstes KO-Potenzial im Spiel', 'Schnelle Aerials trotz enormer Power', 'Flame Choke öffnet Dutzende Follow-ups'],

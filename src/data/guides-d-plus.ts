@@ -12,10 +12,10 @@ export const D_PLUS_GUIDES: FighterGuide[] = [
     slug: 'mii-swordfighter',
     meta: [
       'Die größte Stärke des Mii Swordfighters sind seine frei wählbaren Specials: Gale Strike gilt als sein bester Move, und aus dem Down Throw lässt sich laut SmashWiki fast jeder Aerial anspielen. Back und Up Air sind schnell und stark.',
-      'Für einen Schwertkämpfer hat er allerdings die schlechtesten abgekoppelten Hitboxen im Spiel, seine Mobilität bleibt hinter anderen Reichweiten-Charakteren zurück, und sein Grab-Spiel ist unterdurchschnittlich.',
+      'Für einen Schwertkämpfer hat er allerdings die schlechtesten Disjoints im Spiel, seine Mobilität bleibt hinter anderen Reichweiten-Charakteren zurück, und sein Grab-Spiel ist unterdurchschnittlich.',
     ],
     strengths: ['Sehr flexible Special-Auswahl', 'Gale Strike als Confirm-Werkzeug', 'Down Throw spielt fast jeden Aerial an'],
-    weaknesses: ['Schlechteste abgekoppelte Hitboxen unter den Schwertkämpfern', 'Träge Mobilität', 'Unterdurchschnittliches Grab-Spiel'],
+    weaknesses: ['Schlechteste Disjoints unter den Schwertkämpfern', 'Träge Mobilität', 'Unterdurchschnittliches Grab-Spiel'],
     sources: [wiki('Mii_Swordfighter_(SSBU)'), game8('281252'), ufd('mii_swordfighter')],
     combos: [
       {
