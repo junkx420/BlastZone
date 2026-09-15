@@ -1,4 +1,4 @@
-import { BackendError, type AuthSession, type Backend, type Profile } from './types.js';
+import { BackendError, type Auth, type AuthSession, type Backend, type Profile, type VerifiedToken } from './types.js';
 import { cookie, HttpError, isHttps, parseCookies } from './http.js';
 
 /**
@@ -39,23 +39,20 @@ const JWT_SHAPE = /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const REFRESH_SHAPE = /^[A-Za-z0-9_-]{1,512}$/;
 
-/** Liest nur den Ablauf und die Nutzer-ID aus dem JWT. Die Signatur prüft Supabase bei jeder Anfrage selbst. */
-function claims(token: string): { sub: string; exp: number } | null {
+/*
+ * Die Nutzer-ID kommt nie ungeprüft aus dem Cookie. `verifyAccessToken` prüft
+ * die Signatur gegen die öffentlichen Schlüssel des Supabase-Projekts (bzw. fragt
+ * Supabase Auth). Erst dann gilt `sub` als der angemeldete Nutzer, auch für
+ * Rate-Limit-Schlüssel und die Besitzprüfung in owner.ts. Vorher reichte ein
+ * selbst gebautes Token mit fremder ID, um fremde Rate-Limit-Töpfe zu leeren.
+ */
+async function verifiedClaims(token: string, be: Backend): Promise<VerifiedToken | null> {
   if (token.length > 8192 || !JWT_SHAPE.test(token)) return null;
-  const payload = token.split('.')[1];
-  if (!payload) return null;
-  try {
-    const data = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/'))) as { sub?: unknown; exp?: unknown };
-    return typeof data.sub === 'string' && UUID.test(data.sub) && typeof data.exp === 'number' ? { sub: data.sub, exp: data.exp } : null;
-  } catch {
-    return null;
-  }
+  const verified = await be.verifyAccessToken(token);
+  return verified && UUID.test(verified.userId) ? verified : null;
 }
 
-export interface Auth {
-  token: string;
-  userId: string;
-}
+export type { Auth };
 
 export interface AuthResult {
   auth: Auth | null;
@@ -72,8 +69,8 @@ export async function authenticate(request: Request, be: Backend): Promise<AuthR
   const at = jar[AT];
   const rt = jar[RT] && REFRESH_SHAPE.test(jar[RT]) ? jar[RT] : undefined;
 
-  const c = at ? claims(at) : null;
-  if (at && c && c.exp * 1000 > Date.now() + 60_000) return { auth: { token: at, userId: c.sub }, cookies: [] };
+  const c = at ? await verifiedClaims(at, be) : null;
+  if (at && c && c.exp * 1000 > Date.now() + 60_000) return { auth: { token: at, userId: c.userId }, cookies: [] };
   if (!rt) return { auth: null, cookies: at ? clearCookies(request) : [] };
 
   try {

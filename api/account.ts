@@ -1,5 +1,6 @@
 import { backend, toHttp } from './_lib/backend.js';
 import { assertSameOrigin, handle, HttpError, ok, readJson, str } from './_lib/http.js';
+import { ownProfile } from './_lib/owner.js';
 import { enforce } from './_lib/ratelimit.js';
 import { clearCookies, requireAuth } from './_lib/session.js';
 
@@ -18,11 +19,12 @@ export const DELETE = handle(async (request) => {
 
   const body = await readJson(request);
   try {
-    const profile = await be.getProfile(auth.token, auth.userId);
+    // Bestätigt wird gegen das eigene Profil, geprüft über owner.ts. Gelöscht wird serverseitig nur auth.uid().
+    const profile = ownProfile(auth, await be.getProfile(auth));
     if (!profile || str(body.confirm) !== profile.username) {
       throw new HttpError(400, 'confirm-mismatch', 'Zum Löschen deinen Benutzernamen genau so eintippen, wie er angezeigt wird.');
     }
-    await be.deleteAccount(auth.token);
+    await be.deleteAccount(auth);
   } catch (err) {
     toHttp(err);
   }

@@ -1,5 +1,6 @@
 import { backend, BackendError } from '../_lib/backend.js';
 import { assertSameOrigin, clientIp, handle, HttpError, ok, readJson, str } from '../_lib/http.js';
+import { ownProfile } from '../_lib/owner.js';
 import { enforce } from '../_lib/ratelimit.js';
 import { publicUser, sessionCookies } from '../_lib/session.js';
 
@@ -22,7 +23,8 @@ export const POST = handle(async (request) => {
   const be = backend();
   try {
     const session = await be.verifyEmail(tokenHash);
-    const profile = await be.getProfile(session.accessToken, session.user.id);
+    const auth = { token: session.accessToken, userId: session.user.id };
+    const profile = ownProfile(auth, await be.getProfile(auth));
     if (!profile) throw new BackendError('not-found');
     return ok({ user: publicUser(session.user.email, profile) }, sessionCookies(request, session));
   } catch (err) {

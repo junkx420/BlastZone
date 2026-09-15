@@ -1,8 +1,9 @@
 import { cleanComment, COMMENT_MAX, FIGHTER_SLUG_PATTERN } from '../src/shared/account-rules.js';
 import { backend, toHttp } from './_lib/backend.js';
 import { assertSameOrigin, clientIp, handle, HttpError, ok, readJson, str } from './_lib/http.js';
+import { ownComment, ownRows, publicComment } from './_lib/owner.js';
 import { enforce } from './_lib/ratelimit.js';
-import { requireAuth } from './_lib/session.js';
+import { authenticate, requireAuth } from './_lib/session.js';
 
 /**
  * GET    /api/comments?fighter=<slug>          öffentlich, neueste 50
@@ -21,8 +22,12 @@ const fighterSlug = (v: string): string => {
 export const GET = handle(async (request) => {
   const fighter = fighterSlug(new URL(request.url).searchParams.get('fighter') ?? '');
   await enforce({ name: 'comments-read-ip', key: clientIp(request), max: 120, windowSec: 60 });
+  const be = backend();
+  // Lesen ist öffentlich. Angemeldet (geprüftes Token) erfährt man zusätzlich, welche Kommentare die eigenen sind.
+  const { auth, cookies } = await authenticate(request, be);
   try {
-    return ok({ comments: await backend().listComments(fighter, 50) });
+    const rows = await be.listComments(fighter, 50);
+    return ok({ comments: rows.map((row) => publicComment(row, auth?.userId ?? null)) }, cookies);
   } catch (err) {
     toHttp(err);
   }
@@ -45,7 +50,7 @@ export const POST = handle(async (request) => {
   if ([...text].length > COMMENT_MAX) throw new HttpError(400, 'comment-too-long', `Höchstens ${COMMENT_MAX} Zeichen.`);
 
   try {
-    return ok({ comment: await be.addComment(auth.token, fighter, text) }, cookies, 201);
+    return ok({ comment: ownComment(auth, await be.addComment(auth, fighter, text)) }, cookies, 201);
   } catch (err) {
     toHttp(err);
   }
@@ -58,7 +63,9 @@ export const DELETE = handle(async (request) => {
   const id = Number(new URL(request.url).searchParams.get('id'));
   if (!Number.isSafeInteger(id) || id <= 0) throw new HttpError(400, 'invalid-id', 'Unbekannter Kommentar.');
   try {
-    await be.deleteComment(auth.token, id);
+    // Leer heißt: Den Kommentar gibt es nicht, oder er gehört jemand anderem. Beides beantwortet dieselbe 404.
+    const removed = ownRows(auth, await be.deleteComment(auth, id), 'comment-delete');
+    if (!removed.some((r) => r.id === id)) throw new HttpError(404, 'not-found', 'Nicht gefunden.');
     return ok({ id }, cookies);
   } catch (err) {
     toHttp(err);

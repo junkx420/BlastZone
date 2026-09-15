@@ -1,6 +1,7 @@
 import { COMBO_ID_PATTERN } from '../src/shared/account-rules.js';
 import { backend, toHttp } from './_lib/backend.js';
 import { assertSameOrigin, handle, HttpError, ok, readJson, str } from './_lib/http.js';
+import { bookmarkIds, ownRows } from './_lib/owner.js';
 import { enforce } from './_lib/ratelimit.js';
 import { requireAuth } from './_lib/session.js';
 
@@ -22,7 +23,7 @@ export const GET = handle(async (request) => {
   const be = backend();
   const { auth, cookies } = await requireAuth(request, be);
   try {
-    return ok({ ids: await be.listBookmarks(auth.token) }, cookies);
+    return ok({ ids: bookmarkIds(auth, await be.listBookmarks(auth)) }, cookies);
   } catch (err) {
     toHttp(err);
   }
@@ -35,7 +36,7 @@ export const POST = handle(async (request) => {
   await enforce({ name: 'bookmark-user', key: auth.userId, max: 60, windowSec: 60 });
   const id = comboId(str((await readJson(request)).comboId));
   try {
-    await be.addBookmark(auth.token, id);
+    ownRows(auth, await be.addBookmark(auth, id), 'bookmark-add');
     return ok({ comboId: id }, cookies, 201);
   } catch (err) {
     toHttp(err);
@@ -48,7 +49,7 @@ export const DELETE = handle(async (request) => {
   const { auth, cookies } = await requireAuth(request, be);
   const id = comboId(new URL(request.url).searchParams.get('combo') ?? '');
   try {
-    await be.removeBookmark(auth.token, id);
+    ownRows(auth, await be.removeBookmark(auth, id), 'bookmark-remove');
     return ok({ comboId: id }, cookies);
   } catch (err) {
     toHttp(err);

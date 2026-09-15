@@ -1,6 +1,7 @@
 import { FIGHTER_SLUG_PATTERN } from '../src/shared/account-rules.js';
 import { backend, toHttp, type Theme } from './_lib/backend.js';
 import { assertSameOrigin, handle, HttpError, ok, readJson } from './_lib/http.js';
+import { ownProfile } from './_lib/owner.js';
 import { requireAuth } from './_lib/session.js';
 
 /**
@@ -14,7 +15,7 @@ export const GET = handle(async (request) => {
   const be = backend();
   const { auth, cookies } = await requireAuth(request, be);
   try {
-    const profile = await be.getProfile(auth.token, auth.userId);
+    const profile = ownProfile(auth, await be.getProfile(auth));
     if (!profile) throw new HttpError(404, 'not-found', 'Profil nicht gefunden.');
     return ok({ profile }, cookies);
   } catch (err) {
@@ -41,7 +42,7 @@ export const PATCH = handle(async (request) => {
   if (!Object.keys(patch).length) throw new HttpError(400, 'empty', 'Nichts zu ändern.');
 
   try {
-    return ok({ profile: await be.updateProfile(auth.token, auth.userId, patch) }, cookies);
+    return ok({ profile: ownProfile(auth, await be.updateProfile(auth, patch)) }, cookies);
   } catch (err) {
     toHttp(err);
   }

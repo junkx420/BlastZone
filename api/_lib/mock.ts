@@ -100,6 +100,13 @@ export function mockBackend(): Backend {
       return toUser(userFor(accessToken));
     },
 
+    async verifyAccessToken(accessToken) {
+      // Gültig ist ein Mock-Token nur, wenn der Speicher es ausgestellt hat. Der Payload allein zählt nicht.
+      const t = store.tokens.get(accessToken);
+      if (!t || t.exp * 1000 < Date.now()) return null;
+      return { userId: t.userId, exp: t.exp };
+    },
+
     async verifyEmail(tokenHash) {
       const email = store.confirmations.get(tokenHash);
       const user = email ? store.users.get(email) : undefined;
@@ -121,26 +128,31 @@ export function mockBackend(): Backend {
       return [...store.users.values()].some((u) => u.profile.username.toLowerCase() === username.toLowerCase());
     },
 
-    async getProfile(accessToken, userId) {
-      const user = userFor(accessToken);
-      return user.id === userId ? { ...user.profile } : null;
+    /*
+     * Wie RLS: Wer das Token hält, bestimmt, wessen Daten berührt werden. Passt
+     * auth.userId nicht zum Token, verhält sich der Mock wie eine Datenbank, deren
+     * Filter nichts trifft.
+     */
+    async getProfile(auth) {
+      const user = userFor(auth.token);
+      return user.id === auth.userId ? { ...user.profile } : null;
     },
 
-    async updateProfile(accessToken, userId, patch) {
-      const user = userFor(accessToken);
-      if (user.id !== userId) throw new BackendError('forbidden');
+    async updateProfile(auth, patch) {
+      const user = userFor(auth.token);
+      if (user.id !== auth.userId) throw new BackendError('not-found');
       if (patch.mainFighter !== undefined) user.profile.mainFighter = patch.mainFighter;
       if (patch.theme !== undefined) user.profile.theme = patch.theme;
       store.comments.forEach((c) => {
-        if (c.author.id === user.id) c.author.mainFighter = user.profile.mainFighter;
+        if (c.userId === user.id) c.author.mainFighter = user.profile.mainFighter;
       });
       return { ...user.profile };
     },
 
-    async deleteAccount(accessToken) {
-      const user = userFor(accessToken);
+    async deleteAccount(auth) {
+      const user = userFor(auth.token);
       store.users.delete(user.email);
-      store.comments = store.comments.filter((c) => c.author.id !== user.id);
+      store.comments = store.comments.filter((c) => c.userId !== user.id);
       store.bookmarks.delete(user.id);
       for (const [t, v] of store.tokens) if (v.userId === user.id) store.tokens.delete(t);
     },
@@ -153,43 +165,52 @@ export function mockBackend(): Backend {
         .map((c) => ({ ...c, author: { ...c.author } }));
     },
 
-    async addComment(accessToken, fighter, body) {
-      const user = userFor(accessToken);
+    async addComment(auth, fighter, body) {
+      const user = userFor(auth.token);
       if (!user.confirmed) throw new BackendError('forbidden');
       const minuteAgo = new Date(Date.now() - 60_000).toISOString();
-      if (store.comments.filter((c) => c.author.id === user.id && c.createdAt > minuteAgo).length >= 5) throw new BackendError('rate-limited');
+      if (store.comments.filter((c) => c.userId === user.id && c.createdAt > minuteAgo).length >= 5) throw new BackendError('rate-limited');
       const row: CommentRow = {
         id: store.nextComment++,
+        userId: user.id,
         fighter,
         body,
         createdAt: new Date().toISOString(),
-        author: { id: user.id, username: user.profile.username, mainFighter: user.profile.mainFighter },
+        author: { username: user.profile.username, mainFighter: user.profile.mainFighter },
       };
       store.comments.push(row);
       return { ...row, author: { ...row.author } };
     },
 
-    async deleteComment(accessToken, id) {
-      const user = userFor(accessToken);
-      const i = store.comments.findIndex((c) => c.id === id && c.author.id === user.id);
-      if (i < 0) throw new BackendError('not-found');
-      store.comments.splice(i, 1);
+    async deleteComment(auth, id) {
+      const user = userFor(auth.token);
+      const i = store.comments.findIndex((c) => c.id === id && c.userId === user.id && c.userId === auth.userId);
+      if (i < 0) return [];
+      const [removed] = store.comments.splice(i, 1);
+      return removed ? [{ id: removed.id, userId: removed.userId }] : [];
     },
 
-    async listBookmarks(accessToken) {
-      return [...(store.bookmarks.get(userFor(accessToken).id) ?? [])];
+    async listBookmarks(auth) {
+      const user = userFor(auth.token);
+      if (user.id !== auth.userId) return [];
+      return (store.bookmarks.get(user.id) ?? []).map((comboId) => ({ userId: user.id, comboId }));
     },
 
-    async addBookmark(accessToken, comboId) {
-      const user = userFor(accessToken);
+    async addBookmark(auth, comboId) {
+      const user = userFor(auth.token);
       const list = store.bookmarks.get(user.id) ?? [];
-      if (!list.includes(comboId)) list.unshift(comboId);
+      if (list.includes(comboId)) return [];
+      list.unshift(comboId);
       store.bookmarks.set(user.id, list);
+      return [{ userId: user.id, comboId }];
     },
 
-    async removeBookmark(accessToken, comboId) {
-      const user = userFor(accessToken);
-      store.bookmarks.set(user.id, (store.bookmarks.get(user.id) ?? []).filter((c) => c !== comboId));
+    async removeBookmark(auth, comboId) {
+      const user = userFor(auth.token);
+      if (user.id !== auth.userId) return [];
+      const list = store.bookmarks.get(user.id) ?? [];
+      store.bookmarks.set(user.id, list.filter((c) => c !== comboId));
+      return list.includes(comboId) ? [{ userId: user.id, comboId }] : [];
     },
   };
 }

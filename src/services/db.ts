@@ -25,7 +25,9 @@ export interface Comment {
   fighter: string;
   body: string;
   createdAt: string;
-  author: { id: string; username: string; mainFighter: string | null };
+  /** Vom Server bestimmt. Fremde Nutzer-IDs bekommt der Browser nicht zu sehen. */
+  mine: boolean;
+  author: { username: string; mainFighter: string | null };
 }
 
 export const listComments = async (fighter: string): Promise<Comment[]> =>

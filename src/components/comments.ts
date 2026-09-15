@@ -87,7 +87,8 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
   const myId = (): string | null => (auth.status === 'user' ? auth.user.id : null);
 
   const renderList = (): void => {
-    mount(list, html`${comments.map((c) => commentItem(c, c.author.id === myId()))}`);
+    // `mine` gilt nur, solange noch jemand angemeldet ist. Der Server prüft beim Löschen ohnehin selbst.
+    mount(list, html`${comments.map((c) => commentItem(c, c.mine && myId() !== null))}`);
     if (comments.length) status.textContent = '';
     else if (!status.dataset.error) status.textContent = 'Noch keine Kommentare. Fang an.';
   };
@@ -219,14 +220,17 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
   const stop = onAuth((next) => {
     const changedUser = (next.status === 'user' ? next.user.id : null) !== myId() || next.status !== auth.status;
     const mainChanged = next.status === 'user' && auth.status === 'user' && next.user.mainFighter !== auth.user.mainFighter;
+    const wasKnown = auth.status !== 'unknown';
     auth = next;
     if (mainChanged && next.status === 'user') {
       // Eigene Kommentare zeigen sofort den neuen Main, wie es nach dem nächsten Laden ohnehin wäre.
-      const { id, mainFighter } = next.user;
-      comments = comments.map((c) => (c.author.id === id ? { ...c, author: { ...c.author, mainFighter } } : c));
+      const { mainFighter } = next.user;
+      comments = comments.map((c) => (c.mine ? { ...c, author: { ...c.author, mainFighter } } : c));
     }
     if (changedUser || mainChanged) renderComposer();
     renderList();
+    // Welche Kommentare die eigenen sind, weiß nur der Server. Nach An- oder Abmelden neu fragen.
+    if (changedUser && wasKnown) void load();
   });
   void load();
 

@@ -1,5 +1,6 @@
-import { BackendError, type AuthSession, type AuthUser, type Backend, type CommentRow, type Profile, type Theme } from './types.js';
+import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type Profile, type Theme, type VerifiedToken } from './types.js';
 import type { Env } from './env.js';
+import { createJwtVerifier } from './jwt.js';
 import { eq, ilikeExact, restPath, rpcPath } from './postgrest.js';
 
 /**
@@ -36,10 +37,11 @@ interface ProfileRow {
 
 interface CommentDbRow {
   id: number;
+  user_id: string;
   fighter_slug: string;
   body: string;
   created_at: string;
-  author: { id: string; username: string; main_fighter: string | null } | null;
+  author: { username: string; main_fighter: string | null } | null;
 }
 
 const TIMEOUT = 8000;
@@ -61,11 +63,30 @@ const toProfile = (p: ProfileRow): Profile => ({ id: p.id, username: p.username,
 
 const toComment = (c: CommentDbRow): CommentRow => ({
   id: c.id,
+  userId: c.user_id,
   fighter: c.fighter_slug,
   body: c.body,
   createdAt: c.created_at,
-  author: { id: c.author?.id ?? '', username: c.author?.username ?? 'Gelöschtes Konto', mainFighter: c.author?.main_fighter ?? null },
+  author: { username: c.author?.username ?? 'Gelöschtes Konto', mainFighter: c.author?.main_fighter ?? null },
 });
+
+const toBookmark = (b: { user_id: string; combo_id: string }): BookmarkRow => ({ userId: b.user_id, comboId: b.combo_id });
+
+/* Ein Verifier pro Projekt-URL, damit die Schlüsselliste über Anfragen hinweg im Speicher der Instanz bleibt. */
+const verifiers = new Map<string, ReturnType<typeof createJwtVerifier>>();
+function verifierFor(supabaseUrl: string): ReturnType<typeof createJwtVerifier> {
+  let v = verifiers.get(supabaseUrl);
+  if (!v) {
+    v = createJwtVerifier(async () => {
+      const res = await fetch(`${supabaseUrl}/auth/v1/.well-known/jwks.json`, { signal: AbortSignal.timeout(5000) });
+      if (!res.ok) throw new Error(`JWKS HTTP ${res.status}`);
+      const body = (await res.json()) as { keys?: unknown };
+      return Array.isArray(body.keys) ? body.keys : [];
+    });
+    verifiers.set(supabaseUrl, v);
+  }
+  return v;
+}
 
 /** Liest Fehlerantworten beider APIs und ordnet sie einem Code zu. */
 async function fehler(res: Response): Promise<BackendError> {
@@ -124,8 +145,44 @@ export function supabaseBackend(env: Env): Backend {
   }
 
   // Alle PostgREST-Pfade entstehen über restPath/rpcPath: Eingaben sind dort nur Literale (siehe postgrest.ts).
-  const COMMENT_SELECT = 'id,fighter_slug,body,created_at,author:profiles(id,username,main_fighter)';
+  const COMMENT_SELECT = 'id,user_id,fighter_slug,body,created_at,author:profiles(username,main_fighter)';
   const PROFILE_SELECT = 'id,username,main_fighter,theme';
+
+  /*
+   * Tokenprüfung. Erst lokal über die öffentlichen Schlüssel des Projekts; nur
+   * wenn das nicht geht (altes HS256-Token, Schlüsselliste nicht erreichbar),
+   * fragt der Server Supabase Auth. Deren Bestätigung gilt 60 Sekunden, gemerkt
+   * unter dem SHA-256 des Tokens, nie unter dem Token selbst.
+   */
+  const verifyLocally = verifierFor(env.supabaseUrl);
+  const fallbackCache = new Map<string, { userId: string; exp: number; until: number }>();
+
+  async function verifyWithAuthServer(token: string): Promise<VerifiedToken | null> {
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+    const key = [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
+    const hit = fallbackCache.get(key);
+    if (hit && hit.until > Date.now()) return { userId: hit.userId, exp: hit.exp };
+
+    let user: GoTrueUser;
+    try {
+      user = await call<GoTrueUser>('/auth/v1/user', { token });
+    } catch (err) {
+      if (err instanceof BackendError && err.code === 'unavailable') throw err;
+      return null;
+    }
+    // Den Ablauf liest erst jetzt jemand aus dem Payload: Supabase Auth hat das Token gerade als gültig bestätigt.
+    let exp = 0;
+    try {
+      const payload = JSON.parse(atob((token.split('.')[1] ?? '').replace(/-/g, '+').replace(/_/g, '/'))) as { sub?: unknown; exp?: unknown };
+      if (payload.sub !== user.id || typeof payload.exp !== 'number') return null;
+      exp = payload.exp;
+    } catch {
+      return null;
+    }
+    if (fallbackCache.size > 500) fallbackCache.clear();
+    fallbackCache.set(key, { userId: user.id, exp, until: Math.min(Date.now() + 60_000, exp * 1000) });
+    return { userId: user.id, exp };
+  }
 
   return {
     async signUp(email, password, username) {
@@ -149,6 +206,11 @@ export function supabaseBackend(env: Env): Backend {
       return toUser(await call<GoTrueUser>('/auth/v1/user', { token: accessToken }));
     },
 
+    async verifyAccessToken(accessToken) {
+      const local = await verifyLocally(accessToken);
+      return local === 'unverifiable' ? verifyWithAuthServer(accessToken) : local;
+    },
+
     async verifyEmail(tokenHash) {
       return toSession(await call<GoTrueSession>('/auth/v1/verify', { method: 'POST', body: JSON.stringify({ type: 'email', token_hash: tokenHash }) }));
     },
@@ -163,18 +225,23 @@ export function supabaseBackend(env: Env): Backend {
       return rows.length > 0;
     },
 
-    async getProfile(accessToken, userId) {
-      const rows = await call<ProfileRow[]>(restPath('profiles', { select: PROFILE_SELECT, where: { id: eq(userId) }, limit: 1 }), { token: accessToken });
+    /*
+     * Ab hier: Jede Abfrage auf Nutzerdaten filtert ausdrücklich auf auth.userId,
+     * zusätzlich zu RLS. Und jede liefert den Besitzer mit zurück, damit die Route
+     * ihn prüfen kann (owner.ts), bevor irgendetwas den Server verlässt.
+     */
+    async getProfile(auth) {
+      const rows = await call<ProfileRow[]>(restPath('profiles', { select: PROFILE_SELECT, where: { id: eq(auth.userId) }, limit: 1 }), { token: auth.token });
       return rows[0] ? toProfile(rows[0]) : null;
     },
 
-    async updateProfile(accessToken, userId, patch) {
+    async updateProfile(auth, patch) {
       const body: Record<string, unknown> = {};
       if (patch.mainFighter !== undefined) body.main_fighter = patch.mainFighter;
       if (patch.theme !== undefined) body.theme = patch.theme;
-      const rows = await call<ProfileRow[]>(restPath('profiles', { select: PROFILE_SELECT, where: { id: eq(userId) } }), {
+      const rows = await call<ProfileRow[]>(restPath('profiles', { select: PROFILE_SELECT, where: { id: eq(auth.userId) } }), {
         method: 'PATCH',
-        token: accessToken,
+        token: auth.token,
         prefer: 'return=representation',
         body: JSON.stringify(body),
       });
@@ -182,8 +249,9 @@ export function supabaseBackend(env: Env): Backend {
       return toProfile(rows[0]);
     },
 
-    async deleteAccount(accessToken) {
-      await call(rpcPath('delete_own_account'), { method: 'POST', token: accessToken, body: '{}' });
+    async deleteAccount(auth) {
+      // Die Funktion löscht ausschließlich auth.uid() aus dem Token, einen Parameter für die ID gibt es bewusst nicht.
+      await call(rpcPath('delete_own_account'), { method: 'POST', token: auth.token, body: '{}' });
     },
 
     async listComments(fighter, limit) {
@@ -193,37 +261,50 @@ export function supabaseBackend(env: Env): Backend {
       return rows.map(toComment);
     },
 
-    async addComment(accessToken, fighter, body) {
-      const rows = await call<CommentDbRow[]>(
-        restPath('comments', { select: COMMENT_SELECT }),
-        { method: 'POST', token: accessToken, prefer: 'return=representation', body: JSON.stringify({ fighter_slug: fighter, body }) },
-      );
+    async addComment(auth, fighter, body) {
+      const rows = await call<CommentDbRow[]>(restPath('comments', { select: COMMENT_SELECT }), {
+        method: 'POST',
+        token: auth.token,
+        prefer: 'return=representation',
+        body: JSON.stringify({ fighter_slug: fighter, body }),
+      });
       if (!rows[0]) throw new BackendError('forbidden');
       return toComment(rows[0]);
     },
 
-    async deleteComment(accessToken, id) {
-      // RLS lässt nur eigene Kommentare löschen. Trifft die Bedingung nichts, kommt eine leere Liste zurück.
-      const rows = await call<Array<{ id: number }>>(restPath('comments', { select: 'id', where: { id: eq(id) } }), { method: 'DELETE', token: accessToken, prefer: 'return=representation' });
-      if (!rows.length) throw new BackendError('not-found');
+    async deleteComment(auth, id) {
+      const rows = await call<Array<{ id: number; user_id: string }>>(
+        restPath('comments', { select: 'id,user_id', where: { id: eq(id), user_id: eq(auth.userId) } }),
+        { method: 'DELETE', token: auth.token, prefer: 'return=representation' },
+      );
+      return rows.map((r) => ({ id: r.id, userId: r.user_id }));
     },
 
-    async listBookmarks(accessToken) {
-      const rows = await call<Array<{ combo_id: string }>>(restPath('bookmarks', { select: 'combo_id', order: 'created_at.desc' }), { token: accessToken });
-      return rows.map((r) => r.combo_id);
+    async listBookmarks(auth) {
+      const rows = await call<Array<{ user_id: string; combo_id: string }>>(
+        restPath('bookmarks', { select: 'user_id,combo_id', where: { user_id: eq(auth.userId) }, order: 'created_at.desc' }),
+        { token: auth.token },
+      );
+      return rows.map(toBookmark);
     },
 
-    async addBookmark(accessToken, comboId) {
-      await call(restPath('bookmarks', { onConflict: ['user_id', 'combo_id'] }), {
+    async addBookmark(auth, comboId) {
+      // Kein user_id im Körper: Den setzt der Trigger aus auth.uid(). Bei einem Duplikat kommt eine leere Liste zurück.
+      const rows = await call<Array<{ user_id: string; combo_id: string }>>(restPath('bookmarks', { select: 'user_id,combo_id', onConflict: ['user_id', 'combo_id'] }), {
         method: 'POST',
-        token: accessToken,
-        prefer: 'resolution=ignore-duplicates,return=minimal',
+        token: auth.token,
+        prefer: 'resolution=ignore-duplicates,return=representation',
         body: JSON.stringify({ combo_id: comboId }),
       });
+      return (rows ?? []).map(toBookmark);
     },
 
-    async removeBookmark(accessToken, comboId) {
-      await call(restPath('bookmarks', { where: { combo_id: eq(comboId) } }), { method: 'DELETE', token: accessToken, prefer: 'return=minimal' });
+    async removeBookmark(auth, comboId) {
+      const rows = await call<Array<{ user_id: string; combo_id: string }>>(
+        restPath('bookmarks', { select: 'user_id,combo_id', where: { user_id: eq(auth.userId), combo_id: eq(comboId) } }),
+        { method: 'DELETE', token: auth.token, prefer: 'return=representation' },
+      );
+      return (rows ?? []).map(toBookmark);
     },
   };
 }

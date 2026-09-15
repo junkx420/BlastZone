@@ -1,5 +1,6 @@
 import { backend, BackendError } from '../_lib/backend.js';
 import { handle, ok } from '../_lib/http.js';
+import { ownProfile } from '../_lib/owner.js';
 import { authenticate, clearCookies, publicUser } from '../_lib/session.js';
 
 /**
@@ -22,7 +23,9 @@ export const GET = handle(async (request) => {
 
   try {
     const user = await be.getUser(auth.token);
-    const profile = user.emailConfirmed ? await be.getProfile(auth.token, auth.userId) : null;
+    // Supabase Auth und geprüftes Token müssen denselben Nutzer meinen, sonst geht nichts zurück.
+    if (user.id !== auth.userId) return ok({ user: null, available: true }, clearCookies(request));
+    const profile = user.emailConfirmed ? ownProfile(auth, await be.getProfile(auth)) : null;
     if (!profile) return ok({ user: null, available: true }, clearCookies(request));
     return ok({ user: publicUser(user.email, profile), available: true }, cookies);
   } catch (err) {

@@ -16,6 +16,19 @@ export interface AuthSession {
   user: AuthUser;
 }
 
+/** Angemeldeter Nutzer, nachdem session.ts die Signatur des Tokens geprüft hat. */
+export interface Auth {
+  token: string;
+  userId: string;
+}
+
+/** Ergebnis einer Tokenprüfung. Nur mit geprüfter Signatur bzw. von Supabase Auth bestätigt. */
+export interface VerifiedToken {
+  userId: string;
+  exp: number;
+}
+
+/** `id` ist zugleich der Besitzer. */
 export interface Profile {
   id: string;
   username: string;
@@ -23,12 +36,22 @@ export interface Profile {
   theme: Theme;
 }
 
+/**
+ * Kommentar, wie ihn das Backend liefert: mit `userId` als Besitzer. Diese Form
+ * verlässt den Server nie. Die Routen machen daraus `PublicComment` (owner.ts).
+ */
 export interface CommentRow {
   id: number;
+  userId: string;
   fighter: string;
   body: string;
   createdAt: string;
-  author: { id: string; username: string; mainFighter: string | null };
+  author: { username: string; mainFighter: string | null };
+}
+
+export interface BookmarkRow {
+  userId: string;
+  comboId: string;
 }
 
 export type BackendErrorCode =
@@ -58,19 +81,28 @@ export interface Backend {
   refresh(refreshToken: string): Promise<AuthSession>;
   signOut(accessToken: string): Promise<void>;
   getUser(accessToken: string): Promise<AuthUser>;
+  /** Prüft Signatur und Ablauf. `null` heißt ungültig. Wirft nur, wenn die Prüfung selbst nicht erreichbar ist. */
+  verifyAccessToken(accessToken: string): Promise<VerifiedToken | null>;
   verifyEmail(tokenHash: string): Promise<AuthSession>;
   resendConfirmation(email: string): Promise<void>;
 
   usernameTaken(username: string): Promise<boolean>;
-  getProfile(accessToken: string, userId: string): Promise<Profile | null>;
-  updateProfile(accessToken: string, userId: string, patch: { mainFighter?: string | null; theme?: Theme }): Promise<Profile>;
-  deleteAccount(accessToken: string): Promise<void>;
+
+  /*
+   * Alles, was einem Nutzer gehört, bekommt `auth` statt nur des Tokens: Die
+   * Umsetzung filtert zusätzlich zu RLS ausdrücklich auf `auth.userId`, und die
+   * Routen prüfen jede zurückgegebene Zeile noch einmal (owner.ts).
+   */
+  getProfile(auth: Auth): Promise<Profile | null>;
+  updateProfile(auth: Auth, patch: { mainFighter?: string | null; theme?: Theme }): Promise<Profile>;
+  deleteAccount(auth: Auth): Promise<void>;
 
   listComments(fighter: string, limit: number): Promise<CommentRow[]>;
-  addComment(accessToken: string, fighter: string, body: string): Promise<CommentRow>;
-  deleteComment(accessToken: string, id: number): Promise<void>;
+  addComment(auth: Auth, fighter: string, body: string): Promise<CommentRow>;
+  /** Liefert die tatsächlich gelöschten Zeilen, leer, wenn nichts Eigenes passte. */
+  deleteComment(auth: Auth, id: number): Promise<Array<{ id: number; userId: string }>>;
 
-  listBookmarks(accessToken: string): Promise<string[]>;
-  addBookmark(accessToken: string, comboId: string): Promise<void>;
-  removeBookmark(accessToken: string, comboId: string): Promise<void>;
+  listBookmarks(auth: Auth): Promise<BookmarkRow[]>;
+  addBookmark(auth: Auth, comboId: string): Promise<BookmarkRow[]>;
+  removeBookmark(auth: Auth, comboId: string): Promise<BookmarkRow[]>;
 }
