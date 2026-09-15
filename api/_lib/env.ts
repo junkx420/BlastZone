@@ -1,7 +1,15 @@
+import { classifySupabaseKey } from '../../src/shared/key-guard.js';
+
 /**
  * Konfiguration aus Umgebungsvariablen. Alle Schlüssel bleiben auf dem Server:
- * Vite gibt nur Variablen mit dem Präfix VITE_ an den Browser weiter, und keiner
- * der Namen hier trägt es. Deshalb erscheint auch der Anon-Key nie im Bundle.
+ * Der Browser bekommt gar keinen Supabase-Key, er spricht nur mit /api. Vite
+ * gibt ausschließlich Variablen mit dem Präfix BLASTZONE_PUBLIC_ ans Bundle
+ * weiter (vite.config.ts, `envPrefix`), auch VITE_-Variablen bleiben also hier.
+ *
+ * Der Server arbeitet nur mit dem öffentlichen Key (Publishable bzw. anon).
+ * Row Level Security gilt damit für jede Anfrage. Ein Secret Key wird nirgends
+ * gelesen und, falls er versehentlich im Feld des öffentlichen Keys steht,
+ * abgelehnt.
  *
  * Vorlage: .env.example. Auf Vercel unter Project Settings → Environment Variables.
  */
@@ -17,6 +25,7 @@ const first = (...names: string[]): string | undefined =>
   names.map((n) => process.env[n]?.trim()).find((v): v is string => Boolean(v));
 
 let warned = false;
+let keyWarned = false;
 
 export function readEnv(): Env | null {
   /*
@@ -36,6 +45,19 @@ export function readEnv(): Env | null {
     if (!warned && !mockAllowed()) {
       warned = true;
       console.warn(`[env] Supabase nicht konfiguriert: ${supabaseUrl ? '' : 'SUPABASE_URL '}${supabaseAnonKey ? '' : 'SUPABASE_PUBLISHABLE_KEY'}fehlt. Nach dem Eintragen bei Vercel neu deployen.`);
+    }
+    return null;
+  }
+  const kind = classifySupabaseKey(supabaseAnonKey);
+  if (kind !== 'publishable') {
+    // Lieber gar kein Backend als eines, das mit Admin-Rechten an RLS vorbeiläuft. Den Wert selbst nie loggen.
+    if (!keyWarned) {
+      keyWarned = true;
+      console.error(
+        kind === 'secret'
+          ? '[env] SUPABASE_PUBLISHABLE_KEY enthält einen Secret Key (sb_secret_… bzw. service_role). Backend bleibt aus. Den öffentlichen Key eintragen und den Secret Key in Supabase neu erzeugen.'
+          : '[env] SUPABASE_PUBLISHABLE_KEY ist kein öffentlicher Supabase-Key (erwartet sb_publishable_… oder anon-JWT). Backend bleibt aus.',
+      );
     }
     return null;
   }

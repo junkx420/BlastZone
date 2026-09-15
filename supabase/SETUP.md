@@ -58,7 +58,13 @@ Unter **Project Settings → API Keys**:
 - Projekt-URL → `SUPABASE_URL`
 - **Publishable Key** (`sb_publishable_…`) → `SUPABASE_PUBLISHABLE_KEY`. Ältere Projekte haben stattdessen einen `anon`-Key, der geht als `SUPABASE_ANON_KEY`.
 
-Den **Secret Key** (`sb_secret_…`, früher service_role) **nicht** eintragen. Er wird nirgends gebraucht und umgeht Row Level Security. Ist er einmal irgendwo gelandet, wo er nicht hingehört (Chat, Screenshot, Repo), in Supabase widerrufen und neu erzeugen.
+Den **Secret Key** (`sb_secret_…`, früher service_role) **nicht** eintragen, weder lokal noch bei Vercel. Er wird nirgends gebraucht, auch nicht auf dem Server, und umgeht Row Level Security. Ist er einmal irgendwo gelandet, wo er nicht hingehört (Chat, Screenshot, Repo), in Supabase widerrufen und neu erzeugen.
+
+Sicherungen im Code, falls doch etwas verrutscht:
+
+- Steht im Feld `SUPABASE_PUBLISHABLE_KEY` ein Secret Key (oder ein ganz anderer Wert, etwa die URL), startet das Backend nicht. `/api/auth/session` meldet `"available":false`, der Grund steht im Function-Log, der Key selbst nie.
+- Der Browser bekommt keinen Key. Vite reicht nur Variablen mit dem Präfix `BLASTZONE_PUBLIC_` ans Bundle, auch `VITE_…` nicht.
+- Der Build bricht ab, wenn im Bundle ein `sb_secret_…` oder ein service_role-JWT steht.
 
 Bei Vercel unter **Project Settings → Environment Variables** für Production (und Preview, falls gewünscht) setzen, danach **neu deployen**: Geänderte Variablen gelten erst für den nächsten Deploy. Der Server akzeptiert auch die Namen `SUPABASE_ANON_KEY`, `VITE_SUPABASE_URL` und `VITE_SUPABASE_ANON_KEY`. Fehlen sie, antwortet `/api/auth/session` mit `"available":false`, und im Function-Log steht, welche Variable fehlt. Lokal dieselben Werte in `.env` (Vorlage `.env.example`). Ohne `.env` läuft der Dev-Server mit einem Speicher-Mock, der den Bestätigungslink ins Terminal schreibt.
 

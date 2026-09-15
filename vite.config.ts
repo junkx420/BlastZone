@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite';
+import { findSecretKeys } from './src/shared/key-guard';
 
 /**
  * Führt die Vercel-Functions aus api/ im Dev-Server aus.
@@ -65,6 +66,27 @@ function vercelApiDev(): Plugin {
   };
 }
 
+/**
+ * Bricht den Build ab, wenn im Browser-Bundle ein Supabase-Admin-Key steht
+ * (sb_secret_… oder ein JWT mit service_role). Prüft jede ausgegebene Datei,
+ * JavaScript, CSS und kopierte Assets. Die Meldung nennt nur Datei und Position,
+ * nie den Key, damit er auch nicht im Vercel-Build-Log landet.
+ */
+function secretGuard(): Plugin {
+  return {
+    name: 'blastzone-secret-guard',
+    apply: 'build',
+    generateBundle(_options, bundle) {
+      const leaks: string[] = [];
+      for (const [file, output] of Object.entries(bundle)) {
+        const text = output.type === 'chunk' ? output.code : typeof output.source === 'string' ? output.source : Buffer.from(output.source).toString('latin1');
+        for (const hit of findSecretKeys(text)) leaks.push(`${file}: ${hit}`);
+      }
+      if (leaks.length) this.error(`Admin-Key im Browser-Bundle, Build abgebrochen:\n${leaks.join('\n')}`);
+    },
+  };
+}
+
 export default defineConfig(({ mode, command }) => {
   if (command === 'serve') {
     // Server-Variablen aus .env für die lokalen Functions. Nur process.env, nie import.meta.env:
@@ -82,7 +104,15 @@ export default defineConfig(({ mode, command }) => {
   return {
     // Relative base + hash routing: the build runs from any static host or sub-path.
     base: './',
-    plugins: [vercelApiDev()],
+    /*
+     * Nur Variablen mit diesem Präfix erreichen import.meta.env im Browser.
+     * Der Vite-Standard VITE_ ist bewusst abgeschaltet: Supabase-Anleitungen
+     * nennen ihre Keys oft VITE_…, und ein so benannter Secret Key bei Vercel
+     * wäre sonst nur einen `import.meta.env`-Zugriff vom Bundle entfernt.
+     * Der Browser braucht keinen einzigen Key, er spricht nur mit /api.
+     */
+    envPrefix: 'BLASTZONE_PUBLIC_',
+    plugins: [vercelApiDev(), secretGuard()],
     // host: true bindet auf 0.0.0.0 – der Dev-Server ist damit aus dem ganzen LAN erreichbar.
     server: { port: 5173, strictPort: true, host: true },
     preview: { port: 4173, strictPort: true, host: true },
