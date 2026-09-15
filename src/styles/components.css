@@ -70,7 +70,8 @@
     transform: scale(0.97);
   }
   .btn--primary {
-    --btn-bg: var(--accent);
+    /* --accent-fill: bei fünf Fightern leicht verschoben, damit die Schrift 4,5:1 schafft (accentFill in lib/color.ts). */
+    --btn-bg: var(--accent-fill, var(--accent));
     --btn-fg: var(--accent-ink);
     --btn-line: transparent;
     box-shadow: 0 12px 32px -14px var(--accent-glow);
@@ -1032,7 +1033,7 @@
   }
   .step.is-active .step__n {
     border-color: transparent;
-    background: var(--accent);
+    background: var(--accent-fill, var(--accent));
     color: var(--accent-ink);
   }
   .step.is-active .step__dmg {
@@ -1167,7 +1168,7 @@
     position: absolute;
     inset: -3px -8px;
     z-index: -1;
-    background: var(--accent);
+    background: var(--accent-fill, var(--accent));
     transform: skewX(var(--slant)) scaleX(0);
     transform-origin: left;
     transition: transform var(--t-base) var(--ease-out);

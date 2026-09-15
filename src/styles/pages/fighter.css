@@ -880,7 +880,7 @@
     font-variant-numeric: tabular-nums;
   }
   .tab[aria-selected='true'] .tab__count {
-    background: var(--accent);
+    background: var(--accent-fill, var(--accent));
     color: var(--accent-ink);
   }
   .tabs__ink {

@@ -377,7 +377,8 @@ export function profilePage(): PageView {
         /* Gespeicherte Combos */
         const saved = qs<HTMLElement>('[data-saved]', host)!;
         let comboCleanup: () => void = () => {};
-        let lastIds = '';
+        // null = noch nichts gezeichnet. Mit '' als Startwert ergab eine leere Lesezeichenliste dieselbe Signatur, und „Lädt …“ blieb für jedes neue Konto stehen.
+        let lastIds: string | null = null;
         const renderSaved = async (ids: readonly string[]): Promise<void> => {
           const signature = ids.join(',');
           if (signature === lastIds) return;
@@ -386,7 +387,7 @@ export function profilePage(): PageView {
             await loadLateGuides();
           } catch {
             if (!saved.isConnected) return;
-            lastIds = '';
+            lastIds = null;
             mount(saved, errorState('Gespeicherte Combos konnten nicht geladen werden.', LOAD_FAILED_TEXT));
             bindErrorState(saved, () => void renderSaved(ids));
             return;
@@ -415,7 +416,7 @@ export function profilePage(): PageView {
         const fetchBookmarks = (force: boolean): void => {
           loadBookmarks(force).catch((err: unknown) => {
             if (!saved.isConnected) return;
-            lastIds = '';
+            lastIds = null;
             mount(saved, errorState('Gespeicherte Combos konnten nicht geladen werden.', err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
             bindErrorState(saved, () => fetchBookmarks(true));
           });

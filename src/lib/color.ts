@@ -85,6 +85,25 @@ export function liftForDark(hex: string, min = 4.5): string {
 /** Dark or light text, whichever reads better on the fill. */
 export const inkOn = (fill: string): string => (contrast(fill, INK) >= contrast(fill, '#ffffff') ? INK : '#ffffff');
 
+/**
+ * Fläche für Text auf der Akzentfarbe (primärer Knopf, Tab-Zähler, aktiver Schritt).
+ * Bei den meisten Fightern ist das die Farbe selbst. Fünf mittlere Töne (Kazuya,
+ * Richter, Roy, Diddy Kong, Piranha-Pflanze) erreichen aber weder mit Schwarz noch
+ * mit Weiß 4,5:1. Dann wandert die Fläche in kleinen Schritten zu Schwarz (weiße
+ * Schrift) oder zu Weiß (dunkle Schrift), je nachdem, was weniger Veränderung braucht.
+ */
+export function accentFill(hex: string, min = 4.5): { fill: string; ink: string } {
+  const ink = inkOn(hex);
+  if (contrast(hex, ink) >= min) return { fill: hex, ink };
+  for (let t = 0.02; t <= 1; t += 0.02) {
+    const darker = mix(hex, '#000000', t);
+    if (contrast(darker, '#ffffff') >= min) return { fill: darker, ink: '#ffffff' };
+    const lighter = mix(hex, '#ffffff', t);
+    if (contrast(lighter, INK) >= min) return { fill: lighter, ink: INK };
+  }
+  return { fill: hex, ink };
+}
+
 /** In-game damage heat: white at 0 %, yellow, orange, red, deep red past 180 %. */
 const RAMP: Array<[number, string]> = [
   [0, '#f5f6f8'],
@@ -107,12 +126,14 @@ export function heatColor(percent: number): string {
 
 /** Inline custom properties that theme any subtree to a fighter. */
 export function accentVars([primary, secondary]: readonly [string, string]): string {
+  const { fill, ink } = accentFill(primary);
   return [
     `--accent:${primary}`,
     `--accent-2:${secondary}`,
     // Zwei Lesarten statt --accent-text direkt: Ein Inline-Style ließe sich vom Light-Mode nicht mehr überschreiben.
     `--accent-text-dark:${liftForDark(primary)}`,
     `--accent-text-light:${dropForLight(primary)}`,
-    `--accent-ink:${inkOn(primary)}`,
+    `--accent-fill:${fill}`,
+    `--accent-ink:${ink}`,
   ].join(';');
 }

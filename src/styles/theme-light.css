@@ -87,6 +87,11 @@
   color: var(--text);
 }
 
+/* Sprunglink „Zum Inhalt springen“ steht auf --focus. Das ist hier ein dunkles Orange, dunkle Schrift darauf kam auf 2,5:1. Weiß: 7:1. */
+:root[data-theme='light'] .skip-link {
+  color: #ffffff;
+}
+
 /* Startseiten-Headline: Die erste Zeile läuft im Dunkeln von Weiß in Gelb, auf Hell unlesbar. */
 :root[data-theme='light'] .hero__line:nth-child(1) {
   background-image: linear-gradient(95deg, var(--text) 20%, #b45309 75%, var(--dmg-120));
