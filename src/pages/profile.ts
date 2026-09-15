@@ -71,6 +71,7 @@ function userView(user: User): Markup {
       <div class="profile-head__text">
         <h1 class="profile-head__name">${user.username}</h1>
         <p class="profile-head__meta">${main ? html`Main: <a class="link" href="${link(`/fighter/${main.slug}`)}">${main.name}</a> · ` : ''}${user.email}</p>
+        <p class="profile-head__meta"><a class="link" href="${link(`/spieler/${user.username}`)}">Dein Spielerprofil ansehen</a></p>
       </div>
       <button class="btn btn--sm" type="button" data-logout>${ICONS.logout}Abmelden</button>
     </header>

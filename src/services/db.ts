@@ -112,6 +112,25 @@ export async function toggleBookmark(comboId: string): Promise<boolean> {
   }
 }
 
+/* ── Community ──────────────────────────────────────────────────────────── */
+
+export interface Player {
+  username: string;
+  mainFighter: string | null;
+  /** „2026-09“ */
+  memberSince: string;
+  isSelf: boolean;
+  stats: { comments: number };
+  recentComments: Array<{ id: number; fighter: string; body: string; createdAt: string }>;
+}
+
+/**
+ * Spielerprofil eines Mitglieds. Wirft ApiError: 401 für Gäste, 404 wenn es den Namen
+ * nicht gibt. Ohne Cache, weil `isSelf` an der Sitzung hängt.
+ */
+export const getPlayer = (name: string): Promise<Player> =>
+  guarded(async () => (await api<{ player: Player }>(`community/player?name=${encodeURIComponent(name)}`)).player);
+
 /* ── start.gg ───────────────────────────────────────────────────────────── */
 
 export interface StartggLink {

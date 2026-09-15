@@ -879,6 +879,18 @@
   .legal__body .btn {
     margin-top: var(--sp-5);
   }
+  .legal__address {
+    margin-bottom: var(--sp-3);
+    color: var(--text);
+    font-style: normal;
+    line-height: 1.65;
+  }
+  .legal__body a:not(.btn) {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
   @media (max-width: 560px) {
     .vplayer__start {
       flex-direction: column;

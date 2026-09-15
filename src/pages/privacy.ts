@@ -1,5 +1,6 @@
 import { html } from '../lib/dom';
 import { link } from '../lib/router';
+import { OPERATOR, operatorAddress } from './imprint';
 import type { PageView } from './types';
 
 /**
@@ -19,16 +20,10 @@ import type { PageView } from './types';
  *     unten und ist als bedingt formuliert.
  *   - Eigener SMTP-Dienst für die Bestätigungsmails? Dann hier nennen.
  *
- * UNVOLLSTÄNDIG, bewusst, auf Wunsch des Betreibers. Es fehlen:
- *   1. Der Abschnitt „Verantwortlich" mit Klarname, ladungsfähiger Anschrift
- *      und Kontakt. Er gehört an den Anfang von .legal__body, vor „Hosting und
- *      Server-Protokolle".
- *   2. Ein Impressum nach § 5 DDG als eigene Seite.
- *
- * Ohne 1. nennt die Erklärung keinen Verantwortlichen, und Art. 13 Abs. 1 lit. a
- * DSGVO verlangt genau das. Mit Konten, öffentlichen Kommentaren und einem
- * Auftragsverarbeiter mehr wiegt das schwerer als vorher. Vor dem Freischalten
- * der Konten sollte das rechtlich geprüft sein.
+ * Verantwortlicher (Art. 13 Abs. 1 lit. a DSGVO) kommt aus OPERATOR in
+ * src/pages/imprint.ts, damit Impressum und Erklärung nie auseinanderlaufen.
+ * Neue Funktionen mit Personenbezug (Spielerprofile, Pinnwand, Nachrichten)
+ * brauchen hier einen eigenen Absatz, bevor sie live gehen.
  */
 export function privacyPage(): PageView {
   return {
@@ -43,6 +38,14 @@ export function privacyPage(): PageView {
       </section>
 
       <section class="container legal__body">
+        <h2>Verantwortlich</h2>
+        <p>Verantwortlich für die Verarbeitung personenbezogener Daten auf dieser Seite (Art. 4 Nr. 7 DSGVO):</p>
+        ${operatorAddress()}
+        <p>
+          E-Mail: <a href="mailto:${OPERATOR.email}">${OPERATOR.email}</a>. Für Auskunft, Berichtigung oder Löschung
+          deiner Daten genügt eine Mail an diese Adresse.
+        </p>
+
         <h2>Hosting und Server-Protokolle</h2>
         <p>
           Die Seite wird bei Vercel Inc. (USA) gehostet. Beim Abruf verarbeitet Vercel technisch notwendige
@@ -89,6 +92,14 @@ export function privacyPage(): PageView {
         <p>
           <strong>Kommentare sind öffentlich.</strong> Jeder Besucher sieht sie zusammen mit deinem Benutzernamen,
           deinem Main-Fighter und dem Zeitpunkt. E-Mail-Adresse und gespeicherte Combos sieht niemand außer dir.
+        </p>
+        <p>
+          <strong>Spielerprofile sehen nur angemeldete Mitglieder.</strong> Wer angemeldet ist, kann auf deinen Namen
+          klicken und sieht dann eine Profilseite mit Benutzername, Main-Fighter, dem Monat deiner Registrierung, der
+          Anzahl deiner Kommentare und deinen letzten Kommentaren. Das sind Angaben, die über deine Kommentare ohnehin
+          sichtbar sind, zusammengefasst an einer Stelle. E-Mail-Adresse, gespeicherte Combos und deine
+          start.gg-Verknüpfung erscheinen dort nicht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, die
+          Community-Funktionen des Kontos.
         </p>
         <p>
           Die Daten liegen bei Supabase Inc. als Auftragsverarbeiter nach Art. 28 DSGVO, in einem Rechenzentrum in
@@ -199,7 +210,9 @@ export function privacyPage(): PageView {
         </p>
 
         <h2>Stand</h2>
-        <p>Diese Erklärung gilt seit dem 14. September 2026.</p>
+        <p>Diese Erklärung gilt seit dem 15. September 2026.</p>
+
+        <p><a href="${link('/impressum')}">Impressum</a></p>
 
         <p><a class="btn btn--ghost" href="${link('/')}">Zurück zur Startseite</a></p>
       </section>

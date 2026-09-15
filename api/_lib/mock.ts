@@ -17,6 +17,7 @@ interface MockUser {
   password: string;
   confirmed: boolean;
   profile: Profile;
+  createdAt?: string;
 }
 
 interface Store {
@@ -73,7 +74,7 @@ export function mockBackend(): Backend {
       if ([...store.users.values()].some((u) => u.profile.username.toLowerCase() === username.toLowerCase())) throw new BackendError('conflict');
       if (store.users.has(email)) return; // wie Supabase: keine Auskunft, ob die Adresse schon existiert
       const id = crypto.randomUUID();
-      store.users.set(email, { id, email, password, confirmed: false, profile: { id, username, mainFighter: null, theme: 'dark' } });
+      store.users.set(email, { id, email, password, confirmed: false, profile: { id, username, mainFighter: null, theme: 'dark' }, createdAt: new Date().toISOString() });
       const tokenHash = random();
       store.confirmations.set(tokenHash, email);
       console.info(`\n[mock] Bestätigungslink für ${email}:\n       http://localhost:5173/#/bestaetigen?token_hash=${tokenHash}\n`);
@@ -128,6 +129,21 @@ export function mockBackend(): Backend {
 
     async usernameTaken(username) {
       return [...store.users.values()].some((u) => u.profile.username.toLowerCase() === username.toLowerCase());
+    },
+
+    async getPlayer(auth, username) {
+      userFor(auth.token); // wie RLS für authenticated: ohne gültiges Token nichts
+      const user = [...store.users.values()].find((u) => u.profile.username.toLowerCase() === username.toLowerCase());
+      if (!user) return null;
+      const own = store.comments.filter((c) => c.userId === user.id).sort((a, b) => b.id - a.id);
+      return {
+        userId: user.id,
+        username: user.profile.username,
+        mainFighter: user.profile.mainFighter,
+        createdAt: user.createdAt ?? new Date().toISOString(),
+        commentCount: own.length,
+        recentComments: own.slice(0, 5).map((c) => ({ id: c.id, fighter: c.fighter, body: c.body, createdAt: c.createdAt })),
+      };
     },
 
     /*

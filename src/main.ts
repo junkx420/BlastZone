@@ -27,6 +27,8 @@ import { confirmPage } from './pages/confirm';
 import { fighterPage } from './pages/fighter';
 import { homePage } from './pages/home';
 import { notFoundPage } from './pages/notFound';
+import { imprintPage } from './pages/imprint';
+import { playerPage } from './pages/player';
 import { privacyPage } from './pages/privacy';
 import { profilePage } from './pages/profile';
 import { tiersPage } from './pages/tiers';
@@ -93,6 +95,10 @@ function view(route: Route): PageView {
       return confirmPage(route);
     case 'datenschutz':
       return privacyPage();
+    case 'impressum':
+      return imprintPage();
+    case 'spieler':
+      return playerPage(route);
     case 'fighter':
       return fighterPage(route);
     default:
@@ -102,7 +108,13 @@ function view(route: Route): PageView {
 
 /** Home, roster and notation are one page with different scroll targets. */
 const pageKey = (route: Route): string =>
-  route.name === 'fighter' ? `fighter/${route.params.slug}` : HOME_ROUTES.has(route.name) ? 'home' : route.name;
+  route.name === 'fighter'
+    ? `fighter/${route.params.slug}`
+    : route.name === 'spieler'
+      ? `spieler/${(route.params.name ?? '').toLowerCase()}`
+      : HOME_ROUTES.has(route.name)
+        ? 'home'
+        : route.name;
 
 /* Shared-element transitions: tile art and name morph into the fighter header. */
 const VT_ATTR = '[data-vt]';

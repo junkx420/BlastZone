@@ -1,4 +1,16 @@
-export type RouteName = 'home' | 'roster' | 'notation' | 'tiers' | 'archetypen' | 'profil' | 'bestaetigen' | 'fighter' | 'datenschutz' | 'notfound';
+export type RouteName =
+  | 'home'
+  | 'roster'
+  | 'notation'
+  | 'tiers'
+  | 'archetypen'
+  | 'profil'
+  | 'spieler'
+  | 'bestaetigen'
+  | 'fighter'
+  | 'datenschutz'
+  | 'impressum'
+  | 'notfound';
 
 export interface Route {
   name: RouteName;
@@ -21,6 +33,9 @@ const TABLE: Array<{ name: RouteName; pattern: RegExp; keys: string[] }> = [
   { name: 'profil', pattern: /^\/profil$/, keys: [] },
   { name: 'bestaetigen', pattern: /^\/bestaetigen$/, keys: [] },
   { name: 'datenschutz', pattern: /^\/datenschutz$/, keys: [] },
+  { name: 'impressum', pattern: /^\/impressum$/, keys: [] },
+  // Benutzernamen wie in src/shared/account-rules.ts (USERNAME_PATTERN). Alles andere ist gar keine Spielerseite.
+  { name: 'spieler', pattern: /^\/spieler\/([A-Za-z0-9_-]{3,20})$/, keys: ['name'] },
   { name: 'fighter', pattern: /^\/fighter\/([a-z0-9-]+)$/, keys: ['slug'] },
 ];
 

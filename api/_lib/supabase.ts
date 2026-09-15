@@ -211,6 +211,30 @@ export function supabaseBackend(env: Env): Backend {
     }
   }
 
+  /**
+   * Anzahl passender Zeilen, ohne sie zu laden: HEAD mit `Prefer: count=exact`,
+   * PostgREST antwortet mit `Content-Range: *\/N`. Lesend, also ein zweiter Versuch
+   * bei Netzfehler wie in `call`.
+   */
+  async function count(path: string, token?: string): Promise<number> {
+    const headers: Record<string, string> = { ...authHeaders(token), Prefer: 'count=exact' };
+    let res: Response | null = null;
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        res = await fetch(`${env.supabaseUrl}${path}`, { method: 'HEAD', headers, signal: AbortSignal.timeout(TIMEOUT_READ) });
+        if (![502, 503, 504].includes(res.status) || attempt === 2) break;
+      } catch {
+        if (attempt === 2) throw new BackendError('unavailable');
+      }
+      await new Promise((r) => setTimeout(r, 250));
+    }
+    if (!res) throw new BackendError('unavailable');
+    if (!res.ok) throw await fehler(res);
+    const total = Number((res.headers.get('content-range') ?? '').split('/').pop());
+    if (!Number.isFinite(total) || total < 0) throw new BackendError('unavailable');
+    return total;
+  }
+
   // Alle PostgREST-Pfade entstehen über restPath/rpcPath: Eingaben sind dort nur Literale (siehe postgrest.ts).
   const COMMENT_SELECT = 'id,user_id,fighter_slug,body,created_at,author:profiles(username,main_fighter)';
   const PROFILE_SELECT = 'id,username,main_fighter,theme';
@@ -301,6 +325,31 @@ export function supabaseBackend(env: Env): Backend {
       // Rückfall vor Migration 0003. ilikeExact maskiert alle Platzhalter.
       const rows = await call<Array<{ id: string }>>(restPath('profiles', { select: 'id', where: { username: ilikeExact(username) }, limit: 1 }));
       return rows.length > 0;
+    },
+
+    async getPlayer(auth, username) {
+      // ilikeExact maskiert % und _, damit „a_c“ nicht auch „abc“ trifft. Der Unique-Index auf lower(username) garantiert höchstens einen Treffer.
+      const profiles = await call<Array<ProfileRow & { created_at: string }>>(
+        restPath('profiles', { select: 'id,username,main_fighter,created_at', where: { username: ilikeExact(username) }, limit: 1 }),
+        { token: auth.token },
+      );
+      const p = profiles[0];
+      if (!p) return null;
+      const [commentCount, recent] = await Promise.all([
+        count(restPath('comments', { select: 'id', where: { user_id: eq(p.id) } }), auth.token),
+        call<Array<{ id: number; fighter_slug: string; body: string; created_at: string }>>(
+          restPath('comments', { select: 'id,fighter_slug,body,created_at', where: { user_id: eq(p.id) }, order: 'id.desc', limit: 5 }),
+          { token: auth.token },
+        ),
+      ]);
+      return {
+        userId: p.id,
+        username: p.username,
+        mainFighter: p.main_fighter,
+        createdAt: p.created_at,
+        commentCount,
+        recentComments: recent.map((c) => ({ id: c.id, fighter: c.fighter_slug, body: c.body, createdAt: c.created_at })),
+      };
     },
 
     /*

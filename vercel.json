@@ -9,6 +9,7 @@
   "rewrites": [
     { "source": "/api/auth/:action", "destination": "/api/auth?action=:action" },
     { "source": "/api/startgg/:action", "destination": "/api/startgg?action=:action" },
+    { "source": "/api/community/:action", "destination": "/api/community?action=:action" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
   "headers": [

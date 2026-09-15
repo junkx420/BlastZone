@@ -6,7 +6,7 @@ import { link } from '../lib/router';
 import { ApiError } from '../services/api';
 import { onAuth, type AuthState } from '../services/auth';
 import { deleteComment, invalidateComments, listComments, postComment, type Comment } from '../services/db';
-import { cleanComment, COMMENT_MAX } from '../shared/account-rules';
+import { cleanComment, COMMENT_MAX, usernameOk } from '../shared/account-rules';
 import { openAuth } from './authDialog';
 import { faceThumb } from './fighterTile';
 import { ICONS } from './icons';
@@ -23,7 +23,7 @@ import { ICONS } from './icons';
 const rtf = new Intl.RelativeTimeFormat('de', { numeric: 'auto' });
 const dateFmt = new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium', timeStyle: 'short' });
 
-function relative(iso: string): string {
+export function relative(iso: string): string {
   const seconds = (new Date(iso).getTime() - Date.now()) / 1000;
   const steps: Array<[Intl.RelativeTimeFormatUnit, number]> = [
     ['year', 31536000],
@@ -49,7 +49,9 @@ function flair(slug: string | null): Markup {
 function commentItem(c: Comment, mine: boolean): Markup {
   return html`<li class="comment${mine ? ' is-mine' : ''}" data-comment="${c.id}">
     <header class="comment__head">
-      <span class="comment__author">${c.author.username}</span>
+      ${usernameOk(c.author.username)
+        ? html`<a class="comment__author" href="${link(`/spieler/${c.author.username}`)}">${c.author.username}</a>`
+        : html`<span class="comment__author">${c.author.username}</span>`}
       ${flair(c.author.mainFighter)}
       <time class="comment__time" datetime="${c.createdAt}" title="${dateFmt.format(new Date(c.createdAt))}">${relative(c.createdAt)}</time>
       ${mine ? html`<button class="comment__delete" type="button" data-delete="${c.id}">${ICONS.trash}<span data-delete-label>Löschen</span></button>` : ''}

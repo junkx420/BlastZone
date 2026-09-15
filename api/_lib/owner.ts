@@ -1,5 +1,5 @@
 import { HttpError } from './http.js';
-import type { Auth, BookmarkRow, CommentRow, Profile } from './types.js';
+import type { Auth, BookmarkRow, CommentRow, PlayerRow, Profile } from './types.js';
 
 /**
  * Letzte Prüfung vor der Antwort: Gehört das, was zurückgeht, dem angemeldeten Nutzer?
@@ -53,6 +53,26 @@ export const publicComment = (row: CommentRow, viewerId: string | null): PublicC
   createdAt: row.createdAt,
   mine: viewerId !== null && row.userId === viewerId,
   author: { username: row.author.username, mainFighter: row.author.mainFighter },
+});
+
+export interface PublicPlayer {
+  username: string;
+  mainFighter: string | null;
+  /** Nur Jahr und Monat („2026-09“). Der genaue Tag wird nicht gebraucht. */
+  memberSince: string;
+  isSelf: boolean;
+  stats: { comments: number };
+  recentComments: Array<{ id: number; fighter: string; body: string; createdAt: string }>;
+}
+
+/** Spielerprofil für andere Mitglieder. Keine Nutzer-ID, keine E-Mail, nichts Privates. */
+export const publicPlayer = (row: PlayerRow, viewerId: string): PublicPlayer => ({
+  username: row.username,
+  mainFighter: row.mainFighter,
+  memberSince: row.createdAt.slice(0, 7),
+  isSelf: row.userId === viewerId,
+  stats: { comments: row.commentCount },
+  recentComments: row.recentComments.map((c) => ({ id: c.id, fighter: c.fighter, body: c.body, createdAt: c.createdAt })),
 });
 
 /** Ein gerade geschriebener Kommentar muss vom Schreibenden stammen. */

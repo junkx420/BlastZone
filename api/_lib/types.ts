@@ -79,6 +79,19 @@ export interface StartggLinkInput {
   verification: StartggVerification | null;
 }
 
+/**
+ * Ein fremdes Konto, wie es andere Mitglieder sehen. `userId` bleibt auf dem Server
+ * (nur für `isSelf`), die Route gibt ausschließlich `publicPlayer` aus owner.ts zurück.
+ */
+export interface PlayerRow {
+  userId: string;
+  username: string;
+  mainFighter: string | null;
+  createdAt: string;
+  commentCount: number;
+  recentComments: Array<{ id: number; fighter: string; body: string; createdAt: string }>;
+}
+
 /** Zeile im Placement-Cache. `payload` ist ungeprüft, bis startggCache.ts die Signatur bestätigt. */
 export interface StartggCacheRow {
   userId: string;
@@ -120,6 +133,13 @@ export interface Backend {
   resendConfirmation(email: string): Promise<void>;
 
   usernameTaken(username: string): Promise<boolean>;
+
+  /**
+   * Spielerprofil eines beliebigen Kontos per Benutzername (Groß- und Kleinschreibung egal).
+   * Nur für angemeldete Nutzer, deshalb mit `auth`: Die Abfrage läuft mit deren Token, damit
+   * spätere Policies „nur authenticated“ greifen. `null`, wenn es den Namen nicht gibt.
+   */
+  getPlayer(auth: Auth, username: string): Promise<PlayerRow | null>;
 
   /*
    * Alles, was einem Nutzer gehört, bekommt `auth` statt nur des Tokens: Die

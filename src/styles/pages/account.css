@@ -483,6 +483,103 @@
   .comment__author {
     font-weight: 800;
   }
+  a.comment__author {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s ease;
+  }
+  a.comment__author:hover,
+  a.comment__author:focus-visible {
+    text-decoration-color: currentColor;
+  }
+
+  /* ── Spielerprofil (pages/player.ts) ───────────────────────────────── */
+  /* Benutzernamen sind ein Wort mit bis zu 20 Zeichen. Bei 320 px ragte „MetaKnightMain“ sonst 5 px aus dem Fenster. */
+  .player-page .page-head h1 {
+    overflow-wrap: anywhere;
+  }
+  .player-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+    gap: var(--sp-3);
+  }
+  .player-stat {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgb(var(--fg-rgb) / 0.03);
+  }
+  .player-stat dt {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .player-stat dd {
+    font-size: var(--fs-500);
+    font-weight: 800;
+    font-stretch: var(--stretch-semi);
+    overflow-wrap: anywhere;
+  }
+  .player-comments {
+    display: grid;
+    gap: var(--sp-3);
+    padding: 0;
+    list-style: none;
+  }
+  .player-comment {
+    display: grid;
+    gap: var(--sp-2);
+    min-width: 0;
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent-line, var(--line-strong));
+    border-radius: 12px;
+  }
+  .player-comment__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-2) var(--sp-3);
+  }
+  .player-comment__fighter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    color: var(--text);
+    font-weight: 800;
+  }
+  a.player-comment__fighter:hover span {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .player-comment__face {
+    position: relative;
+    display: block;
+    flex: none;
+    width: 28px;
+    height: 28px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  .player-comment__time {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .player-comment__body {
+    color: var(--text-muted);
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .comment__flair {
     display: inline-flex;
     align-items: center;
@@ -581,7 +678,8 @@
     min-width: 0;
   }
   .profile-head__name {
-    font-size: var(--fs-800);
+    /* 20 Zeichen ohne Leerzeichen: Auf dem Handy mit der Breite schrumpfen, statt mitten im Namen zu brechen. */
+    font-size: min(var(--fs-800), 10vw);
     font-weight: 900;
     font-style: italic;
     font-stretch: var(--stretch-condensed);
