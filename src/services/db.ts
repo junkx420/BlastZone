@@ -133,6 +133,33 @@ export const linkStartgg = (profile: string): Promise<StartggLink> =>
     return link;
   });
 
+export interface StartggPlacement {
+  tournamentId: string;
+  tournament: string;
+  eventId: string;
+  event: string;
+  eventSlug: string;
+  startAt: string;
+  isOnline: boolean;
+  location: string | null;
+  placement: number;
+  entrants: number;
+  imageUrl: string | null;
+}
+
+export interface StartggPlacementsResult {
+  profile: { slug: string; gamerTag: string | null; profileUrl: string };
+  placements: StartggPlacement[];
+  fetchedAt: string;
+  source: 'cache' | 'startgg';
+  nextRefreshAt: string;
+  notice: { code: string; message: string } | null;
+}
+
+/** Placements aus dem Server-Cache oder frisch von start.gg. `refresh` fragt start.gg, sofern der Server es erlaubt. */
+export const getStartggPlacements = (refresh = false): Promise<StartggPlacementsResult> =>
+  guarded(() => api<StartggPlacementsResult & Record<string, unknown>>(`startgg/placements${refresh ? '?refresh=1' : ''}`));
+
 export const unlinkStartgg = (): Promise<void> =>
   guarded(async () => {
     await api('startgg/link', { method: 'DELETE' });

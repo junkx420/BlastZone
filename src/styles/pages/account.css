@@ -886,6 +886,296 @@
     }
   }
 
+  /* ── Meine Turniere: Placements (components/startggPlacements.ts) ─── */
+  .placements {
+    display: grid;
+    gap: var(--sp-3);
+    margin-top: var(--sp-2);
+  }
+  .placements:empty {
+    display: none;
+  }
+  .placements__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-2) var(--sp-4);
+  }
+  .placements__title {
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    text-transform: uppercase;
+  }
+  .placements__tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-2) var(--sp-3);
+  }
+  .placements__stand,
+  .placements__foot {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .placements__notice {
+    justify-self: start;
+    padding: 6px 12px;
+    border: 1px solid color-mix(in oklch, var(--dmg-80) 50%, transparent);
+    border-radius: 9999px;
+    background: color-mix(in oklch, var(--dmg-80) 10%, transparent);
+    font-size: var(--fs-200);
+  }
+
+  .placements__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    gap: var(--sp-2);
+  }
+  .placements__stats > div {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .placements__stats dt {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .placements__stats dd {
+    font-size: var(--fs-600);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.05;
+  }
+  .placements__stats small {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .placements__list {
+    display: grid;
+    gap: var(--sp-2);
+  }
+
+  /*
+   * Ein Ergebnis als Schild. Farbe nur an Kante und Balken: Die Zahl selbst
+   * bleibt in Textfarbe, damit sie in beiden Farbschemata lesbar ist (Gold auf
+   * Hellgrau hätte keinen Kontrast).
+   */
+  .placement {
+    --place: var(--line-strong);
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    grid-template-areas:
+      'logo body result'
+      'bar bar bar';
+    align-items: center;
+    gap: 8px var(--sp-4);
+    padding: 12px var(--sp-4) 10px;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--place);
+    border-radius: 12px;
+    background: rgb(var(--fg-rgb) / 0.03);
+    transition: border-color var(--t-fast);
+  }
+  .placement:hover {
+    border-top-color: var(--line-strong);
+    border-right-color: var(--line-strong);
+    border-bottom-color: var(--line-strong);
+  }
+  .placement[data-tier='gold'] {
+    --place: #f2c14e;
+  }
+  .placement[data-tier='silver'] {
+    --place: #aab3c2;
+  }
+  .placement[data-tier='bronze'] {
+    --place: #c8834a;
+  }
+  .placement[data-tier='hot'] {
+    --place: var(--dmg-160);
+  }
+  .placement[data-tier='warm'] {
+    --place: var(--dmg-120);
+  }
+  .placement[data-tier='mid'] {
+    --place: var(--dmg-80);
+  }
+  .placement__logo {
+    position: relative;
+    display: grid;
+    grid-area: logo;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--surface-3);
+  }
+  .placement__logo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .placement__initials {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-weight: 900;
+    font-stretch: var(--stretch-condensed);
+  }
+  .placement__body {
+    display: grid;
+    grid-area: body;
+    gap: 2px;
+    min-width: 0;
+  }
+  .placement__title {
+    font-size: var(--fs-300);
+    font-weight: 800;
+    line-height: var(--lh-snug);
+    overflow-wrap: anywhere;
+  }
+  .placement__title a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color var(--t-fast);
+  }
+  .placement__title a:hover,
+  .placement__title a:focus-visible {
+    text-decoration-color: currentColor;
+  }
+  .placement__event {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    overflow-wrap: anywhere;
+  }
+  .placement__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px var(--sp-3);
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .placement__result {
+    display: grid;
+    grid-area: result;
+    justify-items: end;
+    gap: 2px;
+  }
+  .placement__rank {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .placement__num {
+    font-size: var(--fs-700);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+    font-variant-numeric: tabular-nums;
+    line-height: 0.9;
+  }
+  .placement__of {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-weight: 650;
+    white-space: nowrap;
+  }
+  .placement__top {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-variant-numeric: tabular-nums;
+  }
+  /* Füllung: je besser das Placement, desto voller. Platz 1 ist voll, Platz 17 von 29 füllt 45 %. */
+  .placement__bar {
+    grid-area: bar;
+    height: 4px;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: rgb(var(--fg-rgb) / 0.07);
+  }
+  .placement__bar > span {
+    display: block;
+    width: var(--fill, 3%);
+    height: 100%;
+    border-radius: inherit;
+    background: var(--place);
+  }
+  .placements__empty {
+    padding: var(--sp-5);
+  }
+
+  .placement--skeleton {
+    grid-template-areas: 'logo body result';
+    min-height: 88px;
+    border-left-color: var(--line-strong);
+  }
+  .placement--skeleton .placement__result {
+    width: 64px;
+  }
+  .placement--skeleton .placement__body {
+    gap: var(--sp-2);
+  }
+
+  @media (max-width: 480px) {
+    /* Kennzahlen nebeneinander statt drei volle Zeilen übereinander. */
+    .placements__stats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+    .placements__stats > div {
+      padding: 8px 10px;
+    }
+    .placements__stats dd {
+      font-size: var(--fs-500);
+    }
+    .placements__stats small {
+      font-size: var(--fs-100);
+    }
+    .placement {
+      grid-template-columns: 40px minmax(0, 1fr);
+      grid-template-areas:
+        'logo body'
+        'logo result'
+        'bar bar';
+      padding: 10px 12px;
+    }
+    .placement__logo {
+      align-self: start;
+      width: 40px;
+      height: 40px;
+    }
+    .placement__result {
+      justify-items: start;
+      grid-auto-flow: column;
+      align-items: baseline;
+      gap: var(--sp-3);
+    }
+    .placement__num {
+      font-size: var(--fs-600);
+    }
+    .placement--skeleton {
+      grid-template-areas: 'logo body';
+    }
+    .placement--skeleton .placement__result {
+      display: none;
+    }
+  }
+
   .profile-danger {
     border: 1px solid color-mix(in oklch, var(--dmg-160) 40%, transparent);
     border-radius: var(--r-panel);

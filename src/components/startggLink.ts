@@ -4,6 +4,7 @@ import { getStartggLink, linkStartgg, unlinkStartgg, type StartggLink } from '..
 import { normalizeStartggSlug, STARTGG_HINT } from '../shared/startgg';
 import { ICONS } from './icons';
 import { bindErrorState, errorState } from './states';
+import { mountPlacements } from './startggPlacements';
 
 /**
  * Profil-Abschnitt „Meine Turniere“, Schritt 1: start.gg-Profil verknüpfen und lösen.
@@ -74,7 +75,7 @@ const cardMarkup = (link: StartggLink): Markup =>
         <button class="btn btn--sm btn--ghost startgg-card__unlink" type="button" data-startgg-unlink>${ICONS.trash}<span data-unlink-label>Verknüpfung lösen</span></button>
       </div>
     </div>
-    <div data-placements></div>`;
+    <div class="placements" data-placements aria-live="polite"></div>`;
 
 export function mountStartggSection(root: ParentNode): () => void {
   const host = qs<HTMLElement>('[data-startgg]', root);
@@ -82,12 +83,15 @@ export function mountStartggSection(root: ParentNode): () => void {
   if (!host || !status) return () => {};
   let alive = true;
   let unlinkTimer = 0;
+  let placementsCleanup: () => void = () => {};
 
   const done = (): void => {
     host.removeAttribute('aria-busy');
   };
 
   const showForm = (value = '', focus = false): void => {
+    placementsCleanup();
+    placementsCleanup = () => {};
     mount(host, formMarkup(value));
     done();
     const form = qs<HTMLFormElement>('[data-startgg-form]', host)!;
@@ -134,8 +138,11 @@ export function mountStartggSection(root: ParentNode): () => void {
   };
 
   const showCard = (link: StartggLink): void => {
+    placementsCleanup();
     mount(host, cardMarkup(link));
     done();
+    const placementsHost = qs<HTMLElement>('[data-placements]', host);
+    placementsCleanup = placementsHost ? mountPlacements(placementsHost, () => showForm(link.profileUrl, true)) : () => {};
     qs('[data-startgg-change]', host)?.addEventListener('click', () => {
       status.textContent = '';
       showForm(link.profileUrl, true);
@@ -193,5 +200,6 @@ export function mountStartggSection(root: ParentNode): () => void {
   return () => {
     alive = false;
     window.clearTimeout(unlinkTimer);
+    placementsCleanup();
   };
 }
