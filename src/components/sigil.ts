@@ -182,9 +182,9 @@ function motif(kind: Motif, rnd: () => number, color: string, cx: number, cy: nu
 
 let uid = 0;
 
-export function sigil(fighter: Fighter, variant: 'tile' | 'hero' = 'tile'): Markup {
+/** Alle Teile einer Bühne, einmal aus dem Slug gewürfelt. Beide Ausgaben unten zeichnen daraus dasselbe Bild. */
+function parts(fighter: Fighter, id: string) {
   const rnd = random(hash(fighter.slug));
-  const id = `sg${++uid}`;
   const [c1, c2] = fighter.colors;
   const cx = 200 + (rnd() - 0.5) * 90;
   const cy = 200 + (rnd() - 0.5) * 70;
@@ -199,34 +199,85 @@ export function sigil(fighter: Fighter, variant: 'tile' | 'hero' = 'tile'): Mark
   }
 
   const kind = SERIES_MOTIF[fighter.series] ?? 'rays';
+  const motifMarkup = motif(kind, rnd, c2, cx, cy);
+  const gcx = (cx / 400).toFixed(3);
+  const gcy = (cy / 500).toFixed(3);
+
+  return {
+    c1,
+    c2,
+    cx,
+    cy,
+    rays,
+    motif: motifMarkup,
+    bgGradient: `<radialGradient id="${id}-bg" cx="${gcx}" cy="${gcy}" r="0.95"><stop offset="0" stop-color="${c1}" stop-opacity=".95"/><stop offset=".42" stop-color="${c1}" stop-opacity=".32"/><stop offset="1" stop-color="#06070a" stop-opacity="0"/></radialGradient>`,
+    coreGradient: `<radialGradient id="${id}-core" cx="${gcx}" cy="${gcy}" r="0.22"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>`,
+    shadeGradient: `<linearGradient id="${id}-shade" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="#06070a" stop-opacity="0"/><stop offset="1" stop-color="#06070a" stop-opacity=".92"/></linearGradient>`,
+  };
+}
+
+export function sigil(fighter: Fighter, variant: 'tile' | 'hero' = 'tile'): Markup {
+  const id = `sg${++uid}`;
+  const p = parts(fighter, id);
   const numberSize = fighter.no.length <= 2 ? 300 : fighter.no.length === 3 ? 238 : 150;
 
   return html`<svg class="sigil sigil--${variant}" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
     <defs>
-      <radialGradient id="${id}-bg" cx="${(cx / 400).toFixed(3)}" cy="${(cy / 500).toFixed(3)}" r="0.95">
-        <stop offset="0" stop-color="${c1}" stop-opacity=".95" />
-        <stop offset=".42" stop-color="${c1}" stop-opacity=".32" />
-        <stop offset="1" stop-color="#06070a" stop-opacity="0" />
-      </radialGradient>
-      <radialGradient id="${id}-core" cx="${(cx / 400).toFixed(3)}" cy="${(cy / 500).toFixed(3)}" r="0.22">
-        <stop offset="0" stop-color="#fff" stop-opacity=".55" />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
-      </radialGradient>
+      ${raw(p.bgGradient)}${raw(p.coreGradient)}
       <linearGradient id="${id}-no" x1="0" y1="0" x2="0.6" y2="1">
-        <stop offset="0" stop-color="${c2}" />
-        <stop offset="1" stop-color="${c1}" />
+        <stop offset="0" stop-color="${p.c2}" />
+        <stop offset="1" stop-color="${p.c1}" />
       </linearGradient>
-      <linearGradient id="${id}-shade" x1="0" y1="0" x2="0" y2="1">
-        <stop offset=".45" stop-color="#06070a" stop-opacity="0" />
-        <stop offset="1" stop-color="#06070a" stop-opacity=".92" />
-      </linearGradient>
+      ${raw(p.shadeGradient)}
     </defs>
     <rect width="400" height="500" fill="#0b0d12" />
     <rect width="400" height="500" fill="url(#${id}-bg)" />
-    <g class="sigil__rays" style="transform-origin:${n(cx)}px ${n(cy)}px">${raw(rays)}</g>
+    <g class="sigil__rays" style="transform-origin:${n(p.cx)}px ${n(p.cy)}px">${raw(p.rays)}</g>
     <rect class="sigil__core" width="400" height="500" fill="url(#${id}-core)" />
-    <g class="sigil__motif">${raw(motif(kind, rnd, c2, cx, cy))}</g>
+    <g class="sigil__motif">${raw(p.motif)}</g>
     <text class="sigil__no" x="408" y="486" text-anchor="end" font-size="${numberSize}" fill="url(#${id}-no)">${fighter.no}</text>
     <rect class="sigil__shade" width="400" height="500" fill="url(#${id}-shade)" />
   </svg>`;
+}
+
+/** SVG-Text als CSS-url(). Nur die Zeichen, die in einer Daten-URL stören, werden kodiert. */
+const svgUrl = (body: string, viewBox: string): string => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" preserveAspectRatio="xMidYMid slice">${body}</svg>`;
+  return `url("data:image/svg+xml,${svg.replace(/"/g, "'").replace(/[#%<>]/g, (c) => encodeURIComponent(c))}")`;
+};
+
+const stageCache = new Map<string, Markup>();
+
+/**
+ * Dieselbe Bühne wie `sigil()`, aber als drei Bilder statt als SVG im DOM.
+ *
+ * Warum: Im Roster stehen 86 Kacheln. Als Inline-SVG waren das rund 45 Knoten und
+ * vier Verläufe pro Kachel, zusammen fast 4 000 Elemente, die bei jedem Aufbau
+ * durch Style und Layout mussten (gut 10 ms). Als Hintergrundbilder bleiben zwei
+ * leere Elemente pro Kachel.
+ *
+ * Aufbau, von unten nach oben, wie die Ebenen im SVG:
+ * - `.stage`           Grundfläche und Farbverlauf
+ * - `.stage__rays`     Strahlen, eigene Ebene, damit sie beim Hover weiter rotieren.
+ *                      Dreimal so groß wie die Kachel (viewBox dreifach), damit beim
+ *                      Drehen keine leeren Ecken sichtbar werden. Der Drehpunkt ist
+ *                      das Zentrum der Strahlen, per Container-Einheiten gerechnet.
+ * - `.stage::after`    Lichtkern, Serienmotiv, Abschattung
+ * - `.stage__no`       Fighter-Nummer, nur sichtbar, wenn das Bild fehlt
+ * Alle Bilder nutzen dieselbe Beschnittregel wie das SVG (`xMidYMid slice`) bei
+ * `background-size: 100% 100%`, deshalb liegen die Ebenen deckungsgleich.
+ */
+export function sigilStage(fighter: Fighter): Markup {
+  const cached = stageCache.get(fighter.slug);
+  if (cached) return cached;
+  const p = parts(fighter, 's');
+  const base = svgUrl(`<defs>${p.bgGradient}</defs><rect width="400" height="500" fill="#0b0d12"/><rect width="400" height="500" fill="url(#s-bg)"/>`, '0 0 400 500');
+  const rays = svgUrl(p.rays, '-400 -500 1200 1500');
+  const top = svgUrl(
+    `<defs>${p.coreGradient}${p.shadeGradient}</defs><rect width="400" height="500" fill="url(#s-core)"/>${p.motif}<rect width="400" height="500" fill="url(#s-shade)"/>`,
+    '0 0 400 500',
+  );
+  const markup = html`<span class="stage" aria-hidden="true" style="--stage-base:${base};--stage-rays:${rays};--stage-top:${top};--stage-cx:${n(p.cx)};--stage-cy:${n(p.cy)};--stage-no-from:${p.c2};--stage-no-to:${p.c1}"><span class="stage__rays"></span><span class="stage__no">${fighter.no}</span></span>`;
+  stageCache.set(fighter.slug, markup);
+  return markup;
 }

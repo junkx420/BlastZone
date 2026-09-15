@@ -1228,7 +1228,7 @@
     filter: none;
     transform: scale(1.06);
   }
-  .tile__link:is(:hover, :focus-visible) .sigil__rays {
+  .tile__link:is(:hover, :focus-visible) :is(.sigil__rays, .stage__rays) {
     transform: rotate(14deg);
   }
   .tile__link:is(:hover, :focus-visible) .tile__name {

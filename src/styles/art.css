@@ -12,6 +12,56 @@
     width: 100%;
     height: 100%;
   }
+
+  /* Bühne der Kacheln als Bilder (components/sigil.ts → sigilStage). Ebenen wie im SVG. */
+  .art > .stage {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    /* Größen-Container: Der Drehpunkt der Strahlen rechnet in cqw/cqh dieser Box. */
+    container-type: size;
+    background: var(--stage-base) 0 0 / 100% 100% no-repeat;
+  }
+  .stage__rays {
+    position: absolute;
+    inset: -100%;
+    background: var(--stage-rays) 0 0 / 100% 100% no-repeat;
+    /*
+     * Zentrum der Strahlen in Pixeln der dreifach großen Ebene: Mitte (150 %)
+     * plus Abstand vom viewBox-Zentrum mal Beschnitt-Maßstab. `slice` wählt den
+     * größeren der beiden Maßstäbe, genau wie max() hier.
+     */
+    --stage-scale: max(100cqw / 400, 100cqh / 500);
+    transform-origin: calc(150cqw + (var(--stage-cx) - 200) * var(--stage-scale)) calc(150cqh + (var(--stage-cy) - 250) * var(--stage-scale));
+    transition: transform 1.4s var(--ease-out);
+  }
+  .art > .stage::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--stage-top) 0 0 / 100% 100% no-repeat;
+  }
+  .stage__no {
+    position: absolute;
+    right: -0.04em;
+    bottom: -0.18em;
+    z-index: 1;
+    display: none;
+    background: linear-gradient(160deg, var(--stage-no-from), var(--stage-no-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 62cqh;
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    opacity: 0.85;
+  }
+  .art.is-art-missing .stage__no {
+    display: block;
+  }
   /* The stage shows the fighter number only when the image could not load. */
   .art .sigil__no {
     display: none;

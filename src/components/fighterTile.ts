@@ -5,7 +5,7 @@ import { accentVars } from '../lib/color';
 import { html, type Markup } from '../lib/dom';
 import { link } from '../lib/router';
 import { franchiseGlyph } from './franchise';
-import { sigil } from './sigil';
+import { sigil, sigilStage } from './sigil';
 import { tierBadge } from './tierBadge';
 
 /**
@@ -18,7 +18,8 @@ export function fighterArt(f: Fighter, variant: 'tile' | 'hero' = 'tile'): Marku
     variant === 'hero'
       ? html`<img class="art__img art__img--render" src="${renderArt(f)}" alt="" decoding="async" fetchpriority="high" referrerpolicy="no-referrer" data-art />`
       : html`<img class="art__img art__img--face" src="${faceArt(f)}" alt="" width="270" height="164" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-art />`;
-  return html`<span class="art art--${variant}" data-art-wrap>${sigil(f, variant)}${image}</span>`;
+  // Kacheln bekommen die Bühne als Bilder (sigilStage), der große Header behält das Inline-SVG.
+  return html`<span class="art art--${variant}" data-art-wrap>${variant === 'tile' ? sigilStage(f) : sigil(f, variant)}${image}</span>`;
 }
 
 /** Small face crop for chips and search results; the accent gradient shows if it fails. */
