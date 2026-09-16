@@ -1,5 +1,6 @@
 import { FIGHTER_BY_SLUG } from '../data/fighters';
 import type { Fighter } from '../data/types';
+import { dateFormat, locale, t } from '../i18n';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, type Markup } from '../lib/dom';
 import { link } from '../lib/router';
@@ -20,8 +21,11 @@ import { ICONS } from './icons';
  * es wird nie HTML aus Nutzereingaben zusammengesetzt.
  */
 
-const rtf = new Intl.RelativeTimeFormat('de', { numeric: 'auto' });
-const dateFmt = new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium', timeStyle: 'short' });
+const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
+const dateFmt = dateFormat({ dateStyle: 'medium', timeStyle: 'short' });
+
+/** Der Server setzt diesen Namen, wenn das Konto des Autors gelöscht ist (api/_lib/supabase.ts). */
+const DELETED_AUTHOR = 'Gelöschtes Konto';
 
 export function relative(iso: string): string {
   const seconds = (new Date(iso).getTime() - Date.now()) / 1000;
@@ -34,27 +38,30 @@ export function relative(iso: string): string {
     ['minute', 60],
   ];
   for (const [unit, size] of steps) if (Math.abs(seconds) >= size) return rtf.format(Math.round(seconds / size), unit);
-  return 'gerade eben';
+  return t('comments.justNow');
 }
 
 /** Main-Fighter-Flair neben dem Namen. */
 function flair(slug: string | null): Markup {
   const main = slug ? FIGHTER_BY_SLUG.get(slug) : undefined;
   if (!main) return html``;
-  return html`<a class="comment__flair" href="${link(`/fighter/${main.slug}`)}" style="${accentVars(main.colors)}" title="Main: ${main.name}">
+  return html`<a class="comment__flair" href="${link(`/fighter/${main.slug}`)}" style="${accentVars(main.colors)}" title="${t('comments.mainTitle', { fighter: main.name })}">
     ${faceThumb(main, 'comment__flair-face')}<span>${main.name}</span>
   </a>`;
+}
+
+function authorName(name: string): Markup {
+  if (usernameOk(name)) return html`<a class="comment__author" href="${link(`/spieler/${name}`)}">${name}</a>`;
+  return html`<span class="comment__author">${name === DELETED_AUTHOR ? t('comments.deletedAccount') : name}</span>`;
 }
 
 function commentItem(c: Comment, mine: boolean): Markup {
   return html`<li class="comment${mine ? ' is-mine' : ''}" data-comment="${c.id}">
     <header class="comment__head">
-      ${usernameOk(c.author.username)
-        ? html`<a class="comment__author" href="${link(`/spieler/${c.author.username}`)}">${c.author.username}</a>`
-        : html`<span class="comment__author">${c.author.username}</span>`}
+      ${authorName(c.author.username)}
       ${flair(c.author.mainFighter)}
       <time class="comment__time" datetime="${c.createdAt}" title="${dateFmt.format(new Date(c.createdAt))}">${relative(c.createdAt)}</time>
-      ${mine ? html`<button class="comment__delete" type="button" data-delete="${c.id}">${ICONS.trash}<span data-delete-label>Löschen</span></button>` : ''}
+      ${mine ? html`<button class="comment__delete" type="button" data-delete="${c.id}">${ICONS.trash}<span data-delete-label>${t('comments.delete')}</span></button>` : ''}
     </header>
     <p class="comment__body">${c.body}</p>
   </li>`;
@@ -64,15 +71,15 @@ function commentItem(c: Comment, mine: boolean): Markup {
 export function commentsSection(f: Fighter): Markup {
   return html`<section class="container fcomments" aria-labelledby="comments-title" data-comments="${f.slug}">
     <div class="section-head">
-      <h2 id="comments-title">Diskussion</h2>
-      <p>Matchups, Setups und eigene Routen zu ${f.name}.</p>
+      <h2 id="comments-title">${t('comments.title')}</h2>
+      <p>${t('comments.lead', { fighter: f.name })}</p>
     </div>
     <div class="fcomments__box">
       <div data-composer></div>
-      <p class="fcomments__status" role="status" data-list-status>Kommentare werden geladen …</p>
+      <p class="fcomments__status" role="status" data-list-status>${t('comments.loading')}</p>
       <ol class="fcomments__list" role="list" data-list></ol>
       <div class="fcomments__more" data-more hidden>
-        <button class="btn btn--ghost btn--sm" type="button" data-more-btn>Ältere Kommentare laden</button>
+        <button class="btn btn--ghost btn--sm" type="button" data-more-btn>${t('comments.loadOlder')}</button>
       </div>
     </div>
   </section>`;
@@ -99,7 +106,7 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     // `mine` gilt nur, solange noch jemand angemeldet ist. Der Server prüft beim Löschen ohnehin selbst.
     mount(list, html`${comments.map((c) => commentItem(c, c.mine && myId() !== null))}`);
     if (comments.length) status.textContent = '';
-    else if (!status.dataset.error) status.textContent = 'Noch keine Kommentare. Fang an.';
+    else if (!status.dataset.error) status.textContent = t('comments.empty');
     more.hidden = nextCursor === null || Boolean(status.dataset.error);
   };
 
@@ -112,16 +119,16 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
       mount(
         composerHost,
         html`<div class="fcomments__locked">
-          <label class="vh" for="comment-text">Kommentar schreiben</label>
+          <label class="vh" for="comment-text">${t('comments.write')}</label>
           <textarea id="comment-text" class="fcomments__input" rows="3" disabled aria-describedby="comments-lock"></textarea>
           <div class="fcomments__lock">
             ${ICONS.lock}
-            <p id="comments-lock">${auth.available ? 'Logge dich ein, um mitzudiskutieren' : 'Kommentieren ist gerade nicht möglich.'}</p>
-            ${auth.available ? html`<button class="btn btn--primary btn--sm" type="button" data-login>Einloggen</button>` : ''}
+            <p id="comments-lock">${auth.available ? t('comments.lockText') : t('comments.unavailable')}</p>
+            ${auth.available ? html`<button class="btn btn--primary btn--sm" type="button" data-login>${t('account.login')}</button>` : ''}
           </div>
         </div>`,
       );
-      qs('[data-login]', composerHost)?.addEventListener('click', () => openAuth('login', 'Logge dich ein, um mitzudiskutieren.'));
+      qs('[data-login]', composerHost)?.addEventListener('click', () => openAuth('login', t('comments.lockText')));
       return;
     }
 
@@ -129,13 +136,13 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     mount(
       composerHost,
       html`<form class="fcomments__composer" novalidate data-form>
-        <div class="fcomments__as">Du schreibst als <strong>${user.username}</strong> ${flair(user.mainFighter)}</div>
-        <label class="vh" for="comment-text">Kommentar schreiben</label>
-        <textarea id="comment-text" class="fcomments__input" rows="3" maxlength="${COMMENT_MAX + 200}" placeholder="Was funktioniert bei dir mit ${f.name}?" required
+        <div class="fcomments__as">${t('comments.writingAs')} <strong>${user.username}</strong> ${flair(user.mainFighter)}</div>
+        <label class="vh" for="comment-text">${t('comments.write')}</label>
+        <textarea id="comment-text" class="fcomments__input" rows="3" maxlength="${COMMENT_MAX + 200}" placeholder="${t('comments.placeholder', { fighter: f.name })}" required
           aria-describedby="comment-count"></textarea>
         <div class="fcomments__row">
           <p class="fcomments__hint" id="comment-count" data-count>0 / ${COMMENT_MAX}</p>
-          <button class="btn btn--primary btn--sm" type="submit" data-submit>Posten</button>
+          <button class="btn btn--primary btn--sm" type="submit" data-submit><span data-submit-label>${t('comments.post')}</span></button>
         </div>
         <p class="fcomments__error" role="alert" data-error hidden></p>
       </form>`,
@@ -145,6 +152,7 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     const input = qs<HTMLTextAreaElement>('textarea', form)!;
     const count = qs<HTMLElement>('[data-count]', form)!;
     const submit = qs<HTMLButtonElement>('[data-submit]', form)!;
+    const submitLabel = qs<HTMLElement>('[data-submit-label]', submit)!;
     const error = qs<HTMLElement>('[data-error]', form)!;
     const showError = (msg: string | null): void => {
       error.hidden = !msg;
@@ -165,7 +173,8 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
       const text = cleanComment(input.value);
       if (!text || [...text].length > COMMENT_MAX) return;
       submit.disabled = true;
-      submit.textContent = 'Wird gepostet …';
+      submit.setAttribute('aria-busy', 'true');
+      submitLabel.textContent = t('comments.posting');
       showError(null);
       try {
         const created = await postComment(f.slug, text);
@@ -174,9 +183,10 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
         delete status.dataset.error;
         renderList();
       } catch (err) {
-        showError(err instanceof ApiError ? err.message : 'Das hat nicht geklappt.');
+        showError(err instanceof ApiError ? err.message : t('api.failed'));
       } finally {
-        submit.textContent = 'Posten';
+        submit.removeAttribute('aria-busy');
+        submitLabel.textContent = t('comments.post');
         updateCount();
       }
     });
@@ -190,13 +200,13 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     const id = Number(button.dataset.delete);
     const label = qs<HTMLElement>('[data-delete-label]', button)!;
     if (!armed.has(id)) {
-      label.textContent = 'Wirklich löschen?';
+      label.textContent = t('comments.confirmDelete');
       button.classList.add('is-armed');
       armed.set(
         id,
         window.setTimeout(() => {
           armed.delete(id);
-          label.textContent = 'Löschen';
+          label.textContent = t('comments.delete');
           button.classList.remove('is-armed');
         }, 4000),
       );
@@ -211,7 +221,7 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
       renderList();
     } catch (err) {
       button.disabled = false;
-      label.textContent = err instanceof ApiError ? err.message : 'Löschen fehlgeschlagen';
+      label.textContent = err instanceof ApiError ? err.message : t('comments.deleteFailed');
     }
   });
 
@@ -220,10 +230,10 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
       ? err.message
       : err instanceof ApiError && err.status === 429
         ? err.message
-        : 'Kommentare sind gerade nicht verfügbar.';
+        : t('comments.listUnavailable');
 
   const load = async (): Promise<void> => {
-    status.textContent = 'Kommentare werden geladen …';
+    status.textContent = t('comments.loading');
     try {
       const page = await listComments(f.slug);
       comments = page.comments;
@@ -235,7 +245,7 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
       status.dataset.error = '1';
       if (!alive) return;
       // Fehlerzustand mit Ausweg statt stummer Leere.
-      mount(status, html`${failText(err)} <button class="link-btn" type="button" data-retry>Erneut versuchen</button>`);
+      mount(status, html`${failText(err)} <button class="link-btn" type="button" data-retry>${t('state.retry')}</button>`);
       qs('[data-retry]', status)?.addEventListener('click', () => void load(), { once: true });
     }
     if (alive) renderList();
@@ -246,16 +256,16 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
     loadingMore = true;
     moreBtn.disabled = true;
     moreBtn.setAttribute('aria-busy', 'true');
-    moreBtn.textContent = 'Wird geladen …';
+    moreBtn.textContent = t('state.loading');
     try {
       const page = await listComments(f.slug, nextCursor);
       // Doppelte ausschließen, falls sich Seiten durch neue Kommentare überschneiden.
       const known = new Set(comments.map((c) => c.id));
       comments = [...comments, ...page.comments.filter((c) => !known.has(c.id))];
       nextCursor = page.nextCursor;
-      moreBtn.textContent = 'Ältere Kommentare laden';
+      moreBtn.textContent = t('comments.loadOlder');
     } catch (err) {
-      moreBtn.textContent = `${failText(err)} Nochmal versuchen`;
+      moreBtn.textContent = `${failText(err)} ${t('comments.tryAgain')}`;
     } finally {
       loadingMore = false;
       moreBtn.disabled = false;
@@ -287,6 +297,6 @@ export function mountComments(root: HTMLElement, f: Fighter): () => void {
   return () => {
     alive = false;
     stop();
-    armed.forEach((t) => window.clearTimeout(t));
+    armed.forEach((timer) => window.clearTimeout(timer));
   };
 }

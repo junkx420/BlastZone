@@ -1,8 +1,9 @@
+import { dateFormat, t, type MessageKey } from '../i18n';
 import { html, mount, qs, type Markup } from '../lib/dom';
 import { parse, replaceQuery } from '../lib/router';
 import { ApiError } from '../services/api';
 import { getStartggLink, linkStartgg, STARTGG_AUTHORIZE_URL, unlinkStartgg, verifyStartgg, type StartggLink } from '../services/db';
-import { normalizeStartggSlug, STARTGG_HINT } from '../shared/startgg';
+import { normalizeStartggSlug } from '../shared/startgg';
 import { ICONS } from './icons';
 import { bindErrorState, errorState } from './states';
 import { mountPlacements } from './startggPlacements';
@@ -21,33 +22,33 @@ import { mountPlacements } from './startggPlacements';
  * Aus der URL wird nie Text übernommen.
  */
 
-const dateFmt = new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium' });
+const dateFmt = dateFormat({ dateStyle: 'medium' });
 
 /** Synchron halten mit `OauthReturnCode` in api/_lib/startggOauth.ts. */
-const OAUTH_MESSAGES: Record<string, string> = {
-  login: 'Du warst nicht angemeldet. Melde dich an und starte die Bestätigung dann noch einmal.',
-  denied: 'Anmeldung bei start.gg abgebrochen. Es wurde nichts geändert.',
-  expired: 'Die Anmeldung bei start.gg hat zu lange gedauert oder wurde schon verwendet. Starte die Bestätigung noch einmal.',
-  mismatch: 'Die Rückmeldung von start.gg gehörte nicht zu dieser Anmeldung und wurde verworfen. Starte die Bestätigung hier noch einmal.',
-  failed: 'start.gg hat die Anmeldung nicht bestätigt. Versuch es noch einmal.',
-  unavailable: 'start.gg ist gerade nicht erreichbar. Versuch es gleich noch einmal.',
-  'rate-limited': 'Gerade zu viele Versuche. Warte ein paar Minuten und probier es dann erneut.',
-  'not-configured': 'Die Bestätigung über start.gg ist gerade nicht verfügbar.',
+const OAUTH_MESSAGES: Record<string, MessageKey> = {
+  login: 'startgg.oauth.login',
+  denied: 'startgg.oauth.denied',
+  expired: 'startgg.oauth.expired',
+  mismatch: 'startgg.oauth.mismatch',
+  failed: 'startgg.oauth.failed',
+  unavailable: 'startgg.oauth.unavailable',
+  'rate-limited': 'startgg.oauth.rateLimited',
+  'not-configured': 'startgg.oauth.notConfigured',
 };
 
 export function startggSection(): Markup {
   return html`<section class="container profile-section glass startgg" aria-labelledby="startgg-title">
     <div class="profile-section__head">
-      <h2 id="startgg-title">Meine Turniere</h2>
+      <h2 id="startgg-title">${t('startgg.title')}</h2>
       <p class="profile-status" role="status" aria-live="polite" data-startgg-status></p>
     </div>
-    <p class="profile-section__lead">Verknüpfe dein start.gg-Profil, dann erscheinen hier deine Placements aus Smash-Ultimate-Turnieren. Sehen kannst nur du das.</p>
+    <p class="profile-section__lead">${t('startgg.lead')}</p>
     <p class="startgg-notice" role="alert" data-startgg-notice hidden></p>
     <div data-startgg aria-busy="true">${skeleton()}</div>
   </section>`;
 }
 
-const skeleton = (label = 'Verknüpfung wird geladen.'): Markup =>
+const skeleton = (label = t('startgg.loadingLink')): Markup =>
   html`<div class="startgg-card startgg-card--skeleton" aria-hidden="true">
     <span class="skeleton__bar skeleton__bar--title"></span>
     <span class="skeleton__bar"></span>
@@ -56,15 +57,15 @@ const skeleton = (label = 'Verknüpfung wird geladen.'): Markup =>
 
 const oauthMarkup = (): Markup =>
   html`<div class="startgg-oauth">
-      <a class="btn btn--primary btn--sm" href="${STARTGG_AUTHORIZE_URL}" data-startgg-oauth>${ICONS.lock}Mit start.gg anmelden</a>
-      <p class="startgg-oauth__hint">Du meldest dich einmal bei start.gg an, wir übernehmen genau dieses Konto. Damit ist klar, dass das Profil dir gehört. Dein start.gg-Passwort sehen wir dabei nie.</p>
+      <a class="btn btn--primary btn--sm" href="${STARTGG_AUTHORIZE_URL}" data-startgg-oauth>${ICONS.lock}${t('startgg.oauthLogin')}</a>
+      <p class="startgg-oauth__hint">${t('startgg.oauthHint')}</p>
     </div>
-    <p class="startgg-or"><span>oder Profil-Adresse eintragen</span></p>`;
+    <p class="startgg-or"><span>${t('startgg.or')}</span></p>`;
 
 const formMarkup = (value: string, canVerify: boolean): Markup =>
   html`${canVerify ? oauthMarkup() : ''}
     <form class="startgg-form" novalidate data-startgg-form>
-      <label class="startgg-form__label" for="startgg-profile">start.gg-Profil</label>
+      <label class="startgg-form__label" for="startgg-profile">${t('startgg.profileLabel')}</label>
       <div class="startgg-form__row">
         <input
           id="startgg-profile"
@@ -80,21 +81,21 @@ const formMarkup = (value: string, canVerify: boolean): Markup =>
           aria-describedby="startgg-hint startgg-error"
           data-startgg-input
         />
-        <button class="btn ${canVerify ? 'btn--ghost' : 'btn--primary'} btn--sm" type="submit" data-startgg-submit>${ICONS.check}Verknüpfen</button>
+        <button class="btn ${canVerify ? 'btn--ghost' : 'btn--primary'} btn--sm" type="submit" data-startgg-submit>${ICONS.check}${t('startgg.link')}</button>
       </div>
-      <p class="startgg-form__hint" id="startgg-hint">${STARTGG_HINT}${canVerify ? ' So verknüpft gilt das Profil als nicht bestätigt.' : ''}</p>
+      <p class="startgg-form__hint" id="startgg-hint">${t('startgg.hint')}${canVerify ? ` ${t('startgg.hintUnverified')}` : ''}</p>
       <p class="fcomments__error" id="startgg-error" role="alert" data-startgg-error hidden></p>
     </form>`;
 
 const badge = (link: StartggLink): Markup =>
   link.verified
-    ? html`<span class="startgg-badge startgg-badge--verified">${ICONS.check}Bestätigt</span>`
-    : html`<span class="startgg-badge">Nicht bestätigt</span>`;
+    ? html`<span class="startgg-badge startgg-badge--verified">${ICONS.check}${t('startgg.verified')}</span>`
+    : html`<span class="startgg-badge">${t('startgg.unverified')}</span>`;
 
 const cardMarkup = (link: StartggLink): Markup =>
   html`<div class="startgg-card">
       <div class="startgg-card__who">
-        <span class="startgg-card__label">Verknüpft mit</span>
+        <span class="startgg-card__label">${t('startgg.linkedWith')}</span>
         <span class="startgg-card__name">
           <strong class="startgg-card__tag">${link.gamerTag ?? link.slug}</strong>
           ${badge(link)}
@@ -102,17 +103,19 @@ const cardMarkup = (link: StartggLink): Markup =>
         <a class="link startgg-card__url" href="${link.profileUrl}" target="_blank" rel="noopener noreferrer">${link.slug}${ICONS.external}</a>
       </div>
       <p class="startgg-card__since">
-        ${link.verified && link.verifiedAt ? `bestätigt am ${dateFmt.format(new Date(link.verifiedAt))}` : `seit ${dateFmt.format(new Date(link.updatedAt))}`}
+        ${link.verified && link.verifiedAt
+          ? t('startgg.verifiedOn', { date: dateFmt.format(new Date(link.verifiedAt)) })
+          : t('startgg.since', { date: dateFmt.format(new Date(link.updatedAt)) })}
       </p>
       ${!link.verified && link.canVerify
         ? html`<div class="startgg-verify">
-            <p class="startgg-verify__text">Noch nicht bestätigt. Melde dich einmal bei start.gg an, dann ist klar, dass dieses Profil wirklich dir gehört.</p>
-            <a class="btn btn--sm btn--primary" href="${STARTGG_AUTHORIZE_URL}" data-startgg-oauth>${ICONS.lock}Mit start.gg bestätigen</a>
+            <p class="startgg-verify__text">${t('startgg.verifyText')}</p>
+            <a class="btn btn--sm btn--primary" href="${STARTGG_AUTHORIZE_URL}" data-startgg-oauth>${ICONS.lock}${t('startgg.verifyButton')}</a>
           </div>`
         : ''}
       <div class="startgg-card__actions">
-        <button class="btn btn--sm btn--ghost" type="button" data-startgg-change>${ICONS.reset}Anderes Profil</button>
-        <button class="btn btn--sm btn--ghost startgg-card__unlink" type="button" data-startgg-unlink>${ICONS.trash}<span data-unlink-label>Verknüpfung lösen</span></button>
+        <button class="btn btn--sm btn--ghost" type="button" data-startgg-change>${ICONS.reset}${t('startgg.change')}</button>
+        <button class="btn btn--sm btn--ghost startgg-card__unlink" type="button" data-startgg-unlink>${ICONS.trash}<span data-unlink-label>${t('startgg.unlink')}</span></button>
       </div>
     </div>
     <div class="placements" data-placements aria-live="polite"></div>`;
@@ -170,13 +173,13 @@ export function mountStartggSection(root: ParentNode): () => void {
       if (submit.disabled) return;
       const slug = normalizeStartggSlug(input.value);
       if (!slug) {
-        showError('Das sieht nicht nach einem start.gg-Profil aus. Kopier die Adresse aus der Browserleiste, wenn du dein Profil auf start.gg geöffnet hast.');
+        showError(t('startgg.invalid'));
         input.focus();
         return;
       }
       submit.disabled = true;
       submit.setAttribute('aria-busy', 'true');
-      mount(submit, html`${ICONS.check}Wird geprüft …`);
+      mount(submit, html`${ICONS.check}${t('startgg.checking')}`);
       showError(null);
       showNotice(null);
       status.textContent = '';
@@ -184,13 +187,13 @@ export function mountStartggSection(root: ParentNode): () => void {
         const link = await linkStartgg(slug);
         if (!alive) return;
         showCard(link);
-        status.textContent = `Verknüpft mit ${link.gamerTag ?? link.slug}`;
+        status.textContent = t('startgg.linkedStatus', { name: link.gamerTag ?? link.slug });
       } catch (err) {
         if (!alive) return;
-        showError(err instanceof ApiError ? err.message : 'Das hat nicht geklappt. Versuch es gleich noch einmal.');
+        showError(err instanceof ApiError ? err.message : t('startgg.failedRetry'));
         submit.disabled = false;
         submit.removeAttribute('aria-busy');
-        mount(submit, html`${ICONS.check}Verknüpfen`);
+        mount(submit, html`${ICONS.check}${t('startgg.link')}`);
         input.focus();
       }
     });
@@ -215,27 +218,27 @@ export function mountStartggSection(root: ParentNode): () => void {
     unlink.addEventListener('click', async () => {
       if (!unlink.classList.contains('is-armed')) {
         unlink.classList.add('is-armed');
-        label.textContent = 'Wirklich lösen?';
+        label.textContent = t('startgg.unlinkConfirm');
         unlinkTimer = window.setTimeout(() => {
           unlink.classList.remove('is-armed');
-          label.textContent = 'Verknüpfung lösen';
+          label.textContent = t('startgg.unlink');
         }, 4000);
         return;
       }
       window.clearTimeout(unlinkTimer);
       unlink.disabled = true;
-      label.textContent = 'Wird gelöst …';
+      label.textContent = t('startgg.unlinking');
       try {
         await unlinkStartgg();
         if (!alive) return;
-        status.textContent = 'Verknüpfung gelöst';
+        status.textContent = t('startgg.unlinked');
         showNotice(null);
         showForm('', true);
       } catch (err) {
         if (!alive) return;
         unlink.disabled = false;
         unlink.classList.remove('is-armed');
-        label.textContent = err instanceof ApiError ? err.message : 'Lösen fehlgeschlagen';
+        label.textContent = err instanceof ApiError ? err.message : t('startgg.unlinkFailed');
       }
     });
   };
@@ -253,7 +256,7 @@ export function mountStartggSection(root: ParentNode): () => void {
       (err: unknown) => {
         if (!alive) return;
         done();
-        mount(host, errorState('Die start.gg-Verknüpfung konnte nicht geladen werden.', err instanceof ApiError ? err.message : 'Prüf deine Verbindung und versuch es noch einmal.'));
+        mount(host, errorState(t('startgg.loadError'), err instanceof ApiError ? err.message : t('startgg.checkConnection')));
         bindErrorState(host, load);
       },
     );
@@ -262,22 +265,20 @@ export function mountStartggSection(root: ParentNode): () => void {
   /** Rückkehr von start.gg: Ergebnis beim Server abholen und speichern. */
   const finishOauth = (): void => {
     host.setAttribute('aria-busy', 'true');
-    mount(host, skeleton('Bestätigung wird gespeichert.'));
-    status.textContent = 'Bestätigung wird gespeichert …';
+    mount(host, skeleton(t('startgg.savingVerify')));
+    status.textContent = t('startgg.savingVerifyStatus');
     verifyStartgg().then(
       ({ link, previousSlug }) => {
         if (!alive) return;
         showCard(link);
         status.textContent = '';
-        showNotice(
-          `Bestätigt: Dein Blastzone-Konto ist jetzt mit ${link.gamerTag ?? link.slug} verknüpft.${previousSlug ? ` Das vorher eingetragene Profil ${previousSlug} wurde ersetzt.` : ''}`,
-          'success',
-        );
+        const verified = t('startgg.verifiedNotice', { name: link.gamerTag ?? link.slug });
+        showNotice(previousSlug ? `${verified} ${t('startgg.replacedNotice', { slug: previousSlug })}` : verified, 'success');
       },
       (err: unknown) => {
         if (!alive) return;
         status.textContent = '';
-        showNotice(err instanceof ApiError ? err.message : 'Die Bestätigung konnte nicht gespeichert werden. Versuch es noch einmal.');
+        showNotice(err instanceof ApiError ? err.message : t('startgg.verifyFailed'));
         load();
       },
     );
@@ -287,7 +288,7 @@ export function mountStartggSection(root: ParentNode): () => void {
   if (code === 'confirm') {
     finishOauth();
   } else {
-    if (code !== null) showNotice(OAUTH_MESSAGES[code] ?? OAUTH_MESSAGES.failed ?? null);
+    if (code !== null) showNotice(t(OAUTH_MESSAGES[code] ?? 'startgg.oauth.failed'));
     load();
   }
 

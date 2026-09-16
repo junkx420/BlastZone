@@ -1,4 +1,5 @@
 import { ICONS } from '../components/icons';
+import { t } from '../i18n';
 import { html, mount, qs } from '../lib/dom';
 import { link, type Route } from '../lib/router';
 import { ApiError } from '../services/api';
@@ -15,21 +16,21 @@ import type { PageView } from './types';
 export function confirmPage(route: Route): PageView {
   const tokenHash = route.query.get('token_hash') ?? '';
   return {
-    title: 'E-Mail bestätigen | Blastzone',
+    title: `${t('confirm.pageTitle')} | Blastzone`,
     markup: html`<div class="page">
       <section class="container confirm glass" aria-labelledby="confirm-title" data-confirm>
         <span class="confirm__icon">${ICONS.mail}</span>
-        <h1 id="confirm-title" class="confirm__title">E-Mail bestätigen</h1>
+        <h1 id="confirm-title" class="confirm__title">${t('confirm.title')}</h1>
         ${tokenHash
-          ? html`<p class="confirm__text" data-text>Ein Klick noch, dann ist dein Konto freigeschaltet.</p>
-              <button class="btn btn--primary" type="button" data-confirm-btn>${ICONS.check}Konto freischalten</button>`
-          : html`<p class="confirm__text" data-text>Der Link ist unvollständig. Öffne ihn direkt aus der Mail oder fordere unten einen neuen an.</p>`}
+          ? html`<p class="confirm__text" data-text>${t('confirm.text')}</p>
+              <button class="btn btn--primary" type="button" data-confirm-btn>${ICONS.check}${t('confirm.button')}</button>`
+          : html`<p class="confirm__text" data-text>${t('confirm.incomplete')}</p>`}
         <p class="fcomments__error" role="alert" data-error hidden></p>
         <form class="confirm__resend" novalidate data-resend ${tokenHash ? 'hidden' : ''}>
-          <label for="resend-email">Neuen Link an diese Adresse schicken</label>
+          <label for="resend-email">${t('confirm.resendLabel')}</label>
           <div class="confirm__row">
             <input id="resend-email" class="input confirm__input" type="email" autocomplete="email" inputmode="email" required />
-            <button class="btn btn--sm" type="submit">Senden</button>
+            <button class="btn btn--sm" type="submit">${t('confirm.send')}</button>
           </div>
           <p class="profile-status" role="status" data-resend-status></p>
         </form>
@@ -46,20 +47,22 @@ export function confirmPage(route: Route): PageView {
 
       button?.addEventListener('click', async () => {
         button.disabled = true;
+        button.setAttribute('aria-busy', 'true');
         error.hidden = true;
         try {
           const user = await confirmEmail(tokenHash);
           mount(
             box,
             html`<span class="confirm__icon confirm__icon--ok">${ICONS.check}</span>
-              <h1 class="confirm__title">Willkommen, ${user.username}</h1>
-              <p class="confirm__text">Dein Konto ist freigeschaltet und du bist angemeldet. Leg als Nächstes deinen Main fest.</p>
-              <a class="btn btn--primary" href="${link('/profil')}">${ICONS.user}Zum Profil</a>`,
+              <h1 class="confirm__title">${t('confirm.welcome', { name: user.username })}</h1>
+              <p class="confirm__text">${t('confirm.done')}</p>
+              <a class="btn btn--primary" href="${link('/profil')}">${ICONS.user}${t('confirm.toProfile')}</a>`,
           );
         } catch (err) {
           button.disabled = false;
+          button.removeAttribute('aria-busy');
           error.hidden = false;
-          error.textContent = err instanceof ApiError ? err.message : 'Das hat nicht geklappt.';
+          error.textContent = err instanceof ApiError ? err.message : t('api.failed');
           if (err instanceof ApiError && err.code === 'invalid-link') {
             button.hidden = true;
             resendForm.hidden = false;
@@ -72,12 +75,14 @@ export function confirmPage(route: Route): PageView {
         const status = qs<HTMLElement>('[data-resend-status]', resendForm)!;
         const submit = qs<HTMLButtonElement>('[type="submit"]', resendForm)!;
         submit.disabled = true;
+        submit.setAttribute('aria-busy', 'true');
         try {
           status.textContent = await resendConfirmation(qs<HTMLInputElement>('input', resendForm)!.value);
         } catch (err) {
-          status.textContent = err instanceof ApiError ? err.message : 'Das hat nicht geklappt.';
+          status.textContent = err instanceof ApiError ? err.message : t('api.failed');
         } finally {
           submit.disabled = false;
+          submit.removeAttribute('aria-busy');
         }
       });
 

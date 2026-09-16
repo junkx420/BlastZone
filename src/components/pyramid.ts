@@ -2,6 +2,7 @@ import { ARCHETYPE_INFO, ARCHETYPE_ORDER, ERGAENZT, POLES } from '../data/archet
 import { faceArt } from '../data/art';
 import { FIGHTERS } from '../data/fighters';
 import type { Archetype, Fighter } from '../data/types';
+import { t, tn } from '../i18n';
 import { mix } from '../lib/color';
 import { html, type Markup } from '../lib/dom';
 import { link } from '../lib/router';
@@ -190,7 +191,7 @@ export function pyramidGraphic({ active, me }: PyramidOptions = {}): Markup {
   const pole = (x: number, y: number, color: string): Markup =>
     html`<circle class="pyr__pole" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="9" fill="${color}" />`;
 
-  return html`<svg class="pyr" viewBox="0 0 ${W} ${VIEW_H}" role="group" aria-label="Archetypen-Pyramide mit 16 Feldern">
+  return html`<svg class="pyr" viewBox="0 0 ${W} ${VIEW_H}" role="group" aria-label="${t('arch.pyramidLabel')}">
     <defs>
       <clipPath id="pyr-rund" clipPathUnits="objectBoundingBox"><circle cx="0.5" cy="0.5" r="0.5" /></clipPath>
     </defs>
@@ -206,7 +207,7 @@ export function pyramidGraphic({ active, me }: PyramidOptions = {}): Markup {
       const info = ARCHETYPE_INFO[c.typ];
       const members = membersOf(c.typ);
       return html`<g class="pyr__cell${c.typ === active ? ' is-active' : ''}" data-cell="${c.typ}" style="--typ:${c.color};--typ-ink:${mix(c.color, '#ffffff', 0.62)}">
-        <a class="pyr__area" href="${link('/archetypen', { typ: c.typ })}" data-cell-link="${c.typ}" aria-label="${info.label}, ${members.length} Fighter">
+        <a class="pyr__area" href="${link('/archetypen', { typ: c.typ })}" data-cell-link="${c.typ}" aria-label="${info.label}, ${tn('roster.countOne', 'roster.count', members.length)}">
           <polygon class="pyr__tri" points="${inset(c.pts, FUGE, S)}" />
           ${cellLabels(c, info.label)}
         </a>
@@ -231,10 +232,10 @@ export function miniPyramid(typ: Archetype, className: string): Markup {
   const size = 50;
   const h = (size * Math.sqrt(3)) / 2;
   return html`<svg class="${className}" viewBox="-2 -2 ${4 * size + 4} ${(4 * h + 4).toFixed(1)}" aria-hidden="true">
-    ${ARCHETYPE_ORDER.map((t) => {
-      const c = geometry(t, size, 0, 0);
-      const on = t === typ;
-      return html`<polygon points="${inset(c.pts, 2.5, size)}" fill="${on ? geometry(t).color : 'currentColor'}" fill-opacity="${on ? 1 : 0.16}" />`;
+    ${ARCHETYPE_ORDER.map((other) => {
+      const c = geometry(other, size, 0, 0);
+      const on = other === typ;
+      return html`<polygon points="${inset(c.pts, 2.5, size)}" fill="${on ? geometry(other).color : 'currentColor'}" fill-opacity="${on ? 1 : 0.16}" />`;
     })}
   </svg>`;
 }

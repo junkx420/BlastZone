@@ -75,6 +75,8 @@ export const common = defineMessages({
     'crash.heading': 'Diese Seite ließ sich nicht aufbauen.',
     'crash.text': 'Der Fehler ist gemeldet. Neu laden hilft meistens, sonst geht es über die Leiste oben weiter.',
     'crash.home': 'Zur Startseite',
+
+    'meta.description': 'Combos, Frame Data und Tier-Liste für alle 86 Fighter aus Super Smash Bros. Ultimate. Jede Combo mit Quelle.',
   },
   en: {
     'skip': 'Skip to content',
@@ -149,5 +151,7 @@ export const common = defineMessages({
     'crash.heading': 'This page could not be built.',
     'crash.text': 'The error has been reported. Reloading usually helps, otherwise use the navigation above.',
     'crash.home': 'Go to home',
+
+    'meta.description': 'Combos, frame data and tier list for all 86 fighters in Super Smash Bros. Ultimate. Every combo with a source.',
   },
 });

@@ -3,6 +3,7 @@ import { archetypeColor, membersOf, miniPyramid, pyramidGraphic } from '../compo
 import { ARCHETYPE_INFO, ARCHETYPE_ORDER, ERGAENZT } from '../data/archetypes';
 import { FIGHTER_BY_SLUG, FIGHTERS } from '../data/fighters';
 import type { Archetype } from '../data/types';
+import { t, tn } from '../i18n';
 import { accentVars } from '../lib/color';
 import { html, qs, qsa } from '../lib/dom';
 import { reveals, scope, scrollToTarget } from '../lib/motion';
@@ -18,16 +19,16 @@ function card(typ: Archetype, active: boolean): ReturnType<typeof html> {
     <div class="archcard__head">
       ${miniPyramid(typ, 'archcard__mini')}
       <h3 class="archcard__title">${info.label}</h3>
-      <span class="archcard__count">${members.length} Fighter</span>
+      <span class="archcard__count">${tn('roster.countOne', 'roster.count', members.length)}</span>
     </div>
     <p class="archcard__text">${info.text}</p>
     <ul class="archcard__fighters" role="list">
       ${members.map((f) => {
         const added = ERGAENZT.has(f.slug);
         return html`<li>
-          <a class="archchip${added ? ' is-added' : ''}" href="${link(`/fighter/${f.slug}`)}" style="${accentVars(f.colors)}"${added ? html` title="Nicht auf der ursprünglichen Pyramide, von uns eingeordnet"` : ''}>
+          <a class="archchip${added ? ' is-added' : ''}" href="${link(`/fighter/${f.slug}`)}" style="${accentVars(f.colors)}"${added ? html` title="${t('arch.added')}"` : ''}>
             ${faceThumb(f, 'archchip__face')}
-            <span class="archchip__name">${f.name}</span>${added ? html`<span class="vh"> (von uns eingeordnet)</span>` : ''}
+            <span class="archchip__name">${f.name}</span>${added ? html`<span class="vh">${t('arch.addedVh')}</span>` : ''}
           </a>
         </li>`;
       })}
@@ -42,35 +43,32 @@ export function archetypesPage(route: Route): PageView {
   const me = meSlug ? FIGHTER_BY_SLUG.get(meSlug) : undefined;
 
   return {
-    title: 'Archetypen | Blastzone',
+    title: `${t('nav.archetypes')} | Blastzone`,
     anchor: me ? '#pyramide' : active ? `#typ-${active}` : undefined,
     markup: html`<div class="page arch-page">
       <header class="container page-head">
-        <h1 data-reveal="wipe">Archetypen</h1>
-        <p>
-          Alle ${FIGHTERS.length} Fighter in 16 Feldern zwischen drei Spielstilen: Rushdown oben, Zoner links, Bait & Punish rechts. Je näher ein
-          Feld an einer Ecke liegt, desto stärker prägt dieser Stil den Fighter.
-        </p>
+        <h1 data-reveal="wipe">${t('nav.archetypes')}</h1>
+        <p>${t('arch.lead', { n: FIGHTERS.length })}</p>
       </header>
 
       <section class="container arch-stage" id="pyramide" aria-labelledby="pyr-title">
-        <h2 class="vh" id="pyr-title">Pyramide</h2>
+        <h2 class="vh" id="pyr-title">${t('arch.pyramid')}</h2>
         ${me
           ? html`<p class="arch-stage__me" style="${accentVars(me.colors)}">
-              <a class="link" href="${link(`/fighter/${me.slug}`)}">${me.name}</a> steht bei ${ARCHETYPE_INFO[me.archetype].label}.
+              <a class="link" href="${link(`/fighter/${me.slug}`)}">${me.name}</a> ${t('arch.meIn', { label: ARCHETYPE_INFO[me.archetype].label })}
             </p>`
           : ''}
         <div class="arch-stage__frame">${pyramidGraphic({ active, me: me?.slug })}</div>
         <p class="arch-stage__note">
           <span class="arch-stage__key" aria-hidden="true"></span>
-          Die ursprüngliche Pyramide kennt die Miis und die meisten DLC-Fighter noch nicht. Diese ${ERGAENZT.size} sind gestrichelt umrandet und von uns eingeordnet.
+          ${t('arch.note', { n: ERGAENZT.size })}
         </p>
       </section>
 
       <section class="container arch-list" aria-labelledby="arch-list-title">
-        <h2 class="vh" id="arch-list-title">Alle 16 Archetypen</h2>
+        <h2 class="vh" id="arch-list-title">${t('arch.all')}</h2>
         <ol class="archgrid" role="list">
-          ${ARCHETYPE_ORDER.map((t) => card(t, t === active))}
+          ${ARCHETYPE_ORDER.map((typ) => card(typ, typ === active))}
         </ol>
       </section>
     </div>`,

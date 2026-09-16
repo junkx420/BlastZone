@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import { html } from '../lib/dom';
 import { link } from '../lib/router';
 import type { PageView } from './types';
@@ -24,35 +25,29 @@ export const operatorAddress = () =>
 
 export function imprintPage(): PageView {
   return {
-    title: 'Impressum | Blastzone',
+    title: `${t('imprint.title')} | Blastzone`,
     markup: html`<div class="page legal">
       <section class="container page-head">
-        <h1>Impressum</h1>
-        <p>Angaben gemäß § 5 DDG</p>
+        <h1>${t('imprint.title')}</h1>
+        <p>${t('imprint.lead')}</p>
+        ${t('imprint.langNote') ? html`<p class="legal__lang">${t('imprint.langNote')}</p>` : ''}
       </section>
 
       <section class="container legal__body">
-        <h2>Anbieter</h2>
+        <h2>${t('imprint.provider')}</h2>
         ${operatorAddress()}
 
-        <h2>Kontakt</h2>
-        <p>E-Mail: <a href="mailto:${OPERATOR.email}">${OPERATOR.email}</a></p>
+        <h2>${t('imprint.contact')}</h2>
+        <p>${t('imprint.email')} <a href="mailto:${OPERATOR.email}">${OPERATOR.email}</a></p>
 
-        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
-        <p>${OPERATOR.name}, Anschrift wie oben.</p>
+        <h2>${t('imprint.responsible')}</h2>
+        <p>${t('imprint.responsibleText', { name: OPERATOR.name })}</p>
 
-        <h2>Über dieses Projekt</h2>
-        <p>
-          Blastzone ist ein privates, nicht kommerzielles Fanprojekt für die Competitive-Szene von Super Smash Bros.
-          Ultimate. Es steht in keiner Verbindung zu Nintendo, Bandai Namco oder Sora Ltd. Fighter-Artwork stammt von
-          smashbros.com, © Nintendo. Fighter- und Seriennamen gehören ihren Rechteinhabern.
-        </p>
-        <p>
-          Combo-Routen verlinken jeweils ihre Quelle. Kommentare geben die Meinung ihrer Verfasser wieder. Fällt dir ein
-          Beitrag auf, der gegen Recht verstößt, schreib an die Adresse oben, er wird dann geprüft und entfernt.
-        </p>
+        <h2>${t('imprint.about')}</h2>
+        <p>${t('imprint.aboutText')}</p>
+        <p>${t('imprint.contentText')}</p>
 
-        <p><a class="btn btn--ghost" href="${link('/datenschutz')}">Zur Datenschutzerklärung</a></p>
+        <p><a class="btn btn--ghost" href="${link('/datenschutz')}">${t('imprint.privacyLink')}</a></p>
       </section>
     </div>`,
   };

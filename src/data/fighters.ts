@@ -1,3 +1,4 @@
+import { tr } from '../i18n';
 import type { Fighter, WeightClass } from './types';
 
 export { ARCHETYPES } from './archetypes';
@@ -100,11 +101,11 @@ export const FIGHTER_BY_SLUG = new Map(FIGHTERS.map((f) => [f.slug, f]));
 
 
 export const WEIGHT_CLASSES: Record<WeightClass, { label: string; range: string }> = {
-  feather: { label: 'Feder', range: 'unter 80' },
-  light: { label: 'Leicht', range: '80-89' },
-  middle: { label: 'Mittel', range: '90-99' },
-  heavy: { label: 'Schwer', range: '100-114' },
-  super: { label: 'Superschwer', range: 'ab 115' },
+  feather: { label: tr({ de: 'Feder', en: 'Feather' }), range: tr({ de: 'unter 80', en: 'under 80' }) },
+  light: { label: tr({ de: 'Leicht', en: 'Light' }), range: '80-89' },
+  middle: { label: tr({ de: 'Mittel', en: 'Middle' }), range: '90-99' },
+  heavy: { label: tr({ de: 'Schwer', en: 'Heavy' }), range: '100-114' },
+  super: { label: tr({ de: 'Superschwer', en: 'Super heavy' }), range: tr({ de: 'ab 115', en: '115 and up' }) },
 };
 
 export function weightClass(weight: number): WeightClass {

@@ -3,6 +3,7 @@ import { faceThumb } from '../components/fighterTile';
 import { ICONS } from '../components/icons';
 import { bindErrorState, errorState, LOAD_FAILED_TEXT } from '../components/states';
 import { FIGHTER_BY_SLUG, FIGHTERS } from '../data/fighters';
+import { dateFormat, locale, t, tn } from '../i18n';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, qsa, type Markup } from '../lib/dom';
 import { link, replaceQuery, type Route } from '../lib/router';
@@ -21,48 +22,48 @@ import type { PageView } from './types';
  * funktionieren. Seiten per Cursor mit „Mehr laden“.
  */
 
-const BY_NAME = [...FIGHTERS].sort((a, b) => a.name.localeCompare(b.name, 'de'));
-const monthFmt = new Intl.DateTimeFormat('de-DE', { month: 'short', year: 'numeric' });
+const BY_NAME = [...FIGHTERS].sort((a, b) => a.name.localeCompare(b.name, locale));
+const monthFmt = dateFormat({ month: 'short', year: 'numeric' });
 
 function guestView(): Markup {
   return html`<header class="container page-head">
-      <h1>Community</h1>
-      <p>Das Verzeichnis sehen nur angemeldete Mitglieder. Mit Konto findest du hier andere Spieler, ihre Mains und Secondaries.</p>
+      <h1>${t('community.title')}</h1>
+      <p>${t('community.guestLead')}</p>
     </header>
     <div class="container profile-guest">
-      <button class="btn btn--primary" type="button" data-open="login">${ICONS.lock}Anmelden</button>
-      <button class="btn" type="button" data-open="signup">${ICONS.user}Konto anlegen</button>
+      <button class="btn btn--primary" type="button" data-open="login">${ICONS.lock}${t('account.login')}</button>
+      <button class="btn" type="button" data-open="signup">${ICONS.user}${t('auth.titleSignup')}</button>
     </div>`;
 }
 
 function memberView(q: string, fighter: string): Markup {
   return html`<header class="container page-head">
-      <h1>Community</h1>
-      <p>Spieler aus der Blastzone-Community. Hier steht, wer sich ins Verzeichnis eingetragen hat. Klick auf einen Namen für das Spielerprofil.</p>
+      <h1>${t('community.title')}</h1>
+      <p>${t('community.lead')}</p>
     </header>
 
     <div class="container" data-self></div>
 
     <div class="container">
-    <form class="community-filters glass" role="search" novalidate data-filters>
-      <div class="field community-filters__search">
-        ${ICONS.search}
-        <label class="vh" for="community-q">Spieler suchen</label>
-        <input id="community-q" class="input" type="search" placeholder="Name suchen" maxlength="20" autocomplete="off" spellcheck="false" value="${q}" data-q />
-      </div>
-      <div class="select-wrap community-filters__fighter">
-        <label class="control-label" for="community-fighter">Spielt</label>
-        <select id="community-fighter" class="select" data-fighter>
-          <option value="">Alle Fighter</option>
-          ${BY_NAME.map((f) => html`<option value="${f.slug}" ${f.slug === fighter ? 'selected' : ''}>${f.name}</option>`)}
-        </select>
-      </div>
-      <p class="fcomments__error community-filters__error" role="alert" data-q-error hidden></p>
-    </form>
+      <form class="community-filters glass" role="search" novalidate data-filters>
+        <div class="field community-filters__search">
+          ${ICONS.search}
+          <label class="vh" for="community-q">${t('community.searchLabel')}</label>
+          <input id="community-q" class="input" type="search" placeholder="${t('community.searchPlaceholder')}" maxlength="20" autocomplete="off" spellcheck="false" value="${q}" data-q />
+        </div>
+        <div class="select-wrap community-filters__fighter">
+          <label class="control-label" for="community-fighter">${t('community.plays')}</label>
+          <select id="community-fighter" class="select" data-fighter>
+            <option value="">${t('community.allFighters')}</option>
+            ${BY_NAME.map((f) => html`<option value="${f.slug}" ${f.slug === fighter ? 'selected' : ''}>${f.name}</option>`)}
+          </select>
+        </div>
+        <p class="fcomments__error community-filters__error" role="alert" data-q-error hidden></p>
+      </form>
     </div>
 
     <section class="container community-results" aria-labelledby="community-results-title">
-      <h2 id="community-results-title" class="vh">Spieler</h2>
+      <h2 id="community-results-title" class="vh">${t('community.players')}</h2>
       <p class="profile-status community-count" role="status" aria-live="polite" data-count></p>
       <div data-results></div>
       <div class="community-more" data-more></div>
@@ -78,13 +79,13 @@ function card(p: DirectoryEntry): Markup {
       <span class="player-card__face">${main ? faceThumb(main, 'player-card__img') : ICONS.user}</span>
       <span class="player-card__text">
         <strong class="player-card__name">${p.username}</strong>
-        <span class="player-card__main">${main ? main.name : 'Kein Main'}</span>
-        ${Number.isNaN(since.getTime()) ? '' : html`<span class="player-card__since">dabei seit ${monthFmt.format(since)}</span>`}
+        <span class="player-card__main">${main ? main.name : t('community.noMain')}</span>
+        ${Number.isNaN(since.getTime()) ? '' : html`<span class="player-card__since">${t('community.memberSince', { date: monthFmt.format(since) })}</span>`}
       </span>
       ${secondaries.length
         ? html`<span class="player-card__secondaries">
-            ${secondaries.map((f) => html`<span class="player-card__sec" style="${accentVars(f.colors)}" title="Secondary: ${f.name}">${faceThumb(f, 'player-card__img')}</span>`)}
-            <span class="vh">Secondaries: ${secondaries.map((f) => f.name).join(', ')}</span>
+            ${secondaries.map((f) => html`<span class="player-card__sec" style="${accentVars(f.colors)}" title="${t('community.secondary', { name: f.name })}">${faceThumb(f, 'player-card__img')}</span>`)}
+            <span class="vh">${t('community.secondaries', { names: secondaries.map((f) => f.name).join(', ') })}</span>
           </span>`
         : ''}
     </a>
@@ -98,7 +99,7 @@ const skeleton = (): Markup =>
 
 export function communityPage(route: Route): PageView {
   return {
-    title: 'Community | Blastzone',
+    title: `${t('community.title')} | Blastzone`,
     markup: html`<div class="page community-page" data-community></div>`,
     mount(root) {
       const host = qs<HTMLElement>('[data-community]', root)!;
@@ -118,8 +119,8 @@ export function communityPage(route: Route): PageView {
             mount(
               self,
               html`<div class="community-self">
-                <p class="community-self__text"><strong>Du stehst noch nicht im Verzeichnis.</strong> Trägst du dich ein, sehen andere Mitglieder hier deinen Namen, Main und Secondaries.</p>
-                <button class="btn btn--primary btn--sm" type="button" data-join>${ICONS.check}Mich eintragen</button>
+                <p class="community-self__text"><strong>${t('community.notListed')}</strong> ${t('community.notListedText')}</p>
+                <button class="btn btn--primary btn--sm" type="button" data-join>${ICONS.check}${t('community.join')}</button>
                 <p class="fcomments__error" role="alert" data-join-error hidden></p>
               </div>`,
             );
@@ -127,17 +128,19 @@ export function communityPage(route: Route): PageView {
             const error = qs<HTMLElement>('[data-join-error]', self)!;
             join.addEventListener('click', async () => {
               join.disabled = true;
+              join.setAttribute('aria-busy', 'true');
               error.hidden = true;
               try {
                 await saveCommunitySettings({ listed: true });
                 if (!alive) return;
-                mount(self, html`<p class="community-self community-self--done" role="status">${ICONS.check}Du stehst jetzt im Verzeichnis. Austragen geht jederzeit im Profil.</p>`);
+                mount(self, html`<p class="community-self community-self--done" role="status">${ICONS.check}${t('community.joined')}</p>`);
                 reload();
               } catch (err) {
                 if (!alive) return;
                 join.disabled = false;
+                join.removeAttribute('aria-busy');
                 error.hidden = false;
-                error.textContent = err instanceof ApiError ? err.message : 'Das hat nicht geklappt.';
+                error.textContent = err instanceof ApiError ? err.message : t('api.failed');
               }
             });
           },
@@ -170,13 +173,14 @@ export function communityPage(route: Route): PageView {
           const { q, fighter } = filters();
           const filtered = Boolean(q || fighter);
           if (!shown.length) {
-            count.textContent = 'Keine Spieler gefunden.';
+            count.textContent = t('community.countNone');
+            const fighterName = fighter ? (FIGHTER_BY_SLUG.get(fighter)?.name ?? fighter) : '';
             mount(
               results,
               filtered
-                ? html`<div class="profile-empty"><p>Niemand gefunden${q ? html` für „${q}“` : ''}${fighter ? html` mit ${FIGHTER_BY_SLUG.get(fighter)?.name ?? fighter}` : ''}.</p>
-                    <button class="btn btn--sm community-reset" type="button" data-reset>${ICONS.reset}Filter zurücksetzen</button></div>`
-                : html`<p class="profile-empty">Noch hat sich niemand eingetragen. Mach den Anfang, dann finden dich andere hier.</p>`,
+                ? html`<div class="profile-empty"><p>${t('community.noneFound')}${q ? t('community.noneForQuery', { q }) : ''}${fighter ? t('community.noneWithFighter', { fighter: fighterName }) : ''}.</p>
+                    <button class="btn btn--sm community-reset" type="button" data-reset>${ICONS.reset}${t('community.resetFilters')}</button></div>`
+                : html`<p class="profile-empty">${t('community.empty')}</p>`,
             );
             qs('[data-reset]', results)?.addEventListener('click', () => {
               qInput.value = '';
@@ -186,13 +190,15 @@ export function communityPage(route: Route): PageView {
             mount(more, html``);
             return;
           }
-          count.textContent = `${shown.length}${nextCursor ? '+' : ''} Spieler`;
+          // Mit Cursor gibt es noch mehr Treffer, die genaue Zahl kennt erst die letzte Seite.
+          count.textContent = nextCursor ? tn('community.countMore', 'community.countMore', shown.length) : tn('community.countOne', 'community.count', shown.length);
           mount(results, html`<ul class="player-grid">${shown.map(card)}</ul>`);
-          mount(more, nextCursor ? html`<button class="btn btn--ghost" type="button" data-load-more>Mehr laden</button>` : html``);
+          mount(more, nextCursor ? html`<button class="btn btn--ghost" type="button" data-load-more>${t('community.loadMore')}</button>` : html``);
           qs<HTMLButtonElement>('[data-load-more]', more)?.addEventListener('click', (e) => {
             const button = e.currentTarget as HTMLButtonElement;
             button.disabled = true;
-            mount(button, html`Lädt …`);
+            button.setAttribute('aria-busy', 'true');
+            mount(button, html`${t('state.loading')}`);
             void load(nextCursor ?? undefined);
           });
         };
@@ -215,7 +221,7 @@ export function communityPage(route: Route): PageView {
             if (!alive || mine !== request) return;
             if (err instanceof ApiError && err.status === 401) return;
             results.removeAttribute('aria-busy');
-            mount(results, errorState('Das Verzeichnis konnte nicht geladen werden.', err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
+            mount(results, errorState(t('community.loadError'), err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
             bindErrorState(results, () => void load(after));
           }
         };
@@ -224,7 +230,7 @@ export function communityPage(route: Route): PageView {
           const { q, fighter } = filters();
           if (q && !USERNAME_PREFIX_PATTERN.test(q)) {
             qError.hidden = false;
-            qError.textContent = 'Namen bestehen nur aus Buchstaben, Zahlen, _ und -.';
+            qError.textContent = t('community.invalidQuery');
             return;
           }
           qError.hidden = true;
@@ -255,7 +261,7 @@ export function communityPage(route: Route): PageView {
         shownFor = key;
         request++;
         if (state.status === 'unknown') {
-          mount(host, html`<div class="container page-head"><h1>Community</h1><p class="profile-status">Lädt …</p></div>`);
+          mount(host, html`<div class="container page-head"><h1>${t('community.title')}</h1><p class="profile-status">${t('state.loading')}</p></div>`);
           return;
         }
         if (state.status === 'guest') {

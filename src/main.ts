@@ -44,6 +44,8 @@ if (!app) throw new Error('#app fehlt in index.html');
 document.documentElement.lang = lang;
 const skipLink = document.querySelector<HTMLAnchorElement>('.skip-link');
 if (skipLink) skipLink.textContent = t('skip');
+const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+if (description) description.content = t('meta.description');
 
 initErrorHandling();
 const palette = initPalette();

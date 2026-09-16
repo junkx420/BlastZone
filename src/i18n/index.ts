@@ -1,8 +1,12 @@
 import { LANGUAGES, pickLang, type Lang } from './lang';
+import { account } from './messages/account';
 import { auth } from './messages/auth';
 import { combo } from './messages/combo';
+import { comments } from './messages/comments';
 import { common } from './messages/common';
 import { notation } from './messages/notation';
+import { pages } from './messages/pages';
+import { social } from './messages/social';
 
 /**
  * Sprache der Seite, einmal pro Seitenaufruf bestimmt (siehe lang.ts).
@@ -35,8 +39,8 @@ export const lang: Lang = detected.lang;
 export const langSource = detected.source;
 export const locale = LANGUAGES.find((l) => l.code === lang)?.locale ?? 'de-DE';
 
-const DE = { ...common.de, ...combo.de, ...notation.de, ...auth.de };
-const EN: { [K in keyof typeof DE]: string } = { ...common.en, ...combo.en, ...notation.en, ...auth.en };
+const DE = { ...common.de, ...combo.de, ...notation.de, ...auth.de, ...social.de, ...comments.de, ...account.de, ...pages.de };
+const EN: { [K in keyof typeof DE]: string } = { ...common.en, ...combo.en, ...notation.en, ...auth.en, ...social.en, ...comments.en, ...account.en, ...pages.en };
 
 export type MessageKey = keyof typeof DE;
 
@@ -47,6 +51,17 @@ export function t(key: MessageKey, vars?: Record<string, string | number>): stri
   const text = dict[key] ?? DE[key] ?? key;
   if (!vars) return text;
   return text.replace(/[{]([A-Za-z0-9_]+)[}]/g, (match, name: string) => (name in vars ? String(vars[name]) : match));
+}
+
+const plurals = new Intl.PluralRules(locale);
+
+/**
+ * Zähltext mit Einzahl: `one` bei genau einem („1 player“), sonst `other`.
+ * `{n}` wird im Format der Seitensprache eingesetzt. Im Deutschen sind beide
+ * Schlüssel oft gleich („1 Fighter“), angelegt werden trotzdem beide.
+ */
+export function tn(one: MessageKey, other: MessageKey, n: number, vars?: Record<string, string | number>): string {
+  return t(plurals.select(n) === 'one' ? one : other, { ...vars, n: formatNumber(n) });
 }
 
 /** Für Datendateien: Wert in der Seitensprache aus einem Paar, etwa tr({ de: 'Tier-Liste', en: 'Tier List' }). */

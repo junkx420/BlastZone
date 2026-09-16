@@ -4,6 +4,7 @@ import { faceThumb } from '../components/fighterTile';
 import { ICONS } from '../components/icons';
 import { bindErrorState, errorState, LOAD_FAILED_TEXT } from '../components/states';
 import { FIGHTER_BY_SLUG } from '../data/fighters';
+import { dateFormat, formatNumber, t } from '../i18n';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, qsa, type Markup } from '../lib/dom';
 import { link, type Route } from '../lib/router';
@@ -21,12 +22,13 @@ import type { PageView } from './types';
  * hängen sich als weitere `profile-section` unter die Kommentare.
  */
 
-const monthFmt = new Intl.DateTimeFormat('de-DE', { month: 'long', year: 'numeric' });
-const fullFmt = new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium', timeStyle: 'short' });
+const monthFmt = dateFormat({ month: 'long', year: 'numeric' });
+const fullFmt = dateFormat({ dateStyle: 'medium', timeStyle: 'short' });
+const pageTitle = (name: string): string => `${name} | ${t('player.pageTitle')} | Blastzone`;
 
 const memberSince = (yyyyMm: string): string => {
   const d = new Date(`${yyyyMm}-01T12:00:00Z`);
-  return Number.isNaN(d.getTime()) ? 'unbekannt' : monthFmt.format(d);
+  return Number.isNaN(d.getTime()) ? t('player.unknown') : monthFmt.format(d);
 };
 
 function loadingView(): Markup {
@@ -37,33 +39,33 @@ function loadingView(): Markup {
         <span class="skeleton__bar"></span>
       </div>
     </header>
-    <p class="vh" role="status">Spielerprofil wird geladen.</p>`;
+    <p class="vh" role="status">${t('player.loading')}</p>`;
 }
 
 function guestView(name: string): Markup {
   return html`<header class="container page-head">
       <h1>${name}</h1>
-      <p>Spielerprofile sehen nur angemeldete Mitglieder. Mit Konto siehst du hier Main, Stats und die letzten Kommentare.</p>
+      <p>${t('player.guestLead')}</p>
     </header>
     <div class="container profile-guest">
-      <button class="btn btn--primary" type="button" data-open="login">${ICONS.lock}Anmelden</button>
-      <button class="btn" type="button" data-open="signup">${ICONS.user}Konto anlegen</button>
+      <button class="btn btn--primary" type="button" data-open="login">${ICONS.lock}${t('account.login')}</button>
+      <button class="btn" type="button" data-open="signup">${ICONS.user}${t('auth.titleSignup')}</button>
     </div>`;
 }
 
 function notFoundView(name: string): Markup {
   return html`<header class="container page-head">
-      <h1>Spieler nicht gefunden</h1>
-      <p>Unter „${name}“ gibt es kein Konto. Vielleicht ist der Name falsch geschrieben oder das Konto wurde gelöscht.</p>
+      <h1>${t('player.notFound')}</h1>
+      <p>${t('player.notFoundText', { name })}</p>
     </header>
     <div class="container profile-guest">
-      <a class="btn" href="${link('/')}">Zur Startseite</a>
+      <a class="btn" href="${link('/')}">${t('crash.home')}</a>
     </div>`;
 }
 
 function commentList(p: Player): Markup {
   if (!p.recentComments.length) {
-    return html`<p class="profile-empty">${p.isSelf ? 'Du hast noch nichts kommentiert. Unter jedem Fighter gibt es eine Diskussion.' : `${p.username} hat noch nichts kommentiert.`}</p>`;
+    return html`<p class="profile-empty">${p.isSelf ? t('player.noCommentsSelf') : t('player.noComments', { name: p.username })}</p>`;
   }
   return html`<ol class="player-comments">
     ${p.recentComments.map((c) => {
@@ -83,7 +85,7 @@ function commentList(p: Player): Markup {
 
 function secondaryChips(p: Player): Markup {
   const fighters = p.secondaries.map((s) => FIGHTER_BY_SLUG.get(s)).filter((f) => f !== undefined);
-  if (!fighters.length) return html`Keine`;
+  if (!fighters.length) return html`${t('player.none')}`;
   return html`<span class="player-secs">
     ${fighters.map((f) => html`<a class="comment__flair" href="${link(`/fighter/${f.slug}`)}" style="${accentVars(f.colors)}">${faceThumb(f, 'comment__flair-face')}<span>${f.name}</span></a>`)}
   </span>`;
@@ -96,28 +98,28 @@ function playerView(p: Player): Markup {
       <div class="profile-head__text">
         <h1 class="profile-head__name">${p.username}</h1>
         <p class="profile-head__meta">
-          ${p.isSelf ? 'Das bist du. So sehen dich andere Mitglieder.' : html`Spielerprofil aus der <a class="link link--inline" href="${link('/community')}">Community</a>`}
+          ${p.isSelf ? t('player.self') : html`${t('player.fromCommunity')} <a class="link link--inline" href="${link('/community')}">${t('player.communityLink')}</a>`}
         </p>
       </div>
-      ${p.isSelf ? html`<a class="btn btn--sm" href="${link('/profil')}">${ICONS.user}Profil bearbeiten</a>` : ''}
+      ${p.isSelf ? html`<a class="btn btn--sm" href="${link('/profil')}">${ICONS.user}${t('player.edit')}</a>` : ''}
     </header>
 
-    <section class="container profile-section" aria-label="Stats">
+    <section class="container profile-section" aria-label="${t('player.stats')}">
       <dl class="player-stats">
         <div class="player-stat">
-          <dt>Main</dt>
-          <dd>${main ? html`<a class="link" href="${link(`/fighter/${main.slug}`)}">${main.name}</a>` : 'Kein Main'}</dd>
+          <dt>${t('player.main')}</dt>
+          <dd>${main ? html`<a class="link" href="${link(`/fighter/${main.slug}`)}">${main.name}</a>` : t('community.noMain')}</dd>
         </div>
         <div class="player-stat">
-          <dt>Secondaries</dt>
+          <dt>${t('player.secondaries')}</dt>
           <dd>${secondaryChips(p)}</dd>
         </div>
         <div class="player-stat">
-          <dt>Kommentare</dt>
-          <dd>${String(p.stats.comments)}</dd>
+          <dt>${t('player.comments')}</dt>
+          <dd>${formatNumber(p.stats.comments)}</dd>
         </div>
         <div class="player-stat">
-          <dt>Dabei seit</dt>
+          <dt>${t('player.memberSince')}</dt>
           <dd>${memberSince(p.memberSince)}</dd>
         </div>
       </dl>
@@ -125,7 +127,7 @@ function playerView(p: Player): Markup {
 
     <section class="container profile-section" aria-labelledby="player-comments-title">
       <div class="profile-section__head">
-        <h2 id="player-comments-title">Letzte Kommentare</h2>
+        <h2 id="player-comments-title">${t('player.latestComments')}</h2>
       </div>
       ${commentList(p)}
     </section>`;
@@ -134,7 +136,7 @@ function playerView(p: Player): Markup {
 export function playerPage(route: Route): PageView {
   const name = route.params.name ?? '';
   return {
-    title: `${name} | Spielerprofil | Blastzone`,
+    title: pageTitle(name),
     markup: html`<div class="page profile-page player-page" data-player></div>`,
     mount(root) {
       const host = qs<HTMLElement>('[data-player]', root)!;
@@ -148,7 +150,7 @@ export function playerPage(route: Route): PageView {
           (player) => {
             if (mine !== request || !host.isConnected) return;
             mount(host, playerView(player));
-            document.title = `${player.username} | Spielerprofil | Blastzone`;
+            document.title = pageTitle(player.username);
           },
           (err: unknown) => {
             if (mine !== request || !host.isConnected) return;
@@ -158,7 +160,7 @@ export function playerPage(route: Route): PageView {
               mount(host, notFoundView(name));
               return;
             }
-            mount(host, html`<div class="container">${errorState('Das Spielerprofil konnte nicht geladen werden.', err instanceof ApiError ? err.message : LOAD_FAILED_TEXT)}</div>`);
+            mount(host, html`<div class="container">${errorState(t('player.loadError'), err instanceof ApiError ? err.message : LOAD_FAILED_TEXT)}</div>`);
             bindErrorState(host, load);
           },
         );

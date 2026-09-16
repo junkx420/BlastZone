@@ -982,6 +982,12 @@
   .legal__body .btn {
     margin-top: var(--sp-5);
   }
+  /* Nur in Übersetzungen: Hinweis, dass die deutsche Fassung maßgeblich ist. */
+  .legal__lang {
+    margin-top: var(--sp-2);
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+  }
   .legal__address {
     margin-bottom: var(--sp-3);
     color: var(--text);

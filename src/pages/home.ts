@@ -12,13 +12,14 @@ import { BUTTON_LEGEND, resolveToken } from '../data/notation';
 import { matchScore } from '../data/search';
 import { TIER_BY_SLUG, TIER_ORDER, TIER_PLACEMENTS, TIER_SOURCE, TIER_TOTAL } from '../data/tiers';
 import type { Archetype, Combo, Fighter, TierId, WeightClass } from '../data/types';
+import { formatNumber, locale, t, tn } from '../i18n';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, qsa, type Markup } from '../lib/dom';
 import { gsap, loadFlip, motionOK, parallax, pointerDepth, reveals, scope, type FlipApi } from '../lib/motion';
 import { link, replaceQuery, type Route } from '../lib/router';
 import type { PageView } from './types';
 
-const de = (n: number): string => n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const score = (n: number): string => formatNumber(n, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 /* ───────────────────────────── Hero: kill-confirm replay ───────────────────────────── */
 
@@ -34,20 +35,17 @@ function heroSection(): Markup {
     </div>
     <div class="container hero__layout">
       <div class="hero__copy">
-        <h1 class="hero__title" id="hero-title"><span class="hero__line">Vom ersten Treffer</span> <span class="hero__line">bis zum KO.</span></h1>
-        <p class="hero__lead">
-          Combos, Frame Data und die UltRank-Liste für alle ${FIGHTERS.length} Fighter. Alles mit Quelle, damit du nicht
-          raten musst, was wirklich durchgeht.
-        </p>
+        <h1 class="hero__title" id="hero-title"><span class="hero__line">${t('home.title1')}</span> <span class="hero__line">${t('home.title2')}</span></h1>
+        <p class="hero__lead">${t('home.lead', { n: FIGHTERS.length })}</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="${link('/roster')}">Fighter finden</a>
-          <a class="btn btn--ghost" href="${link('/tiers')}">Tier-Liste ansehen</a>
+          <a class="btn btn--primary" href="${link('/roster')}">${t('home.findFighter')}</a>
+          <a class="btn btn--ghost" href="${link('/tiers')}">${t('home.viewTiers')}</a>
         </div>
       </div>
 
-      <aside class="hud glass" data-hud aria-label="Kill-Confirm-Replay">
+      <aside class="hud glass" data-hud aria-label="${t('hud.label')}">
         <header class="hud__head">
-          <p class="hud__count" data-hud-count>Kill-Confirm 1 von ${SHOWCASE.length}</p>
+          <p class="hud__count" data-hud-count>${t('hud.count', { i: 1, n: SHOWCASE.length })}</p>
           <div class="hud__who">
             <span class="hud__id">
               <span data-hud-face>${faceThumb(fighter, 'hud__face')}</span>
@@ -61,8 +59,8 @@ function heroSection(): Markup {
         <div class="hud__bottom combo__hud">
           <div data-hud-meter>${meter(first.combo.start, true)}</div>
           <div class="hud__controls">
-            <button class="btn btn--icon" type="button" data-hud-toggle aria-pressed="false" aria-label="Replay pausieren">${ICONS.pause}</button>
-            <button class="btn btn--icon" type="button" data-hud-next aria-label="Nächster Kill-Confirm">${ICONS.skip}</button>
+            <button class="btn btn--icon" type="button" data-hud-toggle aria-pressed="false" aria-label="${t('hud.pause')}">${ICONS.pause}</button>
+            <button class="btn btn--icon" type="button" data-hud-next aria-label="${t('hud.next')}">${ICONS.skip}</button>
           </div>
         </div>
       </aside>
@@ -90,7 +88,7 @@ function mountHero(root: HTMLElement): () => void {
 
   const syncToggle = (): void => {
     toggle.setAttribute('aria-pressed', String(userPaused));
-    toggle.setAttribute('aria-label', userPaused ? 'Replay fortsetzen' : 'Replay pausieren');
+    toggle.setAttribute('aria-label', userPaused ? t('hud.resume') : t('hud.pause'));
     mount(toggle, userPaused ? ICONS.play : ICONS.pause);
   };
 
@@ -131,7 +129,7 @@ function mountHero(root: HTMLElement): () => void {
 
     if (!initial) {
       hero.setAttribute('style', accentVars(fighter.colors));
-      part('[data-hud-count]').textContent = `Kill-Confirm ${index + 1} von ${SHOWCASE.length}`;
+      part('[data-hud-count]').textContent = t('hud.count', { i: index + 1, n: SHOWCASE.length });
       const name = part<HTMLAnchorElement>('[data-hud-name]');
       name.textContent = fighter.name;
       name.href = link(`/fighter/${entry.slug}`);
@@ -223,12 +221,9 @@ function topSection(): Markup {
   return html`<section class="section top" aria-labelledby="top-title">
     <div class="container">
       <div class="section-head">
-        <h2 id="top-title" data-reveal="wipe">Die Spitze des Metas</h2>
-        <p data-reveal>
-          ${top.length} Fighter teilen sich S+, so viele wie nie zuvor neben Steve. Stand: ${TIER_SOURCE.name} vom
-          ${TIER_SOURCE.published}.
-        </p>
-        <a class="link section-head__aside" href="${link('/tiers')}">Alle ${TIER_TOTAL} Ränge</a>
+        <h2 id="top-title" data-reveal="wipe">${t('top.title')}</h2>
+        <p data-reveal>${t('top.text', { n: top.length, source: TIER_SOURCE.name, date: TIER_SOURCE.published })}</p>
+        <a class="link section-head__aside" href="${link('/tiers')}">${t('top.all', { n: TIER_TOTAL })}</a>
       </div>
       <ol class="top__list" role="list">
         ${top.map((p, i) => {
@@ -240,7 +235,7 @@ function topSection(): Markup {
               <span class="top__rank" aria-hidden="true">${p.rank}</span>
               <span class="top__body">
                 <span class="top__name">${f.name}</span>
-                <span class="top__score"><span class="vh">Rang ${p.rank}, </span>Panel-Wertung ${de(p.score)}</span>
+                <span class="top__score"><span class="vh">${t('top.rankVh', { n: p.rank })}</span>${t('top.score', { score: score(p.score) })}</span>
               </span>
             </a>
           </li>`;
@@ -263,14 +258,14 @@ interface Filters {
 }
 
 const SORTS: Array<[Sort, string]> = [
-  ['rank', 'Tier-Rang'],
-  ['no', 'Fighter-Nummer'],
-  ['name', 'Name A bis Z'],
-  ['weight', 'Gewicht, schwer zuerst'],
+  ['rank', t('roster.sortRank')],
+  ['no', t('roster.sortNo')],
+  ['name', t('roster.sortName')],
+  ['weight', t('roster.sortWeight')],
 ];
 
 function readFilters(query: URLSearchParams): Filters {
-  const tiers = (query.get('tier') ?? '').split(',').filter((t): t is TierId => (TIER_ORDER as string[]).includes(t));
+  const tiers = (query.get('tier') ?? '').split(',').filter((tier): tier is TierId => (TIER_ORDER as string[]).includes(tier));
   const arch = query.get('archetyp') ?? '';
   const weight = query.get('gewicht') ?? '';
   const sort = query.get('sort') ?? '';
@@ -299,7 +294,7 @@ const rankOf = (f: Fighter): number => TIER_BY_SLUG.get(f.slug)?.rank ?? 999;
 const SORTERS: Record<Sort, (a: Fighter, b: Fighter) => number> = {
   rank: (a, b) => rankOf(a) - rankOf(b) || a.order - b.order,
   no: (a, b) => a.order - b.order,
-  name: (a, b) => a.name.localeCompare(b.name, 'de'),
+  name: (a, b) => a.name.localeCompare(b.name, locale),
   weight: (a, b) => b.weight - a.weight || a.order - b.order,
 };
 
@@ -319,52 +314,52 @@ function rosterSection(): Markup {
     <div class="container">
       <div class="section-head">
         <h2 id="roster-title" data-reveal="wipe">Roster</h2>
-        <p>Alle ${FIGHTERS.length} Slots vom Auswahlbildschirm. Such nach Name, Serie oder Spitzname. ZSS, Pummeluff und Aegis gehen auch.</p>
-        <p class="roster__count section-head__aside" data-count aria-live="polite">${FIGHTERS.length} Fighter</p>
+        <p>${t('roster.lead', { n: FIGHTERS.length })}</p>
+        <p class="roster__count section-head__aside" data-count aria-live="polite">${tn('roster.countOne', 'roster.count', FIGHTERS.length)}</p>
       </div>
 
       <div class="filters glass" data-filters>
         <div class="filters__row">
           <div class="field filters__search">
             ${ICONS.search}
-            <label class="vh" for="roster-q">Fighter suchen</label>
-            <input id="roster-q" class="input" type="search" placeholder="Name, Serie oder Spitzname" autocomplete="off" spellcheck="false" data-q />
+            <label class="vh" for="roster-q">${t('nav.search')}</label>
+            <input id="roster-q" class="input" type="search" placeholder="${t('roster.searchPlaceholder')}" autocomplete="off" spellcheck="false" data-q />
           </div>
           <div class="select-wrap">
-            <label class="control-label" for="roster-arch">Archetyp</label>
+            <label class="control-label" for="roster-arch">${t('roster.archetype')}</label>
             <select id="roster-arch" class="select" data-arch>
-              <option value="">Alle</option>
+              <option value="">${t('roster.all')}</option>
               ${Object.entries(ARCHETYPES).map(([value, label]) => html`<option value="${value}">${label}</option>`)}
             </select>
           </div>
           <div class="select-wrap">
-            <label class="control-label" for="roster-weight">Gewicht</label>
+            <label class="control-label" for="roster-weight">${t('roster.weight')}</label>
             <select id="roster-weight" class="select" data-weight>
-              <option value="">Alle</option>
+              <option value="">${t('roster.all')}</option>
               ${Object.entries(WEIGHT_CLASSES).map(([value, w]) => html`<option value="${value}">${w.label} (${w.range})</option>`)}
             </select>
           </div>
           <div class="select-wrap">
-            <label class="control-label" for="roster-sort">Sortierung</label>
+            <label class="control-label" for="roster-sort">${t('roster.sort')}</label>
             <select id="roster-sort" class="select" data-sort>
               ${SORTS.map(([value, label]) => html`<option value="${value}">${label}</option>`)}
             </select>
           </div>
         </div>
         <div class="filters__row filters__row--chips">
-          <div class="filters__tiers" role="group" aria-label="Nach Tier filtern">
-            ${TIER_ORDER.map((t) => html`<button type="button" class="chip" data-tier="${tierGroup(t)}" data-tier-id="${t}" aria-pressed="false">${t}</button>`)}
+          <div class="filters__tiers" role="group" aria-label="${t('roster.tierFilter')}">
+            ${TIER_ORDER.map((tier) => html`<button type="button" class="chip" data-tier="${tierGroup(tier)}" data-tier-id="${tier}" aria-pressed="false">${tier}</button>`)}
           </div>
-          <button type="button" class="btn btn--sm btn--ghost filters__reset" data-reset hidden>${ICONS.reset}Filter zurücksetzen</button>
+          <button type="button" class="btn btn--sm btn--ghost filters__reset" data-reset hidden>${ICONS.reset}${t('roster.reset')}</button>
         </div>
       </div>
 
       <ul class="roster__grid" role="list" data-grid>${FIGHTERS.map((f) => fighterTile(f))}</ul>
 
       <div class="empty" data-empty hidden>
-        <h3>Kein Fighter passt zu diesen Filtern.</h3>
-        <p>Lockere die Tier-Auswahl oder such nach einer Serie wie Fire Emblem.</p>
-        <button class="btn btn--sm" type="button" data-reset>${ICONS.reset}Filter zurücksetzen</button>
+        <h3>${t('roster.emptyTitle')}</h3>
+        <p>${t('roster.emptyText')}</p>
+        <button class="btn btn--sm" type="button" data-reset>${ICONS.reset}${t('roster.reset')}</button>
       </div>
     </div>
   </section>`;
@@ -432,7 +427,7 @@ function mountRoster(root: HTMLElement, route: Route): () => void {
     }
 
     const total = FIGHTERS.length;
-    count.textContent = order.length === total ? `${total} Fighter` : `${order.length} von ${total} Fightern`;
+    count.textContent = order.length === total ? tn('roster.countOne', 'roster.count', total) : t('roster.countFiltered', { shown: order.length, total });
     empty.hidden = order.length > 0;
     resets.forEach((b) => (b.hidden = !isFiltered(state)));
     syncControls();
@@ -522,8 +517,8 @@ function picksSection(): Markup {
   return html`<section class="section picks" id="picks" aria-labelledby="picks-title">
     <div class="container">
       <div class="section-head">
-        <h2 id="picks-title" data-reveal="wipe">Combos aus dem Roster</h2>
-        <p>Sechs Fighter, sechs Routen, quer durch die Tiers.</p>
+        <h2 id="picks-title" data-reveal="wipe">${t('picks.title')}</h2>
+        <p>${t('picks.lead')}</p>
       </div>
       <ul class="picks__grid" role="list" data-picks aria-busy="true">
         ${PICKS.map(
@@ -575,7 +570,7 @@ function mountPicks(root: HTMLElement): () => void {
         // Skelett gegen Fehler mit Ausweg tauschen. Die Liste bleibt ein <ul>, der Fehler steht in einem <li>.
         if (!alive || !host.isConnected) return;
         host.removeAttribute('aria-busy');
-        mount(host, html`<li class="picks__error">${errorState('Die Combos konnten nicht geladen werden.', LOAD_FAILED_TEXT)}</li>`);
+        mount(host, html`<li class="picks__error">${errorState(t('picks.error'), LOAD_FAILED_TEXT)}</li>`);
         bindErrorState(host, load);
       },
     );
@@ -591,24 +586,24 @@ function mountPicks(root: HTMLElement): () => void {
 /* ───────────────────────────── Notation guide ───────────────────────────── */
 
 const NOTATION_GROUPS: Array<{ title: string; tokens: string[] }> = [
-  { title: 'Bewegung', tokens: ['sh', 'fh', 'dj', 'dash', 'ff'] },
-  { title: 'Bodenangriffe', tokens: ['jab', 'ftilt', 'utilt', 'dtilt', 'da'] },
-  { title: 'Smash-Angriffe', tokens: ['fsmash', 'usmash', 'dsmash'] },
+  { title: t('inputs.movement'), tokens: ['sh', 'fh', 'dj', 'dash', 'ff'] },
+  { title: t('inputs.ground'), tokens: ['jab', 'ftilt', 'utilt', 'dtilt', 'da'] },
+  { title: t('inputs.smash'), tokens: ['fsmash', 'usmash', 'dsmash'] },
   { title: 'Aerials', tokens: ['nair', 'fair', 'bair', 'uair', 'dair', 'zair'] },
   { title: 'Specials', tokens: ['nb', 'sb', 'ub', 'db'] },
-  { title: 'Griffe und Würfe', tokens: ['grab', 'pummel', 'fthrow', 'bthrow', 'uthrow', 'dthrow'] },
-  { title: 'Command-Inputs', tokens: ['236b', '214b', '623b'] },
+  { title: t('inputs.grabs'), tokens: ['grab', 'pummel', 'fthrow', 'bthrow', 'uthrow', 'dthrow'] },
+  { title: t('inputs.command'), tokens: ['236b', '214b', '623b'] },
 ];
 
 function notationSection(): Markup {
   return html`<section class="section notation" id="notation" aria-labelledby="notation-title">
     <div class="container notation__layout">
       <div class="notation__intro">
-        <h2 id="notation-title" data-reveal="wipe">Inputs lesen</h2>
-        <h3 class="legend__title">Legende der Inputs:</h3>
+        <h2 id="notation-title" data-reveal="wipe">${t('inputs.title')}</h2>
+        <h3 class="legend__title">${t('inputs.legend')}</h3>
         <ul class="legend" role="list">
           ${BUTTON_LEGEND.map((b) => html`<li class="legend__item">${glyph({ t: 'btn', b: b.b })}<span>${b.name}</span></li>`)}
-          <li class="legend__item">${glyph({ t: 'dir', d: 'f' })}<span>Richtung</span></li>
+          <li class="legend__item">${glyph({ t: 'dir', d: 'f' })}<span>${t('inputs.direction')}</span></li>
           <li class="legend__item">${glyph({ t: 'btn', b: 'A', smash: true })}<span>Smash</span></li>
           <li class="legend__item">${glyph({ t: 'btn', b: 'X', hold: true })}<span>Fullhop</span></li>
           <li class="legend__item">${glyph({ t: 'btn', b: 'X', tap: true })}<span>Shorthop</span></li>
@@ -639,7 +634,7 @@ function notationSection(): Markup {
 
 export function homePage(route: Route): PageView {
   return {
-    title: 'Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate',
+    title: t('home.pageTitle'),
     anchor: route.name === 'roster' ? '#roster' : route.name === 'notation' ? '#notation' : undefined,
     markup: html`<div class="page page--flush page--home">${heroSection()}${topSection()}${picksSection()}${rosterSection()}${notationSection()}</div>`,
     mount(root) {

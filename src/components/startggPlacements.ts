@@ -1,3 +1,4 @@
+import { dateFormat, formatNumber, locale, t } from '../i18n';
 import { html, mount, qs, qsa, type Markup } from '../lib/dom';
 import { ApiError } from '../services/api';
 import { getStartggPlacements, type StartggPlacement, type StartggPlacementsResult } from '../services/db';
@@ -21,13 +22,13 @@ import { bindErrorState, errorState } from './states';
  * - Hinweise:   Cooldown, alter Stand bei Ausfall, als Statuszeile über der Liste
  */
 
-const dateFmt = new Intl.DateTimeFormat('de-DE', { day: '2-digit', month: 'short', year: 'numeric' });
-const rtf = new Intl.RelativeTimeFormat('de', { numeric: 'auto' });
+const dateFmt = dateFormat({ day: '2-digit', month: 'short', year: 'numeric' });
+const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
 
 function relative(iso: string): string {
   const diff = (Date.parse(iso) - Date.now()) / 1000;
   const abs = Math.abs(diff);
-  if (abs < 60) return 'gerade eben';
+  if (abs < 60) return t('comments.justNow');
   if (abs < 3600) return rtf.format(Math.round(diff / 60), 'minute');
   if (abs < 86400) return rtf.format(Math.round(diff / 3600), 'hour');
   return rtf.format(Math.round(diff / 86400), 'day');
@@ -62,7 +63,7 @@ const eventUrl = (p: StartggPlacement): string | null => (p.eventSlug ? `https:/
 function row(p: StartggPlacement): Markup {
   const url = eventUrl(p);
   const top = topPercent(p);
-  const place = html`<span class="placement__rank"><span class="placement__num">${p.placement}.</span><span class="placement__of">von ${p.entrants}</span></span>`;
+  const place = html`<span class="placement__rank"><span class="placement__num">${p.placement}.</span><span class="placement__of">${t('placements.of', { n: formatNumber(p.entrants) })}</span></span>`;
   // Balken: Anteil des Feldes, vor dem man lag, plus man selbst. Platz 1 füllt immer ganz.
   const fill = Math.max(3, Math.round(((p.entrants - p.placement + 1) / p.entrants) * 100));
   return html`<li class="placement" data-tier="${tier(p)}" style="--fill:${fill}%">
@@ -76,14 +77,14 @@ function row(p: StartggPlacement): Markup {
       <h3 class="placement__title">${url ? html`<a href="${url}" target="_blank" rel="noopener noreferrer">${p.tournament}</a>` : p.tournament}</h3>
       <p class="placement__event">${p.event}</p>
       <p class="placement__meta">
-        <time datetime="${p.startAt}">${p.startAt ? dateFmt.format(new Date(p.startAt)) : 'Datum unbekannt'}</time>
-        <span class="placement__where">${p.isOnline ? 'Online' : (p.location ?? 'Offline')}</span>
+        <time datetime="${p.startAt}">${p.startAt ? dateFmt.format(new Date(p.startAt)) : t('placements.dateUnknown')}</time>
+        <span class="placement__where">${p.isOnline ? t('placements.online') : (p.location ?? t('placements.offline'))}</span>
       </p>
     </div>
     <div class="placement__result">
-      <span class="vh">Platz ${p.placement} von ${p.entrants} Teilnehmenden.</span>
+      <span class="vh">${t('placements.placeVh', { place: p.placement, n: formatNumber(p.entrants) })}</span>
       <span aria-hidden="true">${place}</span>
-      <span class="placement__top" aria-hidden="true">Top ${top} %</span>
+      <span class="placement__top" aria-hidden="true">${t('placements.top', { n: top })}</span>
     </div>
     <span class="placement__bar" aria-hidden="true"><span></span></span>
   </li>`;
@@ -99,7 +100,7 @@ function skeletonRows(): Markup {
         </li>`,
       )}
     </ol>
-    <span class="vh">Turniere werden von start.gg geladen.</span>`;
+    <span class="vh">${t('placements.loadingVh')}</span>`;
 }
 
 function summary(list: StartggPlacement[]): Markup {
@@ -107,28 +108,28 @@ function summary(list: StartggPlacement[]): Markup {
   const bestTop = list.reduce((a, b) => (topPercent(b) < topPercent(a) ? b : a));
   const tournaments = new Set(list.map((p) => p.tournamentId)).size;
   return html`<dl class="placements__stats">
-    <div><dt>Turniere</dt><dd>${tournaments}</dd></div>
-    <div><dt>Bestes Placement</dt><dd>${best.placement}.<small> von ${best.entrants}</small></dd></div>
-    <div><dt>Bester Anteil</dt><dd>Top ${topPercent(bestTop)} %</dd></div>
+    <div><dt>${t('placements.tournaments')}</dt><dd>${formatNumber(tournaments)}</dd></div>
+    <div><dt>${t('placements.best')}</dt><dd>${best.placement}.<small> ${t('placements.of', { n: formatNumber(best.entrants) })}</small></dd></div>
+    <div><dt>${t('placements.bestShare')}</dt><dd>${t('placements.top', { n: topPercent(bestTop) })}</dd></div>
   </dl>`;
 }
 
 function listMarkup(result: StartggPlacementsResult): Markup {
   const { placements } = result;
   return html`<div class="placements__head">
-      <h3 class="placements__title">Letzte Ergebnisse</h3>
+      <h3 class="placements__title">${t('placements.latest')}</h3>
       <div class="placements__tools">
-        <p class="placements__stand">Stand ${relative(result.fetchedAt)}</p>
-        <button class="btn btn--sm btn--ghost" type="button" data-placements-refresh>${ICONS.reset}Aktualisieren</button>
+        <p class="placements__stand">${t('placements.asOf', { time: relative(result.fetchedAt) })}</p>
+        <button class="btn btn--sm btn--ghost" type="button" data-placements-refresh>${ICONS.reset}${t('placements.refresh')}</button>
       </div>
     </div>
     ${result.notice ? html`<p class="placements__notice" role="status">${result.notice.message}</p>` : ''}
     ${placements.length
       ? html`${summary(placements)}<ol class="placements__list" role="list">${placements.map(row)}</ol>
-          <p class="placements__foot">Nur abgeschlossene Events zu Super Smash Bros. Ultimate mit eigener Platzierung, neueste zuerst. Daten von start.gg.</p>`
+          <p class="placements__foot">${t('placements.foot')}</p>`
       : html`<div class="empty placements__empty">
-          <h3>Keine SSBU-Turniere gefunden</h3>
-          <p>Auf deinem start.gg-Profil gibt es noch kein abgeschlossenes Event zu Smash Ultimate mit Platzierung. Laufende oder abgesagte Events und andere Spiele zählen hier nicht.</p>
+          <h3>${t('placements.emptyTitle')}</h3>
+          <p>${t('placements.emptyText')}</p>
         </div>`}`;
 }
 
@@ -148,7 +149,7 @@ export function mountPlacements(host: HTMLElement, onRelink: () => void): () => 
     bindLogos();
     const refresh = qs<HTMLButtonElement>('[data-placements-refresh]', host)!;
     const wait = Date.parse(result.nextRefreshAt) - Date.now();
-    if (wait > 0) refresh.title = `Neu laden geht wieder ${relative(result.nextRefreshAt)}.`;
+    if (wait > 0) refresh.title = t('placements.refreshAgain', { time: relative(result.nextRefreshAt) });
     refresh.addEventListener('click', () => load(true));
   };
 
@@ -158,7 +159,8 @@ export function mountPlacements(host: HTMLElement, onRelink: () => void): () => 
     if (refresh && refreshBtn) {
       // Beim Aktualisieren bleibt die Liste stehen, nur der Knopf zeigt, dass etwas passiert.
       refreshBtn.disabled = true;
-      mount(refreshBtn, html`${ICONS.reset}Wird geladen …`);
+      refreshBtn.setAttribute('aria-busy', 'true');
+      mount(refreshBtn, html`${ICONS.reset}${t('state.loading')}`);
     } else {
       mount(host, skeletonRows());
     }
@@ -174,9 +176,9 @@ export function mountPlacements(host: HTMLElement, onRelink: () => void): () => 
           mount(
             host,
             html`<div class="empty empty--error placements__empty" role="alert">
-              <h3>Spieler nicht gefunden</h3>
+              <h3>${t('placements.notFoundTitle')}</h3>
               <p>${err.message}</p>
-              <div class="empty__actions"><button class="btn btn--sm" type="button" data-placements-relink>${ICONS.reset}Profil neu verknüpfen</button></div>
+              <div class="empty__actions"><button class="btn btn--sm" type="button" data-placements-relink>${ICONS.reset}${t('placements.relink')}</button></div>
             </div>`,
           );
           qs('[data-placements-relink]', host)?.addEventListener('click', onRelink);
@@ -186,8 +188,8 @@ export function mountPlacements(host: HTMLElement, onRelink: () => void): () => 
           onRelink();
           return;
         }
-        const text = err instanceof ApiError ? err.message : 'Prüf deine Verbindung und versuch es noch einmal.';
-        mount(host, errorState('Deine Turniere konnten nicht geladen werden.', text));
+        const text = err instanceof ApiError ? err.message : t('startgg.checkConnection');
+        mount(host, errorState(t('placements.loadError'), text));
         bindErrorState(host, () => load());
       },
     );

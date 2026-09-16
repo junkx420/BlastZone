@@ -16,6 +16,7 @@ import { GUIDE_COUNT, GUIDE_SLUGS, guideFor, loadLateGuides } from '../data/guid
 import { videoFor } from '../data/videos';
 import { TIER_BY_SLUG, TIER_TOTAL } from '../data/tiers';
 import type { Combo, Fighter, FighterGuide } from '../data/types';
+import { formatNumber, t } from '../i18n';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, qsa, raw, type Markup } from '../lib/dom';
 import { gsap, motionOK, parallax, pointerDepth, reveals, scope, scrollToTarget } from '../lib/motion';
@@ -23,9 +24,9 @@ import { link, parse, replaceQuery, type Route } from '../lib/router';
 import { notFoundPage } from './notFound';
 import type { PageView } from './types';
 
-const MOBILITY = ['', 'Sehr langsam', 'Langsam', 'Durchschnittlich', 'Schnell', 'Sehr schnell'] as const;
+const MOBILITY = ['', t('fighter.mob1'), t('fighter.mob2'), t('fighter.mob3'), t('fighter.mob4'), t('fighter.mob5')] as const;
 
-const de = (n: number): string => n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const score = (n: number): string => formatNumber(n, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const rankOf = (f: Fighter): number => TIER_BY_SLUG.get(f.slug)?.rank ?? 999;
 const BY_RANK = [...FIGHTERS].sort((a, b) => rankOf(a) - rankOf(b) || a.order - b.order);
 
@@ -35,9 +36,9 @@ function heroSection(f: Fighter): Markup {
       <div class="fhero__art" data-parallax="0.16"><div class="fhero__art-inner" data-depth>${fighterArt(f, 'hero')}</div></div>
     </div>
     <div class="container fhero__content">
-      <nav class="crumbs" aria-label="Brotkrumen">
+      <nav class="crumbs" aria-label="${t('fighter.crumbs')}">
         <ol role="list">
-          <li><a href="${link('/roster')}">Roster</a></li>
+          <li><a href="${link('/roster')}">${t('nav.roster')}</a></li>
           <li aria-current="page">${f.name}</li>
         </ol>
       </nav>
@@ -46,11 +47,11 @@ function heroSection(f: Fighter): Markup {
         ${tierBadge(TIER_BY_SLUG.get(f.slug), 'lg')}
         <span class="tag">${ARCHETYPES[f.archetype]}</span>
         <span class="tag tag--series">${franchiseGlyph(f.series)}${f.series}</span>
-        <span class="tag">Fighter-Nr. ${f.no}</span>
+        <span class="tag">${t('fighter.number', { no: f.no })}</span>
       </div>
       <p class="fhero__tagline" data-hero-in>${f.tagline}</p>
       <p class="fhero__jump" data-hero-in>
-        <button class="btn btn--primary" type="button" data-jump>${ICONS.combo}Zu den Combos</button>
+        <button class="btn btn--primary" type="button" data-jump>${ICONS.combo}${t('fighter.jump')}</button>
       </p>
     </div>
   </header>`;
@@ -61,10 +62,10 @@ function statsSection(f: Fighter): Markup {
   const weightPct = Math.round(((f.weight - WEIGHT_RANGE.min) / (WEIGHT_RANGE.max - WEIGHT_RANGE.min)) * 100);
   const heatPct = placement ? Math.round(((TIER_TOTAL - placement.rank + 1) / TIER_TOTAL) * 100) : 0;
   return html`<section class="container fstats" aria-labelledby="stats-title">
-    <h2 class="vh" id="stats-title">Eigenschaften</h2>
+    <h2 class="vh" id="stats-title">${t('fighter.attributes')}</h2>
     <dl class="stats">
       <div class="stat" data-reveal>
-        <dt>Gewicht</dt>
+        <dt>${t('roster.weight')}</dt>
         <dd>
           <span class="stat__value">${f.weight}</span>
           <span class="stat__meta">${WEIGHT_CLASSES[weightClass(f.weight)].label}${f.weightNote ? `: ${f.weightNote}` : ''}</span>
@@ -72,15 +73,15 @@ function statsSection(f: Fighter): Markup {
         </dd>
       </div>
       <div class="stat" data-reveal data-reveal-delay="0.06">
-        <dt>Mobilität</dt>
+        <dt>${t('fighter.mobility')}</dt>
         <dd>
-          <span class="stat__value">${f.mobility}<span class="stat__unit"> von 5</span></span>
+          <span class="stat__value">${f.mobility}<span class="stat__unit"> ${t('fighter.outOf', { n: 5 })}</span></span>
           <span class="stat__meta">${MOBILITY[f.mobility]}</span>
           <span class="pips" aria-hidden="true">${[1, 2, 3, 4, 5].map((n) => html`<span class="pip${n <= f.mobility ? ' is-on' : ''}"></span>`)}</span>
         </dd>
       </div>
       <div class="stat" data-reveal data-reveal-delay="0.12">
-        <dt>Archetyp</dt>
+        <dt>${t('roster.archetype')}</dt>
         <dd>
           <a class="stat__arch" href="${link('/archetypen', { typ: f.archetype, fighter: f.slug })}">
             ${miniPyramid(f.archetype, 'stat__arch-mini')}
@@ -90,13 +91,13 @@ function statsSection(f: Fighter): Markup {
         </dd>
       </div>
       <div class="stat" data-reveal data-reveal-delay="0.18">
-        <dt>Tier-Platzierung</dt>
+        <dt>${t('fighter.placement')}</dt>
         <dd>
           ${placement
             ? html`<span class="stat__value">${placement.tier}</span>
-                <span class="stat__meta">Rang ${placement.rank} von ${TIER_TOTAL}, Panel-Wertung ${de(placement.score)}</span>
+                <span class="stat__meta">${t('fighter.rankMeta', { rank: placement.rank, total: TIER_TOTAL, score: score(placement.score) })}</span>
                 <span class="bar bar--heat" style="--fill:${heatPct}" aria-hidden="true"><span class="bar__fill"></span></span>`
-            : html`<span class="stat__value stat__value--word">Nicht gelistet</span>`}
+            : html`<span class="stat__value stat__value--word">${t('fighter.notListed')}</span>`}
         </dd>
       </div>
     </dl>
@@ -110,29 +111,29 @@ function metaSection(f: Fighter, guide: FighterGuide | undefined): Markup {
 
   return html`<section class="container fmeta" aria-labelledby="meta-title">
     <div class="fmeta__text">
-      <h2 id="meta-title" data-reveal="wipe">Im aktuellen Meta</h2>
+      <h2 id="meta-title" data-reveal="wipe">${t('fighter.metaTitle')}</h2>
       ${(guide?.meta ?? [f.tagline]).map((p) => html`<p data-reveal>${p}</p>`)}
       ${related.map(
         (r) => html`<p class="fmeta__echo">
-          ${parent ? 'Echo-Fighter von' : 'Hat einen Echo-Fighter:'}
+          ${parent ? t('fighter.echoOf') : t('fighter.hasEcho')}
           <a class="link" href="${link(`/fighter/${r.slug}`)}">${r.name}</a>.
-          ${sharesRank(r) ? 'In der UltRank-Liste teilen sich beide einen Rang.' : 'UltRank bewertet beide getrennt.'}
+          ${sharesRank(r) ? t('fighter.sharedRank') : t('fighter.separateRank')}
         </p>`,
       )}
       ${guide?.sources.length
         ? html`<p class="fmeta__sources">
-            Quellen: ${guide.sources.map((s, i) => html`${i ? ', ' : ''}<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`)}
+            ${t('fighter.sources')} ${guide.sources.map((s, i) => html`${i ? ', ' : ''}<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`)}
           </p>`
         : ''}
     </div>
     ${guide
       ? html`<div class="fmeta__lists">
           <div class="plusminus" data-reveal>
-            <h3>Stärken</h3>
+            <h3>${t('fighter.strengths')}</h3>
             <ul role="list">${guide.strengths.map((s) => html`<li>${s}</li>`)}</ul>
           </div>
           <div class="plusminus plusminus--minus" data-reveal>
-            <h3>Schwächen</h3>
+            <h3>${t('fighter.weaknesses')}</h3>
             <ul role="list">${guide.weaknesses.map((s) => html`<li>${s}</li>`)}</ul>
           </div>
         </div>`
@@ -145,7 +146,7 @@ type TabId = 'bnb' | 'meta';
 function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabId, pending = false): Markup {
   const head = html`<div class="section-head">
     <h2 id="combos-title" data-reveal="wipe">Combos</h2>
-    <p>Jede Combo verlinkt ihre Quelle. Die Prozente stehen so da, wie die Quelle sie nennt. Schaden kommt von Ultimate Frame Data, mit 1v1-Faktor und gerundet.</p>
+    <p>${t('fighter.combosLead')}</p>
   </div>`;
 
   if (!guide) {
@@ -153,7 +154,7 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
       ${head}
       ${pending
         ? html`<div class="skeleton" role="status" aria-live="polite">
-            <span class="vh">Combos werden geladen.</span>
+            <span class="vh">${t('fighter.combosLoading')}</span>
             ${[0, 1].map(
               () => html`<div class="skeleton__card" aria-hidden="true">
                 <span class="skeleton__bar skeleton__bar--title"></span>
@@ -165,9 +166,9 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
             )}
           </div>`
         : html`<div class="empty">
-            <h3>Für ${f.name} stehen noch keine Combos drin.</h3>
-            <p>Tier-Platzierung und Werte sind da. Combos gibt es bisher für ${GUIDE_COUNT} Fighter.</p>
-            <a class="btn btn--sm" href="${link('/roster')}">Zum Roster</a>
+            <h3>${t('fighter.noCombos', { name: f.name })}</h3>
+            <p>${t('fighter.noCombosText', { n: GUIDE_COUNT })}</p>
+            <a class="btn btn--sm" href="${link('/roster')}">${t('notFound.cta')}</a>
           </div>`}
     </section>`;
   }
@@ -176,20 +177,20 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
     {
       id: 'bnb',
       label: 'Bread & Butter',
-      intro: 'Das, was du in jedem Match brauchst. Wenig Risiko, geht auch wenn es hektisch wird.',
+      intro: t('fighter.bnbIntro'),
       combos: guide.combos.filter((c) => c.kind === 'bnb'),
     },
     {
       id: 'meta',
       label: 'Meta',
-      intro: 'Was auf Turnieren läuft. Mehr Schaden, mehr Kill-Power, weniger Spielraum für Fehler.',
+      intro: t('fighter.metaIntro'),
       combos: guide.combos.filter((c) => c.kind === 'meta'),
     },
   ];
 
   return html`<section class="container fcombos" id="combos" aria-labelledby="combos-title">
     ${head}
-    <div class="tabs" role="tablist" aria-label="Combo-Kategorie">
+    <div class="tabs" role="tablist" aria-label="${t('fighter.tabs')}">
       ${groups.map(
         (g) => html`<button class="tab" type="button" role="tab" id="tab-${g.id}" aria-controls="panel-${g.id}"
           aria-selected="${String(g.id === active)}" tabindex="${g.id === active ? '0' : '-1'}" data-tab="${g.id}">
@@ -242,13 +243,13 @@ function navSection(prev: Fighter, next: Fighter): Markup {
     return html`<a class="fnav__link fnav__link--${dir}" href="${link(`/fighter/${f.slug}`)}" style="${accentVars(f.colors)}">
       ${dir === 'prev' ? html`${ICONS.chevronLeft}${face}` : ''}
       <span>
-        <span class="fnav__label">${dir === 'prev' ? 'Vorheriger' : 'Nächster'} Rang${p ? `, #${p.rank}` : ''}</span>
+        <span class="fnav__label">${dir === 'prev' ? t('fighter.prevRank') : t('fighter.nextRank')}${p ? `, #${p.rank}` : ''}</span>
         <span class="fnav__name">${f.name}</span>
       </span>
       ${dir === 'next' ? html`${face}${ICONS.chevronRight}` : ''}
     </a>`;
   };
-  return html`<nav class="container fnav" aria-label="Fighter nach Tier-Rang">${item(prev, 'prev')}${item(next, 'next')}</nav>`;
+  return html`<nav class="container fnav" aria-label="${t('fighter.nav')}">${item(prev, 'prev')}${item(next, 'next')}</nav>`;
 }
 
 /**
@@ -283,10 +284,10 @@ function mountTabs(root: HTMLElement, combos: Combo[]): () => void {
 
   const select = (tab: HTMLButtonElement, opts: { focus?: boolean; animate?: boolean } = {}): void => {
     const { focus = false, animate = true } = opts;
-    tabs.forEach((t) => {
-      const on = t === tab;
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
+    tabs.forEach((other) => {
+      const on = other === tab;
+      other.setAttribute('aria-selected', String(on));
+      other.tabIndex = on ? 0 : -1;
     });
     panels.forEach((p) => {
       const on = p.id === tab.getAttribute('aria-controls');
@@ -324,7 +325,7 @@ function mountTabs(root: HTMLElement, combos: Combo[]): () => void {
     });
   });
 
-  const current = (): HTMLButtonElement | undefined => tabs.find((t) => t.getAttribute('aria-selected') === 'true');
+  const current = (): HTMLButtonElement | undefined => tabs.find((tab) => tab.getAttribute('aria-selected') === 'true');
   const initial = current() ?? tabs[0];
   if (initial) select(initial, { animate: false });
 
@@ -357,7 +358,7 @@ export function fighterPage(route: Route): PageView {
   const next = BY_RANK[(i + 1) % BY_RANK.length] ?? f;
 
   return {
-    title: `${f.name}: Combos, Frame Data und Tier | Blastzone`,
+    title: t('fighter.pageTitle', { name: f.name }),
     anchor: route.query.has('routen') || targetCombo ? '#combos' : undefined,
     markup: html`<article class="page page--flush fighter" style="${accentVars(f.colors)}" aria-labelledby="fighter-name">
       ${fighterBackdrop(f)} ${heroSection(f)} ${statsSection(f)}
@@ -440,7 +441,7 @@ export function fighterPage(route: Route): PageView {
               const box = document.createElement('div');
               box.dataset.loadError = '';
               slot.replaceWith(box);
-              mount(box, errorState(`Die Combos für ${f.name} konnten nicht geladen werden.`, LOAD_FAILED_TEXT));
+              mount(box, errorState(t('fighter.combosError', { name: f.name }), LOAD_FAILED_TEXT));
               bindErrorState(box, loadCombos);
             },
           );

@@ -7,6 +7,7 @@ import { bindErrorState, errorState, LOAD_FAILED_TEXT } from '../components/stat
 import { mountStartggSection, startggSection } from '../components/startggLink';
 import { guideFor, loadLateGuides } from '../data/guide-index';
 import type { Combo, Fighter } from '../data/types';
+import { formatNumber, locale, t } from '../i18n';
 import { accentVars } from '../lib/color';
 import { html, mount, normalize, qs, qsa, type Markup } from '../lib/dom';
 import { link } from '../lib/router';
@@ -22,37 +23,37 @@ import type { PageView } from './types';
  * Die ganze Seite hängt am Anmeldestatus und baut sich neu, wenn er wechselt.
  */
 
-const BY_NAME = [...FIGHTERS].sort((a, b) => a.name.localeCompare(b.name, 'de'));
+const BY_NAME = [...FIGHTERS].sort((a, b) => a.name.localeCompare(b.name, locale));
 
 function guestView(): Markup {
   return html`<header class="container page-head">
-      <h1>Profil</h1>
-      <p>Mit einem Konto speicherst du Combos, legst deinen Main fest und diskutierst unter jedem Fighter mit.</p>
+      <h1>${t('profile.title')}</h1>
+      <p>${t('profile.guestLead')}</p>
     </header>
     <div class="container profile-guest">
-      <button class="btn btn--primary" type="button" data-open="login">${ICONS.lock}Anmelden</button>
-      <button class="btn" type="button" data-open="signup">${ICONS.user}Konto anlegen</button>
+      <button class="btn btn--primary" type="button" data-open="login">${ICONS.lock}${t('account.login')}</button>
+      <button class="btn" type="button" data-open="signup">${ICONS.user}${t('auth.titleSignup')}</button>
     </div>`;
 }
 
 function mainPicker(user: User): Markup {
   return html`<section class="container profile-section glass" aria-labelledby="main-title">
     <div class="profile-section__head">
-      <h2 id="main-title">Mein Main</h2>
+      <h2 id="main-title">${t('profile.mainTitle')}</h2>
       <p class="profile-status" role="status" data-main-status></p>
     </div>
-    <p class="profile-section__lead">Erscheint neben deinem Namen bei jedem Kommentar.</p>
+    <p class="profile-section__lead">${t('profile.mainLead')}</p>
     <div class="field profile-filter">
       ${ICONS.search}
-      <label class="vh" for="main-filter">Fighter filtern</label>
-      <input id="main-filter" class="input" type="search" placeholder="Fighter filtern" autocomplete="off" spellcheck="false" data-main-filter />
+      <label class="vh" for="main-filter">${t('profile.filter')}</label>
+      <input id="main-filter" class="input" type="search" placeholder="${t('profile.filter')}" autocomplete="off" spellcheck="false" data-main-filter />
     </div>
     <fieldset class="mainpick" data-main-grid>
-      <legend class="vh">Main-Fighter auswählen</legend>
+      <legend class="vh">${t('profile.mainLegend')}</legend>
       <label class="mainpick__opt mainpick__opt--none">
         <input type="radio" name="main" value="" ${user.mainFighter ? '' : 'checked'} />
         <span class="mainpick__face mainpick__face--none">${ICONS.close}</span>
-        <span class="mainpick__name">Kein Main</span>
+        <span class="mainpick__name">${t('profile.noMain')}</span>
       </label>
       ${BY_NAME.map(
         (f) => html`<label class="mainpick__opt" style="${accentVars(f.colors)}" data-name="${normalize(`${f.name} ${f.aliases.join(' ')}`)}">
@@ -68,16 +69,16 @@ function mainPicker(user: User): Markup {
 function secondaryPicker(selected: readonly string[], main: string | null): Markup {
   return html`<div class="field profile-filter">
       ${ICONS.search}
-      <label class="vh" for="sec-filter">Fighter filtern</label>
-      <input id="sec-filter" class="input" type="search" placeholder="Fighter filtern" autocomplete="off" spellcheck="false" data-sec-filter />
+      <label class="vh" for="sec-filter">${t('profile.filter')}</label>
+      <input id="sec-filter" class="input" type="search" placeholder="${t('profile.filter')}" autocomplete="off" spellcheck="false" data-sec-filter />
     </div>
     <fieldset class="mainpick" data-sec-grid>
-      <legend class="vh">Secondaries auswählen, höchstens ${MAX_SECONDARIES}</legend>
+      <legend class="vh">${t('profile.secLegend', { max: MAX_SECONDARIES })}</legend>
       ${BY_NAME.map(
         (f) => html`<label class="mainpick__opt" style="${accentVars(f.colors)}" data-name="${normalize(`${f.name} ${f.aliases.join(' ')}`)}">
           <input type="checkbox" name="secondary" value="${f.slug}" ${selected.includes(f.slug) ? 'checked' : ''} ${f.slug === main ? 'disabled' : ''} />
           ${faceThumb(f, 'mainpick__face')}
-          <span class="mainpick__name">${f.name}${f.slug === main ? html`<span class="mainpick__tag">Main</span>` : ''}</span>
+          <span class="mainpick__name">${f.name}${f.slug === main ? html`<span class="mainpick__tag">${t('profile.mainTag')}</span>` : ''}</span>
         </label>`,
       )}
     </fieldset>`;
@@ -89,18 +90,18 @@ function userView(user: User): Markup {
       <span class="profile-head__avatar">${main ? faceThumb(main, 'profile-head__face') : ICONS.user}</span>
       <div class="profile-head__text">
         <h1 class="profile-head__name">${user.username}</h1>
-        <p class="profile-head__meta">${main ? html`Main: <a class="link" href="${link(`/fighter/${main.slug}`)}">${main.name}</a> · ` : ''}${user.email}</p>
-        <p class="profile-head__meta"><a class="link" href="${link(`/spieler/${user.username}`)}">Dein Spielerprofil ansehen</a></p>
+        <p class="profile-head__meta">${main ? html`${t('profile.mainLabel')} <a class="link" href="${link(`/fighter/${main.slug}`)}">${main.name}</a> · ` : ''}${user.email}</p>
+        <p class="profile-head__meta"><a class="link" href="${link(`/spieler/${user.username}`)}">${t('profile.viewPlayer')}</a></p>
       </div>
-      <button class="btn btn--sm" type="button" data-logout>${ICONS.logout}Abmelden</button>
+      <button class="btn btn--sm" type="button" data-logout>${ICONS.logout}${t('profile.logout')}</button>
     </header>
 
     <section class="container profile-section" aria-labelledby="saved-title">
       <div class="profile-section__head">
-        <h2 id="saved-title">Meine Mains</h2>
+        <h2 id="saved-title">${t('profile.savedTitle')}</h2>
       </div>
-      <p class="profile-section__lead">Deine gespeicherten Combos. Speichern geht mit dem Lesezeichen oben rechts an jeder Combo.</p>
-      <div data-saved><p class="profile-status">Lädt …</p></div>
+      <p class="profile-section__lead">${t('profile.savedLead')}</p>
+      <div data-saved><p class="profile-status">${t('profile.loading')}</p></div>
     </section>
 
     ${startggSection()}
@@ -109,49 +110,49 @@ function userView(user: User): Markup {
 
     <section class="container profile-section glass" aria-labelledby="sec-title">
       <div class="profile-section__head">
-        <h2 id="sec-title">Secondaries</h2>
+        <h2 id="sec-title">${t('profile.secTitle')}</h2>
         <p class="profile-status" role="status" data-sec-status></p>
       </div>
-      <p class="profile-section__lead">Bis zu ${MAX_SECONDARIES} Fighter, die du neben deinem Main spielst. Sehen andere Mitglieder in deinem Spielerprofil und im Verzeichnis.</p>
-      <div data-sec-host><p class="profile-status">Lädt …</p></div>
+      <p class="profile-section__lead">${t('profile.secLead', { max: MAX_SECONDARIES })}</p>
+      <div data-sec-host><p class="profile-status">${t('profile.loading')}</p></div>
     </section>
 
     <section class="container profile-section glass" aria-labelledby="community-title">
       <div class="profile-section__head">
-        <h2 id="community-title">Community</h2>
+        <h2 id="community-title">${t('profile.communityTitle')}</h2>
         <p class="profile-status" role="status" data-community-status></p>
       </div>
       <p class="profile-section__lead">
-        Im <a class="link link--inline" href="${link('/community')}">Community-Verzeichnis</a> finden dich andere Mitglieder mit Name, Main und
-        Secondaries. Freiwillig und jederzeit abschaltbar. Dein Spielerprofil ist für Mitglieder immer über deinen Namen erreichbar.
+        ${t('profile.communityLeadBefore')} <a class="link link--inline" href="${link('/community')}">${t('profile.communityLink')}</a>
+        ${t('profile.communityLeadAfter')}
       </p>
       <label class="switch">
         <input type="checkbox" role="switch" disabled data-listed />
         <span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>
-        <span class="switch__label">Im Verzeichnis zeigen</span>
+        <span class="switch__label">${t('profile.listedSwitch')}</span>
       </label>
     </section>
 
     <section class="container profile-section glass" aria-labelledby="theme-title">
       <div class="profile-section__head">
-        <h2 id="theme-title">Darstellung</h2>
+        <h2 id="theme-title">${t('profile.themeTitle')}</h2>
         <p class="profile-status" role="status" data-theme-status></p>
       </div>
       <fieldset class="themepick">
-        <legend class="vh">Farbschema</legend>
+        <legend class="vh">${t('profile.themeLegend')}</legend>
         <label class="themepick__opt"><input type="radio" name="theme" value="dark" ${user.theme === 'dark' ? 'checked' : ''} />${ICONS.moon}<span>Dark</span></label>
         <label class="themepick__opt"><input type="radio" name="theme" value="light" ${user.theme === 'light' ? 'checked' : ''} />${ICONS.sun}<span>Light</span></label>
       </fieldset>
     </section>
 
     <section class="container profile-section profile-danger" aria-labelledby="danger-title">
-      <h2 id="danger-title">Konto löschen</h2>
-      <p class="profile-section__lead">Löscht Konto, Kommentare und gespeicherte Combos sofort und endgültig.</p>
+      <h2 id="danger-title">${t('profile.deleteTitle')}</h2>
+      <p class="profile-section__lead">${t('profile.deleteLead')}</p>
       <form class="profile-danger__form" novalidate data-delete-form>
-        <label for="delete-confirm">Zum Bestätigen <strong>${user.username}</strong> eintippen</label>
+        <label for="delete-confirm">${t('profile.deleteConfirmBefore')} <strong>${user.username}</strong> ${t('profile.deleteConfirmAfter')}</label>
         <div class="profile-danger__row">
           <input id="delete-confirm" class="input profile-danger__input" type="text" autocomplete="off" spellcheck="false" data-delete-input />
-          <button class="btn btn--sm profile-danger__btn" type="submit" disabled data-delete-btn>${ICONS.trash}Konto löschen</button>
+          <button class="btn btn--sm profile-danger__btn" type="submit" disabled data-delete-btn>${ICONS.trash}${t('profile.deleteButton')}</button>
         </div>
         <p class="fcomments__error" role="alert" data-delete-error hidden></p>
       </form>
@@ -165,7 +166,7 @@ interface SavedGroup {
 
 function savedMarkup(groups: SavedGroup[], missing: number): Markup {
   if (!groups.length) {
-    return html`<p class="profile-empty">Noch nichts gespeichert. Auf jeder Fighter-Seite hat jede Combo oben rechts ein Lesezeichen.</p>`;
+    return html`<p class="profile-empty">${t('profile.savedEmpty')}</p>`;
   }
   return html`${groups.map(
     (g) => html`<div class="saved-group" style="${accentVars(g.fighter.colors)}">
@@ -175,12 +176,12 @@ function savedMarkup(groups: SavedGroup[], missing: number): Markup {
       <div class="saved-group__grid">${g.combos.map(comboCard)}</div>
     </div>`,
   )}
-  ${missing ? html`<p class="profile-status">${missing === 1 ? 'Eine gespeicherte Combo gibt es' : `${missing} gespeicherte Combos gibt es`} nicht mehr.</p>` : ''}`;
+  ${missing ? html`<p class="profile-status">${missing === 1 ? t('profile.savedMissingOne') : t('profile.savedMissing', { n: formatNumber(missing) })}</p>` : ''}`;
 }
 
 export function profilePage(): PageView {
   return {
-    title: 'Profil | Blastzone',
+    title: `${t('profile.title')} | Blastzone`,
     markup: html`<div class="page profile-page" data-profile></div>`,
     mount(root) {
       const host = qs<HTMLElement>('[data-profile]', root)!;
@@ -199,7 +200,7 @@ export function profilePage(): PageView {
         reset();
 
         if (state.status === 'unknown') {
-          mount(host, html`<div class="container page-head"><p class="profile-status">Lädt …</p></div>`);
+          mount(host, html`<div class="container page-head"><p class="profile-status">${t('profile.loading')}</p></div>`);
           return;
         }
         if (state.status === 'guest') {
@@ -231,7 +232,9 @@ export function profilePage(): PageView {
         let currentMain = user.mainFighter;
 
         const secSummary = (): string =>
-          secondaries.length ? `Gewählt: ${secondaries.map((s) => FIGHTER_BY_SLUG.get(s)?.name ?? s).join(', ')}` : 'Keine Secondaries';
+          secondaries.length
+            ? t('profile.secChosen', { names: secondaries.map((s) => FIGHTER_BY_SLUG.get(s)?.name ?? s).join(', ') })
+            : t('profile.secNone');
 
         /** Bei zwei gewählten sind die übrigen gesperrt, der Main ist es immer. */
         const syncSecGrid = (): void => {
@@ -244,7 +247,7 @@ export function profilePage(): PageView {
             if (isMain && !tag) {
               const badge = document.createElement('span');
               badge.className = 'mainpick__tag';
-              badge.textContent = 'Main';
+              badge.textContent = t('profile.mainTag');
               name.append(badge);
             }
             if (!isMain) tag?.remove();
@@ -254,13 +257,13 @@ export function profilePage(): PageView {
         const saveSecondaries = async (next: string[], previous: string[]): Promise<void> => {
           secondaries = next;
           syncSecGrid();
-          secStatus.textContent = 'Wird gespeichert …';
+          secStatus.textContent = t('profile.saving');
           try {
             secondaries = (await saveCommunitySettings({ secondaries: next })).secondaries;
-            secStatus.textContent = `Gespeichert. ${secSummary()}`;
+            secStatus.textContent = t('profile.secSaved', { summary: secSummary() });
           } catch (err) {
             secondaries = previous;
-            secStatus.textContent = err instanceof ApiError ? err.message : 'Nicht gespeichert.';
+            secStatus.textContent = err instanceof ApiError ? err.message : t('profile.notSaved');
           }
           syncSecGrid();
         };
@@ -288,7 +291,7 @@ export function profilePage(): PageView {
                 const next = input.checked ? [...previous, input.value] : previous.filter((s) => s !== input.value);
                 if (next.length > MAX_SECONDARIES) {
                   input.checked = false;
-                  secStatus.textContent = `Höchstens ${MAX_SECONDARIES}. Nimm erst einen raus.`;
+                  secStatus.textContent = t('profile.secMax', { max: MAX_SECONDARIES });
                   return;
                 }
                 void saveSecondaries(next, previous);
@@ -296,9 +299,9 @@ export function profilePage(): PageView {
             },
             (err: unknown) => {
               if (!secHost.isConnected) return;
-              mount(secHost, errorState('Secondaries konnten nicht geladen werden.', err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
+              mount(secHost, errorState(t('profile.secError'), err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
               bindErrorState(secHost, loadCommunity);
-              communityStatus.textContent = 'Nicht geladen';
+              communityStatus.textContent = t('profile.notLoaded');
             },
           );
         };
@@ -307,14 +310,14 @@ export function profilePage(): PageView {
         listedInput.addEventListener('change', async () => {
           const wanted = listedInput.checked;
           listedInput.disabled = true;
-          communityStatus.textContent = 'Wird gespeichert …';
+          communityStatus.textContent = t('profile.saving');
           try {
             const saved = await saveCommunitySettings({ listed: wanted });
             listedInput.checked = saved.listed;
-            communityStatus.textContent = saved.listed ? 'Du stehst im Verzeichnis' : 'Nicht im Verzeichnis';
+            communityStatus.textContent = saved.listed ? t('profile.listedOn') : t('profile.listedOff');
           } catch (err) {
             listedInput.checked = !wanted;
-            communityStatus.textContent = err instanceof ApiError ? err.message : 'Nicht gespeichert.';
+            communityStatus.textContent = err instanceof ApiError ? err.message : t('profile.notSaved');
           } finally {
             listedInput.disabled = false;
           }
@@ -330,11 +333,11 @@ export function profilePage(): PageView {
         grid.addEventListener('change', async (e) => {
           const input = e.target as HTMLInputElement;
           if (input.name !== 'main') return;
-          mainStatus.textContent = 'Wird gespeichert …';
+          mainStatus.textContent = t('profile.saving');
           try {
             const saved = await updateProfile({ mainFighter: input.value || null });
             const f = saved ? FIGHTER_BY_SLUG.get(saved) : undefined;
-            mainStatus.textContent = f ? `Gespeichert: ${f.name}` : 'Gespeichert: kein Main';
+            mainStatus.textContent = f ? t('profile.mainSaved', { name: f.name }) : t('profile.mainSavedNone');
             currentMain = saved;
             // Neuer Main war Secondary: dort herausnehmen, sonst lehnt der Server jede weitere Secondary-Änderung ab.
             if (saved && secondaries.includes(saved)) void saveSecondaries(secondaries.filter((s) => s !== saved), [...secondaries]);
@@ -347,7 +350,7 @@ export function profilePage(): PageView {
               else head.removeAttribute('style');
             }
           } catch (err) {
-            mainStatus.textContent = err instanceof ApiError ? err.message : 'Nicht gespeichert.';
+            mainStatus.textContent = err instanceof ApiError ? err.message : t('profile.notSaved');
           }
         });
 
@@ -357,13 +360,13 @@ export function profilePage(): PageView {
           input.addEventListener('change', async () => {
             const theme = input.value as 'dark' | 'light';
             applyTheme(theme, true);
-            themeStatus.textContent = 'Wird gespeichert …';
+            themeStatus.textContent = t('profile.saving');
             try {
               await updateProfile({ theme });
-              themeStatus.textContent = 'Gespeichert';
+              themeStatus.textContent = t('profile.saved');
             } catch (err) {
               applyTheme(theme === 'light' ? 'dark' : 'light', true);
-              themeStatus.textContent = err instanceof ApiError ? err.message : 'Nicht gespeichert.';
+              themeStatus.textContent = err instanceof ApiError ? err.message : t('profile.notSaved');
             }
           }),
         );
@@ -388,7 +391,7 @@ export function profilePage(): PageView {
           } catch {
             if (!saved.isConnected) return;
             lastIds = null;
-            mount(saved, errorState('Gespeicherte Combos konnten nicht geladen werden.', LOAD_FAILED_TEXT));
+            mount(saved, errorState(t('profile.savedError'), LOAD_FAILED_TEXT));
             bindErrorState(saved, () => void renderSaved(ids));
             return;
           }
@@ -407,7 +410,7 @@ export function profilePage(): PageView {
             group.combos.push(combo);
             bySlug.set(fighter.slug, group);
           }
-          const groups = [...bySlug.values()].sort((a, b) => a.fighter.name.localeCompare(b.fighter.name, 'de'));
+          const groups = [...bySlug.values()].sort((a, b) => a.fighter.name.localeCompare(b.fighter.name, locale));
           comboCleanup();
           mount(saved, savedMarkup(groups, missing));
           comboCleanup = bindComboCards(saved, groups.flatMap((g) => g.combos));
@@ -417,7 +420,7 @@ export function profilePage(): PageView {
           loadBookmarks(force).catch((err: unknown) => {
             if (!saved.isConnected) return;
             lastIds = null;
-            mount(saved, errorState('Gespeicherte Combos konnten nicht geladen werden.', err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
+            mount(saved, errorState(t('profile.savedError'), err instanceof ApiError ? err.message : LOAD_FAILED_TEXT));
             bindErrorState(saved, () => fetchBookmarks(true));
           });
         };
@@ -441,7 +444,7 @@ export function profilePage(): PageView {
             location.hash = link('/');
           } catch (err) {
             error.hidden = false;
-            error.textContent = err instanceof ApiError ? err.message : 'Das hat nicht geklappt.';
+            error.textContent = err instanceof ApiError ? err.message : t('api.failed');
             button.disabled = false;
           }
         });
