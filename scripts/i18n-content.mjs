@@ -34,7 +34,7 @@ const TIERS = {
 
 /** Wörter, an denen man einen deutschen Titel oder Move-Namen erkennt. Move-Namen selbst sind englisch. */
 const GERMAN = new RegExp(
-  '[äöüÄÖÜß„]|\\b(mit|und|oder|aus|auf|an|am|im|vom|zum|zur|ohne|bei|gegen|nach|über|unter|Sprung|Wurf|Landung|Kante|Schild|Boden|Luft|Treffer|Griff|gehalten|halten|voll|kurz|lang|Amboss|geladen|aufgeladen|Plattform|Wand|Stufe|ungeladen|Konter|Kiste|Rakete|Bombe|Klinge|Schwert|Pfeil|Feuer|Blitz|Sprint|Kette|Spitze|Schleife|Linker|Rechter|fallend|steigend|nahe|der|die|das|den|dem|des|erster|zweiter|letzter|beide|alle|Rolle|Ecke|hinten|vorne|oben|unten|Ladung|setzen|loslassen|dann|leicht|gefallen|landen|angetippt|nur|wieder|direkt|sofort|fangen|werfen|ziehen|zünden|laden|springen|drücken|Knopf|abbrechen|treffen|schießen|als|bodennahe[rn]?|erneut|Schritt|vor|zurück|weiter|Wechsel|wechseln|Angriff|Ende|Anfang|kleben|Kopf|Fuß|Bein)\\b',
+  '[äöüÄÖÜß„]|\\b(mit|und|oder|aus|auf|an|am|im|vom|zum|zur|ohne|bei|gegen|nach|über|unter|Sprung|Wurf|Landung|Kante|Schild|Boden|Luft|Treffer|Griff|gehalten|halten|voll|kurz|lang|Amboss|geladen|aufgeladen|Plattform|Wand|Stufe|ungeladen|Konter|Kiste|Rakete|Bombe|Klinge|Schwert|Pfeil|Feuer|Blitz|Sprint|Kette|Spitze|Schleife|Linker|Rechter|fallend|steigend|nahe|der|die|das|den|dem|des|erster|zweiter|letzter|beide|alle|Rolle|Ecke|hinten|vorne|oben|unten|Ladung|setzen|loslassen|dann|leicht|gefallen|landen|angetippt|nur|wieder|direkt|sofort|fangen|werfen|ziehen|zünden|laden|springen|drücken|Knopf|abbrechen|treffen|schießen|als|bodennahe[rn]?|erneut|Schritt|vor|zurück|weiter|Wechsel|wechseln|Angriff|Ende|Anfang|kleben|Kopf|Fuß|Bein|umgedreht|zwei|drei|vier|fünf|einmal|zweimal|Schuss|Schüsse)\\b',
   'i',
 );
 const SEPARATOR = String.fromCharCode(1);
