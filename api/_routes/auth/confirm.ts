@@ -19,7 +19,12 @@ export const POST = route(async (request) => {
 
   const body = await readJson(request);
   const tokenHash = str(body.tokenHash);
-  if (!/^[A-Za-z0-9_-]{16,256}$/.test(tokenHash)) throw new HttpError(400, 'invalid-link', 'Der Bestätigungslink ist unvollständig.');
+  if (!/^[A-Za-z0-9_-]{16,256}$/.test(tokenHash)) {
+    throw new HttpError(400, 'invalid-link', {
+      de: 'Der Bestätigungslink ist unvollständig.',
+      en: 'The confirmation link is incomplete.',
+    });
+  }
 
   const be = backend();
   try {
@@ -30,7 +35,10 @@ export const POST = route(async (request) => {
     return ok({ user: publicUser(session.user.email, profile) }, sessionCookies(request, session));
   } catch (err) {
     if (err instanceof BackendError && (err.code === 'invalid-token' || err.code === 'not-found' || err.code === 'bad-request')) {
-      throw new HttpError(400, 'invalid-link', 'Der Link ist abgelaufen oder wurde schon benutzt. Fordere unten einen neuen an.');
+      throw new HttpError(400, 'invalid-link', {
+        de: 'Der Link ist abgelaufen oder wurde schon benutzt. Fordere unten einen neuen an.',
+        en: 'The link has expired or was already used. Request a new one below.',
+      });
     }
     throw err;
   }

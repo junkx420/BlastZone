@@ -26,7 +26,12 @@ export const POST = route(async (request) => {
     { name: 'login-account', key: `${ip}|${email ?? str(body.email)}`, max: 5, windowSec: 15 * 60 },
   );
 
-  if (!email || !password || password.length > 256) throw new HttpError(401, 'invalid-credentials', 'E-Mail oder Passwort stimmt nicht.');
+  if (!email || !password || password.length > 256) {
+    throw new HttpError(401, 'invalid-credentials', {
+      de: 'E-Mail oder Passwort stimmt nicht.',
+      en: 'Email or password is incorrect.',
+    });
+  }
 
   const be = backend();
   try {

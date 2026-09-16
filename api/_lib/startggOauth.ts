@@ -69,7 +69,10 @@ export function returnCodeFor(err: HttpError): OauthReturnCode {
   return 'failed';
 }
 
-const notConfigured = (): HttpError => new HttpError(503, 'startgg-not-configured', 'Die Bestätigung über start.gg ist noch nicht eingerichtet.');
+const notConfigured = (): HttpError => new HttpError(503, 'startgg-not-configured', {
+  de: 'Die Bestätigung über start.gg ist noch nicht eingerichtet.',
+  en: 'Verification through start.gg is not set up yet.',
+});
 
 /** Muss Zeichen für Zeichen der Callback-URL entsprechen, die in der start.gg-Anwendung eingetragen ist. */
 export const callbackUrl = (request: Request): string => `${isHttps(request) ? 'https' : 'http'}://${requestHost(request)}${COOKIE_PATH}/callback`;
@@ -140,11 +143,21 @@ const CURRENT_USER = `query BlastzoneCurrentUser {
 
 /** Tauscht den Code und fragt, wer sich angemeldet hat. Der Token lebt nur in dieser Funktion. */
 export async function identityFromCode(request: Request, code: string): Promise<StartggUser> {
-  if (!CODE_SHAPE.test(code)) throw new HttpError(400, 'startgg-oauth-failed', 'Die Antwort von start.gg war unvollständig.');
+  if (!CODE_SHAPE.test(code)) {
+    throw new HttpError(400, 'startgg-oauth-failed', {
+      de: 'Die Antwort von start.gg war unvollständig.',
+      en: 'The response from start.gg was incomplete.',
+    });
+  }
   const mode = oauthMode();
   if (mode === 'mock') {
     const user = code.startsWith('mock.') ? mockStartggUser(`user/${code.slice(5)}`) : null;
-    if (!user) throw new HttpError(400, 'startgg-oauth-failed', 'start.gg hat die Anmeldung nicht bestätigt.');
+    if (!user) {
+      throw new HttpError(400, 'startgg-oauth-failed', {
+        de: 'start.gg hat die Anmeldung nicht bestätigt.',
+        en: 'start.gg did not confirm the login.',
+      });
+    }
     return user;
   }
   if (mode !== 'live') throw notConfigured();
@@ -162,7 +175,10 @@ export async function identityFromCode(request: Request, code: string): Promise<
   } catch (err) {
     const timedOut = err instanceof Error && (err.name === 'TimeoutError' || err.name === 'AbortError');
     console.warn(JSON.stringify({ t: 'startgg-oauth', step: 'token', error: timedOut ? 'timeout' : 'network' }));
-    throw new HttpError(503, 'startgg-unavailable', 'start.gg ist gerade nicht erreichbar. Versuch es gleich noch einmal.');
+    throw new HttpError(503, 'startgg-unavailable', {
+      de: 'start.gg ist gerade nicht erreichbar. Versuch es gleich noch einmal.',
+      en: 'start.gg is not reachable right now. Try again in a moment.',
+    });
   }
 
   let body: { access_token?: unknown; error?: unknown } = {};
@@ -174,14 +190,30 @@ export async function identityFromCode(request: Request, code: string): Promise<
   if (!res.ok) {
     // Nur Status und Fehlercode ins Log, nie Körper oder Header der Anfrage: Dort stehen Secret und Code.
     console.warn(JSON.stringify({ t: 'startgg-oauth', step: 'token', status: res.status, error: String(body.error ?? '').slice(0, 60) }));
-    if (res.status === 429) throw new HttpError(503, 'startgg-rate-limited', 'start.gg bremst gerade die Anfragen. Versuch es in ein paar Minuten erneut.');
-    if (res.status >= 500) throw new HttpError(503, 'startgg-unavailable', 'start.gg ist gerade nicht erreichbar. Versuch es gleich noch einmal.');
-    throw new HttpError(400, 'startgg-oauth-failed', 'start.gg hat die Anmeldung nicht bestätigt. Versuch es noch einmal.');
+    if (res.status === 429) {
+      throw new HttpError(503, 'startgg-rate-limited', {
+        de: 'start.gg bremst gerade die Anfragen. Versuch es in ein paar Minuten erneut.',
+        en: 'start.gg is throttling requests right now. Try again in a few minutes.',
+      });
+    }
+    if (res.status >= 500) {
+      throw new HttpError(503, 'startgg-unavailable', {
+        de: 'start.gg ist gerade nicht erreichbar. Versuch es gleich noch einmal.',
+        en: 'start.gg is not reachable right now. Try again in a moment.',
+      });
+    }
+    throw new HttpError(400, 'startgg-oauth-failed', {
+      de: 'start.gg hat die Anmeldung nicht bestätigt. Versuch es noch einmal.',
+      en: 'start.gg did not confirm the login. Try again.',
+    });
   }
   const token = typeof body.access_token === 'string' ? body.access_token : '';
   if (!TOKEN_SHAPE.test(token)) {
     console.warn(JSON.stringify({ t: 'startgg-oauth', step: 'token', error: 'kein access_token' }));
-    throw new HttpError(502, 'startgg-oauth-failed', 'start.gg hat die Anmeldung nicht bestätigt. Versuch es noch einmal.');
+    throw new HttpError(502, 'startgg-oauth-failed', {
+      de: 'start.gg hat die Anmeldung nicht bestätigt. Versuch es noch einmal.',
+      en: 'start.gg did not confirm the login. Try again.',
+    });
   }
 
   const data = await graphql<{ currentUser: RawUser | null }>(CURRENT_USER, {}, token, 'user');
@@ -189,7 +221,10 @@ export async function identityFromCode(request: Request, code: string): Promise<
   const slug = user ? normalizeStartggSlug(user.slug) : null;
   if (!user || !slug || !STARTGG_ID.test(user.userId)) {
     console.warn(JSON.stringify({ t: 'startgg-oauth', step: 'currentUser', error: 'unerwartete Form' }));
-    throw new HttpError(502, 'startgg-oauth-failed', 'start.gg hat kein Profil zurückgegeben. Versuch es noch einmal.');
+    throw new HttpError(502, 'startgg-oauth-failed', {
+      de: 'start.gg hat kein Profil zurückgegeben. Versuch es noch einmal.',
+      en: 'start.gg did not return a profile. Try again.',
+    });
   }
   return { ...user, slug };
 }

@@ -87,12 +87,24 @@ export const MAX_SECONDARIES = 2;
  * Prüft eine Secondary-Auswahl. Liefert die bereinigte Liste oder einen Fehlertext.
  * Doppelte Einträge fallen still weg, der Main darf nicht gleichzeitig Secondary sein.
  */
-export function checkSecondaries(input: unknown, main: string | null): { ok: true; value: string[] } | { ok: false; message: string } {
-  if (!Array.isArray(input)) return { ok: false, message: 'Secondaries müssen eine Liste sein.' };
+export function checkSecondaries(
+  input: unknown,
+  main: string | null,
+): { ok: true; value: string[] } | { ok: false; message: { de: string; en: string } } {
+  if (!Array.isArray(input)) return { ok: false, message: { de: 'Secondaries müssen eine Liste sein.', en: 'Secondaries must be a list.' } };
   const value = [...new Set(input)];
-  if (value.some((s) => typeof s !== 'string' || !FIGHTER_SLUG_PATTERN.test(s))) return { ok: false, message: 'Unbekannter Fighter.' };
-  if (value.length > MAX_SECONDARIES) return { ok: false, message: `Höchstens ${MAX_SECONDARIES} Secondaries.` };
-  if (main && value.includes(main)) return { ok: false, message: 'Dein Main kann nicht gleichzeitig Secondary sein.' };
+  if (value.some((s) => typeof s !== 'string' || !FIGHTER_SLUG_PATTERN.test(s))) return { ok: false, message: {
+    de: 'Unbekannter Fighter.',
+    en: 'Unknown fighter.',
+  } };
+  if (value.length > MAX_SECONDARIES) return { ok: false, message: {
+    de: `Höchstens ${MAX_SECONDARIES} Secondaries.`,
+    en: `${MAX_SECONDARIES} secondaries at most.`,
+  } };
+  if (main && value.includes(main)) return { ok: false, message: {
+    de: 'Dein Main kann nicht gleichzeitig Secondary sein.',
+    en: 'Your main cannot also be a secondary.',
+  } };
   return { ok: true, value: value as string[] };
 }
 
@@ -100,4 +112,4 @@ export function checkSecondaries(input: unknown, main: string | null): { ok: tru
 export const USERNAME_PREFIX_PATTERN = /^[A-Za-z0-9_-]{1,20}$/;
 
 /** Einheitlicher Text, wenn eine Adresse als Wegwerf-Mail erkannt wird. Vorgabe des Betreibers. */
-export const DISPOSABLE_MESSAGE = 'Bitte nutze eine echte E-Mail-Adresse.';
+export const DISPOSABLE_MESSAGE = { de: 'Bitte nutze eine echte E-Mail-Adresse.', en: 'Please use a real email address.' };

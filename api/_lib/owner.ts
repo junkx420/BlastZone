@@ -21,7 +21,7 @@ import type { Auth, BookmarkRow, CommentRow, DirectoryRow, PlayerRow, Profile } 
 function refuse(what: string): never {
   // Ins Function-Log ohne Inhalte: keine IDs, keine Texte.
   console.error(`[owner] ${what}: Zeile gehört nicht dem angemeldeten Nutzer. Antwort verworfen.`);
-  throw new HttpError(403, 'forbidden', 'Dafür fehlt dir die Berechtigung.');
+  throw new HttpError(403, 'forbidden', { de: 'Dafür fehlt dir die Berechtigung.', en: 'You do not have permission to do that.' });
 }
 
 export function ownProfile(auth: Auth, profile: Profile | null): Profile | null {

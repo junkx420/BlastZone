@@ -1,6 +1,6 @@
 import { startggProfileUrl } from '../../../src/shared/startgg.js';
 import { backend, toHttp, type Auth, type Backend, type StartggLinkRow } from '../../_lib/backend.js';
-import { HttpError, ok } from '../../_lib/http.js';
+import { HttpError, ok, pick, requestLang } from '../../_lib/http.js';
 import { ownRows } from '../../_lib/owner.js';
 import { enforce } from '../../_lib/ratelimit.js';
 import { route } from '../../_lib/route.js';
@@ -58,27 +58,47 @@ export const GET = route(async (request) => {
   const { auth, cookies } = await requireAuth(request, be);
   await enforce({ name: 'startgg-read-user', key: auth.userId, max: 60, windowSec: 60 });
   const refresh = new URL(request.url).searchParams.get('refresh') === '1';
+  const lang = requestLang(request);
 
   let link: StartggLinkRow | undefined;
   let cached: PlacementsPayload | null = null;
   try {
     link = ownRows(auth, await be.getStartggLink(auth), 'startgg-link')[0];
-    if (!link) throw new HttpError(404, 'startgg-not-linked', 'Du hast noch kein start.gg-Profil verknüpft.');
+    if (!link) {
+      throw new HttpError(404, 'startgg-not-linked', {
+        de: 'Du hast noch kein start.gg-Profil verknüpft.',
+        en: 'You have not linked a start.gg profile yet.',
+      });
+    }
     cached = await loadCache(be, auth, link.slug);
   } catch (err) {
     toHttp(err);
   }
-  if (!link) throw new HttpError(404, 'startgg-not-linked', 'Du hast noch kein start.gg-Profil verknüpft.');
+  if (!link) {
+    throw new HttpError(404, 'startgg-not-linked', {
+      de: 'Du hast noch kein start.gg-Profil verknüpft.',
+      en: 'You have not linked a start.gg profile yet.',
+    });
+  }
 
   if (cached && cached.notFound && isFresh(cached)) {
-    throw new HttpError(404, 'startgg-player-not-found', 'Das verknüpfte start.gg-Profil gibt es nicht mehr. Verknüpfe dein aktuelles Profil neu.');
+    throw new HttpError(404, 'startgg-player-not-found', {
+      de: 'Das verknüpfte start.gg-Profil gibt es nicht mehr. Verknüpfe dein aktuelles Profil neu.',
+      en: 'The linked start.gg profile no longer exists. Link your current profile again.',
+    });
   }
   if (cached && !cached.notFound && isFresh(cached) && !refresh) return respond(cached, cookies, 'cache');
   if (cached && !cached.notFound && refresh && ageMs(cached) < REFRESH_COOLDOWN_MS) {
     const min = minutesUntil(cached.fetchedAt, REFRESH_COOLDOWN_MS);
     return respond(cached, cookies, 'cache', {
       code: 'refresh-cooldown',
-      message: `Gerade erst aktualisiert. Neu laden geht wieder in ${min === 1 ? 'einer Minute' : `${min} Minuten`}.`,
+      message: pick(
+        {
+          de: `Gerade erst aktualisiert. Neu laden geht wieder in ${min === 1 ? 'einer Minute' : `${min} Minuten`}.`,
+          en: `Just updated. You can refresh again in ${min === 1 ? 'one minute' : `${min} minutes`}.`,
+        },
+        lang,
+      ),
     });
   }
 
@@ -88,10 +108,28 @@ export const GET = route(async (request) => {
     if (stale && err instanceof HttpError) {
       if (err.code === 'rate-limited') {
         // Unser eigenes Stundenlimit, nicht start.gg.
-        return respond(stale, cookies, 'cache', { code: 'stale', message: 'Du hast in der letzten Stunde oft aktualisiert. Du siehst den letzten gespeicherten Stand.' });
+        return respond(stale, cookies, 'cache', {
+          code: 'stale',
+          message: pick(
+            {
+              de: 'Du hast in der letzten Stunde oft aktualisiert. Du siehst den letzten gespeicherten Stand.',
+              en: 'You refreshed a lot in the last hour. You are seeing the last saved results.',
+            },
+            lang,
+          ),
+        });
       }
       if (err.code === 'startgg-unavailable' || err.code === 'startgg-rate-limited') {
-        return respond(stale, cookies, 'cache', { code: err.code, message: 'start.gg antwortet gerade nicht. Du siehst den letzten gespeicherten Stand.' });
+        return respond(stale, cookies, 'cache', {
+          code: err.code,
+          message: pick(
+            {
+              de: 'start.gg antwortet gerade nicht. Du siehst den letzten gespeicherten Stand.',
+              en: 'start.gg is not responding right now. You are seeing the last saved results.',
+            },
+            lang,
+          ),
+        });
       }
     }
     throw err;
@@ -108,7 +146,10 @@ export const GET = route(async (request) => {
       if (!player) {
         payload = { v: CACHE_VERSION, slug: link.slug, userId: null, gamerTag: link.gamerTag, notFound: true, placements: [], fetchedAt: new Date().toISOString() };
         await be.saveStartggCache(auth, link.slug, payload, await signPayload(auth.userId, payload));
-        throw new HttpError(404, 'startgg-player-not-found', 'Das verknüpfte start.gg-Profil gibt es nicht mehr. Verknüpfe dein aktuelles Profil neu.');
+        throw new HttpError(404, 'startgg-player-not-found', {
+          de: 'Das verknüpfte start.gg-Profil gibt es nicht mehr. Verknüpfe dein aktuelles Profil neu.',
+          en: 'The linked start.gg profile no longer exists. Link your current profile again.',
+        });
       }
       userId = player.userId;
       gamerTag = player.gamerTag;

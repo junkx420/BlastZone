@@ -1,4 +1,4 @@
-import { normalizeStartggSlug, STARTGG_HINT, startggProfileUrl } from '../../../src/shared/startgg.js';
+import { normalizeStartggSlug, STARTGG_HINT, STARTGG_HINT_EN, startggProfileUrl } from '../../../src/shared/startgg.js';
 import { backend, toHttp, type StartggLinkRow } from '../../_lib/backend.js';
 import { assertSameOrigin, HttpError, ok, readJson, str } from '../../_lib/http.js';
 import { ownRows } from '../../_lib/owner.js';
@@ -65,17 +65,32 @@ export const PUT = route(async (request) => {
 
   const body = await readJson(request, 1024);
   const slug = normalizeStartggSlug(str(body.profile));
-  if (!slug) throw new HttpError(400, 'startgg-invalid-profile', `Das sieht nicht nach einem start.gg-Profil aus. ${STARTGG_HINT}`);
+  if (!slug) {
+    throw new HttpError(400, 'startgg-invalid-profile', {
+      de: `Das sieht nicht nach einem start.gg-Profil aus. ${STARTGG_HINT}`,
+      en: `That does not look like a start.gg profile. ${STARTGG_HINT_EN}`,
+    });
+  }
 
   const player = await resolveStartggUser(slug);
-  if (!player) throw new HttpError(404, 'startgg-player-not-found', 'Auf start.gg gibt es unter dieser Adresse kein Profil. Prüf die URL auf Tippfehler.');
+  if (!player) {
+    throw new HttpError(404, 'startgg-player-not-found', {
+      de: 'Auf start.gg gibt es unter dieser Adresse kein Profil. Prüf die URL auf Tippfehler.',
+      en: 'There is no start.gg profile at this address. Check the URL for typos.',
+    });
+  }
 
   try {
     // Dasselbe Profil noch einmal eingetragen: Eine gültige Bestätigung bleibt. Jedes andere Profil beginnt unbestätigt.
     const current = ownRows(auth, await be.getStartggLink(auth), 'startgg-link')[0];
     const keep = current && current.slug === slug && (await isVerified(auth.userId, current).catch(() => false)) ? current.verification : null;
     const rows = ownRows(auth, await be.saveStartggLink(auth, { slug, gamerTag: player.gamerTag, verification: keep }, current?.slug !== slug), 'startgg-link-save');
-    if (!rows[0]) throw new HttpError(403, 'forbidden', 'Die Verknüpfung konnte nicht gespeichert werden. Ist deine E-Mail-Adresse bestätigt?');
+    if (!rows[0]) {
+      throw new HttpError(403, 'forbidden', {
+        de: 'Die Verknüpfung konnte nicht gespeichert werden. Ist deine E-Mail-Adresse bestätigt?',
+        en: 'The link could not be saved. Is your email address confirmed?',
+      });
+    }
     return ok({ link: await publicLink(auth.userId, rows[0]) }, cookies);
   } catch (err) {
     toHttp(err);

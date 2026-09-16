@@ -45,7 +45,10 @@ function cacheKey(): string {
   const { cacheKey: key } = readStartggConfig();
   if (key) return key;
   if (mockAllowed()) return MOCK_KEY;
-  throw new HttpError(503, 'startgg-not-configured', 'Die start.gg-Anbindung ist noch nicht eingerichtet.');
+  throw new HttpError(503, 'startgg-not-configured', {
+    de: 'Die start.gg-Anbindung ist noch nicht eingerichtet.',
+    en: 'The start.gg connection is not set up yet.',
+  });
 }
 
 export function canonicalJson(value: unknown): string {

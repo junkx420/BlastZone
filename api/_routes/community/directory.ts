@@ -24,9 +24,14 @@ export const GET = route(async (request) => {
   const q = params.get('q')?.trim() || null;
   const fighter = params.get('fighter') || null;
   const after = params.get('after') || null;
-  if (q && !USERNAME_PREFIX_PATTERN.test(q)) throw new HttpError(400, 'invalid-query', 'Namen bestehen nur aus Buchstaben, Zahlen, _ und -.');
-  if (fighter && !FIGHTER_SLUG_PATTERN.test(fighter)) throw new HttpError(400, 'invalid-fighter', 'Unbekannter Fighter.');
-  if (after && !USERNAME_PATTERN.test(after)) throw new HttpError(400, 'invalid-cursor', 'Ungültige Seite.');
+  if (q && !USERNAME_PREFIX_PATTERN.test(q)) {
+    throw new HttpError(400, 'invalid-query', {
+      de: 'Namen bestehen nur aus Buchstaben, Zahlen, _ und -.',
+      en: 'Names only contain letters, digits, _ and -.',
+    });
+  }
+  if (fighter && !FIGHTER_SLUG_PATTERN.test(fighter)) throw new HttpError(400, 'invalid-fighter', { de: 'Unbekannter Fighter.', en: 'Unknown fighter.' });
+  if (after && !USERNAME_PATTERN.test(after)) throw new HttpError(400, 'invalid-cursor', { de: 'Ungültige Seite.', en: 'Invalid page.' });
 
   try {
     const rows = await be.listDirectory(auth, { query: q, fighter, after, limit: PAGE_SIZE });

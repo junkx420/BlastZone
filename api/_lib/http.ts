@@ -10,14 +10,34 @@
  * - Unbekannte Fehler gehen als generische 500 raus, Details nur ins Server-Log.
  */
 
+/**
+ * Text für die Oberfläche in beiden Sprachen. Die Seite schickt ihre Sprache im
+ * Header `X-Blastzone-Lang` mit (src/services/api.ts), route() wählt danach aus.
+ * Ein reiner String gilt für beide Sprachen und ist nur für Texte ohne Sprache gedacht.
+ */
+export type Text = string | { de: string; en: string };
+export type Lang = 'de' | 'en';
+
+/** Ohne Header (curl, alte Clients) bleibt es beim Deutschen, wie die Seite gebaut wurde. */
+export const requestLang = (request: Request): Lang => (request.headers.get('x-blastzone-lang') === 'en' ? 'en' : 'de');
+
+export const pick = (text: Text, lang: Lang): string => (typeof text === 'string' ? text : text[lang]);
+
 export class HttpError extends Error {
+  readonly text: Text;
   constructor(
     readonly status: number,
     readonly code: string,
-    message: string,
+    text: Text,
     readonly headers: Record<string, string> = {},
   ) {
-    super(message);
+    // `message` bleibt deutsch: Logs und Vergleiche im Code sehen immer dieselbe Fassung.
+    super(pick(text, 'de'));
+    this.text = text;
+  }
+
+  messageFor(lang: Lang): string {
+    return pick(this.text, lang);
   }
 }
 
@@ -61,15 +81,25 @@ export const requestHost = (request: Request): string =>
 export function assertSameOrigin(request: Request): void {
   const origin = request.headers.get('origin');
   const site = request.headers.get('sec-fetch-site');
-  if (site && site !== 'same-origin') throw new HttpError(403, 'forbidden-origin', 'Anfrage von fremder Herkunft abgelehnt.');
-  if (!origin) throw new HttpError(403, 'forbidden-origin', 'Anfrage ohne Herkunft abgelehnt.');
+  if (site && site !== 'same-origin') {
+    throw new HttpError(403, 'forbidden-origin', {
+      de: 'Anfrage von fremder Herkunft abgelehnt.',
+      en: 'Request from a foreign origin rejected.',
+    });
+  }
+  if (!origin) throw new HttpError(403, 'forbidden-origin', { de: 'Anfrage ohne Herkunft abgelehnt.', en: 'Request without origin rejected.' });
   let host: string;
   try {
     host = new URL(origin).host.toLowerCase();
   } catch {
-    throw new HttpError(403, 'forbidden-origin', 'Anfrage von fremder Herkunft abgelehnt.');
+    throw new HttpError(403, 'forbidden-origin', { de: 'Anfrage von fremder Herkunft abgelehnt.', en: 'Request from a foreign origin rejected.' });
   }
-  if (host !== requestHost(request)) throw new HttpError(403, 'forbidden-origin', 'Anfrage von fremder Herkunft abgelehnt.');
+  if (host !== requestHost(request)) {
+    throw new HttpError(403, 'forbidden-origin', {
+      de: 'Anfrage von fremder Herkunft abgelehnt.',
+      en: 'Request from a foreign origin rejected.',
+    });
+  }
 }
 
 export const isHttps = (request: Request): boolean =>
@@ -85,19 +115,24 @@ export function clientIp(request: Request): string {
 
 export async function readJson(request: Request, maxBytes = 4096): Promise<Record<string, unknown>> {
   if (!(request.headers.get('content-type') ?? '').toLowerCase().startsWith('application/json')) {
-    throw new HttpError(415, 'unsupported-media-type', 'Erwartet wird JSON.');
+    throw new HttpError(415, 'unsupported-media-type', { de: 'Erwartet wird JSON.', en: 'JSON expected.' });
   }
   const declared = Number(request.headers.get('content-length') ?? '0');
-  if (declared > maxBytes) throw new HttpError(413, 'too-large', 'Die Anfrage ist zu groß.');
+  if (declared > maxBytes) throw new HttpError(413, 'too-large', { de: 'Die Anfrage ist zu groß.', en: 'The request is too large.' });
   const text = await request.text();
-  if (new TextEncoder().encode(text).length > maxBytes) throw new HttpError(413, 'too-large', 'Die Anfrage ist zu groß.');
+  if (new TextEncoder().encode(text).length > maxBytes) {
+    throw new HttpError(413, 'too-large', {
+      de: 'Die Anfrage ist zu groß.',
+      en: 'The request is too large.',
+    });
+  }
   try {
     const data: unknown = JSON.parse(text);
     if (data && typeof data === 'object' && !Array.isArray(data)) return data as Record<string, unknown>;
   } catch {
     /* unten */
   }
-  throw new HttpError(400, 'bad-json', 'Die Anfrage ist kein gültiges JSON.');
+  throw new HttpError(400, 'bad-json', { de: 'Die Anfrage ist kein gültiges JSON.', en: 'The request is not valid JSON.' });
 }
 
 export const str = (v: unknown): string => (typeof v === 'string' ? v : '');
@@ -140,8 +175,3 @@ export function cookie(name: string, value: string, { maxAge, path = '/api', sam
     .filter(Boolean)
     .join('; ');
 }
-
-/* ── Methoden ───────────────────────────────────────────────────────────── */
-
-export const methodNotAllowed = (allow: string): Response =>
-  json({ ok: false, error: { code: 'method-not-allowed', message: 'Methode nicht erlaubt.' } }, 405, [], { Allow: allow });

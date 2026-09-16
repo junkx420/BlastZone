@@ -24,11 +24,17 @@ export const POST = route(async (request) => {
   const result = await readResult(request);
   const done = [...cookies, clearResultCookie(request)];
   if (!result) {
-    throw new HttpError(400, 'startgg-oauth-expired', 'Die Anmeldung bei start.gg ist abgelaufen oder schon verwendet. Starte die Bestätigung noch einmal.');
+    throw new HttpError(400, 'startgg-oauth-expired', {
+      de: 'Die Anmeldung bei start.gg ist abgelaufen oder schon verwendet. Starte die Bestätigung noch einmal.',
+      en: 'The start.gg login has expired or was already used. Start the verification again.',
+    });
   }
   // Login in einem Konto begonnen, Rückkehr in einem anderen (etwa nach Ab- und Anmelden dazwischen).
   if (result.ownerId !== auth.userId) {
-    throw new HttpError(403, 'startgg-oauth-other-account', 'Die Bestätigung wurde in einem anderen Blastzone-Konto gestartet. Starte sie in diesem Konto noch einmal.');
+    throw new HttpError(403, 'startgg-oauth-other-account', {
+      de: 'Die Bestätigung wurde in einem anderen Blastzone-Konto gestartet. Starte sie in diesem Konto noch einmal.',
+      en: 'The verification was started in a different Blastzone account. Start it again in this account.',
+    });
   }
 
   try {
@@ -39,7 +45,12 @@ export const POST = route(async (request) => {
       await be.saveStartggLink(auth, { slug: result.slug, gamerTag: result.gamerTag, verification }, current?.slug !== result.slug),
       'startgg-link-save',
     );
-    if (!rows[0]) throw new HttpError(403, 'forbidden', 'Die Verknüpfung konnte nicht gespeichert werden. Ist deine E-Mail-Adresse bestätigt?');
+    if (!rows[0]) {
+      throw new HttpError(403, 'forbidden', {
+        de: 'Die Verknüpfung konnte nicht gespeichert werden. Ist deine E-Mail-Adresse bestätigt?',
+        en: 'The link could not be saved. Is your email address confirmed?',
+      });
+    }
     return ok({ link: await publicLink(auth.userId, rows[0]), changed: Boolean(current && current.slug !== result.slug), previousSlug: current && current.slug !== result.slug ? current.slug : null }, done);
   } catch (err) {
     toHttp(err);

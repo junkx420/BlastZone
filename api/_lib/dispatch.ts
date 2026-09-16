@@ -1,4 +1,4 @@
-import { json } from './http.js';
+import { json, pick, requestLang, type Lang } from './http.js';
 
 /**
  * Bündelt mehrere Routen in EINER Vercel Function.
@@ -23,7 +23,8 @@ import { json } from './http.js';
 type Handler = (request: Request) => Promise<Response>;
 type RouteModule = Partial<Record<'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE', Handler>>;
 
-const notFound = (): Response => json({ ok: false, error: { code: 'not-found', message: 'Unbekannte Route.' } }, 404);
+const notFound = (lang: Lang): Response =>
+  json({ ok: false, error: { code: 'not-found', message: pick({ de: 'Unbekannte Route.', en: 'Unknown route.' }, lang) } }, 404);
 
 export function dispatcher(routes: Record<string, RouteModule>): Required<RouteModule> {
   const run = (method: keyof RouteModule): Handler => async (request) => {
@@ -31,11 +32,12 @@ export function dispatcher(routes: Record<string, RouteModule>): Required<RouteM
     const url = new URL(request.url);
     const action = url.searchParams.get('action') || (url.pathname.replace(/[/]+$/, '').split('/').pop() ?? '');
     const mod = Object.hasOwn(routes, action) ? routes[action] : undefined;
-    if (!mod) return notFound();
+    if (!mod) return notFound(requestLang(request));
     const handler = mod[method];
     if (!handler) {
       const allow = (['GET', 'POST', 'PUT', 'PATCH', 'DELETE'] as const).filter((m) => mod[m]).join(', ');
-      return json({ ok: false, error: { code: 'method-not-allowed', message: 'Methode nicht erlaubt.' } }, 405, [], { Allow: allow });
+      const message = pick({ de: 'Methode nicht erlaubt.', en: 'Method not allowed.' }, requestLang(request));
+      return json({ ok: false, error: { code: 'method-not-allowed', message } }, 405, [], { Allow: allow });
     }
     return handler(request);
   };

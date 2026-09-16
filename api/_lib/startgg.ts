@@ -36,7 +36,10 @@ const RESOLVE_USER = `query ResolveStartggUser($slug: String!) {
   }
 }`;
 
-const unavailable = (): HttpError => new HttpError(503, 'startgg-unavailable', 'start.gg ist gerade nicht erreichbar. Versuch es gleich noch einmal.');
+const unavailable = (): HttpError => new HttpError(503, 'startgg-unavailable', {
+  de: 'start.gg ist gerade nicht erreichbar. Versuch es gleich noch einmal.',
+  en: 'start.gg is not reachable right now. Try again in a moment.',
+});
 
 /**
  * `kind: 'user'` heißt: Der Token stammt aus dem OAuth-Login eines Nutzers. Er hat bei
@@ -61,16 +64,25 @@ export async function graphql<T>(query: string, variables: Record<string, unknow
 
   if (res.status === 429) {
     console.warn(JSON.stringify({ t: 'startgg', status: 429 }));
-    throw new HttpError(503, 'startgg-rate-limited', 'start.gg bremst gerade die Anfragen. Versuch es in ein paar Minuten erneut.', { 'Retry-After': '120' });
+    throw new HttpError(503, 'startgg-rate-limited', {
+      de: 'start.gg bremst gerade die Anfragen. Versuch es in ein paar Minuten erneut.',
+      en: 'start.gg is throttling requests right now. Try again in a few minutes.',
+    }, { 'Retry-After': '120' });
   }
   if ((res.status === 401 || res.status === 403) && kind === 'user') {
     console.warn(JSON.stringify({ t: 'startgg', status: res.status, hinweis: 'OAuth-Token des Nutzers abgelehnt' }));
-    throw new HttpError(502, 'startgg-oauth-failed', 'start.gg hat die Anmeldung nicht bestätigt. Versuch es noch einmal.');
+    throw new HttpError(502, 'startgg-oauth-failed', {
+      de: 'start.gg hat die Anmeldung nicht bestätigt. Versuch es noch einmal.',
+      en: 'start.gg did not confirm the login. Try again.',
+    });
   }
   if (res.status === 401 || res.status === 403) {
     // Token falsch, abgelaufen oder widerrufen. Das ist ein Einrichtungsfehler, kein Nutzerfehler.
     console.error(JSON.stringify({ t: 'startgg', status: res.status, hinweis: 'STARTGG_TOKEN ungültig oder widerrufen' }));
-    throw new HttpError(503, 'startgg-not-configured', 'Die start.gg-Anbindung ist gerade nicht eingerichtet.');
+    throw new HttpError(503, 'startgg-not-configured', {
+      de: 'Die start.gg-Anbindung ist gerade nicht eingerichtet.',
+      en: 'The start.gg connection is not set up right now.',
+    });
   }
   if (!res.ok) {
     console.warn(JSON.stringify({ t: 'startgg', status: res.status }));
@@ -259,7 +271,10 @@ export async function fetchStartggPlacements(slug: string, userId: string): Prom
   const { token } = readStartggConfig();
   if (!token) {
     if (mockAllowed()) return mockPlacements(slug);
-    throw new HttpError(503, 'startgg-not-configured', 'Die start.gg-Anbindung ist noch nicht eingerichtet.');
+    throw new HttpError(503, 'startgg-not-configured', {
+      de: 'Die start.gg-Anbindung ist noch nicht eingerichtet.',
+      en: 'The start.gg connection is not set up yet.',
+    });
   }
   const data = await graphql<{ user: { tournaments: { nodes: RawTournament[] | null } | null } | null }>(
     PLACEMENTS,
@@ -274,7 +289,10 @@ export async function resolveStartggUser(slug: string): Promise<StartggUser | nu
   const { token } = readStartggConfig();
   if (!token) {
     if (mockAllowed()) return mockResolve(slug);
-    throw new HttpError(503, 'startgg-not-configured', 'Die start.gg-Anbindung ist noch nicht eingerichtet.');
+    throw new HttpError(503, 'startgg-not-configured', {
+      de: 'Die start.gg-Anbindung ist noch nicht eingerichtet.',
+      en: 'The start.gg connection is not set up yet.',
+    });
   }
 
   const data = await graphql<{ user: RawUser | null }>(RESOLVE_USER, { slug }, token);

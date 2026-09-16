@@ -19,11 +19,16 @@ export const GET = route(async (request) => {
   await enforce({ name: 'community-player-user', key: auth.userId, max: 60, windowSec: 60 });
 
   const name = new URL(request.url).searchParams.get('name') ?? '';
-  if (!usernameOk(name)) throw new HttpError(400, 'invalid-username', 'So kann kein Spielername aussehen.');
+  if (!usernameOk(name)) throw new HttpError(400, 'invalid-username', { de: 'So kann kein Spielername aussehen.', en: 'That cannot be a player name.' });
 
   try {
     const row = await be.getPlayer(auth, name);
-    if (!row) throw new HttpError(404, 'player-not-found', 'Einen Spieler mit diesem Namen gibt es hier nicht.');
+    if (!row) {
+      throw new HttpError(404, 'player-not-found', {
+        de: 'Einen Spieler mit diesem Namen gibt es hier nicht.',
+        en: 'There is no player with this name here.',
+      });
+    }
     return ok({ player: publicPlayer(row, auth.userId) }, cookies);
   } catch (err) {
     toHttp(err);

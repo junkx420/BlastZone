@@ -16,7 +16,7 @@ import { authenticate, requireAuth } from './_lib/session.js';
  * Der Text wird roh gespeichert und im Frontend beim Rendern escaped, nie als HTML eingesetzt.
  */
 const fighterSlug = (v: string): string => {
-  if (!FIGHTER_SLUG_PATTERN.test(v)) throw new HttpError(400, 'invalid-fighter', 'Unbekannter Fighter.');
+  if (!FIGHTER_SLUG_PATTERN.test(v)) throw new HttpError(400, 'invalid-fighter', { de: 'Unbekannter Fighter.', en: 'Unknown fighter.' });
   return v;
 };
 
@@ -28,7 +28,12 @@ export const GET = route(async (request) => {
   const fighter = fighterSlug(params.get('fighter') ?? '');
   const beforeRaw = params.get('before');
   const before = beforeRaw === null ? undefined : Number(beforeRaw);
-  if (before !== undefined && (!Number.isSafeInteger(before) || before <= 0)) throw new HttpError(400, 'invalid-cursor', 'Ungültige Seite.');
+  if (before !== undefined && (!Number.isSafeInteger(before) || before <= 0)) {
+    throw new HttpError(400, 'invalid-cursor', {
+      de: 'Ungültige Seite.',
+      en: 'Invalid page.',
+    });
+  }
   await enforce({ name: 'comments-read-ip', key: clientIp(request), max: 120, windowSec: 60 });
   const be = backend();
   // Lesen ist öffentlich. Angemeldet (geprüftes Token) erfährt man zusätzlich, welche Kommentare die eigenen sind.
@@ -56,8 +61,13 @@ export const POST = route(async (request) => {
   const data = await readJson(request, 8192);
   const fighter = fighterSlug(str(data.fighter));
   const text = cleanComment(str(data.body));
-  if (!text) throw new HttpError(400, 'empty-comment', 'Der Kommentar ist leer.');
-  if ([...text].length > COMMENT_MAX) throw new HttpError(400, 'comment-too-long', `Höchstens ${COMMENT_MAX} Zeichen.`);
+  if (!text) throw new HttpError(400, 'empty-comment', { de: 'Der Kommentar ist leer.', en: 'The comment is empty.' });
+  if ([...text].length > COMMENT_MAX) {
+    throw new HttpError(400, 'comment-too-long', {
+      de: `Höchstens ${COMMENT_MAX} Zeichen.`,
+      en: `${COMMENT_MAX} characters at most.`,
+    });
+  }
 
   try {
     return ok({ comment: ownComment(auth, await be.addComment(auth, fighter, text)) }, cookies, 201);
@@ -71,11 +81,11 @@ export const DELETE = route(async (request) => {
   const be = backend();
   const { auth, cookies } = await requireAuth(request, be);
   const id = Number(new URL(request.url).searchParams.get('id'));
-  if (!Number.isSafeInteger(id) || id <= 0) throw new HttpError(400, 'invalid-id', 'Unbekannter Kommentar.');
+  if (!Number.isSafeInteger(id) || id <= 0) throw new HttpError(400, 'invalid-id', { de: 'Unbekannter Kommentar.', en: 'Unknown comment.' });
   try {
     // Leer heißt: Den Kommentar gibt es nicht, oder er gehört jemand anderem. Beides beantwortet dieselbe 404.
     const removed = ownRows(auth, await be.deleteComment(auth, id), 'comment-delete');
-    if (!removed.some((r) => r.id === id)) throw new HttpError(404, 'not-found', 'Nicht gefunden.');
+    if (!removed.some((r) => r.id === id)) throw new HttpError(404, 'not-found', { de: 'Nicht gefunden.', en: 'Not found.' });
     return ok({ id }, cookies);
   } catch (err) {
     toHttp(err);

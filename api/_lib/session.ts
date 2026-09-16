@@ -85,7 +85,7 @@ export async function authenticate(request: Request, be: Backend): Promise<AuthR
 /** Wie authenticate, wirft aber 401, wenn niemand angemeldet ist. */
 export async function requireAuth(request: Request, be: Backend): Promise<{ auth: Auth; cookies: string[] }> {
   const { auth, cookies } = await authenticate(request, be);
-  if (!auth) throw new HttpError(401, 'unauthenticated', 'Bitte melde dich an.');
+  if (!auth) throw new HttpError(401, 'unauthenticated', { de: 'Bitte melde dich an.', en: 'Please log in.' });
   return { auth, cookies };
 }
 

@@ -30,3 +30,4 @@ export const STARTGG_SLUG_PATTERN = /^user[/][0-9a-z]{8}$/;
 export const startggProfileUrl = (slug: string): string => `https://www.start.gg/${slug}`;
 
 export const STARTGG_HINT = 'Deine Profil-URL von start.gg, zum Beispiel start.gg/user/1a2b3c4d. Du findest sie, wenn du auf start.gg dein Profil öffnest.';
+export const STARTGG_HINT_EN = 'Your start.gg profile URL, for example start.gg/user/1a2b3c4d. You find it by opening your profile on start.gg.';

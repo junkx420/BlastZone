@@ -95,7 +95,10 @@ export async function enforce(...limits: Limit[]): Promise<void> {
     throw new HttpError(
       429,
       'rate-limited',
-      `Zu viele Versuche. Versuch es in ${minuten === 1 ? 'einer Minute' : `${minuten} Minuten`} erneut.`,
+      {
+        de: `Zu viele Versuche. Versuch es in ${minuten === 1 ? 'einer Minute' : `${minuten} Minuten`} erneut.`,
+        en: `Too many attempts. Try again in ${minuten === 1 ? 'one minute' : `${minuten} minutes`}.`,
+      },
       { 'Retry-After': String(worst.ttl) },
     );
   }

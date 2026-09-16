@@ -28,12 +28,18 @@ export const POST = route(async (request) => {
   const password = str(body.password);
   const username = str(body.username).trim();
 
-  if (!email) throw new HttpError(400, 'invalid-email', 'Diese E-Mail-Adresse sieht nicht gültig aus.');
+  if (!email) throw new HttpError(400, 'invalid-email', { de: 'Diese E-Mail-Adresse sieht nicht gültig aus.', en: 'This email address does not look valid.' });
   if (!usernameOk(username)) {
-    throw new HttpError(400, 'invalid-username', 'Der Name braucht 3 bis 20 Zeichen: Buchstaben, Ziffern, Unterstrich oder Bindestrich.');
+    throw new HttpError(400, 'invalid-username', {
+      de: 'Der Name braucht 3 bis 20 Zeichen: Buchstaben, Ziffern, Unterstrich oder Bindestrich.',
+      en: 'The name needs 3 to 20 characters: letters, digits, underscore or hyphen.',
+    });
   }
   if (!passwordOk(password)) {
-    throw new HttpError(400, 'weak-password', 'Das Passwort braucht mindestens 8 Zeichen, Groß- und Kleinbuchstaben, eine Zahl und ein Sonderzeichen.');
+    throw new HttpError(400, 'weak-password', {
+      de: 'Das Passwort braucht mindestens 8 Zeichen, Groß- und Kleinbuchstaben, eine Zahl und ein Sonderzeichen.',
+      en: 'The password needs at least 8 characters, upper and lower case letters, a number and a special character.',
+    });
   }
 
   const domain = domainOf(email);
@@ -43,7 +49,12 @@ export const POST = route(async (request) => {
 
   const be = backend();
   try {
-    if (await be.usernameTaken(username)) throw new HttpError(409, 'username-taken', 'Dieser Name ist schon vergeben.');
+    if (await be.usernameTaken(username)) {
+      throw new HttpError(409, 'username-taken', {
+        de: 'Dieser Name ist schon vergeben.',
+        en: 'This name is already taken.',
+      });
+    }
     await be.signUp(email, password, username);
   } catch (err) {
     toHttp(err, 'signup');

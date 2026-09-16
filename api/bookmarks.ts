@@ -16,7 +16,7 @@ import { requireAuth } from './_lib/session.js';
  * Lesezeichen stehen.
  */
 const comboId = (v: string): string => {
-  if (!COMBO_ID_PATTERN.test(v)) throw new HttpError(400, 'invalid-combo', 'Unbekannte Combo.');
+  if (!COMBO_ID_PATTERN.test(v)) throw new HttpError(400, 'invalid-combo', { de: 'Unbekannte Combo.', en: 'Unknown combo.' });
   return v;
 };
 

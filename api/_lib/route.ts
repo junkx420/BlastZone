@@ -1,4 +1,4 @@
-import { clientIp, HttpError, json } from './http.js';
+import { clientIp, HttpError, json, requestLang } from './http.js';
 import { enforce, type Limit } from './ratelimit.js';
 
 /**
@@ -46,18 +46,25 @@ export function route(fn: Handler, options: { skipBaseLimit?: boolean } = {}): H
     const id = requestId(request);
     const path = new URL(request.url).pathname;
     const method = request.method;
+    const lang = requestLang(request);
 
     const withId = (res: Response): Response => {
       res.headers.set('X-Request-Id', id);
       return res;
     };
     const failResponse = (e: HttpError): Response =>
-      json({ ok: false, error: { code: e.code, message: e.message, ref: e.status >= 500 ? id : undefined } }, e.status, [], e.headers);
+      json({ ok: false, error: { code: e.code, message: e.messageFor(lang), ref: e.status >= 500 ? id : undefined } }, e.status, [], e.headers);
 
     let timer: ReturnType<typeof setTimeout> | undefined;
     const deadline = new Promise<never>((_, reject) => {
       timer = setTimeout(
-        () => reject(new HttpError(504, 'timeout', `Der Server hat zu lange gebraucht. Versuch es gleich noch einmal. (Fehler-ID ${id})`)),
+        () =>
+          reject(
+            new HttpError(504, 'timeout', {
+              de: `Der Server hat zu lange gebraucht. Versuch es gleich noch einmal. (Fehler-ID ${id})`,
+              en: `The server took too long. Try again in a moment. (Error ID ${id})`,
+            }),
+          ),
         API_LIMITS.deadlineMs,
       );
     });
@@ -80,7 +87,12 @@ export function route(fn: Handler, options: { skipBaseLimit?: boolean } = {}): H
         if (err.status >= 500) log({ id, path, method, status: err.status, code: err.code }, 'error');
       } else {
         log({ id, path, method, status: 500, error: err instanceof Error ? `${err.name}: ${err.message}` : String(err), stack: err instanceof Error ? err.stack?.split('\n').slice(0, 6).join(' | ') : undefined }, 'error');
-        res = failResponse(new HttpError(500, 'server-error', `Da ist auf unserer Seite etwas schiefgelaufen. Versuch es gleich noch einmal. (Fehler-ID ${id})`));
+        res = failResponse(
+          new HttpError(500, 'server-error', {
+            de: `Da ist auf unserer Seite etwas schiefgelaufen. Versuch es gleich noch einmal. (Fehler-ID ${id})`,
+            en: `Something went wrong on our end. Try again in a moment. (Error ID ${id})`,
+          }),
+        );
       }
     } finally {
       clearTimeout(timer);

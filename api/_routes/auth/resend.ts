@@ -1,6 +1,6 @@
 import { normalizeEmail } from '../../../src/shared/account-rules.js';
 import { backend, BackendError } from '../../_lib/backend.js';
-import { assertSameOrigin, clientIp, ok, readJson, str } from '../../_lib/http.js';
+import { assertSameOrigin, clientIp, ok, pick, readJson, requestLang, str } from '../../_lib/http.js';
 import { route } from '../../_lib/route.js';
 import { enforce } from '../../_lib/ratelimit.js';
 
@@ -29,5 +29,13 @@ export const POST = route(async (request) => {
       console.warn('[resend] ignoriert', err);
     }
   }
-  return ok({ message: 'Falls es zu dieser Adresse ein unbestätigtes Konto gibt, ist eine neue Mail unterwegs.' });
+  return ok({
+    message: pick(
+      {
+        de: 'Falls es zu dieser Adresse ein unbestätigtes Konto gibt, ist eine neue Mail unterwegs.',
+        en: 'If there is an unconfirmed account for this address, a new email is on its way.',
+      },
+      requestLang(request),
+    ),
+  });
 });

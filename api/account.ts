@@ -23,7 +23,10 @@ export const DELETE = route(async (request) => {
     // Bestätigt wird gegen das eigene Profil, geprüft über owner.ts. Gelöscht wird serverseitig nur auth.uid().
     const profile = ownProfile(auth, await be.getProfile(auth));
     if (!profile || str(body.confirm) !== profile.username) {
-      throw new HttpError(400, 'confirm-mismatch', 'Zum Löschen deinen Benutzernamen genau so eintippen, wie er angezeigt wird.');
+      throw new HttpError(400, 'confirm-mismatch', {
+        de: 'Zum Löschen deinen Benutzernamen genau so eintippen, wie er angezeigt wird.',
+        en: 'To delete, type your username exactly as shown.',
+      });
     }
     await be.deleteAccount(auth);
   } catch (err) {

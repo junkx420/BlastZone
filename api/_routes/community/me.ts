@@ -41,7 +41,12 @@ export const PATCH = route(async (request) => {
 
   const patch: { listed?: boolean; secondaries?: string[] } = {};
   if ('listed' in body) {
-    if (typeof body.listed !== 'boolean') throw new HttpError(400, 'invalid-listed', 'Ungültige Angabe für das Verzeichnis.');
+    if (typeof body.listed !== 'boolean') {
+      throw new HttpError(400, 'invalid-listed', {
+        de: 'Ungültige Angabe für das Verzeichnis.',
+        en: 'Invalid directory setting.',
+      });
+    }
     patch.listed = body.listed;
   }
 
@@ -53,10 +58,15 @@ export const PATCH = route(async (request) => {
       if (!checked.ok) throw new HttpError(400, 'invalid-secondaries', checked.message);
       patch.secondaries = checked.value;
     }
-    if (!Object.keys(patch).length) throw new HttpError(400, 'empty', 'Nichts zu ändern.');
+    if (!Object.keys(patch).length) throw new HttpError(400, 'empty', { de: 'Nichts zu ändern.', en: 'Nothing to change.' });
 
     const row = ownRows(auth, await be.saveCommunity(auth, patch), 'community-save')[0];
-    if (!row) throw new HttpError(403, 'forbidden', 'Nicht gespeichert. Ist deine E-Mail-Adresse bestätigt?');
+    if (!row) {
+      throw new HttpError(403, 'forbidden', {
+        de: 'Nicht gespeichert. Ist deine E-Mail-Adresse bestätigt?',
+        en: 'Not saved. Is your email address confirmed?',
+      });
+    }
     return ok({ settings: { listed: row.listed, secondaries: row.secondaries } satisfies CommunitySettings }, cookies);
   } catch (err) {
     toHttp(err);
