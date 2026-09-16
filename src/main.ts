@@ -16,6 +16,7 @@ import { initShareButtons } from './components/shareButtons';
 import { initPalette } from './components/palette';
 import { renderShell } from './components/shell';
 import { initSiteBackground } from './components/siteBackground';
+import { prepareContent } from './data/guide-index';
 import { lang, t } from './i18n';
 import { initErrorHandling, reportError } from './lib/errors';
 import { applyTheme } from './lib/theme';
@@ -208,6 +209,9 @@ function render(route: Route, nav: NavContext): void {
   currentKey = key;
   requestAnimationFrame(() => ScrollTrigger.refresh());
 }
+
+// Englische Inhalte vor der ersten Seite einsetzen (wartet höchstens 4 s, bei Deutsch gar nicht).
+await prepareContent();
 
 startRouter((route, nav) => {
   const key = pageKey(route);
