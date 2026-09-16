@@ -1,3 +1,4 @@
+import { TEXT as S_MINUS } from './s-minus';
 import { TEXT as S_PLUS } from './s-plus';
 import type { GuideTexts } from './types';
 
@@ -7,4 +8,4 @@ import type { GuideTexts } from './types';
  */
 export { TAGLINES } from './taglines';
 
-export const STATIC_TEXTS: GuideTexts = { ...S_PLUS };
+export const STATIC_TEXTS: GuideTexts = { ...S_PLUS, ...S_MINUS };
