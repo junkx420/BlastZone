@@ -711,6 +711,25 @@
    * hier nichts nach außen ragen (KO-Stempel und Schritte liegen innen).
    * `auto 560px` merkt sich nach dem ersten Rendern die echte Höhe.
    */
+  /* Ziel eines geteilten Links (?combo=, pages/fighter.ts): kurz hervorgehoben, dann wieder normal. */
+  .combo.is-target {
+    border-color: var(--accent-line);
+    box-shadow: 0 0 0 2px var(--accent-line);
+    animation: combo-target 1.2s var(--ease-out) 2;
+  }
+  .combo:focus {
+    outline: none;
+  }
+  @keyframes combo-target {
+    50% {
+      box-shadow: 0 0 0 8px var(--accent-soft);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .combo.is-target {
+      animation: none;
+    }
+  }
   .combo {
     content-visibility: auto;
     contain-intrinsic-size: auto 560px;

@@ -21,6 +21,9 @@ export const combo = defineMessages({
     'combo.approxDamage': '≈ {n} %',
     'combo.tagZtd': '0-to-Death',
     'combo.tagKo': 'Kill-Confirm',
+    'combo.copyLink': 'Link zu dieser Combo kopieren',
+    'combo.linkCopied': 'Link kopiert.',
+    'combo.copyFailed': 'Kopieren hat nicht geklappt.',
     'combo.play': 'Abspielen',
     'combo.again': 'Nochmal',
 
@@ -70,6 +73,9 @@ export const combo = defineMessages({
     'combo.approxDamage': '≈ {n}%',
     'combo.tagZtd': '0-to-Death',
     'combo.tagKo': 'Kill Confirm',
+    'combo.copyLink': 'Copy link to this combo',
+    'combo.linkCopied': 'Link copied.',
+    'combo.copyFailed': 'Copying did not work.',
     'combo.play': 'Play',
     'combo.again': 'Replay',
 

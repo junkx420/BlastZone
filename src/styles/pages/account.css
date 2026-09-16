@@ -538,11 +538,16 @@
   .combo__head {
     position: relative;
   }
-  .combo__bookmark {
-    display: none;
+  /* Knöpfe oben rechts in der Karte: Link kopieren immer, Lesezeichen nur angemeldet. */
+  .combo__actions {
     position: absolute;
     top: -6px;
     right: -6px;
+    display: flex;
+    gap: 2px;
+  }
+  .combo__act {
+    display: grid;
     place-items: center;
     width: 40px;
     height: 40px;
@@ -553,21 +558,31 @@
       background-color var(--t-fast),
       transform var(--t-base) var(--ease-spring);
   }
+  .combo__bookmark {
+    display: none;
+  }
   :root[data-auth='user'] .combo__bookmark {
     display: grid;
   }
-  :root[data-auth='user'] .combo__title {
+  .combo__title {
     padding-right: 40px;
   }
-  .combo__bookmark .icon {
+  :root[data-auth='user'] .combo__title {
+    padding-right: 80px;
+  }
+  .combo__act .icon {
     width: 20px;
     height: 20px;
   }
-  .combo__bookmark:hover {
+  .combo__act:hover {
     background: rgb(var(--fg-rgb) / 0.07);
     color: var(--text);
   }
-  .combo__bookmark:active {
+  .combo__act:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: -2px;
+  }
+  .combo__act:active {
     transform: scale(0.9);
   }
   .combo__bookmark-on,
@@ -809,6 +824,10 @@
     flex: 1 1 280px;
     min-width: 0;
   }
+  /* Fehler unter Text und Knopf, nicht als dritte Spalte daneben (16.09.2026, Screenshot des Nutzers). */
+  .community-self .fcomments__error {
+    flex-basis: 100%;
+  }
   .community-self--done {
     border-style: solid;
     font-weight: 700;
@@ -1015,6 +1034,17 @@
     background: var(--accent-soft);
     font-size: var(--fs-100);
     font-weight: 700;
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast);
+  }
+  a.comment__flair:hover {
+    border-color: var(--accent-glow);
+    background: color-mix(in oklch, var(--accent) 30%, transparent);
+  }
+  a.comment__flair:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
   }
   .comment__flair-face {
     position: relative;

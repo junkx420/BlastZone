@@ -52,9 +52,14 @@ export function comboCard(combo: Combo): Markup {
   return html`<article class="combo" data-combo="${combo.id}" aria-labelledby="${combo.id}-title">
     <header class="combo__head">
       <h3 class="combo__title" id="${combo.id}-title">${combo.title}</h3>
-      <button class="combo__bookmark" type="button" data-bookmark="${combo.id}" aria-pressed="false" aria-describedby="${combo.id}-title" title="${t('bookmark.save')}">
-        <span class="combo__bookmark-off">${ICONS.bookmark}</span><span class="combo__bookmark-on">${ICONS.bookmarkFilled}</span><span class="vh">${t('bookmark.saveVh')}</span>
-      </button>
+      <div class="combo__actions">
+        <button class="combo__act combo__share" type="button" data-share="${combo.id}" aria-describedby="${combo.id}-title" title="${t('combo.copyLink')}">
+          ${ICONS.link}<span class="vh">${t('combo.copyLink')}</span>
+        </button>
+        <button class="combo__act combo__bookmark" type="button" data-bookmark="${combo.id}" aria-pressed="false" aria-describedby="${combo.id}-title" title="${t('bookmark.save')}">
+          <span class="combo__bookmark-off">${ICONS.bookmark}</span><span class="combo__bookmark-on">${ICONS.bookmarkFilled}</span><span class="vh">${t('bookmark.saveVh')}</span>
+        </button>
+      </div>
       <dl class="combo__facts">
         <div class="fact"><dt>${t('combo.percent')}</dt><dd>${windowText(combo)}</dd></div>
         <div class="fact"><dt>${t('combo.source')}</dt><dd><a href="${combo.source.url}" target="_blank" rel="noopener">${combo.source.label}${ICONS.external}</a></dd></div>

@@ -53,6 +53,10 @@ export function toHttp(err: unknown, context: 'default' | 'login' | 'signup' = '
     case 'bad-request':
       throw new HttpError(400, err.code, 'Die Eingabe wurde abgelehnt.');
     case 'unavailable':
+      // Fehlende Migration (0005, 0006) klar benennen statt als Ausfall: Das Log nennt die Datei, der Nutzer bekommt einen Zeitrahmen.
+      if (err.message === 'community-missing' || err.message === 'startgg-verification-columns-missing') {
+        throw new HttpError(503, 'not-ready', 'Diese Funktion wird gerade eingerichtet. Versuch es in ein paar Minuten noch einmal.');
+      }
       throw new HttpError(503, err.code, 'Der Dienst ist gerade nicht erreichbar. Versuch es gleich noch einmal.');
   }
 }

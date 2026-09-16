@@ -12,6 +12,7 @@ import './styles/theme-light.css';
 
 import { mountAccountNav } from './components/accountNav';
 import { initBookmarkButtons } from './components/bookmarkButtons';
+import { initShareButtons } from './components/shareButtons';
 import { initPalette } from './components/palette';
 import { renderShell } from './components/shell';
 import { initSiteBackground } from './components/siteBackground';
@@ -58,6 +59,7 @@ initReveals(shell.main);
  */
 mountAccountNav(shell.account, shell.menuExtra);
 initBookmarkButtons();
+initShareButtons();
 let lastUserId: string | null = null;
 onAuth((state) => {
   const user = state.status === 'user' ? state.user : null;

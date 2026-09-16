@@ -207,6 +207,34 @@ function combosSection(f: Fighter, guide: FighterGuide | undefined, active: TabI
   </section>`;
 }
 
+/**
+ * Geteilter Link `?combo=<id>` (components/shareButtons.ts): Karte in den Blick holen,
+ * kurz hervorheben und den Fokus darauf setzen, damit auch Tastatur und Screenreader
+ * dort landen. Danach verschwindet der Parameter aus der Adresse, sonst hinge er an
+ * jedem späteren Tab-Wechsel.
+ */
+function focusCombo(root: HTMLElement, id: string): void {
+  const card = qsa<HTMLElement>('[data-combo]', root).find((c) => c.dataset.combo === id);
+  const query = parse(location.hash).query;
+  query.delete('combo');
+  replaceQuery(query);
+  if (!card) return;
+  card.classList.add('is-target');
+  card.tabIndex = -1;
+  // setTimeout statt requestAnimationFrame: Der Tab ist gerade erst sichtbar geworden, und rAF steht in Hintergrund-Tabs still.
+  window.setTimeout(() => {
+    scrollToTarget(card);
+    card.focus({ preventScroll: true });
+  }, 80);
+  window.setTimeout(() => card.classList.remove('is-target'), 2800);
+}
+
+/** Tab, in dem eine Combo steht. Ohne Treffer der aus der Adresse. */
+const tabFor = (guide: FighterGuide | undefined, comboId: string | null, fallback: TabId): TabId => {
+  const hit = comboId ? guide?.combos.find((c) => c.id === comboId) : undefined;
+  return hit ? (hit.kind === 'meta' ? 'meta' : 'bnb') : fallback;
+};
+
 function navSection(prev: Fighter, next: Fighter): Markup {
   const item = (f: Fighter, dir: 'prev' | 'next'): Markup => {
     const p = TIER_BY_SLUG.get(f.slug);
@@ -321,14 +349,16 @@ export function fighterPage(route: Route): PageView {
   const hasGuide = GUIDE_SLUGS.has(f.slug);
   const guide = guideFor(f.slug);
   const video = videoFor(f.slug);
-  const active: TabId = route.query.get('routen') === 'meta' ? 'meta' : 'bnb';
+  const fromUrl: TabId = route.query.get('routen') === 'meta' ? 'meta' : 'bnb';
+  const targetCombo = route.query.get('combo');
+  const active = tabFor(guide, targetCombo, fromUrl);
   const i = BY_RANK.indexOf(f);
   const prev = BY_RANK[(i - 1 + BY_RANK.length) % BY_RANK.length] ?? f;
   const next = BY_RANK[(i + 1) % BY_RANK.length] ?? f;
 
   return {
     title: `${f.name}: Combos, Frame Data und Tier | Blastzone`,
-    anchor: route.query.has('routen') ? '#combos' : undefined,
+    anchor: route.query.has('routen') || targetCombo ? '#combos' : undefined,
     markup: html`<article class="page page--flush fighter" style="${accentVars(f.colors)}" aria-labelledby="fighter-name">
       ${fighterBackdrop(f)} ${heroSection(f)} ${statsSection(f)}
       <div data-meta>${metaSection(f, guide)}</div>
@@ -386,7 +416,10 @@ export function fighterPage(route: Route): PageView {
         comboCleanups = [bindComboCards(root, g.combos), mountTabs(root, g.combos)];
       };
 
-      if (guide) wireCombos(guide);
+      if (guide) {
+        wireCombos(guide);
+        if (targetCombo) focusCombo(root, targetCombo);
+      }
       else if (hasGuide) {
         // Skelett, bis die Daten da sind. Scheitert das Laden, ersetzt ein Fehler mit Ausweg das Skelett.
         const loadCombos = (): void => {
@@ -397,8 +430,9 @@ export function fighterPage(route: Route): PageView {
               if (!loaded || !host?.isConnected) return;
               const metaHost = qs<HTMLElement>('[data-meta]', root);
               if (metaHost) mount(metaHost, metaSection(f, loaded));
-              mount(host, combosSection(f, loaded, active));
+              mount(host, combosSection(f, loaded, tabFor(loaded, targetCombo, fromUrl)));
               wireCombos(loaded);
+              if (targetCombo) focusCombo(root, targetCombo);
             },
             () => {
               const slot = qs<HTMLElement>('[data-combos] .skeleton, [data-combos] [data-load-error]', root);
