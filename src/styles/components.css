@@ -988,6 +988,11 @@
     color: var(--text-muted);
     font-size: var(--fs-200);
   }
+  .legal__lang a {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
   .legal__address {
     margin-bottom: var(--sp-3);
     color: var(--text);
