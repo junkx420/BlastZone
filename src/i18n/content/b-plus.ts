@@ -216,6 +216,7 @@ export const TEXT: GuideTexts = {
         tip: 'Ken’s bread and butter: two light jabs, then the command input right away.',
       },
       'ken-ftilt-shoryuken': {
+        title: 'Forward Tilt (close) → Shoryuken',
         tip: 'Only at point-blank range. Input the Shoryuken as fast as possible after the hit.',
         steps: { 0: { label: 'Forward Tilt at point-blank range' } },
       },
