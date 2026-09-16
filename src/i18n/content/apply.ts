@@ -21,7 +21,7 @@ const comboText = (texts: GuideTexts, slug: string, id: string): ComboText | und
  * Echo und Original (flache Kopie in echoGuide), dieselbe Übersetzung landet
  * dann eben zweimal am selben Objekt.
  */
-export function applyGuideTexts(guides: readonly FighterGuide[], texts: GuideTexts): void {
+export function applyGuideTexts(guides: readonly FighterGuide[], texts: GuideTexts, tags: Readonly<Record<string, string>> = {}): void {
   for (const g of guides) {
     const t = texts[g.slug];
     const base = ECHO_GUIDES[g.slug] ? texts[ECHO_GUIDES[g.slug]!] : undefined;
@@ -32,6 +32,8 @@ export function applyGuideTexts(guides: readonly FighterGuide[], texts: GuideTex
     if (weaknesses && weaknesses.length === g.weaknesses.length) g.weaknesses = weaknesses;
 
     for (const c of g.combos) {
+      // Neues Array statt Änderung am alten: Echo und Original teilen sich das Tag-Array.
+      if (c.tags) c.tags = c.tags.map((tag) => tags[tag] ?? tag);
       const ct = comboText(texts, g.slug, c.id);
       if (!ct) continue;
       if (ct.title) c.title = ct.title;

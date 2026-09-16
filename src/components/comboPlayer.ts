@@ -70,7 +70,7 @@ export function comboCard(combo: Combo): Markup {
         ? html`<ul class="combo__tags" role="list">
             ${combo.ztd ? html`<li class="tag tag--ztd">${t('combo.tagZtd')}</li>` : ''}
             ${combo.kills && !combo.ztd ? html`<li class="tag tag--ko">${t('combo.tagKo')}</li>` : ''}
-            ${(combo.tags ?? []).map((t) => html`<li class="tag">${t}</li>`)}
+            ${(combo.tags ?? []).map((tag) => html`<li class="tag">${tag}</li>`)}
           </ul>`
         : ''}
     </header>

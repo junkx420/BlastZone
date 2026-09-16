@@ -7,5 +7,6 @@ import type { GuideTexts } from './types';
  * guides.ts (S+ und S−). Wird nur bei englischer Seite nachgeladen (prepareContent).
  */
 export { TAGLINES } from './taglines';
+export { TAGS } from './tags';
 
 export const STATIC_TEXTS: GuideTexts = { ...S_PLUS, ...S_MINUS };

@@ -64,8 +64,8 @@ async function importLate(): Promise<typeof import('./guides-late')> {
  * Englische Inhalte (src/i18n/content/). Nur bei englischer Seite geladen. Scheitert
  * der Abruf, bleibt es beim Deutschen, statt die Combos gar nicht zu zeigen.
  */
-const importLateTexts = (): Promise<GuideTexts | null> =>
-  lang === 'en' ? import('../i18n/content/late').then((m) => m.LATE_TEXTS, () => null) : Promise.resolve(null);
+const importLateTexts = (): Promise<{ texts: GuideTexts; tags: Record<string, string> } | null> =>
+  lang === 'en' ? import('../i18n/content/late').then((m) => ({ texts: m.LATE_TEXTS, tags: m.TAGS }), () => null) : Promise.resolve(null);
 
 /**
  * Vor dem ersten Zeichnen: Taglines und die statischen Guides (S+, S−) übersetzen.
@@ -76,10 +76,10 @@ export async function prepareContent(timeoutMs = 4000): Promise<void> {
   if (lang !== 'en') return;
   let late = false;
   const work = import('../i18n/content/static').then(
-    ({ STATIC_TEXTS, TAGLINES }) => {
+    ({ STATIC_TEXTS, TAGLINES, TAGS }) => {
       if (late) return;
       applyTaglines(FIGHTERS, TAGLINES);
-      applyGuideTexts(GUIDES, STATIC_TEXTS);
+      applyGuideTexts(GUIDES, STATIC_TEXTS, TAGS);
     },
     () => {},
   );
@@ -97,8 +97,8 @@ export async function prepareContent(timeoutMs = 4000): Promise<void> {
 /** Loads the A+ and lower tiers once; repeated calls share the same promise. */
 export function loadLateGuides(): Promise<FighterGuide[]> {
   if (latePromise) return latePromise;
-  const pending = Promise.all([importLate(), importLateTexts()]).then(([{ LATE_GUIDES }, texts]) => {
-    if (texts) applyGuideTexts(LATE_GUIDES, texts);
+  const pending = Promise.all([importLate(), importLateTexts()]).then(([{ LATE_GUIDES }, english]) => {
+    if (english) applyGuideTexts(LATE_GUIDES, english.texts, english.tags);
     LATE_GUIDES.forEach((g) => lateBySlug.set(g.slug, g));
     if (import.meta.env.DEV) {
       const listed = new Set<string>(LATE_SLUGS);

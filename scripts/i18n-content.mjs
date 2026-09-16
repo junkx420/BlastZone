@@ -34,7 +34,7 @@ const TIERS = {
 
 /** Wörter, an denen man einen deutschen Titel oder Move-Namen erkennt. Move-Namen selbst sind englisch. */
 const GERMAN = new RegExp(
-  '[äöüÄÖÜß„]|\\b(mit|und|oder|aus|auf|an|am|im|vom|zum|zur|ohne|bei|gegen|nach|über|unter|Sprung|Wurf|Landung|Kante|Schild|Boden|Luft|Treffer|Griff|gehalten|halten|voll|kurz|lang|Amboss|geladen|aufgeladen|Plattform|Wand|Stufe|ungeladen|Konter|Kiste|Rakete|Bombe|Klinge|Schwert|Pfeil|Feuer|Blitz|Sprint|Kette|Spitze|Schleife|Linker|Rechter|fallend|steigend|nahe|der|die|das|den|dem|des|erster|zweiter|letzter|beide|alle|Rolle|Ecke|hinten|vorne|oben|unten|Ladung|setzen|loslassen|dann|leicht|gefallen|landen|angetippt|nur|wieder|direkt|sofort|fangen|werfen|ziehen|zünden|laden|springen|drücken|Knopf|abbrechen|treffen|schießen|als|bodennahe[rn]?|erneut|Schritt|vor|zurück|weiter|Wechsel|wechseln|Angriff|Ende|Anfang|kleben|Kopf|Fuß|Bein|umgedreht|zwei|drei|vier|fünf|einmal|zweimal|Schuss|Schüsse|Gegner|Lanze|Lanzenspitze|Landende[rn]?|Glocke|Bumerang|aufnehmen|Feuerpfeil|getippt|aufstellen|Enterhaken|Tontaube|umgedrehte[rn]?|Kompletter|Nachlaufen|Nadeln|Vorlaufen|Anlaufschritt|nah|Nahdistanz-Eier|Eier|hintereinander|Stolpern|letzte|Kommando-Grab|Bohrer|Landetreffer)\\b',
+  '[äöüÄÖÜß„]|\\b(mit|und|oder|aus|auf|an|am|im|vom|zum|zur|ohne|bei|gegen|nach|über|unter|Sprung|Wurf|Landung|Kante|Schild|Boden|Luft|Treffer|Griff|gehalten|halten|voll|kurz|lang|Amboss|geladen|aufgeladen|Plattform|Wand|Stufe|ungeladen|Konter|Kiste|Rakete|Bombe|Klinge|Schwert|Pfeil|Feuer|Blitz|Sprint|Kette|Spitze|Schleife|Linker|Rechter|fallend|steigend|nahe|der|die|das|den|dem|des|erster|zweiter|letzter|beide|alle|Rolle|Ecke|hinten|vorne|oben|unten|Ladung|setzen|loslassen|dann|leicht|gefallen|landen|angetippt|nur|wieder|direkt|sofort|fangen|werfen|ziehen|zünden|laden|springen|drücken|Knopf|abbrechen|treffen|schießen|als|bodennahe[rn]?|erneut|Schritt|vor|zurück|weiter|Wechsel|wechseln|Angriff|Ende|Anfang|kleben|Kopf|Fuß|Bein|umgedreht|zwei|drei|vier|fünf|einmal|zweimal|Schuss|Schüsse|Gegner|Lanze|Lanzenspitze|Landende[rn]?|Glocke|Bumerang|aufnehmen|Feuerpfeil|getippt|aufstellen|Enterhaken|Tontaube|umgedrehte[rn]?|Kompletter|Nachlaufen|Nadeln|Vorlaufen|Anlaufschritt|nah|Nahdistanz-Eier|Eier|hintereinander|Stolpern|letzte|Kommando-Grab|Bohrer|Landetreffer|Doppelsprung|aufgebaute[sn]?|losschicken|vergraben|eingesteckte[sn]?|Nahdistanz|Fallende[rn]?)\\b',
   'i',
 );
 const SEPARATOR = String.fromCharCode(1);
@@ -196,8 +196,16 @@ try {
     // Taglines
     const { TAGLINES } = fs.existsSync(path.join(ROOT, 'src/i18n/content/taglines.ts')) ? await load('/src/i18n/content/taglines.ts') : { TAGLINES: {} };
     const noTagline = FIGHTERS.filter((f) => !TAGLINES[f.slug]).map((f) => f.slug);
+    // Tags: ein Wörterbuch für alle Tiers.
+    const { TAGS } = await load('/src/i18n/content/tags.ts');
+    const usedTags = new Set();
+    for (const tier of Object.keys(TIERS)) for (const g of await guidesOf(tier)) for (const c of g.combos) (c.tags ?? []).forEach((tag) => usedTags.add(tag));
+    const noTag = [...usedTags].filter((tag) => !(tag in TAGS));
+    const unusedTags = Object.keys(TAGS).filter((tag) => !usedTags.has(tag));
+    if (cmd === 'check' && noTag.length) console.log(`\nTags ohne Übersetzung (${noTag.length}): ${noTag.join(' | ')}`);
+    if (cmd === 'check' && unusedTags.length) console.log(`\nÜbersetzte Tags ohne Verwendung (${unusedTags.length}): ${unusedTags.join(' | ')}`);
     if (cmd === 'check' && noTagline.length) console.log(`\nTaglines fehlen (${noTagline.length}): ${noTagline.slice(0, 20).join(', ')}${noTagline.length > 20 ? ' …' : ''}`);
-    if (cmd === 'check') process.exitCode = problems.fehlt.length || problems.veraltet.length || problems.verwaist.length ? 1 : 0;
+    if (cmd === 'check') process.exitCode = problems.fehlt.length || problems.veraltet.length || problems.verwaist.length || noTag.length ? 1 : 0;
   } else {
     console.log('Aufruf: node scripts/i18n-content.mjs extract <tier> | check | accept <tier> | stats');
   }
