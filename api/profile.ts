@@ -1,4 +1,4 @@
-import { FIGHTER_SLUG_PATTERN } from '../src/shared/account-rules.js';
+import { FIGHTER_SLUG_PATTERN, skinOk } from '../src/shared/account-rules.js';
 import { backend, toHttp, type Theme } from './_lib/backend.js';
 import { assertSameOrigin, HttpError, ok, readJson } from './_lib/http.js';
 import { route } from './_lib/route.js';
@@ -7,11 +7,12 @@ import { enforce } from './_lib/ratelimit.js';
 import { requireAuth } from './_lib/session.js';
 
 /**
- * GET   /api/profile                       eigenes Profil
- * PATCH /api/profile  { mainFighter?, theme? }
+ * GET   /api/profile                                 eigenes Profil
+ * PATCH /api/profile  { mainFighter?, mainSkin?, theme? }
  *
  * Den Benutzernamen kann niemand über die API ändern: Die Datenbank erlaubt
- * UPDATE nur auf main_fighter und theme (Spaltenrechte in der Migration).
+ * UPDATE nur auf main_fighter, main_skin und theme (Spaltenrechte in den Migrationen).
+ * Ein neuer Main ohne `mainSkin` startet mit Skin 1.
  */
 export const GET = route(async (request) => {
   const be = backend();
@@ -32,7 +33,7 @@ export const PATCH = route(async (request) => {
   await enforce({ name: 'profile-update-user', key: auth.userId, max: 30, windowSec: 60 });
   const body = await readJson(request);
 
-  const patch: { mainFighter?: string | null; theme?: Theme } = {};
+  const patch: { mainFighter?: string | null; mainSkin?: number; theme?: Theme } = {};
   if ('mainFighter' in body) {
     const v = body.mainFighter;
     if (v !== null && (typeof v !== 'string' || !FIGHTER_SLUG_PATTERN.test(v))) {
@@ -52,9 +53,16 @@ export const PATCH = route(async (request) => {
     }
     patch.theme = body.theme;
   }
-  if (!Object.keys(patch).length) throw new HttpError(400, 'empty', { de: 'Nichts zu ändern.', en: 'Nothing to change.' });
+  if (!Object.keys(patch).length && !('mainSkin' in body)) throw new HttpError(400, 'empty', { de: 'Nichts zu ändern.', en: 'Nothing to change.' });
 
   try {
+    if ('mainSkin' in body || 'mainFighter' in patch) {
+      // Der Skin muss zum Main passen. Der Main kommt aus dem Körper oder vom Server, nie geraten.
+      const main = 'mainFighter' in patch ? (patch.mainFighter ?? null) : (ownProfile(auth, await be.getProfile(auth))?.mainFighter ?? null);
+      const skin = 'mainSkin' in body ? body.mainSkin : 1;
+      if (!skinOk(main, skin)) throw new HttpError(400, 'invalid-skin', { de: 'Unbekannter Skin.', en: 'Unknown skin.' });
+      patch.mainSkin = skin;
+    }
     return ok({ profile: ownProfile(auth, await be.updateProfile(auth, patch)) }, cookies);
   } catch (err) {
     toHttp(err);

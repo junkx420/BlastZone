@@ -1,5 +1,6 @@
+import { safeSkin } from '../../src/shared/account-rules.js';
 import { HttpError } from './http.js';
-import type { Auth, BookmarkRow, CommentRow, DirectoryRow, PlayerRow, Profile } from './types.js';
+import type { Auth, BlockRow, BookmarkRow, CommentRow, DirectoryRow, MessageRow, PlayerRow, Profile } from './types.js';
 
 /**
  * Letzte Prüfung vor der Antwort: Gehört das, was zurückgeht, dem angemeldeten Nutzer?
@@ -34,7 +35,41 @@ export function ownRows<T extends { userId: string }>(auth: Auth, rows: T[], wha
   return rows;
 }
 
+/** Zeilen eines anderen, ausdrücklich angefragten Kontos (geteilte start.gg-Daten). Gleiche Regel wie ownRows. */
+export function rowsOf<T extends { userId: string }>(ownerId: string, rows: T[], what: string): T[] {
+  for (const row of rows) if (row.userId !== ownerId) refuse(what);
+  return rows;
+}
+
 export const bookmarkIds = (auth: Auth, rows: BookmarkRow[]): string[] => ownRows(auth, rows, 'bookmarks').map((r) => r.comboId);
+
+/** Jede Nachricht muss zwischen dem angemeldeten Nutzer und genau diesem Gegenüber laufen. */
+export function threadRows(auth: Auth, otherId: string, rows: MessageRow[]): MessageRow[] {
+  for (const r of rows) {
+    const ok = (r.senderId === auth.userId && r.recipientId === otherId) || (r.senderId === otherId && r.recipientId === auth.userId);
+    if (!ok) refuse('messages');
+  }
+  return rows;
+}
+
+export interface PublicMessage {
+  id: number;
+  mine: boolean;
+  body: string;
+  createdAt: string;
+  /** Nur bei eigenen Nachrichten: hat das Gegenüber sie gelesen? */
+  read: boolean;
+}
+
+export const publicMessage = (auth: Auth, r: MessageRow): PublicMessage => ({
+  id: r.id,
+  mine: r.senderId === auth.userId,
+  body: r.body,
+  createdAt: r.createdAt,
+  read: r.senderId === auth.userId && r.readAt !== null,
+});
+
+export const blockedNames = (auth: Auth, rows: BlockRow[]): string[] => ownRows(auth, rows.map((r) => ({ ...r, userId: r.blockerId })), 'blocks').map((r) => r.username);
 
 export interface PublicComment {
   id: number;
@@ -42,7 +77,7 @@ export interface PublicComment {
   body: string;
   createdAt: string;
   mine: boolean;
-  author: { username: string; mainFighter: string | null };
+  author: { username: string; mainFighter: string | null; mainSkin: number };
 }
 
 /** Kommentare sind öffentlich. Zurück geht nur, was die Seite anzeigt, ohne Nutzer-ID. */
@@ -52,28 +87,42 @@ export const publicComment = (row: CommentRow, viewerId: string | null): PublicC
   body: row.body,
   createdAt: row.createdAt,
   mine: viewerId !== null && row.userId === viewerId,
-  author: { username: row.author.username, mainFighter: row.author.mainFighter },
+  author: { username: row.author.username, mainFighter: row.author.mainFighter, mainSkin: safeSkin(row.author.mainFighter, row.author.mainSkin) },
 });
+
+export interface PublicFighterPick {
+  fighter: string;
+  skin: number;
+}
 
 export interface PublicPlayer {
   username: string;
   mainFighter: string | null;
+  mainSkin: number;
   /** Nur Jahr und Monat („2026-09“). Der genaue Tag wird nicht gebraucht. */
   memberSince: string;
-  secondaries: string[];
+  secondaries: PublicFighterPick[];
   isSelf: boolean;
   stats: { comments: number };
   recentComments: Array<{ id: number; fighter: string; body: string; createdAt: string }>;
 }
 
-/** Secondaries ohne den Main: Wechselt jemand den Main auf einen Secondary, steht er nicht doppelt da. */
-const secondariesWithout = (secondaries: string[], main: string | null): string[] => secondaries.filter((s) => s !== main).slice(0, 2);
+/**
+ * Secondaries mit Skin, ohne den Main: Wechselt jemand den Main auf einen Secondary,
+ * steht er nicht doppelt da. Skins, die nicht (mehr) zum Fighter passen, werden 1.
+ */
+const secondaryPicks = (secondaries: string[], skins: number[], main: string | null): PublicFighterPick[] =>
+  secondaries
+    .map((fighter, i) => ({ fighter, skin: safeSkin(fighter, skins[i]) }))
+    .filter((p) => p.fighter !== main)
+    .slice(0, 2);
 
 /** Spielerprofil für andere Mitglieder. Keine Nutzer-ID, keine E-Mail, nichts Privates. */
 export const publicPlayer = (row: PlayerRow, viewerId: string): PublicPlayer => ({
   username: row.username,
   mainFighter: row.mainFighter,
-  secondaries: secondariesWithout(row.secondaries, row.mainFighter),
+  mainSkin: safeSkin(row.mainFighter, row.mainSkin),
+  secondaries: secondaryPicks(row.secondaries, row.secondarySkins, row.mainFighter),
   memberSince: row.createdAt.slice(0, 7),
   isSelf: row.userId === viewerId,
   stats: { comments: row.commentCount },
@@ -83,14 +132,16 @@ export const publicPlayer = (row: PlayerRow, viewerId: string): PublicPlayer => 
 export interface PublicDirectoryEntry {
   username: string;
   mainFighter: string | null;
-  secondaries: string[];
+  mainSkin: number;
+  secondaries: PublicFighterPick[];
   memberSince: string;
 }
 
 export const publicDirectoryEntry = (row: DirectoryRow): PublicDirectoryEntry => ({
   username: row.username,
   mainFighter: row.mainFighter,
-  secondaries: secondariesWithout(row.secondaries, row.mainFighter),
+  mainSkin: safeSkin(row.mainFighter, row.mainSkin),
+  secondaries: secondaryPicks(row.secondaries, row.secondarySkins, row.mainFighter),
   memberSince: row.createdAt.slice(0, 7),
 });
 

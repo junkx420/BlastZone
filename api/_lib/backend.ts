@@ -71,7 +71,7 @@ export function toHttp(err: unknown, context: 'default' | 'login' | 'signup' = '
       throw new HttpError(400, err.code, { de: 'Die Eingabe wurde abgelehnt.', en: 'The input was rejected.' });
     case 'unavailable':
       // Fehlende Migration (0005, 0006) klar benennen statt als Ausfall: Das Log nennt die Datei, der Nutzer bekommt einen Zeitrahmen.
-      if (err.message === 'community-missing' || err.message === 'startgg-verification-columns-missing') {
+      if (err.message === 'community-missing' || err.message === 'social-missing' || err.message === 'startgg-verification-columns-missing') {
         throw new HttpError(503, 'not-ready', {
           de: 'Diese Funktion wird gerade eingerichtet. Versuch es in ein paar Minuten noch einmal.',
           en: 'This feature is being set up right now. Try again in a few minutes.',

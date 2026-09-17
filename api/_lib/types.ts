@@ -33,7 +33,17 @@ export interface Profile {
   id: string;
   username: string;
   mainFighter: string | null;
+  /** 1 bis 8, 1 ist der Standard-Skin. Vor Migration 0007 immer 1. */
+  mainSkin: number;
   theme: Theme;
+}
+
+/** Ein fremdes Konto, nur zum Auflösen eines Namens. Die ID bleibt auf dem Server. */
+export interface ProfileRef {
+  userId: string;
+  username: string;
+  mainFighter: string | null;
+  mainSkin: number;
 }
 
 /**
@@ -46,7 +56,7 @@ export interface CommentRow {
   fighter: string;
   body: string;
   createdAt: string;
-  author: { username: string; mainFighter: string | null };
+  author: { username: string; mainFighter: string | null; mainSkin: number };
 }
 
 export interface BookmarkRow {
@@ -90,23 +100,70 @@ export interface PlayerRow {
   createdAt: string;
   commentCount: number;
   recentComments: Array<{ id: number; fighter: string; body: string; createdAt: string }>;
+  mainSkin: number;
   /** Leer, solange Migration 0006 fehlt oder nichts gewählt ist. */
   secondaries: string[];
+  secondarySkins: number[];
+  /** Hat der Besitzer seine start.gg-Ergebnisse für Mitglieder freigegeben? */
+  showPlacements: boolean;
 }
 
-/** Eigene Community-Einstellungen. Fehlt die Zeile, gelten die Standardwerte (nicht gelistet, keine Secondaries). */
+/** Eigene Community-Einstellungen. Fehlt die Zeile, gelten die Standardwerte (COMMUNITY_DEFAULTS). */
 export interface CommunityRow {
   userId: string;
   listed: boolean;
   secondaries: string[];
+  /** Gleiche Reihenfolge wie `secondaries`, fehlende Einträge sind Skin 1. */
+  secondarySkins: number[];
+  showPlacements: boolean;
+  allowDms: boolean;
 }
+
+export type CommunityPatch = Partial<Omit<CommunityRow, 'userId'>>;
+
+export const COMMUNITY_DEFAULTS: Omit<CommunityRow, 'userId'> = {
+  listed: false,
+  secondaries: [],
+  secondarySkins: [],
+  showPlacements: false,
+  allowDms: true,
+};
 
 /** Ein Eintrag im Verzeichnis. Ohne Nutzer-ID, das Verzeichnis braucht keine. */
 export interface DirectoryRow {
   username: string;
   mainFighter: string | null;
+  mainSkin: number;
   secondaries: string[];
+  secondarySkins: number[];
   createdAt: string;
+}
+
+/** Eine Direktnachricht mit Absender und Empfänger. Die IDs verlassen den Server nie (owner.ts). */
+export interface MessageRow {
+  id: number;
+  senderId: string;
+  recipientId: string;
+  body: string;
+  createdAt: string;
+  readAt: string | null;
+}
+
+/** Eine Unterhaltung in der Übersicht, schon ohne IDs (dm_conversations). */
+export interface ConversationRow {
+  username: string;
+  mainFighter: string | null;
+  mainSkin: number;
+  lastBody: string;
+  lastAt: string;
+  lastMine: boolean;
+  unread: number;
+}
+
+export interface BlockRow {
+  blockerId: string;
+  blockedId: string;
+  username: string;
 }
 
 export interface DirectoryQuery {
@@ -171,9 +228,34 @@ export interface Backend {
   /** Eigene Community-Zeile, höchstens eine. */
   getCommunity(auth: Auth): Promise<CommunityRow[]>;
   /** Legt an oder ändert nur die übergebenen Felder. Liefert die gespeicherte Zeile. */
-  saveCommunity(auth: Auth, patch: { listed?: boolean; secondaries?: string[] }): Promise<CommunityRow[]>;
+  saveCommunity(auth: Auth, patch: CommunityPatch): Promise<CommunityRow[]>;
   /** Eingetragene Mitglieder, nach Name sortiert. */
   listDirectory(auth: Auth, q: DirectoryQuery): Promise<DirectoryRow[]>;
+
+  /** Ein Konto per Name (Groß- und Kleinschreibung egal), `null`, wenn es ihn nicht gibt. */
+  findProfile(auth: Auth, username: string): Promise<ProfileRef | null>;
+
+  /**
+   * start.gg-Verknüpfung und Cache eines anderen Kontos. Leer, solange der Besitzer nichts
+   * freigegeben hat (RLS aus 0007). Die Route prüft Besitzer und Signaturen selbst.
+   */
+  getSharedStartgg(auth: Auth, ownerId: string): Promise<{ links: StartggLinkRow[]; cache: StartggCacheRow[] }>;
+
+  /** Darf `auth` diesem Konto schreiben? Sagt nicht, warum nicht. */
+  canMessage(auth: Auth, recipientId: string): Promise<boolean>;
+  /** Neueste zuerst, höchstens `limit`. `before`: nur ältere als diese id. */
+  listMessages(auth: Auth, otherId: string, limit: number, before?: number): Promise<MessageRow[]>;
+  sendMessage(auth: Auth, recipientId: string, body: string): Promise<MessageRow[]>;
+  /** Alles von `otherId` als gelesen markieren. */
+  markRead(auth: Auth, otherId: string): Promise<void>;
+  listConversations(auth: Auth, limit: number): Promise<ConversationRow[]>;
+  unreadCount(auth: Auth): Promise<number>;
+
+  /** Eigene Blockierungen, nach Name. */
+  listBlocks(auth: Auth): Promise<BlockRow[]>;
+  /** Liefert die angelegte Zeile, leer, wenn sie schon bestand. */
+  block(auth: Auth, blockedId: string): Promise<Array<{ blockerId: string; blockedId: string }>>;
+  unblock(auth: Auth, blockedId: string): Promise<Array<{ blockerId: string; blockedId: string }>>;
 
   /*
    * Alles, was einem Nutzer gehört, bekommt `auth` statt nur des Tokens: Die
@@ -181,7 +263,7 @@ export interface Backend {
    * Routen prüfen jede zurückgegebene Zeile noch einmal (owner.ts).
    */
   getProfile(auth: Auth): Promise<Profile | null>;
-  updateProfile(auth: Auth, patch: { mainFighter?: string | null; theme?: Theme }): Promise<Profile>;
+  updateProfile(auth: Auth, patch: { mainFighter?: string | null; mainSkin?: number; theme?: Theme }): Promise<Profile>;
   deleteAccount(auth: Auth): Promise<void>;
 
   /** Neueste zuerst. `before`: nur Kommentare mit kleinerer id (nächste Seite). */

@@ -108,6 +108,38 @@ export function checkSecondaries(
   return { ok: true, value: value as string[] };
 }
 
+/** Skins je Fighter: 1 ist der Standard, 2 bis 8 die Alts. Die Miis haben keine Alts (siehe scripts/build-skin-faces.mjs). */
+export const MAX_SKIN = 8;
+const SINGLE_SKIN = new Set(['mii-brawler', 'mii-swordfighter', 'mii-gunner']);
+
+export const skinCount = (slug: string | null): number => (slug && !SINGLE_SKIN.has(slug) ? MAX_SKIN : 1);
+
+export const skinOk = (slug: string | null, skin: unknown): skin is number =>
+  typeof skin === 'number' && Number.isInteger(skin) && skin >= 1 && skin <= skinCount(slug);
+
+/** Skin passend zum Fighter, alles Unbekannte wird 1. Für Werte aus der Datenbank, die älter sein können als ein Main-Wechsel. */
+export const safeSkin = (slug: string | null, skin: unknown): number => (skinOk(slug, skin) ? skin : 1);
+
+/**
+ * Skins zu einer Secondary-Liste, gleiche Reihenfolge. `input` fehlt: bisherige Wahl
+ * übernehmen, wo der Fighter bleibt, sonst 1.
+ */
+export function checkSecondarySkins(
+  input: unknown,
+  secondaries: readonly string[],
+  previous: { secondaries: readonly string[]; skins: readonly number[] },
+): { ok: true; value: number[] } | { ok: false; message: { de: string; en: string } } {
+  if (input === undefined) {
+    return { ok: true, value: secondaries.map((s) => safeSkin(s, previous.skins[previous.secondaries.indexOf(s)])) };
+  }
+  if (!Array.isArray(input) || input.length !== secondaries.length || input.some((skin, i) => !skinOk(secondaries[i]!, skin))) {
+    return { ok: false, message: { de: 'Unbekannter Skin.', en: 'Unknown skin.' } };
+  }
+  return { ok: true, value: input as number[] };
+}
+
+export const MESSAGE_MAX = 2000;
+
 /** Anfang eines Benutzernamens für die Suche im Verzeichnis. */
 export const USERNAME_PREFIX_PATTERN = /^[A-Za-z0-9_-]{1,20}$/;
 

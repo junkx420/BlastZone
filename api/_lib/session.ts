@@ -95,6 +95,7 @@ export interface PublicUser {
   email: string;
   username: string;
   mainFighter: string | null;
+  mainSkin: number;
   theme: Profile['theme'];
 }
 
@@ -103,5 +104,6 @@ export const publicUser = (email: string, p: Profile): PublicUser => ({
   email,
   username: p.username,
   mainFighter: p.mainFighter,
+  mainSkin: p.mainSkin,
   theme: p.theme,
 });

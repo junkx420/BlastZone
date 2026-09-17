@@ -1,4 +1,19 @@
-import { BackendError, type AuthSession, type AuthUser, type Backend, type BookmarkRow, type CommentRow, type CommunityRow, type Profile, type StartggCacheRow, type StartggLinkRow, type Theme, type VerifiedToken } from './types.js';
+import {
+  BackendError,
+  COMMUNITY_DEFAULTS,
+  type AuthSession,
+  type AuthUser,
+  type Backend,
+  type BookmarkRow,
+  type CommentRow,
+  type CommunityRow,
+  type MessageRow,
+  type Profile,
+  type StartggCacheRow,
+  type StartggLinkRow,
+  type Theme,
+  type VerifiedToken,
+} from './types.js';
 import type { Env } from './env.js';
 import { createJwtVerifier } from './jwt.js';
 import { eq, ilikeExact, ltInt, restPath, rpcPath, type Filter } from './postgrest.js';
@@ -35,6 +50,8 @@ interface ProfileRow {
   id: string;
   username: string;
   main_fighter: string | null;
+  /** Fehlt vor Migration 0007. */
+  main_skin?: number;
   theme: Theme;
 }
 
@@ -44,7 +61,7 @@ interface CommentDbRow {
   fighter_slug: string;
   body: string;
   created_at: string;
-  author: { username: string; main_fighter: string | null } | null;
+  author: { username: string; main_fighter: string | null; main_skin?: number } | null;
 }
 
 const TIMEOUT_READ = 4000;
@@ -63,7 +80,7 @@ const toSession = (s: GoTrueSession): AuthSession => ({
   user: toUser(s.user),
 });
 
-const toProfile = (p: ProfileRow): Profile => ({ id: p.id, username: p.username, mainFighter: p.main_fighter, theme: p.theme });
+const toProfile = (p: ProfileRow): Profile => ({ id: p.id, username: p.username, mainFighter: p.main_fighter, mainSkin: p.main_skin ?? 1, theme: p.theme });
 
 const toComment = (c: CommentDbRow): CommentRow => ({
   id: c.id,
@@ -71,7 +88,7 @@ const toComment = (c: CommentDbRow): CommentRow => ({
   fighter: c.fighter_slug,
   body: c.body,
   createdAt: c.created_at,
-  author: { username: c.author?.username ?? 'Gelöschtes Konto', mainFighter: c.author?.main_fighter ?? null },
+  author: { username: c.author?.username ?? 'Gelöschtes Konto', mainFighter: c.author?.main_fighter ?? null, mainSkin: c.author?.main_skin ?? 1 },
 });
 
 const toBookmark = (b: { user_id: string; combo_id: string }): BookmarkRow => ({ userId: b.user_id, comboId: b.combo_id });
@@ -107,12 +124,79 @@ interface CommunityDbRow {
   user_id: string;
   listed: boolean;
   secondaries: string[] | null;
+  /** Die drei folgenden fehlen vor Migration 0007. */
+  secondary_skins?: number[] | null;
+  show_placements?: boolean;
+  allow_dms?: boolean;
 }
-const toCommunity = (r: CommunityDbRow): CommunityRow => ({ userId: r.user_id, listed: r.listed, secondaries: r.secondaries ?? [] });
-const COMMUNITY_SELECT = 'user_id,listed,secondaries';
+const toCommunity = (r: CommunityDbRow): CommunityRow => ({
+  userId: r.user_id,
+  listed: r.listed,
+  secondaries: r.secondaries ?? [],
+  secondarySkins: r.secondary_skins ?? [],
+  showPlacements: r.show_placements ?? COMMUNITY_DEFAULTS.showPlacements,
+  allowDms: r.allow_dms ?? COMMUNITY_DEFAULTS.allowDms,
+});
 
 /** Merkt pro Instanz, dass Migration 0006 fehlt. Wird beim nächsten Kaltstart neu geprüft. */
 let communityTableMissing = false;
+
+/*
+ * Migration 0007 (Skins, Nachrichten, Blockieren). Läuft der Code schon, bevor sie
+ * eingespielt ist, lesen Profile, Kommentare und Community ohne die neuen Spalten
+ * weiter (Skin 1, Standardwerte). Nur die neuen Funktionen melden „nicht verfügbar“.
+ */
+let socialMissing = false;
+
+function noteSocialMissing(): BackendError {
+  if (!socialMissing) {
+    socialMissing = true;
+    console.error(JSON.stringify({ t: 'supabase', hinweis: 'Migration 0007 fehlt: Skins, Nachrichten, Blockieren. supabase/migrations/0007_social.sql ausführen.' }));
+  }
+  return new BackendError('unavailable', 'social-missing');
+}
+
+const profileSelect = (): string => (socialMissing ? 'id,username,main_fighter,theme' : 'id,username,main_fighter,main_skin,theme');
+const commentSelect = (): string =>
+  `id,user_id,fighter_slug,body,created_at,author:profiles(${socialMissing ? 'username,main_fighter' : 'username,main_fighter,main_skin'})`;
+const communitySelect = (): string => (socialMissing ? 'user_id,listed,secondaries' : 'user_id,listed,secondaries,secondary_skins,show_placements,allow_dms');
+
+/**
+ * Eine Anfrage, die neue Spalten liest: Fehlen sie, einmal ohne sie wiederholen.
+ * Auch für Schreibzugriffe mit Rückgabe erlaubt: Eine unbekannte Spalte scheitert
+ * schon beim Parsen der Abfrage, geschrieben wurde dann nichts.
+ */
+async function withoutSocialColumns<T>(run: () => Promise<T>): Promise<T> {
+  try {
+    return await run();
+  } catch (err) {
+    if (socialMissing || !isMissingColumn(err)) throw err;
+    noteSocialMissing();
+    return run();
+  }
+}
+
+/** RPCs und Tabellen aus 0007 fehlen: PostgREST antwortet mit 404. */
+function socialRpcMissing(err: unknown): unknown {
+  return err instanceof BackendError && err.code === 'not-found' ? noteSocialMissing() : err;
+}
+
+interface MessageDbRow {
+  id: number;
+  sender_id: string;
+  recipient_id: string;
+  body: string;
+  created_at: string;
+  read_at: string | null;
+}
+const toMessage = (r: MessageDbRow): MessageRow => ({
+  id: r.id,
+  senderId: r.sender_id,
+  recipientId: r.recipient_id,
+  body: r.body,
+  createdAt: r.created_at,
+  readAt: r.read_at,
+});
 
 function communityMissing(err: unknown): unknown {
   if (!(err instanceof BackendError && err.code === 'not-found')) return err;
@@ -263,7 +347,9 @@ export function supabaseBackend(env: Env): Backend {
   async function readCommunity(userId: string, token: string): Promise<CommunityRow[]> {
     if (communityTableMissing) return [];
     try {
-      const rows = await call<CommunityDbRow[]>(restPath('community_profiles', { select: COMMUNITY_SELECT, where: { user_id: eq(userId) }, limit: 1 }), { token });
+      const rows = await withoutSocialColumns(() =>
+        call<CommunityDbRow[]>(restPath('community_profiles', { select: communitySelect(), where: { user_id: eq(userId) }, limit: 1 }), { token }),
+      );
       return (rows ?? []).map(toCommunity);
     } catch (err) {
       if (!(err instanceof BackendError && err.code === 'not-found')) throw err;
@@ -273,8 +359,21 @@ export function supabaseBackend(env: Env): Backend {
   }
 
   // Alle PostgREST-Pfade entstehen über restPath/rpcPath: Eingaben sind dort nur Literale (siehe postgrest.ts).
-  const COMMENT_SELECT = 'id,user_id,fighter_slug,body,created_at,author:profiles(username,main_fighter)';
-  const PROFILE_SELECT = 'id,username,main_fighter,theme';
+
+  /** Profil eines beliebigen Kontos per Name. ilikeExact maskiert % und _, der Unique-Index auf lower(username) garantiert höchstens einen Treffer. */
+  async function profileByName(token: string, username: string): Promise<(ProfileRow & { created_at: string }) | null> {
+    const rows = await withoutSocialColumns(() =>
+      call<Array<ProfileRow & { created_at: string }>>(
+        restPath('profiles', {
+          select: socialMissing ? 'id,username,main_fighter,created_at' : 'id,username,main_fighter,main_skin,created_at',
+          where: { username: ilikeExact(username) },
+          limit: 1,
+        }),
+        { token },
+      ),
+    );
+    return rows[0] ?? null;
+  }
 
   /*
    * Tokenprüfung. Erst lokal über die öffentlichen Schlüssel des Projekts; nur
@@ -365,12 +464,7 @@ export function supabaseBackend(env: Env): Backend {
     },
 
     async getPlayer(auth, username) {
-      // ilikeExact maskiert % und _, damit „a_c“ nicht auch „abc“ trifft. Der Unique-Index auf lower(username) garantiert höchstens einen Treffer.
-      const profiles = await call<Array<ProfileRow & { created_at: string }>>(
-        restPath('profiles', { select: 'id,username,main_fighter,created_at', where: { username: ilikeExact(username) }, limit: 1 }),
-        { token: auth.token },
-      );
-      const p = profiles[0];
+      const p = await profileByName(auth.token, username);
       if (!p) return null;
       const [commentCount, recent, community] = await Promise.all([
         count(restPath('comments', { select: 'id', where: { user_id: eq(p.id) } }), auth.token),
@@ -380,15 +474,142 @@ export function supabaseBackend(env: Env): Backend {
         ),
         readCommunity(p.id, auth.token),
       ]);
+      const c = community[0] ?? { ...COMMUNITY_DEFAULTS, userId: p.id };
       return {
         userId: p.id,
         username: p.username,
         mainFighter: p.main_fighter,
+        mainSkin: p.main_skin ?? 1,
         createdAt: p.created_at,
         commentCount,
-        recentComments: recent.map((c) => ({ id: c.id, fighter: c.fighter_slug, body: c.body, createdAt: c.created_at })),
-        secondaries: community[0]?.secondaries ?? [],
+        recentComments: recent.map((r) => ({ id: r.id, fighter: r.fighter_slug, body: r.body, createdAt: r.created_at })),
+        secondaries: c.userId === p.id ? c.secondaries : [],
+        secondarySkins: c.userId === p.id ? c.secondarySkins : [],
+        showPlacements: c.userId === p.id && c.showPlacements,
       };
+    },
+
+    async findProfile(auth, username) {
+      const p = await profileByName(auth.token, username);
+      return p ? { userId: p.id, username: p.username, mainFighter: p.main_fighter, mainSkin: p.main_skin ?? 1 } : null;
+    },
+
+    async getSharedStartgg(auth, ownerId) {
+      // Ohne Freigabe (oder vor 0007) liefert RLS leere Listen. Die Bestätigungsspalten gibt es seit 0005.
+      const [links, cache] = await Promise.all([
+        call<StartggLinkDbRow[]>(restPath('startgg_links', { select: STARTGG_LINK_SELECT, where: { user_id: eq(ownerId) }, limit: 1 }), { token: auth.token }),
+        call<StartggCacheDbRow[]>(restPath('startgg_cache', { select: STARTGG_CACHE_SELECT, where: { user_id: eq(ownerId) }, limit: 1 }), { token: auth.token }),
+      ]);
+      return { links: (links ?? []).map(toStartggLink), cache: (cache ?? []).map(toStartggCache) };
+    },
+
+    async canMessage(auth, recipientId) {
+      try {
+        return (await call<boolean>(rpcPath('can_message'), { method: 'POST', token: auth.token, body: JSON.stringify({ p_recipient: recipientId }) })) === true;
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
+    },
+
+    async listMessages(auth, otherId, limit, before) {
+      try {
+        const rows = await call<MessageDbRow[]>(rpcPath('dm_thread'), {
+          method: 'POST',
+          token: auth.token,
+          body: JSON.stringify({ p_other: otherId, p_before: before ?? null, p_limit: limit }),
+        });
+        return (rows ?? []).map(toMessage);
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
+    },
+
+    async sendMessage(auth, recipientId, body) {
+      try {
+        // Kein sender_id im Körper: Den setzt der Trigger aus auth.uid(). RLS prüft Empfänger, Blockierung und Mail.
+        const rows = await call<MessageDbRow[]>(restPath('messages', { select: 'id,sender_id,recipient_id,body,created_at,read_at' }), {
+          method: 'POST',
+          token: auth.token,
+          prefer: 'return=representation',
+          body: JSON.stringify({ recipient_id: recipientId, body }),
+        });
+        return (rows ?? []).map(toMessage);
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
+    },
+
+    async markRead(auth, otherId) {
+      try {
+        await call(rpcPath('dm_mark_read'), { method: 'POST', token: auth.token, body: JSON.stringify({ p_other: otherId }) });
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
+    },
+
+    async listConversations(auth, limit) {
+      try {
+        const rows = await call<
+          Array<{ username: string; main_fighter: string | null; main_skin: number; last_body: string; last_at: string; last_mine: boolean; unread: number }>
+        >(rpcPath('dm_conversations'), { method: 'POST', token: auth.token, body: JSON.stringify({ p_limit: limit }) });
+        return (rows ?? []).map((r) => ({
+          username: r.username,
+          mainFighter: r.main_fighter,
+          mainSkin: r.main_skin,
+          lastBody: r.last_body,
+          lastAt: r.last_at,
+          lastMine: r.last_mine,
+          unread: r.unread,
+        }));
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
+    },
+
+    async unreadCount(auth) {
+      try {
+        const n = await call<number>(rpcPath('dm_unread_count'), { method: 'POST', token: auth.token, body: '{}' });
+        return typeof n === 'number' ? n : 0;
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
+    },
+
+    async listBlocks(auth) {
+      try {
+        // Zwei Fremdschlüssel auf profiles: Die Einbettung nennt deshalb die Spalte statt der Tabelle.
+        const rows = await call<Array<{ blocker_id: string; blocked_id: string; blocked: { username: string } | null }>>(
+          restPath('user_blocks', { select: 'blocker_id,blocked_id,blocked:blocked_id(username)', where: { blocker_id: eq(auth.userId) }, order: 'created_at.desc', limit: 200 }),
+          { token: auth.token },
+        );
+        return (rows ?? []).map((r) => ({ blockerId: r.blocker_id, blockedId: r.blocked_id, username: r.blocked?.username ?? '' }));
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
+    },
+
+    async block(auth, blockedId) {
+      try {
+        const rows = await call<Array<{ blocker_id: string; blocked_id: string }>>(
+          restPath('user_blocks', { select: 'blocker_id,blocked_id', onConflict: ['blocker_id', 'blocked_id'] }),
+          { method: 'POST', token: auth.token, prefer: 'resolution=ignore-duplicates,return=representation', body: JSON.stringify({ blocked_id: blockedId }) },
+        );
+        return (rows ?? []).map((r) => ({ blockerId: r.blocker_id, blockedId: r.blocked_id }));
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
+    },
+
+    async unblock(auth, blockedId) {
+      try {
+        const rows = await call<Array<{ blocker_id: string; blocked_id: string }>>(
+          restPath('user_blocks', { select: 'blocker_id,blocked_id', where: { blocker_id: eq(auth.userId), blocked_id: eq(blockedId) } }),
+          { method: 'DELETE', token: auth.token, prefer: 'return=representation' },
+        );
+        return (rows ?? []).map((r) => ({ blockerId: r.blocker_id, blockedId: r.blocked_id }));
+      } catch (err) {
+        throw socialRpcMissing(err);
+      }
     },
 
     async getCommunity(auth) {
@@ -396,34 +617,54 @@ export function supabaseBackend(env: Env): Backend {
     },
 
     async saveCommunity(auth, patch) {
-      const body: Record<string, unknown> = { user_id: auth.userId };
-      if (patch.listed !== undefined) body.listed = patch.listed;
-      if (patch.secondaries !== undefined) body.secondaries = patch.secondaries;
-      try {
-        // Upsert: Nur die übergebenen Spalten ändern sich, beim ersten Mal gelten für den Rest die Standardwerte.
-        const rows = await call<CommunityDbRow[]>(restPath('community_profiles', { select: COMMUNITY_SELECT, onConflict: ['user_id'] }), {
+      const base: Record<string, unknown> = { user_id: auth.userId };
+      if (patch.listed !== undefined) base.listed = patch.listed;
+      if (patch.secondaries !== undefined) base.secondaries = patch.secondaries;
+      const extra: Record<string, unknown> = {};
+      if (patch.secondarySkins !== undefined) extra.secondary_skins = patch.secondarySkins;
+      if (patch.showPlacements !== undefined) extra.show_placements = patch.showPlacements;
+      if (patch.allowDms !== undefined) extra.allow_dms = patch.allowDms;
+      const onlyExtra = Object.keys(base).length === 1;
+
+      // Upsert: Nur die übergebenen Spalten ändern sich, beim ersten Mal gelten für den Rest die Standardwerte.
+      // Vor 0007 nur speichern, was es schon gibt. Neue Felder allein: ehrlich „nicht verfügbar“.
+      const write = async (): Promise<CommunityRow[]> => {
+        if (socialMissing && onlyExtra) throw new BackendError('unavailable', 'social-missing');
+        const body = socialMissing ? base : { ...base, ...extra };
+        const rows = await call<CommunityDbRow[]>(restPath('community_profiles', { select: communitySelect(), onConflict: ['user_id'] }), {
           method: 'POST',
           token: auth.token,
           prefer: 'resolution=merge-duplicates,return=representation',
           body: JSON.stringify(body),
         });
         return (rows ?? []).map(toCommunity);
+      };
+      try {
+        return await withoutSocialColumns(write);
       } catch (err) {
+        if (err instanceof BackendError && err.message === 'social-missing') throw err;
         throw communityMissing(err);
       }
     },
 
     async listDirectory(auth, q) {
       try {
-        const rows = await call<Array<{ username: string; main_fighter: string | null; secondaries: string[] | null; member_since: string }>>(
-          rpcPath('community_directory'),
-          {
-            method: 'POST',
-            token: auth.token,
-            body: JSON.stringify({ p_query: q.query, p_fighter: q.fighter, p_after: q.after, p_limit: q.limit }),
-          },
-        );
-        return (rows ?? []).map((r) => ({ username: r.username, mainFighter: r.main_fighter, secondaries: r.secondaries ?? [], createdAt: r.member_since }));
+        const rows = await call<
+          Array<{ username: string; main_fighter: string | null; main_skin?: number; secondaries: string[] | null; secondary_skins?: number[] | null; member_since: string }>
+        >(rpcPath('community_directory'), {
+          method: 'POST',
+          token: auth.token,
+          body: JSON.stringify({ p_query: q.query, p_fighter: q.fighter, p_after: q.after, p_limit: q.limit }),
+        });
+        // Vor 0007 fehlen die Skin-Spalten im Ergebnis, dann gilt überall Skin 1.
+        return (rows ?? []).map((r) => ({
+          username: r.username,
+          mainFighter: r.main_fighter,
+          mainSkin: r.main_skin ?? 1,
+          secondaries: r.secondaries ?? [],
+          secondarySkins: r.secondary_skins ?? [],
+          createdAt: r.member_since,
+        }));
       } catch (err) {
         throw communityMissing(err);
       }
@@ -435,20 +676,28 @@ export function supabaseBackend(env: Env): Backend {
      * ihn prüfen kann (owner.ts), bevor irgendetwas den Server verlässt.
      */
     async getProfile(auth) {
-      const rows = await call<ProfileRow[]>(restPath('profiles', { select: PROFILE_SELECT, where: { id: eq(auth.userId) }, limit: 1 }), { token: auth.token });
+      const rows = await withoutSocialColumns(() =>
+        call<ProfileRow[]>(restPath('profiles', { select: profileSelect(), where: { id: eq(auth.userId) }, limit: 1 }), { token: auth.token }),
+      );
       return rows[0] ? toProfile(rows[0]) : null;
     },
 
     async updateProfile(auth, patch) {
-      const body: Record<string, unknown> = {};
-      if (patch.mainFighter !== undefined) body.main_fighter = patch.mainFighter;
-      if (patch.theme !== undefined) body.theme = patch.theme;
-      const rows = await call<ProfileRow[]>(restPath('profiles', { select: PROFILE_SELECT, where: { id: eq(auth.userId) } }), {
-        method: 'PATCH',
-        token: auth.token,
-        prefer: 'return=representation',
-        body: JSON.stringify(body),
-      });
+      // Vor 0007 gibt es keinen Skin. Ein Main-Wechsel speichert trotzdem, ein reiner Skin-Wechsel meldet „nicht verfügbar“.
+      const write = async (): Promise<ProfileRow[]> => {
+        const body: Record<string, unknown> = {};
+        if (patch.mainFighter !== undefined) body.main_fighter = patch.mainFighter;
+        if (patch.theme !== undefined) body.theme = patch.theme;
+        if (patch.mainSkin !== undefined && !socialMissing) body.main_skin = patch.mainSkin;
+        if (!Object.keys(body).length) throw new BackendError('unavailable', 'social-missing');
+        return call<ProfileRow[]>(restPath('profiles', { select: profileSelect(), where: { id: eq(auth.userId) } }), {
+          method: 'PATCH',
+          token: auth.token,
+          prefer: 'return=representation',
+          body: JSON.stringify(body),
+        });
+      };
+      const rows = await withoutSocialColumns(write);
       if (!rows[0]) throw new BackendError('not-found');
       return toProfile(rows[0]);
     },
@@ -463,17 +712,19 @@ export function supabaseBackend(env: Env): Backend {
       // und nutzt den Index (fighter_slug, id desc) aus Migration 0003.
       const where: Record<string, Filter> = { fighter_slug: eq(fighter) };
       if (before) where.id = ltInt(before);
-      const rows = await call<CommentDbRow[]>(restPath('comments', { select: COMMENT_SELECT, where, order: 'id.desc', limit }));
+      const rows = await withoutSocialColumns(() => call<CommentDbRow[]>(restPath('comments', { select: commentSelect(), where, order: 'id.desc', limit })));
       return rows.map(toComment);
     },
 
     async addComment(auth, fighter, body) {
-      const rows = await call<CommentDbRow[]>(restPath('comments', { select: COMMENT_SELECT }), {
-        method: 'POST',
-        token: auth.token,
-        prefer: 'return=representation',
-        body: JSON.stringify({ fighter_slug: fighter, body }),
-      });
+      const rows = await withoutSocialColumns(() =>
+        call<CommentDbRow[]>(restPath('comments', { select: commentSelect() }), {
+          method: 'POST',
+          token: auth.token,
+          prefer: 'return=representation',
+          body: JSON.stringify({ fighter_slug: fighter, body }),
+        }),
+      );
       if (!rows[0]) throw new BackendError('forbidden');
       return toComment(rows[0]);
     },

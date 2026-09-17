@@ -1,4 +1,16 @@
-import { BackendError, type AuthSession, type AuthUser, type Backend, type CommentRow, type Profile, type StartggCacheRow, type StartggLinkRow } from './types.js';
+import {
+  BackendError,
+  COMMUNITY_DEFAULTS,
+  type AuthSession,
+  type AuthUser,
+  type Backend,
+  type CommentRow,
+  type CommunityRow,
+  type MessageRow,
+  type Profile,
+  type StartggCacheRow,
+  type StartggLinkRow,
+} from './types.js';
 
 /**
  * Speicher-Backend NUR für den lokalen Dev-Server, solange keine Supabase-Keys
@@ -29,8 +41,12 @@ interface Store {
   bookmarks: Map<string, string[]>;
   startggLinks?: Map<string, StartggLinkRow>;
   startggCache?: Map<string, StartggCacheRow>;
-  community?: Map<string, { listed: boolean; secondaries: string[] }>;
+  community?: Map<string, Omit<CommunityRow, 'userId'>>;
+  /** blocker → blockierte Konten */
+  blocks?: Map<string, Set<string>>;
+  messages?: MessageRow[];
   nextComment: number;
+  nextMessage?: number;
 }
 
 const g = globalThis as typeof globalThis & { __bzMock?: Store };
@@ -61,6 +77,20 @@ function issue(user: MockUser, lifetime = 3600): AuthSession {
 
 const toUser = (u: MockUser): AuthUser => ({ id: u.id, email: u.email, emailConfirmed: u.confirmed });
 
+type CommunityData = Omit<CommunityRow, 'userId'>;
+
+function communityOf(userId: string): CommunityData {
+  const row = store.community?.get(userId);
+  return row ? { ...row, secondaries: [...row.secondaries], secondarySkins: [...row.secondarySkins] } : { ...COMMUNITY_DEFAULTS, secondaries: [], secondarySkins: [] };
+}
+
+const blocked = (blocker: string, other: string): boolean => store.blocks?.get(blocker)?.has(other) ?? false;
+const userById = (id: string): MockUser | undefined => [...store.users.values()].find((u) => u.id === id);
+
+/** Wie can_message aus 0007. */
+const mayMessage = (senderId: string, recipientId: string): boolean =>
+  recipientId !== senderId && Boolean(userById(recipientId)) && communityOf(recipientId).allowDms && !blocked(recipientId, senderId) && !blocked(senderId, recipientId);
+
 function userFor(token: string): MockUser {
   const t = store.tokens.get(token);
   if (!t || t.exp * 1000 < Date.now()) throw new BackendError('invalid-token');
@@ -75,7 +105,7 @@ export function mockBackend(): Backend {
       if ([...store.users.values()].some((u) => u.profile.username.toLowerCase() === username.toLowerCase())) throw new BackendError('conflict');
       if (store.users.has(email)) return; // wie Supabase: keine Auskunft, ob die Adresse schon existiert
       const id = crypto.randomUUID();
-      store.users.set(email, { id, email, password, confirmed: false, profile: { id, username, mainFighter: null, theme: 'dark' }, createdAt: new Date().toISOString() });
+      store.users.set(email, { id, email, password, confirmed: false, profile: { id, username, mainFighter: null, mainSkin: 1, theme: 'dark' }, createdAt: new Date().toISOString() });
       const tokenHash = random();
       store.confirmations.set(tokenHash, email);
       console.info(`\n[mock] Bestätigungslink für ${email}:\n       http://localhost:5173/#/bestaetigen?token_hash=${tokenHash}\n`);
@@ -137,37 +167,153 @@ export function mockBackend(): Backend {
       const user = [...store.users.values()].find((u) => u.profile.username.toLowerCase() === username.toLowerCase());
       if (!user) return null;
       const own = store.comments.filter((c) => c.userId === user.id).sort((a, b) => b.id - a.id);
+      const c = communityOf(user.id);
       return {
         userId: user.id,
         username: user.profile.username,
         mainFighter: user.profile.mainFighter,
+        mainSkin: user.profile.mainSkin,
         createdAt: user.createdAt ?? new Date().toISOString(),
         commentCount: own.length,
-        recentComments: own.slice(0, 5).map((c) => ({ id: c.id, fighter: c.fighter, body: c.body, createdAt: c.createdAt })),
-        secondaries: [...(store.community?.get(user.id)?.secondaries ?? [])],
+        recentComments: own.slice(0, 5).map((r) => ({ id: r.id, fighter: r.fighter, body: r.body, createdAt: r.createdAt })),
+        secondaries: c.secondaries,
+        secondarySkins: c.secondarySkins,
+        showPlacements: c.showPlacements,
       };
+    },
+
+    async findProfile(auth, username) {
+      userFor(auth.token);
+      const user = [...store.users.values()].find((u) => u.profile.username.toLowerCase() === username.toLowerCase());
+      return user ? { userId: user.id, username: user.profile.username, mainFighter: user.profile.mainFighter, mainSkin: user.profile.mainSkin } : null;
+    },
+
+    async getSharedStartgg(auth, ownerId) {
+      userFor(auth.token);
+      // Wie die Policies aus 0007: nur mit Freigabe des Besitzers (oder für ihn selbst).
+      if (auth.userId !== ownerId && !communityOf(ownerId).showPlacements) return { links: [], cache: [] };
+      const link = store.startggLinks?.get(ownerId);
+      const cache = store.startggCache?.get(ownerId);
+      return {
+        links: link ? [JSON.parse(JSON.stringify(link)) as StartggLinkRow] : [],
+        cache: cache ? [JSON.parse(JSON.stringify(cache)) as StartggCacheRow] : [],
+      };
+    },
+
+    async canMessage(auth, recipientId) {
+      return mayMessage(userFor(auth.token).id, recipientId);
+    },
+
+    async listMessages(auth, otherId, limit, before) {
+      const user = userFor(auth.token);
+      return (store.messages ?? [])
+        .filter((m) => (m.senderId === user.id && m.recipientId === otherId) || (m.senderId === otherId && m.recipientId === user.id))
+        .filter((m) => !before || m.id < before)
+        .sort((a, b) => b.id - a.id)
+        .slice(0, Math.min(Math.max(limit, 1), 100))
+        .map((m) => ({ ...m }));
+    },
+
+    async sendMessage(auth, recipientId, body) {
+      const user = userFor(auth.token);
+      // Wie die Insert-Policy: RLS lehnt ab, PostgREST meldet 403.
+      if (!user.confirmed || !mayMessage(user.id, recipientId)) throw new BackendError('forbidden');
+      const list = (store.messages ??= []);
+      const minuteAgo = new Date(Date.now() - 60_000).toISOString();
+      if (list.filter((m) => m.senderId === user.id && m.createdAt > minuteAgo).length >= 10) throw new BackendError('rate-limited');
+      if (body.length < 1 || body.length > 2000 || !body.trim()) throw new BackendError('bad-request');
+      store.nextMessage = (store.nextMessage ?? 0) + 1;
+      const row: MessageRow = { id: store.nextMessage, senderId: user.id, recipientId, body, createdAt: new Date().toISOString(), readAt: null };
+      list.push(row);
+      return [{ ...row }];
+    },
+
+    async markRead(auth, otherId) {
+      const user = userFor(auth.token);
+      const now = new Date().toISOString();
+      for (const m of store.messages ?? []) if (m.recipientId === user.id && m.senderId === otherId && !m.readAt) m.readAt = now;
+    },
+
+    async listConversations(auth, limit) {
+      const user = userFor(auth.token);
+      const latest = new Map<string, MessageRow>();
+      const unread = new Map<string, number>();
+      for (const m of store.messages ?? []) {
+        if (m.senderId !== user.id && m.recipientId !== user.id) continue;
+        const other = m.senderId === user.id ? m.recipientId : m.senderId;
+        if (blocked(user.id, other)) continue;
+        if ((latest.get(other)?.id ?? 0) < m.id) latest.set(other, m);
+        if (m.recipientId === user.id && !m.readAt) unread.set(other, (unread.get(other) ?? 0) + 1);
+      }
+      return [...latest.entries()]
+        .map(([other, m]) => ({ other: userById(other), m }))
+        .filter((x): x is { other: MockUser; m: MessageRow } => Boolean(x.other))
+        .sort((a, b) => b.m.id - a.m.id)
+        .slice(0, limit)
+        .map(({ other, m }) => ({
+          username: other.profile.username,
+          mainFighter: other.profile.mainFighter,
+          mainSkin: other.profile.mainSkin,
+          lastBody: m.body.slice(0, 140),
+          lastAt: m.createdAt,
+          lastMine: m.senderId === user.id,
+          unread: unread.get(other.id) ?? 0,
+        }));
+    },
+
+    async unreadCount(auth) {
+      const user = userFor(auth.token);
+      return (store.messages ?? []).filter((m) => m.recipientId === user.id && !m.readAt && !blocked(user.id, m.senderId)).length;
+    },
+
+    async listBlocks(auth) {
+      const user = userFor(auth.token);
+      return [...(store.blocks?.get(user.id) ?? [])].map((id) => ({ blockerId: user.id, blockedId: id, username: userById(id)?.profile.username ?? '' }));
+    },
+
+    async block(auth, blockedId) {
+      const user = userFor(auth.token);
+      if (blockedId === user.id) throw new BackendError('bad-request');
+      const blocks = (store.blocks ??= new Map());
+      const set = blocks.get(user.id) ?? new Set<string>();
+      if (set.has(blockedId)) return [];
+      set.add(blockedId);
+      blocks.set(user.id, set);
+      return [{ blockerId: user.id, blockedId }];
+    },
+
+    async unblock(auth, blockedId) {
+      const user = userFor(auth.token);
+      if (!store.blocks?.get(user.id)?.delete(blockedId)) return [];
+      return [{ blockerId: user.id, blockedId }];
     },
 
     async getCommunity(auth) {
       const user = userFor(auth.token);
-      const row = user.id === auth.userId ? store.community?.get(user.id) : undefined;
-      return row ? [{ userId: user.id, listed: row.listed, secondaries: [...row.secondaries] }] : [];
+      return user.id === auth.userId && store.community?.has(user.id) ? [{ userId: user.id, ...communityOf(user.id) }] : [];
     },
 
     async saveCommunity(auth, patch) {
       const user = userFor(auth.token);
       if (!user.confirmed) throw new BackendError('forbidden');
-      const map = (store.community ??= new Map());
-      const row = map.get(user.id) ?? { listed: false, secondaries: [] };
+      const row = communityOf(user.id);
       if (patch.listed !== undefined) row.listed = patch.listed;
+      if (patch.showPlacements !== undefined) row.showPlacements = patch.showPlacements;
+      if (patch.allowDms !== undefined) row.allowDms = patch.allowDms;
       if (patch.secondaries !== undefined) {
         // Wie der CHECK in 0006
         const s = patch.secondaries;
         if (s.length > 2 || (s.length === 2 && s[0] === s[1]) || s.some((x) => !/^[a-z0-9-]{2,40}$/.test(x))) throw new BackendError('bad-request');
         row.secondaries = [...s];
       }
-      map.set(user.id, row);
-      return [{ userId: user.id, listed: row.listed, secondaries: [...row.secondaries] }];
+      if (patch.secondarySkins !== undefined) {
+        // Wie der CHECK in 0007
+        const k = patch.secondarySkins;
+        if (k.length > 2 || k.some((x) => !Number.isInteger(x) || x < 1 || x > 8)) throw new BackendError('bad-request');
+        row.secondarySkins = [...k];
+      }
+      (store.community ??= new Map()).set(user.id, row);
+      return [{ userId: user.id, ...communityOf(user.id) }];
     },
 
     async listDirectory(auth, q) {
@@ -181,7 +327,14 @@ export function mockBackend(): Backend {
         .filter(({ u }) => !after || u.profile.username.toLowerCase() > after)
         .sort((a, b) => (a.u.profile.username.toLowerCase() < b.u.profile.username.toLowerCase() ? -1 : 1))
         .slice(0, Math.min(Math.max(q.limit, 1), 50))
-        .map(({ u, c }) => ({ username: u.profile.username, mainFighter: u.profile.mainFighter, secondaries: [...c.secondaries], createdAt: u.createdAt ?? new Date().toISOString() }));
+        .map(({ u, c }) => ({
+          username: u.profile.username,
+          mainFighter: u.profile.mainFighter,
+          mainSkin: u.profile.mainSkin,
+          secondaries: [...c.secondaries],
+          secondarySkins: [...c.secondarySkins],
+          createdAt: u.createdAt ?? new Date().toISOString(),
+        }));
     },
 
     /*
@@ -198,9 +351,14 @@ export function mockBackend(): Backend {
       const user = userFor(auth.token);
       if (user.id !== auth.userId) throw new BackendError('not-found');
       if (patch.mainFighter !== undefined) user.profile.mainFighter = patch.mainFighter;
+      if (patch.mainSkin !== undefined) {
+        // Wie der CHECK in 0007
+        if (!Number.isInteger(patch.mainSkin) || patch.mainSkin < 1 || patch.mainSkin > 8) throw new BackendError('bad-request');
+        user.profile.mainSkin = patch.mainSkin;
+      }
       if (patch.theme !== undefined) user.profile.theme = patch.theme;
       store.comments.forEach((c) => {
-        if (c.userId === user.id) c.author.mainFighter = user.profile.mainFighter;
+        if (c.userId === user.id) c.author = { ...c.author, mainFighter: user.profile.mainFighter, mainSkin: user.profile.mainSkin };
       });
       return { ...user.profile };
     },
@@ -213,6 +371,10 @@ export function mockBackend(): Backend {
       store.startggLinks?.delete(user.id);
       store.startggCache?.delete(user.id);
       store.community?.delete(user.id);
+      // Kaskade wie in 0007: Nachrichten und Blockierungen in beide Richtungen.
+      store.messages = (store.messages ?? []).filter((m) => m.senderId !== user.id && m.recipientId !== user.id);
+      store.blocks?.delete(user.id);
+      store.blocks?.forEach((set) => set.delete(user.id));
       for (const [t, v] of store.tokens) if (v.userId === user.id) store.tokens.delete(t);
     },
 
@@ -235,7 +397,7 @@ export function mockBackend(): Backend {
         fighter,
         body,
         createdAt: new Date().toISOString(),
-        author: { username: user.profile.username, mainFighter: user.profile.mainFighter },
+        author: { username: user.profile.username, mainFighter: user.profile.mainFighter, mainSkin: user.profile.mainSkin },
       };
       store.comments.push(row);
       return { ...row, author: { ...row.author } };
