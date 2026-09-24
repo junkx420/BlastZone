@@ -1564,3 +1564,55 @@
     }
   }
 }
+
+@layer components {
+  /*
+   * Zurueck nach oben. Erscheint ab einer Bildschirmhoehe Scrollweg, liegt unter
+   * der Leiste und ueber dem Inhalt. `visibility` statt nur `opacity`, damit der
+   * Knopf im ausgeblendeten Zustand nicht in der Tabreihenfolge steht.
+   */
+  .totop {
+    position: fixed;
+    right: max(var(--gutter), env(safe-area-inset-right));
+    bottom: max(var(--gutter), env(safe-area-inset-bottom));
+    z-index: var(--z-sticky);
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim), var(--elev-2);
+    color: var(--text);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    translate: 0 8px;
+    transition:
+      opacity var(--t-base) var(--ease-out),
+      translate var(--t-base) var(--ease-out),
+      visibility var(--t-base);
+  }
+  .totop.is-on {
+    opacity: 1;
+    visibility: visible;
+    translate: 0;
+  }
+  .totop:hover {
+    border-color: var(--accent-line, var(--line-strong));
+    color: var(--accent-text);
+  }
+  .totop .icon {
+    width: 20px;
+    height: 20px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .totop {
+      transition: none;
+    }
+  }
+}

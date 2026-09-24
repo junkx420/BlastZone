@@ -1,6 +1,7 @@
 import { TIER_SOURCE } from '../data/tiers';
 import { t } from '../i18n';
 import { html, mount, qs, qsa } from '../lib/dom';
+import { scrollToTarget } from '../lib/motion';
 import { link, type RouteName } from '../lib/router';
 import { ICONS } from './icons';
 import { langSwitch, mountLangSwitch } from './langSwitch';
@@ -78,10 +79,21 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
           </div>
         </div>
         <p class="footer__legal">${t('footer.legal')}</p>
-      </footer>`,
+      </footer>
+      <button class="totop" type="button" data-totop>${ICONS.arrowUp}<span class="vh">${t('nav.toTop')}</span></button>`,
   );
 
   const nav = qs<HTMLElement>('[data-nav]', app)!;
+  /*
+   * Zurueck nach oben: haengt am vorhandenen Scroll-Handler weiter unten, ein
+   * zweiter Listener waere Verschwendung. Nach dem Sprung wandert der Fokus auf
+   * die Marke, sonst haengt er auf einem Knopf, der gerade unsichtbar wird.
+   */
+  const toTop = qs<HTMLButtonElement>('[data-totop]', app)!;
+  toTop.addEventListener('click', () => {
+    scrollToTarget(0);
+    qs<HTMLAnchorElement>('.brand', app)?.focus({ preventScroll: true });
+  });
   mountLangSwitch(qs<HTMLElement>('[data-lang-switch]', app)!);
 
   /*
@@ -139,6 +151,8 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
     ticking = true;
     requestAnimationFrame(() => {
       nav.classList.toggle('is-scrolled', window.scrollY > 8);
+      // Der Knopf erscheint erst, wenn eine ganze Bildschirmhoehe zurueckliegt.
+      toTop.classList.toggle('is-on', window.scrollY > window.innerHeight);
       ticking = false;
     });
   };
