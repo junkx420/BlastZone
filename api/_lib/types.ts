@@ -213,6 +213,11 @@ export interface MatchupSummary {
   mine: number | null;
 }
 
+export interface MatchupRow extends MatchupSummary {
+  /** Slug des Gegners. */
+  opponent: string;
+}
+
 export interface Backend {
   signUp(email: string, password: string, username: string): Promise<void>;
   signIn(email: string, password: string): Promise<AuthSession>;
@@ -264,6 +269,8 @@ export interface Backend {
    * (low < high), die Bewertung gilt aus Sicht von `low`.
    */
   matchupSummary(auth: Auth, low: string, high: string): Promise<MatchupSummary>;
+  /** Alle bewerteten Gegner eines Fighters, gedreht auf dessen Sicht. */
+  matchupChart(auth: Auth, slug: string): Promise<MatchupRow[]>;
   rateMatchup(auth: Auth, low: string, high: string, rating: number): Promise<MatchupSummary>;
   unrateMatchup(auth: Auth, low: string, high: string): Promise<MatchupSummary>;
 

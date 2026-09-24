@@ -27,7 +27,7 @@ import { html, mount, qs, qsa } from './lib/dom';
 import { initReveals, initSmoothScroll, motionOK, scrollToTarget, ScrollTrigger } from './lib/motion';
 import { startRouter, type NavContext, type Route } from './lib/router';
 import { archetypesPage } from './pages/archetypes';
-import { matchupPage } from './pages/matchup';
+import { matchupChartPage, matchupPage } from './pages/matchup';
 import { communityPage } from './pages/community';
 import { inboxPage, threadPage } from './pages/messages';
 import { confirmPage } from './pages/confirm';
@@ -106,6 +106,8 @@ function view(route: Route): PageView {
       return archetypesPage(route);
     case 'matchup':
       return matchupPage(route);
+    case 'matchupFighter':
+      return matchupChartPage(route);
     case 'profil':
       return profilePage();
     case 'bestaetigen':

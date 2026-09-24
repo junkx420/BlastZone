@@ -280,6 +280,25 @@ export function mockBackend(): Backend {
       };
     },
 
+    async matchupChart(auth, slug) {
+      const user = userFor(auth.token);
+      const zeilen = [];
+      for (const [schluessel, stimmen] of store.matchups ?? []) {
+        const [low, high] = schluessel.split('|');
+        if (low !== slug && high !== slug) continue;
+        const gedreht = high === slug;
+        const werte = [...stimmen.values()].map((r) => (gedreht ? -r : r));
+        const eigene = stimmen.get(user.id);
+        zeilen.push({
+          opponent: gedreht ? low! : high!,
+          average: werte.length >= 3 ? Math.round((werte.reduce((a, b) => a + b, 0) / werte.length) * 100) / 100 : null,
+          votes: werte.length,
+          mine: eigene === undefined ? null : gedreht ? -eigene : eigene,
+        });
+      }
+      return zeilen;
+    },
+
     async rateMatchup(auth, low, high, rating) {
       const user = userFor(auth.token);
       const alle = (store.matchups ??= new Map());

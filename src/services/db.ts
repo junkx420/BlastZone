@@ -293,6 +293,15 @@ export interface MatchupVotes {
 
 const matchupPfad = (a: string, b: string): string => `community/matchups?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`;
 
+/** Eine Zeile der Fighter-Übersicht: der Gegner plus die Stimmen zu diesem Paar. */
+export interface MatchupRow extends MatchupVotes {
+  opponent: string;
+}
+
+/** Alle bewerteten Gegner eines Fighters. Unbewertete Paare fehlen und werden in der Ansicht ergänzt. */
+export const getMatchupChart = (slug: string): Promise<MatchupRow[]> =>
+  guarded(async () => (await api<{ chart: MatchupRow[] }>(`community/matchups?fighter=${encodeURIComponent(slug)}`)).chart);
+
 export const getMatchupVotes = (a: string, b: string): Promise<MatchupVotes> =>
   guarded(async () => (await api<{ matchup: MatchupVotes }>(matchupPfad(a, b))).matchup);
 

@@ -7,6 +7,7 @@ import { requireAuth } from '../../_lib/session.js';
 
 /**
  * GET    /api/community/matchups?a=<slug>&b=<slug>   Aggregat des Paars
+ * GET    /api/community/matchups?fighter=<slug>      alle bewerteten Gegner
  * PUT    /api/community/matchups  { a, b, rating }   eigene Bewertung setzen
  * DELETE /api/community/matchups?a=<slug>&b=<slug>   eigene Bewertung löschen
  *
@@ -49,6 +50,13 @@ export const GET = route(async (request) => {
   await enforce({ name: 'matchups-read-user', key: auth.userId, max: 120, windowSec: 60 });
   const query = new URL(request.url).searchParams;
   try {
+    const fighter = query.get('fighter');
+    if (fighter !== null) {
+      if (!SLUG_PATTERN.test(fighter)) {
+        throw new HttpError(400, 'unknown-fighter', { de: 'Diesen Fighter gibt es nicht.', en: 'That fighter does not exist.' });
+      }
+      return ok({ chart: await be.matchupChart(auth, fighter) }, cookies);
+    }
     const paar = paarAus(query.get('a') ?? '', query.get('b') ?? '');
     return ok({ matchup: await laden(be, auth, paar) }, cookies);
   } catch (err) {

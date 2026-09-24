@@ -8,11 +8,11 @@ import { setProfil, vorteil, ZEILEN, type Kennzahl, type SetProfil } from '../da
 import type { Fighter } from '../data/types';
 import { dateFormat, formatNumber, locale, t, tn } from '../i18n';
 import { accentVars } from '../lib/color';
-import { html, mount, qs, type Markup } from '../lib/dom';
+import { html, mount, qs, qsa, type Markup } from '../lib/dom';
 import { link, replaceQuery, type Route } from '../lib/router';
 import { ApiError } from '../services/api';
 import { currentUser } from '../services/auth';
-import { getMatchupVotes, rateMatchup, unrateMatchup, type MatchupVotes } from '../services/db';
+import { getMatchupChart, getMatchupVotes, rateMatchup, unrateMatchup, type MatchupVotes } from '../services/db';
 import type { PageView } from './types';
 
 /**
@@ -46,6 +46,7 @@ function kopf(f: Fighter): Markup {
       ${faceThumb(f, 'mu-head__face')}
       <span class="mu-head__name">${f.name}</span>
     </a>
+    <a class="link mu-head__all" href="${link(`/matchup/${f.slug}`)}">${t('mu.chartAll', { name: f.name })}</a>
     <dl class="mu-facts">
       <div><dt>${t('mu.weight')}</dt><dd>${formatNumber(f.weight)}</dd></div>
       <div><dt>${t('mu.mobility')}</dt><dd>${formatNumber(f.mobility)}/5</dd></div>
@@ -355,6 +356,154 @@ export function matchupPage(route: Route): PageView {
         root.removeEventListener('change', aufSelect);
         out.removeEventListener('click', aufKlick);
         swap.removeEventListener('click', tauschen);
+      };
+    },
+  };
+}
+
+/* ── Übersicht eines Fighters: #/matchup/<slug> ───────────────────────────── */
+
+/** Eine Zeile als Text: Schnitt, sonst Stimmenzahl, sonst nichts. */
+function urteil(v: MatchupVotes | undefined): string {
+  if (!v || v.votes === 0) return t('mu.chartNone');
+  const zahl = tn('mu.chartVotesOne', 'mu.chartVotes', v.votes);
+  if (v.average === null) return zahl;
+  return `${stufenText(v.average)} · ${formatNumber(v.average, { signDisplay: 'exceptZero', maximumFractionDigits: 2 })} · ${zahl}`;
+}
+
+/** Eine Zeile der Übersicht. Die Bewertung gilt aus Sicht von `f`. */
+function chartZeile(f: Fighter, gegner: Fighter, v: MatchupVotes | undefined, angemeldet: boolean): Markup {
+  return html`<li class="mc-row" style="${accentVars(gegner.colors)}" data-opp="${gegner.slug}">
+    <a class="mc-row__link" href="${link('/matchup', { a: f.slug, b: gegner.slug })}" title="${t('mu.chartCompare')}">
+      ${faceThumb(gegner, 'mc-row__face')}
+      <span class="mc-row__name">${gegner.name}</span>
+    </a>
+    <span class="mc-row__verdict" data-verdict>${urteil(v)}</span>
+    ${angemeldet
+      ? html`<label class="mc-row__pick">
+          <span class="vh">${t('mu.chartPick', { name: f.name, gegner: gegner.name })}</span>
+          <select data-vote="${gegner.slug}">
+            <option value="" ${v?.mine === undefined || v?.mine === null ? 'selected' : ''}>${t('mu.chartNoPick')}</option>
+            ${STUFEN.map((stufe) => html`<option value="${stufe.wert}" ${v?.mine === stufe.wert ? 'selected' : ''}>${t(stufe.key)}</option>`)}
+          </select>
+        </label>`
+      : ''}
+  </li>`;
+}
+
+export function matchupChartPage(route: Route): PageView {
+  const f = FIGHTER_BY_SLUG.get(route.params.slug ?? '');
+
+  if (!f) {
+    return {
+      title: `${t('mu.title')} | Blastzone`,
+      markup: html`<div class="page mu-page">
+        <header class="container page-head">
+          <h1 data-reveal="wipe">${t('mu.title')}</h1>
+          <p>${t('mu.chartUnknown')}</p>
+        </header>
+      </div>`,
+    };
+  }
+
+  const gegner = SORTIERT().filter((x) => x.slug !== f.slug);
+
+  return {
+    title: `${t('mu.chartTitle', { name: f.name })} | Blastzone`,
+    markup: html`<div class="page mu-page mc-page">
+      <header class="container page-head" style="${accentVars(f.colors)}">
+        <h1 data-reveal="wipe">${t('mu.chartTitle', { name: f.name })}</h1>
+        <p>${t('mu.chartLead', { name: f.name })}</p>
+        <p class="mc-head__links">
+          <a class="link" href="${link(`/fighter/${f.slug}`)}">${t('mu.openFighter', { name: f.name })}</a>
+        </p>
+      </header>
+
+      <section class="container mc-tools" aria-label="${t('mu.chartSort')}">
+        <div class="mu-sets" role="group" aria-label="${t('mu.chartSort')}">
+          <button class="mu-sets__btn is-active" type="button" data-sort="wertung" aria-pressed="true">${t('mu.chartSortRating')}</button>
+          <button class="mu-sets__btn" type="button" data-sort="name" aria-pressed="false">${t('mu.chartSortName')}</button>
+        </div>
+      </section>
+
+      <div class="container mc-out" data-chart aria-live="polite"><p class="mu-note">${t('mu.chartLoading')}</p></div>
+    </div>`,
+
+    mount(root) {
+      const out = qs<HTMLElement>('[data-chart]', root)!;
+      const stimmen = new Map<string, MatchupVotes>();
+      let sortierung: 'wertung' | 'name' = 'wertung';
+      let angemeldet = true;
+
+      /* Ohne Wertung nach hinten, dort nach Stimmenzahl und Name. */
+      const sortiert = (): Fighter[] =>
+        sortierung === 'name'
+          ? gegner
+          : [...gegner].sort((x, y) => {
+              const vx = stimmen.get(x.slug);
+              const vy = stimmen.get(y.slug);
+              const ax = vx?.average ?? null;
+              const ay = vy?.average ?? null;
+              if (ax !== null && ay !== null && ax !== ay) return ay - ax;
+              if (ax !== null && ay === null) return -1;
+              if (ax === null && ay !== null) return 1;
+              if ((vy?.votes ?? 0) !== (vx?.votes ?? 0)) return (vy?.votes ?? 0) - (vx?.votes ?? 0);
+              return x.name.localeCompare(y.name, locale);
+            });
+
+      const zeichne = (): void =>
+        mount(out, html`<ol class="mc-list" role="list">${sortiert().map((g) => chartZeile(f, g, stimmen.get(g.slug), angemeldet))}</ol>`);
+
+      const laden = async (): Promise<void> => {
+        try {
+          for (const row of await getMatchupChart(f.slug)) stimmen.set(row.opponent, { average: row.average, votes: row.votes, mine: row.mine });
+          zeichne();
+        } catch (err) {
+          // 401 heißt Gast, nicht Fehler: Die Liste bleibt, nur ohne Stimmen und ohne Auswahl.
+          if (err instanceof ApiError && err.status === 401) {
+            angemeldet = false;
+            mount(out, html`<p class="mu-votes__hint">${t('mu.chartGuest')}</p>
+              <ol class="mc-list" role="list">${sortiert().map((g) => chartZeile(f, g, undefined, false))}</ol>`);
+            return;
+          }
+          mount(out, html`<p class="mu-votes__hint">${err instanceof ApiError ? err.message : t('mu.chartFailed')}</p>`);
+        }
+      };
+
+      const aufSortierung = (e: Event): void => {
+        const knopf = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-sort]');
+        if (!knopf) return;
+        sortierung = knopf.dataset.sort === 'name' ? 'name' : 'wertung';
+        qsa<HTMLButtonElement>('[data-sort]', root).forEach((b) => {
+          const an = b === knopf;
+          b.classList.toggle('is-active', an);
+          b.setAttribute('aria-pressed', String(an));
+        });
+        zeichne();
+      };
+
+      const aufStimme = async (e: Event): Promise<void> => {
+        const feld = e.target as HTMLSelectElement;
+        const slug = feld.dataset.vote;
+        if (!slug) return;
+        const zeile = feld.closest<HTMLElement>('.mc-row');
+        const anzeige = zeile ? qs<HTMLElement>('[data-verdict]', zeile) : null;
+        if (anzeige) anzeige.textContent = t('profile.saving');
+        try {
+          const v = feld.value === '' ? await unrateMatchup(f.slug, slug) : await rateMatchup(f.slug, slug, Number(feld.value));
+          stimmen.set(slug, v);
+          if (anzeige) anzeige.textContent = urteil(v);
+        } catch (err) {
+          if (anzeige) anzeige.textContent = err instanceof ApiError ? err.message : t('profile.notSaved');
+        }
+      };
+
+      root.addEventListener('click', aufSortierung);
+      out.addEventListener('change', (e) => void aufStimme(e));
+      void laden();
+
+      return () => {
+        root.removeEventListener('click', aufSortierung);
       };
     },
   };

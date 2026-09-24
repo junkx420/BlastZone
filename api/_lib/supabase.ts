@@ -603,6 +603,23 @@ export function supabaseBackend(env: Env): Backend {
       }
     },
 
+    async matchupChart(auth, slug) {
+      try {
+        const rows = await call<Array<{ gegner: string; schnitt: string | number | null; stimmen: number; meine: number | null }>>(
+          rpcPath('matchup_chart'),
+          { method: 'POST', token: auth.token, body: JSON.stringify({ p_slug: slug }) },
+        );
+        return (rows ?? []).map((r) => ({
+          opponent: r.gegner,
+          average: r.schnitt === null || r.schnitt === undefined ? null : Number(r.schnitt),
+          votes: r.stimmen,
+          mine: r.meine ?? null,
+        }));
+      } catch (err) {
+        throw matchupMissing(err);
+      }
+    },
+
     async rateMatchup(auth, low, high, rating) {
       try {
         // user_id kommt aus dem Token (DEFAULT auth.uid()), nie aus dem Koerper.

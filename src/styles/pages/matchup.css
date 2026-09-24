@@ -340,3 +340,91 @@
     }
   }
 }
+
+@layer pages {
+  /* Übersicht eines Fighters: eine Zeile je Gegner. */
+  .mc-head__links {
+    margin: var(--sp-3) 0 0;
+    font-size: var(--fs-200);
+  }
+  .mu-head__all {
+    justify-self: center;
+    font-size: var(--fs-100);
+  }
+  .mc-tools {
+    margin-bottom: var(--sp-4);
+  }
+  .mc-tools .mu-sets {
+    justify-content: flex-start;
+    margin: 0;
+  }
+  .mc-list {
+    display: grid;
+    gap: var(--sp-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .mc-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-2);
+    align-items: center;
+    padding: var(--sp-2) var(--sp-3);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent, var(--line-strong));
+    border-radius: var(--r-control);
+    background: var(--surface-1);
+  }
+  .mc-row__link {
+    display: flex;
+    gap: var(--sp-3);
+    align-items: center;
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+  }
+  .mc-row__face {
+    position: relative;
+    flex: none;
+    display: block;
+    width: 56px;
+    aspect-ratio: 270 / 164;
+    overflow: hidden;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent, var(--surface-3)), var(--accent-2, var(--surface-3)));
+  }
+  .mc-row__name {
+    min-width: 0;
+    font-weight: 800;
+    font-stretch: var(--stretch-condensed);
+    overflow-wrap: anywhere;
+  }
+  .mc-row__link:hover .mc-row__name,
+  .mc-row__link:focus-visible .mc-row__name {
+    color: var(--accent-text, var(--text));
+    text-decoration: underline;
+  }
+  .mc-row__verdict {
+    font-size: var(--fs-100);
+    color: var(--text-muted);
+  }
+  .mc-row__pick select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 var(--sp-2);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-control);
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    font-size: var(--fs-100);
+  }
+  /* Ab Tablet drei Spalten: Gegner, Urteil, eigene Wertung. */
+  @media (min-width: 720px) {
+    .mc-row {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 260px) 200px;
+      column-gap: var(--sp-4);
+    }
+  }
+}
