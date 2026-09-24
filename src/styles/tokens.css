@@ -1,0 +1,223 @@
+/* ==========================================================================
+   Blastzone — design tokens
+   Layer 1: primitives  →  Layer 2: semantic  →  Layer 3: component (components.css)
+   The signature system is the damage ramp: the in-game percent heat
+   (white → yellow → orange → red) doubles as the tier heat scale.
+   ========================================================================== */
+
+/* Registered so fighter theming can transition smoothly. */
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ff6a2b;
+}
+@property --accent-2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffe66b;
+}
+@property --accent-text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ff8d5c;
+}
+@property --heat {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f5f6f8;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* ── Primitives · ground ─────────────────────────────────────────────── */
+  --void-950: #06070a;
+  --void-900: #0b0d12;
+  --void-850: #10131a;
+  --void-800: #161a23;
+  --void-700: #20252f;
+  --void-600: #2c323e;
+  --mist-400: #858b99; /* 5.4:1 on void-950 */
+  --mist-300: #aab0bd; /* 8.9:1 */
+  --mist-100: #eceef2; /* 17:1 */
+
+  /* ── Primitives · damage ramp (percent heat) ─────────────────────────── */
+  --dmg-0: #f5f6f8;
+  --dmg-40: #ffe66b;
+  --dmg-80: #ffb23a;
+  --dmg-120: #ff6a2b;
+  --dmg-160: #ec2a3b;
+  --dmg-200: #b0122f;
+
+  /* ── Primitives · controller ─────────────────────────────────────────── */
+  --port-1: #ff3d52;
+  --port-2: #3f8cff;
+  --port-3: #ffc53d;
+  --port-4: #34d17a;
+  --gc-a: #2fc27a;
+  --gc-b: #f0484a;
+  --gc-x: #c9cdd6;
+  --gc-z: #8a7cf0;
+  --gc-r: #9aa1ae;
+
+  /* ── Semantic · surfaces & text ──────────────────────────────────────── */
+  --bg: var(--void-950);
+  --surface-1: var(--void-900);
+  --surface-2: var(--void-850);
+  --surface-3: var(--void-800);
+  --surface-4: var(--void-700);
+  --text: var(--mist-100);
+  --text-muted: var(--mist-300);
+  --text-subtle: var(--mist-400);
+  /* Vordergrund als RGB-Tripel für halbtransparente Flächen: rgb(var(--fg-rgb) / 0.05). Im Light-Mode dunkel. */
+  --fg-rgb: 255 255 255;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --focus: var(--dmg-40);
+  /* Fehlertext. --dmg-160 ist als Schrift zu dunkel (4,1:1 auf --surface-3). */
+  --danger-text: #ff5c68;
+  --ink: var(--void-900); /* dark text on light fills */
+
+  /* ── Semantic · fighter accent (set per fighter via inline style) ─────── */
+  --accent: #ff6a2b;
+  --accent-2: #ffe66b;
+  --accent-text: #ff8d5c; /* accent lifted to ≥4.5:1 on --bg */
+  --accent-ink: #0b0d12; /* readable text on an --accent fill */
+
+  /* ── Semantic · tier heat ─────────────────────────────────────────────── */
+  --tier-s-plus: #d7193a;
+  --tier-s-plus-ink: #ffffff;
+  --tier-s: #ff4b2e;
+  --tier-s-ink: var(--ink);
+  --tier-a: #ff8f2c;
+  --tier-a-ink: var(--ink);
+  --tier-b: #ffc445;
+  --tier-b-ink: var(--ink);
+  --tier-c: #ffe98f;
+  --tier-c-ink: var(--ink);
+  --tier-d: #e3e6ec;
+  --tier-d-ink: var(--ink);
+  --tier-e: #8f96a3;
+  --tier-e-ink: var(--ink);
+
+  /* ── Type ─────────────────────────────────────────────────────────────── */
+  --font: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --stretch-compressed: 62%;
+  --stretch-condensed: 74%;
+  --stretch-semi: 88%;
+  --stretch-normal: 100%;
+  --stretch-wide: 118%;
+  --stretch-extended: 125%;
+
+  --fs-100: 0.8125rem; /* 13 – meta */
+  --fs-200: 0.875rem; /* 14 – ui */
+  --fs-300: 1rem; /* 16 – body */
+  --fs-400: 1.125rem; /* 18 – lead */
+  --fs-500: 1.375rem; /* 22 – card title */
+  --fs-600: 1.75rem; /* 28 – subsection */
+  --fs-700: clamp(2rem, 1.6rem + 1.6vw, 2.75rem); /* section */
+  --fs-800: clamp(2.75rem, 1.8rem + 4vw, 5rem); /* page title */
+  --fs-900: clamp(3.4rem, 1rem + 9.6vw, 9.5rem); /* hero / fighter name */
+  --fs-hud: clamp(3.25rem, 2.2rem + 4.4vw, 6rem); /* damage meter */
+
+  --lh-tight: 0.88;
+  --lh-snug: 1.15;
+  --lh-body: 1.6;
+
+  /* ── Space (4px base) ─────────────────────────────────────────────────── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 144px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1360px;
+  --measure: 64ch;
+  --nav-h: 64px;
+
+  /* ── Shape · hierarchy, not one radius everywhere ─────────────────────── */
+  --r-key: 5px; /* keycaps */
+  --r-control: 10px; /* inputs, buttons */
+  --r-panel: 16px; /* glass panels */
+  --r-stage: 28px; /* hero stage */
+  --slant: -12deg; /* Ultimate name-plate slant */
+  --notch: 18px; /* cut corner on panels */
+
+  /* ── Glass ────────────────────────────────────────────────────────────── */
+  --glass-bg: rgb(14 17 24 / 0.58);
+  --glass-bg-strong: rgb(11 13 18 / 0.82);
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glass-rim: inset 0 1px 0 rgb(255 255 255 / 0.08);
+  --glass-blur: blur(18px) saturate(150%);
+
+  /* ── Elevation · rim light + colored glow instead of grey shadows ─────── */
+  --elev-1: 0 1px 0 rgb(255 255 255 / 0.04), 0 8px 24px -12px rgb(0 0 0 / 0.7);
+  --elev-2: 0 1px 0 rgb(255 255 255 / 0.06), 0 24px 60px -24px rgb(0 0 0 / 0.85);
+
+  /* ── Motion ───────────────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-spring: linear(
+    0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017, 1.077,
+    1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%, 1.051 39.6%,
+    1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%, 0.997 69.8%, 1.003 76.9%, 1
+  );
+  --t-press: 90ms;
+  --t-fast: 160ms;
+  --t-base: 260ms;
+  --t-slow: 520ms;
+  --t-scene: 720ms;
+
+  /* ── Layers ───────────────────────────────────────────────────────────── */
+  --z-raised: 10;
+  --z-sticky: 40;
+  --z-nav: 60;
+  --z-overlay: 80;
+  --z-toast: 100;
+}
+
+/*
+ * Derived accent tokens are re-declared on every themed element: unregistered
+ * custom properties resolve var() where they are declared, so declaring them on
+ * :root alone would freeze them to the default accent.
+ */
+:root,
+[style*='--accent'] {
+  /* accentVars() liefert beide Lesarten, das Farbschema wählt. Ohne Fighter gilt der Standard aus :root. */
+  --accent-text: var(--accent-text-dark, #ff8d5c);
+  --accent-soft: color-mix(in oklch, var(--accent) 18%, transparent);
+  --accent-line: color-mix(in oklch, var(--accent) 45%, transparent);
+  --accent-glow: color-mix(in oklch, var(--accent) 60%, transparent);
+}
+
+/*
+ * Handys und Tablets: kleinerer Blur-Radius, dafür dichteres Glas.
+ * backdrop-filter kostet mit dem Quadrat des Radius, und eine Fighter-Seite hat
+ * über zwanzig Glasflächen. Mit 10 statt 18 px bleibt der Glaseffekt sichtbar,
+ * die GPU schwacher Geräte kommt aber beim Scrollen mit. Die höhere Deckkraft
+ * gleicht die geringere Unschärfe für die Lesbarkeit aus.
+ */
+@media (max-width: 760px), (pointer: coarse) {
+  :root {
+    --glass-blur: blur(10px) saturate(135%);
+    --glass-bg: rgb(14 17 24 / 0.72);
+  }
+}
+
+/* Unter 900 px war die Leiste zweizeilig (104 px). Seit dem Mobile-Menü (16.09.2026) ist sie überall eine Zeile, --nav-h gilt daher für alle Breiten. */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-press: 0ms;
+    --t-fast: 0ms;
+    --t-base: 0ms;
+    --t-slow: 0ms;
+    --t-scene: 0ms;
+  }
+}

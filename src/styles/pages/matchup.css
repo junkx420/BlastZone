@@ -1,0 +1,273 @@
+@layer pages {
+  /* Auswahl: auf dem Handy untereinander, ab 640 px nebeneinander mit dem Tauschknopf in der Mitte. */
+  .mu-picks {
+    margin-bottom: var(--sp-6);
+  }
+  .mu-picks__grid {
+    display: grid;
+    gap: var(--sp-3);
+    align-items: end;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .mu-pick {
+    display: grid;
+    gap: var(--sp-1);
+    margin: 0;
+  }
+  .mu-pick__label {
+    font-size: var(--fs-100);
+    font-weight: 700;
+    font-stretch: var(--stretch-condensed);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-subtle);
+  }
+  .mu-pick__select {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 var(--sp-3);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-control);
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    font-size: var(--fs-300);
+  }
+  .mu-swap {
+    justify-self: center;
+    min-width: 48px;
+    min-height: 48px;
+    font-size: var(--fs-500);
+    line-height: 1;
+  }
+  @media (min-width: 640px) {
+    .mu-picks__grid {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    }
+  }
+
+  .mu-note {
+    padding: var(--sp-5) 0;
+    color: var(--text-muted);
+  }
+
+  .mu-board {
+    display: grid;
+    gap: var(--sp-5);
+  }
+
+  /* Köpfe: immer zwei Spalten, auch auf 320 px. */
+  .mu-board__heads {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--sp-3);
+  }
+  .mu-head {
+    display: grid;
+    gap: var(--sp-2);
+    padding: var(--sp-3);
+    border: 1px solid var(--accent-line, var(--line));
+    border-radius: var(--r-panel);
+    background: linear-gradient(180deg, var(--accent-soft, transparent), transparent 70%), var(--surface-1);
+  }
+  .mu-head__link {
+    display: grid;
+    gap: var(--sp-2);
+    justify-items: center;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+  }
+  .mu-head__face {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 160px;
+    aspect-ratio: 270 / 164;
+    overflow: hidden;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent, var(--surface-3)), var(--accent-2, var(--surface-3)));
+  }
+  .mu-head__name {
+    font-size: var(--fs-400);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1.1;
+    color: var(--accent-text, var(--text));
+  }
+  .mu-head__link:hover .mu-head__name,
+  .mu-head__link:focus-visible .mu-head__name {
+    text-decoration: underline;
+  }
+  .mu-facts {
+    display: grid;
+    gap: 2px;
+    margin: 0;
+    font-size: var(--fs-100);
+  }
+  .mu-facts > div {
+    display: flex;
+    gap: var(--sp-2);
+    justify-content: space-between;
+    align-items: baseline;
+    min-width: 0;
+  }
+  .mu-facts dt {
+    color: var(--text-subtle);
+  }
+  .mu-facts dd {
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    text-align: right;
+    color: var(--text-muted);
+  }
+
+  /* Satzwahl für Pokémon-Trainer und Pyra/Mythra. */
+  .mu-sets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-1);
+    justify-content: center;
+    margin: var(--sp-2) 0 0;
+    padding: 0;
+    border: 0;
+  }
+  .mu-sets__btn {
+    min-height: 36px;
+    padding: 0 var(--sp-3);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    font: inherit;
+    font-size: var(--fs-100);
+    cursor: pointer;
+  }
+  .mu-sets__btn.is-active {
+    border-color: var(--accent-line, var(--line-strong));
+    background: var(--accent-soft, var(--surface-3));
+    color: var(--text);
+  }
+
+  /* Vergleichszeilen */
+  .mu-rows {
+    display: grid;
+    gap: var(--sp-4);
+  }
+  .mu-row {
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .mu-row__title {
+    margin: 0;
+    font-size: var(--fs-300);
+    font-weight: 800;
+    font-stretch: var(--stretch-condensed);
+  }
+  .mu-row__hint {
+    margin: 0;
+    font-size: var(--fs-100);
+    color: var(--text-subtle);
+  }
+  .mu-row__sides {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--sp-2);
+  }
+  .mu-cell {
+    display: grid;
+    gap: 2px;
+    padding: var(--sp-3);
+    border: 1px solid var(--line);
+    border-radius: var(--r-control);
+    background: var(--surface-1);
+    min-width: 0;
+  }
+  .mu-cell.is-better {
+    border-color: var(--accent-line, var(--line-strong));
+    background: linear-gradient(180deg, var(--accent-soft, transparent), transparent), var(--surface-2);
+  }
+  .mu-cell__value {
+    font-size: var(--fs-400);
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1.1;
+  }
+  .mu-cell.is-better .mu-cell__value {
+    color: var(--accent-text, var(--text));
+  }
+  .mu-cell__move {
+    font-size: var(--fs-100);
+    color: var(--text-muted);
+    overflow-wrap: anywhere;
+  }
+  .mu-cell__flag {
+    margin-top: var(--sp-1);
+    font-size: var(--fs-100);
+    font-weight: 700;
+    color: var(--accent-text, var(--text));
+  }
+
+  /* Fazit */
+  .mu-verdict {
+    padding: var(--sp-4);
+  }
+  .mu-verdict__title {
+    margin: 0 0 var(--sp-3);
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+  }
+  .mu-verdict__list {
+    display: grid;
+    gap: var(--sp-2);
+    margin: 0;
+    padding-left: var(--sp-5);
+  }
+  .mu-verdict__caveat {
+    margin: var(--sp-4) 0 0;
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--line);
+    font-size: var(--fs-100);
+    color: var(--text-subtle);
+  }
+
+  .mu-source,
+  .mu-weightnote {
+    margin: 0;
+    font-size: var(--fs-100);
+    color: var(--text-subtle);
+  }
+
+  /* Ab Tablet stehen die Zeilenbeschriftungen links neben den Werten. */
+  @media (min-width: 900px) {
+    .mu-row {
+      grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+      align-items: start;
+      column-gap: var(--sp-5);
+    }
+    .mu-row__title {
+      grid-column: 1;
+      align-self: center;
+    }
+    .mu-row__hint {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .mu-row__sides {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+  }
+}
+
+@layer pages {
+  /* Einstieg von der Fighter-Seite: steht unter den Attributen, wo es um Zahlen geht. */
+  .fstats__mu {
+    margin: var(--sp-4) 0 0;
+  }
+}

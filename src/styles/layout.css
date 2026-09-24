@@ -1,0 +1,675 @@
+@layer layout {
+  .main {
+    display: block;
+    min-height: 70dvh;
+    outline: none;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* ── Navigation ─────────────────────────────────────────────────────── */
+  /*
+   * Die Leiste ist dasselbe schwebende Glas-Panel wie der Filterblock im Roster,
+   * bis auf die Kanten: `.nav` zeichnet nichts und positioniert nur, die Optik
+   * sitzt auf `.nav__inner`. Aussenabstand und Maximalbreite sind so gesetzt,
+   * dass die Panelkanten genau auf denen von `.container` liegen. Dadurch steht
+   * die Leiste senkrecht ueber dem Filterblock, statt um einen Gutter versetzt.
+   *
+   * Frueher lag hier ein Verlauf auf ::before und eine Abdeckung auf ::after, die
+   * beim Scrollen eingeblendet wurde. Beides ist weg.
+   *
+   * `view-transition-name` steht bewusst NICHT mehr hier. Dauerhaft gesetzt macht
+   * es die Leiste laut Spezifikation zur eigenen backdrop root: `backdrop-filter`
+   * findet dann nichts mehr hinter sich und die Leiste deckt bloss ab, statt
+   * unscharf zu zeichnen. Genau das war die Beobachtung "hier ist KEIN blur".
+   * Den Namen setzt `main.ts` jetzt nur fuer die Dauer eines Seitenwechsels.
+   */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: var(--z-nav);
+    height: var(--nav-h);
+    padding: 8px var(--gutter) 0;
+    /* Nur das Panel faengt Klicks, der Streifen daneben bleibt durchlaessig. */
+    pointer-events: none;
+  }
+
+  .nav__inner {
+    pointer-events: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-5);
+    height: 100%;
+    max-width: calc(var(--max) - var(--gutter) * 2);
+    margin-inline: auto;
+    padding-inline: var(--sp-4);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-panel);
+    /* Ueber dem Hero darf mehr Artwork durch als weiter unten im Dokument. */
+    background: rgb(14 17 24 / 0.42);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim), var(--elev-2);
+    transition: background-color var(--t-base) var(--ease-out);
+  }
+  .nav.is-scrolled .nav__inner {
+    background: var(--glass-bg);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-height: 44px;
+    font-size: 1.125rem;
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+    letter-spacing: -0.02em;
+  }
+  .brand__mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    color: var(--dmg-120);
+    filter: drop-shadow(0 0 10px rgb(255 106 43 / 0.55));
+    transition: transform var(--t-slow) var(--ease-spring);
+  }
+  .brand__mark .icon {
+    width: 100%;
+    height: 100%;
+  }
+  .brand:hover .brand__mark {
+    transform: rotate(72deg) scale(1.08);
+  }
+
+  .nav__links {
+    display: flex;
+    gap: var(--sp-1);
+    margin-inline-start: auto;
+  }
+  .nav__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: var(--r-control);
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-weight: 650;
+    font-stretch: var(--stretch-semi);
+    white-space: nowrap;
+    transition: color var(--t-fast) var(--ease-out);
+  }
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 6px;
+    height: 3px;
+    background: var(--dmg-120);
+    transform: skewX(var(--slant)) scaleX(0);
+    transform-origin: left;
+    transition: transform var(--t-base) var(--ease-out);
+  }
+  .nav__link:hover,
+  .nav__link[aria-current='page'] {
+    color: var(--text);
+  }
+  .nav__link:hover::after,
+  .nav__link[aria-current='page']::after {
+    transform: skewX(var(--slant)) scaleX(1);
+  }
+
+  /* Menü-Knopf: nur unter 900 px sichtbar (siehe unten). */
+  .nav__menu-btn {
+    display: none;
+    flex: none;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    background: rgb(var(--fg-rgb) / 0.05);
+    color: var(--text);
+    cursor: pointer;
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast);
+  }
+  .nav__menu-btn .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .nav__menu-btn:hover,
+  .nav__menu-btn[aria-expanded='true'] {
+    border-color: var(--line-strong);
+    background: rgb(var(--fg-rgb) / 0.1);
+  }
+  .nav__menu-btn:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  /*
+   * Echte kleine Suchleiste statt Knopf. Die Kurztaste "/" funktioniert weiter,
+   * sie steht nur nicht mehr als Tastenkappe im Feld.
+   */
+  .nav__search {
+    position: relative;
+    display: flex;
+    flex: none;
+    align-items: center;
+    width: clamp(180px, 20vw, 260px);
+    height: 40px;
+    color: var(--text-muted);
+  }
+  .nav__search .icon {
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    width: 16px;
+    height: 16px;
+    translate: 0 -50%;
+    pointer-events: none;
+  }
+  .nav__search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 14px 0 38px;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    background: rgb(var(--fg-rgb) / 0.05);
+    color: var(--text);
+    font: inherit;
+    font-size: var(--fs-200);
+    cursor: pointer;
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast);
+  }
+  .nav__search-input::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+  .nav__search-input:hover,
+  .nav__search-input:focus-visible {
+    border-color: var(--line-strong);
+    background: rgb(var(--fg-rgb) / 0.08);
+  }
+  .nav__search-input::-webkit-search-decoration,
+  .nav__search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+
+  kbd {
+    display: inline-grid;
+    place-items: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 5px;
+    border: 1px solid var(--line-strong);
+    border-bottom-width: 2px;
+    background: var(--surface-4);
+    color: var(--text);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /*
+   * Einzeilige Leiste zwischen 901 und 1359 px: Mit fünf Links, Suche und dem
+   * Profil-Chip eines 20 Zeichen langen Namens stand der Chip bei 960 px 150 px
+   * über die Leiste, und schon mit vier Links 50 px. Deshalb verschwinden hier
+   * die breiten Links (Community), die Links rücken enger, und der Chip zeigt unter
+   * 1100 px nur den Avatar (pages/account.css). Gemessen am 15.09.2026 mit dem
+   * breitesten Namen (20 × W): bis 1279 passt es so, bei 1180 mit Community ragte
+   * der Chip 57 px über, ab 1280 passte Community.
+   * Seit der Sprachwahl (16.09.2026, rund 70 px): Community erst ab 1360, unter 1180
+   * Globus ohne Kürzel, bis 1259 Chip ohne Namen (account.css), unter 1100 schmalere
+   * Suche, unter 1024 noch engere Links.
+   * Neu gemessen in Deutsch und Englisch von 320 bis 1440 px.
+   */
+  /*
+   * Leiste ab 901 px: eine Leiter aus reinen min-width-Stufen, jede Stufe nur
+   * mit dem, was sich gegenueber der vorigen aendert.
+   *
+   * Kein Bereich mit max-width mehr: Bei gebrochenen Fensterbreiten (Zoomstufen,
+   * skalierte Anzeigen) fiel 1023,5 px durch beide Abfragen und die Leiste lief
+   * 6 px ueber, bei 1459,5 px waren es 90 px. Mit min-width kann das nicht passieren.
+   *
+   * Gemessen am 24.09.2026 mit sechs Links (Matchups kam dazu), angemeldet, mit
+   * dem breitesten Namen (20 x W), Deutsch und Englisch, 320 bis 1920 px.
+   */
+  @media (min-width: 901px) {
+    .nav__link--wide {
+      display: none;
+    }
+    .nav__inner {
+      gap: var(--sp-2);
+    }
+    .nav__search {
+      width: 96px;
+    }
+    .nav__link {
+      padding: 0 6px;
+    }
+    .nav__link::after {
+      left: 6px;
+      right: 6px;
+    }
+  }
+  @media (min-width: 960px) {
+    .nav__search {
+      width: 128px;
+    }
+    .nav__link {
+      padding: 0 8px;
+    }
+    .nav__link::after {
+      left: 8px;
+      right: 8px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .nav__inner {
+      gap: var(--sp-3);
+    }
+    .nav__search {
+      width: 150px;
+    }
+    .nav__link {
+      padding: 0 10px;
+    }
+    .nav__link::after {
+      left: 10px;
+      right: 10px;
+    }
+  }
+  @media (min-width: 1180px) {
+    .nav__inner {
+      gap: var(--sp-4);
+    }
+    .nav__search {
+      width: clamp(150px, 15vw, 210px);
+    }
+  }
+  /*
+   * Ab 1460 px darf Community zurueck in die Leiste. `.nav__inner` haengt an
+   * --max (1360px) und waechst nicht mit dem Fenster: Mehr Fensterbreite
+   * schafft keinen Platz, ab hier muss stattdessen etwas enger werden.
+   */
+  @media (min-width: 1460px) {
+    .nav__link--wide {
+      display: inline-flex;
+    }
+  }
+
+  /*
+   * Unter 900 px: eine Zeile (Logo, Suche, Sprache, Konto, Menü-Knopf), die Links
+   * wandern in ein Panel unter der Leiste. Vorher lagen sie als zweite Zeile in der
+   * Leiste (104 px hoch), und Community fehlte dort ganz.
+   */
+  @media (max-width: 900px) {
+    /*
+     * Kein eigener Aussenabstand hier. `.nav` behaelt var(--gutter), damit die
+     * Panelkanten auch auf dem Handy genau auf denen des Filterblocks liegen.
+     */
+    .nav__inner {
+      gap: 0 var(--sp-2);
+      max-width: none;
+      padding-inline: var(--sp-3);
+    }
+    .nav__menu-btn {
+      display: grid;
+      order: 3;
+    }
+    /*
+     * Basis 0 und Wachstum statt fester Breite: Beim Zeilenumbruch rechnet
+     * Flexbox mit der Basis, und 200 px neben dem Logo hätten die Leiste auf
+     * 375 px in drei statt zwei Zeilen gebrochen.
+     */
+    .nav__search {
+      flex: 1 1 0;
+      width: auto;
+      max-width: 220px;
+      margin-inline-start: auto;
+    }
+    /*
+     * Panel. Kein backdrop-filter: Die Leiste darüber ist selbst die backdrop root,
+     * ein Blur hier fände nichts hinter sich (siehe CLAUDE.md). Deshalb deckend, mit
+     * Glas-Hintergrund schien die Hero-Schrift lesbar durch (16.09.2026, 375 px).
+     */
+    .nav__links {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      margin: 0;
+      padding: 6px;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--r-panel);
+      background: var(--surface-1);
+      box-shadow: var(--glass-rim), var(--elev-2);
+    }
+    .nav__links.is-open {
+      display: flex;
+      animation: menu-in 180ms var(--ease-out);
+    }
+    .nav__link,
+    .nav__link--wide {
+      display: flex;
+      min-height: 48px;
+      padding: 0 16px;
+      border-radius: 10px;
+      font-size: var(--fs-300);
+    }
+    .nav__link:hover,
+    .nav__link[aria-current='page'] {
+      background: rgb(var(--fg-rgb) / 0.07);
+    }
+    .nav__link:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: -2px;
+    }
+    /* Unterstrich als kurzer Balken links statt über die ganze Zeile. */
+    .nav__link::after {
+      left: 16px;
+      right: auto;
+      bottom: 9px;
+      width: 22px;
+    }
+  }
+  /*
+   * Theme-Umschalter und Nachrichten: ab 520 px in der Leiste, darunter als Eintrag im Menü, weil
+   * Logo, Suche, Sprache, Avatar und Menü-Knopf die Zeile bei 320 px schon füllen.
+   */
+  .nav__menu-extra {
+    display: none;
+  }
+  @media (max-width: 519px) {
+    /* Das Ausblenden von .nav__theme und .nav__msgs steht in pages/account.css: .btn setzt display in der späteren Ebene components. */
+    .nav__menu-extra:not(:empty) {
+      display: grid;
+      margin-top: 4px;
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
+    }
+  }
+  .nav__menu-theme {
+    gap: var(--sp-3);
+    width: 100%;
+    text-align: left;
+  }
+  .nav__menu-theme .icon {
+    width: 18px;
+    height: 18px;
+  }
+  .nav__menu-theme::after {
+    display: none;
+  }
+
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+  /*
+   * 320 px (iPhone SE der ersten Generation): Die vier Links standen 2 px über,
+   * und mit klassischer Scrollleiste (305 px Inhalt) brach die Leiste in drei
+   * Zeilen, deren letzte unter der Glasbox heraushing.
+   */
+  /*
+   * Kleine Handys: Die Zeile trägt Logo, Suche, Sprache, Avatar und Menü-Knopf (je 40 px).
+   * Bis 420 px kleinere Logoschrift und engere Abstände, unter 360 px nur das Zeichen.
+   * Gemessen am 16.09.2026 mit Konto, 20 Zeichen langem Namen, Deutsch und Englisch.
+   */
+  @media (max-width: 420px) {
+    .nav__inner {
+      gap: 0 4px;
+    }
+    .nav .brand {
+      font-size: 1rem;
+    }
+  }
+  /* Unter 360 px nur das Zeichen, der Link heißt über aria-label weiter „Blastzone“. */
+  @media (max-width: 359px) {
+    .nav .brand__word {
+      display: none;
+    }
+  }
+
+  /* ── Seitengrund ────────────────────────────────────────────────────── */
+  /*
+   * Raster der Trainings-Stage statt nacktem Schwarz: feine Linien alle 28 px,
+   * Hauptlinien alle 112 px mit einem Hauch der Schadensrampe.
+   *
+   * KEINE Dauer-Animation. Die erste Fassung driftete endlos per `transform`,
+   * und die 1-px-Linien landeten dabei ständig zwischen zwei Pixeln: Sie
+   * flimmerten, auf manchen Bildschirmen wirkte das wie Blinken. Jetzt bewegt
+   * `siteBackground.ts` das Raster nur, wenn etwas passiert, und immer auf ganze
+   * Pixel gerundet:
+   * - mit Maus: leichte Parallaxe zur Mausposition, dazu leuchtet das Raster
+   *   rund um den Zeiger auf (`.sitebg__lit`, ein kleiner Lichtkegel, der per transform wandert)
+   * - ohne Maus (Touch): Das Raster läuft beim Scrollen langsamer mit als der Inhalt
+   *
+   * Liegt fest am Viewport auf z-index -3, also unter dem Fighter-Hintergrund
+   * (-2) und der Körnung (-1). Auf Fighter-Seiten ist es aus, dort trägt
+   * `.fbg` den Grund. Die äußere Maske hält die Seite ruhig: oben am
+   * deutlichsten, nach unten und zu den Seiten läuft es aus.
+   */
+  .sitebg {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    overflow: hidden;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(130% 95% at 50% 0%, #000 0%, rgb(0 0 0 / 0.6) 40%, rgb(0 0 0 / 0.22) 72%, rgb(0 0 0 / 0.08) 100%);
+    mask-image: radial-gradient(130% 95% at 50% 0%, #000 0%, rgb(0 0 0 / 0.6) 40%, rgb(0 0 0 / 0.22) 72%, rgb(0 0 0 / 0.08) 100%);
+  }
+  .sitebg__grid,
+  .sitebg__lit {
+    position: absolute;
+    background-size:
+      112px 112px,
+      112px 112px,
+      28px 28px,
+      28px 28px;
+    will-change: transform;
+  }
+  .sitebg__grid {
+    inset: -112px;
+    background-image:
+      linear-gradient(color-mix(in oklch, var(--dmg-120) 16%, rgb(var(--fg-rgb) / 0.05)) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklch, var(--dmg-120) 16%, rgb(var(--fg-rgb) / 0.05)) 1px, transparent 1px),
+      linear-gradient(rgb(var(--fg-rgb) / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--fg-rgb) / 0.035) 1px, transparent 1px);
+  }
+  /*
+   * Lichtkegel: dieselbe Geometrie, heller, in einem 640-px-Kreis. Das Element
+   * wandert per transform mit der Maus, die Maske ist fest. `siteBackground.ts`
+   * verschiebt dazu die background-position gegenläufig, damit die hellen Linien
+   * genau auf dem Grundraster liegen. Neu gemalt wird so nur diese kleine Fläche.
+   */
+  .sitebg__lit {
+    top: 0;
+    left: 0;
+    width: 640px;
+    height: 640px;
+    background-image:
+      linear-gradient(color-mix(in oklch, var(--dmg-120) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklch, var(--dmg-120) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(rgb(var(--fg-rgb) / 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--fg-rgb) / 0.14) 1px, transparent 1px);
+    -webkit-mask-image: radial-gradient(closest-side, #000 0%, rgb(0 0 0 / 0.35) 45%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 0%, rgb(0 0 0 / 0.35) 45%, transparent 100%);
+    transform: translate3d(-9999px, -9999px, 0);
+    opacity: 0;
+    transition: opacity 500ms var(--ease-out);
+  }
+  .sitebg.is-lit .sitebg__lit {
+    opacity: 1;
+  }
+  /* Weicher Lichtkegel von oben, wie der Scheinwerfer über der Stage. Ohne Farbe, damit das Replay nichts umfärbt. */
+  .sitebg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 45% at 50% -8%, rgb(var(--fg-rgb) / 0.05), transparent 70%);
+  }
+  :root:has(.fighter) .sitebg {
+    display: none;
+  }
+
+  /* ── Page frame ─────────────────────────────────────────────────────── */
+  /*
+   * Abstand unter der Leiste. Sie schwebt als Glas-Panel über dem Inhalt, und
+   * Inhalt, der direkt an ihrer Unterkante begann, wirkte wie darunter
+   * eingeklemmt.
+   */
+  .page {
+    padding-top: calc(var(--nav-h) + var(--sp-6));
+  }
+  .page--flush {
+    padding-top: 0;
+  }
+
+  .section {
+    padding-block: var(--sp-9);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--sp-3) var(--sp-5);
+    margin-bottom: var(--sp-6);
+  }
+  .section-head h2 {
+    font-size: var(--fs-700);
+    font-weight: 850;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+  .section-head h2,
+  .section-head p {
+    grid-column: 1;
+  }
+  .section-head p {
+    max-width: var(--measure);
+    color: var(--text-muted);
+  }
+  /* Two-class selector so it beats `.section-head p` when the aside is a paragraph. */
+  .section-head .section-head__aside {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
+  }
+  @media (max-width: 640px) {
+    .section-head {
+      grid-template-columns: 1fr;
+    }
+    .section-head .section-head__aside {
+      grid-column: 1;
+      grid-row: auto;
+      justify-self: start;
+    }
+  }
+
+  .page-head {
+    padding-block: var(--sp-8) var(--sp-7);
+  }
+  .page-head h1 {
+    font-size: var(--fs-800);
+    font-weight: 900;
+    font-stretch: var(--stretch-condensed);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+  .page-head p {
+    max-width: var(--measure);
+    margin-top: var(--sp-4);
+    color: var(--text-muted);
+    font-size: var(--fs-400);
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────── */
+  .footer {
+    margin-top: var(--sp-9);
+    border-top: 1px solid var(--line);
+    background: linear-gradient(to bottom, var(--surface-1), var(--bg));
+  }
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1.4fr;
+    gap: var(--sp-6);
+    max-width: var(--max);
+    margin-inline: auto;
+    padding: var(--sp-8) var(--gutter) var(--sp-6);
+  }
+  .footer__brand p {
+    max-width: 34ch;
+    margin-top: var(--sp-2);
+    color: var(--text-muted);
+  }
+  .footer__nav {
+    display: grid;
+    align-content: start;
+    gap: var(--sp-1);
+  }
+  .footer__nav a {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 36px;
+    color: var(--text-muted);
+    transition: color var(--t-fast);
+  }
+  .footer__nav a:hover {
+    color: var(--text);
+  }
+  .footer__title {
+    margin-bottom: var(--sp-2);
+    font-size: var(--fs-200);
+    font-weight: 700;
+  }
+  .footer__data p {
+    max-width: 54ch;
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+  }
+  .footer__data a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    text-decoration-color: var(--line-strong);
+  }
+  .footer__legal {
+    max-width: var(--max);
+    margin-inline: auto;
+    padding: var(--sp-4) var(--gutter) var(--sp-7);
+    border-top: 1px solid var(--line);
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  @media (max-width: 860px) {
+    .footer__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+}

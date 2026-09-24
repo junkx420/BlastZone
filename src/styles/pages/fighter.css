@@ -1,0 +1,1049 @@
+@layer pages {
+  /* ── Seitenhintergrund ──────────────────────────────────────────────── */
+  /*
+   * Der Hintergrund läuft über die ganze Fighter-Seite und sieht bei jedem
+   * Fighter anders aus. Farben und Anordnung liefert `fighterBackdrop()`, das
+   * Muster wählt der Archetyp.
+   *
+   * ZWEI DINGE, DIE HIER NICHT VERSEHENTLICH GEÄNDERT WERDEN DÜRFEN:
+   *
+   * 1. Die Ebene liegt auf z-index -2, nicht -1. Auf -1 sitzt die feste
+   *    Körnungsebene aus `base.css` (`body::before`), und die gehört über den
+   *    Hintergrund, nicht darunter. Damit das aufgeht, darf `.fighter` keinen
+   *    Stapelkontext aufmachen: `position: relative` ohne z-index tut das nicht,
+   *    `isolation`, `transform` oder `opacity` schon. Also hier nichts davon
+   *    ergänzen.
+   * 2. Die Ebene hängt am Artikel und scrollt mit, sie ist nicht am Viewport
+   *    verankert. Fest verankert wäre sie im Heldenbereich unsichtbar, weil
+   *    dessen Verlauf nach unten auf deckendes --bg ausblendet, und am Fuß des
+   *    Helden entstünde eine sichtbare waagerechte Kante.
+   */
+  .fighter {
+    position: relative;
+  }
+  .fbg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+    /* Eine Stellschraube für die Stärke des ganzen Entwurfs. */
+    --fbg-kraft: 1;
+    /*
+     * Ein- und Ausblenden als Maske statt als weiterer Verlauf, weil sie so
+     * Farbfeld und Muster gemeinsam erfasst.
+     *
+     * Die Einblendung beginnt genau an der Unterkante des Headers und läuft
+     * von dort 560 px weich hoch. Früher war sie auf feste 880 px gerechnet,
+     * und weil der Header fast genauso hoch ist, stand der Hintergrund an seiner
+     * Unterkante schon beinahe voll da: Das tiefschwarze Ende des Headers traf
+     * mit harter waagerechter Kante auf das Muster, direkt über den Stat-Karten.
+     *
+     * `--fbg-start` setzt `fighter.ts` aus der gemessenen Headerhöhe und hält
+     * sie per ResizeObserver aktuell. Die 860 px sind nur der Wert bis dahin.
+     */
+    --fbg-start: 860px;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent var(--fbg-start),
+      #000 calc(var(--fbg-start) + 560px),
+      #000 calc(100% - 240px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent var(--fbg-start),
+      #000 calc(var(--fbg-start) + 560px),
+      #000 calc(100% - 240px),
+      transparent 100%
+    );
+  }
+  /* Farbfeld: zwei weiche Kerne aus den beiden Fighter-Farben, dazu ein Zug quer. */
+  .fbg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        68% 26% at var(--fbg-x1) var(--fbg-y1),
+        color-mix(in oklch, var(--accent) calc(26% * var(--fbg-kraft)), transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        62% 24% at var(--fbg-x2) var(--fbg-y2),
+        color-mix(in oklch, var(--accent-2) calc(20% * var(--fbg-kraft)), transparent),
+        transparent 72%
+      ),
+      linear-gradient(
+        var(--fbg-winkel),
+        transparent 22%,
+        color-mix(in oklch, var(--accent) calc(8% * var(--fbg-kraft)), transparent) 54%,
+        transparent 84%
+      );
+  }
+  /*
+   * Musterebene.
+   *
+   * ABGESCHWÄCHT WIRD NUR AN EINER STELLE, nämlich im Farbanteil. Der erste
+   * Entwurf hat zweimal gedämpft: 22 Prozent im `color-mix` und dann nochmal
+   * `opacity: 0.24` darüber. Macht rund fünf Prozent effektive Deckkraft für
+   * eine ein Pixel breite Linie auf fast schwarzem Grund, und das sieht
+   * niemand. Schlimmer als unsichtbar war, dass keine der beiden Zahlen mehr
+   * das bedeutete, was sie sagt.
+   *
+   * Jetzt steht die Stärke im Farbanteil und `opacity` trägt nur noch die
+   * Stellschraube. Ein Wert von 14 Prozent heißt also auch 14 Prozent auf dem
+   * Grund. Die Zahlen unterscheiden sich pro Muster, weil ein Punktfeld bei
+   * gleicher Deckkraft viel leiser wirkt als ein durchgezogenes Gitter.
+   */
+  .fbg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-position: var(--fbg-drift) var(--fbg-drift);
+    opacity: var(--fbg-kraft);
+    background-image: repeating-linear-gradient(
+      var(--fbg-winkel),
+      transparent 0 calc(var(--fbg-takt) * 2),
+      color-mix(in oklch, var(--accent) 12%, transparent) calc(var(--fbg-takt) * 2) calc(var(--fbg-takt) * 2 + 2px)
+    );
+  }
+  /* Tempo: enge Linien in Laufrichtung. */
+  .fbg[data-muster='rushdown']::after {
+    background-image: repeating-linear-gradient(
+      var(--fbg-winkel),
+      transparent 0 calc(var(--fbg-takt) * 1.1),
+      color-mix(in oklch, var(--accent) 14%, transparent) calc(var(--fbg-takt) * 1.1) calc(var(--fbg-takt) * 1.1 + 2px)
+    );
+  }
+  /* Zoning: Ringe um den zweiten Farbkern, wie Wellen um einen Werfer. */
+  .fbg[data-muster='zoner']::after {
+    background-image: repeating-radial-gradient(
+      circle at var(--fbg-x2) var(--fbg-y2),
+      transparent 0 calc(var(--fbg-takt) * 2.6),
+      color-mix(in oklch, var(--accent) 13%, transparent) calc(var(--fbg-takt) * 2.6) calc(var(--fbg-takt) * 2.6 + 2px)
+    );
+  }
+  /* Schwerter: lange flache Schnitte, zwei Stärken übereinander. */
+  .fbg[data-muster='swordie']::after {
+    background-image:
+      repeating-linear-gradient(
+        calc(var(--fbg-winkel) - 54deg),
+        transparent 0 calc(var(--fbg-takt) * 4),
+        color-mix(in oklch, var(--accent) 16%, transparent) calc(var(--fbg-takt) * 4) calc(var(--fbg-takt) * 4 + 4px)
+      ),
+      repeating-linear-gradient(
+        calc(var(--fbg-winkel) - 54deg),
+        transparent 0 calc(var(--fbg-takt) * 1.3),
+        color-mix(in oklch, var(--accent-2) 9%, transparent) calc(var(--fbg-takt) * 1.3) calc(var(--fbg-takt) * 1.3 + 2px)
+      );
+  }
+  /* Allrounder: ruhiges Gitter, in beide Richtungen gleich. */
+  .fbg[data-muster='allrounder']::after {
+    background-image:
+      repeating-linear-gradient(
+        var(--fbg-winkel),
+        transparent 0 calc(var(--fbg-takt) * 1.8),
+        color-mix(in oklch, var(--accent) 12%, transparent) calc(var(--fbg-takt) * 1.8) calc(var(--fbg-takt) * 1.8 + 2px)
+      ),
+      repeating-linear-gradient(
+        calc(var(--fbg-winkel) + 90deg),
+        transparent 0 calc(var(--fbg-takt) * 1.8),
+        color-mix(in oklch, var(--accent) 12%, transparent) calc(var(--fbg-takt) * 1.8) calc(var(--fbg-takt) * 1.8 + 2px)
+      );
+  }
+  /* Setplay: gestelltes Punktfeld, wie ausgelegte Fallen. */
+  .fbg[data-muster='setplay']::after {
+    background-image: radial-gradient(color-mix(in oklch, var(--accent) 30%, transparent) 1.6px, transparent 1.7px);
+    background-size: calc(var(--fbg-takt) * 1.5) calc(var(--fbg-takt) * 1.5);
+  }
+  /* Grappler: breite, schwere Bänder. */
+  .fbg[data-muster='grappler']::after {
+    background-image: repeating-linear-gradient(
+      calc(var(--fbg-winkel) + 24deg),
+      transparent 0 calc(var(--fbg-takt) * 2.4),
+      color-mix(in oklch, var(--accent) 7%, transparent) calc(var(--fbg-takt) * 2.4) calc(var(--fbg-takt) * 3.4)
+    );
+  }
+  /* Bruiser: große Blöcke, wenig Kanten. */
+  .fbg[data-muster='bruiser']::after {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 calc(var(--fbg-takt) * 3),
+        color-mix(in oklch, var(--accent) 11%, transparent) calc(var(--fbg-takt) * 3) calc(var(--fbg-takt) * 3 + 3px)
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 calc(var(--fbg-takt) * 3),
+        color-mix(in oklch, var(--accent) 11%, transparent) calc(var(--fbg-takt) * 3) calc(var(--fbg-takt) * 3 + 3px)
+      );
+  }
+  /* Bait: kurze Striche, versetzt, wie abwartende Ticks. */
+  .fbg[data-muster='bait']::after {
+    background-image: repeating-linear-gradient(
+      calc(var(--fbg-winkel) + 90deg),
+      color-mix(in oklch, var(--accent) 14%, transparent) 0 calc(var(--fbg-takt) * 0.5),
+      transparent calc(var(--fbg-takt) * 0.5) calc(var(--fbg-takt) * 2.2)
+    );
+    background-size: 100% calc(var(--fbg-takt) * 2.2);
+  }
+
+  /* ── Header ─────────────────────────────────────────────────────────── */
+  .fhero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-items: end;
+    min-height: min(88dvh, 860px);
+    padding: calc(var(--nav-h) + var(--sp-8)) 0 var(--sp-7);
+    overflow: clip;
+  }
+  .fhero__stage {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .fhero__stage::before,
+  .fhero__stage::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .fhero__stage::before {
+    z-index: 0;
+    background: radial-gradient(60% 70% at 70% 35%, color-mix(in oklch, var(--accent) 38%, transparent), transparent 70%);
+  }
+  .fhero__stage::after {
+    background:
+      linear-gradient(to bottom, rgb(6 7 10 / 0.05) 30%, var(--bg) 97%),
+      linear-gradient(to right, rgb(6 7 10 / 0.8) 0%, rgb(6 7 10 / 0.4) 36%, rgb(6 7 10 / 0) 64%);
+  }
+  /*
+   * Die Bildbox deckt den ganzen Header ab, bei jeder Breite.
+   *
+   * Sie begann früher erst bei 28 Prozent. Hinter dem Render liegt die
+   * generierte Bühne mit den Strahlen, und die füllt nur diese Box. Links davon
+   * war schlicht nichts: Das war der schwarze Balken mit der harten senkrechten
+   * Kante. Die Bühne schneidet per `preserveAspectRatio="xMidYMid slice"`, also
+   * wie `background-size: cover` mittig, der Fighter bleibt über
+   * `object-position` rechts, und die Schrift links trägt der Verlauf aus
+   * `.fhero__stage::after`.
+   *
+   * Damit erledigt sich auch der Leerraum über dem Render zwischen 700 und
+   * 1040 px, der eine eigene Zwischenregel brauchte: Mit dem Einzug wurde die
+   * Box schmaler als das Bild hoch ist, `contain` band sich an die Breite, und
+   * oben blieben bis zu 26 % frei.
+   */
+  .fhero__art {
+    position: absolute;
+    inset: -4% -4% -4% 0;
+  }
+  /*
+   * Der Kopf des Fighters bleibt unter der Leiste frei. Die Box reicht weiter
+   * bis ganz nach oben, damit die Bühne auch hinter der gläsernen Leiste liegt;
+   * nur das Bild beginnt erst unterhalb von Leiste und Abstand.
+   */
+  /*
+   * Die Höhe steht ausdrücklich da, nicht als `height: auto`. Bei einer
+   * normalen Box spannt `auto` zwischen `top` und `bottom` auf, bei einem
+   * `<img>` nicht: Ein ersetztes Element rechnet `auto` aus seinem eigenen
+   * Seitenverhältnis. Bei voller Headerbreite (1331 px) ergab das für Marios
+   * Render gut 1500 px Höhe, `contain` griff gar nicht mehr, und der Fighter
+   * stand riesig und abgeschnitten im Bild.
+   */
+  .fhero__art-inner .art__img {
+    top: calc(var(--nav-h) + var(--sp-7));
+    height: calc(100% - var(--nav-h) - var(--sp-7));
+  }
+  /*
+   * Auf schmalen Schirmen war der Render links angeschnitten: Die 28 Prozent
+   * Einzug stammen vom zweispaltigen Aufbau, wo links der Text steht. Fehlt der
+   * Platz, schiebt der Einzug den Fighter aus dem Bild.
+   *
+   * Deshalb hier volle Breite und der Bildausschnitt nach rechts verschoben, wo
+   * der Charakter steht. Der Verlauf von links bleibt, damit die Schrift
+   * darueber lesbar ist.
+   */
+  @media (max-width: 700px) {
+    /*
+     * Nicht die volle Hoehe, sondern nur der obere Teil. Die Flaeche war zuvor
+     * 375 mal 757 px, also hochkant 1:2, waehrend die Renders quadratisch bis
+     * querformatig sind. Mit object-fit contain schrumpfte Corrins Doppel-
+     * portraet dadurch auf 375 mal 233 px und klebte als Streifen am unteren
+     * Rand, waehrend oben zwei Drittel leerer Verlauf standen.
+     *
+     * Jetzt sitzt das Bild oben, wo ohnehin nichts steht, und der Text bleibt
+     * darunter frei. Abgeschnitten wird nichts, contain bleibt.
+     */
+    .fhero__art {
+      inset: 0 0 auto 0;
+      height: 58%;
+    }
+    /*
+     * Klassenname beachten: Im Markup steht art__img mit zwei Unterstrichen.
+     * Der Selektor weiter unten in dieser Datei schreibt art-img und trifft
+     * deshalb nichts. Mein erster Versuch hatte den Fehler uebernommen, die
+     * Regel blieb wirkungslos und art.css behielt die Oberhand.
+     *
+     * Gewinnt jetzt trotzdem gegen art.css, weil pages in der Layer-Reihenfolge
+     * hinter components steht. Spezifitaet spielt dabei keine Rolle.
+     *
+     * Waagerecht mittig statt bei 82 Prozent: Bei object-fit contain sitzt der
+     * Render sonst am rechten Rand, und bei Corrins Doppelportraet sah man nur
+     * noch einen Arm.
+     */
+    .fhero__art-inner .art__img {
+      top: calc(var(--nav-h) + var(--sp-3));
+      height: calc(100% - var(--nav-h) - var(--sp-3));
+      object-position: 50% 100%;
+    }
+    .fhero__stage::after {
+      background:
+        linear-gradient(to bottom, rgb(6 7 10 / 0.05) 30%, var(--bg) 97%),
+        linear-gradient(to right, rgb(6 7 10 / 0.92) 0%, rgb(6 7 10 / 0.35) 55%, rgb(6 7 10 / 0) 100%);
+    }
+  }
+  /*
+   * Die Blende nach unten sitzt als Maske auf dem Bild selbst, nicht nur im
+   * Verlauf von `.fhero__stage::after` darüber.
+   *
+   * Grund ist der Seitenwechsel: `view-transition-name` hebt dieses Element als
+   * eigenes Bild aus der Bühne heraus und legt es über die ganze Seite. Der
+   * Verlauf, der es im fertigen Layout abdunkelt, bleibt dabei zurück. Ohne
+   * eigene Maske kam der Header deshalb als Rechteck mit harter Unterkante an
+   * und lag über der Navigation. Mit Maske blendet das Bild auch mitten im
+   * Übergang weich aus. Im fertigen Layout ändert sich nichts Sichtbares: Unten
+   * deckt der Verlauf ohnehin auf die Hintergrundfarbe ab.
+   */
+  .fhero__art-inner {
+    position: absolute;
+    inset: 0;
+    view-transition-name: fighter-art;
+    /* Erst ab 80 %: Früher einsetzend blendete die Maske zusammen mit dem Verlauf die Beine der Renders sichtbar aus. */
+    -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+  }
+  .fhero__art-inner > .sigil,
+  .fhero__art-inner > .art-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+  }
+  .crumbs li + li::before {
+    content: '/';
+    content: '/' / '';
+    margin-right: 8px;
+    color: var(--text-subtle);
+  }
+  .crumbs a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 0.25em;
+    transition: color var(--t-fast);
+  }
+  .crumbs a:hover {
+    color: var(--text);
+  }
+
+  .fhero__name {
+    margin-top: var(--sp-2);
+    font-size: var(--fs-900);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 0.84;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+    text-shadow: 0 10px 40px rgb(0 0 0 / 0.5);
+  }
+  .fhero__name-text {
+    display: inline-block;
+    padding-inline-end: 0.1em;
+    view-transition-name: fighter-name;
+  }
+  .fhero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-2) var(--sp-3);
+    margin-top: var(--sp-5);
+  }
+  .fhero .tag {
+    height: 32px;
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    font-size: var(--fs-200);
+  }
+  .fhero__tagline {
+    max-width: 50ch;
+    margin-top: var(--sp-4);
+    font-size: var(--fs-500);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .fhero__jump {
+    margin-top: var(--sp-5);
+  }
+
+  /* ── Stats ──────────────────────────────────────────────────────────── */
+  /*
+   * Der Grund des Gitters bleibt absichtlich die Linienfarbe: Die Trennlinien
+   * zwischen den Karten entstehen aus dem 1 px Abstand, der diese Flaeche
+   * durchscheinen laesst. Hinter einer Karte mit 58 Prozent Deckkraft steuert
+   * sie nur rund drei Prozent Weiss bei, das ist der Erhalt der Linien wert.
+   */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--r-panel);
+    background: var(--line);
+  }
+  /* Glas, damit der Fighter-Hintergrund durch die Karten traegt. */
+  .stat {
+    display: grid;
+    align-content: start;
+    gap: var(--sp-2);
+    padding: var(--sp-5);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+  }
+  .stat dt {
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+    font-weight: 600;
+  }
+  .stat dd {
+    display: grid;
+    gap: var(--sp-2);
+    margin: 0;
+  }
+  .stat__value {
+    font-size: var(--fs-700);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-wide);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .stat__value--word {
+    font-size: var(--fs-600);
+    font-stretch: var(--stretch-condensed);
+  }
+  .stat__unit {
+    color: var(--text-subtle);
+    font-size: 0.45em;
+    font-style: normal;
+    font-stretch: var(--stretch-normal);
+  }
+  .stat__meta {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+  }
+  /* Archetyp: kleine Pyramide mit dem eigenen Feld, führt zur großen. */
+  .stat__arch {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-height: 44px;
+    color: var(--text);
+  }
+  .stat__arch-mini {
+    flex: none;
+    width: 44px;
+    height: auto;
+  }
+  .stat__arch:hover .stat__value,
+  .stat__arch:focus-visible .stat__value {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--accent-line);
+    text-underline-offset: 0.2em;
+  }
+  .bar {
+    position: relative;
+    height: 6px;
+    margin-top: 4px;
+    overflow: hidden;
+    border-radius: 3px;
+    background: var(--void-600);
+  }
+  .bar__fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: calc(var(--fill) * 1%);
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    transform-origin: left;
+  }
+  .bar--heat .bar__fill {
+    background: linear-gradient(90deg, var(--dmg-0), var(--dmg-40), var(--dmg-120), var(--dmg-160));
+    background-size: calc(100% * 100 / var(--fill)) 100%;
+  }
+  .pips {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .pip {
+    width: 22px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--void-600);
+    transform: skewX(var(--slant));
+  }
+  .pip.is-on {
+    background: var(--accent);
+  }
+  @media (max-width: 960px) {
+    .stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 480px) {
+    .stats {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Meta text ──────────────────────────────────────────────────────── */
+  .fmeta {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--sp-8);
+    padding-block: var(--sp-9) var(--sp-6);
+  }
+  .fmeta__text h2 {
+    margin-bottom: var(--sp-4);
+    font-size: var(--fs-700);
+    font-weight: 850;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1;
+  }
+  .fmeta__text p {
+    max-width: var(--measure);
+    color: var(--text-muted);
+    font-size: var(--fs-400);
+  }
+  .fmeta__text p + p {
+    margin-top: var(--sp-4);
+  }
+  .fmeta__text h2 + p {
+    color: var(--text);
+  }
+  .fmeta__text .fmeta__echo {
+    font-size: var(--fs-300);
+  }
+  .fmeta__text .fmeta__sources {
+    margin-top: var(--sp-5);
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+  }
+  .fmeta__lists {
+    display: grid;
+    align-content: start;
+    gap: var(--sp-5);
+  }
+  .plusminus h3 {
+    margin-bottom: var(--sp-3);
+    font-size: var(--fs-300);
+    font-weight: 800;
+  }
+  .plusminus ul {
+    display: grid;
+    gap: var(--sp-3);
+  }
+  .plusminus li {
+    position: relative;
+    padding-left: 32px;
+    color: var(--text-muted);
+  }
+  .plusminus li::before {
+    content: '+';
+    content: '+' / '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background: var(--gc-a);
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .plusminus--minus li::before {
+    content: '−';
+    content: '−' / '';
+    background: var(--gc-b);
+  }
+  @media (max-width: 900px) {
+    .fmeta {
+      grid-template-columns: 1fr;
+      gap: var(--sp-6);
+      padding-top: var(--sp-8);
+    }
+  }
+
+  /* ── Combos ─────────────────────────────────────────────────────────── */
+  .fcombos {
+    padding-block: var(--sp-7);
+  }
+  /* ── Frame Data ─────────────────────────────────────────────────────── */
+  .fframes {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1200px;
+    margin-top: var(--sp-8);
+  }
+  .fframes__satz + .fframes__satz {
+    margin-top: var(--sp-7);
+  }
+  .fframes__label {
+    margin-bottom: var(--sp-3);
+    color: var(--accent-text);
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-stretch: var(--stretch-condensed);
+    text-transform: uppercase;
+  }
+  .fframes__laden {
+    color: var(--text-muted);
+  }
+  .fframes__quelle {
+    margin-top: var(--sp-4);
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  /*
+   * Acht Spalten passen auf kein Telefon. Die Tabelle scrollt deshalb in ihrem
+   * eigenen Kasten – die Seite selbst darf nie waagerecht scrollen.
+   */
+  /*
+   * Glas wie die uebrigen Blasen. Die Tabelle hatte bisher gar keinen eigenen
+   * Grund und sass damit nackt auf dem Seitenhintergrund: dichte Zahlenreihen
+   * ueber einem laufenden Muster, die schlechteste Kombination auf der Seite.
+   *
+   * Der Tabellenkopf darunter bleibt deckend (`.frame thead th`). Er klebt beim
+   * Scrollen oben fest, und durchsichtig liefen die Zeilen sichtbar unter ihm
+   * durch.
+   */
+  .frame__scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+  }
+  .frame {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-200);
+    font-variant-numeric: tabular-nums;
+  }
+  .frame th,
+  .frame td {
+    padding: 10px var(--sp-3);
+    text-align: left;
+    white-space: nowrap;
+    /*
+     * Zellen stehen oben, nicht mittig. Sobald jemand eine Hitbox-Darstellung
+     * öffnet, wird die Zeile mehrfach so hoch – mittig ausgerichtet schwebten
+     * die Zahlen dann weit unterhalb des Move-Namens, zu dem sie gehören.
+     */
+    vertical-align: top;
+  }
+  .frame thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    font-size: var(--fs-100);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .frame tbody tr + tr {
+    border-top: 1px solid var(--line);
+  }
+  .frame tbody tr:hover {
+    background: rgb(var(--fg-rgb) / 0.03);
+  }
+  /* Die Move-Spalte trägt Name, Spaltenlegende und Notiz – die darf umbrechen. */
+  .frame tbody th {
+    display: grid;
+    gap: 2px;
+    min-width: 210px;
+    max-width: 340px;
+    white-space: normal;
+  }
+  .frame__name {
+    color: var(--text);
+    font-weight: 800;
+  }
+  .frame__spalten {
+    color: var(--accent-text);
+    font-size: var(--fs-100);
+    font-weight: 600;
+  }
+  .frame__notiz {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .frame__leer {
+    color: var(--text-subtle);
+  }
+  /*
+   * Klick-Fassade für die Hitbox-Darstellung. Vor dem Klick steht hier nur ein
+   * Knopf aus eigenen Daten – das Bild kommt von ultimateframedata.com und wird
+   * erst auf Klick geholt, wie beim Guide-Video. Deshalb nennt der Knopf die
+   * Herkunft, bevor jemand darauf drückt.
+   */
+  /*
+   * Start und Schildvorteil tragen die Prozent-Hitze – dasselbe Motiv, mit dem
+   * die Seite Schaden und Tiers einfaerbt. Ein 2-Frame-Jab steht weiss da, ein
+   * 20-Frame-Smash rot; beim Schild ist -3 hell und -25 rot.
+   *
+   * Nur die Schriftfarbe, keine Flaechen: Acht Spalten mit farbigem Hintergrund
+   * waeren ein Flickenteppich. So bleibt die Tabelle ruhig und ist trotzdem in
+   * einer Sekunde ueberfliegbar.
+   */
+  .frame__zahl {
+    font-weight: 700;
+  }
+  .frame--h0 {
+    color: var(--dmg-0);
+  }
+  .frame--h1 {
+    color: var(--dmg-40);
+  }
+  .frame--h2 {
+    color: var(--dmg-80);
+  }
+  .frame--h3 {
+    color: var(--dmg-120);
+  }
+  .frame--h4 {
+    color: var(--dmg-160);
+  }
+
+  /*
+   * Zurueckhaltend: Pro Panel stehen bis zu 26 dieser Knoepfe untereinander.
+   * Als rote Pillen beherrschten sie die Tabelle, um die es eigentlich geht.
+   * Erst bei Hover oder Tastaturfokus treten sie hervor.
+   */
+  .frame__hitbox {
+    justify-self: start;
+    margin-top: 4px;
+    padding: 3px 9px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: none;
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast),
+      color var(--t-fast);
+  }
+  .frame__hitbox:hover,
+  .frame__hitbox:focus-visible {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+    color: var(--accent-text);
+  }
+  .frame__figur {
+    display: grid;
+    gap: 4px;
+    margin-top: 6px;
+  }
+  /*
+   * Bewusst schmal: Die Darstellung soll die Zeile begleiten, nicht beherrschen.
+   * Bei 260 px drueckte sie die Zeile auf ein Vielfaches ihrer Hoehe und zog den
+   * Blick von den Zahlen weg, um die es in der Tabelle geht.
+   */
+  .frame__figur img {
+    width: 100%;
+    max-width: 170px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--void-800);
+  }
+  .frame__figur figcaption {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 400;
+  }
+
+  /*
+   * Kapseln statt Reiterleiste, mittig.
+   *
+   * Der bewegte Unterstrich `.tabs__ink` bleibt als Mechanik und ist jetzt die
+   * Kapsel hinter dem aktiven Tab: GSAP setzt weiter nur `x` und `width` auf
+   * `offsetLeft` und `offsetWidth` des Tabs, die Höhe kommt aus `top` und
+   * `bottom`. So gleitet die Hervorhebung von Tab zu Tab, ohne neues JS.
+   *
+   * Zentriert über `margin-inline: auto` an einer Leiste mit `fit-content`,
+   * nicht über `justify-content: center`. Letzteres schneidet bei Überlauf den
+   * linken Rand unerreichbar ab.
+   *
+   * Die Leiste scrollt selbst, statt die Seite breiter zu machen. Die
+   * Frame-Daten haben sechs Tabs, die drückten auf einem Telefon (375 px) das
+   * Dokument einmal auf 815 px auf. Umbruch wäre falsch: In einer zweiten Zeile
+   * säße die Kapsel neben ihrem Tab.
+   */
+  .tabs {
+    position: relative;
+    display: flex;
+    gap: 4px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto var(--sp-5);
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    overflow-x: auto;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .tab {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: var(--sp-2);
+    min-height: 44px;
+    padding: 0 var(--sp-5);
+    border-radius: 9999px;
+    color: var(--text-muted);
+    font-size: var(--fs-300);
+    font-weight: 800;
+    font-stretch: var(--stretch-semi);
+    transition: color var(--t-fast);
+  }
+  .tab:hover,
+  .tab[aria-selected='true'] {
+    color: var(--text);
+  }
+  /* Beide Tabs sollen auf 320 px nebeneinander passen, statt die Leiste seitlich scrollen zu lassen. */
+  @media (max-width: 400px) {
+    .tab {
+      padding: 0 var(--sp-3);
+      font-size: var(--fs-200);
+    }
+  }
+  .tab__count {
+    display: inline-grid;
+    place-items: center;
+    min-width: 24px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 11px;
+    background: var(--surface-4);
+    color: var(--text-muted);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tab[aria-selected='true'] .tab__count {
+    background: var(--accent-fill, var(--accent));
+    color: var(--accent-ink);
+  }
+  .tabs__ink {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 0;
+    z-index: 0;
+    width: 0;
+    border: 1px solid var(--accent-line);
+    border-radius: 9999px;
+    background: var(--accent-soft);
+    pointer-events: none;
+  }
+  .tabpanel:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 8px;
+    border-radius: 8px;
+  }
+  .tabpanel__intro {
+    max-width: var(--measure);
+    margin-bottom: var(--sp-4);
+    color: var(--text-muted);
+  }
+  .combo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr));
+    align-items: start;
+    gap: var(--sp-4);
+  }
+
+  /* ── Kommentare (Platzhalter) ───────────────────────────────────────── */
+  .fcomments {
+    padding-block: var(--sp-8) var(--sp-4);
+  }
+  .fcomments__box {
+    display: grid;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: var(--r-panel);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+  }
+  .fcomments__composer {
+    display: grid;
+    gap: var(--sp-3);
+  }
+  .fcomments__input {
+    width: 100%;
+    min-height: 96px;
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgb(var(--fg-rgb) / 0.03);
+    color: var(--text);
+    font: inherit;
+    resize: vertical;
+  }
+  .fcomments__input:disabled {
+    cursor: not-allowed;
+  }
+  /* Deaktiviert muss auch so aussehen: In voller Akzentfarbe wirkte der Knopf klickbar. */
+  .fcomments .btn:disabled {
+    opacity: 0.45;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  .fcomments__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+  .fcomments__hint {
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+  }
+  .fcomments__empty {
+    padding: var(--sp-5);
+    border: 1px dashed var(--line-strong);
+    border-radius: 12px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  /* ── Prev / next ────────────────────────────────────────────────────── */
+  .fnav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3);
+    padding-top: var(--sp-7);
+  }
+  /*
+   * Auch Glas. Der Akzentverlauf lief nach 70 Prozent in nichts aus, die Karte
+   * hatte also ueber die halbe Breite gar keinen Koerper und verschwamm mit dem
+   * Muster dahinter. Der Verlauf bleibt und liegt jetzt auf --glass-bg.
+   *
+   * Wichtig bei der Variante --next: Sie setzt `background` komplett neu. Wer
+   * dort nur den Verlauf drehte, nahm der Karte den Glaskoerper wieder weg.
+   */
+  .fnav__link {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-height: 88px;
+    padding: var(--sp-4) var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: var(--r-panel);
+    background:
+      linear-gradient(90deg, var(--accent-soft), transparent 70%),
+      var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    transition: border-color var(--t-fast);
+  }
+  .fnav__link--next {
+    justify-content: flex-end;
+    text-align: right;
+    background:
+      linear-gradient(270deg, var(--accent-soft), transparent 70%),
+      var(--glass-bg);
+  }
+  .fnav__link > span {
+    display: grid;
+    min-width: 0;
+    gap: 4px;
+  }
+  .fnav__link .icon {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    color: var(--accent-text);
+    transition: transform var(--t-base) var(--ease-spring);
+  }
+  .fnav__label {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .fnav__name {
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1;
+    text-transform: uppercase;
+    /* „Mr. Game & Watch“ in Versalien passt auf 320 px nicht in eine Zeile. */
+    overflow-wrap: anywhere;
+  }
+  .fnav__link:hover {
+    border-color: var(--accent-line);
+  }
+  .fnav__link--prev:hover .icon {
+    transform: translateX(-4px);
+  }
+  .fnav__link--next:hover .icon {
+    transform: translateX(4px);
+  }
+  @media (max-width: 600px) {
+    .fnav {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}

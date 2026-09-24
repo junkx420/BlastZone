@@ -1,0 +1,622 @@
+@layer pages {
+  /* ── Hero ───────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-items: center;
+    min-height: max(680px, 100dvh);
+    padding: calc(var(--nav-h) + var(--sp-6)) 0 var(--sp-8);
+    overflow: clip;
+    transition:
+      --accent 900ms var(--ease-out),
+      --accent-2 900ms var(--ease-out),
+      --accent-text 900ms var(--ease-out);
+  }
+  .hero__stage {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+  /*
+   * Startseite komplett tiefschwarz. Hier lagen zwei Farbkerne in der
+   * Akzentfarbe, und weil das Replay alle paar Sekunden den Fighter wechselt,
+   * blendete jedes Mal der ganze Grund mit um. Dazu endete der Schimmer sichtbar
+   * dort, wo der Hero aufhört. Farbe trägt hier nur noch der Render.
+   */
+  .hero__stage::before {
+    content: none;
+  }
+  /*
+   * Früher lag hier ein Verlauf auf deckendes --bg am unteren Rand. Seit das
+   * Stage-Raster (`.sitebg`) den Grund bildet, schnitt er es als dunkler Balken
+   * ab und das Raster setzte darunter mit Kante wieder ein. Die Unterkante des
+   * Renders blendet ohnehin die Maske von `.hero__art` aus.
+   */
+  .hero__stage::after {
+    content: none;
+  }
+  /* Links und unten ausblenden, damit der Render ohne Kante im Schwarz steht. */
+  .hero__art {
+    position: absolute;
+    inset: -4% -6% -4% 36%;
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 34%),
+      linear-gradient(to bottom, #000 72%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 34%),
+      linear-gradient(to bottom, #000 72%, transparent 100%);
+    mask-composite: intersect;
+  }
+  /* Nur der Render, keine farbige Bühne dahinter. Die bleibt Ersatz, falls das Bild fehlt. */
+  .hero__art .art:not(.is-art-missing) > .sigil {
+    display: none;
+  }
+  /*
+   * Der Kopf beginnt unterhalb der Leiste statt dahinter. Höhe ausdrücklich
+   * gerechnet: Ein `<img>` löst `height: auto` über sein Seitenverhältnis auf,
+   * nicht zwischen `top` und `bottom`. Die 102 % übernehmen den Überstand von
+   * 2 % nach unten aus art.css.
+   */
+  .hero__art-layer .art__img--render {
+    top: calc(var(--nav-h) + var(--sp-8));
+    height: calc(102% - var(--nav-h) - var(--sp-8));
+  }
+  .hero__art-host,
+  .hero__art-layer {
+    position: absolute;
+    inset: 0;
+  }
+  .hero__art-layer > .sigil {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+    align-items: center;
+    gap: var(--sp-7);
+  }
+  /* Smaller than --fs-900 so the headline stays within three lines beside the HUD. */
+  .hero__title {
+    font-size: clamp(3.2rem, 1.2rem + 5.6vw, 7.5rem);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 0.86;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+  }
+  /* The headline heats up like the damage meter: white at the first hit, red at the KO. */
+  .hero__line {
+    display: block;
+    width: fit-content;
+    padding-inline-end: 0.12em;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero__line:nth-child(1) {
+    background-image: linear-gradient(95deg, var(--dmg-0) 15%, var(--dmg-40) 70%, var(--dmg-80));
+  }
+  .hero__line:nth-child(2) {
+    background-image: linear-gradient(95deg, var(--dmg-80), var(--dmg-120) 45%, var(--dmg-160) 90%);
+  }
+  .hero__lead {
+    max-width: 46ch;
+    margin-top: var(--sp-5);
+    color: var(--text-muted);
+    font-size: var(--fs-400);
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-top: var(--sp-6);
+  }
+
+  /* HUD */
+  /*
+   * Das HUD ist ein Größen-Container. Die Schadensanzeige richtete sich vorher
+   * nach der Fensterbreite (--fs-hud, bis 6rem) und war bei 1280 px mit den
+   * Knöpfen 45 px breiter als die Glasbox. Das innere Raster wuchs mit, alles
+   * ragte rechts über den Rand. Jetzt:
+   * - `minmax(0, 1fr)`: Die Spalte darf nie breiter werden als die Box.
+   * - Ziffern als `min(var(--fs-hud), 19cqi)`: Sie skalieren mit der Box,
+   *   höchstens bis --fs-hud. Unter 400 px Boxbreite greift die Container Query weiter unten.
+   * - `min-width: 0` als Grid-Item im Hero, sonst setzt der Inhalt die Mindestbreite.
+   */
+  .hud {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-4);
+    min-width: 0;
+    padding: var(--sp-5);
+    border-radius: var(--r-stage);
+  }
+  .hud .meter--lg .meter__int {
+    font-size: min(var(--fs-hud), 19cqi);
+  }
+  .hud .meter--lg .meter__dec {
+    font-size: calc(min(var(--fs-hud), 19cqi) * 0.5);
+  }
+  .hud .meter--lg .meter__pct {
+    font-size: calc(min(var(--fs-hud), 19cqi) * 0.42);
+  }
+  .hud .meter--lg .meter__ko {
+    font-size: calc(min(var(--fs-hud), 19cqi) * 0.42);
+  }
+  .hud__bottom {
+    gap: var(--sp-3);
+    min-width: 0;
+  }
+  .hud__controls {
+    flex: none;
+  }
+  /* Handy: Ziffern und Knöpfe passen sich der schmalen Box an, statt rechts hinauszuragen. */
+  @container (max-width: 400px) {
+    .hud .meter--lg .meter__int {
+      font-size: 15cqi;
+    }
+    .hud .meter--lg .meter__dec {
+      font-size: 7.5cqi;
+    }
+    .hud .meter--lg .meter__pct,
+    .hud .meter--lg .meter__ko {
+      font-size: 6.3cqi;
+    }
+    .hud__controls {
+      gap: 6px;
+    }
+    .hud__controls .btn--icon {
+      width: 40px;
+      min-height: 40px;
+    }
+  }
+  .hud__head {
+    display: grid;
+    gap: 6px;
+  }
+  .hud__count {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 600;
+  }
+  .hud__who {
+    display: flex;
+    /* Sehr schmal (Klapphandys) rutscht das Tier-Abzeichen unter den Namen, statt aus der Box zu ragen. */
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+  .hud__name {
+    color: var(--accent-text);
+    font-size: var(--fs-600);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.18em;
+    transition: text-decoration-color var(--t-fast);
+  }
+  .hud__name:hover {
+    text-decoration-color: currentColor;
+  }
+  .hud__title {
+    font-weight: 700;
+  }
+  .hud__id {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .hud__face {
+    display: block;
+    flex: none;
+    width: 56px;
+    height: 34px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px var(--accent-line);
+  }
+  .hud__steps {
+    min-height: 222px;
+  }
+  .hud .step {
+    padding: 8px 10px;
+  }
+  .hud .step__note {
+    display: none;
+  }
+  .hud__bottom {
+    min-height: 104px;
+  }
+  .hud__controls {
+    display: flex;
+    gap: var(--sp-2);
+  }
+
+  @media (max-width: 1040px) {
+    .hero {
+      min-height: auto;
+      padding-top: calc(var(--nav-h) + var(--sp-7));
+    }
+    .hero__layout {
+      grid-template-columns: 1fr;
+    }
+    .hero__art {
+      inset: 0 -30% 40% 18%;
+      opacity: 0.6;
+    }
+    /*
+     * Ab hier liegt das HUD nicht mehr neben dem Artwork, sondern darauf.
+     * Die normale Glasfläche (--glass-bg, 0.58) lässt den Fighter durch die
+     * Schritt-Zeilen scheinen; die kräftige Variante ist genau dafür da.
+     */
+    .hud {
+      background: var(--glass-bg-strong);
+    }
+  }
+
+  /* ── Combos quer durchs Roster ──────────────────────────────────────── */
+  .picks__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+    align-items: start;
+    gap: var(--sp-5) var(--sp-4);
+  }
+  /*
+   * `minmax(0, 1fr)` und `min-width: 0`: Ein Grid-Element ist sonst mindestens so
+   * breit wie sein längster nicht umbrechbarer Inhalt. Die Combo-Karte hat davon
+   * genug (Tastenfolgen), bei 970 px ragte eine Karte 133 px aus dem Fenster.
+   */
+  .pick {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+    gap: var(--sp-3);
+  }
+  .pick__who {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-height: 44px;
+    color: var(--text);
+  }
+  .pick__face {
+    position: relative;
+    display: block;
+    flex: none;
+    width: 56px;
+    height: 34px;
+    overflow: hidden;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 0 1px var(--accent-line);
+  }
+  .pick__name {
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .pick__who:hover .pick__name {
+    color: var(--accent-text);
+  }
+
+  /* ── Top of the meta · bento with rank 1 as the anchor ──────────────── */
+  .top__list {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    gap: var(--sp-3);
+  }
+  .top__item:first-child {
+    grid-row: span 2;
+  }
+  .top__link {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    padding: var(--sp-4);
+    border-radius: var(--r-panel);
+    background: var(--surface-2);
+    box-shadow: 0 0 0 1px var(--line);
+    transition:
+      transform var(--t-base) var(--ease-spring),
+      box-shadow var(--t-base) var(--ease-out);
+  }
+  .top__art {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  /*
+   * Abdunkler zwischen Artwork und Beschriftung. Ohne ihn steht der Name auf
+   * dem hellen Render – bei Min Min (blondes Haar) und R.O.B. (weiszes Gehäuse)
+   * war er schlicht nicht lesbar.
+   * Warum ::after und nicht ::before: Beide liegen auf z-index -1 wie .top__art,
+   * innerhalb derselben Ebene entscheidet die Baumreihenfolge. ::after ist das
+   * letzte Kind und deckt das Bild deshalb ab; ::before läge darunter.
+   * Zwei Verläufe: unten für Name und Wertung, oben schwächer für die
+   * Rangziffer, die nur aus einer Kontur besteht.
+   */
+  .top__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(
+        to top,
+        rgb(6 7 10 / 0.92) 0%,
+        rgb(6 7 10 / 0.7) 24%,
+        rgb(6 7 10 / 0.12) 54%,
+        rgb(6 7 10 / 0) 72%
+      ),
+      linear-gradient(to bottom, rgb(6 7 10 / 0.48) 0%, rgb(6 7 10 / 0) 32%);
+  }
+  .top__art > .sigil,
+  .top__art .stage {
+    width: 100%;
+    height: 100%;
+    transition: transform var(--t-slow) var(--ease-out);
+  }
+  .top__rank {
+    position: absolute;
+    top: 4px;
+    left: 14px;
+    color: transparent;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+    line-height: 1;
+    -webkit-text-stroke: 1.5px rgb(255 255 255 / 0.6);
+  }
+  .top__item:first-child .top__rank {
+    font-size: clamp(6rem, 13vw, 12rem);
+    -webkit-text-stroke-width: 2px;
+  }
+  .top__body {
+    display: grid;
+    gap: 4px;
+  }
+  .top__name {
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1;
+    text-transform: uppercase;
+    /* Wie bei .tile__name: Der Abdunkler trägt die Fläche, der Schatten die Kante. */
+    text-shadow: 0 2px 10px rgb(0 0 0 / 0.75);
+  }
+  .top__item:first-child .top__name {
+    font-size: var(--fs-800);
+  }
+  .top__score {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 1px 6px rgb(0 0 0 / 0.8);
+  }
+  .top__link:hover,
+  .top__link:focus-visible {
+    box-shadow:
+      0 0 0 2px var(--accent),
+      0 22px 50px -20px var(--accent-glow);
+    transform: translateY(-4px);
+  }
+  .top__link:is(:hover, :focus-visible) :is(.sigil, .stage) {
+    transform: scale(1.06);
+  }
+  .top__link:is(:hover, :focus-visible) :is(.sigil__rays, .stage__rays) {
+    transform: rotate(10deg);
+  }
+  @media (max-width: 900px) {
+    .top__list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(170px, auto);
+    }
+    .top__item:first-child {
+      grid-column: span 2;
+      grid-row: auto;
+      min-height: 300px;
+    }
+  }
+
+  /* ── Roster ─────────────────────────────────────────────────────────── */
+  .roster__count {
+    color: var(--text-muted);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .filters {
+    position: sticky;
+    top: calc(var(--nav-h) + 10px);
+    z-index: var(--z-sticky);
+    display: grid;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-5);
+    padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  }
+  /*
+   * Handy im Querformat: Der Filterblock ist gut 180 px hoch, bei 390 px
+   * Bildschirmhöhe blieb unter Leiste und Filter kaum etwas vom Roster übrig.
+   * Dort klebt er nicht mit, sondern scrollt mit dem Inhalt weg; nach oben
+   * scrollen holt ihn zurück. Hochkant greift ab 760 px dieselbe Regel weiter
+   * unten.
+   */
+  @media (orientation: landscape) and (max-height: 560px) {
+    .filters {
+      position: relative;
+      top: auto;
+    }
+  }
+  .filters__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--sp-3);
+  }
+  .filters__row--chips {
+    align-items: center;
+  }
+  .filters__search {
+    flex: 1 1 260px;
+  }
+  .filters .select-wrap {
+    flex: 0 1 190px;
+  }
+  .filters .select {
+    width: 100%;
+  }
+  .filters__tiers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    padding-left: 4px;
+  }
+  .filters__reset {
+    margin-inline-start: auto;
+  }
+  /*
+   * 86 Kacheln mit gut 5 000 Knoten. Beim Seitenwechsel lagen sie komplett im
+   * ersten Frame (Layout 25 bis 50 ms), obwohl sie weit unter dem Hero stehen.
+   * `content-visibility: auto` überspringt sie, bis sie in die Nähe des
+   * Viewports kommen.
+   *
+   * Die Kehrseite ist Paint-Containment: Alles, was über die Box hinausragt,
+   * wird abgeschnitten. Hover-Glow (18 px Versatz, 42 px Blur), Anheben um 4 px
+   * und Fokusrahmen brauchen Platz. Den bekommen sie als Innenabstand, den ein
+   * gleich großer negativer Außenabstand wieder aufhebt. Die Kacheln stehen
+   * dadurch exakt wie vorher, der Glow liegt aber innerhalb der Box.
+   * Seitlich höchstens 16 px: So viel Rand hat der Container auch auf dem
+   * kleinsten Handy, sonst entstünde horizontales Scrollen.
+   *
+   * Die Höhe ist geschätzt, bis das Raster einmal gerendert wurde; danach merkt
+   * sich `mountRoster` die echte Höhe für den nächsten Besuch (Scroll-
+   * Wiederherstellung beim Zurückgehen).
+   */
+  .roster__grid {
+    --roster-bleed-x: var(--sp-4);
+    --roster-bleed-top: var(--sp-3);
+    --roster-bleed-bottom: var(--sp-7);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+    gap: var(--sp-3);
+    margin: calc(var(--roster-bleed-top) * -1) calc(var(--roster-bleed-x) * -1) calc(var(--roster-bleed-bottom) * -1);
+    padding: var(--roster-bleed-top) var(--roster-bleed-x) var(--roster-bleed-bottom);
+    content-visibility: auto;
+    contain-intrinsic-size: auto var(--roster-h, 2400px);
+  }
+  .tile.is-out {
+    display: none;
+  }
+  @media (max-width: 760px) {
+    .filters {
+      position: relative;
+      top: auto;
+    }
+    .filters .select-wrap {
+      flex: 1 1 140px;
+    }
+    .roster__grid {
+      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+      gap: 10px;
+    }
+  }
+
+  /* ── Notation guide ─────────────────────────────────────────────────── */
+  .notation__layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) 2fr;
+    align-items: start;
+    gap: var(--sp-8);
+  }
+  .notation__intro {
+    position: sticky;
+    top: calc(var(--nav-h) + var(--sp-6));
+  }
+  .notation__intro h2 {
+    font-size: var(--fs-700);
+    font-weight: 850;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1;
+  }
+  .notation__intro > p {
+    margin-top: var(--sp-3);
+    color: var(--text-muted);
+  }
+  .legend {
+    display: grid;
+    gap: 12px;
+    margin-top: var(--sp-5);
+  }
+  .legend__item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-200);
+    font-weight: 600;
+  }
+  .legend__item > .kc {
+    justify-self: center;
+  }
+  .notation__groups {
+    display: grid;
+    /* min(100%, …): Unter 332 px Fensterbreite war die Spalte breiter als der Container. */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: var(--sp-6);
+  }
+  .token-group h3 {
+    padding-bottom: var(--sp-2);
+    border-bottom: 1px solid var(--line-strong);
+    font-size: var(--fs-300);
+    font-weight: 800;
+  }
+  .token {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 6px var(--sp-3);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .token__short {
+    font-weight: 800;
+    font-stretch: var(--stretch-semi);
+  }
+  .token > .keys {
+    justify-self: start;
+  }
+  .token__name {
+    grid-column: 2;
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    line-height: 1.4;
+  }
+  @media (max-width: 900px) {
+    .notation__layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--sp-6);
+    }
+    .notation__intro {
+      position: static;
+    }
+  }
+}

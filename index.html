@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate</title>
+    <meta
+      name="description"
+      content="Combos, Frame Data und Tier-Liste für alle 86 Fighter aus Super Smash Bros. Ultimate. Jede Combo mit Quelle."
+    />
+    <meta name="theme-color" content="#06070a" />
+
+    <!--
+      Social-Vorschau. og.jpg wird von scripts/build-og-image.mjs aus den Assets
+      im Repository gebaut. Bei geaenderten Zahlen dort neu erzeugen.
+
+      Die URLs sind absolut, weil Crawler das verlangen: Facebook, Discord und
+      Co. besuchen die Seite nicht im Browserkontext und koennen einen relativen
+      Pfad nicht aufloesen. Bei einem Domainwechsel muessen og:url, og:image und
+      twitter:image mit umziehen.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Blastzone" />
+    <meta property="og:url" content="https://blast-zone.vercel.app/" />
+    <meta property="og:title" content="Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate" />
+    <meta
+      property="og:description"
+      content="86 Fighter mit Combos, Frame Data und einer Quelle zu jeder Combo. Dazu die UltRank-Liste 2026 und alle Inputs."
+    />
+    <meta property="og:image" content="https://blast-zone.vercel.app/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Blastzone: 86 Profile, 694 Combo-Routen, 194 Kill-Confirms, daneben die Fighter der Ranglistenspitze."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Blastzone | Combos, Frame Data und Tier-Liste für Smash Ultimate" />
+    <meta
+      name="twitter:description"
+      content="86 Fighter mit Combos, Frame Data und einer Quelle zu jeder Combo. Dazu die UltRank-Liste 2026 und alle Inputs."
+    />
+    <meta name="twitter:image" content="https://blast-zone.vercel.app/og.jpg" />
+
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+
+    <!--
+      Archivo liegt lokal unter public/fonts/, die @font-face-Blöcke stehen in
+      src/styles/base.css. Vorher kam die Schrift vom Google-CDN und übertrug
+      damit die IP jedes Besuchers an Google, bevor er zustimmen konnte. Die
+      Seite lädt seitdem ohne eine einzige Anfrage an Dritte.
+
+      Hier steht bewusst kein fremder Hostname mehr: Sonst meldet jede Suche
+      nach Drittanbietern in dist/ einen Treffer, der nur aus diesem Kommentar
+      stammt – genau darüber bin ich beim Prüfen selbst gestolpert.
+
+      Vorgeladen werden nur die beiden latin-Dateien. latin-ext holt der Browser
+      über unicode-range von selbst, und nur wenn ein Zeichen daraus vorkommt.
+    -->
+    <link rel="preload" href="./fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/archivo-latin-italic.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <div id="app"></div>
+    <noscript>
+      <p style="padding: 24px; font-family: system-ui; color: #eceef2">
+        Blastzone braucht JavaScript für Roster, Filter und den Combo-Player.<br />
+        <span lang="en">Blastzone needs JavaScript for the roster, filters and combo player.</span>
+      </p>
+    </noscript>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

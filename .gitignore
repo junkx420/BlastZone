@@ -1,0 +1,25 @@
+node_modules/
+dist/
+*.log
+
+# Geheimnisse: nur die Vorlage ist versioniert
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+
+# Interne Projektdoku und Arbeitsanweisungen - lokal behalten, nicht veroeffentlichen
+.claude/
+CLAUDE.md
+HANDOFF.md
+
+# Schadens-Audit: Cache und Ergebnisse, jederzeit neu erzeugbar
+scripts/schaden-audit/js/
+scripts/schaden-audit/ufd/
+scripts/schaden-audit/*.json
+scripts/schaden-audit/report.txt
+scripts/schaden-audit/unterzaehlt.txt
+
+# Datenbank-Sicherungen (docs/BETRIEB.md): enthalten Nutzerdaten
+backup/

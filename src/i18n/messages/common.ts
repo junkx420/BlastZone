@@ -1,0 +1,157 @@
+import { defineMessages } from '../define';
+
+/** Texte, die auf jeder Seite stehen: Leiste, Fußzeile, Suche, Zustände, Konto-Bereich. */
+export const common = defineMessages({
+  de: {
+    'skip': 'Zum Inhalt springen',
+
+    'nav.home': 'Blastzone, Startseite',
+    'nav.main': 'Hauptnavigation',
+    'nav.roster': 'Roster',
+    'nav.tiers': 'Tier-Liste',
+    'nav.archetypes': 'Archetypen',
+    'nav.inputs': 'Inputs',
+    'nav.community': 'Community',
+    'nav.search': 'Fighter suchen',
+    'nav.menu': 'Menü',
+
+    'footer.tagline': 'Ein Fanprojekt für die Competitive-Szene von Super Smash Bros. Ultimate.',
+    'footer.nav': 'Fußzeile',
+    'footer.privacy': 'Datenschutz',
+    'footer.imprint': 'Impressum',
+    'footer.dataTitle': 'Datenstand',
+    'footer.tierData': 'Tier-Daten:',
+    'footer.tierFrom': 'vom',
+    'footer.dataRest': 'Combos mit Quelle pro Combo (SmashWiki, Game8, EventHubs), Schaden aus Ultimate Frame Data inklusive 1v1-Faktor und gerundet.',
+    'footer.legal': 'Blastzone steht in keiner Verbindung zu Nintendo, Bandai Namco oder Sora Ltd. Fighter-Artwork von smashbros.com, © Nintendo. Fighter- und Seriennamen gehören ihren Rechteinhabern.',
+
+    'palette.title': 'Fighter suchen',
+    'palette.inputLabel': 'Name, Serie, Spitzname oder Fighter-Nummer',
+    'palette.placeholder': 'Name, Serie, Spitzname oder Nummer',
+    'palette.close': ', Suche schließen',
+    'palette.results': 'Treffer',
+    'palette.empty': 'Kein Fighter gefunden. Probier den Seriennamen oder eine Abkürzung wie ZSS.',
+
+    'state.retry': 'Erneut versuchen',
+    'state.reload': 'Seite neu laden',
+    'state.loading': 'Wird geladen …',
+    'state.loadFailed': 'Die Daten konnten nicht geladen werden. Meist hilft ein zweiter Versuch, nach einem Update der Seite ein Neuladen.',
+
+    'notFound.page': 'Seite nicht gefunden',
+    'notFound.pageHeading': 'Diese Seite liegt hinter der Blastzone.',
+    'notFound.fighter': 'Fighter-Seite nicht gefunden',
+    'notFound.fighterHeading': 'Diese Fighter-Seite liegt hinter der Blastzone.',
+    'notFound.text': 'Der Link führt ins Leere. Such direkt nach einem Fighter oder geh zurück zum Roster.',
+    'notFound.cta': 'Zum Roster',
+
+    'lang.button': 'Sprache: {name}',
+    'lang.menu': 'Sprache wählen',
+
+    'account.login': 'Anmelden',
+    'account.toDark': 'Zum Dark-Mode wechseln',
+    'account.toLight': 'Zum Light-Mode wechseln',
+    'account.lightMode': 'Light-Mode',
+
+    'net.offline': 'Keine Verbindung. Kommentare und Lesezeichen gehen erst wieder, wenn du online bist.',
+    'api.offline': 'Keine Verbindung zum Server. Prüf deine Internetverbindung und versuch es erneut.',
+    'api.timeout': 'Der Server antwortet gerade nicht. Versuch es gleich noch einmal.',
+    'api.notConfigured': 'Konten sind auf dieser Installation nicht eingerichtet.',
+    'api.failed': 'Das hat nicht geklappt.',
+
+    'bookmark.save': 'In deinen Mains speichern',
+    'bookmark.remove': 'Aus deinen Mains entfernen',
+    'bookmark.saveVh': 'Combo speichern',
+    'bookmark.savedVh': 'Gespeichert, entfernen',
+    'bookmark.loginPrompt': 'Melde dich an, um Combos zu speichern.',
+    'bookmark.sessionExpired': 'Deine Sitzung ist abgelaufen. Melde dich neu an.',
+
+    'video.title': 'Guide-Video',
+    'video.byCreator': '{fighter} erklärt von {creator}.',
+    'video.generic': 'Ein Guide zu {fighter}.',
+    'video.play': 'Video abspielen',
+    'video.openYoutube': 'Stattdessen auf YouTube öffnen',
+
+    'crash.pageTitle': 'Fehler',
+    'crash.heading': 'Diese Seite ließ sich nicht aufbauen.',
+    'crash.text': 'Der Fehler ist gemeldet. Neu laden hilft meistens, sonst geht es über die Leiste oben weiter.',
+    'crash.home': 'Zur Startseite',
+
+    'meta.description': 'Combos, Frame Data und Tier-Liste für alle 86 Fighter aus Super Smash Bros. Ultimate. Jede Combo mit Quelle.',
+  },
+  en: {
+    'skip': 'Skip to content',
+
+    'nav.home': 'Blastzone, home',
+    'nav.main': 'Main navigation',
+    'nav.roster': 'Roster',
+    'nav.tiers': 'Tier List',
+    'nav.archetypes': 'Archetypes',
+    'nav.inputs': 'Inputs',
+    'nav.community': 'Community',
+    'nav.search': 'Search fighters',
+    'nav.menu': 'Menu',
+
+    'footer.tagline': 'A fan project for the Super Smash Bros. Ultimate competitive scene.',
+    'footer.nav': 'Footer',
+    'footer.privacy': 'Privacy',
+    'footer.imprint': 'Legal notice',
+    'footer.dataTitle': 'Data',
+    'footer.tierData': 'Tier data:',
+    'footer.tierFrom': 'from',
+    'footer.dataRest': 'Every combo links its source (SmashWiki, Game8, EventHubs). Damage comes from Ultimate Frame Data with the 1v1 multiplier, rounded.',
+    'footer.legal': 'Blastzone is not affiliated with Nintendo, Bandai Namco or Sora Ltd. Fighter artwork from smashbros.com, © Nintendo. Fighter and series names belong to their respective owners.',
+
+    'palette.title': 'Search fighters',
+    'palette.inputLabel': 'Name, series, nickname or fighter number',
+    'palette.placeholder': 'Name, series, nickname or number',
+    'palette.close': ', close search',
+    'palette.results': 'Results',
+    'palette.empty': 'No fighter found. Try the series name or a shorthand like ZSS.',
+
+    'state.retry': 'Try again',
+    'state.reload': 'Reload page',
+    'state.loading': 'Loading …',
+    'state.loadFailed': 'The data could not be loaded. A second try usually works; after a site update, reload the page.',
+
+    'notFound.page': 'Page not found',
+    'notFound.pageHeading': 'This page flew past the blast zone.',
+    'notFound.fighter': 'Fighter page not found',
+    'notFound.fighterHeading': 'This fighter page flew past the blast zone.',
+    'notFound.text': 'This link leads nowhere. Search for a fighter or head back to the roster.',
+    'notFound.cta': 'Go to roster',
+
+    'lang.button': 'Language: {name}',
+    'lang.menu': 'Choose language',
+
+    'account.login': 'Log in',
+    'account.toDark': 'Switch to dark mode',
+    'account.toLight': 'Switch to light mode',
+    'account.lightMode': 'Light mode',
+
+    'net.offline': 'You are offline. Comments and bookmarks work again once you reconnect.',
+    'api.offline': 'Cannot reach the server. Check your connection and try again.',
+    'api.timeout': 'The server is not responding right now. Try again in a moment.',
+    'api.notConfigured': 'Accounts are not set up on this installation.',
+    'api.failed': 'That did not work.',
+
+    'bookmark.save': 'Save to your mains',
+    'bookmark.remove': 'Remove from your mains',
+    'bookmark.saveVh': 'Save combo',
+    'bookmark.savedVh': 'Saved, remove',
+    'bookmark.loginPrompt': 'Log in to save combos.',
+    'bookmark.sessionExpired': 'Your session has expired. Please log in again.',
+
+    'video.title': 'Guide video',
+    'video.byCreator': '{fighter} explained by {creator}.',
+    'video.generic': 'A guide to {fighter}.',
+    'video.play': 'Play video',
+    'video.openYoutube': 'Open on YouTube instead',
+
+    'crash.pageTitle': 'Error',
+    'crash.heading': 'This page could not be built.',
+    'crash.text': 'The error has been reported. Reloading usually helps, otherwise use the navigation above.',
+    'crash.home': 'Go to home',
+
+    'meta.description': 'Combos, frame data and tier list for all 86 fighters in Super Smash Bros. Ultimate. Every combo with a source.',
+  },
+});

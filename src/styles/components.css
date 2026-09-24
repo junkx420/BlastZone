@@ -1,0 +1,1566 @@
+@layer components {
+  /* ── Tier heat mapping (shared by badges, chips, rows) ──────────────── */
+  [data-tier='s-plus'] {
+    --tier-fill: var(--tier-s-plus);
+    --tier-ink: var(--tier-s-plus-ink);
+  }
+  [data-tier='s'] {
+    --tier-fill: var(--tier-s);
+    --tier-ink: var(--tier-s-ink);
+  }
+  [data-tier='a'] {
+    --tier-fill: var(--tier-a);
+    --tier-ink: var(--tier-a-ink);
+  }
+  [data-tier='b'] {
+    --tier-fill: var(--tier-b);
+    --tier-ink: var(--tier-b-ink);
+  }
+  [data-tier='c'] {
+    --tier-fill: var(--tier-c);
+    --tier-ink: var(--tier-c-ink);
+  }
+  [data-tier='d'] {
+    --tier-fill: var(--tier-d);
+    --tier-ink: var(--tier-d-ink);
+  }
+  [data-tier='e'] {
+    --tier-fill: var(--tier-e);
+    --tier-ink: var(--tier-e-ink);
+  }
+
+  /* ── Buttons ────────────────────────────────────────────────────────── */
+  .btn {
+    --btn-bg: rgb(var(--fg-rgb) / 0.06);
+    --btn-fg: var(--text);
+    --btn-line: var(--line-strong);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    min-height: 48px;
+    padding: 0 var(--sp-5);
+    border: 1px solid var(--btn-line);
+    border-radius: var(--r-control);
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    font-size: var(--fs-300);
+    font-weight: 700;
+    font-stretch: var(--stretch-semi);
+    white-space: nowrap;
+    touch-action: manipulation;
+    transition:
+      transform var(--t-fast) var(--ease-spring),
+      background-color var(--t-fast),
+      border-color var(--t-fast),
+      box-shadow var(--t-base) var(--ease-out);
+  }
+  .btn .icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+  }
+  .btn:hover {
+    --btn-line: rgb(var(--fg-rgb) / 0.3);
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .btn--primary {
+    /* --accent-fill: bei fünf Fightern leicht verschoben, damit die Schrift 4,5:1 schafft (accentFill in lib/color.ts). */
+    --btn-bg: var(--accent-fill, var(--accent));
+    --btn-fg: var(--accent-ink);
+    --btn-line: transparent;
+    box-shadow: 0 12px 32px -14px var(--accent-glow);
+  }
+  .btn--primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / 0.5) 50%, transparent 70%);
+    transform: translateX(-130%);
+    transition: transform var(--t-slow) var(--ease-out);
+  }
+  .btn--primary:hover {
+    --btn-line: transparent;
+    box-shadow: 0 18px 44px -14px var(--accent-glow);
+  }
+  .btn--primary:hover::before {
+    transform: translateX(130%);
+  }
+  .btn--ghost {
+    --btn-bg: transparent;
+  }
+  /*
+   * Wartezustand (aria-busy="true"): Ein Ladekreis ersetzt das Symbol vorn im Knopf,
+   * die Beschriftung bleibt („Wird geprüft …“). So springt die Knopfbreite nicht.
+   * Gilt für jeden Knopf, der auf eine Antwort wartet.
+   */
+  .btn[aria-busy='true'] {
+    cursor: progress;
+  }
+  .btn[aria-busy='true'] > .icon:first-child {
+    display: none;
+  }
+  .btn[aria-busy='true']::after {
+    content: '';
+    order: -1;
+    flex: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: btn-spin 0.7s linear infinite;
+  }
+  @keyframes btn-spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn[aria-busy='true']::after {
+      animation-duration: 2.4s;
+    }
+  }
+  .btn:disabled:not([aria-busy='true']) {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  /* ── Toast (components/toast.ts): kurze Bestätigung unten mittig ────── */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(var(--sp-5) + env(safe-area-inset-bottom, 0px));
+    z-index: var(--z-toast);
+    max-width: min(440px, calc(100vw - 32px));
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, 12px);
+    transition:
+      opacity var(--t-base) var(--ease-out),
+      transform var(--t-base) var(--ease-out);
+  }
+  .toast.is-visible {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  .toast__body {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim), var(--elev-2);
+    color: var(--text);
+    font-size: var(--fs-200);
+    font-weight: 700;
+  }
+  .toast__body .icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    color: var(--gc-a);
+  }
+  .btn--sm {
+    min-height: 40px;
+    padding: 0 var(--sp-4);
+    font-size: var(--fs-200);
+  }
+  .btn--icon {
+    width: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+  .btn--play {
+    --btn-bg: var(--surface-3);
+    min-height: 44px;
+    padding: 0 var(--sp-4);
+    font-size: var(--fs-200);
+  }
+  .btn--play .icon {
+    color: var(--accent-text);
+  }
+  .btn--play:hover {
+    --btn-bg: var(--surface-4);
+    --btn-line: var(--accent-line);
+  }
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    color: var(--text);
+    font-weight: 650;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--accent-line);
+    text-underline-offset: 0.3em;
+    transition: text-decoration-color var(--t-fast);
+  }
+  /* Link mitten im Satz: bricht mit dem Text um, statt als 44 px hoher Block eine eigene Zeile zu nehmen. */
+  .link.link--inline {
+    display: inline;
+    min-height: 0;
+  }
+  .link:hover {
+    text-decoration-color: var(--accent-text);
+  }
+  .link .icon {
+    flex: none;
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ── Glass panel ────────────────────────────────────────────────────── */
+  .glass {
+    position: relative;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-panel);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-rim), var(--elev-2);
+  }
+
+  /* ── Chips (filters) · slanted like Ultimate's menu plates ──────────── */
+  .chip {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 40px;
+    min-height: 36px;
+    padding: 0 14px;
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-weight: 700;
+    font-stretch: var(--stretch-semi);
+    white-space: nowrap;
+    touch-action: manipulation;
+    transition: color var(--t-fast);
+  }
+  .chip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    background: rgb(var(--fg-rgb) / 0.03);
+    transform: skewX(var(--slant));
+    transition:
+      background-color var(--t-fast),
+      border-color var(--t-fast),
+      transform var(--t-fast) var(--ease-spring);
+  }
+  .chip:hover {
+    color: var(--text);
+  }
+  .chip:hover::before {
+    border-color: rgb(var(--fg-rgb) / 0.32);
+  }
+  .chip:active::before {
+    transform: skewX(var(--slant)) scale(0.94);
+  }
+  .chip:focus-visible {
+    outline: none;
+  }
+  .chip:focus-visible::before {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+  .chip[aria-pressed='true'] {
+    color: var(--chip-ink, var(--ink));
+  }
+  .chip[aria-pressed='true']::before {
+    border-color: transparent;
+    background: var(--chip-fill, var(--text));
+  }
+  .chip[data-tier] {
+    --chip-fill: var(--tier-fill);
+    --chip-ink: var(--tier-ink);
+    font-style: italic;
+    font-weight: 900;
+    font-stretch: var(--stretch-wide);
+  }
+  .chip[data-tier]:not([aria-pressed='true']) {
+    color: color-mix(in oklch, var(--tier-fill) 80%, white);
+  }
+  /*
+   * Light-Mode: Die aufgehellte Tier-Farbe stand hell auf Hell (C+ 1,1:1, S+ 3,4:1).
+   * Feste Helligkeit bei gleichem Farbton hält die Tiers an ihrer Farbe erkennbar.
+   * 0,44 statt 0,5, seit der Light-Mode-Grund gedimmt ist (15.09.2026): C+ kam mit
+   * 0,5 nur noch auf 4,4:1. Der color-mix davor ist der Rückfall für Browser ohne
+   * relative Farbsyntax.
+   */
+  :root[data-theme='light'] .chip[data-tier]:not([aria-pressed='true']) {
+    color: color-mix(in oklch, var(--tier-fill) 38%, #0b0d12);
+    color: oklch(from var(--tier-fill) 0.44 c h);
+  }
+  .chip .icon {
+    width: 14px;
+    height: 14px;
+  }
+  @media (pointer: coarse) {
+    .chip {
+      min-height: 44px;
+    }
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    height: 26px;
+    padding: 0 10px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: rgb(var(--fg-rgb) / 0.05);
+    color: var(--text-muted);
+    font-size: var(--fs-100);
+    font-weight: 650;
+    white-space: nowrap;
+  }
+  .tag--ko {
+    border-color: transparent;
+    background: var(--dmg-160);
+    color: #fff;
+    font-style: italic;
+    font-weight: 800;
+  }
+  /* The rarest label on the site, so it sits at the hot end of the damage ramp
+     and carries a ring the KO tag does not have. Replaces the KO tag, never joins it. */
+  .tag--ztd {
+    border-color: transparent;
+    background: var(--dmg-200);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.5);
+    color: #fff;
+    font-style: italic;
+    font-weight: 900;
+    font-stretch: var(--stretch-wide);
+  }
+
+  /* ── Form controls ──────────────────────────────────────────────────── */
+  .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .field > .icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    color: var(--text-subtle);
+    pointer-events: none;
+  }
+  .input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px 0 42px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-control);
+    background: rgb(var(--fg-rgb) / 0.04);
+    font-size: var(--fs-300);
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast);
+  }
+  .input::placeholder {
+    color: var(--text-subtle);
+  }
+  .input:hover {
+    border-color: rgb(var(--fg-rgb) / 0.28);
+  }
+  .input:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    background: rgb(var(--fg-rgb) / 0.07);
+  }
+  .input::-webkit-search-cancel-button {
+    filter: invert(1) opacity(0.6);
+  }
+
+  .select-wrap {
+    display: grid;
+    gap: 4px;
+  }
+  .control-label {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+    font-weight: 600;
+  }
+  .select {
+    appearance: none;
+    height: 44px;
+    padding: 0 36px 0 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-control);
+    background: rgb(var(--fg-rgb) / 0.04)
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23aab0bd' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+      no-repeat right 12px center / 14px;
+    color: var(--text);
+    font-size: var(--fs-200);
+    font-weight: 650;
+    cursor: pointer;
+  }
+  .select:hover {
+    border-color: rgb(var(--fg-rgb) / 0.28);
+  }
+  .select option {
+    background: var(--surface-2);
+    color: var(--text);
+  }
+
+  /* ── Tier badge ─────────────────────────────────────────────────────── */
+  .tier {
+    display: inline-flex;
+    align-items: stretch;
+    height: 24px;
+    line-height: 1;
+  }
+  .tier__label,
+  .tier__rank {
+    display: grid;
+    place-items: center;
+    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  }
+  .tier__label {
+    min-width: 32px;
+    padding: 0 9px;
+    background: var(--tier-fill);
+    color: var(--tier-ink);
+    font-size: 13px;
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+  }
+  [data-tier='s-plus'] > .tier__label {
+    background: linear-gradient(120deg, #ff4a67, var(--tier-s-plus) 70%);
+  }
+  .tier__rank {
+    margin-left: -4px;
+    padding: 0 10px 0 8px;
+    background: rgb(11 13 18 / 0.86);
+    /* Fester heller Text, weil die Fläche in beiden Farbschemata dunkel bleibt. Mit var(--text) stand im Light-Mode Dunkel auf Dunkel (1,4:1). */
+    color: #eceef2;
+    font-size: 11px;
+    font-weight: 750;
+    font-stretch: var(--stretch-semi);
+    font-variant-numeric: tabular-nums;
+  }
+  .tier--lg {
+    height: 44px;
+  }
+  .tier--lg .tier__label,
+  .tier--lg .tier__rank {
+    clip-path: polygon(11px 0, 100% 0, calc(100% - 11px) 100%, 0 100%);
+  }
+  .tier--lg .tier__label {
+    min-width: 68px;
+    padding: 0 18px;
+    font-size: 24px;
+  }
+  .tier--lg .tier__rank {
+    margin-left: -8px;
+    padding: 0 20px 0 16px;
+    font-size: 15px;
+  }
+
+  /* ── Input notation keycaps (GameCube layout) ───────────────────────── */
+  .keys {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+  }
+  .keys__token {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .keys__then {
+    width: 10px;
+    height: 2px;
+    margin-inline: 2px;
+    border-radius: 2px;
+    background: var(--line-strong);
+  }
+  .kc {
+    display: inline-grid;
+    place-items: center;
+    min-width: 26px;
+    height: 26px;
+    border: 1px solid var(--line-strong);
+    border-bottom-width: 2px;
+    border-radius: var(--r-key);
+    background: var(--surface-3);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 850;
+    line-height: 1;
+  }
+  .kc--dir {
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, var(--void-600), var(--surface-3) 70%);
+  }
+  .kc--dir svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+  .kc--dir[data-dir='uf'] svg {
+    rotate: 45deg;
+  }
+  .kc--dir[data-dir='f'] svg {
+    rotate: 90deg;
+  }
+  .kc--dir[data-dir='df'] svg {
+    rotate: 135deg;
+  }
+  .kc--dir[data-dir='d'] svg {
+    rotate: 180deg;
+  }
+  .kc--dir[data-dir='db'] svg {
+    rotate: 225deg;
+  }
+  .kc--dir[data-dir='b'] svg {
+    rotate: 270deg;
+  }
+  .kc--dir[data-dir='ub'] svg {
+    rotate: 315deg;
+  }
+  .kc__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .kc--btn {
+    border-color: transparent;
+    border-bottom: 2px solid rgb(0 0 0 / 0.4);
+    border-radius: 50%;
+    color: var(--ink);
+  }
+  .kc--btn[data-btn='A'] {
+    background: var(--gc-a);
+  }
+  .kc--btn[data-btn='B'] {
+    background: var(--gc-b);
+  }
+  .kc--btn[data-btn='X'] {
+    background: var(--gc-x);
+  }
+  .kc--btn[data-btn='Z'] {
+    border-radius: var(--r-key);
+    background: var(--gc-z);
+  }
+  .kc--btn[data-btn='R'] {
+    border-radius: var(--r-key);
+    background: var(--gc-r);
+  }
+  .kc--btn[data-variant='smash'] {
+    box-shadow:
+      0 0 0 2px var(--bg),
+      0 0 0 4px var(--dmg-120);
+  }
+  .kc--btn[data-variant='hold'] {
+    min-width: 40px;
+    border-radius: 13px;
+  }
+  .kc--btn[data-variant='tap'] {
+    min-width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  .kc--mod {
+    padding: 0 8px;
+    border-style: dashed;
+    border-bottom-width: 1px;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    font-stretch: var(--stretch-semi);
+  }
+
+  /* ── Damage meter · the in-game percent ─────────────────────────────── */
+  .meter {
+    --heat: var(--dmg-0);
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    min-width: 4.6em;
+  }
+  .meter__value {
+    display: inline-flex;
+    align-items: baseline;
+    color: var(--heat);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+    font-variant-numeric: tabular-nums;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    -webkit-text-stroke: 0.12em #06070a;
+    paint-order: stroke fill;
+    text-shadow: 0 0 0.6em color-mix(in oklch, var(--heat) 40%, transparent);
+    /*
+     * Anker unten links – dort, wo die Zahl im Kasten steht. Vorher war der
+     * Ursprung bei 70 % / 60 %, wodurch der Impuls beim Hochzählen nach links
+     * unten aus dem Kasten lief. Von hier aus wächst er nach rechts oben in die
+     * Polsterung hinein, wo Platz ist.
+     */
+    transform-origin: 0% 85%;
+  }
+  .meter__int {
+    font-size: 2.5rem;
+  }
+  .meter__dec {
+    font-size: 1.35rem;
+  }
+  .meter__pct {
+    margin-left: 2px;
+    font-size: 1.15rem;
+  }
+  .meter--lg .meter__int {
+    font-size: var(--fs-hud);
+  }
+  .meter--lg .meter__dec {
+    font-size: calc(var(--fs-hud) * 0.5);
+  }
+  .meter--lg .meter__pct {
+    font-size: calc(var(--fs-hud) * 0.42);
+  }
+  /*
+   * Stempel über der oberen rechten Ecke – er darf die Ziffern nie berühren.
+   *
+   * `bottom: 100%` legt seine Unterkante exakt auf die Oberkante der Anzeige.
+   * Die Überlappung ist damit bei jeder Größe rechnerisch null, statt von einer
+   * Prozentverschiebung abzuhängen. Vorher stand hier `top: 0; translate: 0 -55%`:
+   * Weil `line-height: normal` den Stempel höher machte als die Anzeige selbst
+   * (120 px gegen 82 px bei 1280 px Breite), lagen 55 px davon auf den Ziffern –
+   * bei jeder Fensterbreite, nicht nur bei ungewöhnlichen Seitenverhältnissen.
+   *
+   * `line-height: 1` bindet die Höhe an die eigene Schriftgröße; Abstände stehen
+   * in `em`. Dadurch skaliert der Stempel mit der Anzeige mit, ohne dass irgendwo
+   * ein Pixelwert nachgezogen werden muss.
+   */
+  .meter__ko {
+    position: absolute;
+    right: -0.35em;
+    bottom: 100%;
+    /* Keine Einrückung: `bottom: 100%` allein garantiert, dass der Stempel die
+       Ziffern nicht berührt. Die Drehung vergrößert die achsenparallele Box
+       ohnehin um ein paar Pixel nach unten – das ist leere Ecke, kein Kontakt,
+       aber es bleibt nur schadlos, solange hier nichts zusätzlich nach unten
+       verschoben wird. */
+    rotate: -8deg;
+    padding: 0.1em 0.42em;
+    background: var(--dmg-160);
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+    line-height: 1;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .meter--lg .meter__ko {
+    font-size: calc(var(--fs-hud) * 0.42);
+  }
+  .is-ko .meter__ko {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* ── Combo card ─────────────────────────────────────────────────────── */
+  /*
+   * Glas, damit sich die Karte vom Fighter-Hintergrund abhebt. Der weisse
+   * Verlauf allein lag bei 3,5 Prozent, und seit hinter der Karte ein Muster
+   * laeuft, verschwamm ihre Kante damit einfach mit dem Grund. Der Verlauf
+   * bleibt als Glanz oben liegen, der Koerper darunter ist jetzt --glass-bg.
+   *
+   * DER BLUR GEHOERT HIERHER UND NICHT ZUSAETZLICH NACH INNEN. Fuer .step und
+   * .combo__hud ist der Hintergrund dann bereits diese Karte; ein zweiter Blur
+   * darueber aendert optisch nichts und kostet je Schritt eine weitere
+   * geblurrte Flaeche. Kontrast holen die inneren Teile ueber ihren Ton.
+   */
+  /*
+   * content-visibility: Karten außerhalb des Bildschirms rechnet der Browser erst,
+   * wenn sie in die Nähe kommen. Auf einer Fighter-Seite sind das über 80 Prozent
+   * aller Elemente; der Seitenwechsel ins Profil brauchte vorher einen 125-ms-Frame.
+   * Die Paint-Containment dahinter schneidet an der Kartenkante ab, deshalb darf
+   * hier nichts nach außen ragen (KO-Stempel und Schritte liegen innen).
+   * `auto 560px` merkt sich nach dem ersten Rendern die echte Höhe.
+   */
+  /* Ziel eines geteilten Links (?combo=, pages/fighter.ts): kurz hervorgehoben, dann wieder normal. */
+  .combo.is-target {
+    border-color: var(--accent-line);
+    box-shadow: 0 0 0 2px var(--accent-line);
+    animation: combo-target 1.2s var(--ease-out) 2;
+  }
+  .combo:focus {
+    outline: none;
+  }
+  @keyframes combo-target {
+    50% {
+      box-shadow: 0 0 0 8px var(--accent-soft);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .combo.is-target {
+      animation: none;
+    }
+  }
+  .combo {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 560px;
+    display: grid;
+    /* Ohne feste Spalte wächst sie auf die Mindestbreite der HUD-Zeile, auf 320 px ragte der Inhalt 35 px aus der Karte. */
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: var(--r-panel);
+    background:
+      linear-gradient(180deg, rgb(var(--fg-rgb) / 0.035), rgb(var(--fg-rgb) / 0.01)),
+      var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+  }
+  .combo__head {
+    display: grid;
+    gap: var(--sp-3);
+  }
+  .combo__title {
+    font-size: var(--fs-500);
+    font-weight: 850;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1.1;
+  }
+  .combo__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2) var(--sp-5);
+  }
+  .fact {
+    display: grid;
+    gap: 2px;
+  }
+  .fact dt {
+    color: var(--text-subtle);
+    font-size: var(--fs-100);
+  }
+  .fact dd {
+    margin: 0;
+    font-size: var(--fs-200);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .fact dd a,
+  .fmeta__sources a {
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 0.22em;
+    transition: text-decoration-color var(--t-fast);
+  }
+  .fact dd a:hover,
+  .fmeta__sources a:hover {
+    text-decoration-color: var(--accent-text);
+  }
+  .fact dd a .icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    vertical-align: -1px;
+    color: var(--text-subtle);
+  }
+  .difficulty {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .difficulty::before {
+    content: '';
+    width: 26px;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent-text) calc(var(--lvl, 1) * 33.34%), var(--void-600) 0);
+  }
+  .difficulty[data-level='2'] {
+    --lvl: 2;
+  }
+  .difficulty[data-level='3'] {
+    --lvl: 3;
+  }
+  .combo__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* ── Guide-Video ────────────────────────────────────────────────────── */
+  /*
+   * Glas statt deckender Flaeche. Der Video-Block ist die groesste einzelne
+   * Flaeche einer Fighter-Seite (rund 900k px² bei 1280 px Breite), und deckend
+   * schnitt er den Seitenhintergrund genau in der Mitte der Seite aus. Mit
+   * --glass-bg und Blur traegt das Fighter-Thema durch, ohne dass der Titel
+   * darauf an Lesbarkeit verliert: dieselbe Mischung, die .tag im Helden und
+   * das Filter-Panel im Roster schon fahren.
+   */
+  .vplayer {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    background:
+      radial-gradient(120% 140% at 12% 0%, var(--accent-soft), transparent 62%),
+      var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+  }
+  /*
+   * Handy im Querformat: Bei 16:9 über die volle Breite war der Player höher als
+   * der ganze Bildschirm (844 px breit ergibt 475 px, bei 390 px Viewport). Die
+   * Breite richtet sich dort nach 70 % der Höhe, das Seitenverhältnis bleibt,
+   * der Player steht mittig.
+   */
+  @media (orientation: landscape) and (max-height: 560px) {
+    .vplayer {
+      width: min(100%, calc(70dvh * 16 / 9));
+      margin-inline: auto;
+    }
+  }
+  .vplayer__start {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    width: 100%;
+    height: 100%;
+    padding: var(--sp-5);
+    border: 0;
+    background: none;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .vplayer__play {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    transition:
+      transform var(--t-base) var(--ease-spring),
+      box-shadow var(--t-base);
+  }
+  .vplayer__play .icon {
+    width: 26px;
+    height: 26px;
+    margin-left: 3px;
+  }
+  .vplayer__start:hover .vplayer__play,
+  .vplayer__start:focus-visible .vplayer__play {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 10px var(--accent-soft);
+  }
+  .vplayer__meta {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+  }
+  /* Unter 360 px ist der 16:9-Player nur rund 150 px hoch. Der Titel lief dort über den Rand, der Player schneidet ab. */
+  @media (max-width: 359px) {
+    .vplayer__start {
+      gap: var(--sp-3);
+      padding: var(--sp-4);
+    }
+    .vplayer__play {
+      width: 48px;
+      height: 48px;
+    }
+    .vplayer__title {
+      font-size: var(--fs-300);
+    }
+  }
+  .vplayer__title {
+    font-size: var(--fs-400);
+    font-weight: 800;
+    font-stretch: var(--stretch-wide);
+    line-height: 1.2;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  .vplayer__creator {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    font-weight: 650;
+  }
+  .vplayer__frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .fvideo__link {
+    margin-top: var(--sp-3);
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+  }
+  /*
+   * Ohne diese Regel füllt das SVG die ganze Spalte: `.icon` hat keine
+   * Grundgröße, jede Stelle setzt sie selbst. Maße wie bei `.fact dd a .icon`.
+   */
+  .fvideo__link .icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    vertical-align: -1px;
+    color: var(--text-subtle);
+  }
+
+  /* ── Rechtstexte ────────────────────────────────────────────────────── */
+  /*
+   * Der Container ist auf Raster ausgelegt, für Fließtext ist er zu breit.
+   * 68ch hält die Zeilenlänge im lesbaren Bereich, statt den Text über die
+   * ganze Seite zu ziehen.
+   */
+  .legal__body {
+    max-width: 68ch;
+    padding-bottom: var(--sp-8);
+    color: var(--text-muted);
+  }
+  .legal__body h2 {
+    margin-top: var(--sp-6);
+    margin-bottom: var(--sp-3);
+    color: var(--text);
+    font-size: var(--fs-600);
+    font-weight: 800;
+    font-stretch: var(--stretch-semi);
+  }
+  .legal__body h2:first-child {
+    margin-top: 0;
+  }
+  .legal__body p {
+    margin-bottom: var(--sp-3);
+    line-height: 1.65;
+  }
+  .legal__body strong {
+    color: var(--text);
+  }
+  .legal__body code {
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: rgb(var(--fg-rgb) / 0.06);
+    font-size: 0.92em;
+  }
+  .legal__body .btn {
+    margin-top: var(--sp-5);
+  }
+  /* Nur in Übersetzungen: Hinweis, dass die deutsche Fassung maßgeblich ist. */
+  .legal__lang {
+    margin-top: var(--sp-2);
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+  }
+  .legal__lang a {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .legal__address {
+    margin-bottom: var(--sp-3);
+    color: var(--text);
+    font-style: normal;
+    line-height: 1.65;
+  }
+  .legal__body a:not(.btn) {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 560px) {
+    .vplayer__start {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: var(--sp-3);
+    }
+    .vplayer__play {
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  /* ── Ladezustand für die nachgeladenen Guide-Daten ──────────────────── */
+  /*
+   * Preset 15 aus ui-ux-pro-max/data/motion.csv, aber bewusst in CSS statt GSAP:
+   * Die Notiz dort warnt, dass `repeat: -1`-Tweens beim Route-Wechsel lecken,
+   * wenn man sie nicht killt. Eine CSS-Animation kann das gar nicht erst – sie
+   * verschwindet mit dem Element. Der Gradient-Sweep über background-position
+   * ist ebenfalls aus dem Preset: Er liest sich klarer als „lädt" als ein
+   * Opacity-Puls.
+   */
+  .skeleton {
+    display: grid;
+    gap: var(--sp-4);
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+  }
+  .skeleton__card {
+    display: grid;
+    gap: 10px;
+    padding: var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--void-700);
+  }
+  .skeleton__bar {
+    height: 14px;
+    border-radius: 7px;
+    background:
+      linear-gradient(90deg, rgb(var(--fg-rgb) / 0.04) 0%, rgb(var(--fg-rgb) / 0.1) 50%, rgb(var(--fg-rgb) / 0.04) 100%)
+      0 0 / 200% 100%;
+    animation: skeleton-sweep 1.4s ease-in-out infinite;
+  }
+  .skeleton__bar--title {
+    width: 62%;
+    height: 22px;
+    border-radius: 6px;
+  }
+  .skeleton__bar--step {
+    height: 44px;
+    border-radius: 10px;
+  }
+  /*
+   * Die zweite Karte versetzt starten lassen, damit die Welle als eine Bewegung
+   * liest. Geschwisterselektor statt :nth-child(2): Das erste Kind ist der
+   * Vorlesetext, wodurch die erste Karte selbst :nth-child(2) wäre.
+   */
+  .skeleton__card + .skeleton__card .skeleton__bar {
+    animation-delay: 0.18s;
+  }
+  @keyframes skeleton-sweep {
+    to {
+      background-position: -200% 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton__bar {
+      animation: none;
+      background-position: 100% 0;
+    }
+  }
+
+  .combo__steps {
+    display: grid;
+    gap: 6px;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    align-items: start;
+    gap: var(--sp-3);
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: rgb(var(--fg-rgb) / 0.025);
+    transition:
+      background-color var(--t-fast),
+      border-color var(--t-fast),
+      transform var(--t-base) var(--ease-spring);
+  }
+  .step__n {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    color: var(--text-subtle);
+    font-size: 13px;
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-wide);
+    transition:
+      background-color var(--t-fast),
+      color var(--t-fast),
+      border-color var(--t-fast);
+  }
+  .step__body {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+  }
+  .step__label {
+    font-weight: 750;
+    line-height: 1.25;
+  }
+  .step__note {
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+    line-height: 1.45;
+  }
+  .step__dmg {
+    padding-top: 4px;
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+  }
+  .step.is-active {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+    transform: translateX(4px);
+  }
+  .step.is-active .step__n {
+    border-color: transparent;
+    background: var(--accent-fill, var(--accent));
+    color: var(--accent-ink);
+  }
+  .step.is-active .step__dmg {
+    color: var(--accent-text);
+  }
+  .step.is-done .step__n {
+    border-color: var(--accent-line);
+    color: var(--accent-text);
+  }
+
+  /* No overflow clipping here: the KO stamp is allowed to overhang the panel. */
+  /*
+   * Fuellung ohne eigenen Blur, und das ist Absicht.
+   *
+   * Solange die Combo-Karte drumherum nur ein weisser Verlauf bei 3,5 Prozent
+   * war, brauchte das HUD einen eigenen Blur. Seit die Karte selbst Glas ist,
+   * waere es ein Blur auf einer bereits geblurrten Flaeche: optisch kein
+   * Unterschied, aber fuenf zusaetzliche geblurrte Flaechen pro Seite. Der Ton
+   * allein trennt das HUD ausreichend von der Karte, weil --glass-bg sich hier
+   * ein zweites Mal darueberlegt und damit abdunkelt.
+   */
+  .combo__hud {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--glass-bg);
+  }
+  .combo__hud::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(100deg, transparent 40%, color-mix(in oklch, var(--accent) 65%, white) 50%, transparent 60%) no-repeat;
+    background-size: 300% 100%;
+    background-position: 150% 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .is-ko .combo__hud::after,
+  .is-ko.combo__hud::after {
+    animation: blast 760ms var(--ease-out);
+  }
+  @keyframes blast {
+    from {
+      opacity: 1;
+      background-position: 150% 0;
+    }
+    to {
+      opacity: 1;
+      background-position: -50% 0;
+    }
+  }
+  .combo__tip {
+    max-width: var(--measure);
+    color: var(--text-muted);
+    font-size: var(--fs-200);
+  }
+
+  /* ── Fighter tile · character select slot ───────────────────────────── */
+  .tile {
+    position: relative;
+  }
+  .tile__link {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: block;
+    aspect-ratio: 270 / 164;
+    border-radius: 10px;
+    background: var(--surface-2);
+    box-shadow: 0 0 0 1px var(--line);
+    transition:
+      box-shadow var(--t-base) var(--ease-out),
+      transform var(--t-base) var(--ease-spring);
+  }
+  .tile__art {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  /* Bottom shade keeps the name readable over the portrait; a gradient, not a CSS filter. */
+  .tile__art::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(6 7 10 / 0.92) 0%, rgb(6 7 10 / 0.35) 36%, rgb(6 7 10 / 0) 60%);
+    transition: opacity var(--t-base);
+  }
+  .sigil__rays {
+    transition: transform 1.4s var(--ease-out);
+  }
+  .sigil__no {
+    font-family: var(--font);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-extended);
+    letter-spacing: -0.04em;
+    stroke: #06070a;
+    stroke-width: 8px;
+    paint-order: stroke fill;
+    opacity: 0.85;
+  }
+  .tile__plate {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 24px 12px 12px;
+  }
+  .tile__name {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-size: clamp(0.95rem, 0.82rem + 0.4vw, 1.15rem);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 0.95;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgb(0 0 0 / 0.75);
+    overflow-wrap: anywhere;
+    transition:
+      color var(--t-fast),
+      font-stretch var(--t-base) var(--ease-out);
+  }
+  .tile__name::before {
+    content: '';
+    position: absolute;
+    inset: -3px -8px;
+    z-index: -1;
+    background: var(--accent-fill, var(--accent));
+    transform: skewX(var(--slant)) scaleX(0);
+    transform-origin: left;
+    transition: transform var(--t-base) var(--ease-out);
+  }
+  .tile__top {
+    position: absolute;
+    inset: 8px 8px auto;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+  /*
+   * Franchise-Symbol oben rechts. Die Ecke trug früher einen Blitz für „hat
+   * Combos", und das trifft inzwischen auf alle 86 Fighter zu.
+   */
+  .tile__franchise {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgb(11 13 18 / 0.82);
+    /* Wie .tier__rank: dunkle Fläche in beiden Schemata, also fester heller Vordergrund (Light-Mode vorher 1,6:1). */
+    color: #eceef2;
+  }
+  .tile__franchise .icon {
+    width: 15px;
+    height: 15px;
+  }
+  .tag--series {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tag--series .franchise-glyph {
+    flex: none;
+    width: 1.1em;
+    height: 1.1em;
+    color: var(--accent-text);
+  }
+  /* Sits below the badge row, like the player token dropped onto a portrait. */
+  .tile__p1 {
+    position: absolute;
+    top: 40px;
+    right: 8px;
+    padding: 2px 7px;
+    border-radius: 12px 12px 12px 3px;
+    background: var(--port-1);
+    box-shadow: 0 0 0 2px #fff;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-wide);
+    opacity: 0;
+    transform: translateY(8px) scale(0.6);
+    transition:
+      opacity var(--t-fast),
+      transform var(--t-base) var(--ease-spring);
+  }
+  .tile__link:hover,
+  .tile__link:focus-visible {
+    box-shadow:
+      0 0 0 2px var(--accent),
+      0 18px 42px -16px var(--accent-glow);
+    transform: translateY(-4px);
+  }
+  .tile__link:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+  }
+  .tile__link:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+  .tile__link:is(:hover, :focus-visible) .tile__art > * {
+    filter: none;
+    transform: scale(1.06);
+  }
+  .tile__link:is(:hover, :focus-visible) :is(.sigil__rays, .stage__rays) {
+    transform: rotate(14deg);
+  }
+  .tile__link:is(:hover, :focus-visible) .tile__name {
+    color: var(--accent-ink);
+    text-shadow: none;
+    font-stretch: var(--stretch-semi);
+  }
+  .tile__link:is(:hover, :focus-visible) .tile__name::before {
+    transform: skewX(var(--slant)) scaleX(1);
+  }
+  .tile__link:is(:hover, :focus-visible) .tile__p1 {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── Empty state ────────────────────────────────────────────────────── */
+  .empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--sp-3);
+    padding: var(--sp-7) var(--sp-5);
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--r-panel);
+  }
+  .empty h3 {
+    font-size: var(--fs-500);
+    font-weight: 800;
+  }
+  .empty p {
+    max-width: 52ch;
+    color: var(--text-muted);
+  }
+  /* Fehlerzustand (components/states.ts): gleiche Form wie leer, Kante in Warnfarbe. */
+  .empty--error {
+    border-style: solid;
+    border-color: color-mix(in oklch, var(--dmg-160) 55%, transparent);
+    background: color-mix(in oklch, var(--dmg-160) 6%, transparent);
+  }
+  .empty--error h1 {
+    font-size: var(--fs-600);
+    font-weight: 850;
+    line-height: var(--lh-snug);
+  }
+  .empty__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+  .picks__error {
+    grid-column: 1 / -1;
+  }
+  .page-crash {
+    padding-block: calc(var(--nav-h) + var(--sp-8)) var(--sp-9);
+  }
+
+  /* Textknopf in Fließtext, etwa „Erneut versuchen“ im Kommentar-Status. */
+  .link-btn {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--accent-text);
+    font: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .link-btn:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* Offline-Hinweis (lib/errors.ts). Unten mittig, über allem außer Dialogen. */
+  .netstatus {
+    position: fixed;
+    left: 50%;
+    bottom: max(var(--sp-4), env(safe-area-inset-bottom));
+    z-index: var(--z-toast);
+    max-width: calc(100vw - 2 * var(--sp-4));
+    padding: var(--sp-2) var(--sp-4);
+    border: 1px solid color-mix(in oklch, var(--dmg-160) 55%, transparent);
+    border-radius: 9999px;
+    background: var(--glass-bg-strong);
+    color: var(--text);
+    font-size: var(--fs-200);
+    font-weight: 650;
+    text-align: center;
+    translate: -50% 0;
+    box-shadow: var(--elev-2);
+  }
+
+  /* ── Command palette ────────────────────────────────────────────────── */
+  .palette {
+    width: min(640px, calc(100vw - 32px));
+    max-width: none;
+    max-height: none;
+    margin: 12vh auto auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    overflow: visible;
+  }
+  .palette::backdrop {
+    background: rgb(6 7 10 / 0.62);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+  .palette[open] {
+    animation: palette-in 320ms var(--ease-out);
+  }
+  @keyframes palette-in {
+    from {
+      opacity: 0;
+      transform: translateY(-14px) scale(0.98);
+    }
+  }
+  .palette__panel {
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-panel);
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow:
+      var(--glass-rim),
+      0 40px 90px -20px rgb(0 0 0 / 0.85);
+  }
+  .palette__field {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: 0 var(--sp-4);
+    border-bottom: 1px solid var(--line);
+  }
+  .palette__field:focus-within {
+    box-shadow: inset 0 -2px 0 var(--focus);
+  }
+  .palette__field > .icon {
+    width: 20px;
+    height: 20px;
+    color: var(--text-subtle);
+  }
+  .palette__input {
+    flex: 1;
+    min-width: 0;
+    height: 60px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: var(--fs-400);
+  }
+  .palette__input::placeholder {
+    color: var(--text-subtle);
+  }
+  .palette__close {
+    min-height: 32px;
+    padding: 0 8px;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .palette__list {
+    max-height: min(420px, 60dvh);
+    margin: 0;
+    padding: var(--sp-2);
+    overflow: auto;
+    list-style: none;
+  }
+  .palette__opt {
+    display: grid;
+    grid-template-columns: 48px 1fr auto auto;
+    align-items: center;
+    gap: var(--sp-3);
+    min-height: 48px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .palette__opt:hover,
+  .palette__opt[aria-selected='true'] {
+    background: var(--accent-soft);
+  }
+  .palette__opt[aria-selected='true'] {
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+  .palette__name {
+    font-weight: 750;
+  }
+  .palette__series {
+    color: var(--text-subtle);
+    font-size: var(--fs-200);
+  }
+  .palette__empty {
+    padding: var(--sp-5);
+    color: var(--text-muted);
+  }
+  @media (max-width: 560px) {
+    .palette__opt {
+      grid-template-columns: 48px 1fr auto;
+    }
+    .palette__series {
+      display: none;
+    }
+  }
+}

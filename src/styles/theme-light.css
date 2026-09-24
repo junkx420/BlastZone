@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Light-Mode, nur für angemeldete Nutzer (Umschalter in der Leiste).
+
+   Funktionsweise: Die Seite ist dunkel gebaut und rechnet fast überall mit
+   Tokens. Hier werden die Primitive umgedreht (void wird hell, mist wird
+   dunkel), dadurch folgen Flächen, Text und Linien von selbst. Halbtransparente
+   Waschungen laufen über --fg-rgb, das hier dunkel wird.
+
+   Bewusst dunkel bleiben: Fighter-Artwork-Bühnen und die Abdunkler über Bildern
+   (rgb(6 7 10 / …)). Weiße Schrift auf Artwork braucht dort weiter dunklen Grund.
+
+   Kein reines Weiß (Nutzerwunsch 15.09.2026, „brennt in den Augen“, und nach
+   dem ersten, zu vorsichtigen Versuch: „ist das nicht genauso hell wie vorher“).
+   Grund und Flächen sind ein kühles, mittelhelles Grau mit einem Hauch Blau.
+   Wahrgenommene Helligkeit L*: Grund 86, Karten und Glas 89. Vorher 96 und 100,
+   der erste Versuch 92 und 95 war kaum sichtbar. Unter L* 85 wirkt es schmutzig,
+   über 90 wieder grell. Neue helle Flächen nie #fff oder rgb(255 255 255 / hoch),
+   sondern die Tokens hier oder --paper-rgb.
+   Kontraste (WCAG) gegen Grund / Karte / --surface-4:
+     --text 12,9 / 14,1 / 10,4   --text-muted 7,9 / 8,6 / 6,4
+     --text-subtle 6,1 / 6,6 / 4,9   Standard-Akzent #9a3409 5,1 / 5,5
+   ========================================================================== */
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  /* Hellste Papierfarbe als RGB-Tripel, für Glas und Lichtkanten. */
+  --paper-rgb: 221 224 230;
+
+  --void-950: #d3d7de; /* Grund */
+  --void-900: #dde0e6;
+  --void-850: #d9dce2;
+  --void-800: #c7ccd4;
+  --void-700: #bcc2cb;
+  --void-600: #a8afba;
+  --mist-400: #454b57;
+  --mist-300: #343a45;
+  --mist-100: #10131a;
+
+  --fg-rgb: 15 18 24;
+  --line: rgb(15 18 24 / 0.13);
+  --line-strong: rgb(15 18 24 / 0.25);
+  --focus: #9a3409;
+  --danger-text: #9c1226; /* 4,6:1 auf --surface-4, 5,7:1 auf dem Grund */
+  --ink: #0b0d12;
+  --tier-d: #b9bfc9;
+  --tier-e: #7c8290; /* dunkle Schrift darauf 4,9:1; #6c7280 kam nur auf 4,0 */
+
+  --glass-bg: rgb(var(--paper-rgb) / 0.78);
+  --glass-bg-strong: rgb(var(--paper-rgb) / 0.94);
+  --glass-border: rgb(15 18 24 / 0.12);
+  --glass-rim: inset 0 1px 0 rgb(255 255 255 / 0.22);
+  --glass-blur: blur(18px) saturate(140%);
+
+  --elev-1: 0 1px 0 rgb(15 18 24 / 0.04), 0 8px 24px -14px rgb(15 18 24 / 0.22);
+  --elev-2: 0 1px 0 rgb(15 18 24 / 0.05), 0 24px 60px -28px rgb(15 18 24 / 0.28);
+}
+
+:root[data-theme='light'],
+:root[data-theme='light'] [style*='--accent'] {
+  --accent-text: var(--accent-text-light, #9a3409);
+}
+
+/* Die Leiste hat über dem Hero eine eigene, fest dunkle Glasfarbe (layout.css). */
+:root[data-theme='light'] .nav__inner {
+  background: rgb(var(--paper-rgb) / 0.6);
+}
+:root[data-theme='light'] .nav.is-scrolled .nav__inner {
+  background: var(--glass-bg);
+}
+
+/*
+ * Die Schadensanzeige bleibt ein Spielbildschirm: helle Hitze-Ziffern mit
+ * dunkler Kontur wie im Spiel. Auf hellem Grund gingen die weißen Ziffern
+ * niedriger Prozente unter, deshalb ist das HUD im Light-Mode eine dunkle Insel.
+ * Die Tokens werden lokal zurückgesetzt, damit der Abspielen-Knopf mitzieht.
+ */
+:root[data-theme='light'] .combo__hud {
+  --fg-rgb: 255 255 255;
+  --surface-3: #161a23;
+  --surface-4: #20252f;
+  --text: #eceef2;
+  --text-muted: #aab0bd;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --glass-bg: rgb(14 17 24 / 0.94);
+  --accent-text: var(--accent-text-dark, #ff8d5c);
+  color: var(--text);
+}
+
+/* Sprunglink „Zum Inhalt springen“ steht auf --focus. Das ist hier ein dunkles Orange, dunkle Schrift darauf kam auf 2,5:1. Weiß: 7:1. */
+:root[data-theme='light'] .skip-link {
+  color: #ffffff;
+}
+
+/* Startseiten-Headline: Die erste Zeile läuft im Dunkeln von Weiß in Gelb, auf Hell unlesbar. */
+:root[data-theme='light'] .hero__line:nth-child(1) {
+  background-image: linear-gradient(95deg, var(--text) 20%, #b45309 75%, var(--dmg-120));
+}
+
+/* Körnung aus base.css ist für dunklen Grund gemischt und legt auf Hell einen Grauschleier. */
+:root[data-theme='light'] body::before {
+  opacity: 0.25;
+}
+
+/* Hintergrund-Muster der Fighter-Seiten: auf Hell etwas kräftiger, sonst verschwinden die Linien. */
+:root[data-theme='light'] .fbg {
+  --fbg-kraft: 1.6;
+}
+
+/* Theme-Wechsel weich, aber nur die Farben und nur beim Umschalten (Klasse setzt theme.ts kurz). */
+:root.is-theme-switching,
+:root.is-theme-switching *,
+:root.is-theme-switching *::before,
+:root.is-theme-switching *::after {
+  transition:
+    background-color 240ms ease,
+    border-color 240ms ease,
+    color 240ms ease,
+    fill 240ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root.is-theme-switching * {
+    transition: none !important;
+  }
+}

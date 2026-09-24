@@ -1,0 +1,656 @@
+import { bindComboCards, comboCard, comboSteps, meter, playCombo } from '../components/comboPlayer';
+import { faceThumb, fighterArt, fighterTile } from '../components/fighterTile';
+import { ICONS } from '../components/icons';
+import { glyph, inputKeys } from '../components/notation';
+import { tierBadge, tierGroup } from '../components/tierBadge';
+import { renderArt } from '../data/art';
+import { ARCHETYPES, FIGHTER_BY_SLUG, FIGHTERS, WEIGHT_CLASSES, weightClass } from '../data/fighters';
+import { bindErrorState, errorState, LOAD_FAILED_TEXT } from '../components/states';
+import { guideFor, loadLateGuides } from '../data/guide-index';
+import { SHOWCASE } from '../data/guides';
+import { BUTTON_LEGEND, resolveToken } from '../data/notation';
+import { matchScore } from '../data/search';
+import { TIER_BY_SLUG, TIER_ORDER, TIER_PLACEMENTS, TIER_SOURCE, TIER_TOTAL } from '../data/tiers';
+import type { Archetype, Combo, Fighter, TierId, WeightClass } from '../data/types';
+import { formatNumber, locale, t, tn } from '../i18n';
+import { accentVars } from '../lib/color';
+import { html, mount, qs, qsa, type Markup } from '../lib/dom';
+import { gsap, loadFlip, motionOK, parallax, pointerDepth, reveals, scope, type FlipApi } from '../lib/motion';
+import { link, replaceQuery, type Route } from '../lib/router';
+import type { PageView } from './types';
+
+const score = (n: number): string => formatNumber(n, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+/* ───────────────────────────── Hero: kill-confirm replay ───────────────────────────── */
+
+function heroSection(): Markup {
+  const first = SHOWCASE[0];
+  const fighter = first && FIGHTER_BY_SLUG.get(first.slug);
+  if (!first || !fighter) return html``;
+  return html`<section class="hero" data-hero data-parallax-scope data-parallax-top aria-labelledby="hero-title" style="${accentVars(fighter.colors)}">
+    <div class="hero__stage" aria-hidden="true">
+      <div class="hero__art" data-parallax="0.2">
+        <div class="hero__art-host" data-hero-art><div class="hero__art-layer">${fighterArt(fighter, 'hero')}</div></div>
+      </div>
+    </div>
+    <div class="container hero__layout">
+      <div class="hero__copy">
+        <h1 class="hero__title" id="hero-title"><span class="hero__line">${t('home.title1')}</span> <span class="hero__line">${t('home.title2')}</span></h1>
+        <p class="hero__lead">${t('home.lead', { n: FIGHTERS.length })}</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="${link('/roster')}">${t('home.findFighter')}</a>
+          <a class="btn btn--ghost" href="${link('/tiers')}">${t('home.viewTiers')}</a>
+        </div>
+      </div>
+
+      <aside class="hud glass" data-hud aria-label="${t('hud.label')}">
+        <header class="hud__head">
+          <p class="hud__count" data-hud-count>${t('hud.count', { i: 1, n: SHOWCASE.length })}</p>
+          <div class="hud__who">
+            <span class="hud__id">
+              <span data-hud-face>${faceThumb(fighter, 'hud__face')}</span>
+              <a class="hud__name" data-hud-name href="${link(`/fighter/${first.slug}`)}">${fighter.name}</a>
+            </span>
+            <span data-hud-tier>${tierBadge(TIER_BY_SLUG.get(first.slug))}</span>
+          </div>
+          <p class="hud__title" data-hud-title>${first.combo.title}</p>
+        </header>
+        <div class="hud__steps" data-hud-steps>${comboSteps(first.combo)}</div>
+        <div class="hud__bottom combo__hud">
+          <div data-hud-meter>${meter(first.combo.start, true)}</div>
+          <div class="hud__controls">
+            <button class="btn btn--icon" type="button" data-hud-toggle aria-pressed="false" aria-label="${t('hud.pause')}">${ICONS.pause}</button>
+            <button class="btn btn--icon" type="button" data-hud-next aria-label="${t('hud.next')}">${ICONS.skip}</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>`;
+}
+
+function mountHero(root: HTMLElement): () => void {
+  const hero = qs<HTMLElement>('[data-hero]', root);
+  const hud = qs<HTMLElement>('[data-hud]', root);
+  const artHost = qs<HTMLElement>('[data-hero-art]', root);
+  if (!hero || !hud || !artHost || !SHOWCASE.length) return () => {};
+
+  const part = <T extends HTMLElement = HTMLElement>(sel: string): T => qs<T>(sel, hud)!;
+  const toggle = part<HTMLButtonElement>('[data-hud-toggle]');
+
+  let index = 0;
+  let timeline: gsap.core.Timeline | null = null;
+  let advance: gsap.core.Tween | null = null;
+  let userPaused = !motionOK();
+  let holding = false;
+  let inView = true;
+
+  const canRun = (): boolean => !userPaused && !holding && inView;
+
+  const syncToggle = (): void => {
+    toggle.setAttribute('aria-pressed', String(userPaused));
+    toggle.setAttribute('aria-label', userPaused ? t('hud.resume') : t('hud.pause'));
+    mount(toggle, userPaused ? ICONS.play : ICONS.pause);
+  };
+
+  const scheduleNext = (): void => {
+    advance?.kill();
+    if (canRun()) advance = gsap.delayedCall(2.6, () => show(index + 1));
+  };
+
+  // Renders are large; warm the cache for the next fighter while the current combo plays.
+  const preloadNext = (): void => {
+    const upcoming = SHOWCASE[(index + 1) % SHOWCASE.length];
+    const fighter = upcoming && FIGHTER_BY_SLUG.get(upcoming.slug);
+    if (!fighter) return;
+    const img = new Image();
+    img.referrerPolicy = 'no-referrer';
+    img.src = renderArt(fighter);
+  };
+
+  const swapArt = (fighter: Fighter): void => {
+    const layer = document.createElement('div');
+    layer.className = 'hero__art-layer';
+    mount(layer, fighterArt(fighter, 'hero'));
+    const old = Array.from(artHost.children) as HTMLElement[];
+    artHost.append(layer);
+    if (!motionOK()) {
+      old.forEach((o) => o.remove());
+      return;
+    }
+    gsap.fromTo(layer, { autoAlpha: 0, scale: 1.08, x: 40 }, { autoAlpha: 1, scale: 1, x: 0, duration: 1.1, ease: 'expo.out' });
+    gsap.to(old, { autoAlpha: 0, scale: 0.96, x: -30, duration: 0.45, ease: 'power2.in', onComplete: () => old.forEach((o) => o.remove()) });
+  };
+
+  const show = (next: number, initial = false): void => {
+    index = (next + SHOWCASE.length) % SHOWCASE.length;
+    const entry = SHOWCASE[index];
+    const fighter = entry && FIGHTER_BY_SLUG.get(entry.slug);
+    if (!entry || !fighter) return;
+
+    if (!initial) {
+      hero.setAttribute('style', accentVars(fighter.colors));
+      part('[data-hud-count]').textContent = t('hud.count', { i: index + 1, n: SHOWCASE.length });
+      const name = part<HTMLAnchorElement>('[data-hud-name]');
+      name.textContent = fighter.name;
+      name.href = link(`/fighter/${entry.slug}`);
+      mount(part('[data-hud-face]'), faceThumb(fighter, 'hud__face'));
+      mount(part('[data-hud-tier]'), tierBadge(TIER_BY_SLUG.get(entry.slug)));
+      part('[data-hud-title]').textContent = entry.combo.title;
+      mount(part('[data-hud-steps]'), comboSteps(entry.combo));
+      mount(part('[data-hud-meter]'), meter(entry.combo.start, true));
+      swapArt(fighter);
+    }
+    preloadNext();
+
+    timeline?.kill();
+    advance?.kill();
+    timeline = playCombo(hud, entry.combo, 0.7);
+    if (motionOK()) timeline.eventCallback('onComplete', scheduleNext);
+    else scheduleNext();
+  };
+
+  toggle.addEventListener('click', () => {
+    userPaused = !userPaused;
+    syncToggle();
+    if (userPaused) {
+      timeline?.pause();
+      advance?.kill();
+    } else if (timeline && timeline.progress() < 1) timeline.resume();
+    else scheduleNext();
+  });
+  part('[data-hud-next]').addEventListener('click', () => show(index + 1));
+
+  const hold = (on: boolean): void => {
+    holding = on;
+    if (on) advance?.kill();
+    else if (!timeline || timeline.progress() >= 1) scheduleNext();
+  };
+  hud.addEventListener('pointerenter', () => hold(true));
+  hud.addEventListener('pointerleave', () => hold(false));
+  hud.addEventListener('focusin', () => hold(true));
+  hud.addEventListener('focusout', (e) => {
+    if (!hud.contains(e.relatedTarget as Node | null)) hold(false);
+  });
+
+  const observer = new IntersectionObserver(([entry]) => {
+    inView = entry?.isIntersecting ?? true;
+    if (!inView) {
+      timeline?.pause();
+      advance?.kill();
+    } else if (!userPaused) {
+      if (timeline && timeline.progress() < 1) timeline.resume();
+      else scheduleNext();
+    }
+  });
+  observer.observe(hero);
+
+  syncToggle();
+  const removeDepth = pointerDepth(hero, [[artHost, 36]]);
+
+  let intro: gsap.core.Timeline | null = null;
+  if (motionOK()) {
+    intro = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    intro
+      .fromTo(artHost, { autoAlpha: 0, scale: 1.14 }, { autoAlpha: 1, scale: 1, duration: 1.6 }, 0)
+      .fromTo(
+        qsa('.hero__line', hero),
+        { clipPath: 'polygon(0% 0%, 0% 0%, -14% 100%, -14% 100%)', x: -32 },
+        { clipPath: 'polygon(0% 0%, 114% 0%, 100% 100%, -14% 100%)', x: 0, duration: 1.1, stagger: 0.14, clearProps: 'clipPath' },
+        0.1,
+      )
+      .fromTo(qsa('.hero__lead, .hero__actions', hero), { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.08 }, 0.5)
+      .fromTo(hud, { autoAlpha: 0, x: 48 }, { autoAlpha: 1, x: 0, duration: 1 }, 0.35)
+      .call(() => show(0, true), [], 1);
+  } else {
+    show(0, true);
+  }
+
+  return () => {
+    intro?.kill();
+    timeline?.kill();
+    advance?.kill();
+    observer.disconnect();
+    removeDepth();
+  };
+}
+
+/* ───────────────────────────── Top of the meta ───────────────────────────── */
+
+function topSection(): Markup {
+  const top = TIER_PLACEMENTS.filter((p) => p.tier === 'S+');
+  return html`<section class="section top" aria-labelledby="top-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="top-title" data-reveal="wipe">${t('top.title')}</h2>
+        <p data-reveal>${t('top.text', { n: top.length, source: TIER_SOURCE.name, date: TIER_SOURCE.published })}</p>
+        <a class="link section-head__aside" href="${link('/tiers')}">${t('top.all', { n: TIER_TOTAL })}</a>
+      </div>
+      <ol class="top__list" role="list">
+        ${top.map((p, i) => {
+          const f = FIGHTER_BY_SLUG.get(p.slug);
+          if (!f) return '';
+          return html`<li class="top__item" style="${accentVars(f.colors)}" data-reveal data-reveal-delay="${(i * 0.06).toFixed(2)}">
+            <a class="top__link" href="${link(`/fighter/${f.slug}`)}">
+              <span class="top__art" aria-hidden="true">${fighterArt(f, i === 0 ? 'hero' : 'tile')}</span>
+              <span class="top__rank" aria-hidden="true">${p.rank}</span>
+              <span class="top__body">
+                <span class="top__name">${f.name}</span>
+                <span class="top__score"><span class="vh">${t('top.rankVh', { n: p.rank })}</span>${t('top.score', { score: score(p.score) })}</span>
+              </span>
+            </a>
+          </li>`;
+        })}
+      </ol>
+    </div>
+  </section>`;
+}
+
+/* ───────────────────────────── Roster ───────────────────────────── */
+
+type Sort = 'rank' | 'no' | 'name' | 'weight';
+
+interface Filters {
+  q: string;
+  tiers: Set<TierId>;
+  arch: Archetype | '';
+  weight: WeightClass | '';
+  sort: Sort;
+}
+
+const SORTS: Array<[Sort, string]> = [
+  ['rank', t('roster.sortRank')],
+  ['no', t('roster.sortNo')],
+  ['name', t('roster.sortName')],
+  ['weight', t('roster.sortWeight')],
+];
+
+function readFilters(query: URLSearchParams): Filters {
+  const tiers = (query.get('tier') ?? '').split(',').filter((tier): tier is TierId => (TIER_ORDER as string[]).includes(tier));
+  const arch = query.get('archetyp') ?? '';
+  const weight = query.get('gewicht') ?? '';
+  const sort = query.get('sort') ?? '';
+  return {
+    q: query.get('q') ?? '',
+    tiers: new Set(tiers),
+    arch: arch in ARCHETYPES ? (arch as Archetype) : '',
+    weight: weight in WEIGHT_CLASSES ? (weight as WeightClass) : '',
+    sort: SORTS.some(([s]) => s === sort) ? (sort as Sort) : 'rank',
+  };
+}
+
+function writeFilters(f: Filters): void {
+  const p = new URLSearchParams();
+  if (f.q) p.set('q', f.q);
+  if (f.tiers.size) p.set('tier', [...f.tiers].join(','));
+  if (f.arch) p.set('archetyp', f.arch);
+  if (f.weight) p.set('gewicht', f.weight);
+  if (f.sort !== 'rank') p.set('sort', f.sort);
+  replaceQuery(p);
+}
+
+const isFiltered = (f: Filters): boolean => Boolean(f.q || f.tiers.size || f.arch || f.weight);
+const rankOf = (f: Fighter): number => TIER_BY_SLUG.get(f.slug)?.rank ?? 999;
+
+const SORTERS: Record<Sort, (a: Fighter, b: Fighter) => number> = {
+  rank: (a, b) => rankOf(a) - rankOf(b) || a.order - b.order,
+  no: (a, b) => a.order - b.order,
+  name: (a, b) => a.name.localeCompare(b.name, locale),
+  weight: (a, b) => b.weight - a.weight || a.order - b.order,
+};
+
+function visibleFighters(f: Filters): Fighter[] {
+  return FIGHTERS.filter((x) => {
+    if (f.q && matchScore(x, f.q) === 0) return false;
+    const placement = TIER_BY_SLUG.get(x.slug);
+    if (f.tiers.size && (!placement || !f.tiers.has(placement.tier))) return false;
+    if (f.arch && x.archetype !== f.arch) return false;
+    if (f.weight && weightClass(x.weight) !== f.weight) return false;
+    return true;
+  }).sort((a, b) => (f.q ? matchScore(b, f.q) - matchScore(a, f.q) : 0) || SORTERS[f.sort](a, b));
+}
+
+function rosterSection(): Markup {
+  return html`<section class="section roster" id="roster" aria-labelledby="roster-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="roster-title" data-reveal="wipe">Roster</h2>
+        <p>${t('roster.lead', { n: FIGHTERS.length })}</p>
+        <p class="roster__count section-head__aside" data-count aria-live="polite">${tn('roster.countOne', 'roster.count', FIGHTERS.length)}</p>
+      </div>
+
+      <div class="filters glass" data-filters>
+        <div class="filters__row">
+          <div class="field filters__search">
+            ${ICONS.search}
+            <label class="vh" for="roster-q">${t('nav.search')}</label>
+            <input id="roster-q" class="input" type="search" placeholder="${t('roster.searchPlaceholder')}" autocomplete="off" spellcheck="false" data-q />
+          </div>
+          <div class="select-wrap">
+            <label class="control-label" for="roster-arch">${t('roster.archetype')}</label>
+            <select id="roster-arch" class="select" data-arch>
+              <option value="">${t('roster.all')}</option>
+              ${Object.entries(ARCHETYPES).map(([value, label]) => html`<option value="${value}">${label}</option>`)}
+            </select>
+          </div>
+          <div class="select-wrap">
+            <label class="control-label" for="roster-weight">${t('roster.weight')}</label>
+            <select id="roster-weight" class="select" data-weight>
+              <option value="">${t('roster.all')}</option>
+              ${Object.entries(WEIGHT_CLASSES).map(([value, w]) => html`<option value="${value}">${w.label} (${w.range})</option>`)}
+            </select>
+          </div>
+          <div class="select-wrap">
+            <label class="control-label" for="roster-sort">${t('roster.sort')}</label>
+            <select id="roster-sort" class="select" data-sort>
+              ${SORTS.map(([value, label]) => html`<option value="${value}">${label}</option>`)}
+            </select>
+          </div>
+        </div>
+        <div class="filters__row filters__row--chips">
+          <div class="filters__tiers" role="group" aria-label="${t('roster.tierFilter')}">
+            ${TIER_ORDER.map((tier) => html`<button type="button" class="chip" data-tier="${tierGroup(tier)}" data-tier-id="${tier}" aria-pressed="false">${tier}</button>`)}
+          </div>
+          <button type="button" class="btn btn--sm btn--ghost filters__reset" data-reset hidden>${ICONS.reset}${t('roster.reset')}</button>
+        </div>
+      </div>
+
+      <ul class="roster__grid" role="list" data-grid>${FIGHTERS.map((f) => fighterTile(f))}</ul>
+
+      <div class="empty" data-empty hidden>
+        <h3>${t('roster.emptyTitle')}</h3>
+        <p>${t('roster.emptyText')}</p>
+        <button class="btn btn--sm" type="button" data-reset>${ICONS.reset}${t('roster.reset')}</button>
+      </div>
+    </div>
+  </section>`;
+}
+
+function mountRoster(root: HTMLElement, route: Route): () => void {
+  const section = qs<HTMLElement>('#roster', root);
+  if (!section) return () => {};
+  const grid = qs<HTMLElement>('[data-grid]', section)!;
+  const input = qs<HTMLInputElement>('[data-q]', section)!;
+  const arch = qs<HTMLSelectElement>('[data-arch]', section)!;
+  const weight = qs<HTMLSelectElement>('[data-weight]', section)!;
+  const sort = qs<HTMLSelectElement>('[data-sort]', section)!;
+  const count = qs<HTMLElement>('[data-count]', section)!;
+  const empty = qs<HTMLElement>('[data-empty]', section)!;
+  const tierChips = qsa<HTMLButtonElement>('[data-tier-id]', section);
+  const resets = qsa<HTMLButtonElement>('[data-reset]', section);
+  const tiles = new Map(qsa<HTMLElement>('.tile', grid).map((el) => [el.dataset.slug ?? '', el]));
+
+  const state = readFilters(route.query);
+  let flip: gsap.core.Timeline | null = null;
+  let debounce = 0;
+
+  // Warms the later tiers while the roster is on screen, so opening a profile feels instant.
+  void loadLateGuides();
+
+  // The filter animation loads on first contact with the controls; until then filtering just snaps.
+  let Flip: FlipApi | null = null;
+  const primeFlip = (): void => void loadFlip().then((api) => (Flip = api));
+  (['pointerenter', 'pointerdown', 'focusin'] as const).forEach((type) =>
+    section.addEventListener(type, primeFlip, { once: true, passive: true }),
+  );
+
+  const syncControls = (): void => {
+    if (document.activeElement !== input) input.value = state.q;
+    arch.value = state.arch;
+    weight.value = state.weight;
+    sort.value = state.sort;
+    tierChips.forEach((chip) => chip.setAttribute('aria-pressed', String(state.tiers.has(chip.dataset.tierId as TierId))));
+  };
+
+  const apply = (animate: boolean): void => {
+    const order = visibleFighters(state);
+    const shown = new Set(order.map((f) => f.slug));
+    flip?.progress(1).kill();
+    const before = Flip && animate && motionOK() ? Flip.getState([...tiles.values()]) : null;
+
+    const wanted = [...order.map((f) => tiles.get(f.slug)), ...[...tiles].filter(([slug]) => !shown.has(slug)).map(([, el]) => el)].filter(
+      (el): el is HTMLElement => Boolean(el),
+    );
+    tiles.forEach((el, slug) => el.classList.toggle('is-out', !shown.has(slug)));
+    // Nur umhängen, wenn sich die Reihenfolge wirklich ändert. Beim ersten Aufruf ohne Filter
+    // stimmt sie schon, 86 append() hätten das Raster trotzdem komplett neu layouten lassen.
+    if (wanted.some((el, i) => grid.children[i] !== el)) grid.append(...wanted);
+
+    if (before && Flip) {
+      flip = Flip.from(before, {
+        duration: 0.6,
+        ease: 'expo.out',
+        absolute: true,
+        stagger: { amount: 0.12 },
+        onEnter: (els) => gsap.fromTo(els, { autoAlpha: 0, scale: 0.85 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'expo.out' }),
+        onLeave: (els) => gsap.to(els, { autoAlpha: 0, scale: 0.85, duration: 0.22, ease: 'power2.in' }),
+      });
+    }
+
+    const total = FIGHTERS.length;
+    count.textContent = order.length === total ? tn('roster.countOne', 'roster.count', total) : t('roster.countFiltered', { shown: order.length, total });
+    empty.hidden = order.length > 0;
+    resets.forEach((b) => (b.hidden = !isFiltered(state)));
+    syncControls();
+  };
+
+  const update = (): void => {
+    writeFilters(state);
+    apply(true);
+  };
+
+  input.addEventListener('input', () => {
+    window.clearTimeout(debounce);
+    debounce = window.setTimeout(() => {
+      state.q = input.value.trim();
+      update();
+    }, 140);
+  });
+  arch.addEventListener('change', () => {
+    state.arch = arch.value as Archetype | '';
+    update();
+  });
+  weight.addEventListener('change', () => {
+    state.weight = weight.value as WeightClass | '';
+    update();
+  });
+  sort.addEventListener('change', () => {
+    state.sort = sort.value as Sort;
+    update();
+  });
+  tierChips.forEach((chip) =>
+    chip.addEventListener('click', () => {
+      const tier = chip.dataset.tierId as TierId;
+      if (state.tiers.has(tier)) state.tiers.delete(tier);
+      else state.tiers.add(tier);
+      update();
+    }),
+  );
+  resets.forEach((b) =>
+    b.addEventListener('click', () => {
+      Object.assign(state, { q: '', arch: '', weight: '' });
+      state.tiers.clear();
+      input.value = '';
+      update();
+      input.focus();
+    }),
+  );
+
+  apply(false);
+
+  // Geschätzte Höhe des übersprungenen Rasters durch die zuletzt gemessene ersetzen (siehe home.css).
+  if (rosterHeight && rosterHeight.width === window.innerWidth) grid.style.setProperty('--roster-h', `${rosterHeight.h}px`);
+  let rendered = false;
+  const onCvState = (e: Event): void => {
+    rendered = !(e as Event & { skipped?: boolean }).skipped;
+  };
+  const sizes = new ResizeObserver(([entry]) => {
+    if (rendered && entry) rosterHeight = { width: window.innerWidth, h: Math.round(entry.contentRect.height) };
+  });
+  grid.addEventListener('contentvisibilityautostatechange', onCvState);
+  sizes.observe(grid);
+
+  return () => {
+    window.clearTimeout(debounce);
+    flip?.kill();
+    sizes.disconnect();
+    grid.removeEventListener('contentvisibilityautostatechange', onCvState);
+  };
+}
+
+/** Letzte echte Höhe des Rasters, pro Fensterbreite. Überlebt den Seitenwechsel, nicht das Neuladen. */
+let rosterHeight: { width: number; h: number } | null = null;
+
+/* ───────────────────────────── Combos quer durchs Roster ───────────────────────────── */
+
+/**
+ * Sechs Routen von sechs Fightern, über mehrere Tiers verteilt. Das Replay im
+ * Hero zeigt nur Kill-Confirms aus der Spitze; hier soll man sehen, dass es für
+ * das ganze Roster etwas gibt.
+ *
+ * Die meisten Fighter liegen in `guides-late` und kommen erst mit
+ * `loadLateGuides()`, deshalb stehen zuerst Platzhalter da. Eine ID, die es
+ * nicht mehr gibt, fällt still heraus und meldet sich im Dev-Modus.
+ */
+const PICKS = ['pikachu-dthrow-uair', 'wolf-uthrow-uair', 'dk-cargo-uair', 'ness-pkfire-dthrow', 'ike-nair-fair', 'ganon-flamechoke-dtilt'];
+
+function picksSection(): Markup {
+  return html`<section class="section picks" id="picks" aria-labelledby="picks-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="picks-title" data-reveal="wipe">${t('picks.title')}</h2>
+        <p>${t('picks.lead')}</p>
+      </div>
+      <ul class="picks__grid" role="list" data-picks aria-busy="true">
+        ${PICKS.map(
+          () => html`<li class="skeleton__card" aria-hidden="true">
+            <span class="skeleton__bar skeleton__bar--title"></span>
+            <span class="skeleton__bar"></span>
+            <span class="skeleton__bar skeleton__bar--step"></span>
+            <span class="skeleton__bar skeleton__bar--step"></span>
+          </li>`,
+        )}
+      </ul>
+    </div>
+  </section>`;
+}
+
+const pickCard = (f: Fighter, combo: Combo): Markup =>
+  html`<li class="pick" style="${accentVars(f.colors)}">
+    <a class="pick__who" href="${link(`/fighter/${f.slug}`)}">
+      ${faceThumb(f, 'pick__face')}
+      <span class="pick__name">${f.name}</span>
+      ${tierBadge(TIER_BY_SLUG.get(f.slug))}
+    </a>
+    ${comboCard(combo)}
+  </li>`;
+
+function mountPicks(root: HTMLElement): () => void {
+  const host = qs<HTMLElement>('[data-picks]', root);
+  if (!host) return () => {};
+  let alive = true;
+  let unbind: () => void = () => {};
+
+  const load = (): void => {
+    loadLateGuides().then(
+      () => {
+        if (!alive || !host.isConnected) return;
+        const found = PICKS.flatMap((id) => {
+          for (const f of FIGHTERS) {
+            const combo = guideFor(f.slug)?.combos.find((c) => c.id === id);
+            if (combo) return [{ f, combo }];
+          }
+          if (import.meta.env.DEV) console.warn(`Startseite: Combo "${id}" nicht gefunden.`);
+          return [];
+        });
+        mount(host, html`${found.map(({ f, combo }) => pickCard(f, combo))}`);
+        host.removeAttribute('aria-busy');
+        unbind = bindComboCards(host, found.map(({ combo }) => combo));
+      },
+      () => {
+        // Skelett gegen Fehler mit Ausweg tauschen. Die Liste bleibt ein <ul>, der Fehler steht in einem <li>.
+        if (!alive || !host.isConnected) return;
+        host.removeAttribute('aria-busy');
+        mount(host, html`<li class="picks__error">${errorState(t('picks.error'), LOAD_FAILED_TEXT)}</li>`);
+        bindErrorState(host, load);
+      },
+    );
+  };
+  load();
+
+  return () => {
+    alive = false;
+    unbind();
+  };
+}
+
+/* ───────────────────────────── Notation guide ───────────────────────────── */
+
+const NOTATION_GROUPS: Array<{ title: string; tokens: string[] }> = [
+  { title: t('inputs.movement'), tokens: ['sh', 'fh', 'dj', 'dash', 'ff'] },
+  { title: t('inputs.ground'), tokens: ['jab', 'ftilt', 'utilt', 'dtilt', 'da'] },
+  { title: t('inputs.smash'), tokens: ['fsmash', 'usmash', 'dsmash'] },
+  { title: 'Aerials', tokens: ['nair', 'fair', 'bair', 'uair', 'dair', 'zair'] },
+  { title: 'Specials', tokens: ['nb', 'sb', 'ub', 'db'] },
+  { title: t('inputs.grabs'), tokens: ['grab', 'pummel', 'fthrow', 'bthrow', 'uthrow', 'dthrow'] },
+  { title: t('inputs.command'), tokens: ['236b', '214b', '623b'] },
+];
+
+function notationSection(): Markup {
+  return html`<section class="section notation" id="notation" aria-labelledby="notation-title">
+    <div class="container notation__layout">
+      <div class="notation__intro">
+        <h2 id="notation-title" data-reveal="wipe">${t('inputs.title')}</h2>
+        <h3 class="legend__title">${t('inputs.legend')}</h3>
+        <ul class="legend" role="list">
+          ${BUTTON_LEGEND.map((b) => html`<li class="legend__item">${glyph({ t: 'btn', b: b.b })}<span>${b.name}</span></li>`)}
+          <li class="legend__item">${glyph({ t: 'dir', d: 'f' })}<span>${t('inputs.direction')}</span></li>
+          <li class="legend__item">${glyph({ t: 'btn', b: 'A', smash: true })}<span>Smash</span></li>
+          <li class="legend__item">${glyph({ t: 'btn', b: 'X', hold: true })}<span>Fullhop</span></li>
+          <li class="legend__item">${glyph({ t: 'btn', b: 'X', tap: true })}<span>Shorthop</span></li>
+        </ul>
+      </div>
+      <div class="notation__groups">
+        ${NOTATION_GROUPS.map(
+          (group) => html`<div class="token-group" data-reveal>
+            <h3>${group.title}</h3>
+            <ul class="token-list" role="list">
+              ${group.tokens.map((key) => {
+                const token = resolveToken(key);
+                return html`<li class="token">
+                  <span class="token__short">${token.short}</span>
+                  ${inputKeys(key)}
+                  <span class="token__name">${token.name}</span>
+                </li>`;
+              })}
+            </ul>
+          </div>`,
+        )}
+      </div>
+    </div>
+  </section>`;
+}
+
+/* ───────────────────────────── Page ───────────────────────────── */
+
+export function homePage(route: Route): PageView {
+  return {
+    title: t('home.pageTitle'),
+    anchor: route.name === 'roster' ? '#roster' : route.name === 'notation' ? '#notation' : undefined,
+    markup: html`<div class="page page--flush page--home">${heroSection()}${topSection()}${picksSection()}${rosterSection()}${notationSection()}</div>`,
+    mount(root) {
+      const cleanups: Array<() => void> = [];
+      let stopReveals = (): void => {};
+      cleanups.push(() => stopReveals());
+      cleanups.push(
+        scope(root, () => {
+          stopReveals = reveals(root);
+          parallax(root);
+        }),
+      );
+      cleanups.push(mountHero(root));
+      cleanups.push(mountPicks(root));
+      cleanups.push(mountRoster(root, route));
+      return () => cleanups.forEach((fn) => fn());
+    },
+  };
+}
