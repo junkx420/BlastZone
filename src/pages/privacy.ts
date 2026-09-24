@@ -233,6 +233,19 @@ function germanMarkup(): Markup {
           Konto, verschwinden alle deine Nachrichten auf beiden Seiten, also auch beim Gegenüber.
         </p>
 
+        <h2>Matchup-Bewertungen</h2>
+        <p>
+          Angemeldete Mitglieder können bewerten, wie ein Matchup zwischen zwei Fightern läuft. Gespeichert werden die
+          Bewertung, das Fighter-Paar, dein Konto und der Zeitpunkt der letzten Änderung. Rechtsgrundlage ist Art. 6
+          Abs. 1 lit. b DSGVO, die Community-Funktionen des Kontos.
+        </p>
+        <p>
+          <strong>Deine einzelne Stimme sieht niemand außer dir.</strong> Nach außen geht ausschließlich der
+          Durchschnitt aller Stimmen zu einem Paar, und auch der erst ab drei Bewertungen: Bei einer einzigen wäre
+          sofort klar, von wem sie stammt. Du kannst deine Bewertung jederzeit ändern oder zurücknehmen; löschst du
+          dein Konto, verschwinden alle deine Bewertungen mit.
+        </p>
+
         <h2>Schriften</h2>
         <p>
           Die verwendete Schrift Archivo liegt auf demselben Server wie die Seite und wird von dort geladen. Es

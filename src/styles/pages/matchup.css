@@ -271,3 +271,72 @@
     margin: var(--sp-4) 0 0;
   }
 }
+
+@layer pages {
+  /* Community-Bewertung. Auf dem Handy untereinander, ab 640 px als Reihe. */
+  .mu-votes {
+    display: grid;
+    gap: var(--sp-3);
+    padding: var(--sp-4);
+  }
+  .mu-votes__lead,
+  .mu-votes__hint,
+  .mu-votes__meta {
+    margin: 0;
+    font-size: var(--fs-100);
+    color: var(--text-subtle);
+  }
+  .mu-votes__result {
+    margin: 0;
+    font-size: var(--fs-500);
+    font-weight: 900;
+    font-style: italic;
+    font-stretch: var(--stretch-condensed);
+    line-height: 1.1;
+    color: var(--accent-text, var(--text));
+  }
+  .mu-votes__scale {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-2);
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .mu-votes__opt {
+    display: flex;
+    gap: var(--sp-2);
+    align-items: center;
+    min-height: 44px;
+    padding: var(--sp-2) var(--sp-3);
+    border: 1px solid var(--line);
+    border-radius: var(--r-control);
+    background: var(--surface-1);
+    color: var(--text-muted);
+    font-size: var(--fs-100);
+    cursor: pointer;
+  }
+  .mu-votes__opt.is-mine {
+    border-color: var(--accent-line, var(--line-strong));
+    background: var(--accent-soft, var(--surface-2));
+    color: var(--text);
+  }
+  .mu-votes__opt:has(input:focus-visible) {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .mu-votes__foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    align-items: baseline;
+    margin: 0;
+    font-size: var(--fs-100);
+    color: var(--text-muted);
+  }
+  @media (min-width: 640px) {
+    .mu-votes__scale {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+}

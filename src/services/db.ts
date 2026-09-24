@@ -280,6 +280,35 @@ export const getInbox = (): Promise<DmConversation[]> =>
     return res.conversations;
   });
 
+/**
+ * Matchup-Bewertungen der Community. Alle Werte gelten aus Sicht von `a`:
+ * positiv heißt, a steht besser da. Der Durchschnitt bleibt leer, solange
+ * weniger als drei Stimmen vorliegen.
+ */
+export interface MatchupVotes {
+  average: number | null;
+  votes: number;
+  mine: number | null;
+}
+
+const matchupPfad = (a: string, b: string): string => `community/matchups?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`;
+
+export const getMatchupVotes = (a: string, b: string): Promise<MatchupVotes> =>
+  guarded(async () => (await api<{ matchup: MatchupVotes }>(matchupPfad(a, b))).matchup);
+
+export const rateMatchup = (a: string, b: string, rating: number): Promise<MatchupVotes> =>
+  guarded(async () => {
+    const { matchup } = await api<{ matchup: MatchupVotes }>('community/matchups', { method: 'PUT', body: { a, b, rating } });
+    invalidate('community/matchups');
+    return matchup;
+  });
+
+export const unrateMatchup = (a: string, b: string): Promise<MatchupVotes> =>
+  guarded(async () => {
+    const { matchup } = await api<{ matchup: MatchupVotes }>(matchupPfad(a, b), { method: 'DELETE' });
+    invalidate('community/matchups');
+    return matchup;
+  });
 export const listBlocked = (): Promise<string[]> => guarded(async () => (await api<{ blocked: string[] }>('community/blocks')).blocked);
 
 export const blockPlayer = (name: string): Promise<string[]> =>

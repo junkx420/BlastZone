@@ -6,11 +6,13 @@ import { loadFrames } from '../data/frames-index';
 import type { FighterFrames } from '../data/frame-types';
 import { setProfil, vorteil, ZEILEN, type Kennzahl, type SetProfil } from '../data/matchup';
 import type { Fighter } from '../data/types';
-import { dateFormat, formatNumber, locale, t } from '../i18n';
+import { dateFormat, formatNumber, locale, t, tn } from '../i18n';
 import { accentVars } from '../lib/color';
 import { html, mount, qs, type Markup } from '../lib/dom';
 import { link, replaceQuery, type Route } from '../lib/router';
+import { ApiError } from '../services/api';
 import { currentUser } from '../services/auth';
+import { getMatchupVotes, rateMatchup, unrateMatchup, type MatchupVotes } from '../services/db';
 import type { PageView } from './types';
 
 /**
@@ -114,6 +116,49 @@ function fazit(a: Fighter, b: Fighter, pa: SetProfil, pb: SetProfil): Markup {
   </section>`;
 }
 
+const STUFEN = [
+  { wert: -2, key: 'mu.r-2' },
+  { wert: -1, key: 'mu.r-1' },
+  { wert: 0, key: 'mu.r0' },
+  { wert: 1, key: 'mu.r1' },
+  { wert: 2, key: 'mu.r2' },
+] as const;
+
+/** Bewertung als Wort. Für den Durchschnitt auf die nächste Stufe gerundet. */
+const stufenText = (wert: number): string => t((STUFEN.find((s) => s.wert === Math.round(wert)) ?? STUFEN[2]).key);
+
+/**
+ * Die Stimmen der Community. Alles aus Sicht des linken Fighters.
+ * `null` heißt: wird gerade geladen.
+ */
+function stimmenBlock(a: Fighter, v: MatchupVotes | null, angemeldet: boolean): Markup {
+  if (!angemeldet) return html`<p class="mu-votes__hint">${t('mu.voteGuest')}</p>`;
+  if (!v) return html`<p class="mu-votes__hint">${t('mu.voteLoading')}</p>`;
+
+  const ergebnis =
+    v.average !== null
+      ? html`<p class="mu-votes__result">${t('mu.voteResult', { label: stufenText(v.average), name: a.name })}</p>
+          <p class="mu-votes__meta">${tn('mu.voteMetaOne', 'mu.voteMeta', v.votes, { avg: formatNumber(v.average, { signDisplay: 'exceptZero', maximumFractionDigits: 2 }) })}</p>`
+      : v.votes === 0
+        ? html`<p class="mu-votes__meta">${t('mu.voteNone')}</p>`
+        : html`<p class="mu-votes__meta">${tn('mu.voteFewOne', 'mu.voteFew', v.votes)}</p>`;
+
+  return html`${ergebnis}
+    <fieldset class="mu-votes__scale" style="${accentVars(a.colors)}">
+      <legend class="vh">${t('mu.voteLegend', { name: a.name })}</legend>
+      ${STUFEN.map(
+        (stufe) => html`<label class="mu-votes__opt${v.mine === stufe.wert ? ' is-mine' : ''}">
+          <input type="radio" name="mu-vote" value="${stufe.wert}" ${v.mine === stufe.wert ? 'checked' : ''} />
+          <span>${t(stufe.key)}</span>
+        </label>`,
+      )}
+    </fieldset>
+    <p class="mu-votes__foot">
+      <span data-vote-status>${v.mine === null ? '' : t('mu.voteMine', { label: stufenText(v.mine) })}</span>
+      ${v.mine === null ? '' : html`<button class="link" type="button" data-vote-clear>${t('mu.voteClear')}</button>`}
+    </p>`;
+}
+
 /** Quellenzeile mit dem Abrufdatum beider Seiten. */
 function quelle(fa: FighterFrames, fb: FighterFrames): Markup {
   const fmt = dateFormat({ day: '2-digit', month: 'long', year: 'numeric' });
@@ -203,14 +248,65 @@ export function matchupPage(route: Route): PageView {
               <div>${kopf(b)}${satzwahl('b', fb, satzB)}</div>
             </div>
             <div class="mu-rows">${ZEILEN.map((z) => zeile(z.id, z.besserGross, a, b, pa, pb))}</div>
+            <section class="mu-votes glass" aria-labelledby="mu-votes-title" data-reveal>
+              <h2 class="mu-verdict__title" id="mu-votes-title">${t('mu.voteTitle')}</h2>
+              <p class="mu-votes__lead">${t('mu.voteLead', { name: a.name })}</p>
+              <div data-votes></div>
+            </section>
             ${fazit(a, b, pa, pb)} ${quelle(fa, fb)}
             <p class="mu-weightnote">${t('mu.weightNote')}</p>
           </div>`,
         );
+        void stimmen(a, b);
+      };
+
+      /**
+       * Die Stimmen kommen nach dem Brett, damit der Vergleich nicht auf das
+       * Netz wartet. Ein zwischenzeitlicher Wechsel verwirft das Ergebnis.
+       */
+      const stimmen = async (a: Fighter, b: Fighter): Promise<void> => {
+        const host = qs<HTMLElement>('[data-votes]', out);
+        if (!host) return;
+        const passt = (): boolean => slugA === a.slug && slugB === b.slug;
+        /*
+         * Kein currentUser()-Test: Beim ersten Aufruf ist die Sitzungsprüfung oft
+         * noch unterwegs, und die Seite hielte ein angemeldetes Konto für einen Gast.
+         * Wir fragen einfach an; 401 heißt dann Gast.
+         */
+        mount(host, stimmenBlock(a, null, true));
+        try {
+          const v = await getMatchupVotes(a.slug, b.slug);
+          if (passt()) mount(host, stimmenBlock(a, v, true));
+        } catch (err) {
+          if (!passt()) return;
+          const gast = err instanceof ApiError && err.status === 401;
+          mount(host, gast ? stimmenBlock(a, null, false) : html`<p class="mu-votes__hint">${err instanceof ApiError ? err.message : t('mu.voteFailed')}</p>`);
+        }
+      };
+
+      /** Bewertung setzen oder zurücknehmen, danach den Block neu zeichnen. */
+      const stimmeSchreiben = async (schreiben: () => Promise<MatchupVotes>): Promise<void> => {
+        const host = qs<HTMLElement>('[data-votes]', out);
+        const a = slugA ? FIGHTER_BY_SLUG.get(slugA) : undefined;
+        if (!host || !a) return;
+        const status = qs<HTMLElement>('[data-vote-status]', host);
+        if (status) status.textContent = t('profile.saving');
+        try {
+          mount(host, stimmenBlock(a, await schreiben(), true));
+          const neu = qs<HTMLElement>('[data-vote-status]', host);
+          if (neu) neu.textContent = t('mu.voteSaved');
+        } catch (err) {
+          const neu = qs<HTMLElement>('[data-vote-status]', host);
+          if (neu) neu.textContent = err instanceof ApiError ? err.message : t('profile.notSaved');
+        }
       };
 
       const aufSelect = (e: Event): void => {
         const ziel = e.target as HTMLSelectElement;
+        if (ziel.name === 'mu-vote' && slugA && slugB) {
+          void stimmeSchreiben(() => rateMatchup(slugA, slugB, Number(ziel.value)));
+          return;
+        }
         if (!ziel.dataset.seite) return;
         if (ziel.dataset.seite === 'a') {
           slugA = ziel.value;
@@ -224,6 +320,10 @@ export function matchupPage(route: Route): PageView {
       };
 
       const aufKlick = (e: Event): void => {
+        if ((e.target as HTMLElement).closest('[data-vote-clear]') && slugA && slugB) {
+          void stimmeSchreiben(() => unrateMatchup(slugA, slugB));
+          return;
+        }
         const ziel = (e.target as HTMLElement).closest('[data-satz]');
         if (!ziel) return;
         const gruppe = ziel.closest<HTMLElement>('[data-sets]');

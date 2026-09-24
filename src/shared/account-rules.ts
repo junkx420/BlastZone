@@ -140,6 +140,26 @@ export function checkSecondarySkins(
 
 export const MESSAGE_MAX = 2000;
 
+/**
+ * Matchup-Bewertung: -2 stark benachteiligt bis +2 stark bevorteilt,
+ * immer aus Sicht des Fighters, der alphabetisch vorn steht.
+ */
+export const RATING_MIN = -2;
+export const RATING_MAX = 2;
+export const ratingOk = (value: unknown): value is number => Number.isInteger(value) && (value as number) >= RATING_MIN && (value as number) <= RATING_MAX;
+
+/**
+ * Kanonische Reihenfolge eines Matchups. Jedes Paar wird genau einmal
+ * gespeichert, bewertet aus Sicht von `low`. `gedreht` sagt der Oberfläche,
+ * dass sie das Vorzeichen umdrehen muss, um die gefragte Richtung zu zeigen.
+ */
+export function matchupPaar(a: string, b: string): { low: string; high: string; gedreht: boolean } {
+  return a < b ? { low: a, high: b, gedreht: false } : { low: b, high: a, gedreht: true };
+}
+
+/** Der Fighter-Slug, wie ihn die Datenbank zulässt (CHECK in Migration 0008). */
+export const SLUG_PATTERN = /^[a-z0-9-]{2,40}$/;
+
 /** Anfang eines Benutzernamens für die Suche im Verzeichnis. */
 export const USERNAME_PREFIX_PATTERN = /^[A-Za-z0-9_-]{1,20}$/;
 

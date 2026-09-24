@@ -176,6 +176,19 @@ export function englishSections(): Markup {
           account, all of your messages disappear on both sides, including at the other person.
         </p>
 
+        <h2>Matchup ratings</h2>
+        <p>
+          Logged-in members can rate how a matchup between two fighters goes. We store the rating, the pair of
+          fighters, your account and the time of the last change. The legal basis is Art. 6(1)(b) GDPR, the community
+          features of the account.
+        </p>
+        <p>
+          <strong>Nobody but you sees your individual vote.</strong> Only the average across all votes for a pair
+          leaves the database, and only from three ratings onwards: with a single one it would be obvious who cast
+          it. You can change or withdraw your rating at any time; if you delete your account, all of your ratings go
+          with it.
+        </p>
+
         <h2>Fonts</h2>
         <p>
           The Archivo typeface used here is hosted on the same server as the site and loaded from there. There is

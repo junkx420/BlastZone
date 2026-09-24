@@ -205,6 +205,14 @@ export class BackendError extends Error {
   }
 }
 
+export interface MatchupSummary {
+  /** Durchschnitt aus Sicht von `low`. Null unter drei Stimmen: Sonst wäre die einzelne Stimme zuordenbar. */
+  average: number | null;
+  votes: number;
+  /** Eigene Stimme, null wenn noch nicht bewertet. */
+  mine: number | null;
+}
+
 export interface Backend {
   signUp(email: string, password: string, username: string): Promise<void>;
   signIn(email: string, password: string): Promise<AuthSession>;
@@ -250,6 +258,14 @@ export interface Backend {
   markRead(auth: Auth, otherId: string): Promise<void>;
   listConversations(auth: Auth, limit: number): Promise<ConversationRow[]>;
   unreadCount(auth: Auth): Promise<number>;
+
+  /**
+   * Matchup-Bewertungen der Community. Das Paar kommt immer kanonisch
+   * (low < high), die Bewertung gilt aus Sicht von `low`.
+   */
+  matchupSummary(auth: Auth, low: string, high: string): Promise<MatchupSummary>;
+  rateMatchup(auth: Auth, low: string, high: string, rating: number): Promise<MatchupSummary>;
+  unrateMatchup(auth: Auth, low: string, high: string): Promise<MatchupSummary>;
 
   /** Eigene Blockierungen, nach Name. */
   listBlocks(auth: Auth): Promise<BlockRow[]>;

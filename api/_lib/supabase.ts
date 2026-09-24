@@ -176,6 +176,15 @@ async function withoutSocialColumns<T>(run: () => Promise<T>): Promise<T> {
   }
 }
 
+/**
+ * Tabelle und RPC aus 0008 fehlen (Community-Matchup-Chart). Wie bei 0007:
+ * Der Rest der Seite laeuft weiter, nur diese Funktion meldet sich als
+ * "wird gerade eingerichtet".
+ */
+function matchupMissing(err: unknown): unknown {
+  return err instanceof BackendError && err.code === 'not-found' ? new BackendError('unavailable', 'matchup-missing') : err;
+}
+
 /** RPCs und Tabellen aus 0007 fehlen: PostgREST antwortet mit 404. */
 function socialRpcMissing(err: unknown): unknown {
   return err instanceof BackendError && err.code === 'not-found' ? noteSocialMissing() : err;
@@ -573,6 +582,52 @@ export function supabaseBackend(env: Env): Backend {
       } catch (err) {
         throw socialRpcMissing(err);
       }
+    },
+
+    async matchupSummary(auth, low, high) {
+      try {
+        // numeric kommt bei PostgREST als Zeichenkette, deshalb durch Number().
+        const rows = await call<Array<{ schnitt: string | number | null; stimmen: number; meine: number | null }>>(rpcPath('matchup_summary'), {
+          method: 'POST',
+          token: auth.token,
+          body: JSON.stringify({ p_low: low, p_high: high }),
+        });
+        const r = rows?.[0];
+        return {
+          average: r?.schnitt === null || r?.schnitt === undefined ? null : Number(r.schnitt),
+          votes: r?.stimmen ?? 0,
+          mine: r?.meine ?? null,
+        };
+      } catch (err) {
+        throw matchupMissing(err);
+      }
+    },
+
+    async rateMatchup(auth, low, high, rating) {
+      try {
+        // user_id kommt aus dem Token (DEFAULT auth.uid()), nie aus dem Koerper.
+        await call(restPath('matchup_votes', { onConflict: ['user_id', 'low', 'high'] }), {
+          method: 'POST',
+          token: auth.token,
+          prefer: 'resolution=merge-duplicates',
+          body: JSON.stringify({ low, high, rating, updated_at: new Date().toISOString() }),
+        });
+      } catch (err) {
+        throw matchupMissing(err);
+      }
+      return this.matchupSummary(auth, low, high);
+    },
+
+    async unrateMatchup(auth, low, high) {
+      try {
+        await call(restPath('matchup_votes', { where: { user_id: eq(auth.userId), low: eq(low), high: eq(high) } }), {
+          method: 'DELETE',
+          token: auth.token,
+        });
+      } catch (err) {
+        throw matchupMissing(err);
+      }
+      return this.matchupSummary(auth, low, high);
     },
 
     async listBlocks(auth) {

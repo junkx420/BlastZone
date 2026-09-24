@@ -42,6 +42,8 @@ interface Store {
   startggLinks?: Map<string, StartggLinkRow>;
   startggCache?: Map<string, StartggCacheRow>;
   community?: Map<string, Omit<CommunityRow, 'userId'>>;
+  /** Matchup-Bewertungen: Schluessel "low|high", darin Konto → Bewertung. */
+  matchups?: Map<string, Map<string, number>>;
   /** blocker → blockierte Konten */
   blocks?: Map<string, Set<string>>;
   messages?: MessageRow[];
@@ -264,6 +266,33 @@ export function mockBackend(): Backend {
     async unreadCount(auth) {
       const user = userFor(auth.token);
       return (store.messages ?? []).filter((m) => m.recipientId === user.id && !m.readAt && !blocked(user.id, m.senderId)).length;
+    },
+
+    async matchupSummary(auth, low, high) {
+      const user = userFor(auth.token);
+      const stimmen = store.matchups?.get(`${low}|${high}`);
+      const werte = [...(stimmen?.values() ?? [])];
+      return {
+        // Wie in Migration 0008: unter drei Stimmen kein Durchschnitt.
+        average: werte.length >= 3 ? Math.round((werte.reduce((a, b) => a + b, 0) / werte.length) * 100) / 100 : null,
+        votes: werte.length,
+        mine: stimmen?.get(user.id) ?? null,
+      };
+    },
+
+    async rateMatchup(auth, low, high, rating) {
+      const user = userFor(auth.token);
+      const alle = (store.matchups ??= new Map());
+      const paar = alle.get(`${low}|${high}`) ?? new Map<string, number>();
+      paar.set(user.id, rating);
+      alle.set(`${low}|${high}`, paar);
+      return this.matchupSummary(auth, low, high);
+    },
+
+    async unrateMatchup(auth, low, high) {
+      const user = userFor(auth.token);
+      store.matchups?.get(`${low}|${high}`)?.delete(user.id);
+      return this.matchupSummary(auth, low, high);
     },
 
     async listBlocks(auth) {
