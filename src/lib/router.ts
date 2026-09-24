@@ -6,6 +6,7 @@ export type RouteName =
   | 'archetypen'
   | 'matchup'
   | 'matchupFighter'
+  | 'turniere'
   | 'profil'
   | 'spieler'
   | 'community'
@@ -37,6 +38,7 @@ const TABLE: Array<{ name: RouteName; pattern: RegExp; keys: string[] }> = [
   { name: 'archetypen', pattern: /^\/archetypen$/, keys: [] },
   { name: 'matchup', pattern: /^\/matchup$/, keys: [] },
   { name: 'matchupFighter', pattern: /^\/matchup\/([a-z0-9-]+)$/, keys: ['slug'] },
+  { name: 'turniere', pattern: /^\/turniere$/, keys: [] },
   { name: 'profil', pattern: /^\/profil$/, keys: [] },
   { name: 'bestaetigen', pattern: /^\/bestaetigen$/, keys: [] },
   { name: 'datenschutz', pattern: /^\/datenschutz$/, keys: [] },

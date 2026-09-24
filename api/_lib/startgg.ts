@@ -319,3 +319,109 @@ export function toStartggUser(user: RawUser | null | undefined, fallbackSlug: st
 
 /** Nur für den lokalen Speicher-Mock der OAuth-Anmeldung (startggOauth.ts). */
 export const mockStartggUser = (slug: string): StartggUser | null => mockResolve(slug);
+
+/* ── Turnierkalender Deutschland ──────────────────────────────────────────── */
+
+/**
+ * Kommende SSBU-Turniere in Deutschland. Anders als die Placements hängt das an
+ * keinem Konto: Die Liste ist für alle gleich und wird deshalb im Prozess
+ * zwischengespeichert, statt pro Aufruf bei start.gg anzufragen.
+ */
+export interface Turnier {
+  name: string;
+  /** Pfad auf start.gg, geprüft: „tournament/<name>“. */
+  slug: string;
+  /** Beginn als ISO-Zeitpunkt. */
+  startAt: string;
+  city: string | null;
+  online: boolean;
+  /** Angemeldete insgesamt, nicht nur SSBU. Null, wenn start.gg nichts führt. */
+  attendees: number | null;
+  imageUrl: string | null;
+}
+
+const SSBU_VIDEOGAME_ID = 1386;
+const SAFE_TOURNAMENT = /^tournament[/][a-z0-9-]+$/;
+const KALENDER_TTL_MS = 15 * 60 * 1000;
+const KALENDER_MAX = 24;
+
+const TOURNAMENTS = `query Turniere($perPage: Int!, $ab: Timestamp!, $spiel: ID!) {
+  tournaments(query: { perPage: $perPage, page: 1, sortBy: "startAt asc", filter: { countryCode: "DE", videogameIds: [$spiel], afterDate: $ab } }) {
+    nodes {
+      name
+      slug
+      startAt
+      city
+      isOnline
+      numAttendees
+      images { url }
+    }
+  }
+}`;
+
+interface RawTurnier {
+  name: string | null;
+  slug: string | null;
+  startAt: number | null;
+  city: string | null;
+  isOnline: boolean | null;
+  numAttendees: number | null;
+  images: Array<{ url: string | null }> | null;
+}
+
+/** Nur Turniere mit Namen, gültigem Pfad und Startzeit. */
+export function toTurniere(nodes: RawTurnier[]): Turnier[] {
+  return nodes
+    .flatMap((n) => {
+      const slug = clip(n.slug, 120);
+      const name = clip(n.name, 120);
+      if (!name || !SAFE_TOURNAMENT.test(slug) || !n.startAt) return [];
+      return [
+        {
+          name,
+          slug,
+          startAt: new Date(n.startAt * 1000).toISOString(),
+          city: clip(n.city, 60) || null,
+          online: n.isOnline === true,
+          attendees: typeof n.numAttendees === 'number' && n.numAttendees > 0 ? n.numAttendees : null,
+          imageUrl: safeImage(n.images?.[0]?.url),
+        },
+      ];
+    })
+    .slice(0, KALENDER_MAX);
+}
+
+let kalender: { stand: number; daten: Turnier[] } | null = null;
+
+/** Nur für den lokalen Betrieb ohne Token. */
+function mockTurniere(): Turnier[] {
+  const tag = 24 * 60 * 60 * 1000;
+  const jetzt = Date.now();
+  return [
+    { name: 'Blastzone Local #12', slug: 'tournament/blastzone-local-12', startAt: new Date(jetzt + 3 * tag).toISOString(), city: 'Köln', online: false, attendees: 64, imageUrl: null },
+    { name: 'Rheinland Rumble', slug: 'tournament/rheinland-rumble', startAt: new Date(jetzt + 10 * tag).toISOString(), city: 'Düsseldorf', online: false, attendees: 128, imageUrl: null },
+    { name: 'Online Weekly DE', slug: 'tournament/online-weekly-de', startAt: new Date(jetzt + 2 * tag).toISOString(), city: null, online: true, attendees: null, imageUrl: null },
+  ];
+}
+
+export async function fetchGermanTournaments(): Promise<Turnier[]> {
+  if (kalender && Date.now() - kalender.stand < KALENDER_TTL_MS) return kalender.daten;
+
+  const { token } = readStartggConfig();
+  if (!token) {
+    if (mockAllowed()) return mockTurniere();
+    throw new HttpError(503, 'startgg-not-configured', {
+      de: 'Die start.gg-Anbindung ist noch nicht eingerichtet.',
+      en: 'The start.gg connection is not set up yet.',
+    });
+  }
+
+  const data = await graphql<{ tournaments: { nodes: RawTurnier[] | null } | null }>(
+    TOURNAMENTS,
+    { perPage: KALENDER_MAX, ab: Math.floor(Date.now() / 1000), spiel: SSBU_VIDEOGAME_ID },
+    token,
+  );
+  const daten = toTurniere(data.tournaments?.nodes ?? []);
+  kalender = { stand: Date.now(), daten };
+  return daten;
+}

@@ -66,6 +66,8 @@ export function renderShell(app: HTMLElement, onSearch: (query?: string) => void
           </div>
           <nav class="footer__nav" aria-label="${t('footer.nav')}">
             ${NAV.map((item) => html`<a href="${link(item.path)}">${item.label}</a>`)}
+            <!-- Turniere stehen in der Fußzeile: Die Leiste ist vermessen und hat keinen Platz mehr. -->
+            <a href="${link('/turniere')}">${t('tn.title')}</a>
             <!-- Nur in der Fußzeile, nicht in der Hauptnavigation: Pflichtangabe, kein Inhalt. -->
             <a href="${link('/datenschutz')}">${t('footer.privacy')}</a>
             <a href="${link('/impressum')}">${t('footer.imprint')}</a>

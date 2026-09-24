@@ -7,6 +7,7 @@ import './styles/pages/fighter.css';
 import './styles/pages/tiers.css';
 import './styles/pages/archetypes.css';
 import './styles/pages/matchup.css';
+import './styles/pages/tournaments.css';
 import './styles/art.css';
 import './styles/pages/account.css';
 import './styles/theme-light.css';
@@ -28,6 +29,7 @@ import { initReveals, initSmoothScroll, motionOK, scrollToTarget, ScrollTrigger 
 import { startRouter, type NavContext, type Route } from './lib/router';
 import { archetypesPage } from './pages/archetypes';
 import { matchupChartPage, matchupPage } from './pages/matchup';
+import { tournamentsPage } from './pages/tournaments';
 import { communityPage } from './pages/community';
 import { inboxPage, threadPage } from './pages/messages';
 import { confirmPage } from './pages/confirm';
@@ -108,6 +110,8 @@ function view(route: Route): PageView {
       return matchupPage(route);
     case 'matchupFighter':
       return matchupChartPage(route);
+    case 'turniere':
+      return tournamentsPage();
     case 'profil':
       return profilePage();
     case 'bestaetigen':

@@ -293,6 +293,22 @@ export interface MatchupVotes {
 
 const matchupPfad = (a: string, b: string): string => `community/matchups?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`;
 
+/** Ein kommendes Turnier in Deutschland, fertig vom Server. */
+export interface Tournament {
+  name: string;
+  /** Pfad auf start.gg, etwa „tournament/blastzone-local-12“. */
+  slug: string;
+  startAt: string;
+  city: string | null;
+  online: boolean;
+  attendees: number | null;
+  imageUrl: string | null;
+}
+
+/** Öffentlich: braucht kein Konto, die Liste ist für alle gleich. */
+export const getTournaments = (): Promise<Tournament[]> =>
+  api<{ tournaments: Tournament[] }>('startgg/tournaments').then((r) => r.tournaments);
+
 /** Eine Zeile der Fighter-Übersicht: der Gegner plus die Stimmen zu diesem Paar. */
 export interface MatchupRow extends MatchupVotes {
   opponent: string;
